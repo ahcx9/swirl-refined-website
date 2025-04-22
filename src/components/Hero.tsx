@@ -14,7 +14,7 @@ const Hero = () => {
               Modern Restaurant <span className="text-gradient">Management</span> Platform
             </h1>
             <p className="text-lg md:text-xl text-swirl-gray mb-8 max-w-xl mx-auto lg:mx-0">
-              Streamline your restaurant operations with our suite of smart digital tools. Boost efficiency, improve customer experience, and increase profits.
+              Streamline your restaurant operations with our smart digital tools. Boost efficiency, improve customer experience, and increase profits.
             </p>
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
               <Button asChild className="btn-primary text-base">
@@ -30,13 +30,15 @@ const Hero = () => {
               <p>Trusted by 1000+ restaurants worldwide</p>
             </div>
           </div>
-          <div className="relative animate-float">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple/20 to-swirl-blue/20 rounded-3xl transform rotate-3"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" 
-              alt="Restaurant management platform" 
-              className="relative z-10 rounded-2xl shadow-card object-cover w-full h-auto"
-            />
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple/20 to-swirl-blue/20 rounded-3xl transform rotate-3 group-hover:opacity-75 transition duration-300 ease-in-out"></div>
+            <div className="relative z-10 rounded-2xl shadow-card overflow-hidden">
+              <img 
+                src="/lovable-uploads/82584175-2d38-4de3-8a1e-b70b0efd41cb.png" 
+                alt="Swirl Restaurant Management Platform" 
+                className="w-full h-auto object-cover transform group-hover:scale-105 transition duration-300 ease-in-out"
+              />
+            </div>
           </div>
         </div>
       </div>
