@@ -46,7 +46,7 @@ const products = [
   {
     id: 'reports',
     title: 'Financial Reports',
-    description: 'Comprehensive financial reporting to track your restaurant's performance, with detailed P&L statements, cost analysis, and forecasting.',
+    description: "Comprehensive financial reporting to track your restaurant's performance, with detailed P&L statements, cost analysis, and forecasting.",
     icon: LayoutDashboard,
     path: '/products/financial-reports',
     features: ['P&L statements', 'Cost analysis', 'Tax reporting', 'Financial forecasting']

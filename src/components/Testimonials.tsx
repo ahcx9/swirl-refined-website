@@ -16,7 +16,7 @@ const testimonials = [
     name: 'Sarah Johnson',
     role: 'Manager, Urban Bites Café',
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    quote: 'The analytics platform has given us insights we never had before. We've optimized our menu and staffing based on the data, resulting in a 15% increase in profit margin.',
+    quote: "The analytics platform has given us insights we never had before. We've optimized our menu and staffing based on the data, resulting in a 15% increase in profit margin.",
     rating: 5
   },
   {

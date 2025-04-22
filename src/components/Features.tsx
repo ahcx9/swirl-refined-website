@@ -39,7 +39,7 @@ const features = [
   {
     id: 'reports',
     title: 'Financial Reports',
-    description: 'Comprehensive financial reporting to track your restaurant's performance.',
+    description: "Comprehensive financial reporting to track your restaurant's performance.",
     icon: LayoutDashboard,
     path: '/products/financial-reports'
   },
