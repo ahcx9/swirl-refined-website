@@ -2,7 +2,7 @@
 import React from 'react';
 import { 
   LayoutDashboard, ShoppingCart, BarChart, 
-  CreditCard, Users, Package, Car, Calendar, FileText
+  CreditCard, Users, Package, Car, Calendar, FileText 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
