@@ -12,10 +12,11 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <Link to="/" className="flex items-center mb-6">
-              <span className="text-2xl font-display font-bold tracking-tight">
-                <span className="text-white">Swirl</span>
-                <span className="text-purple tracking-tighter">.cx</span>
-              </span>
+              <img 
+                src="/lovable-uploads/92d5e15f-318e-46e8-9d20-bdca69d36285.png" 
+                alt="Swirl.cx Logo" 
+                className="h-8 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="text-white/70 mb-6">
               Transforming restaurant management with innovative digital solutions.

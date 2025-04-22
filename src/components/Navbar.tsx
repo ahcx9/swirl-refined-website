@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -37,10 +38,11 @@ const Navbar = () => {
       <div className="container-custom flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <span className="text-2xl font-display font-bold tracking-tight">
-            <span className="text-purple-dark">Swirl</span>
-            <span className="text-purple tracking-tighter">.cx</span>
-          </span>
+          <img 
+            src="/lovable-uploads/92d5e15f-318e-46e8-9d20-bdca69d36285.png" 
+            alt="Swirl.cx Logo" 
+            className="h-8 w-auto"
+          />
         </Link>
 
         {/* Desktop Navigation */}
