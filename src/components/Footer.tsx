@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
@@ -13,7 +12,10 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <Link to="/" className="flex items-center mb-6">
-              <span className="text-2xl font-display font-bold text-white">Swirl<span className="text-purple">.cx</span></span>
+              <span className="text-2xl font-display font-bold tracking-tight">
+                <span className="text-white">Swirl</span>
+                <span className="text-purple tracking-tighter">.cx</span>
+              </span>
             </Link>
             <p className="text-white/70 mb-6">
               Transforming restaurant management with innovative digital solutions.
