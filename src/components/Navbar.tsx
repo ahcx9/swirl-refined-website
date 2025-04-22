@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -39,8 +38,8 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/92d5e15f-318e-46e8-9d20-bdca69d36285.png" 
-            alt="Swirl.cx Logo" 
+            src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png" 
+            alt="Swirl Logo" 
             className="h-8 w-auto"
           />
         </Link>
