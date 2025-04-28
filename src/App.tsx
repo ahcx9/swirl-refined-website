@@ -9,6 +9,8 @@ import ProductOverview from "./pages/ProductOverview";
 import NotFound from "./pages/NotFound";
 import DigitalMenu from "./pages/features/DigitalMenu";
 import QROrdering from "./pages/features/QROrdering";
+import Analytics from "./pages/features/Analytics";
+import PointOfSale from "./pages/features/PointOfSale";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +25,8 @@ const App = () => (
           <Route path="/products" element={<ProductOverview />} />
           <Route path="/products/digital-menu" element={<DigitalMenu />} />
           <Route path="/products/qr-ordering" element={<QROrdering />} />
+          <Route path="/products/analytics" element={<Analytics />} />
+          <Route path="/products/pos" element={<PointOfSale />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

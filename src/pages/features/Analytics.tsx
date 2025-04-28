@@ -1,7 +1,8 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { FileText } from 'lucide-react';
+import { BarChart } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -10,7 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const DigitalMenu = () => {
+const Analytics = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -19,13 +20,13 @@ const DigitalMenu = () => {
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">
               <div className="p-3 rounded-full bg-purple-light/30">
-                <FileText className="text-purple h-6 w-6" />
+                <BarChart className="text-purple h-6 w-6" />
               </div>
-              <h1 className="text-4xl font-bold">Digital Menu</h1>
+              <h1 className="text-4xl font-bold">Analytics Dashboard</h1>
             </div>
             
             <p className="text-lg text-swirl-gray mb-8">
-              Create beautiful, interactive digital menus that are easy to update in real-time. Perfect for restaurants looking to modernize their ordering experience.
+              Gain valuable insights about your business with our powerful analytics tools. Track sales, customer behavior, and menu performance in real-time with intuitive dashboards and detailed reporting.
             </p>
 
             <div className="mb-12">
@@ -33,22 +34,22 @@ const DigitalMenu = () => {
                 <CarouselContent>
                   <CarouselItem>
                     <img 
-                      src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
-                      alt="Digital menu interface"
+                      src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5" 
+                      alt="Analytics dashboard showing restaurant performance metrics"
                       className="w-full h-[400px] object-cover rounded-lg"
                     />
                   </CarouselItem>
                   <CarouselItem>
                     <img 
-                      src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" 
-                      alt="Menu management system"
+                      src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" 
+                      alt="Real-time data visualization tools"
                       className="w-full h-[400px] object-cover rounded-lg"
                     />
                   </CarouselItem>
                   <CarouselItem>
                     <img 
-                      src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7" 
-                      alt="Menu customization interface"
+                      src="https://images.unsplash.com/photo-1518770660439-4636190af475" 
+                      alt="Advanced reporting interface"
                       className="w-full h-[400px] object-cover rounded-lg"
                     />
                   </CarouselItem>
@@ -60,20 +61,20 @@ const DigitalMenu = () => {
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
-                <h3 className="text-xl font-semibold mb-4">Easy Menu Updates</h3>
-                <p className="text-swirl-gray">Update prices, items, and descriptions instantly without reprinting menus.</p>
+                <h3 className="text-xl font-semibold mb-4">Real-time Dashboards</h3>
+                <p className="text-swirl-gray">Monitor your restaurant's performance with live updates and key metrics at a glance.</p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
-                <h3 className="text-xl font-semibold mb-4">Rich Media Support</h3>
-                <p className="text-swirl-gray">Add high-quality images and detailed descriptions to showcase your dishes.</p>
+                <h3 className="text-xl font-semibold mb-4">Custom Reports</h3>
+                <p className="text-swirl-gray">Generate detailed reports tailored to your specific business needs.</p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
-                <h3 className="text-xl font-semibold mb-4">Multiple Languages</h3>
-                <p className="text-swirl-gray">Offer your menu in multiple languages to cater to diverse customers.</p>
+                <h3 className="text-xl font-semibold mb-4">Trend Analysis</h3>
+                <p className="text-swirl-gray">Identify patterns and trends in your sales and customer behavior data.</p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
-                <h3 className="text-xl font-semibold mb-4">Dietary Information</h3>
-                <p className="text-swirl-gray">Clearly display allergens and dietary information for each dish.</p>
+                <h3 className="text-xl font-semibold mb-4">Data Export</h3>
+                <p className="text-swirl-gray">Export your data in multiple formats for further analysis and reporting.</p>
               </div>
             </div>
           </div>
@@ -84,4 +85,4 @@ const DigitalMenu = () => {
   );
 };
 
-export default DigitalMenu;
+export default Analytics;
