@@ -22,7 +22,7 @@ const Analytics = () => {
               <div className="p-3 rounded-full bg-purple-light/30">
                 <BarChart className="text-purple h-6 w-6" />
               </div>
-              <h1 className="text-4xl font-bold">Analytics Dashboard</h1>
+              <h1 className="text-4xl font-bold"> Our Analytics Dashboard</h1>
             </div>
             
             <p className="text-lg text-swirl-gray mb-8">
@@ -75,6 +75,9 @@ const Analytics = () => {
               <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
                 <h3 className="text-xl font-semibold mb-4">Data Export</h3>
                 <p className="text-swirl-gray">Export your data in multiple formats for further analysis and reporting.</p>
+              <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
+                <h3 className="text-xl font-semibold mb-4">Acces Live Information</h3>
+                <p className="text-swirl-gray">Our real-time analytics provide comprehensive insights into visitor trends, ordering patterns, and search behavior on your QR menu, empowering you to make data-driven decisions..</p>
               </div>
             </div>
           </div>
