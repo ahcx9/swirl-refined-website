@@ -1,7 +1,15 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,8 +28,20 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Products', path: '/products' },
+  const features = [
+    {
+      title: 'Digital Menu',
+      path: '/features/digital-menu',
+      description: 'Create interactive digital menus that are easy to update.',
+    },
+    {
+      title: 'QR Ordering',
+      path: '/features/qr-ordering',
+      description: 'Enable contactless ordering through QR codes.',
+    },
+  ];
+
+  const otherLinks = [
     { name: 'Industries', path: '/industries' },
     { name: 'Pricing', path: '/pricing' },
     { name: 'About', path: '/about' },
@@ -35,7 +55,6 @@ const Navbar = () => {
       }`}
     >
       <div className="container-custom flex justify-between items-center">
-        {/* Logo */}
         <Link to="/" className="flex items-center">
           <img 
             src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png" 
@@ -44,9 +63,32 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Features</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid gap-3 p-6 w-[400px]">
+                    {features.map((feature) => (
+                      <Link
+                        key={feature.title}
+                        to={feature.path}
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      >
+                        <div className="text-sm font-medium leading-none">{feature.title}</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          {feature.description}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+          
+          {otherLinks.map((link) => (
             <Link
               key={link.name}
               to={link.path}
@@ -60,7 +102,6 @@ const Navbar = () => {
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-purple-dark"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -69,11 +110,20 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white shadow-lg">
           <div className="container-custom py-4 flex flex-col space-y-4">
-            {navLinks.map((link) => (
+            {features.map((feature) => (
+              <Link
+                key={feature.title}
+                to={feature.path}
+                className="text-purple-dark hover:text-purple font-medium py-2 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {feature.title}
+              </Link>
+            ))}
+            {otherLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
