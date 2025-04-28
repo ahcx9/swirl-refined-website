@@ -20,15 +20,15 @@ const CTASection = () => {
                 Ready to Transform Your Restaurant Experience?
               </h2>
               <p className="text-lg text-white/80 mb-8">
-                Join thousands of restaurants already using Swirl.cx to streamline operations, 
+                Join thousands of restaurants already using swirl.cx to streamline operations, 
                 delight customers, and boost their bottom line.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Button asChild className="bg-white text-purple-dark hover:bg-gray-100 shadow-lg text-base">
-                  <Link to="/contact">Schedule a Demo</Link>
+                  <Link to="/contact">Get our Trial free for 14 days!</Link>
                 </Button>
                 <Button asChild className="bg-transparent border border-white text-white hover:bg-white/10 text-base">
-                  <Link to="/pricing">View Pricing</Link>
+                  <Link to="/contact">View Demo</Link>
                 </Button>
               </div>
             </div>
