@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -17,7 +18,7 @@ import PayrollManagement from "./pages/features/PayrollManagement";
 import InventoryManagement from "./pages/features/InventoryManagement";
 import KitchenDisplay from "./pages/features/KitchenDisplay";
 import Reservations from "./pages/features/Reservations";
-import Industries from "./pages/features/Industries";
+import Industries from "./pages/Industries";
 
 const queryClient = new QueryClient();
 

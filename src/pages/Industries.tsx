@@ -5,23 +5,24 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import {
-  FoodTruck,
+  Truck,
   Utensils,
   Coffee,
   Building,
   Store,
   Hotel,
-  Kitchen,
+  ChefHat,
   Cafe
 } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { ArrowRight } from 'lucide-react';
 
 const Industries = () => {
   const segments = [
     {
       title: "Food Trucks",
       description: "Mobile POS, online ordering, and inventory management designed for food trucks.",
-      icon: FoodTruck
+      icon: Truck
     },
     {
       title: "Fine Dining",
@@ -46,7 +47,7 @@ const Industries = () => {
     {
       title: "Cloud Kitchens",
       description: "Delivery management and kitchen display systems for cloud kitchens.",
-      icon: Kitchen
+      icon: ChefHat
     },
     {
       title: "Hotels",
