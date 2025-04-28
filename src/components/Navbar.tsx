@@ -39,6 +39,41 @@ const Navbar = () => {
       path: '/products/qr-ordering',
       description: 'Enable contactless ordering through QR codes.',
     },
+    {
+      title: 'Analytics',
+      path: '/products/analytics',
+      description: 'Track and analyze your restaurant performance.',
+    },
+    {
+      title: 'Point of Sale',
+      path: '/products/pos',
+      description: 'Modern POS system for seamless transactions.',
+    },
+    {
+      title: 'Financial Reports',
+      path: '/products/financial-reports',
+      description: 'Comprehensive financial reporting and analysis.',
+    },
+    {
+      title: 'CRM',
+      path: '/products/crm',
+      description: 'Manage customer relationships effectively.',
+    },
+    {
+      title: 'Car Ordering',
+      path: '/products/ordering-from-car',
+      description: 'Enable convenient ordering from vehicles.',
+    },
+    {
+      title: 'Payroll Management',
+      path: '/products/payroll-management',
+      description: 'Streamline your staff payments and tracking.',
+    },
+    {
+      title: 'Inventory Management',
+      path: '/products/inventory-management',
+      description: 'Track and manage your inventory efficiently.',
+    }
   ];
 
   const otherLinks = [
@@ -69,7 +104,7 @@ const Navbar = () => {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Features</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid gap-3 p-6 w-[400px]">
+                  <div className="grid grid-cols-2 gap-3 p-6 w-[600px]">
                     {features.map((feature) => (
                       <Link
                         key={feature.title}
