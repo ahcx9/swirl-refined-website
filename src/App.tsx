@@ -15,6 +15,9 @@ import CRM from "./pages/features/CRM";
 import CarOrdering from "./pages/features/CarOrdering";
 import PayrollManagement from "./pages/features/PayrollManagement";
 import InventoryManagement from "./pages/features/InventoryManagement";
+import KitchenDisplay from "./pages/features/KitchenDisplay";
+import Reservations from "./pages/features/Reservations";
+import Industries from "./pages/features/Industries";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +39,9 @@ const App = () => (
           <Route path="/products/ordering-from-car" element={<CarOrdering />} />
           <Route path="/products/payroll-management" element={<PayrollManagement />} />
           <Route path="/products/inventory-management" element={<InventoryManagement />} />
+          <Route path="/products/kitchen-display" element={<KitchenDisplay />} />
+          <Route path="/products/reservations" element={<Reservations />} />
+          <Route path="/industries" element={<Industries />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -33,46 +33,67 @@ const Navbar = () => {
       title: 'Digital Menu',
       path: '/products/digital-menu',
       description: 'Create interactive digital menus that are easy to update.',
+      icon: 'restaurant'
     },
     {
       title: 'QR Ordering',
       path: '/products/qr-ordering',
       description: 'Enable contactless ordering through QR codes.',
+      icon: 'qr-code'
     },
     {
       title: 'Analytics',
       path: '/products/analytics',
       description: 'Track and analyze your restaurant performance.',
+      icon: 'chart'
     },
     {
       title: 'Point of Sale',
       path: '/products/pos',
       description: 'Modern POS system for seamless transactions.',
+      icon: 'credit-card'
     },
     {
       title: 'Financial Reports',
       path: '/products/financial-reports',
       description: 'Comprehensive financial reporting and analysis.',
+      icon: 'file'
     },
     {
       title: 'CRM',
       path: '/products/crm',
       description: 'Manage customer relationships effectively.',
+      icon: 'users'
     },
     {
       title: 'Car Ordering',
       path: '/products/ordering-from-car',
       description: 'Enable convenient ordering from vehicles.',
+      icon: 'car'
     },
     {
       title: 'Payroll Management',
       path: '/products/payroll-management',
       description: 'Streamline your staff payments and tracking.',
+      icon: 'dollar-sign'
     },
     {
       title: 'Inventory Management',
       path: '/products/inventory-management',
       description: 'Track and manage your inventory efficiently.',
+      icon: 'package'
+    },
+    {
+      title: 'Kitchen Display',
+      path: '/products/kitchen-display',
+      description: 'Streamline kitchen operations and order management.',
+      icon: 'chef-hat'
+    },
+    {
+      title: 'Reservations',
+      path: '/products/reservations',
+      description: 'Manage bookings and optimize table turnover.',
+      icon: 'calendar'
     }
   ];
 
@@ -102,9 +123,11 @@ const Navbar = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Features</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-purple hover:text-purple-dark transition-colors">
+                  Features
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid grid-cols-2 gap-3 p-6 w-[600px]">
+                  <div className="grid grid-cols-3 gap-3 p-6 w-[800px]">
                     {features.map((feature) => (
                       <Link
                         key={feature.title}
