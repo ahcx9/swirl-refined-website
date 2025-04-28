@@ -3,6 +3,13 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ShoppingCart } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const QROrdering = () => {
   return (
@@ -21,6 +28,36 @@ const QROrdering = () => {
             <p className="text-lg text-swirl-gray mb-8">
               Enable contactless ordering through QR codes, improving service speed and reducing wait times while maintaining a safe dining environment.
             </p>
+
+            <div className="mb-12">
+              <Carousel className="w-full">
+                <CarouselContent>
+                  <CarouselItem>
+                    <img 
+                      src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" 
+                      alt="QR code ordering in action"
+                      className="w-full h-[400px] object-cover rounded-lg"
+                    />
+                  </CarouselItem>
+                  <CarouselItem>
+                    <img 
+                      src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" 
+                      alt="Mobile ordering interface"
+                      className="w-full h-[400px] object-cover rounded-lg"
+                    />
+                  </CarouselItem>
+                  <CarouselItem>
+                    <img 
+                      src="https://images.unsplash.com/photo-1531297484001-80022131f5a1" 
+                      alt="Order management dashboard"
+                      className="w-full h-[400px] object-cover rounded-lg"
+                    />
+                  </CarouselItem>
+                </CarouselContent>
+                <CarouselPrevious className="left-2" />
+                <CarouselNext className="right-2" />
+              </Carousel>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
