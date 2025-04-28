@@ -98,7 +98,7 @@ const ProductOverview = () => {
                 Discover our suite of integrated tools designed to revolutionize how you run your restaurant business.
               </p>
               <Button asChild className="btn-primary">
-                <Link to="/contact">Schedule a Demo</Link>
+                <Link to="/contact">Schedule a Quick-Demo 🍿</Link>
               </Button>
             </div>
           </div>
