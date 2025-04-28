@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -33,9 +34,9 @@ const DigitalMenu = () => {
                 <CarouselContent>
                   <CarouselItem>
                     <img 
-                      src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
-                      alt="Digital menu interface"
-                      className="w-full h-[400px] object-cover rounded-lg"
+                      src="/lovable-uploads/f627dfca-6a17-4a0f-b8a8-2f9c88ed4603.png"
+                      alt="Experience our QR Menu"
+                      className="w-full h-[400px] object-contain rounded-lg bg-white"
                     />
                   </CarouselItem>
                   <CarouselItem>
