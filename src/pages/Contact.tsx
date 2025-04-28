@@ -1,6 +1,5 @@
-
 import React from 'react';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { MapPin, Mail, Phone, Clock, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
