@@ -31,12 +31,12 @@ const Navbar = () => {
   const features = [
     {
       title: 'Digital Menu',
-      path: '/features/digital-menu',
+      path: '/products/digital-menu',
       description: 'Create interactive digital menus that are easy to update.',
     },
     {
       title: 'QR Ordering',
-      path: '/features/qr-ordering',
+      path: '/products/qr-ordering',
       description: 'Enable contactless ordering through QR codes.',
     },
   ];
