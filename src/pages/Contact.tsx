@@ -68,7 +68,7 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold text-lg mb-2 font-inter">Social Media</h3>
                       <div className="flex space-x-4">
-                        <a href="https://www.linkedin.com/company/swirl-cx/?viewAsMember=true" className="text-purple hover:text-purple-dark transition-colors">
+                        <a href="https://www.linkedin.com/company/swirl-cx" className="text-purple hover:text-purple-dark transition-colors">
                           LinkedIn
                         </a>
                         <a href="#" className="text-purple hover:text-purple-dark transition-colors">
@@ -93,7 +93,7 @@ const Contact = () => {
                         type="text" 
                         id="name" 
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent"
-                        placeholder="Your name"
+                        placeholder="Arslaan"
                       />
                     </div>
                     <div>
@@ -102,7 +102,7 @@ const Contact = () => {
                         type="email" 
                         id="email" 
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent"
-                        placeholder="Your email"
+                        placeholder="arslaan@gmail.com"
                       />
                     </div>
                   </div>
@@ -113,7 +113,7 @@ const Contact = () => {
                       type="text" 
                       id="subject" 
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent"
-                      placeholder="Message subject"
+                      placeholder="Regarding Digital Menu for my Cafe"
                     />
                   </div>
                   
@@ -123,7 +123,7 @@ const Contact = () => {
                       id="message" 
                       rows={5}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent"
-                      placeholder="Your message"
+                      placeholder="I want to get in touch for dynamic qr menu"
                     />
                   </div>
                   
