@@ -11,14 +11,14 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Modern Restaurant <span className="text-gradient">Management</span> Platform
+              Enhance your customer experience with <span className="text-gradient">AI-powered</span> restaurant management solutions
             </h1>
             <p className="text-lg md:text-xl text-swirl-gray mb-8 max-w-xl mx-auto lg:mx-0">
               Streamline your restaurant operations with our smart digital tools. Boost efficiency, improve customer experience, and increase profits.
             </p>
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
               <Button asChild className="btn-primary text-base">
-                <Link to="/contact">Request a Demo</Link>
+                <a href="https://app.swirl.cx/register">Get Started for Free</a>
               </Button>
               <Button asChild className="btn-secondary text-base">
                 <Link to="/products" className="flex items-center gap-2">
