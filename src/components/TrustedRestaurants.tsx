@@ -12,17 +12,20 @@ const restaurants = [
   { 
     name: "Qasar Halab Restaurant", 
     logo: "/lovable-uploads/e1b9db64-f6fd-4797-ad7b-9d0b1682d9bd.png",
-    background: "bg-[#0A321E]" // Dark green background
+    background: "bg-[#0A321E]", // Dark green background
+    hoverBackground: "hover:bg-[#134A2E]"
   },
   { 
     name: "Garage Café", 
     logo: "/lovable-uploads/db359be2-d8e5-4ea7-bd57-2ca8359f3727.png",
-    background: "bg-black"
+    background: "bg-black",
+    hoverBackground: "hover:bg-zinc-800"
   },
   { 
     name: "Foodbook Restaurant", 
     logo: "/lovable-uploads/31b9ef24-c2ca-46ef-85b7-23f0ec080d8d.png",
-    background: "bg-gray-100"
+    background: "bg-gray-100",
+    hoverBackground: "hover:bg-gray-200"
   }
 ];
 
@@ -41,12 +44,22 @@ const TrustedRestaurants = () => {
           <CarouselContent>
             {restaurants.map((restaurant, index) => (
               <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/3">
-                <div className={`p-4 rounded-xl ${restaurant.background} aspect-square flex items-center justify-center transition-transform duration-300 hover:scale-105 shadow-sm`}>
-                  <img
-                    src={restaurant.logo}
-                    alt={restaurant.name}
-                    className="h-16 w-auto object-contain"
-                  />
+                <div 
+                  className={`
+                    relative group rounded-xl overflow-hidden aspect-square 
+                    ${restaurant.background} 
+                    transition-all duration-500 ease-in-out transform
+                    ${restaurant.hoverBackground}
+                    hover:shadow-lg
+                  `}
+                >
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <img
+                      src={restaurant.logo}
+                      alt={restaurant.name}
+                      className="h-12 w-auto object-contain transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+                    />
+                  </div>
                 </div>
               </CarouselItem>
             ))}
