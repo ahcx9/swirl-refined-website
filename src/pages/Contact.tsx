@@ -68,7 +68,7 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold text-lg mb-2 font-inter">Social Media</h3>
                       <div className="flex space-x-4">
-                        <a href="#" className="text-purple hover:text-purple-dark transition-colors">
+                        <a href="https://www.linkedin.com/company/swirl-cx/?viewAsMember=true" className="text-purple hover:text-purple-dark transition-colors">
                           LinkedIn
                         </a>
                         <a href="#" className="text-purple hover:text-purple-dark transition-colors">
