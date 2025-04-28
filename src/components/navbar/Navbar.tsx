@@ -78,7 +78,6 @@ const features = [
 const mainLinks = [
   { name: 'Features', items: features },
   { name: 'Industries', path: '/industries' },
-  { name: 'About Us', path: '/about' },
   { name: 'Contact', path: '/contact' },
 ];
 
