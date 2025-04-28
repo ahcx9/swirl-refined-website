@@ -102,25 +102,25 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-blue-50/95 shadow-md py-3' : 'bg-blue-50/80 py-5'
+        isScrolled ? 'bg-white/95 shadow-md py-4' : 'bg-white/80 py-6'
       }`}
     >
       <div className="container-custom flex justify-between items-center">
         <div className="flex items-center">
-          <Link to="/" className="flex items-center mr-8">
+          <Link to="/" className="flex items-center mr-12">
             <img 
               src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png" 
               alt="Swirl Logo" 
-              className="h-10 w-auto"
+              className="h-12 w-auto"
             />
           </Link>
 
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-8">
             <NavigationItems items={mainLinks} />
           </div>
         </div>
           
-        <Button asChild className="btn-primary font-inter hidden md:flex">
+        <Button asChild className="btn-primary font-inter text-base hidden md:flex">
           <Link to="https://app.swirl.cx/register">Get Started For Free</Link>
         </Button>
 
