@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -97,11 +96,10 @@ const Navbar = () => {
     }
   ];
 
-  const otherLinks = [
+  const mainLinks = [
     { name: 'Industries', path: '/industries' },
-    { name: 'Pricing', path: '/pricing' },
-    { name: 'About', path: '/about' },
-    { name: 'Blog', path: '/blog' },
+    { name: 'Features', items: features },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -121,42 +119,46 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center space-x-8">
           <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-purple hover:text-purple-dark transition-colors">
-                  Features
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid grid-cols-3 gap-3 p-6 w-[800px]">
-                    {features.map((feature) => (
-                      <Link
-                        key={feature.title}
-                        to={feature.path}
-                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                      >
-                        <div className="text-sm font-medium leading-none">{feature.title}</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          {feature.description}
-                        </p>
-                      </Link>
-                    ))}
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
+            <NavigationMenuList className="space-x-8">
+              {mainLinks.map((link) => (
+                link.items ? (
+                  <NavigationMenuItem key={link.name}>
+                    <NavigationMenuTrigger className="text-purple-dark hover:text-purple transition-colors px-0 font-inter text-base">
+                      {link.name}
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="grid grid-cols-3 gap-3 p-6 w-[800px]">
+                        {link.items.map((item) => (
+                          <Link
+                            key={item.title}
+                            to={item.path}
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none font-inter">{item.title}</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground font-inter">
+                              {item.description}
+                            </p>
+                          </Link>
+                        ))}
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                ) : (
+                  <NavigationMenuItem key={link.name}>
+                    <Link
+                      to={link.path}
+                      className="text-purple-dark hover:text-purple transition-colors font-inter text-base"
+                    >
+                      {link.name}
+                    </Link>
+                  </NavigationMenuItem>
+                )
+              ))}
             </NavigationMenuList>
           </NavigationMenu>
           
-          {otherLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className="text-purple-dark hover:text-purple font-medium transition-colors"
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Button asChild className="btn-primary">
-            <Link to="/contact">Request Demo</Link>
+          <Button asChild className="btn-primary font-inter">
+            <Link to="https://app.swirl.cx/register">Get Started For Free</Link>
           </Button>
         </div>
 
@@ -171,28 +173,36 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white shadow-lg">
           <div className="container-custom py-4 flex flex-col space-y-4">
-            {features.map((feature) => (
-              <Link
-                key={feature.title}
-                to={feature.path}
-                className="text-purple-dark hover:text-purple font-medium py-2 transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {feature.title}
-              </Link>
+            {mainLinks.map((link) => (
+              link.items ? (
+                <div key={link.name} className="space-y-2">
+                  <div className="font-medium text-purple-dark font-inter">{link.name}</div>
+                  <div className="pl-4 space-y-2">
+                    {link.items.map((item) => (
+                      <Link
+                        key={item.title}
+                        to={item.path}
+                        className="block text-purple-dark hover:text-purple transition-colors py-1 font-inter"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className="text-purple-dark hover:text-purple transition-colors font-medium py-2 font-inter"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
-            {otherLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className="text-purple-dark hover:text-purple font-medium py-2 transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Button asChild className="btn-primary w-full">
-              <Link to="/contact">Request Demo</Link>
+            <Button asChild className="btn-primary w-full font-inter">
+              <Link to="https://app.swirl.cx/register">Get Started For Free</Link>
             </Button>
           </div>
         </div>

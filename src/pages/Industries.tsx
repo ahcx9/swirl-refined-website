@@ -7,56 +7,54 @@ import { Link } from 'react-router-dom';
 import {
   Truck,
   Utensils,
-  Coffee,
   Building,
   Store,
   Hotel,
   ChefHat,
   Coffee as CoffeeShop // Using Coffee icon for Cafes as well
 } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { ArrowRight } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
 const Industries = () => {
   const segments = [
     {
       title: "Food Trucks",
-      description: "Mobile POS, online ordering, and inventory management designed for food trucks.",
+      description: "Streamline your mobile food business with our comprehensive POS system, inventory tracking, and mobile ordering solutions designed specifically for food trucks.",
       icon: Truck
     },
     {
       title: "Fine Dining",
-      description: "Elegant reservation systems and table management for upscale restaurants.",
+      description: "Elevate your fine dining experience with sophisticated reservation management, table service optimization, and integrated payment solutions.",
       icon: Utensils
     },
     {
       title: "Cafes",
-      description: "Quick service solutions with integrated loyalty programs for cafes.",
-      icon: CoffeeShop // Using aliased Coffee icon
+      description: "Boost your cafe operations with fast POS, automated loyalty programs, and efficient inventory management designed for high-volume service.",
+      icon: CoffeeShop
     },
     {
       title: "Bakeries",
-      description: "Production planning and inventory management for bakeries.",
+      description: "Manage your bakery efficiently with production scheduling, ingredient tracking, and customer pre-ordering systems tailored for bakery operations.",
       icon: Store
     },
     {
       title: "Coffee Shops",
-      description: "Streamlined ordering and loyalty programs for coffee shops.",
-      icon: Coffee
+      description: "Power your coffee shop with quick service solutions, customizable loyalty programs, and mobile ordering capabilities for the modern coffee enthusiast.",
+      icon: CoffeeShop
     },
     {
       title: "Cloud Kitchens",
-      description: "Delivery management and kitchen display systems for cloud kitchens.",
+      description: "Optimize your delivery-only kitchen with robust order management, multiple delivery platform integration, and real-time kitchen display systems.",
       icon: ChefHat
     },
     {
       title: "Hotels",
-      description: "Integrated F&B management solutions for hotels and resorts.",
+      description: "Integrate your hotel's F&B operations with room service management, multiple outlet support, and centralized billing solutions.",
       icon: Hotel
     },
     {
       title: "Casual Dining",
-      description: "Complete restaurant management for casual dining establishments.",
+      description: "Enhance your casual dining restaurant with table management, integrated payments, and customer engagement tools for a seamless dining experience.",
       icon: Building
     }
   ];
@@ -68,12 +66,12 @@ const Industries = () => {
         <section className="bg-purple-light/10 py-20">
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">Industry Solutions</h1>
-              <p className="text-lg text-swirl-gray mb-8">
-                Tailored solutions for every segment of the food service industry. From food trucks to fine dining, we've got you covered.
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-inter">Industry Solutions</h1>
+              <p className="text-lg text-swirl-gray mb-8 font-inter">
+                Discover tailored solutions for every segment of the food service industry. From food trucks to fine dining establishments, we provide specialized tools to enhance your operations.
               </p>
-              <Button asChild className="btn-primary">
-                <Link to="/contact">Find Your Solution</Link>
+              <Button asChild className="btn-primary font-inter">
+                <Link to="https://app.swirl.cx/register">Get Started For Free</Link>
               </Button>
             </div>
           </div>
@@ -87,17 +85,10 @@ const Industries = () => {
                   <CardHeader>
                     <div className="flex items-center gap-3">
                       <segment.icon className="h-6 w-6 text-purple" />
-                      <CardTitle>{segment.title}</CardTitle>
+                      <CardTitle className="font-inter">{segment.title}</CardTitle>
                     </div>
-                    <CardDescription>{segment.description}</CardDescription>
+                    <CardDescription className="font-inter mt-2">{segment.description}</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <Button variant="link" asChild className="p-0">
-                      <Link to="#" className="flex items-center gap-2">
-                        Learn more <ArrowRight className="h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
                 </Card>
               ))}
             </div>
