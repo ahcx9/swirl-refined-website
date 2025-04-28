@@ -27,6 +27,7 @@ const CarOrdering = () => {
             
             <p className="text-lg text-swirl-gray mb-8">
               Streamline your drive-through and curbside pickup operations with our car ordering system. Enable customers to order from their vehicles with ease and efficiency.
+              Skip the lines and order effortlessly from your car with <i>swirl.cx</i> Whether you're picking up on the go or enjoying a contactless experience, our platform makes it simple.
             </p>
 
             <div className="mb-12">
