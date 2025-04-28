@@ -21,8 +21,8 @@ const restaurants = [
   },
   { 
     name: "Foodbook Restaurant", 
-    logo: "/lovable-uploads/808d0fa7-3d2e-4718-a97b-62f1df2f0792.png",
-    background: "bg-white"
+    logo: "/lovable-uploads/31b9ef24-c2ca-46ef-85b7-23f0ec080d8d.png",
+    background: "bg-gray-100"
   }
 ];
 
@@ -41,11 +41,11 @@ const TrustedRestaurants = () => {
           <CarouselContent>
             {restaurants.map((restaurant, index) => (
               <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/3">
-                <div className={`p-6 rounded-xl ${restaurant.background} aspect-square flex items-center justify-center transition-transform duration-300 hover:scale-105`}>
+                <div className={`p-4 rounded-xl ${restaurant.background} aspect-square flex items-center justify-center transition-transform duration-300 hover:scale-105 shadow-sm`}>
                   <img
                     src={restaurant.logo}
                     alt={restaurant.name}
-                    className="h-24 w-auto object-contain"
+                    className="h-16 w-auto object-contain"
                   />
                 </div>
               </CarouselItem>
