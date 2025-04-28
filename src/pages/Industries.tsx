@@ -12,7 +12,7 @@ import {
   Store,
   Hotel,
   ChefHat,
-  Cafe
+  Coffee as CoffeeShop // Using Coffee icon for Cafes as well
 } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
@@ -32,7 +32,7 @@ const Industries = () => {
     {
       title: "Cafes",
       description: "Quick service solutions with integrated loyalty programs for cafes.",
-      icon: Cafe
+      icon: CoffeeShop // Using aliased Coffee icon
     },
     {
       title: "Bakeries",
