@@ -5,7 +5,6 @@ import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import AdvancedFeatures from '@/components/AdvancedFeatures';
 import TrustedRestaurants from '@/components/TrustedRestaurants';
-import Testimonials from '@/components/Testimonials';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 
@@ -18,7 +17,6 @@ const Index = () => {
         <Features />
         <TrustedRestaurants />
         <AdvancedFeatures />
-        <Testimonials />
         <CTASection />
       </main>
       <Footer />
