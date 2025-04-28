@@ -48,9 +48,9 @@ const DigitalMenu = () => {
                   </CarouselItem>
                   <CarouselItem>
                     <img 
-                      src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7" 
-                      alt="Menu customization interface"
-                      className="w-full h-[400px] object-cover rounded-lg"
+                      src="/lovable-uploads/06ecc874-0362-496d-967b-0a2b44670639.png" 
+                      alt="Scan for experiencing dynamic menu"
+                      className="w-full h-[400px] object-contain rounded-lg bg-white"
                     />
                   </CarouselItem>
                 </CarouselContent>
