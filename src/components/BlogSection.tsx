@@ -10,6 +10,7 @@ interface BlogPostProps {
   author: string;
   image: string;
   slug: string;
+  link: string;
 }
 
 const BlogPostCard = ({ title, excerpt, date, author, image, slug, link }: BlogPostProps) => {
@@ -58,7 +59,7 @@ const blogPosts = [
     date: "April 2, 2025",
     author: "Sarah Johnson",
     image: "https://images.unsplash.com/photo-1484659619207-9165d119dafe?q=80&w=800&auto=format",
-    slug: "overcome payroll challenges in restaurants"
+    slug: "overcome payroll challenges in restaurants",
     link: "https://blog.swirl.cx/2025/04/02/overcome-payroll-challenges-in-restaurants/"
   },
   {
@@ -67,7 +68,7 @@ const blogPosts = [
     date: "April 18, 2025",
     author: "Michael Chen",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format",
-    slug: "elevate dining"
+    slug: "elevate dining",
     link: "https://blog.swirl.cx/2025/03/06/elevating-dining/"
   },
   {
@@ -76,7 +77,7 @@ const blogPosts = [
     date: "April 10, 2025",
     author: "David Rodriguez",
     image: "https://images.unsplash.com/photo-1576866206061-0ae9ec810b9a?q=80&w=800&auto=format",
-    slug: "future-qr-ordering"
+    slug: "future-qr-ordering",
     link: "https://blog.swirl.cx/2025/03/07/diner-experience/"
   }
 ];
