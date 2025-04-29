@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -33,22 +33,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center mb-6">
-              <img 
-                src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png" 
-                alt="Swirl Logo" 
-                className="h-10 w-auto brightness-0 invert"
-              />
-            </Link>
+            <Link to="/" className="text-2xl font-bold mb-6 block">swirl.cx</Link>
             <p className="text-white/70 mb-6 max-w-md">
               Transforming restaurant management with innovative digital solutions. Our integrated platform helps you streamline operations, increase revenue, and enhance customer experience.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="bg-white/10 hover:bg-purple p-2 rounded-full transition-colors" aria-label="Facebook">
                 <Facebook size={20} className="text-white" />
-              </a>
-              <a href="#" className="bg-white/10 hover:bg-purple p-2 rounded-full transition-colors" aria-label="Twitter">
-                <Twitter size={20} className="text-white" />
               </a>
               <a href="#" className="bg-white/10 hover:bg-purple p-2 rounded-full transition-colors" aria-label="Instagram">
                 <Instagram size={20} className="text-white" />
@@ -59,24 +50,24 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Quick Links */}
+          {/* Industries */}
           <div>
-            <h3 className="text-xl font-semibold mb-6 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-1 after:w-12 after:bg-purple after:-mb-2">Quick Links</h3>
+            <h3 className="text-xl font-semibold mb-6 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-1 after:w-12 after:bg-purple after:-mb-2">Industries</h3>
             <ul className="space-y-4">
               <li>
-                <Link to="/products" className="text-white/70 hover:text-purple transition-colors inline-block">Products</Link>
+                <Link to="/industries#fine-dining" className="text-white/70 hover:text-purple transition-colors inline-block">Fine Dining</Link>
               </li>
               <li>
-                <Link to="/industries" className="text-white/70 hover:text-purple transition-colors inline-block">Industries</Link>
+                <Link to="/industries#casual-dining" className="text-white/70 hover:text-purple transition-colors inline-block">Casual Dining</Link>
               </li>
               <li>
-                <Link to="/pricing" className="text-white/70 hover:text-purple transition-colors inline-block">Pricing</Link>
+                <Link to="/industries#fast-food" className="text-white/70 hover:text-purple transition-colors inline-block">Fast Food</Link>
               </li>
               <li>
-                <Link to="/about" className="text-white/70 hover:text-purple transition-colors inline-block">About Us</Link>
+                <Link to="/industries#cafes" className="text-white/70 hover:text-purple transition-colors inline-block">Cafés</Link>
               </li>
               <li>
-                <Link to="/blog" className="text-white/70 hover:text-purple transition-colors inline-block">Blog</Link>
+                <Link to="/industries#food-trucks" className="text-white/70 hover:text-purple transition-colors inline-block">Food Trucks</Link>
               </li>
             </ul>
           </div>
@@ -117,7 +108,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail size={20} className="mr-3 flex-shrink-0 text-purple" />
-                <span className="text-white/70">info@swirl.cx</span>
+                <span className="text-white/70">hello@swirl.cx</span>
               </li>
             </ul>
           </div>

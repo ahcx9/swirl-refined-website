@@ -6,6 +6,8 @@ import Features from '@/components/Features';
 import AdvancedFeatures from '@/components/AdvancedFeatures';
 import NextGenFeatures from '@/components/NextGenFeatures';
 import TrustedRestaurants from '@/components/TrustedRestaurants';
+import BlogSection from '@/components/BlogSection';
+import FAQSection from '@/components/FAQSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 
@@ -19,6 +21,8 @@ const Index = () => {
         <TrustedRestaurants />
         <NextGenFeatures />
         <AdvancedFeatures />
+        <BlogSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />

@@ -4,9 +4,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const restaurants = [
   { 
@@ -26,46 +25,67 @@ const restaurants = [
     logo: "/lovable-uploads/31b9ef24-c2ca-46ef-85b7-23f0ec080d8d.png",
     background: "bg-gray-100",
     hoverBackground: "hover:bg-gray-200"
+  },
+  { 
+    name: "Sample Restaurant 1", 
+    logo: "/lovable-uploads/b03f39e1-1bbe-4212-88bc-f7f70b2ba690.png", // Using the uploaded image as a placeholder
+    background: "bg-blue-900",
+    hoverBackground: "hover:bg-blue-800"
+  },
+  { 
+    name: "Sample Restaurant 2", 
+    logo: "/lovable-uploads/b03f39e1-1bbe-4212-88bc-f7f70b2ba690.png", // Using the uploaded image as a placeholder
+    background: "bg-red-900",
+    hoverBackground: "hover:bg-red-800"
+  },
+  { 
+    name: "Sample Restaurant 3", 
+    logo: "/lovable-uploads/b03f39e1-1bbe-4212-88bc-f7f70b2ba690.png", // Using the uploaded image as a placeholder
+    background: "bg-green-900",
+    hoverBackground: "hover:bg-green-800"
   }
 ];
 
 const TrustedRestaurants = () => {
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  );
+
   return (
-    <section className="py-16 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-10 bg-gradient-to-b from-white to-gray-50">
       <div className="container-custom">
-        <h3 className="text-2xl font-semibold text-center mb-8 font-inter">Trusted by Leading Restaurants</h3>
+        <h3 className="text-lg font-medium text-center mb-6 text-gray-700 font-inter">Trusted by Leading Restaurants</h3>
         <Carousel
           opts={{
             align: "start",
             loop: true,
           }}
-          className="w-full max-w-4xl mx-auto"
+          plugins={[plugin.current]}
+          className="w-full max-w-5xl mx-auto"
         >
           <CarouselContent>
             {restaurants.map((restaurant, index) => (
-              <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/3">
+              <CarouselItem key={index} className="md:basis-1/4 lg:basis-1/5">
                 <div 
                   className={`
-                    relative group rounded-xl overflow-hidden aspect-square 
+                    relative group rounded-lg overflow-hidden aspect-square 
                     ${restaurant.background} 
                     transition-all duration-500 ease-in-out transform
                     ${restaurant.hoverBackground}
-                    hover:shadow-lg
+                    hover:shadow-md
                   `}
                 >
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center p-4">
                     <img
                       src={restaurant.logo}
                       alt={restaurant.name}
-                      className="h-12 w-auto object-contain transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+                      className="max-h-10 w-auto object-contain transform transition-transform duration-500 ease-in-out group-hover:scale-110"
                     />
                   </div>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex" />
-          <CarouselNext className="hidden md:flex" />
         </Carousel>
       </div>
     </section>

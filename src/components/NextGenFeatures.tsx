@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Palette, ChartBar, MessageSquare, Database } from 'lucide-react';
+import { Palette, ChartBar, MessageSquare, Database, Globe, Calendar, Bell, Shield, Users, Zap } from 'lucide-react';
 
 interface FeatureCardProps {
   title: string;
@@ -36,7 +36,7 @@ const NextGenFeatures = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <FeatureCard
             title="Menu Customization"
             description="Tailor your menu's look and feel to perfectly match your restaurant's brand and ambiance."
@@ -56,6 +56,31 @@ const NextGenFeatures = () => {
             title="Data Collection"
             description="Gather valuable customer data to understand preferences and optimize your marketing strategy."
             icon={<Database size={32} className="text-purple" />}
+          />
+          <FeatureCard
+            title="Multi-language Support"
+            description="Cater to international customers with menus that automatically translate into multiple languages."
+            icon={<Globe size={32} className="text-purple" />}
+          />
+          <FeatureCard
+            title="Reservation Management"
+            description="Allow customers to book tables online with automated confirmation and reminder notifications."
+            icon={<Calendar size={32} className="text-purple" />}
+          />
+          <FeatureCard
+            title="Push Notifications"
+            description="Send targeted promotions and updates directly to your customers' mobile devices."
+            icon={<Bell size={32} className="text-purple" />}
+          />
+          <FeatureCard
+            title="Secure Payments"
+            description="Offer your customers multiple secure payment options with end-to-end encryption."
+            icon={<Shield size={32} className="text-purple" />}
+          />
+          <FeatureCard
+            title="Staff Management"
+            description="Efficiently manage staff schedules, tasks, and performance metrics all in one place."
+            icon={<Users size={32} className="text-purple" />}
           />
         </div>
 
