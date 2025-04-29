@@ -48,8 +48,8 @@ const NextGenFeatures = () => {
             icon={<ChartBar size={32} className="text-purple" />}
           />
           <FeatureCard
-            title="Customer Feedback"
-            description="Collect and analyze customer feedback to improve your service and menu offerings."
+            title="Customer Database"
+            description="Collect and analyze customer information to send out marketing promotions."
             icon={<MessageSquare size={32} className="text-purple" />}
           />
           <FeatureCard
@@ -73,8 +73,8 @@ const NextGenFeatures = () => {
             icon={<Bell size={32} className="text-purple" />}
           />
           <FeatureCard
-            title="Secure Payments"
-            description="Offer your customers multiple secure payment options with end-to-end encryption."
+            title="Inventory Management"
+            description="Track, manage, and optimize your restaurant’s stock with real-time inventory control and smart reorder alerts."
             icon={<Shield size={32} className="text-purple" />}
           />
           <FeatureCard
