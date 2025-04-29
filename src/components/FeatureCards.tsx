@@ -65,7 +65,7 @@ const FeatureCards = () => {
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1A1F2C]">
-            All-in-one menu platform for restaurants, bars, cafes, and hotels!
+            One platform for all your restaurant, café, and hotel needs
           </h2>
         </div>
 
