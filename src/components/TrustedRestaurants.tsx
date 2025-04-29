@@ -21,40 +21,64 @@ const restaurants = [
     logo: "/lovable-uploads/31b9ef24-c2ca-46ef-85b7-23f0ec080d8d.png",
   },
   { 
-    name: "Sample Restaurant 1", 
-    logo: "/lovable-uploads/b03f39e1-1bbe-4212-88bc-f7f70b2ba690.png",
+    name: "Shibara", 
+    logo: "/lovable-uploads/cdb611e4-e77a-49b3-b612-6a0c44c9709e.png",
   },
   { 
-    name: "Sample Restaurant 2", 
-    logo: "/lovable-uploads/b03f39e1-1bbe-4212-88bc-f7f70b2ba690.png",
+    name: "Tamasha", 
+    logo: "/lovable-uploads/d67e46ef-6a89-4509-8db9-f1f5868ced26.png",
   },
   { 
-    name: "Sample Restaurant 3", 
-    logo: "/lovable-uploads/b03f39e1-1bbe-4212-88bc-f7f70b2ba690.png",
+    name: "Al-Baik", 
+    logo: "/lovable-uploads/42ded2c0-ff2d-4e3c-8c6b-e7dc3cf4db27.png",
+  },
+  { 
+    name: "Saffron Kitchen", 
+    logo: "/lovable-uploads/cebfea27-8e23-43d1-8ca2-44bb562429f9.png",
+  },
+  { 
+    name: "Taste of Tongue", 
+    logo: "/lovable-uploads/1dbdb934-004a-4eef-bc21-5f508282feec.png",
+  },
+  { 
+    name: "The Bombay", 
+    logo: "/lovable-uploads/82bc695f-d01b-4b96-8cac-e29f2c43dddb.png",
+  },
+  { 
+    name: "Seern", 
+    logo: "/lovable-uploads/f9830254-e7e0-4c01-850d-1e4fe5041d16.png",
+  },
+  { 
+    name: "The Centurion", 
+    logo: "/lovable-uploads/8e19ccf7-24a9-4d48-9a51-a8ec7c37e9e9.png",
+  },
+  { 
+    name: "La Pino'z Pizza", 
+    logo: "/lovable-uploads/8993a146-162a-42c5-acb9-9a0f6d694375.png",
   }
 ];
 
 const TrustedRestaurants = () => {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    Autoplay({ delay: 1500, stopOnInteraction: false })
   );
 
   return (
-    <section className="py-10 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-12 bg-gradient-to-b from-white to-gray-50">
       <div className="container-custom">
-        <h3 className="text-lg font-medium text-center mb-6 text-gray-700 font-inter">Trusted by Leading Restaurants</h3>
+        <h3 className="text-xl font-medium text-center mb-8 text-gray-700 font-inter">Trusted by Leading Restaurants</h3>
         <Carousel
           opts={{
             align: "start",
             loop: true,
           }}
           plugins={[plugin.current]}
-          className="w-full max-w-5xl mx-auto"
+          className="w-full max-w-6xl mx-auto"
         >
           <CarouselContent>
             {restaurants.map((restaurant, index) => (
-              <CarouselItem key={index} className="md:basis-1/4 lg:basis-1/5">
-                <div className="flex items-center justify-center p-4 h-20">
+              <CarouselItem key={index} className="basis-1/4 md:basis-1/5 lg:basis-1/6">
+                <div className="flex items-center justify-center p-4">
                   <img
                     src={restaurant.logo}
                     alt={restaurant.name}

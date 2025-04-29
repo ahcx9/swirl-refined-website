@@ -15,7 +15,7 @@ import Analytics from "./pages/features/Analytics";
 import PointOfSale from "./pages/features/PointOfSale";
 import FinancialReports from "./pages/features/FinancialReports";
 import CRM from "./pages/features/CRM";
-import InCarOrdering from "./pages/features/CarOrdering";
+import InCarOrdering from "./pages/features/InCarOrdering";
 import PayrollManagement from "./pages/features/PayrollManagement";
 import InventoryManagement from "./pages/features/InventoryManagement";
 import KitchenDisplay from "./pages/features/KitchenDisplay";

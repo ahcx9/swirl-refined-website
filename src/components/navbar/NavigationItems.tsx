@@ -32,17 +32,17 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
   // Map for Lucide icons based on icon name
   const getIcon = (iconName: string) => {
     const iconMap: {[key: string]: React.ReactNode} = {
-      'restaurant-menu': <FileText size={18} className="mr-2 text-purple" />,
-      'qr-code': <ShoppingCart size={18} className="mr-2 text-purple" />,
-      'chart-bar': <BarChart size={18} className="mr-2 text-purple" />,
-      'credit-card': <CreditCard size={18} className="mr-2 text-purple" />,
-      'file-text': <LayoutDashboard size={18} className="mr-2 text-purple" />,
-      'users': <Users size={18} className="mr-2 text-purple" />,
-      'car': <Car size={18} className="mr-2 text-purple" />,
-      'dollar-sign': <Calendar size={18} className="mr-2 text-purple" />,
-      'package': <Package size={18} className="mr-2 text-purple" />,
-      'chef-hat': <ChefHat size={18} className="mr-2 text-purple" />,
-      'calendar': <Utensils size={18} className="mr-2 text-purple" />,
+      'restaurant-menu': <FileText size={20} className="mr-3 text-purple" />,
+      'qr-code': <ShoppingCart size={20} className="mr-3 text-purple" />,
+      'chart-bar': <BarChart size={20} className="mr-3 text-purple" />,
+      'credit-card': <CreditCard size={20} className="mr-3 text-purple" />,
+      'file-text': <LayoutDashboard size={20} className="mr-3 text-purple" />,
+      'users': <Users size={20} className="mr-3 text-purple" />,
+      'car': <Car size={20} className="mr-3 text-purple" />,
+      'dollar-sign': <Calendar size={20} className="mr-3 text-purple" />,
+      'package': <Package size={20} className="mr-3 text-purple" />,
+      'chef-hat': <ChefHat size={20} className="mr-3 text-purple" />,
+      'calendar': <Utensils size={20} className="mr-3 text-purple" />,
     };
     
     return iconMap[iconName] || null;
@@ -50,25 +50,25 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
 
   return (
     <NavigationMenu>
-      <NavigationMenuList className="space-x-6">
+      <NavigationMenuList className="space-x-8">
         {items.map((link) => (
           link.items ? (
             <NavigationMenuItem key={link.name}>
-              <NavigationMenuTrigger className="text-purple-dark hover:text-purple transition-colors px-0 font-inter text-base font-semibold">
+              <NavigationMenuTrigger className="text-purple-dark hover:text-purple transition-colors px-0 font-inter text-[17px] font-semibold">
                 {link.name}
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid grid-cols-2 gap-3 p-6 w-[650px]">
+                <div className="grid grid-cols-2 gap-4 p-6 w-[700px]">
                   {link.items.map((item) => (
                     <Link
                       key={item.title}
                       to={item.path}
-                      className="flex items-start select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      className="flex items-start select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     >
                       <div className="flex items-center">
                         {getIcon(item.icon)}
                         <div>
-                          <div className="text-base font-medium leading-none font-inter mb-1">{item.title}</div>
+                          <div className="text-base font-medium leading-none font-inter mb-2">{item.title}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground font-inter">
                             {item.description}
                           </p>
@@ -83,7 +83,7 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
             <NavigationMenuItem key={link.name}>
               <Link
                 to={link.path!}
-                className="text-purple-dark hover:text-purple transition-colors font-inter text-base font-semibold"
+                className="text-purple-dark hover:text-purple transition-colors font-inter text-[17px] font-semibold"
               >
                 {link.name}
               </Link>
