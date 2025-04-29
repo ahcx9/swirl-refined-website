@@ -75,7 +75,7 @@ const blogPosts = [
     excerpt: "Explore how QR code ordering is revolutionizing the dining experience and streamlining operations.",
     date: "April 10, 2025",
     author: "Khalid ",
-    image: "https://unsplash.com/photos/timeline-LBikV4HMGwM",
+    image: "https://chatgpt.com/c/6810a4bf-bee4-8004-a3b3-25aa7231d516",
     slug: "future-qr-ordering",
     link: "https://blog.swirl.cx/2025/03/07/diner-experience/"
   }
