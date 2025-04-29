@@ -119,7 +119,7 @@ const Footer = () => {
       <div className="bg-purple-dark border-t border-white/10 py-6">
         <div className="container-custom flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/70 text-sm mb-4 md:mb-0">
-            © {year} Swirl.cx. All rights reserved.
+            © {year} swirl.cx. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <a href="/privacy" className="text-white/70 hover:text-purple text-sm transition-colors">
