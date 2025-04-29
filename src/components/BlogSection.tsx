@@ -56,7 +56,7 @@ const blogPosts = [
     title: "Overcoming Payroll Challenges in Restaurant",
     excerpt: "The Challenges of Restaurant Payroll.",
     date: "April 2, 2025",
-    author: "Sarah Johnson",
+    author: "Abid Khan",
     image: "https://images.unsplash.com/photo-1484659619207-9165d119dafe?q=80&w=800&auto=format",
     slug: "overcome payroll challenges in restaurants",
     link: "https://blog.swirl.cx/2025/04/02/overcome-payroll-challenges-in-restaurants/"
@@ -65,7 +65,7 @@ const blogPosts = [
     title: "Restaurant Data Analytics: Making Informed Decisions",
     excerpt: "Learn how to leverage data analytics to optimize your restaurant operations and increase profitability.",
     date: "April 18, 2025",
-    author: "Michael Chen",
+    author: "Aamil",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format",
     slug: "elevate dining",
     link: "https://blog.swirl.cx/2025/03/06/elevating-dining/"
@@ -74,8 +74,8 @@ const blogPosts = [
     title: "The Future of QR Ordering in Restaurants",
     excerpt: "Explore how QR code ordering is revolutionizing the dining experience and streamlining operations.",
     date: "April 10, 2025",
-    author: "David Rodriguez",
-    image: "https://images.unsplash.com/random/800x600/?self-service,kiosk",
+    author: "Khalid ",
+    image: "https://unsplash.com/photos/timeline-LBikV4HMGwM",
     slug: "future-qr-ordering",
     link: "https://blog.swirl.cx/2025/03/07/diner-experience/"
   }
