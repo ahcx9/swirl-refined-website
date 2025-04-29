@@ -25,7 +25,7 @@ const FeatureCard = ({ title, description, icon }: FeatureCardProps) => {
 
 const NextGenFeatures = () => {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-purple/5 to-swirl-blue/5">
+    <section id="next-gen-features" className="py-16 md:py-24">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
