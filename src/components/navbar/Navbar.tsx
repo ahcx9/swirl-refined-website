@@ -44,9 +44,9 @@ const features = [
     icon: 'users'
   },
   {
-    title: 'Car Ordering',
+    title: 'In-Car Ordering',
     path: '/products/ordering-from-car',
-    description: 'Enable convenient ordering from vehicles.',
+    description: 'Enable convenient ordering directly from vehicles.',
     icon: 'car'
   },
   {

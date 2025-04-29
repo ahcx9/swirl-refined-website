@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
@@ -5,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { 
   LayoutDashboard, ShoppingCart, BarChart, 
   CreditCard, Users, Package, Car, Calendar, FileText,
-  ArrowRight
+  ChefHat, ArrowRight, Utensils, Bell
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -13,74 +14,156 @@ const products = [
   {
     id: 'digital-menu',
     title: 'Digital Menu',
-    description: 'Create beautiful, interactive digital menus that are easy to update in real-time. Seamlessly integrate with your POS and inventory systems.',
+    description: 'Create beautiful, interactive digital menus that are easy to update in real-time. Support multiple languages, currencies, and show nutritional information like calories and allergens.',
     icon: FileText,
     path: '/products/digital-menu',
-    features: ['Real-time updates', 'Image gallery', 'Nutritional information', 'Multi-language support']
+    image: "/lovable-uploads/f627dfca-6a17-4a0f-b8a8-2f9c88ed4603.png",
+    features: [
+      'Real-time updates', 
+      'Multi-language support', 
+      'Nutritional information', 
+      'AI-generated descriptions'
+    ]
   },
   {
     id: 'qr-ordering',
     title: 'QR Ordering',
-    description: 'Contactless ordering solution where customers can scan QR codes, browse your menu, and place their orders directly from their device.',
+    description: 'Contactless ordering solution where customers can scan QR codes, browse your menu, and place their orders directly from their device, with real-time status updates.',
     icon: ShoppingCart,
     path: '/products/qr-ordering',
-    features: ['Tableside ordering', 'Custom QR codes', 'Payment integration', 'Order tracking']
+    image: "/lovable-uploads/06ecc874-0362-496d-967b-0a2b44670639.png",
+    features: [
+      'Tableside ordering', 
+      'Custom QR codes', 
+      'Payment integration', 
+      'Order tracking'
+    ]
   },
   {
     id: 'analytics',
     title: 'Analytics',
-    description: 'Gain valuable insights about your business with our powerful analytics tools. Track sales, customer behavior, and menu performance.',
+    description: 'Gain valuable insights about your business with our powerful analytics tools. Track sales, customer behavior, and menu performance with customizable dashboards.',
     icon: BarChart,
     path: '/products/analytics',
-    features: ['Real-time dashboards', 'Custom reports', 'Trend analysis', 'Data export']
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+    features: [
+      'Real-time dashboards', 
+      'Custom reports', 
+      'Trend analysis', 
+      'Data export'
+    ]
   },
   {
     id: 'pos',
     title: 'POS System',
-    description: 'Modern point-of-sale system designed specifically for restaurant needs, with user-friendly interfaces and seamless integrations.',
+    description: 'Modern point-of-sale system designed specifically for restaurant needs, with user-friendly interfaces and seamless integrations for both software and hardware solutions.',
     icon: CreditCard,
     path: '/products/pos',
-    features: ['Table management', 'Split bills', 'Fast checkout', 'Employee access levels']
+    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+    features: [
+      'Table management', 
+      'Split bills', 
+      'Fast checkout', 
+      'Employee access levels'
+    ]
   },
   {
     id: 'reports',
     title: 'Financial Reports',
-    description: "Comprehensive financial reporting to track your restaurant's performance, with detailed P&L statements, cost analysis, and forecasting.",
+    description: "Comprehensive financial reporting to track your restaurant's performance, with detailed P&L statements, cost analysis, and forecasting tools for data-driven decisions.",
     icon: LayoutDashboard,
     path: '/products/financial-reports',
-    features: ['P&L statements', 'Cost analysis', 'Tax reporting', 'Financial forecasting']
+    image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07",
+    features: [
+      'P&L statements', 
+      'Cost analysis', 
+      'Tax reporting', 
+      'Financial forecasting'
+    ]
   },
   {
     id: 'crm',
     title: 'CRM',
-    description: 'Customer relationship management tools to build loyalty and drive repeat business through targeted marketing campaigns.',
+    description: 'Customer relationship management tools to build loyalty and drive repeat business through targeted marketing campaigns and personalized customer experiences.',
     icon: Users,
     path: '/products/crm',
-    features: ['Customer profiles', 'Loyalty programs', 'Email campaigns', 'Customer feedback']
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+    features: [
+      'Customer profiles', 
+      'Loyalty programs', 
+      'Email campaigns', 
+      'Customer feedback'
+    ]
   },
   {
     id: 'car-ordering',
-    title: 'Car Ordering',
-    description: 'Enable customers to order from their vehicles for pickup or drive-through service, optimizing your curbside operations.',
+    title: 'In-Car Ordering',
+    description: 'Enable customers to order from their vehicles for pickup or drive-through service, optimizing your curbside operations and enhancing customer convenience.',
     icon: Car,
     path: '/products/ordering-from-car',
-    features: ['GPS location tracking', 'Digital car hop', 'Order notifications', 'Payment processing']
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+    features: [
+      'GPS location tracking', 
+      'Digital car hop', 
+      'Order notifications', 
+      'Payment processing'
+    ]
   },
   {
     id: 'payroll',
     title: 'Payroll Management',
-    description: 'Streamline staff payments and track labor costs efficiently, with time tracking, tax calculations, and direct deposit options.',
+    description: 'Streamline staff payments and track labor costs efficiently, with time tracking, tax calculations, and direct deposit options for hassle-free payroll processing.',
     icon: Calendar,
     path: '/products/payroll-management',
-    features: ['Time tracking', 'Tax calculations', 'Direct deposit', 'Compliance reporting']
+    image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07",
+    features: [
+      'Time tracking', 
+      'Tax calculations', 
+      'Direct deposit', 
+      'Compliance reporting'
+    ]
   },
   {
     id: 'inventory',
     title: 'Inventory Management',
-    description: 'Track stock levels, reduce waste, and optimize your purchasing with real-time inventory tracking and automated ordering.',
+    description: 'Track stock levels, reduce waste, and optimize your purchasing with real-time inventory tracking, automated ordering, and comprehensive vendor management.',
     icon: Package,
     path: '/products/inventory-management',
-    features: ['Real-time tracking', 'Waste reduction', 'Automated ordering', 'Vendor management']
+    image: "https://images.unsplash.com/photo-1553413077-190dd305871c",
+    features: [
+      'Real-time tracking', 
+      'Waste reduction', 
+      'Automated ordering', 
+      'Vendor management'
+    ]
+  },
+  {
+    id: 'kitchen-display',
+    title: 'Kitchen Display System',
+    description: 'Streamline kitchen operations with our advanced KDS solution. Improve efficiency, reduce errors, and enhance communication between front and back of house.',
+    icon: ChefHat,
+    path: '/products/kitchen-display',
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+    features: [
+      'Real-time orders', 
+      'Cooking timers', 
+      'Station routing', 
+      'Performance metrics'
+    ]
+  },
+  {
+    id: 'reservations',
+    title: 'Reservations',
+    description: 'Manage bookings and optimize table turnover with our advanced reservation system. Handle waitlists, send automated reminders, and collect guest preferences.',
+    icon: Utensils,
+    path: '/products/reservations',
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
+    features: [
+      'Online bookings', 
+      'Table management', 
+      'Guest profiles', 
+      'Waitlist handling'
+    ]
   }
 ];
 
@@ -113,14 +196,19 @@ const ProductOverview = () => {
                   key={product.id}
                   className={`grid grid-cols-1 ${index % 2 === 0 ? 'lg:grid-cols-[1fr_1.5fr]' : 'lg:grid-cols-[1.5fr_1fr] lg:flex-row-reverse'} gap-8 lg:gap-16 items-center`}
                 >
-                  <div className={`bg-gradient-to-br ${index % 2 === 0 ? 'from-purple-light/20 to-purple/10' : 'from-swirl-light-gray to-swirl-blue/10'} rounded-2xl p-8 h-full`}>
-                    <div className="w-full h-full min-h-[300px] flex items-center justify-center">
-                      <product.icon size={120} className="text-purple opacity-60" />
-                    </div>
+                  <div className={`overflow-hidden rounded-2xl ${index % 2 === 0 ? 'bg-purple-light/20' : 'bg-swirl-blue/10'}`}>
+                    <img 
+                      src={product.image} 
+                      alt={product.title}
+                      className="w-full h-full min-h-[300px] object-cover transition-transform duration-700 hover:scale-105"
+                    />
                   </div>
                   
                   <div className={index % 2 !== 0 ? 'lg:order-first' : ''}>
-                    <h2 className="text-3xl font-bold mb-4">{product.title}</h2>
+                    <div className="flex items-center gap-3 mb-4">
+                      <product.icon size={28} className="text-purple" />
+                      <h2 className="text-3xl font-bold">{product.title}</h2>
+                    </div>
                     <p className="text-lg text-swirl-gray mb-6">{product.description}</p>
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
