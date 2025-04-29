@@ -2,7 +2,6 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, Calendar, User } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 interface BlogPostProps {
   title: string;

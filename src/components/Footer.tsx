@@ -38,13 +38,13 @@ const Footer = () => {
               Transforming restaurant management with innovative digital solutions. Our integrated platform helps you streamline operations, increase revenue, and enhance customer experience.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="bg-white/10 hover:bg-purple p-2 rounded-full transition-colors" aria-label="Facebook">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-purple p-2 rounded-full transition-colors" aria-label="Facebook">
                 <Facebook size={20} className="text-white" />
               </a>
-              <a href="#" className="bg-white/10 hover:bg-purple p-2 rounded-full transition-colors" aria-label="Instagram">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-purple p-2 rounded-full transition-colors" aria-label="Instagram">
                 <Instagram size={20} className="text-white" />
               </a>
-              <a href="#" className="bg-white/10 hover:bg-purple p-2 rounded-full transition-colors" aria-label="LinkedIn">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-purple p-2 rounded-full transition-colors" aria-label="LinkedIn">
                 <Linkedin size={20} className="text-white" />
               </a>
             </div>
@@ -122,15 +122,15 @@ const Footer = () => {
             © {year} Swirl.cx. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <Link to="/privacy" className="text-white/70 hover:text-purple text-sm transition-colors">
+            <a href="/privacy" className="text-white/70 hover:text-purple text-sm transition-colors">
               Privacy Policy
-            </Link>
-            <Link to="/terms" className="text-white/70 hover:text-purple text-sm transition-colors">
+            </a>
+            <a href="/terms" className="text-white/70 hover:text-purple text-sm transition-colors">
               Terms of Service
-            </Link>
-            <Link to="/sitemap" className="text-white/70 hover:text-purple text-sm transition-colors">
+            </a>
+            <a href="/sitemap" className="text-white/70 hover:text-purple text-sm transition-colors">
               Sitemap
-            </Link>
+            </a>
           </div>
         </div>
       </div>
