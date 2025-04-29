@@ -2,6 +2,7 @@
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Hero from '@/components/Hero';
+import FeatureCards from '@/components/FeatureCards';
 import Features from '@/components/Features';
 import AdvancedFeatures from '@/components/AdvancedFeatures';
 import NextGenFeatures from '@/components/NextGenFeatures';
@@ -17,6 +18,7 @@ const Index = () => {
       <Navbar />
       <main className="flex-grow">
         <Hero />
+        <FeatureCards />
         <Features />
         <TrustedRestaurants />
         <NextGenFeatures />
