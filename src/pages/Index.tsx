@@ -1,8 +1,10 @@
+
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import AdvancedFeatures from '@/components/AdvancedFeatures';
+import NextGenFeatures from '@/components/NextGenFeatures';
 import TrustedRestaurants from '@/components/TrustedRestaurants';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
@@ -15,6 +17,7 @@ const Index = () => {
         <Hero />
         <Features />
         <TrustedRestaurants />
+        <NextGenFeatures />
         <AdvancedFeatures />
         <CTASection />
       </main>
