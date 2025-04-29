@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, Calendar, User } from 'lucide-react';
@@ -75,7 +76,7 @@ const blogPosts = [
     excerpt: "Explore how QR code ordering is revolutionizing the dining experience and streamlining operations.",
     date: "April 10, 2025",
     author: "Khalid ",
-    image: "https://chatgpt.com/c/6810a4bf-bee4-8004-a3b3-25aa7231d516",
+    image: "https://images.unsplash.com/photo-1576866206061-0ae9ec810b9a?q=80&w=800&auto=format",
     slug: "future-qr-ordering",
     link: "https://blog.swirl.cx/2025/03/07/diner-experience/"
   }
