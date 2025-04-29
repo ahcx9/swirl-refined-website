@@ -38,7 +38,7 @@ const BlogPostCard = ({ title, excerpt, date, author, image, slug }: BlogPostPro
         <p className="text-gray-600 mb-4 line-clamp-3 flex-grow">{excerpt}</p>
         
         <a 
-          href={`https://blog.swirl.cx/${slug}`}
+          href={`https://blog.swirl.cx/${Calendar}/${slug}`}
           target="_blank"
           rel="noopener noreferrer" 
           className="flex items-center text-purple font-medium hover:text-purple-dark transition-colors mt-auto"
