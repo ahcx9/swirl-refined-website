@@ -53,12 +53,12 @@ const BlogPostCard = ({ title, excerpt, date, author, image, slug }: BlogPostPro
 
 const blogPosts = [
   {
-    title: "How Digital Menus Boost Restaurant Revenue",
-    excerpt: "Discover how implementing digital menus can increase order values and enhance customer experience in your restaurant.",
-    date: "April 25, 2025",
+    title: "Overcoming Payroll Challenges in Restaurant",
+    excerpt: "The Challenges of Restaurant Payroll.",
+    date: "April 2, 2025",
     author: "Sarah Johnson",
     image: "https://images.unsplash.com/photo-1484659619207-9165d119dafe?q=80&w=800&auto=format",
-    slug: "digital-menus-boost-revenue"
+    slug: "overcoming payroll challenges"
   },
   {
     title: "Restaurant Data Analytics: Making Informed Decisions",
