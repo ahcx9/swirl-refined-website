@@ -58,7 +58,7 @@ const blogPosts = [
     date: "April 2, 2025",
     author: "Sarah Johnson",
     image: "https://images.unsplash.com/photo-1484659619207-9165d119dafe?q=80&w=800&auto=format",
-    slug: "overcoming payroll challenges"
+    slug: "overcome payroll challenges in restaurants"
   },
   {
     title: "Restaurant Data Analytics: Making Informed Decisions",
@@ -66,7 +66,7 @@ const blogPosts = [
     date: "April 18, 2025",
     author: "Michael Chen",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format",
-    slug: "restaurant-data-analytics"
+    slug: "elevate dining"
   },
   {
     title: "The Future of QR Ordering in Restaurants",
