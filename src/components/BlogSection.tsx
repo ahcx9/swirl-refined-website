@@ -12,7 +12,7 @@ interface BlogPostProps {
   slug: string;
 }
 
-const BlogPostCard = ({ title, excerpt, date, author, image, slug }: BlogPostProps) => {
+const BlogPostCard = ({ title, excerpt, date, author, image, slug, link }: BlogPostProps) => {
   return (
     <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full flex flex-col">
       <div className="relative h-48 overflow-hidden">
@@ -38,7 +38,7 @@ const BlogPostCard = ({ title, excerpt, date, author, image, slug }: BlogPostPro
         <p className="text-gray-600 mb-4 line-clamp-3 flex-grow">{excerpt}</p>
         
         <a 
-          href={`https://blog.swirl.cx/${Calendar}/${slug}`}
+          href={`https://blog.swirl.cx/${link}`}
           target="_blank"
           rel="noopener noreferrer" 
           className="flex items-center text-purple font-medium hover:text-purple-dark transition-colors mt-auto"
@@ -59,6 +59,7 @@ const blogPosts = [
     author: "Sarah Johnson",
     image: "https://images.unsplash.com/photo-1484659619207-9165d119dafe?q=80&w=800&auto=format",
     slug: "overcome payroll challenges in restaurants"
+    link: "https://blog.swirl.cx/2025/04/02/overcome-payroll-challenges-in-restaurants/"
   },
   {
     title: "Restaurant Data Analytics: Making Informed Decisions",
@@ -67,6 +68,7 @@ const blogPosts = [
     author: "Michael Chen",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format",
     slug: "elevate dining"
+    link: "https://blog.swirl.cx/2025/03/06/elevating-dining/"
   },
   {
     title: "The Future of QR Ordering in Restaurants",
@@ -75,6 +77,7 @@ const blogPosts = [
     author: "David Rodriguez",
     image: "https://images.unsplash.com/photo-1576866206061-0ae9ec810b9a?q=80&w=800&auto=format",
     slug: "future-qr-ordering"
+    link: "https://blog.swirl.cx/2025/03/07/diner-experience/"
   }
 ];
 
@@ -104,7 +107,7 @@ const BlogSection = () => {
             rel="noopener noreferrer"
             className="btn-primary inline-flex items-center gap-2"
           >
-            Visit Our Blog
+            See more of our Blogs!
             <ArrowRight />
           </a>
         </div>
