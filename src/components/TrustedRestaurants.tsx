@@ -54,7 +54,7 @@ const restaurants = [
   },
   { 
     name: "La Pino'z Pizza", 
-    logo: "/lovable-uploads/82584175-2d38-4de3-8a1e-b70b0efd41cb.png",
+    logo: "/lovable-uploads/a7a29f9c-6293-46ad-bb73-77648ef03c6a.png",
   }
 ];
 

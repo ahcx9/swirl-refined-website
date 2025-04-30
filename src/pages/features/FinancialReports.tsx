@@ -63,66 +63,12 @@ const FinancialReports = () => {
             
             <div className="w-full md:w-1/2">
               <img 
-                src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c" 
+                src="/lovable-uploads/a7a29f9c-6293-46ad-bb73-77648ef03c6a.png" 
                 alt="Financial reporting dashboard"
                 className="w-full h-[400px] object-cover rounded-xl shadow-lg"
               />
             </div>
           </div>
-
-          <section className="mb-20">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <img 
-                  src="https://images.unsplash.com/photo-1560472355-109703aa3edc" 
-                  alt="Financial analysis"
-                  className="rounded-xl shadow-lg"
-                />
-              </div>
-              
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Why Financial Reporting Matters</h2>
-                <p className="text-lg text-swirl-gray mb-6">
-                  In the competitive restaurant industry, understanding your finances is crucial for sustainable success. Our financial reporting tools provide:
-                </p>
-                
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <div className="p-1 rounded-full bg-purple-light/30">
-                      <svg className="h-4 w-4 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <span>Clear visibility into profit margins and performance</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="p-1 rounded-full bg-purple-light/30">
-                      <svg className="h-4 w-4 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <span>Early warning signs of financial issues</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="p-1 rounded-full bg-purple-light/30">
-                      <svg className="h-4 w-4 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <span>Data-backed insights for strategic planning</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="p-1 rounded-full bg-purple-light/30">
-                      <svg className="h-4 w-4 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <span>Tools to optimize pricing and control costs</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
 
           <section className="mb-20">
             <h2 className="text-3xl font-bold mb-12 text-center">Key Financial Reporting Features</h2>

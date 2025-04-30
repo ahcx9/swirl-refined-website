@@ -8,13 +8,6 @@ import {
   FileText, Globe, DollarSign, Clock, Star, 
   BarChart, Smartphone, Utensils, Sparkles, Languages
 } from 'lucide-react';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const DigitalMenu = () => {
@@ -35,41 +28,18 @@ const DigitalMenu = () => {
               Create beautiful, interactive digital menus that are easy to update in real-time. Perfect for restaurants looking to modernize their ordering experience with multiple languages, currencies, nutritional information, and AI-powered menu descriptions.
             </p>
 
-            <div className="mb-12">
-              <Carousel className="w-full">
-                <CarouselContent>
-                  <CarouselItem>
-                    <img 
-                      src="/lovable-uploads/f627dfca-6a17-4a0f-b8a8-2f9c88ed4603.png"
-                      alt="Experience our QR Menu"
-                      className="w-full h-[400px] object-contain rounded-lg bg-white"
-                    />
-                  </CarouselItem>
-                  <CarouselItem>
-                    <img 
-                      src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" 
-                      alt="Menu management system"
-                      className="w-full h-[400px] object-cover rounded-lg"
-                    />
-                  </CarouselItem>
-                  <CarouselItem>
-                    <img 
-                      src="/lovable-uploads/06ecc874-0362-496d-967b-0a2b44670639.png" 
-                      alt="Scan for experiencing dynamic menu"
-                      className="w-full h-[400px] object-contain rounded-lg bg-white"
-                    />
-                  </CarouselItem>
-                </CarouselContent>
-                <CarouselPrevious className="left-2" />
-                <CarouselNext className="right-2" />
-              </Carousel>
+            <div className="mb-12 flex justify-center">
+              <img 
+                src="/lovable-uploads/49b021c9-7a22-49cd-bfa9-510ddb6a49c9.png"
+                alt="Digital Menu QR Code"
+                className="rounded-lg shadow-lg max-h-[500px] w-auto object-contain"
+              />
             </div>
 
             <Tabs defaultValue="features" className="mb-12">
-              <TabsList className="grid w-full grid-cols-3 mb-8">
+              <TabsList className="grid w-full grid-cols-2 mb-8">
                 <TabsTrigger value="features" className="text-lg py-3">Key Features</TabsTrigger>
                 <TabsTrigger value="benefits" className="text-lg py-3">Benefits</TabsTrigger>
-                <TabsTrigger value="pricing" className="text-lg py-3">Pricing Options</TabsTrigger>
               </TabsList>
               
               <TabsContent value="features" className="space-y-8">
@@ -171,119 +141,6 @@ const DigitalMenu = () => {
                         <li>• A/B test different menu layouts and descriptions</li>
                         <li>• Make data-driven menu optimization decisions</li>
                       </ul>
-                    </div>
-                  </div>
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="pricing" className="space-y-8">
-                <div className="bg-gradient-to-r from-purple-light/20 to-purple/10 p-8 rounded-xl">
-                  <h2 className="text-2xl font-bold mb-6">Flexible Pricing Options</h2>
-                  
-                  <div className="grid md:grid-cols-3 gap-6">
-                    <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100 flex flex-col">
-                      <div className="mb-4 pb-4 border-b">
-                        <h3 className="text-xl font-semibold">Starter</h3>
-                        <div className="mt-2">
-                          <span className="text-3xl font-bold">$49</span>
-                          <span className="text-gray-500">/month</span>
-                        </div>
-                      </div>
-                      
-                      <ul className="space-y-2 mb-6 flex-grow">
-                        <li className="flex items-start gap-2">
-                          <div className="rounded-full bg-green-500 w-4 h-4 mt-1 flex items-center justify-center text-white">✓</div>
-                          <span>Basic digital menu</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="rounded-full bg-green-500 w-4 h-4 mt-1 flex items-center justify-center text-white">✓</div>
-                          <span>1 language</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="rounded-full bg-green-500 w-4 h-4 mt-1 flex items-center justify-center text-white">✓</div>
-                          <span>Photo uploads</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="rounded-full bg-green-500 w-4 h-4 mt-1 flex items-center justify-center text-white">✓</div>
-                          <span>QR code generation</span>
-                        </li>
-                      </ul>
-                      
-                      <Button className="w-full">Get Started</Button>
-                    </div>
-                    
-                    <div className="bg-white rounded-xl p-6 shadow-soft border border-purple relative flex flex-col">
-                      <div className="absolute -top-3 left-0 right-0 flex justify-center">
-                        <span className="bg-purple text-white px-3 py-1 rounded-full text-sm">Most Popular</span>
-                      </div>
-                    
-                      <div className="mb-4 pb-4 border-b">
-                        <h3 className="text-xl font-semibold">Professional</h3>
-                        <div className="mt-2">
-                          <span className="text-3xl font-bold">$99</span>
-                          <span className="text-gray-500">/month</span>
-                        </div>
-                      </div>
-                      
-                      <ul className="space-y-2 mb-6 flex-grow">
-                        <li className="flex items-start gap-2">
-                          <div className="rounded-full bg-green-500 w-4 h-4 mt-1 flex items-center justify-center text-white">✓</div>
-                          <span>All Starter features</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="rounded-full bg-green-500 w-4 h-4 mt-1 flex items-center justify-center text-white">✓</div>
-                          <span>Up to 5 languages</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="rounded-full bg-green-500 w-4 h-4 mt-1 flex items-center justify-center text-white">✓</div>
-                          <span>Nutritional information</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="rounded-full bg-green-500 w-4 h-4 mt-1 flex items-center justify-center text-white">✓</div>
-                          <span>Allergen labeling</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="rounded-full bg-green-500 w-4 h-4 mt-1 flex items-center justify-center text-white">✓</div>
-                          <span>Basic analytics</span>
-                        </li>
-                      </ul>
-                      
-                      <Button className="w-full bg-purple hover:bg-purple-dark">Choose Plan</Button>
-                    </div>
-                    
-                    <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100 flex flex-col">
-                      <div className="mb-4 pb-4 border-b">
-                        <h3 className="text-xl font-semibold">Enterprise</h3>
-                        <div className="mt-2">
-                          <span className="text-3xl font-bold">$199</span>
-                          <span className="text-gray-500">/month</span>
-                        </div>
-                      </div>
-                      
-                      <ul className="space-y-2 mb-6 flex-grow">
-                        <li className="flex items-start gap-2">
-                          <div className="rounded-full bg-green-500 w-4 h-4 mt-1 flex items-center justify-center text-white">✓</div>
-                          <span>All Professional features</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="rounded-full bg-green-500 w-4 h-4 mt-1 flex items-center justify-center text-white">✓</div>
-                          <span>Unlimited languages</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="rounded-full bg-green-500 w-4 h-4 mt-1 flex items-center justify-center text-white">✓</div>
-                          <span>AI menu descriptions</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="rounded-full bg-green-500 w-4 h-4 mt-1 flex items-center justify-center text-white">✓</div>
-                          <span>Advanced analytics</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="rounded-full bg-green-500 w-4 h-4 mt-1 flex items-center justify-center text-white">✓</div>
-                          <span>API access</span>
-                        </li>
-                      </ul>
-                      
-                      <Button className="w-full">Contact Sales</Button>
                     </div>
                   </div>
                 </div>

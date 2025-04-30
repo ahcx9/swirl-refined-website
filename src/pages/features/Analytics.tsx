@@ -61,7 +61,7 @@ const Analytics = () => {
             
             <div className="w-full md:w-1/2">
               <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" 
+                src="/lovable-uploads/8194ce09-f1c1-4ea9-8854-7e19021ef060.png" 
                 alt="Analytics dashboard showing restaurant performance metrics"
                 className="w-full h-auto object-cover rounded-xl shadow-lg"
               />
@@ -92,8 +92,8 @@ const Analytics = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <img 
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" 
-                  alt="Business analytics dashboard"
+                  src="/lovable-uploads/178474ba-cee7-44dc-b3cd-7e24b19dbc23.png" 
+                  alt="Business analytics metrics"
                   className="rounded-xl shadow-lg"
                 />
               </div>

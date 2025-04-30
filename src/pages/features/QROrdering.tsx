@@ -76,8 +76,8 @@ const QROrdering = () => {
               </div>
               <div className="rounded-xl overflow-hidden shadow-lg">
                 <img 
-                  src="https://images.unsplash.com/photo-1621274147744-cfb5032c2c83?q=80&w=1080&auto=format" 
-                  alt="Customer scanning QR code to order"
+                  src="/lovable-uploads/74058c9d-fba3-4dc8-b1e2-5c34716bd074.png" 
+                  alt="Order at your ease"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -124,8 +124,8 @@ const QROrdering = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
                 <img 
-                  src="https://images.unsplash.com/photo-1600891965050-9c606f0e6c05?q=80&w=1080&auto=format" 
-                  alt="Mobile ordering interface"
+                  src="/lovable-uploads/2bbf790c-35c7-4511-a4a7-7d48e4faf0f2.png" 
+                  alt="QR code on restaurant table"
                   className="rounded-xl shadow-lg w-full h-auto"
                 />
               </div>

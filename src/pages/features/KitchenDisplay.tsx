@@ -9,10 +9,9 @@ import {
   Timer,
   Bell,
   ClipboardCheck,
-  Settings,
-  ArrowRight
+  Settings
 } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
 const KitchenDisplay = () => {
   const features = [
@@ -63,6 +62,13 @@ const KitchenDisplay = () => {
 
         <section className="py-20">
           <div className="container-custom">
+            <div className="mb-12 flex justify-center">
+              <img 
+                src="/lovable-uploads/2bbf790c-35c7-4511-a4a7-7d48e4faf0f2.png" 
+                alt="Kitchen Display System Interface"
+                className="w-full max-w-4xl h-auto object-contain rounded-xl shadow-lg"
+              />
+            </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {features.map((feature) => (
                 <Card key={feature.title} className="card-hover">
