@@ -61,8 +61,8 @@ const Analytics = () => {
             
             <div className="w-full md:w-1/2">
               <img 
-                src="/lovable-uploads/8194ce09-f1c1-4ea9-8854-7e19021ef060.png" 
-                alt="Analytics dashboard showing restaurant performance metrics"
+                src="/lovable-uploads/6be88733-ef9e-44fd-a6b7-a1f5851419e9.png" 
+                alt="Menu & Visitor Analytics Dashboard"
                 className="w-full h-auto object-cover rounded-xl shadow-lg"
               />
             </div>
@@ -89,47 +89,45 @@ const Analytics = () => {
           </section>
 
           <section className="mb-20">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <img 
-                  src="/lovable-uploads/178474ba-cee7-44dc-b3cd-7e24b19dbc23.png" 
-                  alt="Business analytics metrics"
-                  className="rounded-xl shadow-lg"
-                />
-              </div>
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold mb-6 text-center">Make Data-Driven Decisions</h2>
+              <p className="text-lg text-swirl-gray mb-8 text-center">
+                Stop guessing and start knowing what drives your business. Swirl's analytics platform provides the insights you need to:
+              </p>
               
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Make Data-Driven Decisions</h2>
-                <p className="text-lg text-swirl-gray mb-8">
-                  Stop guessing and start knowing what drives your business. Swirl's analytics platform provides the insights you need to:
-                </p>
-                
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <div className="p-1 bg-green-100 rounded-full">
-                      <ArrowDown className="text-green-600 h-4 w-4 rotate-45" />
-                    </div>
-                    <span className="text-lg">Optimize your menu based on profitability and popularity</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="p-1 bg-green-100 rounded-full">
-                      <ArrowDown className="text-green-600 h-4 w-4 rotate-45" />
-                    </div>
-                    <span className="text-lg">Schedule staff efficiently based on busy periods</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="p-1 bg-green-100 rounded-full">
-                      <ArrowDown className="text-green-600 h-4 w-4 rotate-45" />
-                    </div>
-                    <span className="text-lg">Identify your most valuable customers and offerings</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="p-1 bg-green-100 rounded-full">
-                      <ArrowDown className="text-green-600 h-4 w-4 rotate-45" />
-                    </div>
-                    <span className="text-lg">Forecast sales and plan inventory purchases more accurately</span>
-                  </li>
-                </ul>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="bg-white rounded-xl p-6 shadow-md">
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <div className="p-1 bg-green-100 rounded-full">
+                        <ArrowDown className="text-green-600 h-4 w-4 rotate-45" />
+                      </div>
+                      <span className="text-lg">Optimize your menu based on profitability and popularity</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="p-1 bg-green-100 rounded-full">
+                        <ArrowDown className="text-green-600 h-4 w-4 rotate-45" />
+                      </div>
+                      <span className="text-lg">Schedule staff efficiently based on busy periods</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-md">
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <div className="p-1 bg-green-100 rounded-full">
+                        <ArrowDown className="text-green-600 h-4 w-4 rotate-45" />
+                      </div>
+                      <span className="text-lg">Identify your most valuable customers and offerings</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="p-1 bg-green-100 rounded-full">
+                        <ArrowDown className="text-green-600 h-4 w-4 rotate-45" />
+                      </div>
+                      <span className="text-lg">Forecast sales and plan inventory purchases more accurately</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </section>
