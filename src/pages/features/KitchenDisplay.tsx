@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
@@ -61,11 +62,11 @@ const KitchenDisplay = () => {
 
         <section className="py-20">
           <div className="container-custom">
-            <div className="mb-12 flex justify-center">
+            <div className="mb-12">
               <img 
                 src="/lovable-uploads/85df272f-78b0-4180-bd9e-a069e750623a.png" 
                 alt="Kitchen Display System Interface"
-                className="w-full max-w-4xl h-auto object-contain rounded-xl shadow-lg"
+                className="w-full md:max-w-2xl mx-auto h-auto object-contain rounded-xl shadow-lg"
               />
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
