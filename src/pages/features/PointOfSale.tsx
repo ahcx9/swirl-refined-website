@@ -1,20 +1,11 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { 
-  CreditCard, Laptop, Printer, Smartphone, 
-  TabletSmartphone, QrCode, CheckCircle, Clock, Database
+  CreditCard, Laptop, CheckCircle, Clock, Database, QrCode
 } from 'lucide-react';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const PointOfSale = () => {
@@ -24,45 +15,32 @@ const PointOfSale = () => {
       <main className="flex-grow pt-24 pb-16">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="p-3 rounded-full bg-purple-light/30">
-                <CreditCard className="text-purple h-6 w-6" />
-              </div>
-              <h1 className="text-4xl font-bold">Point of Sale System</h1>
-            </div>
-            
-            <p className="text-lg text-swirl-gray mb-8">
-              A modern, intuitive point-of-sale system designed specifically for restaurants. Streamline your operations with fast checkout, easy table management, and seamless payment processing. Our complete solution includes both powerful software and reliable hardware options to fit your specific needs.
-            </p>
+            {/* Hero Section with Image and Text Side by Side */}
+            <div className="flex flex-col lg:flex-row gap-8 mb-12 items-center">
+              <div className="lg:w-1/2">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="p-3 rounded-full bg-purple-light/30">
+                    <CreditCard className="text-purple h-6 w-6" />
+                  </div>
+                  <h1 className="text-4xl font-bold">Point of Sale System</h1>
+                </div>
+                
+                <p className="text-lg text-swirl-gray mb-8">
+                  A modern, intuitive point-of-sale system designed specifically for restaurants. Streamline your operations with fast checkout, easy table management, and seamless payment processing. Our complete solution includes both powerful software and reliable hardware options to fit your specific needs.
+                </p>
 
-            <div className="mb-12">
-              <Carousel className="w-full">
-                <CarouselContent>
-                  <CarouselItem>
-                    <img 
-                      src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81" 
-                      alt="Modern POS system interface"
-                      className="w-full h-[400px] object-cover rounded-lg"
-                    />
-                  </CarouselItem>
-                  <CarouselItem>
-                    <img 
-                      src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7" 
-                      alt="Staff using POS system"
-                      className="w-full h-[400px] object-cover rounded-lg"
-                    />
-                  </CarouselItem>
-                  <CarouselItem>
-                    <img 
-                      src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" 
-                      alt="Payment processing interface"
-                      className="w-full h-[400px] object-cover rounded-lg"
-                    />
-                  </CarouselItem>
-                </CarouselContent>
-                <CarouselPrevious className="left-2" />
-                <CarouselNext className="right-2" />
-              </Carousel>
+                <Button asChild className="btn-primary">
+                  <Link to="/contact">Request Demo</Link>
+                </Button>
+              </div>
+
+              <div className="lg:w-1/2">
+                <img 
+                  src="/lovable-uploads/61104fed-106e-4e91-a301-9f0fd8b8cb4b.png" 
+                  alt="POS System Interface" 
+                  className="rounded-lg shadow-lg w-full object-contain"
+                />
+              </div>
             </div>
 
             <Tabs defaultValue="software" className="mb-12">
