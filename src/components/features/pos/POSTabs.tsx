@@ -7,18 +7,18 @@ import POSHardwareSolutions from './POSHardwareSolutions';
 const POSTabs = () => {
   return (
     <Tabs defaultValue="software" className="mb-16">
-      <TabsList className="grid w-full grid-cols-2 mb-10 bg-white border border-gray-100 shadow-sm rounded-lg overflow-hidden">
+      <TabsList className="grid w-full grid-cols-2 mb-12 bg-white border border-gray-200 shadow-md rounded-xl overflow-hidden">
         <TabsTrigger 
           value="software" 
-          className="text-base md:text-lg py-6 px-4 font-semibold tracking-wide data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-light/30 data-[state=active]:to-purple/10"
+          className="text-base md:text-lg py-8 font-bold tracking-wide data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-light data-[state=active]:to-purple/20 data-[state=active]:text-purple-dark transition-all duration-200"
         >
-          <span className="px-2">POS Software</span>
+          <span className="px-4 py-2">POS Software</span>
         </TabsTrigger>
         <TabsTrigger 
           value="hardware" 
-          className="text-base md:text-lg py-6 px-4 font-semibold tracking-wide data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-light/30 data-[state=active]:to-purple/10"
+          className="text-base md:text-lg py-8 font-bold tracking-wide data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-light data-[state=active]:to-purple/20 data-[state=active]:text-purple-dark transition-all duration-200"
         >
-          <span className="px-2">POS Hardware</span>
+          <span className="px-4 py-2">POS Hardware</span>
         </TabsTrigger>
       </TabsList>
       
