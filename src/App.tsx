@@ -25,12 +25,10 @@ import InCarOrdering from './pages/features/InCarOrdering';
 import CRM from './pages/features/CRM';
 import FinancialReports from './pages/features/FinancialReports';
 import PayrollManagement from './pages/features/PayrollManagement';
-import FaviconBackgroundRemover from './components/FaviconBackgroundRemover';
 
 function App() {
   return (
     <Router>
-      <FaviconBackgroundRemover />
       <ScrollToTop />
       <Navbar />
       <Routes>
