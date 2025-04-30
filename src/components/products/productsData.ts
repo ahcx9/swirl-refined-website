@@ -114,7 +114,7 @@ export const products = [
     description: 'Streamline staff payments and track labor costs efficiently, with time tracking, tax calculations, and direct deposit options for hassle-free payroll processing.',
     icon: Calendar,
     path: '/products/payroll-management',
-    image: "/lovable-uploads/4a4a7e21-2319-4b47-89c2-c17befc8735c.png",
+    image: "/lovable-uploads/or.jpg",
     features: [
       'Time tracking', 
       'Tax calculations', 
