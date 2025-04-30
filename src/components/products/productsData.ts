@@ -86,7 +86,7 @@ export const products = [
     description: 'Customer relationship management tools to build loyalty and drive repeat business through targeted marketing campaigns and personalized customer experiences.',
     icon: Users,
     path: '/products/crm',
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf",
+    image: "/lovable-uploads/6be88733-ef9e-44fd-a6b7-a1f5851419e9.png",
     features: [
       'Customer profiles', 
       'Loyalty programs', 
@@ -114,7 +114,7 @@ export const products = [
     description: 'Streamline staff payments and track labor costs efficiently, with time tracking, tax calculations, and direct deposit options for hassle-free payroll processing.',
     icon: Calendar,
     path: '/products/payroll-management',
-    image: "/lovable-uploads/or.jpg",
+    image: "/lovable-uploads/82bc695f-d01b-4b96-8cac-e29f2c43dddb.png",
     features: [
       'Time tracking', 
       'Tax calculations', 
@@ -128,7 +128,7 @@ export const products = [
     description: 'Track stock levels, reduce waste, and optimize your purchasing with real-time inventory tracking, automated ordering, and comprehensive vendor management.',
     icon: Package,
     path: '/products/inventory-management',
-    image: "/lovable-uploads/inventory_dash.png",
+    image: "/lovable-uploads/cebfea27-8e23-43d1-8ca2-44bb562429f9.png",
     features: [
       'Real-time tracking', 
       'Waste reduction', 
@@ -156,7 +156,7 @@ export const products = [
     description: 'Manage bookings and optimize table turnover with our advanced reservation system. Handle waitlists, send automated reminders, and collect guest preferences.',
     icon: Utensils,
     path: '/products/reservations',
-    image: "/lovable-uploads/res.jpg",
+    image: "/lovable-uploads/92d5e15f-318e-46e8-9d20-bdca69d36285.png",
     features: [
       'Online bookings', 
       'Table management', 
