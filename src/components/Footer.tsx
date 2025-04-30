@@ -18,12 +18,6 @@ const Footer = () => {
               Transforming restaurant management with innovative digital solutions. Our integrated platform helps you streamline operations, increase revenue, and enhance customer experience.
             </p>
             <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-purple p-2 rounded-full transition-colors" aria-label="Facebook">
-                <Facebook size={20} className="text-white" />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-purple p-2 rounded-full transition-colors" aria-label="Instagram">
-                <Instagram size={20} className="text-white" />
-              </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-purple p-2 rounded-full transition-colors" aria-label="LinkedIn">
                 <Linkedin size={20} className="text-white" />
               </a>
