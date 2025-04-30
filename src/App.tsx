@@ -8,7 +8,7 @@ import Navbar from './components/navbar/Navbar';
 import ScrollToTop from './components/ScrollToTop';
 import Contact from './pages/Contact';
 import ProductOverview from './pages/ProductOverview';
-import Industries from './pages/Industries';
+import UseCases from './pages/UseCases';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Sitemap from './pages/Sitemap';
@@ -34,7 +34,7 @@ function App() {
         <Route path="/" element={<Index />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<ProductOverview />} />
-        <Route path="/industries" element={<Industries />} />
+        <Route path="/use-cases" element={<UseCases />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/sitemap" element={<Sitemap />} />

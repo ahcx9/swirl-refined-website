@@ -1,6 +1,5 @@
 
 import React from 'react';
-import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
@@ -28,7 +27,7 @@ const Sitemap = () => {
   const mainPages = [
     { name: 'Home', path: '/' },
     { name: 'Products Overview', path: '/products' },
-    { name: 'Industries', path: '/industries' },
+    { name: 'Use Cases', path: '/use-cases' },
     { name: 'Contact Us', path: '/contact' },
   ];
 
@@ -53,7 +52,6 @@ const Sitemap = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
       <main className="flex-grow pt-24">
         <section className="bg-purple-light/10 py-10">
           <div className="container mx-auto px-4">

@@ -1,5 +1,5 @@
+
 import React from 'react';
-import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
-const Industries = () => {
+const UseCases = () => {
   const segments = [
     {
       title: "Food Trucks",
@@ -60,12 +60,11 @@ const Industries = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
       <main className="flex-grow pt-24">
         <section className="bg-purple-light/10 py-20">
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-inter">Industry Solutions</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-inter">Use Cases</h1>
               <p className="text-lg text-swirl-gray mb-8 font-inter">
                 Discover tailored solutions for every segment of the food service industry. From food trucks to fine dining establishments, we provide specialized tools to enhance your operations.
               </p>
@@ -99,4 +98,4 @@ const Industries = () => {
   );
 };
 
-export default Industries;
+export default UseCases;

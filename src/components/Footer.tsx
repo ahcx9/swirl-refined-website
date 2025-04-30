@@ -24,24 +24,24 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Industries */}
+          {/* Use Cases */}
           <div>
-            <h3 className="text-xl font-semibold mb-6 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-1 after:w-12 after:bg-purple after:-mb-2">Industries</h3>
+            <h3 className="text-xl font-semibold mb-6 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-1 after:w-12 after:bg-purple after:-mb-2">Use Cases</h3>
             <ul className="space-y-4">
               <li>
-                <Link to="/industries#fine-dining" className="text-white/70 hover:text-purple transition-colors inline-block">Fine Dining</Link>
+                <Link to="/use-cases#fine-dining" className="text-white/70 hover:text-purple transition-colors inline-block">Fine Dining</Link>
               </li>
               <li>
-                <Link to="/industries#casual-dining" className="text-white/70 hover:text-purple transition-colors inline-block">Casual Dining</Link>
+                <Link to="/use-cases#casual-dining" className="text-white/70 hover:text-purple transition-colors inline-block">Casual Dining</Link>
               </li>
               <li>
-                <Link to="/industries#fast-food" className="text-white/70 hover:text-purple transition-colors inline-block">Fast Food</Link>
+                <Link to="/use-cases#fast-food" className="text-white/70 hover:text-purple transition-colors inline-block">Fast Food</Link>
               </li>
               <li>
-                <Link to="/industries#cafes" className="text-white/70 hover:text-purple transition-colors inline-block">Cafés</Link>
+                <Link to="/use-cases#cafes" className="text-white/70 hover:text-purple transition-colors inline-block">Cafés</Link>
               </li>
               <li>
-                <Link to="/industries#food-trucks" className="text-white/70 hover:text-purple transition-colors inline-block">Food Trucks</Link>
+                <Link to="/use-cases#food-trucks" className="text-white/70 hover:text-purple transition-colors inline-block">Food Trucks</Link>
               </li>
             </ul>
           </div>

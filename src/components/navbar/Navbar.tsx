@@ -77,7 +77,7 @@ const features = [
 
 const mainLinks = [
   { name: 'Features', items: features },
-  { name: 'Industries', path: '/industries' },
+  { name: 'Use Cases', path: '/use-cases' },
   { name: 'Contact', path: '/contact' },
 ];
 
