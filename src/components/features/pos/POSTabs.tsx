@@ -6,10 +6,20 @@ import POSHardwareSolutions from './POSHardwareSolutions';
 
 const POSTabs = () => {
   return (
-    <Tabs defaultValue="software" className="mb-12">
-      <TabsList className="grid w-full grid-cols-2 mb-8">
-        <TabsTrigger value="software" className="text-lg py-3">POS Software</TabsTrigger>
-        <TabsTrigger value="hardware" className="text-lg py-3">POS Hardware</TabsTrigger>
+    <Tabs defaultValue="software" className="mb-16">
+      <TabsList className="grid w-full grid-cols-2 mb-10 bg-white border border-gray-100 shadow-sm rounded-lg overflow-hidden">
+        <TabsTrigger 
+          value="software" 
+          className="text-base md:text-lg py-4 data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-light/30 data-[state=active]:to-purple/10"
+        >
+          POS Software
+        </TabsTrigger>
+        <TabsTrigger 
+          value="hardware" 
+          className="text-base md:text-lg py-4 data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-light/30 data-[state=active]:to-purple/10"
+        >
+          POS Hardware
+        </TabsTrigger>
       </TabsList>
       
       <TabsContent value="software" className="space-y-8">

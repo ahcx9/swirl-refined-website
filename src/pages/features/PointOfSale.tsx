@@ -11,9 +11,9 @@ const PointOfSale = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-24 pb-16">
+      <main className="flex-grow pt-28 pb-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container-custom">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <POSHero />
             <POSTabs />
             <POSBenefits />

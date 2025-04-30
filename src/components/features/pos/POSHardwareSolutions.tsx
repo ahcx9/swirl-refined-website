@@ -9,13 +9,13 @@ interface HardwareOptionProps {
 }
 
 const HardwareOption = ({ title, features }: HardwareOptionProps) => (
-  <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
-    <h3 className="text-xl font-semibold mb-3">{title}</h3>
-    <ul className="space-y-2">
+  <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100 hover:shadow-card hover:-translate-y-1 transition-all duration-300">
+    <h3 className="text-xl font-semibold mb-4 text-gray-800">{title}</h3>
+    <ul className="space-y-3">
       {features.map((feature, index) => (
         <li key={index} className="flex items-start">
           <CheckCircle size={16} className="text-green-500 mr-2 mt-1 shrink-0" />
-          <span>{feature}</span>
+          <span className="text-swirl-gray">{feature}</span>
         </li>
       ))}
     </ul>
@@ -75,9 +75,9 @@ const POSHardwareSolutions = () => {
   ];
 
   return (
-    <div className="bg-blue-50 p-8 rounded-xl">
-      <h2 className="text-2xl font-bold mb-6 flex items-center">
-        <Tablet className="mr-2" /> Hardware Solutions
+    <div className="bg-gradient-to-r from-blue-50 to-purple-light/10 p-8 md:p-10 rounded-xl">
+      <h2 className="text-2xl font-bold mb-8 flex items-center">
+        <Tablet className="mr-3 text-purple" /> Hardware Solutions
       </h2>
       
       <div className="grid md:grid-cols-2 gap-6">

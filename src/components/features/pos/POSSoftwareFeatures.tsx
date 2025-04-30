@@ -3,12 +3,12 @@ import React from 'react';
 import { CheckCircle, Laptop } from 'lucide-react';
 
 const FeatureCard = ({ title, description }: { title: string; description: string }) => (
-  <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
+  <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100 hover:shadow-card hover:-translate-y-1 transition-all duration-300">
     <div className="flex items-center gap-2 mb-3">
-      <CheckCircle size={18} className="text-green-500" />
+      <CheckCircle size={18} className="text-green-500 shrink-0" />
       <h3 className="text-xl font-semibold">{title}</h3>
     </div>
-    <p className="text-swirl-gray">{description}</p>
+    <p className="text-swirl-gray leading-relaxed">{description}</p>
   </div>
 );
 
@@ -49,9 +49,9 @@ const POSSoftwareFeatures = () => {
   ];
 
   return (
-    <div className="bg-purple-light/10 p-8 rounded-xl">
-      <h2 className="text-2xl font-bold mb-6 flex items-center">
-        <Laptop className="mr-2" /> Powerful Software Features
+    <div className="bg-gradient-to-r from-purple-light/30 to-purple/5 p-8 md:p-10 rounded-xl">
+      <h2 className="text-2xl font-bold mb-8 flex items-center">
+        <Laptop className="mr-3 text-purple" /> Powerful Software Features
       </h2>
       
       <div className="grid md:grid-cols-2 gap-6">
