@@ -3,7 +3,6 @@ import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
-import AdvancedFeatures from '@/components/AdvancedFeatures';
 import NextGenFeatures from '@/components/NextGenFeatures';
 import TrustedRestaurants from '@/components/TrustedRestaurants';
 import BlogSection from '@/components/BlogSection';
@@ -20,7 +19,6 @@ const Index = () => {
         <Features />
         <TrustedRestaurants />
         <NextGenFeatures />
-        <AdvancedFeatures />
         <BlogSection />
         <FAQSection />
         <CTASection />

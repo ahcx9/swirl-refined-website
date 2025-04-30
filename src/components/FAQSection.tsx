@@ -32,6 +32,14 @@ const leftColumnFaqs: FAQItem[] = [
   {
     question: "What kind of training do you provide for restaurant staff?",
     answer: "We provide comprehensive training for all restaurant staff, including managers, servers, and kitchen staff. Our training includes hands-on sessions, video tutorials, and detailed documentation. We also offer ongoing support after implementation to ensure your team is comfortable and confident using our system."
+  },
+  {
+    question: "How much does the Swirl.cx platform cost?",
+    answer: "Swirl offers flexible pricing based on your restaurant's specific needs and size. We provide several tiers of service, from basic digital menu solutions to comprehensive restaurant management systems. Our pricing is transparent with no hidden fees, and we offer monthly subscription options as well as annual plans with discounted rates. Contact us for a customized quote tailored to your business requirements."
+  },
+  {
+    question: "Can Swirl help me with creating content for my digital menu?",
+    answer: "Absolutely! We offer professional menu content creation services, including AI-powered menu descriptions that highlight your dishes' unique selling points. Our team can also assist with professional food photography, nutritional information calculations, and allergen labeling to ensure your digital menu is not only functional but also visually appealing and informative."
   }
 ];
 
@@ -55,6 +63,14 @@ const rightColumnFaqs: FAQItem[] = [
   {
     question: "Do you offer hardware for the POS system or only software?",
     answer: "Swirl offers both software and hardware solutions for a complete POS experience. Our hardware includes high-quality touchscreen terminals, kitchen display systems, receipt printers, barcode scanners, and payment processing devices. We carefully select reliable hardware that integrates perfectly with our software, ensuring a seamless and robust restaurant management system."
+  },
+  {
+    question: "Can Swirl's system work offline if my internet connection fails?",
+    answer: "Yes, Swirl is designed with business continuity in mind. Our system includes offline functionality that allows your restaurant to continue taking orders and processing payments even during internet outages. Once connectivity is restored, all data automatically syncs to the cloud, ensuring you never lose important information and your operations can continue uninterrupted."
+  },
+  {
+    question: "How customizable is the Swirl platform for my restaurant's unique needs?",
+    answer: "Swirl offers extensive customization options to match your restaurant's specific requirements and branding. From menu layouts and color schemes to specialized features for your service model, our platform can be tailored to your needs. We also provide an API for businesses with specific integration requirements, allowing for custom development to extend the platform's functionality."
   }
 ];
 

@@ -10,13 +10,13 @@ const POSTabs = () => {
       <TabsList className="grid w-full grid-cols-2 mb-10 bg-white border border-gray-100 shadow-sm rounded-lg overflow-hidden">
         <TabsTrigger 
           value="software" 
-          className="text-base md:text-lg py-4 data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-light/30 data-[state=active]:to-purple/10"
+          className="text-base md:text-lg py-4 font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-light/30 data-[state=active]:to-purple/10"
         >
           POS Software
         </TabsTrigger>
         <TabsTrigger 
           value="hardware" 
-          className="text-base md:text-lg py-4 data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-light/30 data-[state=active]:to-purple/10"
+          className="text-base md:text-lg py-4 font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-light/30 data-[state=active]:to-purple/10"
         >
           POS Hardware
         </TabsTrigger>

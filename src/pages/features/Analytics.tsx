@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
@@ -59,12 +58,14 @@ const Analytics = () => {
               </div>
             </div>
             
-            <div className="w-full md:w-1/2">
-              <img 
-                src="/lovable-uploads/6be88733-ef9e-44fd-a6b7-a1f5851419e9.png" 
-                alt="Menu & Visitor Analytics Dashboard"
-                className="w-full h-auto object-cover rounded-xl shadow-lg"
-              />
+            <div className="w-full md:w-1/2 flex items-center">
+              <div className="w-full bg-gradient-to-br from-purple-light/30 to-white rounded-xl overflow-hidden p-0">
+                <img 
+                  src="/lovable-uploads/35e9fd73-7370-41cc-89e5-6259df112af0.png" 
+                  alt="Menu & Visitor Analytics Dashboard"
+                  className="w-full h-auto object-contain mix-blend-multiply"
+                />
+              </div>
             </div>
           </div>
 

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
@@ -24,7 +23,8 @@ const products = [
       'Multi-language support', 
       'Nutritional information', 
       'AI-generated descriptions'
-    ]
+    ],
+    bgClass: "bg-purple-light/10"
   },
   {
     id: 'qr-ordering',
@@ -32,13 +32,14 @@ const products = [
     description: 'Contactless ordering solution where customers can scan QR codes, browse your menu, and place their orders directly from their device, with real-time status updates.',
     icon: ShoppingCart,
     path: '/products/qr-ordering',
-    image: "/lovable-uploads/06ecc874-0362-496d-967b-0a2b44670639.png",
+    image: "/lovable-uploads/4127f4ed-f4a1-452d-bdba-5bc27d6fb8bc.png",
     features: [
       'Tableside ordering', 
       'Custom QR codes', 
       'Payment integration', 
       'Order tracking'
-    ]
+    ],
+    bgClass: "bg-purple-light/10"
   },
   {
     id: 'analytics',
@@ -46,13 +47,14 @@ const products = [
     description: 'Gain valuable insights about your business with our powerful analytics tools. Track sales, customer behavior, and menu performance with customizable dashboards.',
     icon: BarChart,
     path: '/products/analytics',
-    image: "/lovable-uploads/6be88733-ef9e-44fd-a6b7-a1f5851419e9.png",
+    image: "/lovable-uploads/35e9fd73-7370-41cc-89e5-6259df112af0.png",
     features: [
       'Real-time dashboards', 
       'Custom reports', 
       'Trend analysis', 
       'Data export'
-    ]
+    ],
+    bgClass: "bg-gradient-to-br from-purple-light/30 to-white"
   },
   {
     id: 'pos',
@@ -66,7 +68,8 @@ const products = [
       'Split bills', 
       'Fast checkout', 
       'Employee access levels'
-    ]
+    ],
+    bgClass: "bg-gradient-to-br from-purple-light/30 to-white"
   },
   {
     id: 'reports',
@@ -200,11 +203,11 @@ const ProductOverview = () => {
                   key={product.id}
                   className={`grid grid-cols-1 ${index % 2 === 0 ? 'lg:grid-cols-[1fr_1.5fr]' : 'lg:grid-cols-[1.5fr_1fr] lg:flex-row-reverse'} gap-8 lg:gap-16 items-center`}
                 >
-                  <div className={`overflow-hidden rounded-2xl ${index % 2 === 0 ? 'bg-purple-light/10' : 'bg-swirl-blue/10'} relative`}>
+                  <div className={`overflow-hidden rounded-2xl ${product.bgClass || (index % 2 === 0 ? 'bg-purple-light/10' : 'bg-swirl-blue/10')} relative`}>
                     <img 
                       src={product.image} 
                       alt={product.title}
-                      className="w-full h-full min-h-[300px] object-contain transition-transform duration-700 hover:scale-105 p-4"
+                      className="w-full h-full min-h-[300px] object-contain transition-transform duration-700 hover:scale-105 p-4 mix-blend-multiply"
                     />
                   </div>
                   
@@ -240,8 +243,7 @@ const ProductOverview = () => {
                 Our team is ready to show you how swirl.cx can transform your business with our integrated suite of tools.
               </p>
               <Button asChild className="btn-primary">
-                <Link to="/contact">Ready to Transform your Restaurant/Cafe 🍽️?
-                </Link>
+                <Link to="/contact">Ready to Transform your Restaurant/Cafe 🍽️?</Link>
               </Button>
             </div>
           </div>
