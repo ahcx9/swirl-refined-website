@@ -70,15 +70,6 @@ const blogPosts = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format",
     slug: "elevate dining",
     link: "https://blog.swirl.cx/2025/03/06/elevating-dining/"
-  },
-  {
-    title: "The Future of QR Ordering in Restaurants",
-    excerpt: "Explore how QR code ordering is revolutionizing the dining experience and streamlining operations.",
-    date: "April 10, 2025",
-    author: "Khalid ",
-    image: "https://images.unsplash.com/photo-1576866206061-0ae9ec810b9a?q=80&w=800&auto=format",
-    slug: "future-qr-ordering",
-    link: "https://blog.swirl.cx/2025/03/07/diner-experience/"
   }
 ];
 
@@ -95,7 +86,7 @@ const BlogSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {blogPosts.map((post, index) => (
             <BlogPostCard key={index} {...post} />
           ))}

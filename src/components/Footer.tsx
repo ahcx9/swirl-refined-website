@@ -8,26 +8,6 @@ const Footer = () => {
   
   return (
     <footer className="bg-purple-dark text-white">
-      {/* Top Section with Newsletter */}
-      <div className="container-custom py-12 border-b border-white/10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h3 className="text-2xl font-bold mb-2">Stay updated with Swirl</h3>
-            <p className="text-white/70">Subscribe to our newsletter for updates, tips, and special offers.</p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              className="bg-white/10 text-white border border-white/20 rounded-md px-4 py-3 flex-grow focus:outline-none focus:ring-2 focus:ring-purple"
-            />
-            <button className="bg-purple text-white px-6 py-3 rounded-md hover:bg-purple-light transition-all whitespace-nowrap">
-              Subscribe
-            </button>
-          </div>
-        </div>
-      </div>
-      
       {/* Main Footer Section */}
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
@@ -122,15 +102,15 @@ const Footer = () => {
             © {year} swirl.cx. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <a href="/privacy" className="text-white/70 hover:text-purple text-sm transition-colors">
+            <Link to="/privacy" className="text-white/70 hover:text-purple text-sm transition-colors">
               Privacy Policy
-            </a>
-            <a href="/terms" className="text-white/70 hover:text-purple text-sm transition-colors">
+            </Link>
+            <Link to="/terms" className="text-white/70 hover:text-purple text-sm transition-colors">
               Terms of Service
-            </a>
-            <a href="/sitemap" className="text-white/70 hover:text-purple text-sm transition-colors">
+            </Link>
+            <Link to="/sitemap" className="text-white/70 hover:text-purple text-sm transition-colors">
               Sitemap
-            </a>
+            </Link>
           </div>
         </div>
       </div>

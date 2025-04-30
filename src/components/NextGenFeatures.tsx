@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Palette, ChartBar, MessageSquare, Database, Globe, Calendar, Bell, Shield, Users, Zap } from 'lucide-react';
+import { Palette, ChartBar, MessageSquare, Database, Globe, Calendar, Bell, Shield, Users, DollarSign } from 'lucide-react';
 
 interface FeatureCardProps {
   title: string;
@@ -11,12 +11,12 @@ interface FeatureCardProps {
 
 const FeatureCard = ({ title, description, icon }: FeatureCardProps) => {
   return (
-    <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-[#0F1C2D] text-white h-full">
+    <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-gray-50 text-dark h-full">
       <CardContent className="p-6">
         <div className="flex flex-col space-y-4">
           <div>{icon}</div>
           <h3 className="text-xl font-semibold">{title}</h3>
-          <p className="text-gray-300">{description}</p>
+          <p className="text-gray-700">{description}</p>
         </div>
       </CardContent>
     </Card>
@@ -63,6 +63,11 @@ const NextGenFeatures = () => {
             icon={<Globe size={32} className="text-purple" />}
           />
           <FeatureCard
+            title="Multiple Currencies"
+            description="Support various currencies with real-time exchange rates for international customers."
+            icon={<DollarSign size={32} className="text-purple" />}
+          />
+          <FeatureCard
             title="Reservation Management"
             description="Allow customers to book tables online with automated confirmation and reminder notifications."
             icon={<Calendar size={32} className="text-purple" />}
@@ -74,13 +79,8 @@ const NextGenFeatures = () => {
           />
           <FeatureCard
             title="Inventory Management"
-            description="Track, manage, and optimize your restaurant’s stock with real-time inventory control and smart reorder alerts."
+            description="Track, manage, and optimize your restaurant's stock with real-time inventory control and smart reorder alerts."
             icon={<Shield size={32} className="text-purple" />}
-          />
-          <FeatureCard
-            title="Staff Management"
-            description="Efficiently manage staff schedules, tasks, and performance metrics all in one place."
-            icon={<Users size={32} className="text-purple" />}
           />
         </div>
 

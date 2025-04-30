@@ -21,6 +21,9 @@ import InventoryManagement from "./pages/features/InventoryManagement";
 import KitchenDisplay from "./pages/features/KitchenDisplay";
 import Reservations from "./pages/features/Reservations";
 import Industries from "./pages/Industries";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import Sitemap from "./pages/Sitemap";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +50,9 @@ const App = () => (
           <Route path="/products/inventory-management" element={<InventoryManagement />} />
           <Route path="/products/kitchen-display" element={<KitchenDisplay />} />
           <Route path="/products/reservations" element={<Reservations />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/sitemap" element={<Sitemap />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

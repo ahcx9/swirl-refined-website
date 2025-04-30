@@ -54,7 +54,7 @@ const restaurants = [
   },
   { 
     name: "La Pino'z Pizza", 
-    logo: "/lovable-uploads/8993a146-162a-42c5-acb9-9a0f6d694375.png",
+    logo: "/lovable-uploads/82584175-2d38-4de3-8a1e-b70b0efd41cb.png",
   }
 ];
 
@@ -82,7 +82,7 @@ const TrustedRestaurants = () => {
                   <img
                     src={restaurant.logo}
                     alt={restaurant.name}
-                    className="max-h-16 w-auto object-contain transition-transform duration-500 ease-in-out hover:scale-110"
+                    className="max-h-16 w-auto object-contain transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
                   />
                 </div>
               </CarouselItem>
