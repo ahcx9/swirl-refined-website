@@ -38,14 +38,14 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-b from-purple-light/10 to-white">
+    <section className="pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-b from-purple-light/10 to-white">
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
               Enhance your customer experience with <span className="text-gradient">AI-powered</span> restaurant management solutions
             </h1>
-            <p className="text-lg md:text-xl text-swirl-gray mb-8 max-w-xl mx-auto lg:mx-0">
+            <p className="text-base md:text-lg text-swirl-gray mb-6 max-w-xl mx-auto lg:mx-0">
               Streamline your restaurant operations with our smart digital tools. Boost efficiency, improve customer experience, and increase profits.
             </p>
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
@@ -58,7 +58,7 @@ const Hero = () => {
                 </Link>
               </Button>
             </div>
-            <div className="mt-8 text-sm text-swirl-gray">
+            <div className="mt-6 text-sm text-swirl-gray">
               <p>Trusted by 1000+ restaurants worldwide</p>
             </div>
           </div>

@@ -11,63 +11,63 @@ const features = [
   {
     id: 'digital-menu',
     title: 'Digital Menu',
-    description: 'Create beautiful, interactive digital menus that are easy to update in real-time.',
+    description: 'Interactive digital menus with real-time updates.',
     icon: FileText,
     path: '/products/digital-menu'
   },
   {
     id: 'qr-ordering',
     title: 'QR Ordering',
-    description: 'Contactless ordering solution for a seamless dining experience for your customers.',
+    description: 'Contactless ordering for seamless dining experience.',
     icon: ShoppingCart,
     path: '/products/qr-ordering'
   },
   {
     id: 'analytics',
     title: 'Analytics',
-    description: 'Gain valuable insights about your business with our powerful analytics tools.',
+    description: 'Gain valuable insights about your business.',
     icon: BarChart,
     path: '/products/analytics'
   },
   {
     id: 'pos',
     title: 'POS System',
-    description: 'Modern point-of-sale system designed specifically for restaurant needs.',
+    description: 'Modern point-of-sale for restaurant needs.',
     icon: CreditCard,
     path: '/products/pos'
   },
   {
     id: 'reports',
     title: 'Financial Reports',
-    description: "Comprehensive financial reporting to track your restaurant's performance.",
+    description: "Comprehensive performance tracking.",
     icon: LayoutDashboard,
     path: '/products/financial-reports'
   },
   {
     id: 'crm',
     title: 'CRM',
-    description: 'Customer relationship management tools to build loyalty and drive repeat business.',
+    description: 'Build loyalty and drive repeat business.',
     icon: Users,
     path: '/products/crm'
   },
   {
     id: 'car-ordering',
     title: 'Car Ordering',
-    description: 'Enable customers to order from their vehicles for pickup or drive-through.',
+    description: 'Order from vehicles for pickup or drive-through.',
     icon: Car,
     path: '/products/ordering-from-car'
   },
   {
     id: 'payroll',
     title: 'Payroll Management',
-    description: 'Streamline staff payments and track labor costs efficiently.',
+    description: 'Streamline staff payments and labor costs.',
     icon: Calendar,
     path: '/products/payroll-management'
   },
   {
     id: 'inventory',
     title: 'Inventory Management',
-    description: 'Track stock levels, reduce waste, and optimize your purchasing.',
+    description: 'Track stock and optimize purchasing.',
     icon: Package,
     path: '/products/inventory-management'
   }
@@ -75,38 +75,36 @@ const features = [
 
 const Features = () => {
   return (
-    <section id="features" className="section-padding bg-white">
+    <section id="features" className="py-12 md:py-16 bg-white">
       <div className="container-custom">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Comprehensive Solutions for Modern Restaurants</h2>
-          <p className="text-lg text-swirl-gray max-w-3xl mx-auto">
-            Our suite of integrated tools helps you manage every aspect of your restaurant business efficiently.
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">Comprehensive Solutions for Modern Restaurants</h2>
+          <p className="text-base text-swirl-gray max-w-2xl mx-auto mb-8">
+            Our integrated suite of tools helps you manage every aspect of your restaurant efficiently.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6">
           {features.map((feature) => (
             <Link 
               to={feature.path} 
               key={feature.id}
-              className="bg-white rounded-xl shadow-soft p-6 card-hover border border-gray-100"
+              className="bg-gradient-to-br from-white to-gray-50/30 rounded-xl shadow-sm hover:shadow-md p-4 transition-all duration-300 hover:-translate-y-1 border border-gray-100/80 group"
             >
-              <div className="w-12 h-12 rounded-full bg-purple-light/30 flex items-center justify-center mb-4">
-                <feature.icon className="text-purple" size={20} />
+              <div className="flex items-start">
+                <div className="w-10 h-10 rounded-full bg-purple-light/30 flex items-center justify-center mr-3 group-hover:bg-purple/20 transition-colors">
+                  <feature.icon className="text-purple" size={18} />
+                </div>
+                <div>
+                  <h3 className="text-base font-semibold mb-1 group-hover:text-purple transition-colors">{feature.title}</h3>
+                  <p className="text-sm text-swirl-gray">{feature.description}</p>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-              <p className="text-swirl-gray mb-4">{feature.description}</p>
-              <Button 
-                variant="link" 
-                className="text-purple p-0 hover:text-purple-dark"
-              >
-                Learn more
-              </Button>
             </Link>
           ))}
         </div>
         
-        <div className="text-center mt-12">
+        <div className="text-center mt-10">
           <Button asChild className="btn-primary">
             <Link to="/products">View All Solutions</Link>
           </Button>

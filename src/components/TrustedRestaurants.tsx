@@ -64,9 +64,9 @@ const TrustedRestaurants = () => {
   );
 
   return (
-    <section className="py-12 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-8 bg-gradient-to-b from-white to-gray-50">
       <div className="container-custom">
-        <h3 className="text-xl font-medium text-center mb-8 text-gray-700 font-inter">Trusted by Leading Restaurants</h3>
+        <h3 className="text-lg font-medium text-center mb-6 text-gray-700 font-inter">Trusted by Leading Restaurants</h3>
         <Carousel
           opts={{
             align: "start",
@@ -77,12 +77,12 @@ const TrustedRestaurants = () => {
         >
           <CarouselContent>
             {restaurants.map((restaurant, index) => (
-              <CarouselItem key={index} className="basis-1/4 md:basis-1/5 lg:basis-1/6">
-                <div className="flex items-center justify-center p-4">
+              <CarouselItem key={index} className="basis-1/5 md:basis-1/6 lg:basis-1/8">
+                <div className="flex items-center justify-center p-3">
                   <img
                     src={restaurant.logo}
                     alt={restaurant.name}
-                    className="max-h-16 w-auto object-contain transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
+                    className="max-h-12 w-auto object-contain transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg brightness-0 opacity-70 hover:opacity-100"
                   />
                 </div>
               </CarouselItem>

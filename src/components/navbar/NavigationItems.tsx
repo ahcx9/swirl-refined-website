@@ -50,11 +50,11 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
 
   return (
     <NavigationMenu>
-      <NavigationMenuList className="space-x-8">
+      <NavigationMenuList className="space-x-10">
         {items.map((link) => (
           link.items ? (
             <NavigationMenuItem key={link.name}>
-              <NavigationMenuTrigger className="text-purple-dark hover:text-purple transition-colors px-0 font-inter text-[17px] font-semibold">
+              <NavigationMenuTrigger className="text-purple-dark hover:text-purple transition-colors px-0 font-inter text-[16px] font-medium tracking-wide">
                 {link.name}
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -83,7 +83,7 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
             <NavigationMenuItem key={link.name}>
               <Link
                 to={link.path!}
-                className="text-purple-dark hover:text-purple transition-colors font-inter text-[17px] font-semibold"
+                className="text-purple-dark hover:text-purple transition-colors font-inter text-[16px] font-medium tracking-wide relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-purple after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
               >
                 {link.name}
               </Link>

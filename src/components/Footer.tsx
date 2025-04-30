@@ -9,25 +9,25 @@ const Footer = () => {
   return (
     <footer className="bg-purple-dark text-white">
       {/* Main Footer Section */}
-      <div className="container mx-auto py-16 px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+      <div className="container mx-auto py-14 px-4 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <Link to="/" className="text-2xl font-bold mb-6 block">swirl.cx</Link>
-            <p className="text-white/70 mb-6 max-w-md">
+            <Link to="/" className="text-xl font-bold mb-4 block">swirl.cx</Link>
+            <p className="text-white/70 mb-5 max-w-md text-sm leading-relaxed">
               Transforming restaurant management with innovative digital solutions. Our integrated platform helps you streamline operations, increase revenue, and enhance customer experience.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-3">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-purple p-2 rounded-full transition-colors" aria-label="LinkedIn">
-                <Linkedin size={20} className="text-white" />
+                <Linkedin size={18} className="text-white" />
               </a>
             </div>
           </div>
           
           {/* Use Cases */}
           <div>
-            <h3 className="text-xl font-semibold mb-6 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-1 after:w-12 after:bg-purple after:-mb-2">Use Cases</h3>
-            <ul className="space-y-4">
+            <h3 className="text-base font-semibold mb-4 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-1 after:w-8 after:bg-purple after:-mb-2">Use Cases</h3>
+            <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/use-cases#fine-dining" className="text-white/70 hover:text-purple transition-colors inline-block">Fine Dining</Link>
               </li>
@@ -48,8 +48,8 @@ const Footer = () => {
           
           {/* Products */}
           <div>
-            <h3 className="text-xl font-semibold mb-6 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-1 after:w-12 after:bg-purple after:-mb-2">Our Products</h3>
-            <ul className="space-y-4">
+            <h3 className="text-base font-semibold mb-4 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-1 after:w-8 after:bg-purple after:-mb-2">Our Products</h3>
+            <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/products/digital-menu" className="text-white/70 hover:text-purple transition-colors inline-block">Digital Menu</Link>
               </li>
@@ -70,18 +70,18 @@ const Footer = () => {
           
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-semibold mb-6 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-1 after:w-12 after:bg-purple after:-mb-2">Contact Us</h3>
-            <ul className="space-y-4">
+            <h3 className="text-base font-semibold mb-4 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-1 after:w-8 after:bg-purple after:-mb-2">Contact Us</h3>
+            <ul className="space-y-3 text-sm">
               <li className="flex items-start">
-                <MapPin size={20} className="mr-3 flex-shrink-0 text-purple mt-1" />
+                <MapPin size={16} className="mr-2 flex-shrink-0 text-purple mt-1" />
                 <span className="text-white/70">Al Jaber Jewelley Building, Khalidya, Abu Dhabi</span>
               </li>
               <li className="flex items-center">
-                <Phone size={20} className="mr-3 flex-shrink-0 text-purple" />
+                <Phone size={16} className="mr-2 flex-shrink-0 text-purple" />
                 <span className="text-white/70">+971 54 385 3877</span>
               </li>
               <li className="flex items-center">
-                <Mail size={20} className="mr-3 flex-shrink-0 text-purple" />
+                <Mail size={16} className="mr-2 flex-shrink-0 text-purple" />
                 <span className="text-white/70">hello@swirl.cx</span>
               </li>
             </ul>
@@ -90,19 +90,19 @@ const Footer = () => {
       </div>
       
       {/* Bottom Section */}
-      <div className="bg-purple-dark border-t border-white/10 py-6">
+      <div className="bg-purple-dark border-t border-white/10 py-4">
         <div className="container mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-white/70 text-sm mb-4 md:mb-0">
+          <p className="text-white/70 text-xs mb-3 md:mb-0">
             © {year} swirl.cx. All rights reserved.
           </p>
-          <div className="flex space-x-6">
-            <Link to="/privacy" className="text-white/70 hover:text-purple text-sm transition-colors">
+          <div className="flex space-x-5">
+            <Link to="/privacy" className="text-white/70 hover:text-purple text-xs transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="text-white/70 hover:text-purple text-sm transition-colors">
+            <Link to="/terms" className="text-white/70 hover:text-purple text-xs transition-colors">
               Terms of Service
             </Link>
-            <Link to="/sitemap" className="text-white/70 hover:text-purple text-sm transition-colors">
+            <Link to="/sitemap" className="text-white/70 hover:text-purple text-xs transition-colors">
               Sitemap
             </Link>
           </div>
