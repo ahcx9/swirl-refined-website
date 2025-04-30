@@ -5,7 +5,6 @@ import './App.css';
 import Index from './pages/Index';
 import NotFound from './pages/NotFound';
 import Navbar from './components/navbar/Navbar';
-import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Contact from './pages/Contact';
 import ProductOverview from './pages/ProductOverview';
@@ -56,7 +55,6 @@ function App() {
         
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
     </Router>
   );
 }
