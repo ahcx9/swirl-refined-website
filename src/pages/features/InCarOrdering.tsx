@@ -62,11 +62,13 @@ const InCarOrdering = () => {
             </div>
             
             <div className="w-full md:w-1/2">
-              <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
-                alt="In-Car Ordering Service"
-                className="w-full h-[400px] object-cover rounded-xl shadow-lg"
-              />
+              <div className="bg-gradient-to-br from-purple-light/10 to-blue-100/10 rounded-xl p-4 overflow-hidden">
+                <img 
+                  src="/lovable-uploads/2d3e25d6-0565-4abe-a293-c0d14b06605b.png" 
+                  alt="In-Car Ordering Service"
+                  className="w-full h-auto object-cover rounded-lg mix-blend-multiply transform hover:scale-105 transition-transform duration-500"
+                />
+              </div>
             </div>
           </div>
 
