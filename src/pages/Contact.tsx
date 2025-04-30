@@ -70,12 +70,6 @@ const Contact = () => {
                       <a href="https://www.linkedin.com/company/swirl-cx" className="text-purple hover:text-purple-dark transition-colors text-lg">
                         LinkedIn
                       </a>
-                      <a href="#" className="text-purple hover:text-purple-dark transition-colors text-lg">
-                        Twitter
-                      </a>
-                      <a href="#" className="text-purple hover:text-purple-dark transition-colors text-lg">
-                        Instagram
-                      </a>
                     </div>
                   </div>
                 </div>
