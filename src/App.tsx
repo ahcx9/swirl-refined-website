@@ -12,6 +12,7 @@ import UseCases from './pages/UseCases';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Sitemap from './pages/Sitemap';
+import Pricing from './pages/Pricing';
 import DigitalMenu from './pages/features/DigitalMenu';
 import QROrdering from './pages/features/QROrdering';
 import Analytics from './pages/features/Analytics';
@@ -35,6 +36,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<ProductOverview />} />
         <Route path="/use-cases" element={<UseCases />} />
+        <Route path="/pricing" element={<Pricing />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/sitemap" element={<Sitemap />} />

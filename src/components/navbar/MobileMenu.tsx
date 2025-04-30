@@ -62,9 +62,19 @@ export const MobileMenu = ({
             </Link>
           )
         ))}
-        <Button asChild className="btn-primary w-full font-inter mt-4">
-          <Link to="https://app.swirl.cx/register" onClick={onClose}>Get Started For Free</Link>
-        </Button>
+
+        <div className="pt-4 border-t border-gray-100 flex flex-col gap-3">
+          <Link
+            to="/login"
+            className="text-purple-dark hover:text-purple transition-colors font-medium py-2 text-lg text-center"
+            onClick={onClose}
+          >
+            Login
+          </Link>
+          <Button asChild className="btn-primary w-full font-inter mt-2">
+            <Link to="https://app.swirl.cx/register" onClick={onClose}>Get Started Free</Link>
+          </Button>
+        </div>
       </div>
     </div>
   );

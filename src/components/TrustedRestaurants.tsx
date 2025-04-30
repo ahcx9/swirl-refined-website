@@ -64,9 +64,9 @@ const TrustedRestaurants = () => {
   );
 
   return (
-    <section className="py-10 bg-gradient-to-b from-[#1A1F2C] to-[#222] text-white">
+    <section className="py-12 bg-white border-t border-gray-100">
       <div className="container-custom">
-        <h3 className="text-sm font-medium text-center mb-8 text-gray-300 font-inter">Trusted by Leading Restaurants</h3>
+        <h3 className="text-center mb-8 font-medium text-gray-500">Trusted by Leading Restaurants</h3>
         <Carousel
           opts={{
             align: "start",
@@ -79,11 +79,11 @@ const TrustedRestaurants = () => {
             {restaurants.map((restaurant, index) => (
               <CarouselItem key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/6">
                 <div className="flex items-center justify-center p-2">
-                  <div className="bg-[#222222e6] p-2 rounded-lg flex items-center justify-center h-16 w-full group">
+                  <div className="p-2 rounded-lg flex items-center justify-center h-16 w-full group">
                     <img
                       src={restaurant.logo}
                       alt={restaurant.name}
-                      className="max-h-10 w-auto object-contain transition-all duration-300 ease-in-out hover:scale-110 opacity-90 hover:opacity-100"
+                      className="max-h-10 w-auto object-contain transition-all duration-300 ease-in-out hover:scale-110 opacity-80 hover:opacity-100"
                       loading="eager"
                       onError={(e) => {
                         console.error(`Error loading image: ${restaurant.name}`);

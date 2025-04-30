@@ -1,13 +1,12 @@
 
 import React from 'react';
 import Hero from '@/components/Hero';
-import Features from '@/components/Features';
-import NextGenFeatures from '@/components/NextGenFeatures';
 import TrustedRestaurants from '@/components/TrustedRestaurants';
-import BlogSection from '@/components/BlogSection';
 import FAQSection from '@/components/FAQSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
+import HowItWorks from '@/components/HowItWorks';
+import BenefitsSection from '@/components/BenefitsSection';
 
 const Index = () => {
   return (
@@ -15,9 +14,8 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />
         <TrustedRestaurants />
-        <Features />
-        <NextGenFeatures />
-        <BlogSection />
+        <HowItWorks />
+        <BenefitsSection />
         <FAQSection />
         <CTASection />
       </main>
