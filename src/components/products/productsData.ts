@@ -2,7 +2,7 @@
 import { 
   LayoutDashboard, ShoppingCart, BarChart, 
   CreditCard, Users, Package, Car, Calendar, FileText,
-  ChefHat, Utensils, Bell
+  ChefHat
 } from 'lucide-react';
 
 export const products = [
@@ -148,20 +148,6 @@ export const products = [
       'Cooking timers', 
       'Station routing', 
       'Performance metrics'
-    ]
-  },
-  {
-    id: 'reservations',
-    title: 'Reservations',
-    description: 'Manage bookings and optimize table turnover with our advanced reservation system. Handle waitlists, send automated reminders, and collect guest preferences.',
-    icon: Utensils,
-    path: '/products/reservations',
-    image: "/lovable-uploads/92d5e15f-318e-46e8-9d20-bdca69d36285.png",
-    features: [
-      'Online bookings', 
-      'Table management', 
-      'Guest profiles', 
-      'Waitlist handling'
     ]
   }
 ];

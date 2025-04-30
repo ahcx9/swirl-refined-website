@@ -27,11 +27,12 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
       key={product.id}
       className={`grid grid-cols-1 ${index % 2 === 0 ? 'lg:grid-cols-[1fr_1.5fr]' : 'lg:grid-cols-[1.5fr_1fr] lg:flex-row-reverse'} gap-8 lg:gap-16 items-center`}
     >
-      <div className={`overflow-hidden rounded-2xl ${product.bgClass || (index % 2 === 0 ? 'bg-purple-light/10' : 'bg-swirl-blue/10')} relative h-[300px]`}>
+      <div className={`overflow-hidden rounded-2xl ${product.bgClass || (index % 2 === 0 ? 'bg-purple-light/10' : 'bg-swirl-blue/10')} relative h-[300px] w-full`}>
         <img 
           src={product.image} 
           alt={product.title}
-          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+          loading="lazy"
         />
       </div>
       
