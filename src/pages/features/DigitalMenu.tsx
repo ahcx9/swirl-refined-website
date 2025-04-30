@@ -32,7 +32,7 @@ const DigitalMenu = () => {
               <img 
                 src="/lovable-uploads/6e0d0241-ba77-477a-84cd-a700f8183303.png"
                 alt="Digital Menu on Mobile Devices"
-                className="rounded-lg shadow-lg max-w-full w-auto object-contain"
+                className="rounded-lg shadow-lg max-w-[350px] mx-auto w-auto object-contain"
               />
             </div>
 
