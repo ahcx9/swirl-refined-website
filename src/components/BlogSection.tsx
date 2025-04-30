@@ -63,10 +63,10 @@ const blogPosts = [
     link: "https://blog.swirl.cx/2025/04/02/overcome-payroll-challenges-in-restaurants/"
   },
   {
-    title: "Restaurant Data Analytics: Making Informed Decisions",
-    excerpt: "Learn how to leverage data analytics to optimize your restaurant operations and increase profitability.",
+    title: "Elevating Dining Experience",
+    excerpt: "QR Code Ordering: The Secret Ingredient to a Stellar Dining Experience.",
     date: "April 18, 2025",
-    author: "Aamil",
+    author: "Abid Khan",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format",
     slug: "elevate dining",
     link: "https://blog.swirl.cx/2025/03/06/elevating-dining/"
