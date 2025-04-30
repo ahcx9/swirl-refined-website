@@ -83,7 +83,7 @@ const TrustedRestaurants = () => {
                     <img
                       src={restaurant.logo}
                       alt={restaurant.name}
-                      className="max-h-10 w-auto object-contain transition-all duration-300 ease-in-out hover:scale-110 opacity-90 hover:opacity-100 brightness-0 invert group-hover:brightness-100 group-hover:invert-0"
+                      className="max-h-10 w-auto object-contain transition-all duration-300 ease-in-out hover:scale-110 opacity-90 hover:opacity-100"
                       loading="eager"
                       onError={(e) => {
                         console.error(`Error loading image: ${restaurant.name}`);
