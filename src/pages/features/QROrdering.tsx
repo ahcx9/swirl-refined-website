@@ -4,6 +4,7 @@ import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import TrustedRestaurants from '@/components/TrustedRestaurants';
 import { 
   ShoppingCart, 
   CheckCircle, 
@@ -11,7 +12,10 @@ import {
   TrendingUp,
   Clock, 
   Smartphone,
-  UserPlus
+  UserPlus,
+  MenuSquare,
+  Phone,
+  Utensils
 } from 'lucide-react';
 
 const QROrdering = () => {
@@ -76,8 +80,8 @@ const QROrdering = () => {
               </div>
               <div className="rounded-xl overflow-hidden shadow-lg">
                 <img 
-                  src="/lovable-uploads/74058c9d-fba3-4dc8-b1e2-5c34716bd074.png" 
-                  alt="Order at your ease"
+                  src="/lovable-uploads/b782c244-bfdc-479d-929c-fbb28e8a4040.png" 
+                  alt="QR code scanning experience"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -124,17 +128,17 @@ const QROrdering = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
                 <img 
-                  src="/lovable-uploads/2bbf790c-35c7-4511-a4a7-7d48e4faf0f2.png" 
-                  alt="QR code on restaurant table"
+                  src="/lovable-uploads/7b35ee9b-2944-423c-ae12-46be0bd0bfa6.png" 
+                  alt="Order at your ease on smartphone"
                   className="rounded-xl shadow-lg w-full h-auto"
                 />
               </div>
               <div className="order-1 md:order-2">
-                <h2 className="text-3xl font-bold mb-6">Enhanced Customer Experience</h2>
+                <h2 className="text-3xl font-bold mb-6">Order at Your Ease</h2>
                 <p className="text-swirl-gray mb-6">
-                  Our QR ordering system doesn't just streamline operations—it fundamentally improves the 
-                  dining experience. Customers enjoy greater control, faster service, and a modern 
-                  interaction that matches today's digital expectations.
+                  Our QR ordering system provides customers with a seamless and intuitive ordering experience. 
+                  View detailed item descriptions, dietary information, preparation time, and customize orders 
+                  directly from their smartphones.
                 </p>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -142,17 +146,26 @@ const QROrdering = () => {
                       <Smartphone className="text-purple h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-1">Frictionless Experience</h3>
-                      <p className="text-swirl-gray">No app downloads required—just scan and order</p>
+                      <h3 className="font-semibold mb-1">Mobile Optimized</h3>
+                      <p className="text-swirl-gray">Responsive design works perfectly on any device with no app download required</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="bg-purple-light/30 p-2 rounded-full">
-                      <UserPlus className="text-purple h-5 w-5" />
+                      <MenuSquare className="text-purple h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-1">Customer Profiles</h3>
-                      <p className="text-swirl-gray">Optional account creation for saved preferences and reordering</p>
+                      <h3 className="font-semibold mb-1">Dietary Information</h3>
+                      <p className="text-swirl-gray">Display calories, allergens, and preparation time for informed choices</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="bg-purple-light/30 p-2 rounded-full">
+                      <Utensils className="text-purple h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">Customization Options</h3>
+                      <p className="text-swirl-gray">Allow customers to modify dishes according to their preferences</p>
                     </div>
                   </div>
                 </div>
@@ -160,6 +173,72 @@ const QROrdering = () => {
             </div>
           </div>
         </section>
+
+        <section className="py-20 bg-gray-50">
+          <div className="container-custom">
+            <h2 className="text-3xl font-bold mb-10 text-center">Enhanced Restaurant Experience</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl p-8 shadow-soft border border-gray-100">
+                <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                  <Phone className="text-purple h-5 w-5" />
+                  <span>For Your Customers</span>
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>Browse menu items with high-quality images and detailed descriptions</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>View nutritional information and allergen details</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>Customize orders with special requests and modifications</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>Pay securely through integrated payment processing</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>Track order status in real-time</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-white rounded-xl p-8 shadow-soft border border-gray-100">
+                <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                  <Utensils className="text-purple h-5 w-5" />
+                  <span>For Your Restaurant</span>
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>Reduce labor costs with streamlined ordering process</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>Minimize order errors with customer-driven input</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>Increase table turnover rates by up to 20%</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>Gather valuable customer data and preferences</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
+                    <span>Update menu items and prices in real-time</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <TrustedRestaurants />
 
         <section className="py-20 bg-purple-light/10 rounded-lg my-12 mx-4">
           <div className="container-custom">
