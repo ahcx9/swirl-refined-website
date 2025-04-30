@@ -72,7 +72,7 @@ export const products = [
     description: "Comprehensive financial reporting to track your restaurant's performance, with detailed P&L statements, cost analysis, and forecasting tools for data-driven decisions.",
     icon: LayoutDashboard,
     path: '/products/financial-reports',
-    image: "/lovable-uploads/92d5e15f-318e-46e8-9d20-bdca69d36285.png",
+    image: "/lovable-uploads/459383dc-eff1-410b-af47-ff49a9a0a01e.png",
     features: [
       'P&L statements', 
       'Cost analysis', 
@@ -114,7 +114,7 @@ export const products = [
     description: 'Streamline staff payments and track labor costs efficiently, with time tracking, tax calculations, and direct deposit options for hassle-free payroll processing.',
     icon: Calendar,
     path: '/products/payroll-management',
-    image: "/lovable-uploads/8993a146-162a-42c5-acb9-9a0f6d694375.png",
+    image: "/lovable-uploads/ff4d8e6c-1a82-4f3f-8b4f-546e92a8cfcc.png",
     features: [
       'Time tracking', 
       'Tax calculations', 
@@ -142,7 +142,7 @@ export const products = [
     description: 'Streamline kitchen operations with our advanced KDS solution. Improve efficiency, reduce errors, and enhance communication between front and back of house.',
     icon: ChefHat,
     path: '/products/kitchen-display',
-    image: "/lovable-uploads/7b35ee9b-2944-423c-ae12-46be0bd0bfa6.png",
+    image: "/lovable-uploads/85df272f-78b0-4180-bd9e-a069e750623a.png",
     features: [
       'Real-time orders', 
       'Cooking timers', 
