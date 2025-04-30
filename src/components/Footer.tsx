@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="bg-purple-dark text-white">
       {/* Main Footer Section */}
-      <div className="container-custom py-16">
+      <div className="container mx-auto py-16 px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
@@ -91,7 +91,7 @@ const Footer = () => {
       
       {/* Bottom Section */}
       <div className="bg-purple-dark border-t border-white/10 py-6">
-        <div className="container-custom flex flex-col md:flex-row justify-between items-center">
+        <div className="container mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/70 text-sm mb-4 md:mb-0">
             © {year} swirl.cx. All rights reserved.
           </p>

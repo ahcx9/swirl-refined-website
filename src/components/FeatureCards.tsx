@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, Tablet, QrCode, Smartphone, ShoppingCart } from 'lucide-react';
+import { Tablet, QrCode, Smartphone, ShoppingCart } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 interface FeatureCardProps {
@@ -62,7 +62,7 @@ const FeatureCards = () => {
 
   return (
     <section className="py-16 bg-[#F5EDD1]">
-      <div className="container-custom">
+      <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1A1F2C]">
             One platform for all your restaurant, café, and hotel needs
