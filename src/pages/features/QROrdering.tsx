@@ -128,7 +128,7 @@ const QROrdering = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
                 <img 
-                  src="/lovable-uploads/7b35ee9b-2944-423c-ae12-46be0bd0bfa6.png" 
+                  src="/lovable-uploads/cb050b33-51a3-4f11-bd02-f9fe6ffdde44.png" 
                   alt="Order at your ease on smartphone"
                   className="rounded-xl shadow-lg w-full h-auto"
                 />

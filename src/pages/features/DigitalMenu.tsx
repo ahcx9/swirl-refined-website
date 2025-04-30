@@ -30,7 +30,7 @@ const DigitalMenu = () => {
 
             <div className="mb-12 flex justify-center">
               <img 
-                src="/lovable-uploads/49b021c9-7a22-49cd-bfa9-510ddb6a49c9.png"
+                src="/lovable-uploads/46370189-814d-4a57-8ba4-9298f70479f3.png"
                 alt="Digital Menu QR Code"
                 className="rounded-lg shadow-lg max-h-[500px] w-auto object-contain"
               />
