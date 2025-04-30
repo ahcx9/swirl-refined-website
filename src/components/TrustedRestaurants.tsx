@@ -79,11 +79,11 @@ const TrustedRestaurants = () => {
             {restaurants.map((restaurant, index) => (
               <CarouselItem key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/6">
                 <div className="flex items-center justify-center p-2">
-                  <div className="bg-[#222222e6] p-2 rounded-lg flex items-center justify-center h-16 w-full">
+                  <div className="bg-[#222222e6] p-2 rounded-lg flex items-center justify-center h-16 w-full group">
                     <img
                       src={restaurant.logo}
                       alt={restaurant.name}
-                      className="max-h-10 w-auto object-contain transition-transform duration-500 ease-in-out hover:scale-110 opacity-90 hover:opacity-100"
+                      className="max-h-10 w-auto object-contain transition-all duration-300 ease-in-out hover:scale-110 opacity-90 hover:opacity-100 brightness-0 invert group-hover:brightness-100 group-hover:invert-0"
                       loading="eager"
                       onError={(e) => {
                         console.error(`Error loading image: ${restaurant.name}`);
