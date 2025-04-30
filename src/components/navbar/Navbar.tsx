@@ -7,14 +7,15 @@ import { NavigationItems } from './NavigationItems';
 import { MobileMenu } from './MobileMenu';
 
 const mainLinks = [
-  { name: 'Products', path: '/products' },
-  { name: 'Use Cases', path: '/use-cases' },
+  { name: 'Features', path: '/products' },
   { name: 'Pricing', path: '/pricing' },
   { name: 'Resources', items: [
     { title: 'Blog', path: '/blog', description: 'Latest updates and articles', icon: 'file-text' },
     { title: 'Help Center', path: '/help', description: 'Get answers to your questions', icon: 'help-circle' },
     { title: 'Documentation', path: '/docs', description: 'Technical information and guides', icon: 'book' },
   ]},
+  { name: 'Testimonials', path: '/testimonials' },
+  { name: 'Contact', path: '/contact' },
 ];
 
 const Navbar = () => {
@@ -60,8 +61,8 @@ const Navbar = () => {
           <Link to="/login" className="text-purple-dark hover:text-purple transition-colors font-medium">
             Login
           </Link>  
-          <Button asChild className="btn-primary font-inter text-sm">
-            <Link to="https://app.swirl.cx/register">Get Started Free</Link>
+          <Button asChild className="bg-purple text-white hover:bg-purple-dark font-medium text-sm px-5 py-2 rounded-lg">
+            <Link to="https://app.swirl.cx/register">Get Started</Link>
           </Button>
         </div>
 

@@ -10,9 +10,9 @@ const Footer = () => {
     <footer className="bg-white border-t border-gray-100">
       {/* Main Footer Section */}
       <div className="container mx-auto py-16 px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-1">
             <Link to="/" className="text-xl font-bold mb-4 block">
               <img 
                 src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png" 
@@ -21,7 +21,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-swirl-gray mb-5 max-w-md text-sm leading-relaxed mt-4">
-              Transforming restaurant management with innovative digital solutions. Our integrated platform helps you streamline operations, increase revenue, and enhance customer experience.
+              The complete digital menu and ordering platform for modern restaurants.
             </p>
             <div className="flex space-x-3">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-gray-100 hover:bg-gray-200 p-2 rounded-full transition-colors" aria-label="LinkedIn">
@@ -36,9 +36,9 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Products */}
+          {/* Product Links */}
           <div>
-            <h3 className="text-base font-semibold mb-4">Products</h3>
+            <h3 className="text-base font-semibold mb-4">Product</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/products/digital-menu" className="text-swirl-gray hover:text-purple transition-colors inline-block">Digital Menu</Link>
@@ -47,35 +47,32 @@ const Footer = () => {
                 <Link to="/products/qr-ordering" className="text-swirl-gray hover:text-purple transition-colors inline-block">QR Ordering</Link>
               </li>
               <li>
-                <Link to="/products/analytics" className="text-swirl-gray hover:text-purple transition-colors inline-block">Analytics</Link>
+                <Link to="/products/analytics" className="text-swirl-gray hover:text-purple transition-colors inline-block">Analytics Dashboard</Link>
               </li>
               <li>
-                <Link to="/products/pos" className="text-swirl-gray hover:text-purple transition-colors inline-block">POS System</Link>
+                <Link to="/products/pos" className="text-swirl-gray hover:text-purple transition-colors inline-block">POS Integration</Link>
               </li>
               <li>
-                <Link to="/products/inventory-management" className="text-swirl-gray hover:text-purple transition-colors inline-block">Inventory Management</Link>
+                <Link to="/pricing" className="text-swirl-gray hover:text-purple transition-colors inline-block">Pricing</Link>
               </li>
             </ul>
           </div>
           
-          {/* Use Cases */}
+          {/* Resources */}
           <div>
-            <h3 className="text-base font-semibold mb-4">Use Cases</h3>
+            <h3 className="text-base font-semibold mb-4">Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/use-cases#fine-dining" className="text-swirl-gray hover:text-purple transition-colors inline-block">Fine Dining</Link>
+                <Link to="/blog" className="text-swirl-gray hover:text-purple transition-colors inline-block">Blog</Link>
               </li>
               <li>
-                <Link to="/use-cases#casual-dining" className="text-swirl-gray hover:text-purple transition-colors inline-block">Casual Dining</Link>
+                <Link to="/help" className="text-swirl-gray hover:text-purple transition-colors inline-block">Help Center</Link>
               </li>
               <li>
-                <Link to="/use-cases#fast-food" className="text-swirl-gray hover:text-purple transition-colors inline-block">Fast Food</Link>
+                <Link to="/docs" className="text-swirl-gray hover:text-purple transition-colors inline-block">Documentation</Link>
               </li>
               <li>
-                <Link to="/use-cases#cafes" className="text-swirl-gray hover:text-purple transition-colors inline-block">Cafés</Link>
-              </li>
-              <li>
-                <Link to="/use-cases#food-trucks" className="text-swirl-gray hover:text-purple transition-colors inline-block">Food Trucks</Link>
+                <Link to="/testimonials" className="text-swirl-gray hover:text-purple transition-colors inline-block">Customer Stories</Link>
               </li>
             </ul>
           </div>

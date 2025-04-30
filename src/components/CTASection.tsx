@@ -6,12 +6,12 @@ import { ArrowRight } from 'lucide-react';
 
 const CTASection = () => {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-white">
       <div className="container-custom">
-        <div className="bg-gradient-to-r from-purple to-blue-500 rounded-2xl p-12 text-white text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Restaurant?</h2>
+        <div className="bg-gradient-to-r from-purple/90 to-purple rounded-2xl p-12 text-white text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Restaurant Experience?</h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8">
-            Join thousands of restaurants using Swirl to streamline operations, increase revenue, and delight customers.
+            Join thousands of restaurants using our platform to streamline operations, increase revenue, and delight customers.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-white text-purple hover:bg-white/90">

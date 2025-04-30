@@ -7,6 +7,7 @@ import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 import HowItWorks from '@/components/HowItWorks';
 import BenefitsSection from '@/components/BenefitsSection';
+import AdvancedFeatures from '@/components/AdvancedFeatures';
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
         <TrustedRestaurants />
         <HowItWorks />
         <BenefitsSection />
+        <AdvancedFeatures />
         <FAQSection />
         <CTASection />
       </main>
