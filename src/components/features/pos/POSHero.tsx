@@ -27,11 +27,11 @@ const POSHero = () => {
         </Button>
       </div>
 
-      <div className="lg:w-1/2">
+      <div className="lg:w-1/2 bg-purple-light/10 p-6 rounded-xl">
         <img 
           src="/lovable-uploads/61104fed-106e-4e91-a301-9f0fd8b8cb4b.png" 
           alt="POS System Interface" 
-          className="rounded-xl shadow-lg w-full object-contain border border-gray-100"
+          className="rounded-xl w-full object-contain"
         />
       </div>
     </div>

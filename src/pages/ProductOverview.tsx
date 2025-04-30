@@ -9,6 +9,7 @@ import {
   ChefHat, ArrowRight, Utensils, Bell
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import TrustedRestaurants from '@/components/TrustedRestaurants';
 
 const products = [
   {
@@ -17,7 +18,7 @@ const products = [
     description: 'Create beautiful, interactive digital menus that are easy to update in real-time. Support multiple languages, currencies, and show nutritional information like calories and allergens.',
     icon: FileText,
     path: '/products/digital-menu',
-    image: "/lovable-uploads/f627dfca-6a17-4a0f-b8a8-2f9c88ed4603.png",
+    image: "/lovable-uploads/947b4eab-99e0-4ea2-ad4e-5fb3a2f90fab.png",
     features: [
       'Real-time updates', 
       'Multi-language support', 
@@ -45,7 +46,7 @@ const products = [
     description: 'Gain valuable insights about your business with our powerful analytics tools. Track sales, customer behavior, and menu performance with customizable dashboards.',
     icon: BarChart,
     path: '/products/analytics',
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+    image: "/lovable-uploads/6be88733-ef9e-44fd-a6b7-a1f5851419e9.png",
     features: [
       'Real-time dashboards', 
       'Custom reports', 
@@ -59,7 +60,7 @@ const products = [
     description: 'Modern point-of-sale system designed specifically for restaurant needs, with user-friendly interfaces and seamless integrations for both software and hardware solutions.',
     icon: CreditCard,
     path: '/products/pos',
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+    image: "/lovable-uploads/61104fed-106e-4e91-a301-9f0fd8b8cb4b.png",
     features: [
       'Table management', 
       'Split bills', 
@@ -73,7 +74,7 @@ const products = [
     description: "Comprehensive financial reporting to track your restaurant's performance, with detailed P&L statements, cost analysis, and forecasting tools for data-driven decisions.",
     icon: LayoutDashboard,
     path: '/products/financial-reports',
-    image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07",
+    image: "/lovable-uploads/92d5e15f-318e-46e8-9d20-bdca69d36285.png",
     features: [
       'P&L statements', 
       'Cost analysis', 
@@ -87,7 +88,7 @@ const products = [
     description: 'Customer relationship management tools to build loyalty and drive repeat business through targeted marketing campaigns and personalized customer experiences.',
     icon: Users,
     path: '/products/crm',
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+    image: "/lovable-uploads/49b021c9-7a22-49cd-bfa9-510ddb6a49c9.png",
     features: [
       'Customer profiles', 
       'Loyalty programs', 
@@ -101,7 +102,7 @@ const products = [
     description: 'Enable customers to order from their vehicles for pickup or drive-through service, optimizing your curbside operations and enhancing customer convenience.',
     icon: Car,
     path: '/products/ordering-from-car',
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+    image: "/lovable-uploads/74058c9d-fba3-4dc8-b1e2-5c34716bd074.png",
     features: [
       'GPS location tracking', 
       'Digital car hop', 
@@ -115,7 +116,7 @@ const products = [
     description: 'Streamline staff payments and track labor costs efficiently, with time tracking, tax calculations, and direct deposit options for hassle-free payroll processing.',
     icon: Calendar,
     path: '/products/payroll-management',
-    image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07",
+    image: "/lovable-uploads/8993a146-162a-42c5-acb9-9a0f6d694375.png",
     features: [
       'Time tracking', 
       'Tax calculations', 
@@ -129,7 +130,7 @@ const products = [
     description: 'Track stock levels, reduce waste, and optimize your purchasing with real-time inventory tracking, automated ordering, and comprehensive vendor management.',
     icon: Package,
     path: '/products/inventory-management',
-    image: "https://images.unsplash.com/photo-1553413077-190dd305871c",
+    image: "/lovable-uploads/82584175-2d38-4de3-8a1e-b70b0efd41cb.png",
     features: [
       'Real-time tracking', 
       'Waste reduction', 
@@ -143,7 +144,7 @@ const products = [
     description: 'Streamline kitchen operations with our advanced KDS solution. Improve efficiency, reduce errors, and enhance communication between front and back of house.',
     icon: ChefHat,
     path: '/products/kitchen-display',
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+    image: "/lovable-uploads/7b35ee9b-2944-423c-ae12-46be0bd0bfa6.png",
     features: [
       'Real-time orders', 
       'Cooking timers', 
@@ -157,7 +158,7 @@ const products = [
     description: 'Manage bookings and optimize table turnover with our advanced reservation system. Handle waitlists, send automated reminders, and collect guest preferences.',
     icon: Utensils,
     path: '/products/reservations',
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
+    image: "/lovable-uploads/808d0fa7-3d2e-4718-a97b-62f1df2f0792.png",
     features: [
       'Online bookings', 
       'Table management', 
@@ -187,6 +188,9 @@ const ProductOverview = () => {
           </div>
         </section>
         
+        {/* Trusted Restaurants */}
+        <TrustedRestaurants />
+        
         {/* Products List */}
         <section className="py-20">
           <div className="container-custom">
@@ -196,11 +200,11 @@ const ProductOverview = () => {
                   key={product.id}
                   className={`grid grid-cols-1 ${index % 2 === 0 ? 'lg:grid-cols-[1fr_1.5fr]' : 'lg:grid-cols-[1.5fr_1fr] lg:flex-row-reverse'} gap-8 lg:gap-16 items-center`}
                 >
-                  <div className={`overflow-hidden rounded-2xl ${index % 2 === 0 ? 'bg-purple-light/20' : 'bg-swirl-blue/10'}`}>
+                  <div className={`overflow-hidden rounded-2xl ${index % 2 === 0 ? 'bg-purple-light/10' : 'bg-swirl-blue/10'} relative`}>
                     <img 
                       src={product.image} 
                       alt={product.title}
-                      className="w-full h-full min-h-[300px] object-cover transition-transform duration-700 hover:scale-105"
+                      className="w-full h-full min-h-[300px] object-contain transition-transform duration-700 hover:scale-105 p-4"
                     />
                   </div>
                   
