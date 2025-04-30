@@ -30,7 +30,7 @@ const DigitalMenu = () => {
 
             <div className="mb-12 flex justify-center">
               <img 
-                src="/lovable-uploads/6e0d0241-ba77-477a-84cd-a700f8183303.png"
+                src="/lovable-uploads/947b4eab-99e0-4ea2-ad4e-5fb3a2f90fab.png"
                 alt="Digital Menu on Mobile Devices"
                 className="rounded-lg shadow-lg max-w-[350px] mx-auto w-auto object-contain"
               />
