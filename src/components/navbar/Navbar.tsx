@@ -102,16 +102,16 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-2' : 'bg-white py-4'
+        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-2' : 'bg-white py-3'
       }`}
     >
       <div className="container-custom flex justify-between items-center">
         <div className="flex items-center">
-          <Link to="/" className="flex items-center mr-16">
+          <Link to="/" className="flex items-center mr-10 md:mr-16">
             <img 
               src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png" 
               alt="Swirl Logo" 
-              className="h-10 w-auto"
+              className="h-8 w-auto"
             />
           </Link>
 
@@ -120,7 +120,7 @@ const Navbar = () => {
           </div>
         </div>
           
-        <Button asChild className="btn-primary font-inter hidden md:flex text-base">
+        <Button asChild className="btn-primary font-inter hidden md:flex text-sm">
           <Link to="https://app.swirl.cx/register">Get Started For Free</Link>
         </Button>
 
@@ -128,7 +128,7 @@ const Navbar = () => {
           className="md:hidden text-purple-dark"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 

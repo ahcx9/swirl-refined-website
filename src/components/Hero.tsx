@@ -38,32 +38,32 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pt-24 pb-12 md:pt-32 md:pb-16 bg-gradient-to-b from-purple-light/10 to-white">
+    <section className="pt-20 pb-8 md:pt-24 md:pb-10 bg-gradient-to-b from-gray-50 to-white">
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
           <div className="text-center lg:text-left">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-              Enhance your customer experience with <span className="text-gradient">AI-powered</span> restaurant management solutions
+            <h1 className="text-2xl md:text-3xl font-bold leading-tight mb-3">
+              Enhance your customer experience with <span className="text-gradient">AI-powered</span> restaurant management
             </h1>
-            <p className="text-base md:text-lg text-swirl-gray mb-6 max-w-xl mx-auto lg:mx-0">
-              Streamline your restaurant operations with our smart digital tools. Boost efficiency, improve customer experience, and increase profits.
+            <p className="text-sm md:text-base text-swirl-gray mb-4 max-w-xl mx-auto lg:mx-0">
+              Streamline operations with smart digital tools. Boost efficiency, improve customer experience, and increase profits.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-              <Button asChild className="btn-primary text-base">
+            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
+              <Button asChild className="btn-primary">
                 <a href="https://app.swirl.cx/register">Get Started for Free</a>
               </Button>
-              <Button asChild className="btn-secondary text-base">
-                <Link to="/products" className="flex items-center gap-2">
-                  Explore Solutions <ArrowRight size={16} />
+              <Button asChild className="btn-secondary">
+                <Link to="/products" className="flex items-center gap-1">
+                  Explore Solutions <ArrowRight size={14} />
                 </Link>
               </Button>
             </div>
-            <div className="mt-6 text-sm text-swirl-gray">
+            <div className="mt-4 text-xs text-swirl-gray">
               <p>Trusted by 1000+ restaurants worldwide</p>
             </div>
           </div>
           <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple/20 to-swirl-blue/20 rounded-3xl transform rotate-3 group-hover:opacity-75 transition duration-300 ease-in-out"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple/20 to-swirl-blue/20 rounded-3xl transform rotate-2 group-hover:opacity-75 transition duration-300 ease-in-out"></div>
             <div className="relative z-10 rounded-2xl shadow-card overflow-hidden">
               <div className="carousel relative">
                 {carouselImages.map((image, index) => (
@@ -77,32 +77,33 @@ const Hero = () => {
                       src={image.src} 
                       alt={image.alt} 
                       className="w-full h-auto object-cover transform group-hover:scale-105 transition duration-300 ease-in-out"
+                      loading="eager"
                     />
                   </div>
                 ))}
                 
                 <button 
                   onClick={prevSlide}
-                  className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full shadow-md z-20"
+                  className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/70 hover:bg-white p-1.5 rounded-full shadow-md z-20"
                   aria-label="Previous slide"
                 >
-                  <ChevronLeft className="text-gray-800" size={20} />
+                  <ChevronLeft className="text-gray-800" size={16} />
                 </button>
                 
                 <button 
                   onClick={nextSlide}
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full shadow-md z-20"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/70 hover:bg-white p-1.5 rounded-full shadow-md z-20"
                   aria-label="Next slide"
                 >
-                  <ChevronRight className="text-gray-800" size={20} />
+                  <ChevronRight className="text-gray-800" size={16} />
                 </button>
                 
-                <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1.5">
                   {carouselImages.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setActiveIndex(index)}
-                      className={`w-2 h-2 rounded-full ${
+                      className={`w-1.5 h-1.5 rounded-full ${
                         index === activeIndex ? "bg-white" : "bg-white/50"
                       }`}
                       aria-label={`Go to slide ${index + 1}`}

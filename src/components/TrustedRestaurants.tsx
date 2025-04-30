@@ -60,13 +60,13 @@ const restaurants = [
 
 const TrustedRestaurants = () => {
   const plugin = React.useRef(
-    Autoplay({ delay: 1500, stopOnInteraction: false })
+    Autoplay({ delay: 2000, stopOnInteraction: false })
   );
 
   return (
-    <section className="py-8 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-8 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       <div className="container-custom">
-        <h3 className="text-lg font-medium text-center mb-6 text-gray-700 font-inter">Trusted by Leading Restaurants</h3>
+        <h3 className="text-base font-medium text-center mb-6 text-gray-300 font-inter">Trusted by Leading Restaurants</h3>
         <Carousel
           opts={{
             align: "start",
@@ -77,12 +77,17 @@ const TrustedRestaurants = () => {
         >
           <CarouselContent>
             {restaurants.map((restaurant, index) => (
-              <CarouselItem key={index} className="basis-1/5 md:basis-1/6 lg:basis-1/8">
+              <CarouselItem key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/6">
                 <div className="flex items-center justify-center p-3">
                   <img
                     src={restaurant.logo}
                     alt={restaurant.name}
-                    className="max-h-12 w-auto object-contain transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg brightness-0 opacity-70 hover:opacity-100"
+                    className="max-h-10 w-auto object-contain transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg brightness-0 invert opacity-80 hover:opacity-100"
+                    loading="eager"
+                    onError={(e) => {
+                      console.error(`Error loading image: ${restaurant.name}`);
+                      e.currentTarget.style.display = 'none';
+                    }}
                   />
                 </div>
               </CarouselItem>

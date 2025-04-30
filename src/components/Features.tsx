@@ -75,37 +75,32 @@ const features = [
 
 const Features = () => {
   return (
-    <section id="features" className="py-12 md:py-16 bg-white">
+    <section id="features" className="py-10 md:py-14 bg-gradient-to-b from-gray-50 to-white">
       <div className="container-custom">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold mb-3">Comprehensive Solutions for Modern Restaurants</h2>
-          <p className="text-base text-swirl-gray max-w-2xl mx-auto mb-8">
+        <div className="text-center mb-8">
+          <h2 className="text-xl md:text-2xl font-bold mb-2">Solutions for Modern Restaurants</h2>
+          <p className="text-xs md:text-sm text-swirl-gray max-w-2xl mx-auto mb-6">
             Our integrated suite of tools helps you manage every aspect of your restaurant efficiently.
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-2">
           {features.map((feature) => (
             <Link 
               to={feature.path} 
               key={feature.id}
-              className="bg-gradient-to-br from-white to-gray-50/30 rounded-xl shadow-sm hover:shadow-md p-4 transition-all duration-300 hover:-translate-y-1 border border-gray-100/80 group"
+              className="bg-gradient-to-br from-white to-gray-50/30 rounded-xl shadow-sm hover:shadow-md p-3 transition-all duration-300 hover:-translate-y-1 border border-gray-100/80 group flex flex-col items-center text-center"
             >
-              <div className="flex items-start">
-                <div className="w-10 h-10 rounded-full bg-purple-light/30 flex items-center justify-center mr-3 group-hover:bg-purple/20 transition-colors">
-                  <feature.icon className="text-purple" size={18} />
-                </div>
-                <div>
-                  <h3 className="text-base font-semibold mb-1 group-hover:text-purple transition-colors">{feature.title}</h3>
-                  <p className="text-sm text-swirl-gray">{feature.description}</p>
-                </div>
+              <div className="w-8 h-8 rounded-full bg-purple-light/30 flex items-center justify-center mb-2 group-hover:bg-purple/20 transition-colors">
+                <feature.icon className="text-purple" size={16} />
               </div>
+              <h3 className="text-xs font-medium mb-1 group-hover:text-purple transition-colors">{feature.title}</h3>
             </Link>
           ))}
         </div>
         
-        <div className="text-center mt-10">
-          <Button asChild className="btn-primary">
+        <div className="text-center mt-6">
+          <Button asChild className="btn-primary text-xs">
             <Link to="/products">View All Solutions</Link>
           </Button>
         </div>

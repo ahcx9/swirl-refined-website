@@ -8,6 +8,7 @@ import BlogSection from '@/components/BlogSection';
 import FAQSection from '@/components/FAQSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
+import FeatureCards from '@/components/FeatureCards';
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
         <Hero />
         <TrustedRestaurants />
         <Features />
+        <FeatureCards />
         <NextGenFeatures />
         <BlogSection />
         <FAQSection />

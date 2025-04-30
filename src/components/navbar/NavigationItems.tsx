@@ -50,26 +50,26 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
 
   return (
     <NavigationMenu>
-      <NavigationMenuList className="space-x-10">
+      <NavigationMenuList className="space-x-8 md:space-x-10">
         {items.map((link) => (
           link.items ? (
             <NavigationMenuItem key={link.name}>
-              <NavigationMenuTrigger className="text-purple-dark hover:text-purple transition-colors px-0 font-inter text-[16px] font-medium tracking-wide">
+              <NavigationMenuTrigger className="text-purple-dark hover:text-purple transition-colors px-0 font-inter text-sm font-medium tracking-wide">
                 {link.name}
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid grid-cols-2 gap-4 p-6 w-[700px]">
+                <div className="grid grid-cols-2 gap-3 p-4 w-[650px]">
                   {link.items.map((item) => (
                     <Link
                       key={item.title}
                       to={item.path}
-                      className="flex items-start select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      className="flex items-start select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     >
                       <div className="flex items-center">
                         {getIcon(item.icon)}
                         <div>
-                          <div className="text-base font-medium leading-none font-inter mb-2">{item.title}</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground font-inter">
+                          <div className="text-sm font-medium leading-none font-inter mb-1">{item.title}</div>
+                          <p className="line-clamp-2 text-xs leading-snug text-muted-foreground font-inter">
                             {item.description}
                           </p>
                         </div>
@@ -83,7 +83,7 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
             <NavigationMenuItem key={link.name}>
               <Link
                 to={link.path!}
-                className="text-purple-dark hover:text-purple transition-colors font-inter text-[16px] font-medium tracking-wide relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-purple after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                className="text-purple-dark hover:text-purple transition-colors font-inter text-sm font-medium tracking-wide relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-purple after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
               >
                 {link.name}
               </Link>
