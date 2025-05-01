@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -21,6 +20,7 @@ const carouselImages = [
 
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [loaded, setLoaded] = useState<boolean[]>(Array(carouselImages.length).fill(false));
 
   const nextSlide = () => {
     setActiveIndex((current) => (current === carouselImages.length - 1 ? 0 : current + 1));
@@ -30,10 +30,25 @@ const Hero = () => {
     setActiveIndex((current) => (current === 0 ? carouselImages.length - 1 : current - 1));
   };
 
+  const handleImageLoad = (index: number) => {
+    const newLoaded = [...loaded];
+    newLoaded[index] = true;
+    setLoaded(newLoaded);
+  };
+
+  // Preload all images
+  useEffect(() => {
+    carouselImages.forEach((image, index) => {
+      const img = new Image();
+      img.src = image.src;
+      img.onload = () => handleImageLoad(index);
+    });
+  }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 5000);
+    }, 6000); // Increased to 6 seconds
     return () => clearInterval(interval);
   }, []);
 
@@ -41,7 +56,7 @@ const Hero = () => {
     <section className="pt-20 pb-8 md:pt-24 md:pb-10 bg-gradient-to-b from-gray-50 to-white">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left animate-on-scroll">
             <h1 className="text-2xl md:text-3xl font-bold leading-tight mb-3">
               Enhance your <span className="text-gradient">customer experience</span>  with <span className="text-gradient">AI-powered</span> restaurant management digital solution 
             </h1>
@@ -50,22 +65,22 @@ const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
               <Button asChild className="btn-primary">
-                <a href="https://app.swirl.cx/register">Get Started for Free</a>
+                <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">Get Started for Free</a>
               </Button>
               <Button asChild className="btn-secondary">
-                <Link to="/products" className="flex items-center gap-1">
+                <a href="/products" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
                   Explore our Features <ArrowRight size={14} />
-                </Link>
+                </a>
               </Button>
             </div>
             <div className="mt-4 text-xs text-swirl-gray">
               <p>Trusted by Restaurants Worldwide</p>
             </div>
           </div>
-          <div className="relative group">
+          <div className="relative group animate-on-scroll">
             <div className="absolute -inset-1 bg-gradient-to-r from-purple/20 to-swirl-blue/20 rounded-3xl transform rotate-2 group-hover:opacity-75 transition duration-300 ease-in-out"></div>
             <div className="relative z-10 rounded-2xl shadow-card overflow-hidden">
-              <div className="carousel relative">
+              <div className="carousel relative max-w-md mx-auto"> {/* Added max-width for smaller images */}
                 {carouselImages.map((image, index) => (
                   <div 
                     key={index} 
@@ -76,9 +91,13 @@ const Hero = () => {
                     <img 
                       src={image.src} 
                       alt={image.alt} 
-                      className="w-full h-auto object-cover transform group-hover:scale-105 transition duration-300 ease-in-out"
+                      className="w-full h-auto object-contain max-h-[400px] transform group-hover:scale-105 transition duration-300 ease-in-out"
                       loading="eager"
+                      onLoad={() => handleImageLoad(index)}
                     />
+                    <div className={`absolute inset-0 bg-gray-200 flex items-center justify-center ${loaded[index] ? 'hidden' : ''}`}>
+                      <div className="w-6 h-6 border-2 border-purple border-t-transparent rounded-full animate-spin"></div>
+                    </div>
                   </div>
                 ))}
                 

@@ -1,11 +1,10 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const CTASection = () => {
   return (
-    <section className="section-padding">
+    <section className="section-padding animate-on-scroll">
       <div className="container-custom">
         <div className="bg-gradient-to-r from-purple-dark to-purple-dark/90 rounded-3xl overflow-hidden">
           <div className="relative px-6 py-16 md:p-16">
@@ -25,10 +24,10 @@ const CTASection = () => {
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Button asChild className="bg-white text-purple-dark hover:bg-gray-100 shadow-lg text-base">
-                  <Link to="/contact">Get our Trial free for 14 days!</Link>
+                  <a href="/contact" target="_blank" rel="noopener noreferrer">Get our Trial free for 14 days!</a>
                 </Button>
                 <Button asChild className="bg-transparent border border-white text-white hover:bg-white/10 text-base">
-                  <Link to="/contact">View Demo</Link>
+                  <a href="/contact" target="_blank" rel="noopener noreferrer">View Demo</a>
                 </Button>
               </div>
             </div>
