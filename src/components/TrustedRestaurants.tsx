@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -59,7 +59,7 @@ const restaurants = [
 ];
 
 const TrustedRestaurants = () => {
-  const plugin = React.useRef(
+  const plugin = useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false })
   );
 

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Index from './pages/Index';
 import NotFound from './pages/NotFound';
@@ -26,9 +26,9 @@ import CRM from './pages/features/CRM';
 import FinancialReports from './pages/features/FinancialReports';
 import PayrollManagement from './pages/features/PayrollManagement';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <ScrollToTop />
       <Navbar />
       <Routes>
@@ -57,7 +57,7 @@ function App() {
         
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
