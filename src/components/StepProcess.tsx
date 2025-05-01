@@ -25,7 +25,7 @@ const StepProcess = () => {
             </div>
             <h3 className="text-lg font-medium mb-2">Scan</h3>
             <p className="text-sm text-swirl-gray">
-              Guests scan the QR code at their table to access the dynamic digital menu
+              Guests scan the QR code at their table to access the dynamic digital menu.
             </p>
           </div>
           
@@ -55,8 +55,7 @@ const StepProcess = () => {
             </div>
             <h3 className="text-lg font-medium mb-2">Place Order</h3>
             <p className="text-sm text-swirl-gray">
-              Select the menu items, customize as needed, and place the order directly from their device to your kitchen order ticket without the need of anyone to take order or even guests to wait for someone to take order for them.
-            </p>
+              Select the menu items, add to your cart as needed, and place the order directly from their device to your kot and kds.
           </div>
         </div>
       </div>
