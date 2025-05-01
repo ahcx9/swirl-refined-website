@@ -7,9 +7,9 @@ const StepProcess = () => {
     <section className="py-10 md:py-12 bg-white animate-on-scroll">
       <div className="container-custom">
         <div className="text-center mb-8">
-          <h2 className="text-xl md:text-2xl font-bold mb-3">How It Works</h2>
+          <h2 className="text-xl md:text-2xl font-bold mb-3">Your Guest Point of View</h2>
           <p className="text-xs md:text-sm text-swirl-gray max-w-2xl mx-auto">
-            Simple 3-step process for your guests to enjoy a seamless dining experience
+            Simple 3-step process for your guests to enjoy a seamless dining experience and maximise better guest experience
           </p>
         </div>
         
@@ -25,7 +25,7 @@ const StepProcess = () => {
             </div>
             <h3 className="text-lg font-medium mb-2">Scan</h3>
             <p className="text-sm text-swirl-gray">
-              Guests scan the QR code at their table to access the digital menu
+              Guests scan the QR code at their table to access the dynamic digital menu
             </p>
           </div>
           
@@ -40,7 +40,7 @@ const StepProcess = () => {
             </div>
             <h3 className="text-lg font-medium mb-2">View Menu</h3>
             <p className="text-sm text-swirl-gray">
-              Browse through the interactive digital menu with photos and descriptions
+              Browse through the interactive digital menu with photos,videos and descriptions with all the information such as allergens, calorie of the food/drink item.
             </p>
           </div>
           
@@ -55,7 +55,7 @@ const StepProcess = () => {
             </div>
             <h3 className="text-lg font-medium mb-2">Place Order</h3>
             <p className="text-sm text-swirl-gray">
-              Select items, customize as needed, and place the order directly from their device
+              Select the menu items, customize as needed, and place the order directly from their device to your kitchen order ticket without the need of anyone to take order or even guests to wait for someone to take order for them.
             </p>
           </div>
         </div>
