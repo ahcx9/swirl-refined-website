@@ -45,7 +45,7 @@ const Hero = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-purple/20 to-blue-400/20 rounded-lg filter blur-3xl opacity-30 transform -rotate-6"></div>
               <img 
-                src="/lovable-uploads/e06fe134-6fdc-4caa-91b6-6492a2373c74.png" 
+                src="/lovable-uploads/a44015d9-2afa-46f0-a28b-ed784d372634.png" 
                 alt="Digital Menu Dashboard" 
                 className="relative z-10 rounded-xl shadow-xl max-w-full"
               />

@@ -7,12 +7,26 @@ import { NavigationItems } from './NavigationItems';
 import { MobileMenu } from './MobileMenu';
 
 const mainLinks = [
-  { name: 'Features', path: '/products' },
+  { 
+    name: 'Features', 
+    items: [
+      { title: 'Digital Menu', path: '/products/digital-menu', description: 'Create interactive digital menus with real-time updates', icon: 'file-text' },
+      { title: 'QR Ordering', path: '/products/qr-ordering', description: 'Contactless ordering for seamless dining experience', icon: 'qr-code' },
+      { title: 'POS System', path: '/products/pos', description: 'Modern point-of-sale for restaurant needs', icon: 'credit-card' },
+      { title: 'Analytics', path: '/products/analytics', description: 'Gain valuable insights about your business', icon: 'bar-chart' },
+      { title: 'Inventory Management', path: '/products/inventory-management', description: 'Track stock and optimize purchasing', icon: 'package' },
+      { title: 'Reservations', path: '/products/reservations', description: 'Manage bookings and table availability', icon: 'calendar' },
+      { title: 'CRM', path: '/products/crm', description: 'Build loyalty and drive repeat business', icon: 'users' },
+      { title: 'Car Ordering', path: '/products/car-ordering', description: 'Order from vehicles for pickup or drive-through', icon: 'car' },
+      { title: 'Financial Reports', path: '/products/financial-reports', description: 'Comprehensive performance tracking', icon: 'layout-dashboard' },
+      { title: 'Payroll Management', path: '/products/payroll-management', description: 'Streamline staff payments and labor costs', icon: 'badge-dollar-sign' },
+    ]
+  },
   { name: 'Pricing', path: '/pricing' },
   { name: 'Resources', items: [
     { title: 'Blog', path: '/blog', description: 'Latest updates and articles', icon: 'file-text' },
-    { title: 'Help Center', path: '/help', description: 'Get answers to your questions', icon: 'help-circle' },
-    { title: 'Documentation', path: '/docs', description: 'Technical information and guides', icon: 'book' },
+    { title: 'Help Center', path: '/help', description: 'Get answers to your questions', icon: 'qr-code' },
+    { title: 'Documentation', path: '/docs', description: 'Technical information and guides', icon: 'bar-chart' },
   ]},
   { name: 'Testimonials', path: '/testimonials' },
   { name: 'Contact', path: '/contact' },

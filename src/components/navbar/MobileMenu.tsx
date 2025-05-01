@@ -45,7 +45,7 @@ export const MobileMenu = ({
                       onClick={onClose}
                     >
                       {getIconComponent(item.icon)}
-                      <span>{item.title}</span>
+                      <span className="ml-2">{item.title}</span>
                     </Link>
                   ))}
                 </div>
