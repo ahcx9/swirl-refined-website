@@ -59,7 +59,7 @@ const Hero = () => {
               </Button>
             </div>
             <div className="mt-4 text-xs text-swirl-gray">
-              <p>Trusted by 1000+ restaurants worldwide</p>
+              <p>Trusted by restaurants worldwide</p>
             </div>
           </div>
           <div className="relative group">
