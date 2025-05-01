@@ -6,20 +6,20 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="pt-20 pb-12 md:pt-24 md:pb-16 bg-white">
+    <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-white">
       <div className="container-custom">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Hero content */}
-          <div className="max-w-lg lg:w-1/2">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
+          <div className="max-w-xl lg:w-1/2">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
               Restaurant Menu Management Made Simple
             </h1>
-            <p className="text-base text-swirl-gray mb-6">
+            <p className="text-lg text-swirl-gray mb-8">
               Create digital menus, enable QR ordering, and manage your restaurant operations all in one platform.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-3 mb-6">
-              <Button asChild size="lg" className="btn-primary px-6">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <Button asChild size="lg" className="btn-primary px-8">
                 <Link to="/products">Get Started Free</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="group">
@@ -30,11 +30,11 @@ const Hero = () => {
               </Button>
             </div>
             
-            <div className="space-y-2">
+            <div className="space-y-3">
               {["No credit card required", "14-day free trial", "Cancel anytime"].map((benefit) => (
                 <div key={benefit} className="flex items-center gap-2">
-                  <CheckCircle size={14} className="text-green-500" />
-                  <span className="text-xs sm:text-sm">{benefit}</span>
+                  <CheckCircle size={16} className="text-green-500" />
+                  <span className="text-sm">{benefit}</span>
                 </div>
               ))}
             </div>
@@ -47,7 +47,7 @@ const Hero = () => {
               <img 
                 src="/lovable-uploads/e06fe134-6fdc-4caa-91b6-6492a2373c74.png" 
                 alt="Digital Menu Dashboard" 
-                className="relative z-10 rounded-xl shadow-xl max-w-full w-11/12 mx-auto"
+                className="relative z-10 rounded-xl shadow-xl max-w-full"
               />
             </div>
           </div>
