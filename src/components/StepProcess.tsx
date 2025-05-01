@@ -56,6 +56,7 @@ const StepProcess = () => {
             <h3 className="text-lg font-medium mb-2">Place Order</h3>
             <p className="text-sm text-swirl-gray">
               Select the menu items, add to your cart as needed, and place the order directly from their device to your kot and kds.
+            </p>
           </div>
         </div>
       </div>
