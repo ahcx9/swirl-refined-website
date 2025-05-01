@@ -45,7 +45,7 @@ export const MobileMenu = ({
                       onClick={onClose}
                     >
                       {getIconComponent(item.icon)}
-                      <span className="ml-2">{item.title}</span>
+                      <span>{item.title}</span>
                     </Link>
                   ))}
                 </div>
@@ -62,19 +62,9 @@ export const MobileMenu = ({
             </Link>
           )
         ))}
-
-        <div className="pt-4 border-t border-gray-100 flex flex-col gap-3">
-          <Link
-            to="/login"
-            className="text-purple-dark hover:text-purple transition-colors font-medium py-2 text-lg text-center"
-            onClick={onClose}
-          >
-            Login
-          </Link>
-          <Button asChild className="btn-primary w-full font-inter mt-2">
-            <Link to="https://app.swirl.cx/register" onClick={onClose}>Get Started Free</Link>
-          </Button>
-        </div>
+        <Button asChild className="btn-primary w-full font-inter mt-4">
+          <Link to="https://app.swirl.cx/register" onClick={onClose}>Get Started For Free</Link>
+        </Button>
       </div>
     </div>
   );

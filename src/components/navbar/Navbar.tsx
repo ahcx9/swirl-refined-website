@@ -6,29 +6,78 @@ import { Button } from '@/components/ui/button';
 import { NavigationItems } from './NavigationItems';
 import { MobileMenu } from './MobileMenu';
 
-const mainLinks = [
-  { 
-    name: 'Features', 
-    items: [
-      { title: 'Digital Menu', path: '/products/digital-menu', description: 'Create interactive digital menus with real-time updates', icon: 'file-text' },
-      { title: 'QR Ordering', path: '/products/qr-ordering', description: 'Contactless ordering for seamless dining experience', icon: 'qr-code' },
-      { title: 'POS System', path: '/products/pos', description: 'Modern point-of-sale for restaurant needs', icon: 'credit-card' },
-      { title: 'Analytics', path: '/products/analytics', description: 'Gain valuable insights about your business', icon: 'bar-chart' },
-      { title: 'Inventory Management', path: '/products/inventory-management', description: 'Track stock and optimize purchasing', icon: 'package' },
-      { title: 'Reservations', path: '/products/reservations', description: 'Manage bookings and table availability', icon: 'calendar' },
-      { title: 'CRM', path: '/products/crm', description: 'Build loyalty and drive repeat business', icon: 'users' },
-      { title: 'Car Ordering', path: '/products/car-ordering', description: 'Order from vehicles for pickup or drive-through', icon: 'car' },
-      { title: 'Financial Reports', path: '/products/financial-reports', description: 'Comprehensive performance tracking', icon: 'layout-dashboard' },
-      { title: 'Payroll Management', path: '/products/payroll-management', description: 'Streamline staff payments and labor costs', icon: 'badge-dollar-sign' },
-    ]
+const features = [
+  {
+    title: 'Digital Menu',
+    path: '/products/digital-menu',
+    description: 'Create interactive digital menus that are easy to update.',
+    icon: 'restaurant-menu'
   },
-  { name: 'Pricing', path: '/pricing' },
-  { name: 'Resources', items: [
-    { title: 'Blog', path: '/blog', description: 'Latest updates and articles', icon: 'file-text' },
-    { title: 'Help Center', path: '/help', description: 'Get answers to your questions', icon: 'qr-code' },
-    { title: 'Documentation', path: '/docs', description: 'Technical information and guides', icon: 'bar-chart' },
-  ]},
-  { name: 'Testimonials', path: '/testimonials' },
+  {
+    title: 'QR Ordering',
+    path: '/products/qr-ordering',
+    description: 'Enable contactless ordering through QR codes.',
+    icon: 'qr-code'
+  },
+  {
+    title: 'Analytics',
+    path: '/products/analytics',
+    description: 'Track and analyze your restaurant performance.',
+    icon: 'chart-bar'
+  },
+  {
+    title: 'Point of Sale',
+    path: '/products/pos',
+    description: 'Modern POS system for seamless transactions.',
+    icon: 'credit-card'
+  },
+  {
+    title: 'Financial Reports',
+    path: '/products/financial-reports',
+    description: 'Comprehensive financial reporting and analysis.',
+    icon: 'file-text'
+  },
+  {
+    title: 'CRM',
+    path: '/products/crm',
+    description: 'Manage customer relationships effectively.',
+    icon: 'users'
+  },
+  {
+    title: 'In-Car Ordering',
+    path: '/products/ordering-from-car',
+    description: 'Enable convenient ordering directly from vehicles.',
+    icon: 'car'
+  },
+  {
+    title: 'Payroll Management',
+    path: '/products/payroll-management',
+    description: 'Streamline your staff payments and tracking.',
+    icon: 'dollar-sign'
+  },
+  {
+    title: 'Inventory Management',
+    path: '/products/inventory-management',
+    description: 'Track and manage your inventory efficiently.',
+    icon: 'package'
+  },
+  {
+    title: 'Kitchen Display',
+    path: '/products/kitchen-display',
+    description: 'Streamline kitchen operations and order management.',
+    icon: 'chef-hat'
+  },
+  {
+    title: 'Reservations',
+    path: '/products/reservations',
+    description: 'Manage bookings and optimize table turnover.',
+    icon: 'calendar'
+  }
+];
+
+const mainLinks = [
+  { name: 'Features', items: features },
+  { name: 'Use Cases', path: '/use-cases' },
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -53,7 +102,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-sm py-2' : 'bg-white py-3'
+        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-2' : 'bg-white py-3'
       }`}
     >
       <div className="container-custom flex justify-between items-center">
@@ -70,15 +119,10 @@ const Navbar = () => {
             <NavigationItems items={mainLinks} />
           </div>
         </div>
-        
-        <div className="hidden md:flex items-center gap-4">
-          <Link to="/login" className="text-purple-dark hover:text-purple transition-colors font-medium">
-            Login
-          </Link>  
-          <Button asChild className="bg-purple text-white hover:bg-purple-dark font-medium text-sm px-5 py-2 rounded-lg">
-            <Link to="https://app.swirl.cx/register">Get Started</Link>
-          </Button>
-        </div>
+          
+        <Button asChild className="btn-primary font-inter hidden md:flex text-sm">
+          <Link to="https://app.swirl.cx/register">Get Started For Free</Link>
+        </Button>
 
         <button
           className="md:hidden text-purple-dark"

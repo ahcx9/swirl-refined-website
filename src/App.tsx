@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Index from './pages/Index';
 import NotFound from './pages/NotFound';
@@ -12,7 +12,6 @@ import UseCases from './pages/UseCases';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Sitemap from './pages/Sitemap';
-import Pricing from './pages/Pricing';
 import DigitalMenu from './pages/features/DigitalMenu';
 import QROrdering from './pages/features/QROrdering';
 import Analytics from './pages/features/Analytics';
@@ -26,9 +25,9 @@ import CRM from './pages/features/CRM';
 import FinancialReports from './pages/features/FinancialReports';
 import PayrollManagement from './pages/features/PayrollManagement';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <ScrollToTop />
       <Navbar />
       <Routes>
@@ -36,7 +35,6 @@ const App: React.FC = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<ProductOverview />} />
         <Route path="/use-cases" element={<UseCases />} />
-        <Route path="/pricing" element={<Pricing />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/sitemap" element={<Sitemap />} />
@@ -57,7 +55,7 @@ const App: React.FC = () => {
         
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 

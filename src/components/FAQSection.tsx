@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {
   Accordion,
   AccordionContent,
@@ -8,60 +7,125 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqs = [
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+const leftColumnFaqs: FAQItem[] = [
   {
-    question: "How does the QR ordering system work?",
-    answer: "Our QR ordering system allows customers to scan a QR code at their table using their smartphone. This opens a digital menu where they can browse, select items, and place orders without needing to download an app. Orders are sent directly to your kitchen display system for preparation."
+    question: "How can digital menus improve my restaurant's efficiency?",
+    answer: "Digital menus eliminate the need for printing physical menus, allowing instant updates to items and prices. They reduce order errors by directly transmitting selections to the kitchen, speed up table turnover by 20-30% through faster ordering processes, and collect valuable customer data for targeted marketing and menu optimization."
   },
   {
-    question: "Is Swirl compatible with existing POS systems?",
-    answer: "Yes, Swirl is designed to integrate seamlessly with most popular POS systems. We offer direct integrations with major providers and can custom-develop connections for specific systems. Our team will help ensure a smooth integration process."
+    question: "What kind of restaurants benefit most from Swirl's solutions?",
+    answer: "Swirl's solutions benefit a wide range of establishments, from quick-service restaurants needing fast ordering to fine dining restaurants seeking enhanced guest experiences. Our platform is particularly valuable for multi-location restaurants requiring consistent operations, establishments with frequently changing menus, and restaurants looking to gather customer data for marketing and optimization."
   },
   {
-    question: "How long does it take to implement Swirl?",
-    answer: "Most restaurants can be fully set up with Swirl within 1-2 days. Our onboarding process includes menu digitization, staff training, and system configuration. We provide comprehensive support throughout the implementation process to ensure a smooth transition."
+    question: "How difficult is it to implement Swirl's digital ordering system?",
+    answer: "Implementing Swirl's system is designed to be simple and quick. Our team handles the entire setup process, from menu digitization to staff training. The average restaurant can be fully operational within 1-2 weeks. Our intuitive admin dashboard makes ongoing management easy, requiring minimal technical skill, and our 24/7 support team is always available to help with any questions."
   },
   {
-    question: "Can I customize the digital menu to match my restaurant's branding?",
-    answer: "Absolutely! Swirl offers extensive customization options for your digital menu, including colors, fonts, layout, and imagery. You can showcase your restaurant's unique brand identity while providing an intuitive ordering experience for your customers."
+    question: "Can Swirl integrate with other POS systems?",
+    answer: "Swirl is a comprehensive restaurant management ecosystem with our own POS system. We don't integrate with external POS systems because our solution is designed to work seamlessly as an all-in-one platform. This ensures perfect synchronization between all modules like digital menus, inventory management, staff management, and analytics, delivering a superior experience compared to fragmented solutions."
   },
   {
-    question: "What kind of customer support does Swirl provide?",
-    answer: "We offer 24/7 customer support through multiple channels including live chat, email, and phone. Our support team is highly trained to resolve technical issues quickly and provide guidance on optimizing your use of the platform."
+    question: "What kind of training do you provide for restaurant staff?",
+    answer: "We provide comprehensive training for all restaurant staff, including managers, servers, and kitchen staff. Our training includes hands-on sessions, video tutorials, and detailed documentation. We also offer ongoing support after implementation to ensure your team is comfortable and confident using our system."
+  },
+  {
+    question: "How much does the Swirl.cx platform cost?",
+    answer: "Swirl offers flexible pricing based on your restaurant's specific needs and size. We provide several tiers of service, from basic digital menu solutions to comprehensive restaurant management systems. Our pricing is transparent with no hidden fees, and we offer monthly subscription options as well as annual plans with discounted rates. Contact us for a customized quote tailored to your business requirements."
+  },
+  {
+    question: "Can Swirl help me with creating content for my digital menu?",
+    answer: "Absolutely! We offer professional menu content creation services, including AI-powered menu descriptions that highlight your dishes' unique selling points. Our team can also assist with professional food photography, nutritional information calculations, and allergen labeling to ensure your digital menu is not only functional but also visually appealing and informative."
+  }
+];
+
+const rightColumnFaqs: FAQItem[] = [
+  {
+    question: "How does QR code ordering affect the guest experience?",
+    answer: "QR ordering enhances the guest experience by giving customers control over their dining experience. They can browse the menu at their own pace, customize orders without miscommunication, and pay when they're ready without waiting for staff. Our system still allows for human interaction when needed, creating a perfect balance between efficiency and hospitality that results in higher customer satisfaction and increased repeat visits."
+  },
+  {
+    question: "What kind of analytics and insights will I receive from Swirl?",
+    answer: "Swirl provides comprehensive analytics including item popularity rankings, peak ordering times, average order values, customer return rates, and promotional campaign performance. These insights help you optimize your menu, staffing, pricing strategies, and marketing efforts. Our dashboard presents data in easy-to-understand visualizations, and custom reports can be scheduled for regular delivery to your email."
+  },
+  {
+    question: "How does Swirl handle data security and customer privacy?",
+    answer: "Data security is our top priority. Swirl implements industry-leading security protocols including end-to-end encryption, secure payment processing that meets PCI DSS standards, regular security audits, and strict access controls. Customer data is stored securely and managed in compliance with global privacy regulations like GDPR, ensuring your customers' information is always protected."
+  },
+  {
+    question: "What support can I expect after implementing Swirl's solutions?",
+    answer: "Swirl provides 24/7 customer support through multiple channels including phone, email, and live chat. Our dedicated customer success managers ensure smooth operation of your system and help you maximize its benefits. We also offer regular system updates with new features and improvements based on customer feedback, keeping your restaurant at the cutting edge of technology."
+  },
+  {
+    question: "Do you offer hardware for the POS system or only software?",
+    answer: "Swirl offers both software and hardware solutions for a complete POS experience. Our hardware includes high-quality touchscreen terminals, kitchen display systems, receipt printers, barcode scanners, and payment processing devices. We carefully select reliable hardware that integrates perfectly with our software, ensuring a seamless and robust restaurant management system."
+  },
+  {
+    question: "Can Swirl's system work offline if my internet connection fails?",
+    answer: "Yes, Swirl is designed with business continuity in mind. Our system includes offline functionality that allows your restaurant to continue taking orders and processing payments even during internet outages. Once connectivity is restored, all data automatically syncs to the cloud, ensuring you never lose important information and your operations can continue uninterrupted."
+  },
+  {
+    question: "How customizable is the Swirl platform for my restaurant's unique needs?",
+    answer: "Swirl offers extensive customization options to match your restaurant's specific requirements and branding. From menu layouts and color schemes to specialized features for your service model, our platform can be tailored to your needs. We also provide an API for businesses with specific integration requirements, allowing for custom development to extend the platform's functionality."
   }
 ];
 
 const FAQSection = () => {
   return (
-    <section className="py-20 bg-white">
-      <div className="container-custom max-w-4xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Frequently Asked Questions</h2>
-          <p className="text-swirl-gray">
-            Find answers to common questions about our restaurant management platform.
+    <section className="py-16 bg-white">
+      <div className="container-custom">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-swirl-gray max-w-2xl mx-auto mb-4">
+            Get answers to common questions about Swirl's restaurant management solutions
           </p>
+          <div className="h-0.5 w-16 bg-purple mx-auto"></div>
         </div>
-
-        <Accordion type="single" collapsible className="w-full">
-          {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-200">
-              <AccordionTrigger className="text-left font-medium py-5 text-lg hover:text-purple">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-swirl-gray pb-5">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
         
-        <div className="text-center mt-10">
-          <p className="text-swirl-gray mb-4">
-            Still have questions? Contact our support team.
-          </p>
-          <Link to="/contact" className="text-purple hover:text-purple-dark font-medium">
-            Contact Support
-          </Link>
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="space-y-4">
+            <Accordion type="single" collapsible className="w-full">
+              {leftColumnFaqs.map((faq, index) => (
+                <AccordionItem 
+                  key={`left-${index}`} 
+                  value={`left-item-${index}`}
+                  className="border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-white mb-4"
+                >
+                  <AccordionTrigger className="px-6 py-4 hover:no-underline text-left">
+                    <span className="font-medium text-lg">{faq.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-4 pt-2 text-gray-700">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+          
+          <div className="space-y-4">
+            <Accordion type="single" collapsible className="w-full">
+              {rightColumnFaqs.map((faq, index) => (
+                <AccordionItem 
+                  key={`right-${index}`} 
+                  value={`right-item-${index}`}
+                  className="border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-white mb-4"
+                >
+                  <AccordionTrigger className="px-6 py-4 hover:no-underline text-left">
+                    <span className="font-medium text-lg">{faq.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-4 pt-2 text-gray-700">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
       </div>
     </section>

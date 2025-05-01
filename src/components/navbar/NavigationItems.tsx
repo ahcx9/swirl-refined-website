@@ -9,8 +9,8 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { 
-  FileText, QrCode, BarChart, CreditCard, Package,
-  Users, Car, Calendar, LayoutDashboard, ChefHat, BadgeDollarSign
+  FileText, ShoppingCart, BarChart, CreditCard, LayoutDashboard,
+  Users, Car, Calendar, Package, ChefHat, Utensils
 } from 'lucide-react';
 
 interface NavigationItem {
@@ -32,17 +32,17 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
   // Map for Lucide icons based on icon name
   const getIcon = (iconName: string) => {
     const iconMap: {[key: string]: React.ReactNode} = {
-      'file-text': <FileText size={20} className="mr-3 text-purple" />,
-      'qr-code': <QrCode size={20} className="mr-3 text-purple" />,
-      'bar-chart': <BarChart size={20} className="mr-3 text-purple" />,
+      'restaurant-menu': <FileText size={20} className="mr-3 text-purple" />,
+      'qr-code': <ShoppingCart size={20} className="mr-3 text-purple" />,
+      'chart-bar': <BarChart size={20} className="mr-3 text-purple" />,
       'credit-card': <CreditCard size={20} className="mr-3 text-purple" />,
-      'package': <Package size={20} className="mr-3 text-purple" />,
+      'file-text': <LayoutDashboard size={20} className="mr-3 text-purple" />,
       'users': <Users size={20} className="mr-3 text-purple" />,
       'car': <Car size={20} className="mr-3 text-purple" />,
-      'calendar': <Calendar size={20} className="mr-3 text-purple" />,
-      'layout-dashboard': <LayoutDashboard size={20} className="mr-3 text-purple" />,
+      'dollar-sign': <Calendar size={20} className="mr-3 text-purple" />,
+      'package': <Package size={20} className="mr-3 text-purple" />,
       'chef-hat': <ChefHat size={20} className="mr-3 text-purple" />,
-      'badge-dollar-sign': <BadgeDollarSign size={20} className="mr-3 text-purple" />,
+      'calendar': <Utensils size={20} className="mr-3 text-purple" />,
     };
     
     return iconMap[iconName] || null;
