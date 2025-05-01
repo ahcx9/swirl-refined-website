@@ -8,15 +8,21 @@ import Footer from '@/components/Footer';
 import HowItWorks from '@/components/HowItWorks';
 import BenefitsSection from '@/components/BenefitsSection';
 import AdvancedFeatures from '@/components/AdvancedFeatures';
+import Testimonials from '@/components/Testimonials';
+import FeatureCards from '@/components/FeatureCards';
+import Features from '@/components/Features';
 
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow">
         <Hero />
+        <Features />
         <TrustedRestaurants />
+        <FeatureCards />
         <HowItWorks />
         <BenefitsSection />
+        <Testimonials />
         <AdvancedFeatures />
         <FAQSection />
         <CTASection />
