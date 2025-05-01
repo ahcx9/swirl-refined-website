@@ -43,7 +43,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
           <div className="text-center lg:text-left">
             <h1 className="text-2xl md:text-3xl font-bold leading-tight mb-3">
-              Enhance your customer experience with <span className="text-gradient">AI-powered</span> restaurant management
+              Enhance your <i>customer experience</i> with <span className="text-gradient">AI-powered</span> restaurant management digital solution 
             </h1>
             <p className="text-sm md:text-base text-swirl-gray mb-4 max-w-xl mx-auto lg:mx-0">
               Streamline operations with smart digital tools. Boost efficiency, improve customer experience, and increase profits.
@@ -54,12 +54,12 @@ const Hero = () => {
               </Button>
               <Button asChild className="btn-secondary">
                 <Link to="/products" className="flex items-center gap-1">
-                  Explore Solutions <ArrowRight size={14} />
+                  Explore our Features <ArrowRight size={14} />
                 </Link>
               </Button>
             </div>
             <div className="mt-4 text-xs text-swirl-gray">
-              <p>Trusted by restaurants worldwide</p>
+              <p>Trusted by Restaurants Worldwide</p>
             </div>
           </div>
           <div className="relative group">
