@@ -64,9 +64,9 @@ const TrustedRestaurants = () => {
   );
 
   return (
-    <section className="py-10 bg-gradient-to-b from-[#1A1F2C] to-[#222] text-white">
+    <section className="py-6 bg-gradient-to-b from-[#1A1F2C] to-[#222] text-white">
       <div className="container-custom">
-        <h3 className="text-sm font-medium text-center mb-8 text-gray-300 font-inter">Trusted by Leading Restaurants</h3>
+        <h3 className="text-sm font-medium text-center mb-6 text-gray-300 font-inter">Trusted by Leading Restaurants</h3>
         <Carousel
           opts={{
             align: "start",

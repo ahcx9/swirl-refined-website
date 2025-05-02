@@ -10,15 +10,18 @@ export function useScrollAnimation() {
       entries.forEach(entry => {
         // Add visible class when element is in view
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          // Once animation is done, unobserve to save resources
-          observerRef.current?.unobserve(entry.target);
+          // Add a slight delay for staggered animation effect
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+            // Once animation is done, unobserve to save resources
+            observerRef.current?.unobserve(entry.target);
+          }, 100);
         }
       });
     }, {
       root: null, // viewport
       rootMargin: '0px',
-      threshold: 0.1 // 10% of the element visible
+      threshold: 0.15 // 15% of the element visible to trigger animation
     });
     
     // Select all elements with animate-on-scroll class

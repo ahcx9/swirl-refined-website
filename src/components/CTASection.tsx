@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 const CTASection = () => {
   return (
-    <section className="section-padding animate-on-scroll">
+    <section className="py-20 md:py-24 animate-on-scroll">
       <div className="container-custom">
         <div className="bg-gradient-to-r from-purple-dark to-purple-dark/90 rounded-3xl overflow-hidden">
           <div className="relative px-6 py-16 md:p-16">

@@ -18,8 +18,10 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow">
-        <Hero />
-        <TrustedRestaurants />
+        <div className="full-viewport-section">
+          <Hero />
+          <TrustedRestaurants />
+        </div>
         <Features />
         <StepProcess />
         <NextGenFeatures />

@@ -53,7 +53,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pt-20 pb-8 md:pt-24 md:pb-10 bg-gradient-to-b from-gray-50 to-white">
+    <section className="pt-20 pb-12 md:pt-24 md:pb-16 min-h-[85vh] flex items-center bg-gradient-to-b from-gray-50 to-white">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
           <div className="text-center lg:text-left animate-on-scroll">
@@ -80,7 +80,7 @@ const Hero = () => {
           <div className="relative group animate-on-scroll">
             <div className="absolute -inset-1 bg-gradient-to-r from-purple/20 to-swirl-blue/20 rounded-3xl transform rotate-2 group-hover:opacity-75 transition duration-300 ease-in-out"></div>
             <div className="relative z-10 rounded-2xl shadow-card overflow-hidden">
-              <div className="carousel relative max-w-md mx-auto"> {/* Added max-width for smaller images */}
+              <div className="carousel relative max-w-md mx-auto"> 
                 {carouselImages.map((image, index) => (
                   <div 
                     key={index} 
