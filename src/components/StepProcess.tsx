@@ -4,7 +4,7 @@ import { QrCode, Menu, ShoppingCart } from 'lucide-react';
 
 const StepProcess = () => {
   return (
-    <section className="py-20 md:py-24 min-h-screen flex items-center bg-white animate-on-scroll">
+    <section className="py-16 md:py-20 flex items-center bg-white animate-on-scroll">
       <div className="container-custom">
         <div className="text-center mb-10">
           <h2 className="text-xl md:text-2xl font-bold mb-3">Your Guest Point of View</h2>

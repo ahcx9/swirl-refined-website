@@ -75,7 +75,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section id="features" className="py-20 md:py-24 min-h-screen flex items-center bg-gradient-to-b from-gray-50 to-white">
+    <section id="features" className="py-16 md:py-20 flex items-center bg-gradient-to-b from-gray-50 to-white">
       <div className="container-custom">
         <div className="text-center mb-8">
           <h2 className="text-xl md:text-2xl font-bold mb-2">Solutions for Modern Restaurants</h2>

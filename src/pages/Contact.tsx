@@ -9,22 +9,22 @@ const Contact = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-24">
-        <section className="bg-purple-light/10 py-20">
+        <section className="bg-purple-light/10 py-16">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 font-inter">Contact Us</h1>
-              <p className="text-lg text-swirl-gray mb-8 font-inter">
+              <p className="text-lg text-swirl-gray mb-6 font-inter">
                 Get in touch with our team to learn more about how we can help transform your restaurant operations.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="py-20">
+        <section className="py-16">
           <div className="container mx-auto px-4 max-w-3xl">
-            <div className="bg-white rounded-lg p-12 shadow-soft">
-              <h2 className="text-3xl font-bold mb-12 text-purple-dark text-center">Get In Touch</h2>
-              <div className="space-y-10">
+            <div className="bg-white rounded-lg p-10 shadow-soft">
+              <h2 className="text-3xl font-bold mb-10 text-purple-dark text-center">Get In Touch</h2>
+              <div className="space-y-8">
                 <div className="flex items-start gap-6">
                   <MapPin className="h-8 w-8 text-purple flex-shrink-0 mt-1" />
                   <div>
@@ -47,9 +47,26 @@ const Contact = () => {
                   <Phone className="h-8 w-8 text-purple flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold text-xl mb-3 font-inter">Phone</h3>
-                    <a href="tel:+971543853877" className="text-swirl-gray hover:text-purple transition-colors text-lg font-inter">
-                      +971 54 385 3877
-                    </a>
+                    <div className="space-y-2">
+                      <div className="flex items-center">
+                        <span className="mr-2 text-lg">🇦🇪</span>
+                        <a href="tel:+971543853877" className="text-swirl-gray hover:text-purple transition-colors text-lg font-inter">
+                          +971 54 385 3877
+                        </a>
+                      </div>
+                      <div className="flex items-center">
+                        <span className="mr-2 text-lg">🇸🇦</span>
+                        <a href="tel:+966553955115" className="text-swirl-gray hover:text-purple transition-colors text-lg font-inter">
+                          +966 55 395 5115
+                        </a>
+                      </div>
+                      <div className="flex items-center">
+                        <span className="mr-2 text-lg">🇮🇳</span>
+                        <a href="tel:+918795997070" className="text-swirl-gray hover:text-purple transition-colors text-lg font-inter">
+                          +91 87959 97070
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 
