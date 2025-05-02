@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
@@ -8,6 +9,7 @@ import {
   BarChart, Smartphone, Utensils, Sparkles, Languages
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent } from "@/components/ui/card";
 
 const DigitalMenu = () => {
   return (
@@ -43,116 +45,108 @@ const DigitalMenu = () => {
               </div>
             </div>
 
-            <Tabs defaultValue="features" className="mb-12">
-              <TabsList className="grid w-full grid-cols-2 mb-8">
-                <TabsTrigger value="features" className="text-lg py-3">Key Features</TabsTrigger>
-                <TabsTrigger value="benefits" className="text-lg py-3">Benefits</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="features" className="space-y-8">
-                <div className="bg-purple-light/10 p-8 rounded-xl">
-                  <h2 className="text-2xl font-bold mb-6">Advanced Menu Features</h2>
-                  
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
-                      <div className="flex items-center gap-3 mb-4">
-                        <Globe className="text-purple h-6 w-6" />
-                        <h3 className="text-xl font-semibold">Multiple Languages</h3>
-                      </div>
-                      <p className="text-swirl-gray">Offer your menu in over 30 languages with automatic translation and customizable corrections.</p>
-                    </div>
+            <div className="mb-16">
+              <Tabs defaultValue="features" className="w-full">
+                <div className="flex justify-center mb-8">
+                  <TabsList className="grid grid-cols-2 w-full max-w-md">
+                    <TabsTrigger value="features" className="text-lg py-3 font-medium">Key Features</TabsTrigger>
+                    <TabsTrigger value="benefits" className="text-lg py-3 font-medium">Benefits</TabsTrigger>
+                  </TabsList>
+                </div>
+                
+                <TabsContent value="features" className="mt-6">
+                  <div className="p-6 md:p-8 bg-gradient-to-br from-purple-light/20 to-white rounded-2xl shadow-md">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Advanced Menu Features</h2>
                     
-                    <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
-                      <div className="flex items-center gap-3 mb-4">
-                        <DollarSign className="text-purple h-6 w-6" />
-                        <h3 className="text-xl font-semibold">Multiple Currencies</h3>
-                      </div>
-                      <p className="text-swirl-gray">Support for multiple currencies with real-time exchange rate updates for international customers.</p>
-                    </div>
-                    
-                    <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
-                      <div className="flex items-center gap-3 mb-4">
-                        <Utensils className="text-purple h-6 w-6" />
-                        <h3 className="text-xl font-semibold">Nutritional Info</h3>
-                      </div>
-                      <p className="text-swirl-gray">Display calories, allergens, ingredients, and other dietary information for health-conscious customers.</p>
-                    </div>
-                    
-                    <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
-                      <div className="flex items-center gap-3 mb-4">
-                        <Clock className="text-purple h-6 w-6" />
-                        <h3 className="text-xl font-semibold">Preparation Time</h3>
-                      </div>
-                      <p className="text-swirl-gray">Show estimated preparation times for each dish to manage customer expectations.</p>
-                    </div>
-                    
-                    <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
-                      <div className="flex items-center gap-3 mb-4">
-                        <Star className="text-purple h-6 w-6" />
-                        <h3 className="text-xl font-semibold">Customer Reviews</h3>
-                      </div>
-                      <p className="text-swirl-gray">Allow customers to leave reviews and ratings for specific menu items to build trust.</p>
-                    </div>
-                    
-                    <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
-                      <div className="flex items-center gap-3 mb-4">
-                        <Sparkles className="text-purple h-6 w-6" />
-                        <h3 className="text-xl font-semibold">AI Descriptions</h3>
-                      </div>
-                      <p className="text-swirl-gray">Generate enticing menu descriptions automatically with our AI-powered content generator.</p>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      <FeatureCard 
+                        icon={<Globe className="text-purple h-6 w-6" />}
+                        title="Multiple Languages"
+                        description="Offer your menu in over 30 languages with automatic translation and customizable corrections."
+                      />
+                      
+                      <FeatureCard 
+                        icon={<DollarSign className="text-purple h-6 w-6" />}
+                        title="Multiple Currencies"
+                        description="Support for multiple currencies with real-time exchange rate updates for international customers."
+                      />
+                      
+                      <FeatureCard 
+                        icon={<Utensils className="text-purple h-6 w-6" />}
+                        title="Nutritional Info"
+                        description="Display calories, allergens, ingredients, and other dietary information for health-conscious customers."
+                      />
+                      
+                      <FeatureCard 
+                        icon={<Clock className="text-purple h-6 w-6" />}
+                        title="Preparation Time"
+                        description="Show estimated preparation times for each dish to manage customer expectations."
+                      />
+                      
+                      <FeatureCard 
+                        icon={<Star className="text-purple h-6 w-6" />}
+                        title="Customer Reviews"
+                        description="Allow customers to leave reviews and ratings for specific menu items to build trust."
+                      />
+                      
+                      <FeatureCard 
+                        icon={<Sparkles className="text-purple h-6 w-6" />}
+                        title="AI Descriptions"
+                        description="Generate enticing menu descriptions automatically with our AI-powered content generator."
+                      />
                     </div>
                   </div>
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="benefits" className="space-y-8">
-                <div className="bg-blue-50 p-8 rounded-xl">
-                  <h2 className="text-2xl font-bold mb-6">Benefits of Digital Menus</h2>
-                  
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
-                      <h3 className="text-xl font-semibold mb-3">Cost Savings</h3>
-                      <ul className="space-y-2">
-                        <li>• Eliminate printing costs for menu updates</li>
-                        <li>• Reduce staff time spent explaining menu items</li>
-                        <li>• Lower environmental impact with paperless menus</li>
-                        <li>• Instant updates without reprinting entire menus</li>
-                      </ul>
-                    </div>
+                </TabsContent>
+                
+                <TabsContent value="benefits" className="mt-6">
+                  <div className="p-6 md:p-8 bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-md">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Benefits of Digital Menus</h2>
                     
-                    <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
-                      <h3 className="text-xl font-semibold mb-3">Enhanced Customer Experience</h3>
-                      <ul className="space-y-2">
-                        <li>• Interactive visual experience with high-quality images</li>
-                        <li>• Language options for international customers</li>
-                        <li>• Detailed information for dietary needs</li>
-                        <li>• Consistent experience across all devices</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
-                      <h3 className="text-xl font-semibold mb-3">Operational Efficiency</h3>
-                      <ul className="space-y-2">
-                        <li>• Instant menu updates during busy periods</li>
-                        <li>• Easily manage seasonal menu changes</li>
-                        <li>• Quickly mark items as sold out in real-time</li>
-                        <li>• Seamless integration with your POS system</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100">
-                      <h3 className="text-xl font-semibold mb-3">Data & Analytics</h3>
-                      <ul className="space-y-2">
-                        <li>• Track most viewed and ordered menu items</li>
-                        <li>• Analyze customer preferences and trends</li>
-                        <li>• A/B test different menu layouts and descriptions</li>
-                        <li>• Make data-driven menu optimization decisions</li>
-                      </ul>
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <BenefitCard 
+                        title="Cost Savings"
+                        items={[
+                          "Eliminate printing costs for menu updates",
+                          "Reduce staff time spent explaining menu items",
+                          "Lower environmental impact with paperless menus",
+                          "Instant updates without reprinting entire menus"
+                        ]}
+                      />
+                      
+                      <BenefitCard 
+                        title="Enhanced Customer Experience"
+                        items={[
+                          "Interactive visual experience with high-quality images",
+                          "Language options for international customers",
+                          "Detailed information for dietary needs",
+                          "Consistent experience across all devices"
+                        ]}
+                      />
+                      
+                      <BenefitCard 
+                        title="Operational Efficiency"
+                        items={[
+                          "Instant menu updates during busy periods",
+                          "Easily manage seasonal menu changes",
+                          "Quickly mark items as sold out in real-time",
+                          "Seamless integration with your POS system"
+                        ]}
+                      />
+                      
+                      <BenefitCard 
+                        title="Data & Analytics"
+                        items={[
+                          "Track most viewed and ordered menu items",
+                          "Analyze customer preferences and trends",
+                          "A/B test different menu layouts and descriptions",
+                          "Make data-driven menu optimization decisions"
+                        ]}
+                      />
                     </div>
                   </div>
-                </div>
-              </TabsContent>
-            </Tabs>
+                </TabsContent>
+              </Tabs>
+            </div>
 
             <div className="bg-gradient-to-br from-purple-light/20 to-purple/10 p-8 rounded-xl mb-12">
               <h2 className="text-2xl font-bold mb-6 text-center">Why Restaurants Love Our Digital Menu</h2>
@@ -198,6 +192,40 @@ const DigitalMenu = () => {
       </main>
       <Footer />
     </div>
+  );
+};
+
+// Feature Card Component
+const FeatureCard = ({ icon, title, description }) => {
+  return (
+    <Card className="border border-gray-100 shadow-soft hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+      <CardContent className="p-6">
+        <div className="flex items-center gap-3 mb-4">
+          {icon}
+          <h3 className="text-xl font-semibold">{title}</h3>
+        </div>
+        <p className="text-swirl-gray">{description}</p>
+      </CardContent>
+    </Card>
+  );
+};
+
+// Benefit Card Component
+const BenefitCard = ({ title, items }) => {
+  return (
+    <Card className="border border-gray-100 shadow-soft hover:shadow-md transition-all duration-300">
+      <CardContent className="p-6">
+        <h3 className="text-xl font-semibold mb-4">{title}</h3>
+        <ul className="space-y-2">
+          {items.map((item, index) => (
+            <li key={index} className="flex items-start gap-2">
+              <div className="min-w-[6px] h-[6px] rounded-full bg-purple mt-2"></div>
+              <span className="text-swirl-gray">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </CardContent>
+    </Card>
   );
 };
 
