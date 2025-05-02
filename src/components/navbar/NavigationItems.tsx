@@ -32,17 +32,17 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
   // Map for Lucide icons based on icon name
   const getIcon = (iconName: string) => {
     const iconMap: {[key: string]: React.ReactNode} = {
-      'restaurant-menu': <FileText size={20} className="mr-3 text-purple" />,
-      'qr-code': <ShoppingCart size={20} className="mr-3 text-purple" />,
-      'chart-bar': <BarChart size={20} className="mr-3 text-purple" />,
-      'credit-card': <CreditCard size={20} className="mr-3 text-purple" />,
-      'file-text': <LayoutDashboard size={20} className="mr-3 text-purple" />,
-      'users': <Users size={20} className="mr-3 text-purple" />,
-      'car': <Car size={20} className="mr-3 text-purple" />,
-      'dollar-sign': <Calendar size={20} className="mr-3 text-purple" />,
-      'package': <Package size={20} className="mr-3 text-purple" />,
-      'chef-hat': <ChefHat size={20} className="mr-3 text-purple" />,
-      'calendar': <Utensils size={20} className="mr-3 text-purple" />,
+      'restaurant-menu': <FileText size={22} className="mr-3 text-purple" />,
+      'qr-code': <ShoppingCart size={22} className="mr-3 text-purple" />,
+      'chart-bar': <BarChart size={22} className="mr-3 text-purple" />,
+      'credit-card': <CreditCard size={22} className="mr-3 text-purple" />,
+      'file-text': <LayoutDashboard size={22} className="mr-3 text-purple" />,
+      'users': <Users size={22} className="mr-3 text-purple" />,
+      'car': <Car size={22} className="mr-3 text-purple" />,
+      'dollar-sign': <Calendar size={22} className="mr-3 text-purple" />,
+      'package': <Package size={22} className="mr-3 text-purple" />,
+      'chef-hat': <ChefHat size={22} className="mr-3 text-purple" />,
+      'calendar': <Utensils size={22} className="mr-3 text-purple" />,
     };
     
     return iconMap[iconName] || null;
@@ -50,15 +50,15 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
 
   return (
     <NavigationMenu>
-      <NavigationMenuList className="space-x-8 md:space-x-10">
+      <NavigationMenuList className="space-x-10 md:space-x-12">
         {items.map((link) => (
           link.items ? (
             <NavigationMenuItem key={link.name}>
-              <NavigationMenuTrigger className="text-purple-dark hover:text-purple transition-colors px-0 font-inter text-sm font-medium tracking-wide">
+              <NavigationMenuTrigger className="text-purple-dark hover:text-purple transition-colors px-0 font-inter text-base font-medium tracking-wide">
                 {link.name}
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid grid-cols-2 gap-3 p-4 w-[650px]">
+                <div className="grid grid-cols-2 gap-4 p-5 w-[700px]">
                   {link.items.map((item) => (
                     <Link
                       key={item.title}
@@ -68,8 +68,8 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
                       <div className="flex items-center">
                         {getIcon(item.icon)}
                         <div>
-                          <div className="text-sm font-medium leading-none font-inter mb-1">{item.title}</div>
-                          <p className="line-clamp-2 text-xs leading-snug text-muted-foreground font-inter">
+                          <div className="text-base font-medium leading-none font-inter mb-1">{item.title}</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground font-inter">
                             {item.description}
                           </p>
                         </div>
@@ -83,7 +83,7 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
             <NavigationMenuItem key={link.name}>
               <Link
                 to={link.path!}
-                className="text-purple-dark hover:text-purple transition-colors font-inter text-sm font-medium tracking-wide relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-purple after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                className="text-purple-dark hover:text-purple transition-colors font-inter text-base font-medium tracking-wide relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-purple after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
               >
                 {link.name}
               </Link>

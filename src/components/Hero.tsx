@@ -14,27 +14,27 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pt-20 pb-12 md:pt-24 md:pb-16 min-h-[85vh] flex items-center bg-gradient-to-b from-gray-50 to-white">
+    <section className="pt-24 pb-12 md:pt-32 md:pb-16 min-h-[85vh] flex items-center bg-gradient-to-b from-gray-50 to-white">
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-center lg:text-left animate-on-scroll">
-            <h1 className="text-2xl md:text-3xl font-bold leading-tight mb-3">
-              Enhance your <span className="text-gradient">customer experience</span>  with <span className="text-gradient">AI-powered</span> restaurant management digital solution 
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-5">
+              Enhance your <span className="text-gradient">customer experience</span> with <span className="text-gradient">AI-powered</span> restaurant management digital solution 
             </h1>
-            <p className="text-sm md:text-base text-swirl-gray mb-4 max-w-xl mx-auto lg:mx-0">
+            <p className="text-base md:text-lg text-swirl-gray mb-6 max-w-xl mx-auto lg:mx-0">
               Streamline operations with smart digital tools. Boost efficiency, improve customer experience, and increase profits.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
-              <Button asChild className="btn-primary">
+            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+              <Button asChild className="btn-primary text-base py-6">
                 <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">Get Started for Free</a>
               </Button>
-              <Button asChild className="btn-secondary">
-                <a href="/products" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
-                  Explore our Features <ArrowRight size={14} />
+              <Button asChild className="btn-secondary text-base py-6">
+                <a href="/products" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  Explore our Features <ArrowRight size={18} />
                 </a>
               </Button>
             </div>
-            <div className="mt-4 text-xs text-swirl-gray">
+            <div className="mt-6 text-sm text-swirl-gray">
               <p>Trusted by Restaurants Worldwide</p>
             </div>
           </div>
@@ -47,7 +47,7 @@ const Hero = () => {
                     src="/lovable-uploads/4127f4ed-f4a1-452d-bdba-5bc27d6fb8bc.png" 
                     alt="QR Ordering Experience" 
                     className="w-full h-auto object-contain transform group-hover:scale-105 transition duration-300 ease-in-out"
-                    style={{ maxHeight: "450px" }}
+                    style={{ maxHeight: "500px" }}
                     loading="eager"
                   />
                   <div className={`absolute inset-0 bg-gray-200 flex items-center justify-center ${loaded ? 'hidden' : ''}`}>
