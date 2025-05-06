@@ -19,8 +19,8 @@ const HomeFinancialAnalyticsSection = () => {
     },
     {
       icon: <PieChart className="h-6 w-6" />,
-      title: "Profit Margins",
-      description: "Analyze profitability by menu item, time period, or location to optimize your offerings."
+      title: "Revenue Trends",
+      description: "Visualize your sales data over time to identify patterns, seasonality, and growth opportunities."
     },
     {
       icon: <Calculator className="h-6 w-6" />,
