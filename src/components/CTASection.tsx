@@ -6,7 +6,7 @@ const CTASection = () => {
   return (
     <section className="py-20 md:py-24 animate-on-scroll">
       <div className="container-custom">
-        <div className="bg-gradient-to-br from-purple-600 via-indigo-600 to-purple-700 rounded-3xl overflow-hidden">
+        <div className="bg-gradient-to-br from-swirl-blue/90 via-swirl-blue to-blue-700 rounded-3xl overflow-hidden">
           <div className="relative px-6 py-16 md:p-16">
             {/* Background pattern */}
             <div className="absolute inset-0 overflow-hidden opacity-10">
@@ -30,7 +30,7 @@ const CTASection = () => {
                 delight customers, and boost their bottom line.
               </p>
               
-              <Button asChild className="bg-gradient-to-r from-white via-white to-purple-50 text-purple-700 hover:text-purple-800 hover:bg-white shadow-lg hover:shadow-xl text-lg font-semibold py-7 px-10 rounded-xl transform transition-all duration-300 hover:scale-105">
+              <Button asChild className="bg-gradient-to-r from-blue-400 via-blue-300 to-white text-blue-900 hover:text-blue-950 hover:shadow-glow shadow-lg hover:shadow-xl text-lg font-semibold py-7 px-10 rounded-xl transform transition-all duration-300 hover:scale-105">
                 <a href="/contact" target="_blank" rel="noopener noreferrer">Get Started for Free</a>
               </Button>
             </div>

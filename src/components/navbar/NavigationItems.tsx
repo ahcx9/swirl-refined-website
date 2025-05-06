@@ -32,17 +32,17 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
   // Map for Lucide icons based on icon name
   const getIcon = (iconName: string) => {
     const iconMap: {[key: string]: React.ReactNode} = {
-      'restaurant-menu': <FileText size={22} className="mr-3 text-purple" />,
-      'qr-code': <ShoppingCart size={22} className="mr-3 text-purple" />,
-      'chart-bar': <BarChart size={22} className="mr-3 text-purple" />,
-      'credit-card': <CreditCard size={22} className="mr-3 text-purple" />,
-      'file-text': <LayoutDashboard size={22} className="mr-3 text-purple" />,
-      'users': <Users size={22} className="mr-3 text-purple" />,
-      'car': <Car size={22} className="mr-3 text-purple" />,
-      'dollar-sign': <Calendar size={22} className="mr-3 text-purple" />,
-      'package': <Package size={22} className="mr-3 text-purple" />,
-      'chef-hat': <ChefHat size={22} className="mr-3 text-purple" />,
-      'calendar': <Utensils size={22} className="mr-3 text-purple" />,
+      'restaurant-menu': <FileText size={24} className="mr-3 text-swirl-blue" />,
+      'qr-code': <ShoppingCart size={24} className="mr-3 text-swirl-blue" />,
+      'chart-bar': <BarChart size={24} className="mr-3 text-swirl-blue" />,
+      'credit-card': <CreditCard size={24} className="mr-3 text-swirl-blue" />,
+      'file-text': <LayoutDashboard size={24} className="mr-3 text-swirl-blue" />,
+      'users': <Users size={24} className="mr-3 text-swirl-blue" />,
+      'car': <Car size={24} className="mr-3 text-swirl-blue" />,
+      'dollar-sign': <Calendar size={24} className="mr-3 text-swirl-blue" />,
+      'package': <Package size={24} className="mr-3 text-swirl-blue" />,
+      'chef-hat': <ChefHat size={24} className="mr-3 text-swirl-blue" />,
+      'calendar': <Utensils size={24} className="mr-3 text-swirl-blue" />,
     };
     
     return iconMap[iconName] || null;
@@ -54,7 +54,7 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
         {items.map((link) => (
           link.items ? (
             <NavigationMenuItem key={link.name}>
-              <NavigationMenuTrigger className="text-purple-dark hover:text-purple transition-colors px-0 font-inter text-base font-medium tracking-wide">
+              <NavigationMenuTrigger className="text-swirl-blue hover:text-blue-600 transition-colors px-0 font-inter text-lg font-semibold tracking-wide">
                 {link.name}
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -68,7 +68,7 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
                       <div className="flex items-center">
                         {getIcon(item.icon)}
                         <div>
-                          <div className="text-base font-medium leading-none font-inter mb-1">{item.title}</div>
+                          <div className="text-lg font-medium leading-none font-inter mb-2">{item.title}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground font-inter">
                             {item.description}
                           </p>
@@ -83,7 +83,7 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
             <NavigationMenuItem key={link.name}>
               <Link
                 to={link.path!}
-                className="text-purple-dark hover:text-purple transition-colors font-inter text-base font-medium tracking-wide relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-purple after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                className="text-swirl-blue hover:text-blue-600 transition-colors font-inter text-lg font-semibold tracking-wide relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-swirl-blue after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
               >
                 {link.name}
               </Link>
