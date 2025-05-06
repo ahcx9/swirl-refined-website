@@ -2,7 +2,7 @@
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import { MapPin, Mail, Phone, Clock, Globe } from 'lucide-react';
+import { MapPin, Mail, Phone, Clock, Globe, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Instagram, TikTok, WhatsApp } from '@/components/SocialIcons';
@@ -38,9 +38,9 @@ const ContactCard = ({ country, flag, phone, phoneLink, email, whatsappNumber }:
             </a>
           </div>
           <div className="mt-4">
-            <Button asChild className="w-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center gap-2 rounded-full shadow-md transition-all duration-300 hover:-translate-y-0.5 transform group py-2.5">
+            <Button asChild className="w-full bg-green-500 hover:bg-green-600 text-white flex items-center gap-2 rounded-full">
               <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
-                <WhatsApp size={20} className="text-white group-hover:scale-110 transition-transform duration-300" />
+                <WhatsApp size={20} className="flex-shrink-0" />
                 <span>Chat on WhatsApp</span>
               </a>
             </Button>
@@ -97,7 +97,7 @@ const Contact = () => {
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl font-bold mb-8 text-purple-dark text-center">Our Global Offices</h2>
+              <h2 className="text-3xl font-bold mb-8 text-purple-dark text-center">Reach Us Out On</h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {contactCards.map((card, index) => (
                   <ContactCard
@@ -151,11 +151,11 @@ const Contact = () => {
                       <a href="https://www.linkedin.com/company/swirl-cx" className="text-purple hover:text-purple-dark transition-colors text-lg">
                         LinkedIn
                       </a>
-                      <a href="https://www.instagram.com/swirl.cx?igsh=MTk4dDZlOTZqNHFjcg%3D%3D&utm_source=qr" className="flex items-center gap-1 text-purple hover:text-purple-dark transition-colors text-lg">
-                        <Instagram size={18} className="inline" /> Instagram
+                      <a href="https://www.instagram.com/swirl.cx?igsh=MTk4dDZlOTZqNHFjcg%3D%3D&utm_source=qr" className="text-purple hover:text-purple-dark transition-colors text-lg">
+                        Instagram
                       </a>
-                      <a href="https://www.tiktok.com/@swirlcx?_t=ZS-8w7vcghzhWT&_r=1" className="flex items-center gap-1 text-purple hover:text-purple-dark transition-colors text-lg">
-                        <TikTok size={18} className="inline" /> TikTok
+                      <a href="https://www.tiktok.com/@swirlcx?_t=ZS-8w7vcghzhWT&_r=1" className="text-purple hover:text-purple-dark transition-colors text-lg">
+                        TikTok
                       </a>
                     </div>
                   </div>
