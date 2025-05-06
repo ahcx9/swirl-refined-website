@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
+import { Instagram, TikTok } from './SocialIcons';
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -18,8 +19,18 @@ const Footer = () => {
               Transforming restaurant management with innovative digital solutions. Our integrated platform helps you streamline operations, increase revenue, and enhance customer experience.
             </p>
             <div className="flex space-x-3">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-purple p-2 rounded-full transition-colors" aria-label="LinkedIn">
-                <Linkedin size={18} className="text-white" />
+              <a href="https://www.linkedin.com/company/swirl-cx" target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-purple p-2 rounded-full transition-colors" aria-label="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/swirl.cx?igsh=MTk4dDZlOTZqNHFjcg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-500 p-2 rounded-full transition-colors" aria-label="Instagram">
+                <Instagram size={18} className="text-white" />
+              </a>
+              <a href="https://www.tiktok.com/@swirlcx?_t=ZS-8w7vcghzhWT&_r=1" target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-black p-2 rounded-full transition-colors" aria-label="TikTok">
+                <TikTok size={18} className="text-white" />
               </a>
             </div>
           </div>
@@ -82,7 +93,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail size={16} className="mr-2 flex-shrink-0 text-purple" />
-                <span className="text-white/70">hello@swirl.cx</span>
+                <a href="mailto:hello@swirl.cx" className="text-white/70 hover:text-purple transition-colors">hello@swirl.cx</a>
               </li>
             </ul>
           </div>

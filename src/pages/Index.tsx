@@ -9,6 +9,8 @@ import BlogSection from '@/components/BlogSection';
 import FAQSection from '@/components/FAQSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
+import HomePOSSection from '@/components/HomePOSSection';
+import HomeInventorySection from '@/components/HomeInventorySection';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const Index = () => {
@@ -23,6 +25,8 @@ const Index = () => {
           <TrustedRestaurants />
         </div>
         <Features />
+        <HomePOSSection />
+        <HomeInventorySection />
         <StepProcess />
         <NextGenFeatures />
         <BlogSection />

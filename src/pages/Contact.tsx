@@ -2,8 +2,10 @@
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import { MapPin, Mail, Phone, Clock, Globe } from 'lucide-react';
+import { MapPin, Mail, Phone, Clock, Globe, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Instagram, TikTok } from '@/components/SocialIcons';
 
 interface ContactCardProps {
   country: string;
@@ -11,9 +13,10 @@ interface ContactCardProps {
   phone: string;
   phoneLink: string;
   email: string;
+  whatsappNumber: string;
 }
 
-const ContactCard = ({ country, flag, phone, phoneLink, email }: ContactCardProps) => {
+const ContactCard = ({ country, flag, phone, phoneLink, email, whatsappNumber }: ContactCardProps) => {
   return (
     <Card className="bg-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
       <CardContent className="p-6">
@@ -30,9 +33,19 @@ const ContactCard = ({ country, flag, phone, phoneLink, email }: ContactCardProp
           </div>
           <div className="flex items-center gap-3">
             <Mail className="h-5 w-5 text-purple flex-shrink-0" />
-            <a href="mailto:hello@swirl.cx" className="text-swirl-gray hover:text-purple transition-colors">
-              hello@swirl.cx
+            <a href={`mailto:${email}`} className="text-swirl-gray hover:text-purple transition-colors">
+              {email}
             </a>
+          </div>
+          <div className="mt-4">
+            <Button asChild className="w-full bg-green-500 hover:bg-green-600 text-white flex items-center gap-2">
+              <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+                Click to Chat With Us
+              </a>
+            </Button>
           </div>
         </div>
       </CardContent>
@@ -47,21 +60,24 @@ const Contact = () => {
       flag: "🇦🇪",
       phone: "+971 54 385 3877",
       phoneLink: "tel:+971543853877",
-      email: "hello@swirl.cx"
+      email: "hello@swirl.cx",
+      whatsappNumber: "971543853877"
     },
     {
       country: "Saudi Arabia",
       flag: "🇸🇦",
       phone: "+966 55 395 5115",
       phoneLink: "tel:+966553955115",
-      email: "hello@swirl.cx"
+      email: "hello@swirl.cx",
+      whatsappNumber: "966553955115"
     },
     {
       country: "India",
       flag: "🇮🇳",
       phone: "+91 87959 97070",
       phoneLink: "tel:+918795997070",
-      email: "hello@swirl.cx"
+      email: "hello@swirl.cx",
+      whatsappNumber: "918795997070"
     }
   ];
   
@@ -72,10 +88,24 @@ const Contact = () => {
         <section className="bg-purple-light/10 py-16">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-inter">Have Questions or Need Help? We’re Here for You.</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-inter">Have Questions or Need Help? We're Here for You.</h1>
               <p className="text-lg text-swirl-gray mb-6 font-inter">
                 Chat with us about how swirl can save time and reduce workflow friction.
               </p>
+              <div className="flex justify-center space-x-6 mt-8">
+                <a href="https://www.instagram.com/swirl.cx?igsh=MTk4dDZlOTZqNHFjcg%3D%3D&utm_source=qr" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   className="bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 p-2 rounded-full text-white hover:opacity-90 transition-opacity">
+                  <Instagram size={24} />
+                </a>
+                <a href="https://www.tiktok.com/@swirlcx?_t=ZS-8w7vcghzhWT&_r=1" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   className="bg-black p-2 rounded-full text-white hover:opacity-90 transition-opacity">
+                  <TikTok size={24} />
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -93,6 +123,7 @@ const Contact = () => {
                     phone={card.phone}
                     phoneLink={card.phoneLink}
                     email={card.email}
+                    whatsappNumber={card.whatsappNumber}
                   />
                 ))}
               </div>
@@ -100,7 +131,7 @@ const Contact = () => {
             
             <div className="bg-white rounded-lg p-10 shadow-soft max-w-3xl mx-auto">
               <h2 className="text-3xl font-bold mb-10 text-purple-dark text-center">Get In Touch</h2>
-              <div className="space-y-8">
+              <div className="space-y-8 max-w-2xl mx-auto">
                 <div className="flex items-start gap-6">
                   <MapPin className="h-8 w-8 text-purple flex-shrink-0 mt-1" />
                   <div>
@@ -135,6 +166,12 @@ const Contact = () => {
                     <div className="flex space-x-6">
                       <a href="https://www.linkedin.com/company/swirl-cx" className="text-purple hover:text-purple-dark transition-colors text-lg">
                         LinkedIn
+                      </a>
+                      <a href="https://www.instagram.com/swirl.cx?igsh=MTk4dDZlOTZqNHFjcg%3D%3D&utm_source=qr" className="text-purple hover:text-purple-dark transition-colors text-lg">
+                        Instagram
+                      </a>
+                      <a href="https://www.tiktok.com/@swirlcx?_t=ZS-8w7vcghzhWT&_r=1" className="text-purple hover:text-purple-dark transition-colors text-lg">
+                        TikTok
                       </a>
                     </div>
                   </div>
