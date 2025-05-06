@@ -40,7 +40,7 @@ const HomeInventorySection = () => {
                 <img 
                   src="/lovable-uploads/e06fe134-6fdc-4caa-91b6-6492a2373c74.png" 
                   alt="Inventory Management" 
-                  className="w-full h-auto transform group-hover:scale-105 transition duration-500 ease-in-out"
+                  className="w-full h-auto object-cover transform scale-125 hover:scale-130 transition duration-500 ease-in-out"
                 />
               </div>
             </div>

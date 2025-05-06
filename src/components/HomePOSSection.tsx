@@ -69,7 +69,7 @@ const HomePOSSection = () => {
                 <img 
                   src="/lovable-uploads/61104fed-106e-4e91-a301-9f0fd8b8cb4b.png" 
                   alt="POS System" 
-                  className="w-full h-auto transform group-hover:scale-105 transition duration-500 ease-in-out"
+                  className="w-full h-auto object-cover transform scale-125 hover:scale-130 transition duration-500 ease-in-out"
                 />
               </div>
             </div>

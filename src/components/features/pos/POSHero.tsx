@@ -32,7 +32,7 @@ const POSHero = () => {
           <img 
             src="/lovable-uploads/61104fed-106e-4e91-a301-9f0fd8b8cb4b.png" 
             alt="POS System Interface" 
-            className="w-full h-auto object-cover shadow-lg transform scale-105 hover:scale-100 transition-all duration-700"
+            className="w-full h-auto object-cover shadow-lg transform scale-125 hover:scale-130 transition-all duration-700"
           />
         </div>
       </div>

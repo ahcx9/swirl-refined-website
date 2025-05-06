@@ -11,6 +11,7 @@ import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 import HomePOSSection from '@/components/HomePOSSection';
 import HomeInventorySection from '@/components/HomeInventorySection';
+import HomeFinancialAnalyticsSection from '@/components/HomeFinancialAnalyticsSection';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const Index = () => {
@@ -27,6 +28,7 @@ const Index = () => {
         <Features />
         <HomePOSSection />
         <HomeInventorySection />
+        <HomeFinancialAnalyticsSection />
         <StepProcess />
         <NextGenFeatures />
         <BlogSection />

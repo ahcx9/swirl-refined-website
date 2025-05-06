@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { MapPin, Mail, Phone, Clock, Globe, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Instagram, TikTok } from '@/components/SocialIcons';
+import { Instagram, TikTok, WhatsApp } from '@/components/SocialIcons';
 
 interface ContactCardProps {
   country: string;
@@ -38,12 +38,10 @@ const ContactCard = ({ country, flag, phone, phoneLink, email, whatsappNumber }:
             </a>
           </div>
           <div className="mt-4">
-            <Button asChild className="w-full bg-green-500 hover:bg-green-600 text-white flex items-center gap-2">
+            <Button asChild className="w-full bg-green-500 hover:bg-green-600 text-white flex items-center gap-2 rounded-full">
               <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
-                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                </svg>
-                Click to Chat With Us
+                <WhatsApp size={20} className="flex-shrink-0" />
+                <span>Chat With Us Now</span>
               </a>
             </Button>
           </div>
@@ -92,20 +90,6 @@ const Contact = () => {
               <p className="text-lg text-swirl-gray mb-6 font-inter">
                 Chat with us about how swirl can save time and reduce workflow friction.
               </p>
-              <div className="flex justify-center space-x-6 mt-8">
-                <a href="https://www.instagram.com/swirl.cx?igsh=MTk4dDZlOTZqNHFjcg%3D%3D&utm_source=qr" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   className="bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 p-2 rounded-full text-white hover:opacity-90 transition-opacity">
-                  <Instagram size={24} />
-                </a>
-                <a href="https://www.tiktok.com/@swirlcx?_t=ZS-8w7vcghzhWT&_r=1" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   className="bg-black p-2 rounded-full text-white hover:opacity-90 transition-opacity">
-                  <TikTok size={24} />
-                </a>
-              </div>
             </div>
           </div>
         </section>
