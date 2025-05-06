@@ -41,7 +41,7 @@ const ContactCard = ({ country, flag, phone, phoneLink, email, whatsappNumber }:
             <Button asChild className="w-full bg-green-500 hover:bg-green-600 text-white flex items-center gap-2 rounded-full">
               <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
                 <WhatsApp size={20} className="flex-shrink-0" />
-                <span>Need assistance? Chat with our experts on WhatsApp now</span>
+                <span>Chat on WhatsApp</span>
               </a>
             </Button>
           </div>
@@ -58,8 +58,8 @@ const Contact = () => {
       flag: "🇦🇪",
       phone: "+971 54 385 3877",
       phoneLink: "tel:+971543853877",
-      whatsappNumber: "971543853877",
-      email: "hello@swirl.cx"
+      email: "hello@swirl.cx",
+      whatsappNumber: "971543853877"
     },
     {
       country: "Saudi Arabia",
