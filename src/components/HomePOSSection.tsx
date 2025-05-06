@@ -10,7 +10,7 @@ const HomePOSSection = () => {
     {
       icon: <CreditCard className="h-6 w-6" />,
       title: "Modern Payment Processing",
-      description: "Accept all payment methods - cards, mobile wallets, and cash - with fast transaction processing."
+      description: "Accept all payment methods by cards, mobile wallets, and cash - with fast transaction processing."
     },
     {
       icon: <Receipt className="h-6 w-6" />,
