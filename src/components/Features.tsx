@@ -75,32 +75,35 @@ const features = [
 
 const Features = () => {
   return (
-    <section id="features" className="py-16 md:py-20 flex items-center bg-gradient-to-b from-gray-50 to-white">
+    <section id="features" className="py-20 md:py-28 flex items-center bg-gradient-to-b from-gray-50 to-white">
       <div className="container-custom">
-        <div className="text-center mb-8">
-          <h2 className="text-xl md:text-2xl font-bold mb-2">Solutions for Modern Restaurants</h2>
-          <p className="text-xs md:text-sm text-swirl-gray max-w-2xl mx-auto mb-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
+            Solutions for Modern Restaurants
+          </h2>
+          <p className="text-base md:text-lg text-swirl-gray max-w-2xl mx-auto mb-10">
             Our integrated suite of tools helps you manage every aspect of your restaurant efficiently.
           </p>
         </div>
         
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-4 md:gap-6">
           {features.map((feature) => (
             <Link 
               to={feature.path} 
               key={feature.id}
-              className="bg-gradient-to-br from-white to-gray-50/30 rounded-xl shadow-sm hover:shadow-md p-3 transition-all duration-300 hover:-translate-y-1 border border-gray-100/80 group flex flex-col items-center text-center"
+              className="bg-gradient-to-br from-white to-gray-50/30 rounded-xl shadow-sm hover:shadow-md p-4 transition-all duration-300 hover:-translate-y-1 border border-gray-100/80 group flex flex-col items-center text-center"
             >
-              <div className="w-8 h-8 rounded-full bg-purple-light/30 flex items-center justify-center mb-2 group-hover:bg-purple/20 transition-colors">
-                <feature.icon className="text-purple" size={16} />
+              <div className="w-14 h-14 rounded-full bg-purple-light/30 flex items-center justify-center mb-3 group-hover:bg-purple/20 transition-colors">
+                <feature.icon className="text-purple" size={24} />
               </div>
-              <h3 className="text-xs font-medium mb-1 group-hover:text-purple transition-colors">{feature.title}</h3>
+              <h3 className="text-base md:text-lg font-medium mb-2 group-hover:text-purple transition-colors">{feature.title}</h3>
+              <p className="text-xs md:text-sm text-gray-500">{feature.description}</p>
             </Link>
           ))}
         </div>
         
-        <div className="text-center mt-6">
-          <Button asChild className="btn-primary text-xs">
+        <div className="text-center mt-10">
+          <Button asChild className="btn-primary text-base">
             <Link to="/products">View All Solutions</Link>
           </Button>
         </div>

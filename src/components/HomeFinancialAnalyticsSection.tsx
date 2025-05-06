@@ -74,7 +74,7 @@ const HomeFinancialAnalyticsSection = () => {
             </div>
             
             <div className="mt-10">
-              <Button asChild className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-none rounded-full px-8 py-6 h-auto transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <Button asChild className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-none rounded-xl px-8 py-6 h-auto transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <Link to="/products/financial-reports" className="flex items-center gap-2">
                   Explore Financial Analytics <ArrowRight size={18} />
                 </Link>
