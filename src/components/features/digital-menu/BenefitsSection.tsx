@@ -4,8 +4,8 @@ import BenefitCard from './BenefitCard';
 
 const BenefitsSection = () => {
   return (
-    <div className="p-6 md:p-8 bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-md">
-      <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Benefits of Digital Menus</h2>
+    <div className="bg-gradient-to-r from-purple-light/30 to-purple/10 p-8 md:p-10 rounded-xl mb-8">
+      <h2 className="text-2xl font-bold mb-8 text-center">Benefits of Digital Menus</h2>
       
       <div className="grid md:grid-cols-2 gap-8">
         <BenefitCard 

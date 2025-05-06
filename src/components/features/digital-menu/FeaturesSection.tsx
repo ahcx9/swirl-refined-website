@@ -7,10 +7,10 @@ import FeatureCard from './FeatureCard';
 
 const FeaturesSection = () => {
   return (
-    <div className="p-6 md:p-8 bg-gradient-to-br from-purple-light/20 to-white rounded-2xl shadow-md">
-      <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Advanced Menu Features</h2>
+    <div className="bg-gradient-to-r from-purple-light/30 to-purple/10 p-8 md:p-10 rounded-xl mb-8">
+      <h2 className="text-2xl font-bold mb-8 text-center">Advanced Menu Features</h2>
       
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-6">
         <FeatureCard 
           icon={<Globe className="text-purple h-6 w-6" />}
           title="Multiple Languages"

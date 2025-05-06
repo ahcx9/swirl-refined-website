@@ -3,8 +3,56 @@ import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { MapPin, Mail, Phone, Clock, Globe } from 'lucide-react';
+import { Card, CardContent } from "@/components/ui/card";
+
+interface ContactCardProps {
+  country: string;
+  flag: string;
+  phone: string;
+  phoneLink: string;
+}
+
+const ContactCard = ({ country, flag, phone, phoneLink }: ContactCardProps) => {
+  return (
+    <Card className="bg-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+      <CardContent className="p-6">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-xl font-semibold">{country}</h3>
+          <span className="text-2xl">{flag}</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <Phone className="h-5 w-5 text-purple flex-shrink-0" />
+          <a href={phoneLink} className="text-swirl-gray hover:text-purple transition-colors">
+            {phone}
+          </a>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
 
 const Contact = () => {
+  const contactCards = [
+    {
+      country: "United Arab Emirates",
+      flag: "🇦🇪",
+      phone: "+971 54 385 3877",
+      phoneLink: "tel:+971543853877"
+    },
+    {
+      country: "Saudi Arabia",
+      flag: "🇸🇦",
+      phone: "+966 55 395 5115",
+      phoneLink: "tel:+966553955115"
+    },
+    {
+      country: "India",
+      flag: "🇮🇳",
+      phone: "+91 87959 97070",
+      phoneLink: "tel:+918795997070"
+    }
+  ];
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -21,7 +69,22 @@ const Contact = () => {
         </section>
 
         <section className="py-16">
-          <div className="container mx-auto px-4 max-w-3xl">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <div className="max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl font-bold mb-8 text-purple-dark text-center">Our Global Offices</h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {contactCards.map((card, index) => (
+                  <ContactCard
+                    key={index}
+                    country={card.country}
+                    flag={card.flag}
+                    phone={card.phone}
+                    phoneLink={card.phoneLink}
+                  />
+                ))}
+              </div>
+            </div>
+            
             <div className="bg-white rounded-lg p-10 shadow-soft">
               <h2 className="text-3xl font-bold mb-10 text-purple-dark text-center">Get In Touch</h2>
               <div className="space-y-8">
@@ -40,33 +103,6 @@ const Contact = () => {
                     <a href="mailto:hello@swirl.cx" className="text-swirl-gray hover:text-purple transition-colors text-lg font-inter">
                       hello@swirl.cx
                     </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-6">
-                  <Phone className="h-8 w-8 text-purple flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-xl mb-3 font-inter">Phone</h3>
-                    <div className="space-y-2">
-                      <div className="flex items-center">
-                        <span className="mr-2 text-lg">🇦🇪</span>
-                        <a href="tel:+971543853877" className="text-swirl-gray hover:text-purple transition-colors text-lg font-inter">
-                          +971 54 385 3877
-                        </a>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="mr-2 text-lg">🇸🇦</span>
-                        <a href="tel:+966553955115" className="text-swirl-gray hover:text-purple transition-colors text-lg font-inter">
-                          +966 55 395 5115
-                        </a>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="mr-2 text-lg">🇮🇳</span>
-                        <a href="tel:+918795997070" className="text-swirl-gray hover:text-purple transition-colors text-lg font-inter">
-                          +91 87959 97070
-                        </a>
-                      </div>
-                    </div>
                   </div>
                 </div>
                 
