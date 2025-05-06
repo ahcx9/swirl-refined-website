@@ -12,6 +12,7 @@ import Footer from '@/components/Footer';
 import HomePOSSection from '@/components/HomePOSSection';
 import HomeInventorySection from '@/components/HomeInventorySection';
 import HomeFinancialAnalyticsSection from '@/components/HomeFinancialAnalyticsSection';
+import UseCasesSection from '@/components/UseCasesSection';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const Index = () => {
@@ -26,6 +27,7 @@ const Index = () => {
           <TrustedRestaurants />
         </div>
         <Features />
+        <UseCasesSection />
         <HomePOSSection />
         <HomeInventorySection />
         <HomeFinancialAnalyticsSection />
