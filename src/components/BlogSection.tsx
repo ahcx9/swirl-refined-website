@@ -78,10 +78,10 @@ const BlogSection = () => {
     <section className="py-16 bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
             Latest from Our Blog
           </h2>
-          <p className="text-swirl-gray max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
             Insights, tips, and industry trends to help your restaurant thrive in the digital age.
           </p>
         </div>

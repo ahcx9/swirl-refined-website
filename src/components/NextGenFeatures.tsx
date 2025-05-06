@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Palette, ChartBar, MessageSquare, Database, Globe, Calendar, Bell, Shield, Users, DollarSign } from 'lucide-react';
@@ -107,7 +106,7 @@ const NextGenFeatures = () => {
       <div className="container-custom">
         <div className="text-center mb-16">
           <span className="bg-indigo-100 text-indigo-800 px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">ADVANCED FEATURES</span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
             Next-Gen Features to Elevate Your Restaurant
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">

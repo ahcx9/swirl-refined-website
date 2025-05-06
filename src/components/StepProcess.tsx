@@ -7,8 +7,8 @@ const StepProcess = () => {
     <section className="py-16 md:py-20 flex items-center bg-white animate-on-scroll">
       <div className="container-custom">
         <div className="text-center mb-10">
-          <h2 className="text-xl md:text-2xl font-bold mb-3">Your Guest Point of View</h2>
-          <p className="text-xs md:text-sm text-swirl-gray max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-purple-500 bg-clip-text text-transparent">Your Guest Point of View</h2>
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
             Simple 3-step process for your guests to enjoy a seamless dining experience and maximise better guest experience
           </p>
         </div>

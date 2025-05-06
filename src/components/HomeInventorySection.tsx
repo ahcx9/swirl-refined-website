@@ -34,7 +34,7 @@ const HomeInventorySection = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
           <span className="bg-teal-100 text-teal-800 px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">INVENTORY MANAGEMENT</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-emerald-500 bg-clip-text text-transparent">
+          <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-emerald-500 bg-clip-text text-transparent">
             Smart Stock Control for Your Business
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">

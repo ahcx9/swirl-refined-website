@@ -34,7 +34,7 @@ const HomePOSSection = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
           <span className="bg-purple-100 text-purple-800 px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">POINT OF SALE</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
+          <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
             Transform Your Restaurant Experience
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
