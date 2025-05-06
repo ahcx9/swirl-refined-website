@@ -72,9 +72,9 @@ const Contact = () => {
         <section className="bg-purple-light/10 py-16">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-inter">Contact Us</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-inter">Have Questions or Need Help? We’re Here for You.</h1>
               <p className="text-lg text-swirl-gray mb-6 font-inter">
-                Get in touch with our team to learn more about how we can help transform your restaurant operations.
+                Chat with us about how swirl can save time and reduce workflow friction.
               </p>
             </div>
           </div>
