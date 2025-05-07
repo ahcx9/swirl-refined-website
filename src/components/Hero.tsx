@@ -49,7 +49,7 @@ const Hero = () => {
   return (
     <section className="pt-24 pb-16 md:pt-32 md:pb-24 min-h-[90vh] flex items-center">
       <div className="container-custom max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <div className="text-center lg:text-left animate-on-scroll">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
               Enhance your <span className="text-gradient">customer experience</span> with <span className="text-gradient">AI-powered</span> restaurant management
@@ -68,18 +68,22 @@ const Hero = () => {
               </Button>
             </div>
           </div>
-          <div className="relative group animate-on-scroll overflow-hidden">
+          <div className="relative group animate-on-scroll overflow-hidden lg:col-span-1">
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <Carousel className="w-full">
                 <CarouselContent>
                   {images.map((src, index) => (
                     <CarouselItem key={index} className={`${currentIndex === index ? 'block' : 'hidden'} transition-opacity duration-1000`}>
-                      <div className="relative aspect-[16/9] w-full max-w-none">
+                      <div className="relative w-full">
                         <img 
                           src={src} 
                           alt={`Restaurant management system ${index + 1}`}
-                          className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
-                          style={{ Height: "15000px", width: "300%" }} 
+                          className="w-[200%] h-auto object-cover transform transition-transform duration-700 hover:scale-105"
+                          style={{ 
+                            maxHeight: '2000px',
+                            objectFit: 'cover',
+                            objectPosition: 'center'
+                          }} 
                           loading={index === 0 ? "eager" : "lazy"}
                         />
                       </div>
