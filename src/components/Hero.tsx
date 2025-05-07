@@ -35,7 +35,7 @@ const Hero = () => {
             </div>
           </div>
           <div className="relative group animate-on-scroll">
-            <div className="absolute -inset-1 bg-gradient-to-r from-swirl-blue/10 to-blue-500/10 rounded-3xl transform rotate-2 group-hover:opacity-75 transition duration-300 ease-in-out"></div>
+            <div className="absolute -inset-1 bg-transparent rounded-3xl transform rotate-2 group-hover:opacity-75 transition duration-300 ease-in-out"></div>
             <div className="relative z-10 rounded-2xl overflow-hidden">
               <div className="carousel relative mx-auto"> 
                 <div className="carousel-item">
@@ -43,7 +43,7 @@ const Hero = () => {
                     src="/lovable-uploads/960d6b7a-1ce5-4365-9bf8-36fedf529b59.png" 
                     alt="QR Ordering Experience with Customer" 
                     className="w-full h-auto object-contain transform group-hover:scale-105 transition duration-300 ease-in-out"
-                    style={{ maxHeight: "800px" }} 
+                    style={{ maxHeight: "1000px" }} 
                     loading="eager"
                   />
                   <div className={`absolute inset-0 bg-gray-200 flex items-center justify-center ${loaded ? 'hidden' : ''}`}>
