@@ -43,7 +43,7 @@ const Hero = () => {
                     src="/lovable-uploads/960d6b7a-1ce5-4365-9bf8-36fedf529b59.png" 
                     alt="QR Ordering Experience with Customer" 
                     className="w-full h-auto object-contain transform group-hover:scale-105 transition duration-300 ease-in-out"
-                    style={{ maxHeight: "2500px", width: "150%" }} 
+                    style={{ maxHeight: "3000px", width: "150%" }} 
                     loading="eager"
                   />
                   <div className={`absolute inset-0 bg-gray-200 flex items-center justify-center ${loaded ? 'hidden' : ''}`}>
