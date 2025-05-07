@@ -1,19 +1,53 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem
+} from '@/components/ui/carousel';
 
 const Hero = () => {
   const [loaded, setLoaded] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  const images = [
+    "/lovable-uploads/960d6b7a-1ce5-4365-9bf8-36fedf529b59.png",
+    "/lovable-uploads/a8e1c5a9-d7a7-453a-a7f5-a5dcf834b577.png",
+    "/lovable-uploads/cf8befbe-bdea-44aa-ae5a-485151bda759.png"
+  ];
 
-  // Preload the image
+  // Preload all images
   useEffect(() => {
-    const img = new Image();
-    img.src = "/lovable-uploads/960d6b7a-1ce5-4365-9bf8-36fedf529b59.png";
-    img.onload = () => setLoaded(true);
+    const preloadImages = () => {
+      const imagePromises = images.map((src) => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+      });
+
+      Promise.all(imagePromises)
+        .then(() => setLoaded(true))
+        .catch(err => console.error('Error preloading images:', err));
+    };
+
+    preloadImages();
   }, []);
 
+  // Rotate images every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
-    <section className="pt-32 pb-16 md:pt-40 md:pb-28 min-h-[90vh] flex items-center">
+    <section className="pt-24 pb-16 md:pt-32 md:pb-24 min-h-[90vh] flex items-center">
       <div className="container-custom max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="text-center lg:text-left animate-on-scroll">
@@ -34,22 +68,44 @@ const Hero = () => {
               </Button>
             </div>
           </div>
-          <div className="relative group animate-on-scroll">
-            <div className="absolute -inset-1 bg-transparent rounded-3xl transform rotate-2 group-hover:opacity-75 transition duration-300 ease-in-out"></div>
-            <div className="relative z-10 rounded-2xl overflow-hidden">
-              <div className="carousel relative mx-auto"> 
-                <div className="carousel-item">
-                  <img 
-                    src="/lovable-uploads/960d6b7a-1ce5-4365-9bf8-36fedf529b59.png" 
-                    alt="QR Ordering Experience with Customer" 
-                    className="w-full h-auto object-contain transform group-hover:scale-105 transition duration-300 ease-in-out"
-                    style={{ maxHeight: "3000px", width: "150%" }} 
-                    loading="eager"
-                  />
-                  <div className={`absolute inset-0 bg-gray-200 flex items-center justify-center ${loaded ? 'hidden' : ''}`}>
-                    <div className="w-8 h-8 border-3 border-swirl-blue border-t-transparent rounded-full animate-spin"></div>
-                  </div>
+          <div className="relative group animate-on-scroll overflow-hidden">
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {images.map((src, index) => (
+                    <CarouselItem key={index} className={`${currentIndex === index ? 'block' : 'hidden'} transition-opacity duration-1000`}>
+                      <div className="relative aspect-[16/9] w-full max-w-none">
+                        <img 
+                          src={src} 
+                          alt={`Restaurant management system ${index + 1}`}
+                          className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
+                          style={{ maxHeight: "3000px", width: "100%" }} 
+                          loading={index === 0 ? "eager" : "lazy"}
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+              
+              {!loaded && (
+                <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
+                  <div className="w-12 h-12 border-4 border-swirl-blue border-t-transparent rounded-full animate-spin"></div>
                 </div>
+              )}
+              
+              {/* Image indicator dots */}
+              <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      currentIndex === index ? 'bg-white scale-125' : 'bg-white/50'
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
               </div>
             </div>
           </div>
