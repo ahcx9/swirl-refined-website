@@ -80,7 +80,7 @@ const Hero = () => {
                           alt={`Restaurant management system ${index + 1}`}
                           className="w-[200%] h-auto object-cover transform transition-transform duration-700 hover:scale-105"
                           style={{ 
-                            maxHeight: '2000px',
+                            maxHeight: '8000px',
                             objectFit: 'cover',
                             objectPosition: 'center'
                           }} 
