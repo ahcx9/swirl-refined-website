@@ -13,7 +13,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pt-32 pb-16 md:pt-40 md:pb-28 min-h-[90vh] flex items-center bg-gradient-to-b from-gray-50 to-white">
+    <section className="pt-32 pb-16 md:pt-40 md:pb-28 min-h-[90vh] flex items-center">
       <div className="container-custom max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="text-center lg:text-left animate-on-scroll">
@@ -35,15 +35,15 @@ const Hero = () => {
             </div>
           </div>
           <div className="relative group animate-on-scroll">
-            <div className="absolute -inset-1 bg-gradient-to-r from-swirl-blue/30 to-blue-500/30 rounded-3xl transform rotate-2 group-hover:opacity-75 transition duration-300 ease-in-out"></div>
-            <div className="relative z-10 rounded-2xl shadow-card overflow-hidden">
+            <div className="absolute -inset-1 bg-gradient-to-r from-swirl-blue/10 to-blue-500/10 rounded-3xl transform rotate-2 group-hover:opacity-75 transition duration-300 ease-in-out"></div>
+            <div className="relative z-10 rounded-2xl overflow-hidden">
               <div className="carousel relative mx-auto"> 
                 <div className="carousel-item">
                   <img 
                     src="/lovable-uploads/960d6b7a-1ce5-4365-9bf8-36fedf529b59.png" 
                     alt="QR Ordering Experience with Customer" 
                     className="w-full h-auto object-contain transform group-hover:scale-105 transition duration-300 ease-in-out"
-                    style={{ maxHeight: "700px" }}
+                    style={{ maxHeight: "800px" }} 
                     loading="eager"
                   />
                   <div className={`absolute inset-0 bg-gray-200 flex items-center justify-center ${loaded ? 'hidden' : ''}`}>
