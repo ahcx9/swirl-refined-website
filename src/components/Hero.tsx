@@ -12,7 +12,7 @@ const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   
   const images = [
-    "/lovable-uploads/960d6b7a-1ce5-4365-9bf8-36fedf529b59.png",
+    "/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png", // New image uploaded by the user
     "/lovable-uploads/a8e1c5a9-d7a7-453a-a7f5-a5dcf834b577.png",
     "/lovable-uploads/cf8befbe-bdea-44aa-ae5a-485151bda759.png"
   ];
@@ -80,7 +80,7 @@ const Hero = () => {
                           alt={`Restaurant management system ${index + 1}`}
                           className="w-[200%] h-auto object-cover transform transition-transform duration-700 hover:scale-105"
                           style={{ 
-                            maxHeight: '1000px',
+                            maxHeight: '2000px',
                             objectFit: 'cover',
                             objectPosition: 'center'
                           }} 
