@@ -10,7 +10,7 @@ const ProductCTA = () => {
       <p className="text-lg text-swirl-gray mb-8 max-w-2xl mx-auto">
         Our team is ready to show you how swirl.cx can transform your business with our integrated suite of tools.
       </p>
-      <Button asChild className="btn-primary">
+      <Button asChild size="lg">
         <Link to="/contact">Ready to Transform your Restaurant/Cafe 🍽️?</Link>
       </Button>
     </div>

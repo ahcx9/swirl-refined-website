@@ -197,7 +197,7 @@ const UseCasesSection = () => {
         <div className="text-center mt-16">
           <Button 
             asChild
-            className="bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 text-white py-6 px-8 text-lg rounded-xl shadow-lg hover:shadow-xl"
+            size="xl"
           >
             <a href="/use-cases">Explore All Use Cases</a>
           </Button>

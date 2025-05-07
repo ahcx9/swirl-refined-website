@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import StepProcess from '@/components/StepProcess';

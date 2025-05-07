@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   const [loaded, setLoaded] = useState(false);
@@ -25,7 +24,10 @@ const Hero = () => {
               Streamline operations with smart digital tools. Boost efficiency, improve customer experience, and increase profits.
             </p>
             <div className="flex justify-center lg:justify-start">
-              <Button asChild className="text-lg py-7 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 text-white">
+              <Button 
+                asChild 
+                size="xl"
+              >
                 <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
                   Get Started for Free
                 </a>

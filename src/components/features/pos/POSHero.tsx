@@ -22,7 +22,7 @@ const POSHero = () => {
           software and reliable hardware options to fit your specific needs.
         </p>
 
-        <Button asChild className="btn-primary">
+        <Button asChild size="lg">
           <Link to="/contact">Request Demo</Link>
         </Button>
       </div>

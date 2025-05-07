@@ -10,7 +10,7 @@ const POSCallToAction = () => {
       <p className="text-lg text-swirl-gray mb-8 max-w-2xl mx-auto leading-relaxed">
         Contact us today for a personalized demonstration and pricing tailored to your restaurant's unique needs and budget.
       </p>
-      <Button asChild className="btn-primary text-lg px-8 py-6 h-auto shadow-lg hover:shadow-xl">
+      <Button asChild size="xl">
         <Link to="/contact">Get Your Custom POS Quote</Link>
       </Button>
     </div>
