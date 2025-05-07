@@ -79,7 +79,7 @@ const Hero = () => {
                           src={src} 
                           alt={`Restaurant management system ${index + 1}`}
                           className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
-                          style={{ maxHeight: "3000px", width: "100%" }} 
+                          style={{ maxHeight: "3500px", width: "100%" }} 
                           loading={index === 0 ? "eager" : "lazy"}
                         />
                       </div>
