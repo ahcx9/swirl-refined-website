@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -24,6 +23,18 @@ const features = [
     path: '/products/analytics',
     description: 'Track and analyze your restaurant performance.',
     icon: 'chart-bar'
+  },
+  {
+    title: 'Point of Sale',
+    path: '/products/pos',
+    description: 'Modern point-of-sale for restaurant operations.',
+    icon: 'credit-card'
+  },
+  {
+    title: 'Financial Reports',
+    path: '/products/financial-reports',
+    description: 'Comprehensive financial tracking and reporting.',
+    icon: 'file-chart-bar'
   },
   {
     title: 'Kitchen Display',
@@ -57,34 +68,13 @@ const features = [
   }
 ];
 
-const usecases = [
-  {
-    title: 'For Restaurants',
-    path: '/use-cases/restaurants',
-    description: 'Complete solutions for full-service restaurants',
-    icon: 'restaurant-menu'
-  },
-  {
-    title: 'For Quick Service',
-    path: '/use-cases/quick-service',
-    description: 'Streamlined systems for fast food and quick service',
-    icon: 'chef-hat'
-  },
-  {
-    title: 'For Food Trucks',
-    path: '/use-cases/food-trucks',
-    description: 'Mobile-friendly solutions for food trucks and pop-ups',
-    icon: 'car'
-  }
-];
-
 const mainLinks = [
   { name: 'Point of Sale', path: '/products/pos' },
   { name: 'Digital Menu', path: '/products/digital-menu' },
   { name: 'QR Ordering', path: '/products/qr-ordering' },
   { name: 'Inventory Management', path: '/products/inventory-management' },
   { name: 'Features', items: features },
-  { name: 'Usecases', items: usecases },
+  { name: 'Usecases', path: 'https://preview--swirl-refined-website.lovable.app/use-cases' },
   { name: 'Contact', path: '/contact' },
 ];
 

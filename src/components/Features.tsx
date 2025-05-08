@@ -75,10 +75,10 @@ const features = [
 
 const Features = () => {
   return (
-    <section id="features" className="py-20 md:py-28 flex items-center bg-gradient-to-b from-gray-50 to-white">
+    <section id="features" className="py-20 md:py-28 flex items-center bg-gradient-to-b from-blue-50/30 to-white">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
             Solutions for Modern Restaurants
           </h2>
           <p className="text-base md:text-lg text-swirl-gray max-w-2xl mx-auto mb-10">
@@ -91,19 +91,19 @@ const Features = () => {
             <Link 
               to={feature.path} 
               key={feature.id}
-              className="bg-gradient-to-br from-white to-gray-50/30 rounded-xl shadow-sm hover:shadow-md p-4 transition-all duration-300 hover:-translate-y-1 border border-gray-100/80 group flex flex-col items-center text-center"
+              className="bg-gradient-to-br from-white to-blue-50/60 rounded-xl shadow-sm hover:shadow-xl p-4 transition-all duration-300 hover:-translate-y-1 border border-blue-100/20 group flex flex-col items-center text-center"
             >
-              <div className="w-14 h-14 rounded-full bg-purple-light/30 flex items-center justify-center mb-3 group-hover:bg-purple/20 transition-colors">
-                <feature.icon className="text-purple" size={24} />
+              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-100/80 to-indigo-100/80 flex items-center justify-center mb-3 group-hover:bg-gradient-to-br group-hover:from-blue-200 group-hover:to-indigo-200 transition-colors">
+                <feature.icon className="text-blue-600" size={24} />
               </div>
-              <h3 className="text-base md:text-lg font-medium mb-2 group-hover:text-purple transition-colors">{feature.title}</h3>
+              <h3 className="text-base md:text-lg font-medium mb-2 group-hover:text-blue-700 transition-colors">{feature.title}</h3>
               <p className="text-xs md:text-sm text-gray-500">{feature.description}</p>
             </Link>
           ))}
         </div>
         
         <div className="text-center mt-10">
-          <Button asChild className="btn-primary text-base">
+          <Button asChild className="btn-primary bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:from-blue-600 hover:to-indigo-700 text-base shadow-lg">
             <Link to="/products">View All Solutions</Link>
           </Button>
         </div>

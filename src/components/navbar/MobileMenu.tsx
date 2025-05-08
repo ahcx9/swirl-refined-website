@@ -22,6 +22,10 @@ export const MobileMenu = ({
 }: MobileMenuProps) => {
   if (!isOpen) return null;
 
+  const isExternalLink = (path: string) => {
+    return path && path.startsWith('http');
+  };
+
   return (
     <div className="xl:hidden bg-white shadow-lg fixed top-[80px] left-0 right-0 h-[calc(100vh-80px)] overflow-y-auto z-50">
       <div className="container-custom py-6 flex flex-col space-y-4">
@@ -52,19 +56,30 @@ export const MobileMenu = ({
               )}
             </div>
           ) : (
-            <Link
-              key={link.name}
-              to={link.path}
-              className="text-swirl-blue hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter border-b border-gray-100"
-              onClick={onClose}
-            >
-              {link.name}
-            </Link>
+            <div key={link.name} className="border-b border-gray-100">
+              {isExternalLink(link.path) ? (
+                <a
+                  href={link.path}
+                  className="text-swirl-blue hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block"
+                  onClick={onClose}
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  to={link.path}
+                  className="text-swirl-blue hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block"
+                  onClick={onClose}
+                >
+                  {link.name}
+                </Link>
+              )}
+            </div>
           )
         ))}
         <div className="mt-6 pt-4">
           <Button asChild className="btn-primary w-full font-inter text-lg py-6">
-            <Link to="https://app.swirl.cx/register" onClick={onClose}>Get Started For Free</Link>
+            <a href="https://app.swirl.cx/register" onClick={onClose}>Get Started For Free</a>
           </Button>
         </div>
       </div>

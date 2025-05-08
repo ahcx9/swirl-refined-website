@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { 
   FileText, ShoppingCart, BarChart, CreditCard, LayoutDashboard,
-  Users, Car, Calendar, Package, ChefHat, Utensils
+  Users, Car, Calendar, Package, ChefHat, Utensils, FileBarChart
 } from 'lucide-react';
 
 interface NavigationItem {
@@ -43,14 +43,19 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
       'package': <Package size={26} className="mr-3 text-swirl-blue" />,
       'chef-hat': <ChefHat size={26} className="mr-3 text-swirl-blue" />,
       'calendar': <Utensils size={26} className="mr-3 text-swirl-blue" />,
+      'file-chart-bar': <FileBarChart size={26} className="mr-3 text-swirl-blue" />,
     };
     
     return iconMap[iconName] || null;
   };
 
+  const isExternalLink = (path: string) => {
+    return path && path.startsWith('http');
+  };
+
   return (
     <NavigationMenu>
-      <NavigationMenuList className="flex items-center gap-6 md:gap-8 lg:gap-12">
+      <NavigationMenuList className="flex items-center gap-6 md:gap-10 lg:gap-14">
         {items.map((link) => (
           link.items ? (
             <NavigationMenuItem key={link.name} className="relative">
@@ -58,7 +63,7 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
                 {link.name}
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid grid-cols-2 gap-4 p-6 w-[800px] bg-white shadow-lg rounded-lg border border-gray-100">
+                <div className="grid grid-cols-2 gap-4 p-6 w-[800px] bg-white shadow-lg rounded-lg border border-gray-100 z-50">
                   {link.items.map((item) => (
                     <Link
                       key={item.title}
@@ -81,12 +86,21 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
             </NavigationMenuItem>
           ) : (
             <NavigationMenuItem key={link.name}>
-              <Link
-                to={link.path!}
-                className="text-swirl-blue hover:text-blue-600 transition-colors font-inter text-[18px] font-semibold tracking-wide whitespace-nowrap relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-swirl-blue after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left px-2"
-              >
-                {link.name}
-              </Link>
+              {isExternalLink(link.path!) ? (
+                <a
+                  href={link.path!}
+                  className="text-swirl-blue hover:text-blue-600 transition-colors font-inter text-[18px] font-semibold tracking-wide whitespace-nowrap relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-swirl-blue after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left px-2"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  to={link.path!}
+                  className="text-swirl-blue hover:text-blue-600 transition-colors font-inter text-[18px] font-semibold tracking-wide whitespace-nowrap relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-swirl-blue after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left px-2"
+                >
+                  {link.name}
+                </Link>
+              )}
             </NavigationMenuItem>
           )
         ))}
