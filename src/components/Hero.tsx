@@ -1,23 +1,16 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem
-} from '@/components/ui/carousel';
+import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   const [loaded, setLoaded] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
   
   const images = [
-    "/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png", // New image uploaded by the user
-    "/lovable-uploads/a8e1c5a9-d7a7-453a-a7f5-a5dcf834b577.png",
-    "/lovable-uploads/cf8befbe-bdea-44aa-ae5a-485151bda759.png"
+    "/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png",
   ];
 
-  // Preload all images
+  // Preload the image
   useEffect(() => {
     const preloadImages = () => {
       const imagePromises = images.map((src) => {
@@ -37,83 +30,57 @@ const Hero = () => {
     preloadImages();
   }, []);
 
-  // Rotate images every 4 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [images.length]);
-
   return (
-    <section className="pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen flex items-center bg-white">
-      <div className="container-custom max-w-8xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div className="text-center lg:text-left animate-on-scroll lg:pr-8">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-8 w-full">
-              Enhance your <span className="bg-gradient-to-r from-swirl-blue to-blue-500 bg-clip-text text-transparent">customer experience</span> with <span className="bg-gradient-to-r from-swirl-blue to-blue-500 bg-clip-text text-transparent">AI-powered</span> restaurant management
-            </h1>
-            <p className="text-xl md:text-2xl lg:text-3xl text-swirl-gray mb-10 max-w-3xl mx-auto lg:mx-0">
-              Streamline operations with smart digital tools. Boost efficiency, improve customer experience, and increase profits.
-            </p>
-            <div className="flex justify-center lg:justify-start">
-              <Button 
-                asChild 
-                size="xl"
-                className="text-xl py-8 px-12"
-              >
-                <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
-                  Get Started for Free
-                </a>
-              </Button>
-            </div>
+    <section className="pt-28 pb-16 md:pt-36 md:pb-20 min-h-[80vh] flex items-center bg-white">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="text-center max-w-5xl mx-auto mb-8">
+          <span className="bg-blue-50 text-swirl-blue px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-6">CRAFTED FOR CREATIVES AND INNOVATORS</span>
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">
+            Sale & Ordering system for the <span className="bg-gradient-to-r from-swirl-blue to-blue-500 bg-clip-text text-transparent">modern restaurant</span>
+          </h1>
+          
+          <p className="text-xl md:text-2xl text-swirl-gray mb-10 max-w-3xl mx-auto">
+            Modern full stack (back of house & front of house) restaurant management system for ambitious restaurateurs.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
+            <Button 
+              asChild 
+              size="lg"
+              className="text-lg py-6 px-8 bg-gradient-to-r from-swirl-blue to-blue-500 rounded-xl"
+            >
+              <a href="https://app.swirl.cx/register" className="flex items-center gap-2">
+                Get Started Now <ArrowRight size={20} />
+              </a>
+            </Button>
+            
+            <Button 
+              asChild 
+              variant="secondary"
+              size="lg"
+              className="text-lg py-6 px-8 border-2 border-swirl-blue text-swirl-blue bg-transparent rounded-xl"
+            >
+              <a href="/contact">Schedule a Demo</a>
+            </Button>
           </div>
-          <div className="relative group animate-on-scroll overflow-hidden h-[80vh] lg:h-[70vh]">
-            <div className="rounded-2xl overflow-hidden shadow-2xl h-full">
-              <Carousel className="w-full h-full">
-                <CarouselContent className="h-full">
-                  {images.map((src, index) => (
-                    <CarouselItem key={index} className={`${currentIndex === index ? 'block' : 'hidden'} transition-opacity duration-1000 h-full`}>
-                      <div className="relative w-full h-full">
-                        <img 
-                          src={src} 
-                          alt={`Restaurant management system ${index + 1}`}
-                          className="w-[150%] h-full object-cover transform transition-transform duration-700 hover:scale-105"
-                          style={{ 
-                            maxHeight: '1000px',
-                            objectFit: 'cover',
-                            objectPosition: 'center'
-                          }} 
-                          loading={index === 0 ? "eager" : "lazy"}
-                        />
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-              </Carousel>
-              
-              {!loaded && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 border-4 border-swirl-blue border-t-transparent rounded-full animate-spin"></div>
-                </div>
-              )}
-              
-              {/* Image indicator dots */}
-              <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-3">
-                {images.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                      currentIndex === index ? 'bg-white scale-125 shadow-lg' : 'bg-white/50'
-                    }`}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
-              </div>
+        </div>
+        
+        <div className="mt-12 w-full max-w-5xl mx-auto">
+          {loaded ? (
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={images[0]} 
+                alt="Restaurant management system" 
+                className="w-full h-auto object-contain"
+                style={{ maxHeight: '60vh' }}
+              />
             </div>
-          </div>
+          ) : (
+            <div className="h-[60vh] w-full flex items-center justify-center bg-blue-50 rounded-2xl">
+              <div className="w-16 h-16 border-4 border-swirl-blue border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          )}
         </div>
       </div>
     </section>

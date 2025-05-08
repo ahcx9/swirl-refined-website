@@ -1,10 +1,5 @@
 
 import React, { useEffect, useRef } from 'react';
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem
-} from "@/components/ui/carousel";
 
 const TrustedRestaurants = () => {
   const logos = [
@@ -75,8 +70,8 @@ const TrustedRestaurants = () => {
   }, []);
 
   return (
-    <section className="py-12 bg-gray-100">
-      <div className="container-custom">
+    <section className="py-10 bg-white border-t border-gray-100">
+      <div className="container mx-auto px-4">
         <h3 className="text-xl font-medium text-center mb-8 text-swirl-gray">Trusted by Restaurants Worldwide</h3>
         
         <div className="relative w-full overflow-hidden" ref={containerRef}>
@@ -85,7 +80,7 @@ const TrustedRestaurants = () => {
             {logos.map((logo, index) => (
               <div 
                 key={`logo-1-${index}`} 
-                className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[130px] md:w-[150px] md:h-[150px] mx-3 flex items-center justify-center"
+                className="bg-white p-4 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[90px] md:w-[150px] md:h-[100px] mx-3 flex items-center justify-center"
               >
                 <img 
                   src={logo.src} 
@@ -99,7 +94,7 @@ const TrustedRestaurants = () => {
             {logos.map((logo, index) => (
               <div 
                 key={`logo-2-${index}`} 
-                className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[130px] md:w-[150px] md:h-[150px] mx-3 flex items-center justify-center"
+                className="bg-white p-4 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[90px] md:w-[150px] md:h-[100px] mx-3 flex items-center justify-center"
               >
                 <img 
                   src={logo.src} 

@@ -26,42 +26,6 @@ const features = [
     icon: 'chart-bar'
   },
   {
-    title: 'Point of Sale',
-    path: '/products/pos',
-    description: 'Modern POS system for seamless transactions.',
-    icon: 'credit-card'
-  },
-  {
-    title: 'Financial Reports',
-    path: '/products/financial-reports',
-    description: 'Comprehensive financial reporting and analysis.',
-    icon: 'file-text'
-  },
-  {
-    title: 'CRM',
-    path: '/products/crm',
-    description: 'Manage customer relationships effectively.',
-    icon: 'users'
-  },
-  {
-    title: 'In-Car Ordering',
-    path: '/products/ordering-from-car',
-    description: 'Enable convenient ordering directly from vehicles.',
-    icon: 'car'
-  },
-  {
-    title: 'Payroll Management',
-    path: '/products/payroll-management',
-    description: 'Streamline your staff payments and tracking.',
-    icon: 'dollar-sign'
-  },
-  {
-    title: 'Inventory Management',
-    path: '/products/inventory-management',
-    description: 'Track and manage your inventory efficiently.',
-    icon: 'package'
-  },
-  {
     title: 'Kitchen Display',
     path: '/products/kitchen-display',
     description: 'Streamline kitchen operations and order management.',
@@ -72,17 +36,55 @@ const features = [
     path: '/products/reservations',
     description: 'Manage bookings and optimize table turnover.',
     icon: 'calendar'
+  },
+  {
+    title: 'In-Car Ordering',
+    path: '/products/ordering-from-car',
+    description: 'Enable convenient ordering directly from vehicles.',
+    icon: 'car'
+  },
+  {
+    title: 'CRM',
+    path: '/products/crm',
+    description: 'Manage customer relationships effectively.',
+    icon: 'users'
+  },
+  {
+    title: 'Payroll Management',
+    path: '/products/payroll-management',
+    description: 'Streamline your staff payments and tracking.',
+    icon: 'dollar-sign'
+  }
+];
+
+const solutions = [
+  {
+    title: 'For Restaurants',
+    path: '/use-cases/restaurants',
+    description: 'Complete solutions for full-service restaurants',
+    icon: 'restaurant-menu'
+  },
+  {
+    title: 'For Quick Service',
+    path: '/use-cases/quick-service',
+    description: 'Streamlined systems for fast food and quick service',
+    icon: 'chef-hat'
+  },
+  {
+    title: 'For Food Trucks',
+    path: '/use-cases/food-trucks',
+    description: 'Mobile-friendly solutions for food trucks and pop-ups',
+    icon: 'car'
   }
 ];
 
 const mainLinks = [
-  { name: 'Features', items: features },
   { name: 'Point of Sale', path: '/products/pos' },
-  { name: 'Inventory Management', path: '/products/inventory-management' },
+  { name: 'Digital Menu', path: '/products/digital-menu' },
   { name: 'QR Ordering', path: '/products/qr-ordering' },
-  { name: 'Analytics', path: '/products/analytics' },
-  { name: 'Financial Reports', path: '/products/financial-reports' },
-  { name: 'Use Cases', path: '/use-cases' },
+  { name: 'Inventory Management', path: '/products/inventory-management' },
+  { name: 'Features', items: features },
+  { name: 'Solutions', items: solutions },
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -107,25 +109,25 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-4' : 'bg-white py-6'
+        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-3' : 'bg-white py-5'
       }`}
     >
-      <div className="max-w-[1600px] mx-auto px-4 flex justify-between items-center">
+      <div className="max-w-[1800px] mx-auto px-4 xl:px-8 flex justify-between items-center">
         <div className="flex items-center">
           <Link to="/" className="flex items-center mr-8">
             <img 
               src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png" 
               alt="Swirl Logo" 
-              className="h-24 w-auto"
+              className="h-16 md:h-20 w-auto"
             />
           </Link>
 
-          <div className="hidden xl:flex items-center overflow-x-auto">
+          <div className="hidden xl:flex items-center">
             <NavigationItems items={mainLinks} />
           </div>
         </div>
           
-        <Button asChild className="btn-primary font-inter hidden md:flex text-xl bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 py-6 px-8">
+        <Button asChild className="hidden md:flex font-inter text-xl bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 py-6 px-8">
           <Link to="https://app.swirl.cx/register">Get Started For Free</Link>
         </Button>
 

@@ -23,29 +23,29 @@ export const MobileMenu = ({
   if (!isOpen) return null;
 
   return (
-    <div className="md:hidden bg-white shadow-lg">
-      <div className="container-custom py-4 flex flex-col space-y-4">
+    <div className="xl:hidden bg-white shadow-lg fixed top-[80px] left-0 right-0 h-[calc(100vh-80px)] overflow-y-auto z-50">
+      <div className="container-custom py-6 flex flex-col space-y-4">
         {links.map((link) => (
           link.items ? (
-            <div key={link.name} className="space-y-2">
+            <div key={link.name} className="space-y-3 border-b border-gray-100 pb-4">
               <button 
                 onClick={() => toggleDropdown(link.name)}
-                className="flex justify-between items-center w-full font-medium text-purple-dark font-inter py-2"
+                className="flex justify-between items-center w-full font-medium text-swirl-blue font-inter py-2 text-xl"
               >
-                <span className="text-lg">{link.name}</span>
-                <ChevronDown className={`transition-transform ${activeDropdown === link.name ? 'rotate-180' : ''}`} size={18} />
+                <span>{link.name}</span>
+                <ChevronDown className={`transition-transform ${activeDropdown === link.name ? 'rotate-180' : ''}`} size={22} />
               </button>
               {activeDropdown === link.name && (
-                <div className="pl-4 space-y-3">
+                <div className="pl-4 space-y-4 mt-2">
                   {link.items.map((item: any) => (
                     <Link
                       key={item.title}
                       to={item.path}
-                      className="flex items-center text-purple-dark hover:text-purple transition-colors py-2 font-inter"
+                      className="flex items-center text-swirl-blue hover:text-blue-600 transition-colors py-2 font-inter"
                       onClick={onClose}
                     >
                       {getIconComponent(item.icon)}
-                      <span>{item.title}</span>
+                      <span className="text-lg">{item.title}</span>
                     </Link>
                   ))}
                 </div>
@@ -55,16 +55,18 @@ export const MobileMenu = ({
             <Link
               key={link.name}
               to={link.path}
-              className="text-purple-dark hover:text-purple transition-colors font-medium py-2 text-lg font-inter"
+              className="text-swirl-blue hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter border-b border-gray-100"
               onClick={onClose}
             >
               {link.name}
             </Link>
           )
         ))}
-        <Button asChild className="btn-primary w-full font-inter mt-4">
-          <Link to="https://app.swirl.cx/register" onClick={onClose}>Get Started For Free</Link>
-        </Button>
+        <div className="mt-6 pt-4">
+          <Button asChild className="btn-primary w-full font-inter text-lg py-6">
+            <Link to="https://app.swirl.cx/register" onClick={onClose}>Get Started For Free</Link>
+          </Button>
+        </div>
       </div>
     </div>
   );
