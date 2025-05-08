@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -74,7 +75,7 @@ const mainLinks = [
   { name: 'QR Ordering', path: '/products/qr-ordering' },
   { name: 'Inventory Management', path: '/products/inventory-management' },
   { name: 'Features', items: features },
-  { name: 'Usecases', path: 'https://preview--swirl-refined-website.lovable.app/use-cases' },
+  { name: 'Usecases', path: '/use-cases' },
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -113,16 +114,16 @@ const Navbar = () => {
           </Link>
 
           <div className="hidden xl:flex items-center">
-            <NavigationItems items={mainLinks} />
+            <NavigationItems items={mainLinks} textColor="text-black" />
           </div>
         </div>
           
         <Button asChild className="hidden md:flex font-inter text-xl bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 py-6 px-8">
-          <Link to="https://app.swirl.cx/register">Get Started For Free</Link>
+          <a href="https://app.swirl.cx/register">Get Started For Free</a>
         </Button>
 
         <button
-          className="xl:hidden text-swirl-blue"
+          className="xl:hidden text-black"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={38} /> : <Menu size={38} />}

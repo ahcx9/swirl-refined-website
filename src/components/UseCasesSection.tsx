@@ -39,7 +39,7 @@ const useCases: UseCaseType[] = [
     icon: Utensils,
     color: 'text-blue-600',
     bgGradient: 'from-blue-50 to-blue-100',
-    pattern: 'linear'
+    pattern: 'radial'
   },
   {
     id: 'cafes',
@@ -57,7 +57,7 @@ const useCases: UseCaseType[] = [
     icon: Store,
     color: 'text-blue-600',
     bgGradient: 'from-blue-50 to-blue-100',
-    pattern: 'zigzag'
+    pattern: 'radial'
   },
   {
     id: 'cloud-kitchens',
@@ -103,7 +103,7 @@ const UseCasesSection = () => {
       
       <div className="container-custom relative z-10">
         <div className="text-center mb-12 md:mb-20 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">
             Serving Every Corner of Hospitality
           </h2>
           <p className="text-lg text-swirl-gray mb-8">
@@ -172,7 +172,7 @@ const UseCasesSection = () => {
                 </div>
                 
                 {/* Content */}
-                <h3 className={`text-xl md:text-2xl font-bold mb-3 ${useCase.color}`}>
+                <h3 className={`text-xl md:text-2xl font-bold mb-3 text-black`}>
                   {useCase.title}
                 </h3>
                 <p className="text-gray-600 mb-6 flex-grow">

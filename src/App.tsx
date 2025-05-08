@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Index from './pages/Index';
@@ -23,10 +23,27 @@ import InCarOrdering from './pages/features/InCarOrdering';
 import CRM from './pages/features/CRM';
 import FinancialReports from './pages/features/FinancialReports';
 import PayrollManagement from './pages/features/PayrollManagement';
+import LoadingScreen from './components/LoadingScreen';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <LoadingScreen />;
+  }
+
   return (
     <Router>
+      <Navbar />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Index />} />

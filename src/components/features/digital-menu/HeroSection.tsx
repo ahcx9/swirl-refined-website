@@ -20,7 +20,7 @@ const HeroSection = () => {
         </p>
 
         <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 py-2.5 px-6 text-white shadow-lg mx-auto">
-          <Link to="/contact">Get Started</Link>
+          <a href="https://app.swirl.cx/register">Get Started For Free</a>
         </Button>
       </div>
       

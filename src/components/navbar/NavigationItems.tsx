@@ -26,9 +26,10 @@ interface NavigationItem {
 
 interface NavigationItemsProps {
   items: NavigationItem[];
+  textColor?: string;
 }
 
-export const NavigationItems = ({ items }: NavigationItemsProps) => {
+export const NavigationItems = ({ items, textColor = "text-swirl-blue" }: NavigationItemsProps) => {
   // Map for Lucide icons based on icon name
   const getIcon = (iconName: string) => {
     const iconMap: {[key: string]: React.ReactNode} = {
@@ -59,7 +60,7 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
         {items.map((link) => (
           link.items ? (
             <NavigationMenuItem key={link.name} className="relative">
-              <NavigationMenuTrigger className="text-swirl-blue hover:text-blue-600 transition-colors px-0 font-inter text-[18px] font-semibold tracking-wide bg-transparent hover:bg-transparent">
+              <NavigationMenuTrigger className={`${textColor} hover:text-blue-600 transition-colors px-0 font-inter text-[18px] font-semibold tracking-wide bg-transparent hover:bg-transparent`}>
                 {link.name}
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -73,7 +74,7 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
                       <div className="flex items-center">
                         {getIcon(item.icon)}
                         <div>
-                          <div className="text-lg font-medium leading-none font-inter mb-2">{item.title}</div>
+                          <div className="text-lg font-medium leading-none font-inter mb-2 text-black">{item.title}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground font-inter">
                             {item.description}
                           </p>
@@ -89,14 +90,14 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
               {isExternalLink(link.path!) ? (
                 <a
                   href={link.path!}
-                  className="text-swirl-blue hover:text-blue-600 transition-colors font-inter text-[18px] font-semibold tracking-wide whitespace-nowrap relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-swirl-blue after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left px-2"
+                  className={`${textColor} hover:text-blue-600 transition-colors font-inter text-[18px] font-semibold tracking-wide whitespace-nowrap relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-black after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left px-2`}
                 >
                   {link.name}
                 </a>
               ) : (
                 <Link
                   to={link.path!}
-                  className="text-swirl-blue hover:text-blue-600 transition-colors font-inter text-[18px] font-semibold tracking-wide whitespace-nowrap relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-swirl-blue after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left px-2"
+                  className={`${textColor} hover:text-blue-600 transition-colors font-inter text-[18px] font-semibold tracking-wide whitespace-nowrap relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-black after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left px-2`}
                 >
                   {link.name}
                 </Link>

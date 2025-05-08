@@ -35,7 +35,7 @@ const CTASection = () => {
                 size="xl" 
                 className="bg-gradient-to-r from-blue-400 via-blue-300 to-white text-blue-900 hover:text-blue-950 shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105"
               >
-                <a href="/contact" target="_blank" rel="noopener noreferrer">Get Started for Free</a>
+                <a href="https://app.swirl.cx/register">Get Started for Free</a>
               </Button>
             </div>
           </div>

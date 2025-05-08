@@ -1,115 +1,69 @@
 
 import React from 'react';
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, CreditCard, Printer, BarChart3, Receipt } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
 const HomePOSSection = () => {
-  const features = [
-    {
-      icon: <CreditCard className="h-6 w-6" />,
-      title: "Modern Payment Processing",
-      description: "Accept all payment methods by cards, mobile wallets, and cash - with fast transaction processing."
-    },
-    {
-      icon: <Receipt className="h-6 w-6" />,
-      title: "Customizable Receipts",
-      description: "Design professional receipts with your branding, promotional messages, and QR codes."
-    },
-    {
-      icon: <Printer className="h-6 w-6" />,
-      title: "Kitchen Order Printing",
-      description: "Send orders directly to kitchen printers for smooth operations and reduced errors."
-    },
-    {
-      icon: <BarChart3 className="h-6 w-6" />,
-      title: "Sales Reports",
-      description: "Track performance with real-time sales data, daily summaries, and detailed analytics."
-    }
-  ];
-
   return (
-    <section className="py-20 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-16">
-          <span className="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">POINT OF SALE</span>
-          <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-swirl-blue to-blue-500 bg-clip-text text-transparent">
-            Transform Your Restaurant Experience
-          </h2>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-            Streamline your operations with our intuitive point-of-sale system. Process payments quickly, manage tables efficiently, and keep your staff and customers happy.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section className="py-24 overflow-hidden relative bg-gradient-to-br from-blue-50 to-white">
+      <div className="container-custom">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
           <div className="order-2 md:order-1">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {features.map((feature, index) => (
-                <Card key={index} className={`border-none overflow-hidden transform transition-all duration-500 hover:scale-105 hover:rotate-1 ${
-                  index % 4 === 0 ? 'bg-gradient-to-br from-blue-50 to-blue-100' :
-                  index % 4 === 1 ? 'bg-gradient-to-br from-blue-50 to-blue-100' :
-                  index % 4 === 2 ? 'bg-gradient-to-br from-blue-50 to-blue-100' :
-                  'bg-gradient-to-br from-blue-50 to-blue-100'
-                } shadow-lg hover:shadow-xl rounded-xl`}>
-                  <div className="p-6 relative z-10">
-                    <div className={`w-16 h-16 rounded-lg flex items-center justify-center mb-6 ${
-                      index % 4 === 0 ? 'bg-gradient-to-br from-blue-200 to-blue-300' :
-                      index % 4 === 1 ? 'bg-gradient-to-br from-blue-200 to-blue-300' :
-                      index % 4 === 2 ? 'bg-gradient-to-br from-blue-200 to-blue-300' :
-                      'bg-gradient-to-br from-blue-200 to-blue-300'
-                    } text-white`}>
-                      {feature.icon}
+            <div className="animate-on-scroll">
+              <div className="mb-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22 10V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22H10" stroke="#1E67FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M22 10V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22H10" stroke="#3E8DFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M13.9 18.15L15.13 19.38L18.48 16.03" stroke="#1E67FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M13.9 18.15L15.13 19.38L18.48 16.03" stroke="#3E8DFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M7.99994 10.53V13.4699" stroke="#1E67FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M7.99994 10.53V13.4699" stroke="#3E8DFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M16 10.53V13.4699" stroke="#1E67FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M16 10.53V13.4699" stroke="#3E8DFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 10.53V13.4699" stroke="#1E67FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 10.53V13.4699" stroke="#3E8DFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span className="text-blue-600 font-medium">Transform Your Restaurant Experience</span>
+              </div>
+              
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">Point of Sale</h2>
+              
+              <p className="text-blue-600/80 mb-6">
+                Our easy-to-use POS is designed specifically for restaurants, with table management, split bills, modifiers, 
+                and tip management. The system works online and offline, ensuring uninterrupted service at all times.
+              </p>
+              
+              <ul className="space-y-3 mb-8">
+                {['Real-time table management', 'Customizable modifiers & combos', 'Check splitting & table transfers', 'Offline functionality', 'Integrated payment processing'].map((feature, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                     </div>
-                    <h3 className="font-bold text-xl mb-3 text-gray-800">{feature.title}</h3>
-                    <p className="text-gray-600">{feature.description}</p>
-                    
-                    {/* Decorative Elements */}
-                    <div className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-white opacity-20"></div>
-                    <div className="absolute top-4 right-4 w-3 h-3 rounded-full bg-white"></div>
-                    <div className="absolute top-8 right-8 w-2 h-2 rounded-full bg-white"></div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-            
-            <div className="mt-10">
-              <Button asChild className="bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 text-white border-none rounded-full px-8 py-6 h-auto transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                    <span className="text-blue-600/80">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              
+              <Button asChild variant="default" size="lg">
                 <Link to="/products/pos" className="flex items-center gap-2">
-                  Explore Our POS System <ArrowRight size={18} />
+                  Learn More <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
             </div>
           </div>
           
-          <div className="order-1 md:order-2 mb-8 md:mb-0">
-            <div className="relative h-full">
-              {/* Creative visualization of POS system */}
-              <div className="w-full h-80 lg:h-96 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl overflow-hidden relative shadow-xl transform transition-all duration-700 hover:rotate-1 hover:scale-105">
-                {/* Visual elements that suggest a POS interface */}
-                <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-lg shadow-md transform transition-all duration-500 hover:rotate-3 hover:scale-105"></div>
-                <div className="absolute top-16 left-16 w-20 h-6 bg-blue-200 rounded-md"></div>
-                <div className="absolute top-28 left-16 w-16 h-16 bg-blue-200 rounded-md"></div>
-                
-                {/* Receipt-like elements with animation */}
-                <div className="absolute top-10 right-14 w-24 h-40 bg-white rounded-md shadow-md transform transition-all duration-500 hover:translate-y-2"></div>
-                <div className="absolute top-14 right-20 w-12 h-2 bg-blue-200 rounded-sm"></div>
-                <div className="absolute top-20 right-20 w-12 h-2 bg-blue-200 rounded-sm"></div>
-                <div className="absolute top-26 right-20 w-12 h-2 bg-blue-200 rounded-sm"></div>
-                
-                {/* Card payment visualization with hover effect */}
-                <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-40 h-24 bg-gradient-to-br from-blue-400 to-blue-500 rounded-xl shadow-lg transform transition-all duration-500 hover:scale-110"></div>
-                <div className="absolute bottom-24 left-1/2 -translate-x-1/2 w-20 h-3 bg-white/60 rounded-sm"></div>
-                
-                {/* Animated decorative elements */}
-                <div className="absolute top-8 left-1/2 w-8 h-8 bg-blue-300 rounded-full opacity-50 animate-pulse"></div>
-                <div className="absolute bottom-20 right-12 w-6 h-6 bg-blue-300 rounded-full opacity-50 animate-ping"></div>
-                <div className="absolute top-1/2 left-1/3 w-12 h-12 bg-blue-200 rounded-full opacity-30 animate-pulse"></div>
+          <div className="order-1 md:order-2">
+            <div className="relative">
+              <div className="absolute -inset-10 bg-blue-100/30 rounded-full blur-3xl opacity-30"></div>
+              <div className="relative bg-gradient-to-br from-blue-50 to-white p-3 rounded-xl shadow-xl">
+                <img 
+                  src="/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png"
+                  alt="Swirl POS Interface"
+                  className="w-full h-auto object-cover rounded-lg shadow-inner"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-600/5 to-transparent rounded-xl"></div>
               </div>
-              
-              {/* Decorative animated blobs */}
-              <div className="absolute -top-10 -left-10 w-32 h-32 bg-blue-200/50 rounded-full blur-3xl animate-pulse"></div>
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-blue-200/50 rounded-full blur-3xl animate-pulse"></div>
             </div>
           </div>
         </div>

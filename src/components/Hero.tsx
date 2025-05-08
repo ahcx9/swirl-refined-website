@@ -40,13 +40,13 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pt-28 pb-16 md:pt-36 md:pb-20 min-h-[80vh] flex items-center bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20">
+    <section className="pt-24 pb-12 md:pt-32 md:pb-16 min-h-[80vh] flex items-center bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center max-w-5xl mx-auto mb-8">
           <span className="bg-blue-50 text-swirl-blue px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-6">ENHANCING GUEST EXPERIENCE</span>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">
-            Sale & Ordering system for the <span className="bg-gradient-to-r from-swirl-blue to-blue-500 bg-clip-text text-transparent">modern restaurant</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 text-black">
+            Sale & Ordering system for the <span className="text-black">modern restaurant</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-swirl-gray mb-10 max-w-3xl mx-auto">
@@ -77,7 +77,7 @@ const Hero = () => {
                         src={image} 
                         alt={`Restaurant management system ${index + 1}`} 
                         className="w-full h-auto object-contain mx-auto rounded-xl"
-                        style={{ maxHeight: '60vh' }}
+                        style={{ maxHeight: '55vh' }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-blue-600/5 to-transparent rounded-2xl"></div>
                     </div>
@@ -90,7 +90,7 @@ const Hero = () => {
               </div>
             </Carousel>
           ) : (
-            <div className="h-[60vh] w-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl">
+            <div className="h-[55vh] w-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl">
               <div className="w-16 h-16 border-4 border-swirl-blue border-t-transparent rounded-full animate-spin"></div>
             </div>
           )}

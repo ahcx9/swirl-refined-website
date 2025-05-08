@@ -14,7 +14,7 @@ const ProductHero = () => {
             Discover our suite of integrated tools designed to revolutionize how you run your restaurant business.
           </p>
           <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg">
-            <Link to="https://app.swirl.cx/register">Get Started For Free</Link>
+            <a href="https://app.swirl.cx/register">Get Started For Free</a>
           </Button>
         </div>
       </div>

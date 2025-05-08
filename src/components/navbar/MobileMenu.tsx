@@ -34,7 +34,7 @@ export const MobileMenu = ({
             <div key={link.name} className="space-y-3 border-b border-gray-100 pb-4">
               <button 
                 onClick={() => toggleDropdown(link.name)}
-                className="flex justify-between items-center w-full font-medium text-swirl-blue font-inter py-2 text-xl"
+                className="flex justify-between items-center w-full font-medium text-black font-inter py-2 text-xl"
               >
                 <span>{link.name}</span>
                 <ChevronDown className={`transition-transform ${activeDropdown === link.name ? 'rotate-180' : ''}`} size={22} />
@@ -45,7 +45,7 @@ export const MobileMenu = ({
                     <Link
                       key={item.title}
                       to={item.path}
-                      className="flex items-center text-swirl-blue hover:text-blue-600 transition-colors py-2 font-inter"
+                      className="flex items-center text-black hover:text-blue-600 transition-colors py-2 font-inter"
                       onClick={onClose}
                     >
                       {getIconComponent(item.icon)}
@@ -60,7 +60,7 @@ export const MobileMenu = ({
               {isExternalLink(link.path) ? (
                 <a
                   href={link.path}
-                  className="text-swirl-blue hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block"
+                  className="text-black hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block"
                   onClick={onClose}
                 >
                   {link.name}
@@ -68,7 +68,7 @@ export const MobileMenu = ({
               ) : (
                 <Link
                   to={link.path}
-                  className="text-swirl-blue hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block"
+                  className="text-black hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block"
                   onClick={onClose}
                 >
                   {link.name}

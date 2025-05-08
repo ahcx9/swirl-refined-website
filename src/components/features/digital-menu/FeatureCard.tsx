@@ -16,7 +16,7 @@ const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
           <div className="p-2 rounded-full bg-blue-100/70 group-hover:bg-blue-200/70 transition-colors">
             {icon}
           </div>
-          <h3 className="text-xl font-semibold text-blue-800">{title}</h3>
+          <h3 className="text-xl font-semibold text-black">{title}</h3>
         </div>
         <p className="text-blue-600/80">{description}</p>
       </CardContent>
