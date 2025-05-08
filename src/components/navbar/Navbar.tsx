@@ -57,7 +57,7 @@ const features = [
   }
 ];
 
-const solutions = [
+const usecases = [
   {
     title: 'For Restaurants',
     path: '/use-cases/restaurants',
@@ -84,7 +84,7 @@ const mainLinks = [
   { name: 'QR Ordering', path: '/products/qr-ordering' },
   { name: 'Inventory Management', path: '/products/inventory-management' },
   { name: 'Features', items: features },
-  { name: 'Solutions', items: solutions },
+  { name: 'Usecases', items: usecases },
   { name: 'Contact', path: '/contact' },
 ];
 
