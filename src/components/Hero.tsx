@@ -47,7 +47,7 @@ const Hero = () => {
   }, [images.length]);
 
   return (
-    <section className="pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen flex items-center bg-gradient-to-b from-blue-50 to-white">
+    <section className="pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen flex items-center bg-white">
       <div className="container-custom max-w-8xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="text-center lg:text-left animate-on-scroll lg:pr-8">
@@ -69,8 +69,8 @@ const Hero = () => {
               </Button>
             </div>
           </div>
-          <div className="relative group animate-on-scroll overflow-hidden h-[80vh] lg:h-[90vh]">
-            <div className="rounded-2xl overflow-hidden shadow-2xl h-full bg-gradient-to-r from-blue-100 to-blue-50 p-1">
+          <div className="relative group animate-on-scroll overflow-hidden h-[80vh] lg:h-[70vh]">
+            <div className="rounded-2xl overflow-hidden shadow-2xl h-full">
               <Carousel className="w-full h-full">
                 <CarouselContent className="h-full">
                   {images.map((src, index) => (
@@ -79,9 +79,9 @@ const Hero = () => {
                         <img 
                           src={src} 
                           alt={`Restaurant management system ${index + 1}`}
-                          className="w-[250%] h-full object-cover transform transition-transform duration-700 hover:scale-105"
+                          className="w-[150%] h-full object-cover transform transition-transform duration-700 hover:scale-105"
                           style={{ 
-                            maxHeight: '8000px',
+                            maxHeight: '1000px',
                             objectFit: 'cover',
                             objectPosition: 'center'
                           }} 
@@ -94,7 +94,7 @@ const Hero = () => {
               </Carousel>
               
               {!loaded && (
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-100 to-blue-50 flex items-center justify-center">
+                <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-16 border-4 border-swirl-blue border-t-transparent rounded-full animate-spin"></div>
                 </div>
               )}

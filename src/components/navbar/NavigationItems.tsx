@@ -50,7 +50,7 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
 
   return (
     <NavigationMenu>
-      <NavigationMenuList className="space-x-8 md:space-x-6">
+      <NavigationMenuList className="flex items-center gap-8 md:gap-10">
         {items.map((link) => (
           link.items ? (
             <NavigationMenuItem key={link.name}>
@@ -83,7 +83,7 @@ export const NavigationItems = ({ items }: NavigationItemsProps) => {
             <NavigationMenuItem key={link.name}>
               <Link
                 to={link.path!}
-                className="text-swirl-blue hover:text-blue-600 transition-colors font-inter text-[18px] font-semibold tracking-wide relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-swirl-blue after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                className="text-swirl-blue hover:text-blue-600 transition-colors font-inter text-[18px] font-semibold tracking-wide whitespace-nowrap relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-swirl-blue after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
               >
                 {link.name}
               </Link>
