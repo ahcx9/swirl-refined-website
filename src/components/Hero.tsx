@@ -47,20 +47,21 @@ const Hero = () => {
   }, [images.length]);
 
   return (
-    <section className="pt-24 pb-16 md:pt-32 md:pb-24 min-h-[90vh] flex items-center">
-      <div className="container-custom max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          <div className="text-center lg:text-left animate-on-scroll">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
-              Enhance your <span className="text-gradient">customer experience</span> with <span className="text-gradient">AI-powered</span> restaurant management
+    <section className="pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen flex items-center bg-gradient-to-b from-blue-50 to-white">
+      <div className="container-custom max-w-8xl mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="text-center lg:text-left animate-on-scroll lg:pr-8">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-8 w-full">
+              Enhance your <span className="bg-gradient-to-r from-swirl-blue to-blue-500 bg-clip-text text-transparent">customer experience</span> with <span className="bg-gradient-to-r from-swirl-blue to-blue-500 bg-clip-text text-transparent">AI-powered</span> restaurant management
             </h1>
-            <p className="text-xl md:text-2xl text-swirl-gray mb-10 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-xl md:text-2xl lg:text-3xl text-swirl-gray mb-10 max-w-3xl mx-auto lg:mx-0">
               Streamline operations with smart digital tools. Boost efficiency, improve customer experience, and increase profits.
             </p>
             <div className="flex justify-center lg:justify-start">
               <Button 
                 asChild 
                 size="xl"
+                className="text-xl py-8 px-12"
               >
                 <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
                   Get Started for Free
@@ -68,17 +69,17 @@ const Hero = () => {
               </Button>
             </div>
           </div>
-          <div className="relative group animate-on-scroll overflow-hidden lg:col-span-1">
-            <div className="rounded-2xl overflow-hidden shadow-xl">
-              <Carousel className="w-full">
-                <CarouselContent>
+          <div className="relative group animate-on-scroll overflow-hidden h-[80vh] lg:h-[90vh]">
+            <div className="rounded-2xl overflow-hidden shadow-2xl h-full bg-gradient-to-r from-blue-100 to-blue-50 p-1">
+              <Carousel className="w-full h-full">
+                <CarouselContent className="h-full">
                   {images.map((src, index) => (
-                    <CarouselItem key={index} className={`${currentIndex === index ? 'block' : 'hidden'} transition-opacity duration-1000`}>
-                      <div className="relative w-full">
+                    <CarouselItem key={index} className={`${currentIndex === index ? 'block' : 'hidden'} transition-opacity duration-1000 h-full`}>
+                      <div className="relative w-full h-full">
                         <img 
                           src={src} 
                           alt={`Restaurant management system ${index + 1}`}
-                          className="w-[200%] h-auto object-cover transform transition-transform duration-700 hover:scale-105"
+                          className="w-[250%] h-full object-cover transform transition-transform duration-700 hover:scale-105"
                           style={{ 
                             maxHeight: '8000px',
                             objectFit: 'cover',
@@ -93,19 +94,19 @@ const Hero = () => {
               </Carousel>
               
               {!loaded && (
-                <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
-                  <div className="w-12 h-12 border-4 border-swirl-blue border-t-transparent rounded-full animate-spin"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-100 to-blue-50 flex items-center justify-center">
+                  <div className="w-16 h-16 border-4 border-swirl-blue border-t-transparent rounded-full animate-spin"></div>
                 </div>
               )}
               
               {/* Image indicator dots */}
-              <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+              <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-3">
                 {images.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      currentIndex === index ? 'bg-white scale-125' : 'bg-white/50'
+                    className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                      currentIndex === index ? 'bg-white scale-125 shadow-lg' : 'bg-white/50'
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />

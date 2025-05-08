@@ -77,6 +77,11 @@ const features = [
 
 const mainLinks = [
   { name: 'Features', items: features },
+  { name: 'Point of Sale', path: '/products/pos' },
+  { name: 'Inventory Management', path: '/products/inventory-management' },
+  { name: 'QR Ordering', path: '/products/qr-ordering' },
+  { name: 'Analytics', path: '/products/analytics' },
+  { name: 'Financial Reports', path: '/products/financial-reports' },
   { name: 'Use Cases', path: '/use-cases' },
   { name: 'Contact', path: '/contact' },
 ];
@@ -102,33 +107,33 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-4' : 'bg-white py-6'
+        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-4' : 'bg-gradient-to-r from-blue-50 to-white py-6'
       }`}
     >
       <div className="container-custom flex justify-between items-center">
         <div className="flex items-center">
-          <Link to="/" className="flex items-center mr-8 md:mr-16">
+          <Link to="/" className="flex items-center mr-8">
             <img 
               src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png" 
               alt="Swirl Logo" 
-              className="h-20 w-auto"
+              className="h-24 w-auto"
             />
           </Link>
 
-          <div className="hidden md:flex items-center">
+          <div className="hidden xl:flex items-center overflow-x-auto">
             <NavigationItems items={mainLinks} />
           </div>
         </div>
           
-        <Button asChild className="btn-primary font-inter hidden md:flex text-lg bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 py-6 px-8">
+        <Button asChild className="btn-primary font-inter hidden md:flex text-xl bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 py-6 px-8">
           <Link to="https://app.swirl.cx/register">Get Started For Free</Link>
         </Button>
 
         <button
-          className="md:hidden text-swirl-blue"
+          className="xl:hidden text-swirl-blue"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? <X size={34} /> : <Menu size={34} />}
+          {isMobileMenuOpen ? <X size={38} /> : <Menu size={38} />}
         </button>
       </div>
 

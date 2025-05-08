@@ -90,11 +90,11 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-r from-purple to-purple/90 text-white font-medium py-2.5 px-5 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 text-sm;
+    @apply bg-gradient-to-r from-swirl-blue to-blue-500 text-white font-medium py-2.5 px-5 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 text-sm;
   }
   
   .btn-secondary {
-    @apply bg-white text-purple border border-purple/20 font-medium py-2.5 px-5 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 text-sm;
+    @apply bg-white text-swirl-blue border border-swirl-blue/20 font-medium py-2.5 px-5 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 text-sm;
   }
   
   .card-hover {
@@ -167,15 +167,33 @@
     left: 130%;
     transition: left 0.7s ease-in-out;
   }
+
+  /* Standardized blue gradient backgrounds */
+  .bg-blue-gradient {
+    @apply bg-gradient-to-r from-blue-50 to-white;
+  }
+  
+  .bg-blue-gradient-dark {
+    @apply bg-gradient-to-r from-swirl-blue/90 to-blue-600;
+  }
+  
+  .bg-blue-gradient-card {
+    @apply bg-gradient-to-br from-blue-50 to-white;
+  }
+  
+  /* Standardized text gradients */
+  .text-gradient-blue {
+    @apply bg-gradient-to-r from-swirl-blue to-blue-500 bg-clip-text text-transparent;
+  }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-purple to-purple/80 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-swirl-blue to-blue-500 bg-clip-text text-transparent;
   }
   
   .glass-card {
-    @apply bg-white/80 backdrop-blur-sm border border-gray-100 shadow-sm;
+    @apply bg-white/80 backdrop-blur-sm border border-blue-100 shadow-sm;
   }
   
   .dark-glass-card {
