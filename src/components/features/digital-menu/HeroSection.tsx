@@ -6,25 +6,25 @@ import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center gap-8 mb-16">
-      <div className="md:w-1/2 order-2 md:order-1">
-        <div className="flex items-center gap-4 mb-6">
+    <div className="flex flex-col gap-8 mb-16">
+      <div className="w-full text-center">
+        <div className="flex items-center justify-center gap-4 mb-6">
           <div className="p-3 rounded-full bg-gradient-to-br from-blue-100 to-indigo-100">
             <FileText className="text-blue-600 h-6 w-6" />
           </div>
-          <h1 className="text-4xl font-bold text-blue-900">Digital Menu</h1>
+          <h1 className="text-4xl font-bold text-black">Digital Menu</h1>
         </div>
         
-        <p className="text-lg text-blue-700/80 mb-8 leading-relaxed">
+        <p className="text-lg text-blue-700/80 mb-8 leading-relaxed max-w-2xl mx-auto">
           Create beautiful, interactive digital menus that are easy to update in real-time. Perfect for restaurants looking to modernize their ordering experience with multiple languages, currencies, nutritional information, and AI-powered menu descriptions.
         </p>
 
-        <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 py-2.5 px-6 text-white shadow-lg">
+        <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 py-2.5 px-6 text-white shadow-lg mx-auto">
           <Link to="/contact">Get Started</Link>
         </Button>
       </div>
       
-      <div className="md:w-1/2 order-1 md:order-2">
+      <div className="w-full">
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-300/20 to-indigo-300/20 rounded-2xl blur-3xl opacity-50"></div>
           <div className="bg-gradient-to-br from-blue-50/90 to-indigo-50/90 rounded-2xl overflow-hidden p-4 shadow-xl relative">

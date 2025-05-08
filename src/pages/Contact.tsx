@@ -2,7 +2,7 @@
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import { MapPin, Mail, Phone, Clock, Globe, ExternalLink } from 'lucide-react';
+import { MapPin, Mail, Phone, Globe, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Instagram, TikTok, WhatsApp } from '@/components/SocialIcons';
@@ -131,15 +131,6 @@ const Contact = () => {
                     <a href="mailto:hello@swirl.cx" className="text-swirl-gray hover:text-purple transition-colors text-lg font-inter">
                       hello@swirl.cx
                     </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-6">
-                  <Clock className="h-8 w-8 text-purple flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-xl mb-3 font-inter">Working Hours</h3>
-                    <p className="text-swirl-gray text-lg font-inter">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                    <p className="text-swirl-gray text-lg font-inter">Saturday: 10:00 AM - 4:00 PM</p>
                   </div>
                 </div>
                 

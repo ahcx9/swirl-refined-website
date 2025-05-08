@@ -50,20 +50,20 @@ const InventoryManagement = () => {
       <main className="flex-grow pt-24 pb-16">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row gap-12 mb-16">
-              <div className="w-full md:w-1/2 flex flex-col justify-center">
-                <div className="flex items-center gap-4 mb-8">
+            <div className="flex flex-col gap-12 mb-16">
+              <div className="w-full text-center">
+                <div className="flex items-center justify-center gap-4 mb-8">
                   <div className="p-3 rounded-full bg-purple-light/30">
                     <Package className="text-purple h-6 w-6" />
                   </div>
-                  <h1 className="text-3xl md:text-4xl font-bold">Inventory Management</h1>
+                  <h1 className="text-3xl md:text-4xl font-bold text-black">Inventory Management</h1>
                 </div>
                 
-                <p className="text-lg text-swirl-gray mb-8 leading-relaxed">
+                <p className="text-lg text-swirl-gray mb-8 leading-relaxed max-w-3xl mx-auto">
                   Take control of your restaurant's inventory with our advanced management system. Track stock levels, reduce waste, and optimize your purchasing with real-time monitoring and predictive analytics.
                 </p>
 
-                <div className="flex gap-4">
+                <div className="flex gap-4 justify-center">
                   <Button asChild className="btn-primary">
                     <Link to="/contact">Schedule a Demo</Link>
                   </Button>
@@ -73,8 +73,8 @@ const InventoryManagement = () => {
                 </div>
               </div>
 
-              <div className="w-full md:w-1/2">
-                <div className="bg-gradient-to-br from-purple-light/30 to-white rounded-xl p-4">
+              <div className="w-full">
+                <div className="bg-gradient-to-br from-purple-light/30 to-white rounded-xl p-4 max-w-3xl mx-auto">
                   <img 
                     src="/lovable-uploads/e06fe134-6fdc-4caa-91b6-6492a2373c74.png" 
                     alt="Inventory Dashboard" 

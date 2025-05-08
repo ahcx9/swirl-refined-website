@@ -14,7 +14,7 @@ const POSHero = () => {
           <div className="p-2 rounded-full bg-gradient-to-r from-blue-100 to-blue-200">
             <CreditCard className="text-blue-600 h-6 w-6" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-blue-900">Point of Sale System</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-black">Point of Sale System</h1>
         </div>
         
         <p className="text-lg text-blue-700/80 mb-8 leading-relaxed max-w-3xl mx-auto">

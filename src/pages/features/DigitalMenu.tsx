@@ -22,27 +22,27 @@ const DigitalMenu = () => {
             <div className="mb-16">
               <Tabs defaultValue="features" className="w-full">
                 <div className="flex justify-center mb-8">
-                  <TabsList className="grid grid-cols-2 w-full max-w-md p-1 bg-blue-50 rounded-xl">
+                  <TabsList className="grid grid-cols-2 w-full max-w-md bg-white shadow-md rounded-xl overflow-hidden border border-blue-100">
                     <TabsTrigger 
                       value="features" 
-                      className="text-lg py-3 font-medium rounded-lg data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-500 data-[state=active]:text-white data-[state=inactive]:text-blue-700 transition-all duration-300"
+                      className="text-lg py-4 font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-600 data-[state=active]:text-white data-[state=inactive]:text-blue-700 transition-all duration-300"
                     >
                       Key Features
                     </TabsTrigger>
                     <TabsTrigger 
                       value="benefits" 
-                      className="text-lg py-3 font-medium rounded-lg data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-500 data-[state=active]:text-white data-[state=inactive]:text-blue-700 transition-all duration-300"
+                      className="text-lg py-4 font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-600 data-[state=active]:text-white data-[state=inactive]:text-blue-700 transition-all duration-300"
                     >
                       Benefits
                     </TabsTrigger>
                   </TabsList>
                 </div>
                 
-                <TabsContent value="features" className="mt-6">
+                <TabsContent value="features" className="mt-6 bg-white p-8 rounded-xl shadow-md border border-blue-100/30">
                   <FeaturesSection />
                 </TabsContent>
                 
-                <TabsContent value="benefits" className="mt-6">
+                <TabsContent value="benefits" className="mt-6 bg-white p-8 rounded-xl shadow-md border border-blue-100/30">
                   <BenefitsSection />
                 </TabsContent>
               </Tabs>

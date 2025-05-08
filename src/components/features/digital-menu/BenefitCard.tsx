@@ -9,10 +9,10 @@ interface BenefitCardProps {
 
 const BenefitCard = ({ title, items }: BenefitCardProps) => {
   return (
-    <Card className="bg-white backdrop-blur rounded-xl p-6 shadow-md border border-blue-100/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+    <Card className="bg-gradient-to-br from-blue-50 to-blue-100/50 backdrop-blur rounded-xl p-6 shadow-md border border-blue-100/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
       <CardContent className="p-0">
         <h3 className="text-xl font-semibold mb-4 text-blue-800 flex items-center">
-          <div className="w-1.5 h-6 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-full mr-3"></div>
+          <div className="w-1.5 h-6 bg-gradient-to-b from-blue-500 to-blue-700 rounded-full mr-3"></div>
           {title}
         </h3>
         <ul className="space-y-3">
