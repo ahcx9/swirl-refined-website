@@ -109,15 +109,7 @@ const NextGenFeatures = () => {
           {features.map((feature, index) => <FeatureCard key={index} title={feature.title} description={feature.description} icon={feature.icon} colorClass={feature.colorClass} iconBgClass={feature.iconBgClass} index={index} />)}
         </div>
 
-        <div className="mt-12 text-center">
-          <Link to="/products" className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-medium py-3 px-8 rounded-full transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            Explore All Features
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </Link>
-        </div>
+        
       </div>
     </section>;
 };
