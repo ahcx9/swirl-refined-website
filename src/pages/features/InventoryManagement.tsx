@@ -50,7 +50,7 @@ const InventoryManagement = () => {
                 </div>
               </div>
 
-              <div className="w-full">
+              <div className="w-full py-0 my-0 mx-0 px-0">
                 <div className="bg-gradient-to-br from-purple-light/30 to-white rounded-xl p-4 max-w-3xl mx-auto">
                   <img src="/lovable-uploads/cbcfca20-2929-487b-a9b9-931826e7b8e9.png" alt="Inventory Dashboard" className="w-full rounded-lg shadow-md mix-blend-multiply" loading="eager" />
                 </div>
