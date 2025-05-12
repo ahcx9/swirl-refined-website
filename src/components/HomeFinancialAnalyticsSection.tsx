@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, BarChart, FileChart, DollarSign, FileText, LineChart } from 'lucide-react';
+import { ArrowRight, BarChart, FileText, DollarSign, LineChart, FileBarChart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const HomeFinancialAnalyticsSection = () => {
@@ -9,7 +9,7 @@ const HomeFinancialAnalyticsSection = () => {
     { icon: BarChart, text: 'Real-time revenue tracking' },
     { icon: FileText, text: 'Food & labor cost analysis' },
     { icon: LineChart, text: 'Menu performance insights' },
-    { icon: FileChart, text: 'Profit & loss statements' },
+    { icon: FileBarChart, text: 'Profit & loss statements' },
     { icon: DollarSign, text: 'Customizable reporting' }
   ];
 
