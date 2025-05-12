@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
@@ -9,10 +8,8 @@ import HeroSection from '@/components/features/digital-menu/HeroSection';
 import FeaturesSection from '@/components/features/digital-menu/FeaturesSection';
 import BenefitsSection from '@/components/features/digital-menu/BenefitsSection';
 import TestimonialsSection from '@/components/features/digital-menu/TestimonialsSection';
-
 const DigitalMenu = () => {
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-24 pb-16 bg-gradient-to-b from-white to-blue-50/20">
         <div className="container-custom">
@@ -21,18 +18,12 @@ const DigitalMenu = () => {
 
             <div className="mb-16">
               <Tabs defaultValue="features" className="w-full">
-                <div className="flex justify-center mb-8">
+                <div className="flex justify-center mb-8 py-0 px-0 mx-0 my-[9px] bg-zinc-50">
                   <TabsList className="grid grid-cols-2 w-full max-w-md bg-white shadow-md rounded-xl overflow-hidden border border-blue-100">
-                    <TabsTrigger 
-                      value="features" 
-                      className="text-lg py-4 font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-600 data-[state=active]:text-white data-[state=inactive]:text-blue-700 transition-all duration-300"
-                    >
+                    <TabsTrigger value="features" className="font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-600 data-[state=active]:text-white data-[state=inactive]:text-blue-700 transition-all duration-300 px-0 mx-0 my-0 py-[16px] text-sm">
                       Key Features
                     </TabsTrigger>
-                    <TabsTrigger 
-                      value="benefits" 
-                      className="text-lg py-4 font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-600 data-[state=active]:text-white data-[state=inactive]:text-blue-700 transition-all duration-300"
-                    >
+                    <TabsTrigger value="benefits" className="py-4 font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-600 data-[state=active]:text-white data-[state=inactive]:text-blue-700 transition-all duration-300 text-sm">
                       Benefits
                     </TabsTrigger>
                   </TabsList>
@@ -63,8 +54,6 @@ const DigitalMenu = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default DigitalMenu;
