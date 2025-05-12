@@ -4,7 +4,7 @@ const StepProcess = () => {
   return <section className="py-16 md:py-20 flex items-center bg-white animate-on-scroll">
       <div className="container-custom">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">Your Guest Point of View</h2>
+          <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-slate-800">Your Guest Point of View</h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
             Simple 3-step process for your guests to enjoy a seamless dining experience and maximise better guest experience
           </p>
