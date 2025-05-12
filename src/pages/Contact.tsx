@@ -78,7 +78,7 @@ const Contact = () => {
   return <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-24">
-        <section className="bg-purple-light/10 py-[30px]">
+        <section className="bg-purple-light/10 py-[41px] my-[15px]">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 font-inter text-blue-700">Have Questions or Need Help? We're Here for You.</h1>
@@ -98,7 +98,7 @@ const Contact = () => {
               </div>
             </div>
             
-            <div className="bg-white rounded-lg p-10 shadow-soft max-w-3xl mx-auto">
+            <div className="rounded-lg p-10 shadow-soft max-w-3xl mx-auto bg-zinc-100">
               <h2 className="text-3xl font-bold mb-10 text-center text-zinc-950">Get In Touch</h2>
               <div className="space-y-8 max-w-2xl mx-auto">
                 <div className="flex items-start gap-6">
