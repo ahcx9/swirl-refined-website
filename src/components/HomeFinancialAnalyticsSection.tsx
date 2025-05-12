@@ -64,9 +64,10 @@ const HomeFinancialAnalyticsSection = () => {
                   <div className="perspective-1000">
                     <div className="transform transition-all duration-700 hover:scale-[1.02]">
                       <img 
-                        src="/lovable-uploads/cf8befbe-bdea-44aa-ae5a-485151bda759.png"
+                        src="/lovable-uploads/f9830254-e7e0-4c01-850d-1e4fe5041d16.png"
                         alt="Financial Analytics Dashboard"
                         className="w-full h-auto object-cover rounded-lg shadow-inner"
+                        loading="eager"
                       />
                       
                       <div className="absolute bottom-4 right-4 bg-blue-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">

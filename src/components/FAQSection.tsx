@@ -14,12 +14,12 @@ const FAQSection = () => {
       answer: "Unlike other systems that only focus on specific aspects of your restaurant, swirl.cx offers an all-in-one solution that integrates digital menus, QR ordering, POS, inventory management, and analytics - all on one platform. Our system is designed specifically for restaurants with features that enhance customer experience while simplifying operations."
     },
     {
-      question: "Do I need to replace my existing POS system?",
-      answer: "Not necessarily. swirl.cx can work alongside your existing POS system through our integration capabilities. However, many customers choose to fully switch to our comprehensive solution to benefit from the seamless integration across all features."
+      question: "Why should I use swirl.cx's complete ecosystem instead of integrating with my existing POS?",
+      answer: "Our complete ecosystem is designed to work seamlessly together, providing a unified experience that third-party integrations simply cannot match. By using our full solution, you eliminate compatibility issues, reduce training time, and gain access to integrated analytics across all aspects of your business. Our customers consistently report higher satisfaction when using our complete solution versus trying to piece together different systems."
     },
     {
-      question: "Do you integrate with third-party POS systems?",
-      answer: "While we can integrate with some third-party systems, we've found that restaurants achieve the best results by using our complete ecosystem. Our POS is designed specifically for restaurants and seamlessly connects with all our other features, providing a unified experience that third-party integrations simply can't match."
+      question: "What are the benefits of swirl.cx's integrated POS system?",
+      answer: "Our POS is specifically built for restaurants with features like tableside ordering, split bills, custom modifiers, kitchen display integration, and detailed reporting. Being part of our ecosystem means all your data flows seamlessly between modules - orders automatically update inventory, sales data feeds into financial reports, and customer preferences are tracked for marketing. This level of integration is impossible to achieve with third-party systems."
     },
     {
       question: "How does your QR ordering system work?",
@@ -28,6 +28,14 @@ const FAQSection = () => {
     {
       question: "What kind of analytics do you provide?",
       answer: "Our platform offers comprehensive analytics including sales trends, peak hour identification, top-selling items, customer behavior patterns, inventory usage, staff performance, and detailed financial reporting. These insights help you make data-driven decisions to optimize menu pricing, staffing, inventory management, and marketing strategies."
+    },
+    {
+      question: "How does swirl.cx handle inventory management?",
+      answer: "Our inventory management system tracks stock levels in real-time, automatically updating as orders are placed. It provides alerts for low stock items, helps reduce waste with predictive ordering based on sales trends, and offers detailed reports on food costs. The system integrates directly with our POS, so you always know exactly what ingredients you have and what you need to order."
+    },
+    {
+      question: "Can swirl.cx help with staff management and payroll?",
+      answer: "Yes, our platform includes comprehensive staff management features, including scheduling, time tracking, performance analytics, and payroll integration. Managers can easily track labor costs against revenue, optimize staffing based on busy periods, and manage employee information all in one place."
     },
     {
       question: "Is there a long-term contract?",

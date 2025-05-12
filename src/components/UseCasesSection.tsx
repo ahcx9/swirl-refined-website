@@ -75,7 +75,7 @@ const useCases: UseCaseType[] = [
     icon: Hotel,
     color: 'text-blue-600',
     bgGradient: 'from-blue-50 to-blue-100',
-    pattern: 'circles'
+    pattern: 'dots' // Changed from 'circles' to 'dots' to match the others
   }
 ];
 

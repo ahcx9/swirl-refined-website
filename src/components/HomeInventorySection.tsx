@@ -30,6 +30,7 @@ const HomeInventorySection = () => {
                         src="/lovable-uploads/cbcfca20-2929-487b-a9b9-931826e7b8e9.png"
                         alt="Inventory Management Dashboard"
                         className="w-full h-auto object-contain rounded-lg shadow-inner"
+                        loading="eager"
                       />
                       
                       <div className="absolute bottom-4 left-4 bg-blue-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">

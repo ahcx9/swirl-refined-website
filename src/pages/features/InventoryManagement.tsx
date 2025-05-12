@@ -71,9 +71,10 @@ const InventoryManagement = () => {
               <div className="w-full">
                 <div className="bg-gradient-to-br from-purple-light/30 to-white rounded-xl p-4 max-w-3xl mx-auto">
                   <img 
-                    src="/lovable-uploads/e06fe134-6fdc-4caa-91b6-6492a2373c74.png" 
+                    src="/lovable-uploads/cbcfca20-2929-487b-a9b9-931826e7b8e9.png" 
                     alt="Inventory Dashboard" 
                     className="w-full rounded-lg shadow-md mix-blend-multiply"
+                    loading="eager"
                   />
                 </div>
               </div>

@@ -60,14 +60,20 @@ const KitchenDisplay = () => {
           </div>
         </section>
 
-        <section className="py-20">
+        <section className="py-12">
           <div className="container-custom">
-            <div className="mb-12">
-              <img 
-                src="/lovable-uploads/85df272f-78b0-4180-bd9e-a069e750623a.png" 
-                alt="Kitchen Display System Interface"
-                className="w-full md:max-w-2xl mx-auto h-auto object-contain rounded-xl shadow-lg"
-              />
+            <div className="mb-16 flex justify-center">
+              <div className="max-w-2xl bg-transparent rounded-xl p-4">
+                <img 
+                  src="/lovable-uploads/85df272f-78b0-4180-bd9e-a069e750623a.png" 
+                  alt="Kitchen Display System Interface"
+                  className="w-full h-auto object-contain rounded-xl"
+                  style={{ 
+                    filter: 'drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1))'
+                  }}
+                  loading="eager"
+                />
+              </div>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {features.map((feature) => (

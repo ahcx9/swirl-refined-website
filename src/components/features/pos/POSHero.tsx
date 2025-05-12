@@ -32,9 +32,10 @@ const POSHero = () => {
       <div className="overflow-hidden rounded-xl shadow-2xl max-w-5xl mx-auto transform hover:scale-[1.01] transition-transform duration-500">
         <div className="bg-gradient-to-br from-blue-50 to-white p-3 rounded-xl">
           <img 
-            src="/lovable-uploads/61104fed-106e-4e91-a301-9f0fd8b8cb4b.png" 
+            src="/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png" 
             alt="POS System Interface" 
             className="w-full h-auto object-cover rounded-lg shadow-inner"
+            loading="eager"
           />
         </div>
       </div>
