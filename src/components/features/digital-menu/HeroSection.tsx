@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -25,7 +26,12 @@ const HeroSection = () => {
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-300/20 to-indigo-300/20 rounded-2xl blur-3xl opacity-50"></div>
           <div className="bg-gradient-to-br from-blue-50/90 to-indigo-50/90 rounded-2xl overflow-hidden p-4 shadow-xl relative">
-            <img src="/lovable-uploads/947b4eab-99e0-4ea2-ad4e-5fb3a2f90fab.png" alt="Digital Menu on Mobile Devices" className="w-full h-auto object-contain rounded-lg transform hover:scale-[1.02] transition-transform duration-500" />
+            <img 
+              src="/lovable-uploads/947b4eab-99e0-4ea2-ad4e-5fb3a2f90fab.png" 
+              alt="Digital Menu on Mobile Devices" 
+              className="w-3/4 h-auto mx-auto object-contain rounded-lg transform hover:scale-[1.02] transition-transform duration-500" 
+              loading="eager"
+            />
           </div>
         </div>
       </div>
