@@ -20,10 +20,9 @@ const DigitalMenu = () => {
               <Tabs defaultValue="features" className="w-full">
                 <div className="flex justify-center mb-8 py-0 px-0 mx-0 my-[9px] bg-zinc-50">
                   <TabsList className="grid grid-cols-2 w-full max-w-md bg-white shadow-md rounded-xl overflow-hidden border border-blue-100">
-                    <TabsTrigger value="features" className="font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-600 data-[state=active]:text-white data-[state=inactive]:text-blue-700 transition-all duration-300 px-0 mx-0 my-0 py-[16px] text-sm">
-                      Key Features
-                    </TabsTrigger>
-                    <TabsTrigger value="benefits" className="py-4 font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-600 data-[state=active]:text-white data-[state=inactive]:text-blue-700 transition-all duration-300 text-sm">
+                    <TabsTrigger value="features" className="font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-600 data-[state=active]:text-white data-[state=inactive]:text-blue-700 transition-all duration-300 py-[16px] text-sm mx-[17px] px-[50px] my-0">Menu Features
+                  </TabsTrigger>
+                    <TabsTrigger value="benefits" className="py-4 font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-600 data-[state=active]:text-white data-[state=inactive]:text-blue-700 transition-all duration-300 text-sm px-[50px]">
                       Benefits
                     </TabsTrigger>
                   </TabsList>
