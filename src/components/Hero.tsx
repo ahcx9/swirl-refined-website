@@ -26,8 +26,8 @@ const Hero = () => {
         <div className="text-center max-w-5xl mx-auto mb-8">
           <span className="bg-blue-50 text-swirl-blue px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-6">ENHANCING GUEST EXPERIENCE</span>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 text-black">
-            Sale & Ordering system for the <span className="text-black">modern restaurant</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-black xl:text-7xl">
+            Sale & Ordering system for the <span className="text-zinc-400">modern restaurant</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-swirl-gray mb-10 max-w-3xl mx-auto">
