@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -13,7 +12,7 @@ const HeroSection = () => {
           <h1 className="text-4xl font-bold text-black">Digital Menu</h1>
         </div>
         
-        <p className="text-lg text-blue-700/80 mb-8 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-lg mb-8 leading-relaxed max-w-2xl mx-auto text-slate-950 text-left">
           Create beautiful, interactive digital menus that are easy to update in real-time. Perfect for restaurants looking to modernize their ordering experience with multiple languages, currencies, nutritional information, and AI-powered menu descriptions.
         </p>
 
@@ -26,12 +25,7 @@ const HeroSection = () => {
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-300/20 to-indigo-300/20 rounded-2xl blur-3xl opacity-50"></div>
           <div className="bg-gradient-to-br from-blue-50/90 to-indigo-50/90 rounded-2xl overflow-hidden p-4 shadow-xl relative">
-            <img 
-              src="/lovable-uploads/947b4eab-99e0-4ea2-ad4e-5fb3a2f90fab.png" 
-              alt="Digital Menu on Mobile Devices" 
-              className="w-1/2 h-auto mx-auto object-contain rounded-lg transform hover:scale-[1.02] transition-transform duration-500" 
-              loading="eager"
-            />
+            <img src="/lovable-uploads/947b4eab-99e0-4ea2-ad4e-5fb3a2f90fab.png" alt="Digital Menu on Mobile Devices" className="w-1/2 h-auto mx-auto object-contain rounded-lg transform hover:scale-[1.02] transition-transform duration-500" loading="eager" />
           </div>
         </div>
       </div>
