@@ -1,13 +1,13 @@
+
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import HeroSection from '@/components/features/digital-menu/HeroSection';
-import FeaturesSection from '@/components/features/digital-menu/FeaturesSection';
-import BenefitsSection from '@/components/features/digital-menu/BenefitsSection';
+import DigitalMenuTabs from '@/components/features/digital-menu/DigitalMenuTabs';
 import TestimonialsSection from '@/components/features/digital-menu/TestimonialsSection';
+
 const DigitalMenu = () => {
   return <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -15,29 +15,7 @@ const DigitalMenu = () => {
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <HeroSection />
-
-            <div className="mb-16">
-              <Tabs defaultValue="features" className="w-full">
-                <div className="flex justify-center mb-8 py-0 px-0 mx-0 my-[9px] bg-zinc-50">
-                  <TabsList className="grid grid-cols-2 w-full max-w-md bg-white shadow-md rounded-xl overflow-hidden border border-blue-100">
-                    <TabsTrigger value="features" className="font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-600 data-[state=active]:text-white data-[state=inactive]:text-blue-700 transition-all duration-300 py-[16px] text-sm mx-[17px] px-[50px] my-0">Menu Features
-                  </TabsTrigger>
-                    <TabsTrigger value="benefits" className="py-4 font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-indigo-600 data-[state=active]:text-white data-[state=inactive]:text-blue-700 transition-all duration-300 text-sm px-[50px]">
-                      Benefits
-                    </TabsTrigger>
-                  </TabsList>
-                </div>
-                
-                <TabsContent value="features" className="mt-6 bg-white p-8 rounded-xl shadow-md border border-blue-100/30">
-                  <FeaturesSection />
-                </TabsContent>
-                
-                <TabsContent value="benefits" className="mt-6 bg-white p-8 rounded-xl shadow-md border border-blue-100/30">
-                  <BenefitsSection />
-                </TabsContent>
-              </Tabs>
-            </div>
-
+            <DigitalMenuTabs />
             <TestimonialsSection />
 
             <div className="text-center p-10 bg-gradient-to-br from-blue-50 to-indigo-50/50 rounded-2xl border border-blue-100/30 shadow-md">

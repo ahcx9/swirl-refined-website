@@ -29,7 +29,7 @@ const HeroSection = () => {
             <img 
               src="/lovable-uploads/947b4eab-99e0-4ea2-ad4e-5fb3a2f90fab.png" 
               alt="Digital Menu on Mobile Devices" 
-              className="w-3/4 h-auto mx-auto object-contain rounded-lg transform hover:scale-[1.02] transition-transform duration-500" 
+              className="w-1/2 h-auto mx-auto object-contain rounded-lg transform hover:scale-[1.02] transition-transform duration-500" 
               loading="eager"
             />
           </div>
