@@ -1,56 +1,38 @@
-
 import React from 'react';
 import Footer from '@/components/Footer';
 import { Package, TrendingUp, Clipboard, Users, BarChart, AlertTriangle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-
 const InventoryManagement = () => {
-  const features = [
-    {
-      title: "Real-time Tracking",
-      description: "Monitor inventory levels in real-time across all locations. Get immediate visibility into stock levels, usage patterns, and inventory valuation.",
-      icon: TrendingUp
-    },
-    {
-      title: "Waste Reduction",
-      description: "Track and minimize waste with smart analytics. Identify patterns in food waste, optimize portion sizes, and implement strategies to reduce shrinkage.",
-      icon: AlertTriangle
-    },
-    {
-      title: "Automated Ordering",
-      description: "Set up automatic reordering based on inventory thresholds. Define minimum stock levels and let the system generate purchase orders when items run low.",
-      icon: Clipboard
-    },
-    {
-      title: "Vendor Management",
-      description: "Manage vendor relationships and track supplier performance. Compare pricing, monitor delivery times, and maintain a complete database of suppliers.",
-      icon: Users
-    },
-    {
-      title: "Advanced Reporting",
-      description: "Generate detailed reports on inventory turnover, costs, and usage patterns. Make data-driven decisions to optimize your inventory investment.",
-      icon: BarChart
-    }
-  ];
-
-  const benefits = [
-    "Reduce food waste by up to 40%",
-    "Lower inventory carrying costs by 20-30%",
-    "Minimize emergency orders and associated premium costs",
-    "Improve cash flow by preventing overstock situations",
-    "Ensure optimal stock levels for each ingredient",
-    "Prevent stockouts that could impact menu availability"
-  ];
-
-  return (
-    <div className="min-h-screen flex flex-col">
+  const features = [{
+    title: "Real-time Tracking",
+    description: "Monitor inventory levels in real-time across all locations. Get immediate visibility into stock levels, usage patterns, and inventory valuation.",
+    icon: TrendingUp
+  }, {
+    title: "Waste Reduction",
+    description: "Track and minimize waste with smart analytics. Identify patterns in food waste, optimize portion sizes, and implement strategies to reduce shrinkage.",
+    icon: AlertTriangle
+  }, {
+    title: "Automated Ordering",
+    description: "Set up automatic reordering based on inventory thresholds. Define minimum stock levels and let the system generate purchase orders when items run low.",
+    icon: Clipboard
+  }, {
+    title: "Vendor Management",
+    description: "Manage vendor relationships and track supplier performance. Compare pricing, monitor delivery times, and maintain a complete database of suppliers.",
+    icon: Users
+  }, {
+    title: "Advanced Reporting",
+    description: "Generate detailed reports on inventory turnover, costs, and usage patterns. Make data-driven decisions to optimize your inventory investment.",
+    icon: BarChart
+  }];
+  const benefits = ["Reduce food waste by up to 40%", "Lower inventory carrying costs by 20-30%", "Minimize emergency orders and associated premium costs", "Improve cash flow by preventing overstock situations", "Ensure optimal stock levels for each ingredient", "Prevent stockouts that could impact menu availability"];
+  return <div className="min-h-screen flex flex-col">
       <main className="flex-grow pt-28 pb-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col gap-16 mb-20">
               <div className="w-full text-center">
-                <div className="flex items-center justify-center gap-4 mb-8">
+                <div className="flex items-center justify-center gap-4 mb-8 py-[30px]">
                   <div className="p-3 rounded-full bg-purple-light/30">
                     <Package className="text-purple h-6 w-6" />
                   </div>
@@ -70,12 +52,7 @@ const InventoryManagement = () => {
 
               <div className="w-full">
                 <div className="bg-gradient-to-br from-purple-light/30 to-white rounded-xl p-4 max-w-3xl mx-auto">
-                  <img 
-                    src="/lovable-uploads/cbcfca20-2929-487b-a9b9-931826e7b8e9.png" 
-                    alt="Inventory Dashboard" 
-                    className="w-full rounded-lg shadow-md mix-blend-multiply"
-                    loading="eager"
-                  />
+                  <img src="/lovable-uploads/cbcfca20-2929-487b-a9b9-931826e7b8e9.png" alt="Inventory Dashboard" className="w-full rounded-lg shadow-md mix-blend-multiply" loading="eager" />
                 </div>
               </div>
             </div>
@@ -84,8 +61,7 @@ const InventoryManagement = () => {
               <h2 className="text-3xl font-bold mb-12 text-center text-black">Key Inventory Management Features</h2>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {features.map((feature) => (
-                  <div key={feature.title} className="bg-white rounded-xl p-8 shadow-soft border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                {features.map(feature => <div key={feature.title} className="bg-white rounded-xl p-8 shadow-soft border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                     <div className="flex items-center gap-3 mb-5">
                       <div className="p-3 rounded-full bg-purple-light/30">
                         <feature.icon className="text-purple h-5 w-5" />
@@ -93,8 +69,7 @@ const InventoryManagement = () => {
                       <h3 className="text-xl font-semibold text-black">{feature.title}</h3>
                     </div>
                     <p className="text-swirl-gray leading-relaxed">{feature.description}</p>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </section>
 
@@ -116,16 +91,14 @@ const InventoryManagement = () => {
                 <div className="w-full md:w-1/2">
                   <h3 className="text-xl font-semibold mb-6 text-black">Key Benefits</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {benefits.map((benefit, index) => (
-                      <div key={index} className="flex items-start gap-4">
+                    {benefits.map((benefit, index) => <div key={index} className="flex items-start gap-4">
                         <div className="bg-green-500 rounded-full p-1.5 mt-1">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-white" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                           </svg>
                         </div>
                         <p className="text-gray-700 font-medium">{benefit}</p>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
               </div>
@@ -170,8 +143,6 @@ const InventoryManagement = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default InventoryManagement;
