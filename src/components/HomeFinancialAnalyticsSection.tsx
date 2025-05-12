@@ -1,12 +1,9 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-
 const HomeFinancialAnalyticsSection = () => {
-  return (
-    <section className="py-24 overflow-hidden relative">
+  return <section className="py-24 overflow-hidden relative">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 to-white -z-10"></div>
       <div className="container-custom relative">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -24,12 +21,10 @@ const HomeFinancialAnalyticsSection = () => {
               </p>
               
               <div className="grid grid-cols-2 gap-4 mb-10">
-                {['Real-time revenue tracking', 'Food & labor cost analysis', 'Menu performance insights', 'Customizable reporting', 'Profit & loss statements'].map((feature, index) => (
-                  <div key={index} className="flex items-start gap-2.5">
+                {['Real-time revenue tracking', 'Food & labor cost analysis', 'Menu performance insights', 'Customizable reporting', 'Profit & loss statements'].map((feature, index) => <div key={index} className="flex items-start gap-2.5">
                     <CheckCircle2 className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
                     <span className="text-blue-600/80">{feature}</span>
-                  </div>
-                ))}
+                  </div>)}
               </div>
               
               <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg text-white">
@@ -49,13 +44,9 @@ const HomeFinancialAnalyticsSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 rounded-xl blur-md -z-10 transform translate-x-2 translate-y-2"></div>
                   
                   <div className="relative bg-gradient-to-br from-white to-blue-50 p-3 rounded-xl shadow-2xl border border-blue-100/40">
-                    <img 
-                      src="/lovable-uploads/cf8befbe-bdea-44aa-ae5a-485151bda759.png"
-                      alt="Financial Analytics Dashboard"
-                      className="w-full h-auto object-cover rounded-lg shadow-inner"
-                    />
+                    <img src="/lovable-uploads/cf8befbe-bdea-44aa-ae5a-485151bda759.png" alt="Financial Analytics Dashboard" className="w-full h-auto object-cover rounded-lg shadow-inner" />
                     
-                    <div className="absolute inset-0 bg-gradient-to-t from-blue-600/5 to-transparent rounded-xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-600/5 to-transparent rounded-xl py-px"></div>
                     
                     <div className="absolute -bottom-3 -right-3 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
                       Clear Financial Insights
@@ -71,8 +62,6 @@ const HomeFinancialAnalyticsSection = () => {
       {/* Decorative elements */}
       <div className="absolute top-1/4 left-0 w-64 h-64 bg-blue-300/20 rounded-full blur-3xl -z-10"></div>
       <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-indigo-300/20 rounded-full blur-3xl -z-10"></div>
-    </section>
-  );
+    </section>;
 };
-
 export default HomeFinancialAnalyticsSection;
