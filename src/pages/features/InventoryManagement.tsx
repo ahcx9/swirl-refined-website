@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import { Package, TrendingUp, Clipboard, Users, BarChart, AlertTriangle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+
 const InventoryManagement = () => {
   const features = [{
     title: "Real-time Tracking",
@@ -51,8 +52,15 @@ const InventoryManagement = () => {
               </div>
 
               <div className="w-full py-0 my-0 mx-0 px-0">
-                <div className="bg-gradient-to-br from-purple-light/30 to-white rounded-xl p-4 max-w-3xl mx-auto">
-                  <img src="/lovable-uploads/cbcfca20-2929-487b-a9b9-931826e7b8e9.png" alt="Inventory Dashboard" className="w-full rounded-lg shadow-md mix-blend-multiply" loading="eager" />
+                <div className="bg-gradient-to-br from-purple-light/30 to-white rounded-xl p-4 max-w-4xl mx-auto">
+                  <div className="overflow-hidden rounded-lg">
+                    <img 
+                      src="/lovable-uploads/cbcfca20-2929-487b-a9b9-931826e7b8e9.png" 
+                      alt="Inventory Dashboard" 
+                      className="w-full h-auto rounded-lg shadow-md transform scale-110 transition-transform duration-700 hover:scale-115" 
+                      loading="eager" 
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -145,4 +153,5 @@ const InventoryManagement = () => {
       <Footer />
     </div>;
 };
+
 export default InventoryManagement;
