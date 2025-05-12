@@ -90,14 +90,14 @@ export const NavigationItems = ({ items, textColor = "text-swirl-blue" }: Naviga
               {isExternalLink(link.path!) ? (
                 <a
                   href={link.path!}
-                  className={`${textColor} hover:text-blue-600 transition-colors font-inter text-[18px] font-semibold tracking-wide whitespace-nowrap relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-black after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left px-2`}
+                  className={`${textColor} hover:text-blue-600 transition-colors font-inter text-[18px] font-semibold tracking-wide whitespace-nowrap px-2`}
                 >
                   {link.name}
                 </a>
               ) : (
                 <Link
                   to={link.path!}
-                  className={`${textColor} hover:text-blue-600 transition-colors font-inter text-[18px] font-semibold tracking-wide whitespace-nowrap relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-black after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left px-2`}
+                  className={`${textColor} hover:text-blue-600 transition-colors font-inter text-[18px] font-semibold tracking-wide whitespace-nowrap px-2`}
                 >
                   {link.name}
                 </Link>
