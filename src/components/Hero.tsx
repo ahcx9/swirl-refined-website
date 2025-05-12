@@ -21,7 +21,7 @@ const Hero = () => {
     };
     preloadImages();
   }, []);
-  return <section className="pt-24 pb-12 md:pt-32 md:pb-16 min-h-[80vh] flex items-center bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20">
+  return <section className="pt-24 pb-12 md:pt-32 md:pb-16 min-h-[80vh] flex items-center bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20 bg-indigo-100">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center max-w-5xl mx-auto mb-8">
           <span className="bg-blue-50 text-swirl-blue px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-6">ENHANCING GUEST EXPERIENCE</span>
