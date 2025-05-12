@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
@@ -6,7 +5,6 @@ import { MapPin, Mail, Phone, Globe, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Instagram, TikTok, WhatsApp } from '@/components/SocialIcons';
-
 interface ContactCardProps {
   country: string;
   flag: string;
@@ -15,10 +13,15 @@ interface ContactCardProps {
   email: string;
   whatsappNumber: string;
 }
-
-const ContactCard = ({ country, flag, phone, phoneLink, email, whatsappNumber }: ContactCardProps) => {
-  return (
-    <Card className="bg-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+const ContactCard = ({
+  country,
+  flag,
+  phone,
+  phoneLink,
+  email,
+  whatsappNumber
+}: ContactCardProps) => {
+  return <Card className="bg-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
       <CardContent className="p-6">
         <div className="flex items-center mb-4 gap-2">
           <span className="text-2xl">{flag}</span>
@@ -47,46 +50,38 @@ const ContactCard = ({ country, flag, phone, phoneLink, email, whatsappNumber }:
           </div>
         </div>
       </CardContent>
-    </Card>
-  );
+    </Card>;
 };
-
 const Contact = () => {
-  const contactCards = [
-    {
-      country: "UAE",
-      flag: "🇦🇪",
-      phone: "+971 54 385 3877",
-      phoneLink: "tel:+971543853877",
-      email: "hello@swirl.cx",
-      whatsappNumber: "971543853877"
-    },
-    {
-      country: "Saudi Arabia",
-      flag: "🇸🇦",
-      phone: "+966 55 395 5115",
-      phoneLink: "tel:+966553955115",
-      email: "hello@swirl.cx",
-      whatsappNumber: "966553955115"
-    },
-    {
-      country: "India",
-      flag: "🇮🇳",
-      phone: "+91 87959 97070",
-      phoneLink: "tel:+918795997070",
-      email: "hello@swirl.cx",
-      whatsappNumber: "918795997070"
-    }
-  ];
-  
-  return (
-    <div className="min-h-screen flex flex-col">
+  const contactCards = [{
+    country: "UAE",
+    flag: "🇦🇪",
+    phone: "+971 54 385 3877",
+    phoneLink: "tel:+971543853877",
+    email: "hello@swirl.cx",
+    whatsappNumber: "971543853877"
+  }, {
+    country: "Saudi Arabia",
+    flag: "🇸🇦",
+    phone: "+966 55 395 5115",
+    phoneLink: "tel:+966553955115",
+    email: "hello@swirl.cx",
+    whatsappNumber: "966553955115"
+  }, {
+    country: "India",
+    flag: "🇮🇳",
+    phone: "+91 87959 97070",
+    phoneLink: "tel:+918795997070",
+    email: "hello@swirl.cx",
+    whatsappNumber: "918795997070"
+  }];
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-24">
-        <section className="bg-purple-light/10 py-16">
+        <section className="bg-purple-light/10 py-[30px]">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-inter">Have Questions or Need Help? We're Here for You.</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-inter text-blue-700">Have Questions or Need Help? We're Here for You.</h1>
               <p className="text-lg text-swirl-gray mb-6 font-inter">
                 Chat with us about how swirl can save time and reduce workflow friction.
               </p>
@@ -97,24 +92,14 @@ const Contact = () => {
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl font-bold mb-8 text-purple-dark text-center">Reach Us Out On</h2>
+              <h2 className="text-3xl font-bold mb-8 text-center text-gray-950">Reach Us Out On</h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {contactCards.map((card, index) => (
-                  <ContactCard
-                    key={index}
-                    country={card.country}
-                    flag={card.flag}
-                    phone={card.phone}
-                    phoneLink={card.phoneLink}
-                    email={card.email}
-                    whatsappNumber={card.whatsappNumber}
-                  />
-                ))}
+                {contactCards.map((card, index) => <ContactCard key={index} country={card.country} flag={card.flag} phone={card.phone} phoneLink={card.phoneLink} email={card.email} whatsappNumber={card.whatsappNumber} />)}
               </div>
             </div>
             
             <div className="bg-white rounded-lg p-10 shadow-soft max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold mb-10 text-purple-dark text-center">Get In Touch</h2>
+              <h2 className="text-3xl font-bold mb-10 text-center text-zinc-950">Get In Touch</h2>
               <div className="space-y-8 max-w-2xl mx-auto">
                 <div className="flex items-start gap-6">
                   <MapPin className="h-8 w-8 text-purple flex-shrink-0 mt-1" />
@@ -157,8 +142,6 @@ const Contact = () => {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Contact;
