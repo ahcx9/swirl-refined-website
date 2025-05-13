@@ -20,7 +20,7 @@ const features = [
   },
   {
     title: 'Analytics',
-    path: '/products/analytics',
+    path: '/products/restaurant-analytics',
     description: 'Track and analyze your restaurant performance.',
     icon: 'chart-bar'
   },
