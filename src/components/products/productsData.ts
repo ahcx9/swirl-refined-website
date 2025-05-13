@@ -56,7 +56,7 @@ export const products = [
     title: 'POS System',
     description: 'Modern point-of-sale system designed specifically for restaurant needs, with user-friendly interfaces and seamless integrations for both software and hardware solutions.',
     icon: CreditCard,
-    path: '/products/pos',
+    path: '/products/restaurant-point-of-sale',
     image: "/lovable-uploads/61104fed-106e-4e91-a301-9f0fd8b8cb4b.png",
     features: [
       'Table management', 
@@ -85,7 +85,7 @@ export const products = [
     title: 'CRM',
     description: 'Customer relationship management tools to build loyalty and drive repeat business through targeted marketing campaigns and personalized customer experiences.',
     icon: Users,
-    path: '/products/crm',
+    path: '/products/customer-relationship-management',
     image: "https://images.unsplash.com/photo-1552581234-26160f608093",
     features: [
       'Customer profiles', 

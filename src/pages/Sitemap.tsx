@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
@@ -35,9 +34,9 @@ const Sitemap = () => {
     { name: 'Digital Menu', path: '/products/digital-menu' },
     { name: 'QR Ordering', path: '/products/qr-ordering' },
     { name: 'Analytics', path: '/products/analytics' },
-    { name: 'Point of Sale (POS)', path: '/products/pos' },
+    { name: 'Point of Sale (POS)', path: '/products/restaurant-point-of-sale' },
     { name: 'Financial Reports', path: '/products/financial-reports' },
-    { name: 'CRM', path: '/products/crm' },
+    { name: 'Customer Relationship Management', path: '/products/customer-relationship-management' },
     { name: 'In-Car Ordering', path: '/products/ordering-from-car' },
     { name: 'Payroll Management', path: '/products/payroll-management' },
     { name: 'Inventory Management', path: '/products/inventory-management' },

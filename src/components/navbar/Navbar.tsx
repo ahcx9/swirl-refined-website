@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -27,7 +26,7 @@ const features = [
   },
   {
     title: 'Point of Sale',
-    path: '/products/pos',
+    path: '/products/restaurant-point-of-sale',
     description: 'Modern point-of-sale for restaurant operations.',
     icon: 'credit-card'
   },
@@ -57,7 +56,7 @@ const features = [
   },
   {
     title: 'CRM',
-    path: '/products/crm',
+    path: '/products/customer-relationship-management',
     description: 'Manage customer relationships effectively.',
     icon: 'users'
   },
