@@ -37,7 +37,7 @@ const features = [{
   title: 'CRM',
   description: 'Build loyalty and drive repeat business.',
   icon: Users,
-  path: '/products/crm'
+  path: '/products/customer-relationship-management'
 }, {
   id: 'car-ordering',
   title: 'Car Ordering',

@@ -64,7 +64,7 @@ function App() {
         <Route path="/products/kitchen-display" element={<KitchenDisplay />} />
         <Route path="/products/ordering-from-car" element={<InCarOrdering />} />
         <Route path="/products/in-car-ordering" element={<InCarOrdering />} />
-        <Route path="/products/crm" element={<CRM />} />
+        <Route path="/products/customer-relationship-management" element={<CRM />} />
         <Route path="/products/financial-reports" element={<FinancialReports />} />
         <Route path="/products/payroll-management" element={<PayrollManagement />} />
         
