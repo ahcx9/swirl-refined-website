@@ -38,7 +38,7 @@ const QROrdering = () => {
                 contactless ordering experience that today's diners prefer.
               </p>
               <Button asChild size="lg" className="btn-primary">
-                <Link to="/contact">Get Started</Link>
+                <Link to="/contact">Get Started for Free</Link>
               </Button>
             </div>
           </div>
