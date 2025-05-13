@@ -69,7 +69,7 @@ const features = [
 ];
 
 const mainLinks = [
-  { name: 'Point of Sale', path: '/products/restautant-point-of-sale' },
+  { name: 'Point of Sale', path: '/products/restaurant-point-of-sale' },
   { name: 'Digital Menu', path: '/products/digital-menu' },
   { name: 'QR Ordering', path: '/products/qr-ordering' },
   { name: 'Inventory Management', path: '/products/inventory-management' },
