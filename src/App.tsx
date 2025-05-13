@@ -57,16 +57,14 @@ function App() {
         {/* Feature pages */}
         <Route path="/products/digital-menu" element={<DigitalMenu />} />
         <Route path="/products/qr-ordering" element={<QROrdering />} />
-        <Route path="/products/analytics" element={<Analytics />} />
-        <Route path="/products/pos" element={<PointOfSale />} />
+        <Route path="/products/restaurant-analytics" element={<Analytics />} />
         <Route path="/products/restaurant-point-of-sale" element={<PointOfSale />} />
         <Route path="/products/inventory-management" element={<InventoryManagement />} />
-        <Route path="/products/reservations" element={<Reservations />} />
+        <Route path="/products/reservations-for-restaurants" element={<Reservations />} />
         <Route path="/products/kitchen-display" element={<KitchenDisplay />} />
         <Route path="/products/ordering-from-car" element={<InCarOrdering />} />
         <Route path="/products/in-car-ordering" element={<InCarOrdering />} />
         <Route path="/products/crm" element={<CRM />} />
-        <Route path="/products/customer-relationship-management" element={<CRM />} />
         <Route path="/products/financial-reports" element={<FinancialReports />} />
         <Route path="/products/payroll-management" element={<PayrollManagement />} />
         
