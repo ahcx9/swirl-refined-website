@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { LayoutDashboard, ShoppingCart, BarChart, CreditCard, Users, Package, Car, Calendar, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -20,7 +19,7 @@ const features = [{
   title: 'Analytics',
   description: 'Gain valuable insights about your business.',
   icon: BarChart,
-  path: '/products/analytics'
+  path: '/products/restaurant-analytics'
 }, {
   id: 'pos',
   title: 'POS System',
@@ -38,7 +37,7 @@ const features = [{
   title: 'CRM',
   description: 'Build loyalty and drive repeat business.',
   icon: Users,
-  path: '/products/customer-relationship-management'
+  path: '/products/crm'
 }, {
   id: 'car-ordering',
   title: 'Car Ordering',
