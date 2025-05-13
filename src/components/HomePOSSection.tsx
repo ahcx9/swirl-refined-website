@@ -1,20 +1,25 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CreditCard, Receipt, ShoppingCart, DollarSign, ChefHat } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-
 const HomePOSSection = () => {
-  const features = [
-    { icon: CreditCard, text: 'Real-time table management' },
-    { icon: Receipt, text: 'Customizable modifiers & combos' },
-    { icon: ShoppingCart, text: 'Check splitting & table transfers' },
-    { icon: DollarSign, text: 'Integrated payment processing' },
-    { icon: ChefHat, text: 'Kitchen display integration' }
-  ];
-
-  return (
-    <section className="py-16 overflow-hidden relative">
+  const features = [{
+    icon: CreditCard,
+    text: 'Real-time table management'
+  }, {
+    icon: Receipt,
+    text: 'Customizable modifiers & combos'
+  }, {
+    icon: ShoppingCart,
+    text: 'Check splitting & table transfers'
+  }, {
+    icon: DollarSign,
+    text: 'Integrated payment processing'
+  }, {
+    icon: ChefHat,
+    text: 'Kitchen display integration'
+  }];
+  return <section className="py-16 overflow-hidden relative">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 to-white -z-10"></div>
       
       <div className="container-custom relative">
@@ -34,16 +39,14 @@ const HomePOSSection = () => {
               </p>
               
               <div className="grid grid-cols-1 gap-3 mb-10">
-                {features.map((feature, index) => (
-                  <Card key={index} className="bg-white/80 border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
+                {features.map((feature, index) => <Card key={index} className="bg-white/80 border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
                     <CardContent className="p-4 flex items-center gap-3">
                       <div className="p-2 rounded-full bg-blue-50">
                         <feature.icon className="h-5 w-5 text-blue-600" />
                       </div>
                       <span className="text-blue-600/80">{feature.text}</span>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
               
               <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg text-white">
@@ -63,12 +66,7 @@ const HomePOSSection = () => {
                   
                   <div className="perspective-1000">
                     <div className="transform transition-all duration-700 hover:scale-[1.02]">
-                      <img 
-                        src="/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png"
-                        alt="Swirl POS Interface"
-                        className="w-full h-auto object-cover rounded-lg shadow-inner"
-                        loading="eager"
-                      />
+                      <img src="/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png" alt="Swirl POS Interface" className="w-full h-auto object-cover rounded-lg shadow-inner" loading="eager" />
                       
                       <div className="absolute bottom-4 right-4 bg-blue-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
                         Powerful & Easy to Use POS
@@ -85,8 +83,6 @@ const HomePOSSection = () => {
       {/* Decorative elements */}
       <div className="absolute top-1/4 left-0 w-64 h-64 bg-blue-300/20 rounded-full blur-3xl -z-10"></div>
       <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-indigo-300/20 rounded-full blur-3xl -z-10"></div>
-    </section>
-  );
+    </section>;
 };
-
 export default HomePOSSection;
