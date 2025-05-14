@@ -1,42 +1,32 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Users, UserCheck, BarChart, Mail, Gift, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-
 const CRM = () => {
-  const features = [
-    {
-      title: "Customer Profiles",
-      description: "Build comprehensive profiles with preferences, allergies, birthdays, and visit history.",
-      icon: UserCheck
-    },
-    {
-      title: "Loyalty Programs",
-      description: "Create and manage custom loyalty programs with points, tiers, and special rewards.",
-      icon: Gift
-    },
-    {
-      title: "Marketing Campaigns",
-      description: "Design and execute targeted email and SMS campaigns to specific customer segments.",
-      icon: Mail
-    },
-    {
-      title: "Customer Analytics",
-      description: "Track customer acquisition, retention, and lifetime value with detailed analytics.",
-      icon: BarChart
-    },
-    {
-      title: "Feedback Management",
-      description: "Collect, analyze, and respond to customer feedback to improve service quality.",
-      icon: Star
-    }
-  ];
-
-  return (
-    <div className="min-h-screen flex flex-col">
+  const features = [{
+    title: "Customer Profiles",
+    description: "Build comprehensive profiles with preferences, allergies, birthdays, and visit history.",
+    icon: UserCheck
+  }, {
+    title: "Loyalty Programs",
+    description: "Create and manage custom loyalty programs with points, tiers, and special rewards.",
+    icon: Gift
+  }, {
+    title: "Marketing Campaigns",
+    description: "Design and execute targeted email and SMS campaigns to specific customer segments.",
+    icon: Mail
+  }, {
+    title: "Customer Analytics",
+    description: "Track customer acquisition, retention, and lifetime value with detailed analytics.",
+    icon: BarChart
+  }, {
+    title: "Feedback Management",
+    description: "Collect, analyze, and respond to customer feedback to improve service quality.",
+    icon: Star
+  }];
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-28 pb-16">
         <div className="container-custom max-w-6xl mx-auto">
@@ -67,11 +57,7 @@ const CRM = () => {
             </div>
             
             <div className="w-full md:w-1/2">
-              <img 
-                src="https://images.unsplash.com/photo-1552581234-26160f608093" 
-                alt="Customer relationship management"
-                className="w-full h-[400px] object-cover rounded-xl shadow-lg"
-              />
+              <img alt="Customer relationship management" className="w-full h-[400px] object-cover rounded-xl shadow-lg" src="/lovable-uploads/72bc496f-dfad-4fef-a00b-a049a08c0700.png" />
             </div>
           </div>
 
@@ -79,8 +65,7 @@ const CRM = () => {
             <h2 className="text-3xl font-bold mb-12 text-center">Key CRM Features</h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature) => (
-                <div key={feature.title} className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+              {features.map(feature => <div key={feature.title} className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="p-2 bg-purple-light/30 rounded-lg">
                       <feature.icon className="text-purple h-5 w-5" />
@@ -88,8 +73,7 @@ const CRM = () => {
                     <h3 className="text-xl font-semibold">{feature.title}</h3>
                   </div>
                   <p className="text-gray-600">{feature.description}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </section>
 
@@ -139,11 +123,7 @@ const CRM = () => {
                 </div>
                 
                 <div>
-                  <img 
-                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" 
-                    alt="Restaurant customers"
-                    className="rounded-xl shadow-lg"
-                  />
+                  <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" alt="Restaurant customers" className="rounded-xl shadow-lg" />
                 </div>
               </div>
             </div>
@@ -222,8 +202,6 @@ const CRM = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default CRM;
