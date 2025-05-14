@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tablet, QrCode, Smartphone, ShoppingCart } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -9,9 +9,10 @@ interface FeatureCardProps {
   description: string;
   icon: React.ReactNode;
   image: string;
+  index: number;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, icon, image }) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, icon, image, index }) => {
   return (
     <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full flex flex-col bg-[#1A1F2C] text-white">
       <AspectRatio ratio={16/9}>
@@ -19,6 +20,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, icon, ima
           src={image} 
           alt={title} 
           className="w-full h-full object-cover"
+          loading={index <= 1 ? "eager" : "lazy"}
+          fetchpriority={index === 0 ? "high" : "auto"}
+          style={{transform: 'translateZ(0)'}} // Hardware acceleration
         />
       </AspectRatio>
       <CardContent className="p-6 flex flex-col flex-grow">
@@ -60,6 +64,29 @@ const FeatureCards = () => {
     }
   ];
 
+  // Preload images
+  useEffect(() => {
+    // Preload the first two images with high priority
+    const preloadHighPriorityImages = () => {
+      features.slice(0, 2).forEach(feature => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = feature.image;
+        link.imageSrcset = feature.image;
+        document.head.appendChild(link);
+      });
+
+      // Preload the rest normally
+      features.slice(2).forEach(feature => {
+        const img = new Image();
+        img.src = feature.image;
+      });
+    };
+
+    preloadHighPriorityImages();
+  }, []);
+
   return (
     <section className="py-16 bg-[#F5EDD1]">
       <div className="container mx-auto px-4 md:px-8">
@@ -77,6 +104,7 @@ const FeatureCards = () => {
               description={feature.description}
               icon={feature.icon}
               image={feature.image}
+              index={index}
             />
           ))}
         </div>

@@ -14,6 +14,7 @@ import HomeInventorySection from '@/components/HomeInventorySection';
 import HomeFinancialAnalyticsSection from '@/components/HomeFinancialAnalyticsSection';
 import UseCasesSection from '@/components/UseCasesSection';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
+import ImagePreloader from '@/components/ImagePreloader';
 
 const Index = () => {
   // Initialize scroll animation
@@ -21,6 +22,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      {/* Preload all critical images */}
+      <ImagePreloader />
+      
       <main className="flex-grow">
         <div className="full-viewport-section">
           <Hero />

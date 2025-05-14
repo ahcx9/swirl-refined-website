@@ -1,26 +1,43 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+
 const Hero = () => {
   const [loaded, setLoaded] = useState(false);
   const images = ["/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png", "/lovable-uploads/189d6c7d-6cc1-4e88-bbce-a9e8f69a073f.png", "/lovable-uploads/292d5cb0-2907-4d50-9380-03c565cb8849.png"];
 
-  // Preload the images
+  // Preload the images with higher priority
   useEffect(() => {
     const preloadImages = () => {
-      const imagePromises = images.map(src => {
+      const imagePromises = images.map((src, index) => {
         return new Promise((resolve, reject) => {
           const img = new Image();
           img.src = src;
+          img.importance = index === 0 ? 'high' : 'auto'; // Set first image as high priority
           img.onload = resolve;
           img.onerror = reject;
         });
       });
-      Promise.all(imagePromises).then(() => setLoaded(true)).catch(err => console.error('Error preloading images:', err));
+      
+      // Also preload the first image with link preload
+      const preloadLink = document.createElement('link');
+      preloadLink.rel = 'preload';
+      preloadLink.as = 'image';
+      preloadLink.href = images[0];
+      document.head.appendChild(preloadLink);
+      
+      Promise.all(imagePromises)
+        .then(() => setLoaded(true))
+        .catch(err => console.error('Error preloading images:', err));
     };
+    
+    // Start preloading immediately
     preloadImages();
   }, []);
+  
   return <section className="pt-24 pb-12 md:pt-32 md:pb-16 min-h-[80vh] flex items-center bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20 bg-indigo-100">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center max-w-5xl mx-auto mb-8">
@@ -48,9 +65,19 @@ const Hero = () => {
               <CarouselContent>
                 {images.map((image, index) => <CarouselItem key={index}>
                     <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-b from-blue-100/50 to-white p-2">
-                      <img src={image} alt={`Restaurant management system ${index + 1}`} className="w-full h-auto object-contain mx-auto rounded-xl" style={{
-                  maxHeight: '55vh'
-                }} />
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={image} 
+                          alt={`Restaurant management system ${index + 1}`} 
+                          className="w-full h-full object-contain mx-auto rounded-xl" 
+                          loading={index === 0 ? "eager" : "lazy"}
+                          fetchpriority={index === 0 ? "high" : "auto"}
+                          style={{
+                            maxHeight: '55vh',
+                            transform: 'translateZ(0)' // Hardware acceleration
+                          }} 
+                        />
+                      </AspectRatio>
                       <div className="absolute inset-0 bg-gradient-to-t from-blue-600/5 to-transparent rounded-2xl py-[20px]"></div>
                     </div>
                   </CarouselItem>)}
