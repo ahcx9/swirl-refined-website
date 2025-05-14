@@ -64,7 +64,7 @@ export const NavigationItems = ({ items, textColor = "text-swirl-blue" }: Naviga
                 {link.name}
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid grid-cols-2 gap-4 p-6 w-[800px] bg-white shadow-lg rounded-lg border border-gray-100 z-50 transform -translate-x-1/4">
+                <div className="grid grid-cols-2 gap-4 p-6 md:w-[800px] bg-white shadow-xl rounded-lg border border-gray-100 z-[100]">
                   {link.items.map((item) => (
                     <Link
                       key={item.title}
