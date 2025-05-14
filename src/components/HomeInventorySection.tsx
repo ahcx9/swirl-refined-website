@@ -42,7 +42,7 @@ const HomeInventorySection = () => {
                             alt="Inventory Management Dashboard" 
                             className="w-full h-auto object-cover rounded-lg shadow-inner transform scale-110" 
                             loading="eager" 
-                            fetchpriority="high"
+                            fetchPriority="high"
                             decoding="sync"
                             style={{ transform: 'translateZ(0)' }}
                           />

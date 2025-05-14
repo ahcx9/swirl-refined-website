@@ -41,9 +41,10 @@ const ImagePreloader = () => {
           if (entry.isIntersecting) {
             // When a section comes into view, load its images
             const section = entry.target;
-            const dataset = section.dataset;
-            if (dataset.preloadImages) {
-              const imagesToLoad = dataset.preloadImages.split(',');
+            // Add type assertion to access dataset
+            const preloadImagesAttr = (section as HTMLElement).dataset.preloadImages;
+            if (preloadImagesAttr) {
+              const imagesToLoad = preloadImagesAttr.split(',');
               preloadImages(imagesToLoad);
             }
           }

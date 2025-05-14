@@ -16,7 +16,7 @@ const Hero = () => {
         return new Promise((resolve, reject) => {
           const img = new Image();
           img.src = src;
-          img.importance = index === 0 ? 'high' : 'auto'; // Set first image as high priority
+          // Remove the importance property as it's not supported
           img.onload = resolve;
           img.onerror = reject;
         });
@@ -71,7 +71,7 @@ const Hero = () => {
                           alt={`Restaurant management system ${index + 1}`} 
                           className="w-full h-full object-contain mx-auto rounded-xl" 
                           loading={index === 0 ? "eager" : "lazy"}
-                          fetchpriority={index === 0 ? "high" : "auto"}
+                          fetchPriority={index === 0 ? "high" : "auto"}
                           style={{
                             maxHeight: '55vh',
                             transform: 'translateZ(0)' // Hardware acceleration

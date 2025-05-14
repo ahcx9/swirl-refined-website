@@ -21,7 +21,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, icon, ima
           alt={title} 
           className="w-full h-full object-cover"
           loading={index <= 1 ? "eager" : "lazy"}
-          fetchpriority={index === 0 ? "high" : "auto"}
+          fetchPriority={index === 0 ? "high" : "auto"}
           style={{transform: 'translateZ(0)'}} // Hardware acceleration
         />
       </AspectRatio>
@@ -73,7 +73,6 @@ const FeatureCards = () => {
         link.rel = 'preload';
         link.as = 'image';
         link.href = feature.image;
-        link.imageSrcset = feature.image;
         document.head.appendChild(link);
       });
 
