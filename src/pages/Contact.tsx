@@ -105,7 +105,7 @@ const Contact = () => {
                   <MapPin className="h-8 w-8 text-purple flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold text-xl mb-3 font-inter">Office Address</h3>
-                    <p className="text-swirl-gray text-lg font-inter">Al Jaber Jewelley Building, Khalidya, Abu Dhabi, UAE </p>
+                    <p className="text-swirl-gray text-lg font-inter">Al Jaber Jewelley Building, Khalidya, Abu Dhabi, UAE 🇦🇪 </p>
                   </div>
                 </div>
                 
