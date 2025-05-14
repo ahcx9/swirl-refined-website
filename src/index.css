@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -44,7 +43,7 @@
     @apply border-border;
   }
   html {
-    font-size: 15px; /* Making base font size smaller */
+    font-size: 14px; /* Reduced from 15px to 14px to zoom out a bit */
     scroll-behavior: smooth;
     height: 100%;
   }
@@ -57,6 +56,7 @@
     line-height: 1.6;
     letter-spacing: -0.01em;
     height: 100%;
+    zoom: 0.95; /* Adding a slight zoom out effect */
   }
   h1 {
     @apply text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight;

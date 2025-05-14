@@ -68,10 +68,10 @@ const Footer = () => {
                 <Link to="/products/qr-ordering" className="text-white/70 hover:text-purple transition-colors inline-block">QR Ordering</Link>
               </li>
               <li>
-                <Link to="/products/analytics" className="text-white/70 hover:text-purple transition-colors inline-block">Analytics</Link>
+                <Link to="/products/restaurant-analytics" className="text-white/70 hover:text-purple transition-colors inline-block">Analytics</Link>
               </li>
               <li>
-                <Link to="/products/pos" className="text-white/70 hover:text-purple transition-colors inline-block">POS System</Link>
+                <Link to="/products/restaurant-point-of-sale" className="text-white/70 hover:text-purple transition-colors inline-block">POS System</Link>
               </li>
               <li>
                 <Link to="/products/inventory-management" className="text-white/70 hover:text-purple transition-colors inline-block">Inventory Management</Link>
