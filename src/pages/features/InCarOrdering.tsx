@@ -41,10 +41,10 @@ const InCarOrdering = () => {
               
               <div className="flex gap-4">
                 <Button asChild className="btn-primary text-base">
-                  <Link to="/contact">Schedule a Demo</Link>
+                  <Link to="/contact">Get Started for Free</Link>
                 </Button>
                 <Button asChild variant="outline" className="text-base">
-                  <Link to="/products">View All Products</Link>
+                  
                 </Button>
               </div>
             </div>
