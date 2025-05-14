@@ -1,40 +1,28 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import {
-  Car, MapPin, Clock, CreditCard, Bell, 
-  Smartphone, ArrowRight, CheckCircle
-} from 'lucide-react';
-
+import { Car, MapPin, Clock, CreditCard, Bell, Smartphone, ArrowRight, CheckCircle } from 'lucide-react';
 const InCarOrdering = () => {
-  const features = [
-    {
-      title: "GPS Location Tracking",
-      description: "Pinpoint customer location in your parking lot for efficient delivery to their vehicle.",
-      icon: MapPin
-    },
-    {
-      title: "Digital Car Hop",
-      description: "Streamline curbside pickup with digital notifications and status updates.",
-      icon: Bell
-    },
-    {
-      title: "Real-time Order Status",
-      description: "Keep customers informed with automatic updates on their order preparation.",
-      icon: Clock
-    },
-    {
-      title: "Secure In-Car Payments",
-      description: "Process payments directly through customers' devices with full security.",
-      icon: CreditCard
-    }
-  ];
-
-  return (
-    <div className="min-h-screen flex flex-col">
+  const features = [{
+    title: "GPS Location Tracking",
+    description: "Pinpoint customer location in your parking lot for efficient delivery to their vehicle.",
+    icon: MapPin
+  }, {
+    title: "Digital Car Hop",
+    description: "Streamline curbside pickup with digital notifications and status updates.",
+    icon: Bell
+  }, {
+    title: "Real-time Order Status",
+    description: "Keep customers informed with automatic updates on their order preparation.",
+    icon: Clock
+  }, {
+    title: "Secure In-Car Payments",
+    description: "Process payments directly through customers' devices with full security.",
+    icon: CreditCard
+  }];
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-28 pb-16">
         <div className="container-custom max-w-6xl mx-auto">
@@ -63,11 +51,7 @@ const InCarOrdering = () => {
             
             <div className="w-full md:w-1/2">
               <div className="bg-gradient-to-br from-purple-light/10 to-blue-100/10 rounded-xl p-4 overflow-hidden">
-                <img 
-                  src="/lovable-uploads/2d3e25d6-0565-4abe-a293-c0d14b06605b.png" 
-                  alt="In-Car Ordering Service"
-                  className="w-full h-auto object-cover rounded-lg mix-blend-multiply transform hover:scale-105 transition-transform duration-500"
-                />
+                <img alt="In-Car Ordering Service" className="w-full h-auto object-cover rounded-lg mix-blend-multiply transform hover:scale-105 transition-transform duration-500" src="/lovable-uploads/535c3886-674a-48f2-a7e7-99cbc2c15dbc.png" />
               </div>
             </div>
           </div>
@@ -115,8 +99,7 @@ const InCarOrdering = () => {
               <div>
                 <h2 className="text-3xl font-bold mb-6">Key Features</h2>
                 <div className="space-y-6">
-                  {features.map((feature) => (
-                    <div key={feature.title} className="flex gap-4 items-start">
+                  {features.map(feature => <div key={feature.title} className="flex gap-4 items-start">
                       <div className="p-3 rounded-full bg-purple-light/30">
                         <feature.icon className="text-purple h-5 w-5" />
                       </div>
@@ -124,8 +107,7 @@ const InCarOrdering = () => {
                         <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                         <p className="text-swirl-gray">{feature.description}</p>
                       </div>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
               
@@ -211,8 +193,6 @@ const InCarOrdering = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default InCarOrdering;
