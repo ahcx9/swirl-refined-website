@@ -33,18 +33,18 @@ export const NavigationItems = ({ items, textColor = "text-swirl-blue" }: Naviga
   // Map for Lucide icons based on icon name
   const getIcon = (iconName: string) => {
     const iconMap: {[key: string]: React.ReactNode} = {
-      'restaurant-menu': <FileText size={26} className="mr-3 text-swirl-blue" />,
-      'qr-code': <ShoppingCart size={26} className="mr-3 text-swirl-blue" />,
-      'chart-bar': <BarChart size={26} className="mr-3 text-swirl-blue" />,
-      'credit-card': <CreditCard size={26} className="mr-3 text-swirl-blue" />,
-      'file-text': <LayoutDashboard size={26} className="mr-3 text-swirl-blue" />,
-      'users': <Users size={26} className="mr-3 text-swirl-blue" />,
-      'car': <Car size={26} className="mr-3 text-swirl-blue" />,
-      'dollar-sign': <Calendar size={26} className="mr-3 text-swirl-blue" />,
-      'package': <Package size={26} className="mr-3 text-swirl-blue" />,
-      'chef-hat': <ChefHat size={26} className="mr-3 text-swirl-blue" />,
-      'calendar': <Utensils size={26} className="mr-3 text-swirl-blue" />,
-      'file-chart-bar': <FileBarChart size={26} className="mr-3 text-swirl-blue" />,
+      'restaurant-menu': <FileText size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
+      'qr-code': <ShoppingCart size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
+      'chart-bar': <BarChart size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
+      'credit-card': <CreditCard size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
+      'file-text': <LayoutDashboard size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
+      'users': <Users size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
+      'car': <Car size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
+      'dollar-sign': <Calendar size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
+      'package': <Package size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
+      'chef-hat': <ChefHat size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
+      'calendar': <Utensils size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
+      'file-chart-bar': <FileBarChart size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
     };
     
     return iconMap[iconName] || null;
@@ -59,23 +59,23 @@ export const NavigationItems = ({ items, textColor = "text-swirl-blue" }: Naviga
       <NavigationMenuList className="flex items-center gap-6 md:gap-10 lg:gap-14">
         {items.map((link) => (
           link.items ? (
-            <NavigationMenuItem key={link.name} className="relative">
+            <NavigationMenuItem key={link.name} className="relative static">
               <NavigationMenuTrigger className={`${textColor} hover:text-blue-600 transition-colors px-0 font-inter text-[18px] font-semibold tracking-wide bg-transparent hover:bg-transparent`}>
                 {link.name}
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid grid-cols-2 gap-4 p-6 md:w-[800px] bg-white shadow-xl rounded-lg border border-gray-100 z-[100]">
+                <div className="grid grid-cols-2 gap-6 p-6 md:w-[850px] lg:w-[950px] bg-white shadow-2xl rounded-lg border border-gray-100">
                   {link.items.map((item) => (
                     <Link
                       key={item.title}
                       to={item.path}
-                      className="flex items-start select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-blue-50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      className="flex items-start select-none rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-blue-50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     >
-                      <div className="flex items-center">
+                      <div className="flex items-start">
                         {getIcon(item.icon)}
-                        <div>
+                        <div className="flex-1 min-w-0">
                           <div className="text-lg font-medium leading-none font-inter mb-2 text-black">{item.title}</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground font-inter">
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600 font-inter">
                             {item.description}
                           </p>
                         </div>
