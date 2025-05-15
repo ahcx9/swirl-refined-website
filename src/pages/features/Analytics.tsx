@@ -197,7 +197,7 @@ const Analytics = () => {
                 Join smart restaurant operators who use Swirl's analytics to increase profits, reduce costs, and deliver exceptional dining experiences.
               </p>
               <Button asChild className="btn-primary text-base">
-                <Link to="/contact">Schedule a Personalized Demo</Link>
+                <Link to="/contact">Get Started for Free</Link>
               </Button>
             </div>
           </section>
