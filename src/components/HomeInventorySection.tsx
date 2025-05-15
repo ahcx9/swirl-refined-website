@@ -1,10 +1,8 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Package, Tag, BarChart, HardDrive, List } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-
 const HomeInventorySection = () => {
   const features = [{
     icon: Package,
@@ -22,7 +20,6 @@ const HomeInventorySection = () => {
     icon: HardDrive,
     text: 'Ingredient-level tracking'
   }];
-  
   return <section className="py-16 overflow-hidden relative bg-gradient-to-br from-indigo-50/30 to-white">
       <div className="container-custom relative">
         <div className="grid md:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -35,17 +32,11 @@ const HomeInventorySection = () => {
                   
                   <div className="perspective-1000 overflow-hidden rounded-lg">
                     <div className="transform transition-all duration-700 hover:scale-[1.05]">
-                      <AspectRatio ratio={16/9}>
+                      <AspectRatio ratio={16 / 9}>
                         <div className="overflow-hidden">
-                          <img 
-                            src="/lovable-uploads/cbcfca20-2929-487b-a9b9-931826e7b8e9.png" 
-                            alt="Inventory Management Dashboard" 
-                            className="w-full h-auto object-cover rounded-lg shadow-inner transform scale-110" 
-                            loading="eager" 
-                            fetchPriority="high"
-                            decoding="sync"
-                            style={{ transform: 'translateZ(0)' }}
-                          />
+                          <img src="/lovable-uploads/cbcfca20-2929-487b-a9b9-931826e7b8e9.png" alt="Inventory Management Dashboard" className="w-full h-auto object-cover rounded-lg shadow-inner transform scale-110" loading="eager" fetchPriority="high" decoding="sync" style={{
+                          transform: 'translateZ(0)'
+                        }} />
                         </div>
                       </AspectRatio>
                       

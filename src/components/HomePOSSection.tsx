@@ -1,11 +1,9 @@
-
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CreditCard, Receipt, ShoppingCart, DollarSign, ChefHat } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { preloadImage } from '@/utils/imagePreloader';
-
 const HomePOSSection = () => {
   const features = [{
     icon: CreditCard,
@@ -23,13 +21,15 @@ const HomePOSSection = () => {
     icon: ChefHat,
     text: 'Kitchen display integration'
   }];
-  
+
   // Preload the POS image
   useEffect(() => {
     const mainImage = "/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png";
-    preloadImage({ src: mainImage, priority: 'high' });
+    preloadImage({
+      src: mainImage,
+      priority: 'high'
+    });
   }, []);
-  
   return <section className="py-16 overflow-hidden relative">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 to-white -z-10"></div>
       
@@ -77,16 +77,11 @@ const HomePOSSection = () => {
                   
                   <div className="perspective-1000">
                     <div className="transform transition-all duration-700 hover:scale-[1.02]">
-                      <AspectRatio ratio={16/9}>
-                        <img 
-                          src="/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png" 
-                          alt="Swirl POS Interface" 
-                          className="w-full h-auto object-cover rounded-lg shadow-inner" 
-                          loading="eager"
-                          fetchPriority="high"
-                          decoding="sync"
-                          style={{ transform: 'translateZ(0)' }} // Force hardware acceleration
-                        />
+                      <AspectRatio ratio={16 / 9}>
+                        <img src="/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png" alt="Swirl POS Interface" className="w-full h-auto object-cover rounded-lg shadow-inner" loading="eager" fetchPriority="high" decoding="sync" style={{
+                        transform: 'translateZ(0)'
+                      }} // Force hardware acceleration
+                      />
                       </AspectRatio>
                       
                       <div className="absolute bottom-4 right-4 bg-blue-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
