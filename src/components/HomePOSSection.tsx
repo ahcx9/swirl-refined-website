@@ -55,7 +55,7 @@ const HomePOSSection = () => {
                       <div className="p-2 rounded-full bg-blue-50">
                         <feature.icon className="h-5 w-5 text-blue-600" />
                       </div>
-                      <span className="text-blue-600/80">{feature.text}</span>
+                      <span className="text-amber-950">{feature.text}</span>
                     </CardContent>
                   </Card>)}
               </div>
