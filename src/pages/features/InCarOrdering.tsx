@@ -187,7 +187,7 @@ const InCarOrdering = () => {
               Join forward-thinking restaurants that are enhancing customer convenience and increasing revenue with our innovative In-Car Ordering solution.
             </p>
             <Button asChild className="btn-primary text-base">
-              <Link to="/contact">Get Started Today</Link>
+              <Link to="/contact">Get Started For Free</Link>
             </Button>
           </section>
         </div>
