@@ -48,10 +48,10 @@ const CRM = () => {
               
               <div className="flex gap-4">
                 <Button asChild className="btn-primary text-base">
-                  <Link to="/contact">Get Started</Link>
+                  <Link to="/contact">Get Started For Free</Link>
                 </Button>
                 <Button asChild variant="outline" className="text-base">
-                  <Link to="/products">View All Solutions</Link>
+                  
                 </Button>
               </div>
             </div>
