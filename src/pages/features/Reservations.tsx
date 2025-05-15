@@ -1,50 +1,33 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import {
-  CalendarDays,
-  Users,
-  BellRing,
-  CalendarClock,
-  CalendarCheck,
-  ArrowRight
-} from 'lucide-react';
+import { CalendarDays, Users, BellRing, CalendarClock, CalendarCheck, ArrowRight } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-
 const Reservations = () => {
-  const features = [
-    {
-      title: "Smart Table Management",
-      description: "Optimize seating arrangements and manage table turnover efficiently.",
-      icon: Users
-    },
-    {
-      title: "Online Booking",
-      description: "Allow customers to make reservations 24/7 through your website or app.",
-      icon: CalendarDays
-    },
-    {
-      title: "Automated Notifications",
-      description: "Send confirmation and reminder messages to guests automatically.",
-      icon: BellRing
-    },
-    {
-      title: "Waitlist Management",
-      description: "Handle walk-ins and waitlists with real-time updates.",
-      icon: CalendarClock
-    },
-    {
-      title: "Guest Profiles",
-      description: "Track preferences and special requests for personalized service.",
-      icon: CalendarCheck
-    }
-  ];
-
-  return (
-    <div className="min-h-screen flex flex-col">
+  const features = [{
+    title: "Smart Table Management",
+    description: "Optimize seating arrangements and manage table turnover efficiently.",
+    icon: Users
+  }, {
+    title: "Online Booking",
+    description: "Allow customers to make reservations 24/7 through your website or app.",
+    icon: CalendarDays
+  }, {
+    title: "Automated Notifications",
+    description: "Send confirmation and reminder messages to guests automatically.",
+    icon: BellRing
+  }, {
+    title: "Waitlist Management",
+    description: "Handle walk-ins and waitlists with real-time updates.",
+    icon: CalendarClock
+  }, {
+    title: "Guest Profiles",
+    description: "Track preferences and special requests for personalized service.",
+    icon: CalendarCheck
+  }];
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-24">
         <section className="bg-purple-light/10 py-20">
@@ -55,7 +38,7 @@ const Reservations = () => {
                 Streamline your restaurant's reservation process with our advanced booking system. Manage tables, handle waitlists, and deliver exceptional guest experiences.
               </p>
               <Button asChild className="btn-primary">
-                <Link to="/contact">Learn More</Link>
+                <Link to="/contact">Get Started for Free</Link>
               </Button>
             </div>
           </div>
@@ -64,8 +47,7 @@ const Reservations = () => {
         <section className="py-20">
           <div className="container-custom">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature) => (
-                <Card key={feature.title} className="card-hover">
+              {features.map(feature => <Card key={feature.title} className="card-hover">
                   <CardHeader>
                     <div className="flex items-center gap-3">
                       <feature.icon className="h-6 w-6 text-purple" />
@@ -73,8 +55,7 @@ const Reservations = () => {
                     </div>
                     <CardDescription>{feature.description}</CardDescription>
                   </CardHeader>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </section>
@@ -102,8 +83,6 @@ const Reservations = () => {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Reservations;
