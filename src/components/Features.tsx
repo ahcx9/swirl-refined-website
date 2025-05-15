@@ -81,7 +81,7 @@ const Features = () => {
         
         <div className="text-center mt-10">
           <Button asChild className="btn-primary bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:from-blue-600 hover:to-indigo-700 text-base shadow-lg">
-            <Link to="/products">View All Solutions</Link>
+            
           </Button>
         </div>
       </div>
