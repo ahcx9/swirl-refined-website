@@ -53,7 +53,7 @@ const InventoryManagement = () => {
               <div className="w-full py-0 my-0 mx-0 px-0">
                 <div className="bg-gradient-to-br from-purple-light/30 to-white rounded-xl p-4 max-w-4xl mx-auto">
                   <div className="overflow-hidden rounded-lg">
-                    <img alt="Inventory Dashboard" className="w-full h-auto rounded-lg shadow-md transform scale-110 transition-transform duration-700 hover:scale-115" loading="eager" src="/lovable-uploads/81be2d91-a902-4a14-b36d-36f5e0724d68.png" />
+                    <img alt="Inventory Dashboard" loading="eager" src="/lovable-uploads/ae182218-4fea-45b8-840d-5752adf12d26.png" className="w-full h-auto rounded-lg shadow-md transform scale-100 transition-transform duration-700 hover:scale-115" />
                   </div>
                 </div>
               </div>
