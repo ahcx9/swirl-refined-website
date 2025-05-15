@@ -42,7 +42,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center max-w-5xl mx-auto mb-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-black xl:text-7xl">
-            Sale & Ordering system for the <span className="text-zinc-400">modern restaurant</span>
+            Powering the New Era of <span className="text-zinc-400">Restaurant Sales</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-swirl-gray mb-10 max-w-3xl mx-auto">
