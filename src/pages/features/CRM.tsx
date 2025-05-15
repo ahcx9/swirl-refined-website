@@ -196,7 +196,7 @@ const CRM = () => {
               Join successful restaurants that use Swirl's CRM to build stronger customer relationships, increase repeat business, and boost revenue.
             </p>
             <Button asChild className="btn-primary text-base">
-              <Link to="/contact">Request a Demo</Link>
+              <Link to="/contact">Get Started for Free</Link>
             </Button>
           </section>
         </div>
