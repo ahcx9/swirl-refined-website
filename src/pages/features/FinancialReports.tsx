@@ -54,7 +54,7 @@ const FinancialReports = () => {
             
             <div className="w-full md:w-1/2">
               <div className="bg-gradient-to-br from-purple-light/20 to-white rounded-xl p-4 flex items-center justify-center">
-                <img src="/lovable-uploads/459383dc-eff1-410b-af47-ff49a9a0a01e.png" alt="Financial reporting dashboard" className="w-full object-contain rounded-lg mix-blend-multiply" />
+                <img alt="Financial reporting dashboard" src="/lovable-uploads/b4d4c92f-5f67-4263-8c64-fd8643abe8cd.png" className="w-full rounded-lg mix-blend-multiply object-cover" />
               </div>
             </div>
           </div>
