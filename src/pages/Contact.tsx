@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
@@ -5,76 +6,17 @@ import { MapPin, Mail, Phone, Globe, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Instagram, TikTok, WhatsApp } from '@/components/SocialIcons';
-interface ContactCardProps {
-  country: string;
-  flag: string;
-  phone: string;
-  phoneLink: string;
-  email: string;
-  whatsappNumber: string;
-}
-const ContactCard = ({
-  country,
-  flag,
-  phone,
-  phoneLink,
-  email,
-  whatsappNumber
-}: ContactCardProps) => {
-  return <Card className="bg-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-      <CardContent className="p-6">
-        <div className="flex items-center mb-4 gap-2">
-          <span className="text-2xl">{flag}</span>
-          <h3 className="text-xl font-semibold">{country}</h3>
-        </div>
-        <div className="space-y-3">
-          <div className="flex items-center gap-3">
-            <Phone className="h-5 w-5 text-purple flex-shrink-0" />
-            <a href={phoneLink} className="text-swirl-gray hover:text-purple transition-colors">
-              {phone}
-            </a>
-          </div>
-          <div className="flex items-center gap-3">
-            <Mail className="h-5 w-5 text-purple flex-shrink-0" />
-            <a href={`mailto:${email}`} className="text-swirl-gray hover:text-purple transition-colors">
-              {email}
-            </a>
-          </div>
-          <div className="mt-4">
-            <Button asChild className="w-full bg-green-500 hover:bg-green-600 text-white flex items-center gap-2 rounded-full">
-              <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="">
-                <WhatsApp size={20} className="flex-shrink-0" />
-                <span>Chat on WhatsApp</span>
-              </a>
-            </Button>
-          </div>
-        </div>
-      </CardContent>
-    </Card>;
-};
+
 const Contact = () => {
-  const contactCards = [{
+  const uaeContact = {
     country: "UAE",
     flag: "🇦🇪",
     phone: "+971 54 385 3877",
     phoneLink: "tel:+971543853877",
     email: "hello@swirl.cx",
     whatsappNumber: "971543853877"
-  }, {
-    country: "Saudi Arabia",
-    flag: "🇸🇦",
-    phone: "+966 55 395 5115",
-    phoneLink: "tel:+966553955115",
-    email: "hello@swirl.cx",
-    whatsappNumber: "966553955115"
-  }, {
-    country: "India",
-    flag: "🇮🇳",
-    phone: "+91 87959 97070",
-    phoneLink: "tel:+918795997070",
-    email: "hello@swirl.cx",
-    whatsappNumber: "918795997070"
-  }];
+  };
+  
   return <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-24">
@@ -92,9 +34,38 @@ const Contact = () => {
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl font-bold mb-8 text-center text-gray-950">Reach Us Out On</h2>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {contactCards.map((card, index) => <ContactCard key={index} country={card.country} flag={card.flag} phone={card.phone} phoneLink={card.phoneLink} email={card.email} whatsappNumber={card.whatsappNumber} />)}
+              <h2 className="text-3xl font-bold mb-8 text-center text-gray-950">Contact Us</h2>
+              <div className="max-w-lg mx-auto">
+                <Card className="bg-white hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-blue-100 overflow-hidden">
+                  <CardContent className="p-8">
+                    <div className="flex items-center mb-6 gap-3">
+                      <span className="text-4xl">{uaeContact.flag}</span>
+                      <h3 className="text-2xl font-bold text-blue-700">{uaeContact.country}</h3>
+                    </div>
+                    <div className="space-y-5">
+                      <div className="flex items-center gap-4">
+                        <Phone className="h-6 w-6 text-purple flex-shrink-0" />
+                        <a href={uaeContact.phoneLink} className="text-gray-800 hover:text-purple transition-colors text-lg">
+                          {uaeContact.phone}
+                        </a>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <Mail className="h-6 w-6 text-purple flex-shrink-0" />
+                        <a href={`mailto:${uaeContact.email}`} className="text-gray-800 hover:text-purple transition-colors text-lg">
+                          {uaeContact.email}
+                        </a>
+                      </div>
+                      <div className="mt-6">
+                        <Button asChild className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white flex items-center gap-2 rounded-full py-6 h-auto">
+                          <a href={`https://wa.me/${uaeContact.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="">
+                            <WhatsApp size={20} className="flex-shrink-0" />
+                            <span className="text-lg">Chat on WhatsApp</span>
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             </div>
             
@@ -144,4 +115,5 @@ const Contact = () => {
       <Footer />
     </div>;
 };
+
 export default Contact;

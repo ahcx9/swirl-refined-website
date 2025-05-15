@@ -1,9 +1,11 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { NavigationItems } from './NavigationItems';
 import { MobileMenu } from './MobileMenu';
+import { WhatsApp } from '@/components/SocialIcons';
 
 const features = [
   {
@@ -116,10 +118,19 @@ const Navbar = () => {
             <NavigationItems items={mainLinks} textColor="text-black" />
           </div>
         </div>
-          
-        <Button asChild className="hidden md:flex font-inter text-xl bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 py-6 px-8">
-          <a href="https://app.swirl.cx/register">Get Started For Free</a>
-        </Button>
+        
+        <div className="hidden md:flex items-center gap-4">
+          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full py-5 flex items-center gap-2">
+            <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">
+              <WhatsApp size={18} className="flex-shrink-0" />
+              <span className="text-sm md:text-base">Chat with us</span>
+            </a>
+          </Button>  
+            
+          <Button asChild className="font-inter text-xl bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 py-6 px-8">
+            <a href="https://app.swirl.cx/register">Get Started For Free</a>
+          </Button>
+        </div>
 
         <button
           className="xl:hidden text-black"

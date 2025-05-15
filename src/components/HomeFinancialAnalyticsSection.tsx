@@ -29,7 +29,7 @@ const HomeFinancialAnalyticsSection = () => {
       <div className="container-custom relative">
         <div className="grid md:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Content column */}
-          <div className="md:col-span-6 lg:col-span-5 order-2 md:order-1">
+          <div className="md:col-span-5 order-2 md:order-1">
             <div className="animate-on-scroll">
               <div className="mb-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/80 border border-blue-100 backdrop-blur-sm">
                 <span className="text-blue-600 font-medium">Data-Driven Decisions for Restaurant Success</span>
@@ -61,11 +61,11 @@ const HomeFinancialAnalyticsSection = () => {
             </div>
           </div>
           
-          {/* Image column - made larger and more visible like other sections */}
-          <div className="md:col-span-6 lg:col-span-7 order-1 md:order-2">
+          {/* Image column - enlarged for better visibility */}
+          <div className="md:col-span-7 order-1 md:order-2">
             <Card className="overflow-hidden border-0 shadow-xl rounded-2xl bg-gradient-to-br from-blue-600/5 to-indigo-600/10 mx-auto">
-              <CardContent className="p-1 md:p-2">
-                <AspectRatio ratio={16/10} className="overflow-hidden rounded-xl">
+              <CardContent className="p-1 md:p-3">
+                <AspectRatio ratio={16/9} className="overflow-hidden rounded-xl">
                   <div className="relative h-full w-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-indigo-600/5 rounded-xl"></div>
                     
@@ -75,13 +75,13 @@ const HomeFinancialAnalyticsSection = () => {
                           alt="Financial Analytics Dashboard" 
                           loading="eager" 
                           fetchPriority="high"
-                          className="w-full h-auto rounded-lg shadow-inner object-contain" 
+                          className="w-full h-full rounded-lg shadow-inner object-cover" 
                           src="/lovable-uploads/2e0f4208-a025-4a95-a266-cf5c3b63fb68.png" 
                         />
                       </div>
                     </div>
                     
-                    <div className="absolute bottom-4 right-4 bg-blue-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
+                    <div className="absolute bottom-6 right-6 bg-blue-500/90 backdrop-blur-sm text-white px-5 py-3 rounded-lg shadow-lg text-base font-medium">
                       Clear Financial Insights
                     </div>
                   </div>
