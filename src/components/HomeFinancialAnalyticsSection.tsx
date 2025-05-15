@@ -61,25 +61,27 @@ const HomeFinancialAnalyticsSection = () => {
             </div>
           </div>
           
-          {/* Image column - enlarged for better visibility */}
+          {/* Image column - significantly enlarged for better visibility and readability */}
           <div className="md:col-span-7 order-1 md:order-2">
-            <Card className="overflow-hidden border-0 shadow-xl rounded-2xl bg-gradient-to-br from-blue-600/5 to-indigo-600/10 mx-auto">
-              <CardContent className="p-1 md:p-3">
+            <Card className="overflow-hidden border-0 shadow-2xl rounded-2xl bg-gradient-to-br from-blue-600/5 to-indigo-600/10 mx-auto">
+              <CardContent className="p-0">
                 <AspectRatio ratio={16/9} className="overflow-hidden rounded-xl">
                   <div className="relative h-full w-full">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-indigo-600/5 rounded-xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-indigo-600/5 rounded-xl"></div>
                     
-                    <div className="perspective-1000 h-full w-full">
-                      <div className="transform transition-all duration-700 hover:scale-[1.01] h-full w-full flex items-center justify-center">
-                        <img 
-                          alt="Financial Analytics Dashboard" 
-                          loading="eager" 
-                          fetchPriority="high"
-                          className="w-full h-full rounded-lg shadow-inner object-cover" 
-                          src="/lovable-uploads/2e0f4208-a025-4a95-a266-cf5c3b63fb68.png" 
-                        />
-                      </div>
-                    </div>
+                    <img 
+                      alt="Financial Analytics Dashboard" 
+                      loading="eager" 
+                      fetchPriority="high"
+                      decoding="async"
+                      className="w-full h-full object-fill rounded-lg" 
+                      src="/lovable-uploads/2e0f4208-a025-4a95-a266-cf5c3b63fb68.png" 
+                      style={{
+                        maxWidth: "100%",
+                        height: "auto",
+                        objectPosition: "center"
+                      }}
+                    />
                     
                     <div className="absolute bottom-6 right-6 bg-blue-500/90 backdrop-blur-sm text-white px-5 py-3 rounded-lg shadow-lg text-base font-medium">
                       Clear Financial Insights
