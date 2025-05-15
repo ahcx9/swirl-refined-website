@@ -20,7 +20,7 @@ const DigitalMenu = () => {
               <h3 className="text-2xl font-bold mb-4 text-zinc-950">Ready to revolutionize your menu experience?</h3>
               <p className="text-lg text-blue-700/80 mb-8 max-w-2xl mx-auto">Join restaurants worldwide already using our digital menu system to enhance customer experience and streamline operations.</p>
               <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg">
-                <Link to="/contact">Get Started with Digital Menus</Link>
+                <Link to="/contact">Get Started for Free</Link>
               </Button>
             </div>
           </div>
