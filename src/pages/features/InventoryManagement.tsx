@@ -9,8 +9,8 @@ const InventoryManagement = () => {
     description: "Monitor inventory levels in real-time across all locations. Get immediate visibility into stock levels, usage patterns, and inventory valuation.",
     icon: TrendingUp
   }, {
-    title: "Waste Reduction",
-    description: "Track and minimize waste with smart analytics. Identify patterns in food waste, optimize portion sizes, and implement strategies to reduce shrinkage.",
+    title: "Record Inventory Count",
+    description: "Record the current stock level for items in your inventory. Keep accurate, real-time inventory counts to streamline operations and avoid stockouts.",
     icon: AlertTriangle
   }, {
     title: "Automated Ordering",
