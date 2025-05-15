@@ -1,37 +1,28 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { LayoutDashboard, PieChart, LineChart, FilePlus2, Calculator } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-
 const FinancialReports = () => {
-  const benefits = [
-    {
-      title: "Comprehensive P&L Statements",
-      description: "Generate detailed profit and loss statements with customizable date ranges and categories.",
-      icon: FilePlus2
-    },
-    {
-      title: "Advanced Cost Analysis",
-      description: "Track and analyze all your costs including food costs, labor, and overhead expenses.",
-      icon: Calculator
-    },
-    {
-      title: "Revenue Trends",
-      description: "Visualize your sales data over time to identify patterns, seasonality, and growth opportunities.",
-      icon: LineChart
-    },
-    {
-      title: "Financial Forecasting",
-      description: "Use AI-powered predictions to forecast future revenue and plan accordingly.",
-      icon: PieChart
-    }
-  ];
-
-  return (
-    <div className="min-h-screen flex flex-col">
+  const benefits = [{
+    title: "Comprehensive P&L Statements",
+    description: "Generate detailed profit and loss statements with customizable date ranges and categories.",
+    icon: FilePlus2
+  }, {
+    title: "Advanced Cost Analysis",
+    description: "Track and analyze all your costs including food costs, labor, and overhead expenses.",
+    icon: Calculator
+  }, {
+    title: "Revenue Trends",
+    description: "Visualize your sales data over time to identify patterns, seasonality, and growth opportunities.",
+    icon: LineChart
+  }, {
+    title: "Financial Forecasting",
+    description: "Use AI-powered predictions to forecast future revenue and plan accordingly.",
+    icon: PieChart
+  }];
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-28 pb-16">
         <div className="container-custom max-w-6xl mx-auto">
@@ -53,21 +44,17 @@ const FinancialReports = () => {
               
               <div className="flex gap-4">
                 <Button asChild className="btn-primary text-base">
-                  <Link to="/contact">Request Demo</Link>
+                  <Link to="/contact">Get Started for Free</Link>
                 </Button>
                 <Button asChild variant="outline" className="text-base">
-                  <Link to="/products">Explore All Features</Link>
+                  
                 </Button>
               </div>
             </div>
             
             <div className="w-full md:w-1/2">
               <div className="bg-gradient-to-br from-purple-light/20 to-white rounded-xl p-4 flex items-center justify-center">
-                <img 
-                  src="/lovable-uploads/459383dc-eff1-410b-af47-ff49a9a0a01e.png" 
-                  alt="Financial reporting dashboard"
-                  className="w-full object-contain rounded-lg mix-blend-multiply"
-                />
+                <img src="/lovable-uploads/459383dc-eff1-410b-af47-ff49a9a0a01e.png" alt="Financial reporting dashboard" className="w-full object-contain rounded-lg mix-blend-multiply" />
               </div>
             </div>
           </div>
@@ -76,8 +63,7 @@ const FinancialReports = () => {
             <h2 className="text-3xl font-bold mb-12 text-center">Key Financial Reporting Features</h2>
             
             <div className="grid md:grid-cols-2 gap-8">
-              {benefits.map((benefit) => (
-                <div key={benefit.title} className="bg-white rounded-xl p-8 shadow-md flex gap-6 items-start hover:shadow-lg transition-shadow">
+              {benefits.map(benefit => <div key={benefit.title} className="bg-white rounded-xl p-8 shadow-md flex gap-6 items-start hover:shadow-lg transition-shadow">
                   <div className="p-3 rounded-full bg-purple-light/30">
                     <benefit.icon className="text-purple h-6 w-6" />
                   </div>
@@ -85,8 +71,7 @@ const FinancialReports = () => {
                     <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
                     <p className="text-swirl-gray">{benefit.description}</p>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </section>
 
@@ -171,8 +156,6 @@ const FinancialReports = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default FinancialReports;
