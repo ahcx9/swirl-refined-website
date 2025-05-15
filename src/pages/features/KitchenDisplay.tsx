@@ -1,49 +1,33 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import {
-  ChefHat,
-  Timer,
-  Bell,
-  ClipboardCheck,
-  Settings
-} from 'lucide-react';
+import { ChefHat, Timer, Bell, ClipboardCheck, Settings } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-
 const KitchenDisplay = () => {
-  const features = [
-    {
-      title: "Real-time Order Management",
-      description: "Monitor and manage orders in real-time with instant updates from front-of-house.",
-      icon: Timer
-    },
-    {
-      title: "Recipe Management",
-      description: "Access digital recipes, prep instructions, and plating guides instantly.",
-      icon: ChefHat
-    },
-    {
-      title: "Order Priority & Alerts",
-      description: "Smart prioritization system with customizable alerts for urgent orders.",
-      icon: Bell
-    },
-    {
-      title: "Performance Analytics",
-      description: "Track kitchen performance metrics, preparation times, and efficiency.",
-      icon: ClipboardCheck
-    },
-    {
-      title: "Customizable Interface",
-      description: "Tailor the display layout and features to your kitchen's needs.",
-      icon: Settings
-    }
-  ];
-
-  return (
-    <div className="min-h-screen flex flex-col">
+  const features = [{
+    title: "Real-time Order Management",
+    description: "Monitor and manage orders in real-time with instant updates from front-of-house.",
+    icon: Timer
+  }, {
+    title: "Recipe Management",
+    description: "Access digital recipes, prep instructions, and plating guides instantly.",
+    icon: ChefHat
+  }, {
+    title: "Order Priority & Alerts",
+    description: "Smart prioritization system with customizable alerts for urgent orders.",
+    icon: Bell
+  }, {
+    title: "Performance Analytics",
+    description: "Track kitchen performance metrics, preparation times, and efficiency.",
+    icon: ClipboardCheck
+  }, {
+    title: "Customizable Interface",
+    description: "Tailor the display layout and features to your kitchen's needs.",
+    icon: Settings
+  }];
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-24">
         <section className="bg-purple-light/10 py-20">
@@ -54,7 +38,7 @@ const KitchenDisplay = () => {
                 Streamline your kitchen operations with our advanced KDS solution. Improve efficiency, reduce errors, and enhance communication between front and back of house.
               </p>
               <Button asChild className="btn-primary">
-                <Link to="/contact">Get Started</Link>
+                <Link to="/contact">Get Started for Free</Link>
               </Button>
             </div>
           </div>
@@ -64,20 +48,13 @@ const KitchenDisplay = () => {
           <div className="container-custom">
             <div className="mb-16 flex justify-center">
               <div className="max-w-2xl bg-transparent rounded-xl p-4">
-                <img 
-                  src="/lovable-uploads/85df272f-78b0-4180-bd9e-a069e750623a.png" 
-                  alt="Kitchen Display System Interface"
-                  className="w-full h-auto object-contain rounded-xl"
-                  style={{ 
-                    filter: 'drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1))'
-                  }}
-                  loading="eager"
-                />
+                <img src="/lovable-uploads/85df272f-78b0-4180-bd9e-a069e750623a.png" alt="Kitchen Display System Interface" className="w-full h-auto object-contain rounded-xl" style={{
+                filter: 'drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1))'
+              }} loading="eager" />
               </div>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature) => (
-                <Card key={feature.title} className="card-hover">
+              {features.map(feature => <Card key={feature.title} className="card-hover">
                   <CardHeader>
                     <div className="flex items-center gap-3">
                       <feature.icon className="h-6 w-6 text-purple" />
@@ -85,8 +62,7 @@ const KitchenDisplay = () => {
                     </div>
                     <CardDescription>{feature.description}</CardDescription>
                   </CardHeader>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </section>
@@ -114,8 +90,6 @@ const KitchenDisplay = () => {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default KitchenDisplay;
