@@ -4,38 +4,29 @@ import Footer from '@/components/Footer';
 import { BarChart, PieChart, LineChart, TrendingUp, Database, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-
 const Analytics = () => {
-  const features = [
-    {
-      title: "Real-time Dashboards",
-      description: "Monitor your restaurant's performance with live updates and key metrics at a glance.",
-      icon: BarChart
-    },
-    {
-      title: "Sales Tracking",
-      description: "Analyze sales by time periods, menu categories, payment methods, and more.",
-      icon: LineChart
-    },
-    {
-      title: "Customer Insights",
-      description: "Understand customer behavior patterns, preferences, and spending habits.",
-      icon: PieChart
-    },
-    {
-      title: "Performance Trends",
-      description: "Identify growth opportunities and areas for improvement with trend analysis.",
-      icon: TrendingUp
-    },
-    {
-      title: "Data Export & Integration",
-      description: "Easily export data in multiple formats or integrate with your existing systems.",
-      icon: Database
-    }
-  ];
-
-  return (
-    <div className="min-h-screen flex flex-col">
+  const features = [{
+    title: "Real-time Dashboards",
+    description: "Monitor your restaurant's performance with live updates and key metrics at a glance.",
+    icon: BarChart
+  }, {
+    title: "Sales Tracking",
+    description: "Analyze sales by time periods, menu categories, payment methods, and more.",
+    icon: LineChart
+  }, {
+    title: "Customer Insights",
+    description: "Understand customer behavior patterns, preferences, and spending habits.",
+    icon: PieChart
+  }, {
+    title: "Performance Trends",
+    description: "Identify growth opportunities and areas for improvement with trend analysis.",
+    icon: TrendingUp
+  }, {
+    title: "Data Export & Integration",
+    description: "Easily export data in multiple formats or integrate with your existing systems.",
+    icon: Database
+  }];
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-28 pb-16">
         <div className="container-custom max-w-6xl mx-auto">
@@ -50,21 +41,17 @@ const Analytics = () => {
               </p>
               <div className="flex gap-4">
                 <Button asChild className="btn-primary text-base">
-                  <Link to="/contact">Request Demo</Link>
+                  <Link to="/contact">Get Started for Free</Link>
                 </Button>
                 <Button asChild variant="outline" className="text-base">
-                  <Link to="/products">View All Solutions</Link>
+                  
                 </Button>
               </div>
             </div>
             
             <div className="w-full md:w-1/2 flex items-center">
               <div className="w-full bg-gradient-to-br from-purple-light/30 to-white rounded-xl overflow-hidden p-0">
-                <img 
-                  src="/lovable-uploads/35e9fd73-7370-41cc-89e5-6259df112af0.png" 
-                  alt="Menu & Visitor Analytics Dashboard"
-                  className="w-full h-auto object-contain mix-blend-multiply"
-                />
+                <img src="/lovable-uploads/35e9fd73-7370-41cc-89e5-6259df112af0.png" alt="Menu & Visitor Analytics Dashboard" className="w-full h-auto object-contain mix-blend-multiply" />
               </div>
             </div>
           </div>
@@ -74,8 +61,7 @@ const Analytics = () => {
               <h2 className="text-3xl font-bold mb-10 text-center">Key Analytics Features</h2>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {features.map((feature) => (
-                  <div key={feature.title} className="bg-white rounded-xl p-6 shadow-md">
+                {features.map(feature => <div key={feature.title} className="bg-white rounded-xl p-6 shadow-md">
                     <div className="flex mb-4">
                       <div className="p-2 bg-purple-light/30 rounded-lg">
                         <feature.icon className="text-purple h-6 w-6" />
@@ -83,8 +69,7 @@ const Analytics = () => {
                     </div>
                     <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
                     <p className="text-gray-600">{feature.description}</p>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
           </section>
@@ -219,8 +204,6 @@ const Analytics = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Analytics;
