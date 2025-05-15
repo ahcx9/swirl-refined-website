@@ -150,7 +150,7 @@ const FinancialReports = () => {
               Join successful restaurant owners who have improved their profit margins by gaining full visibility into their financial performance with Swirl's comprehensive reporting tools.
             </p>
             <Button asChild className="btn-primary text-base">
-              <Link to="/contact">Schedule a Consultation</Link>
+              <Link to="/contact">Get Started for Free</Link>
             </Button>
           </section>
         </div>
