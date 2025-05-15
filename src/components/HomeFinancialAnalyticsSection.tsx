@@ -66,7 +66,7 @@ const HomeFinancialAnalyticsSection = () => {
                   
                   <div className="perspective-1000">
                     <div className="transform transition-all duration-700 hover:scale-[1.02]">
-                      <img src="/lovable-uploads/459383dc-eff1-410b-af47-ff49a9a0a01e.png" alt="Financial Analytics Dashboard" loading="eager" className="w-full h-auto rounded-lg shadow-inner object-contain" />
+                      <img alt="Financial Analytics Dashboard" loading="eager" className="w-full h-auto rounded-lg shadow-inner object-contain" src="/lovable-uploads/2e0f4208-a025-4a95-a266-cf5c3b63fb68.png" />
                       
                       <div className="absolute bottom-4 right-4 bg-blue-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
                         Clear Financial Insights
