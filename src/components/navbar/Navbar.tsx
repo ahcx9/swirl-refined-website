@@ -123,7 +123,7 @@ const Navbar = () => {
           <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full py-5 flex items-center gap-2">
             <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">
               <WhatsApp size={18} className="flex-shrink-0" />
-              <span className="text-sm md:text-base">Chat with us</span>
+              <span className="text-sm md:text-base">Chat on WhatsApp</span>
             </a>
           </Button>  
             
