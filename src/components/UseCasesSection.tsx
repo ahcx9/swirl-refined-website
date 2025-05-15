@@ -123,7 +123,7 @@ const UseCasesSection = () => {
             }}></div>}
               </div>
               
-              <div className="relative z-10 p-6 md:p-8 h-full flex flex-col bg-sky-200">
+              <div className="relative z-10 p-6 md:p-8 h-full flex flex-col bg-sky-100">
                 {/* Icon */}
                 <div className={`w-14 h-14 rounded-full ${useCase.color} bg-white flex items-center justify-center mb-5 shadow-sm group-hover:scale-110 transition-transform duration-300`}>
                   <useCase.icon size={28} />
