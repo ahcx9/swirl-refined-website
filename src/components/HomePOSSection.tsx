@@ -44,7 +44,7 @@ const HomePOSSection = () => {
               
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">Point of Sale</h2>
               
-              <p className="text-blue-600/80 mb-8 text-lg leading-relaxed">
+              <p className="mb-8 text-lg leading-relaxed text-neutral-700">
                 Our easy-to-use POS is designed specifically for restaurants, with table management, split bills, modifiers, 
                 and tip management. The system works online and offline, ensuring uninterrupted service.
               </p>
