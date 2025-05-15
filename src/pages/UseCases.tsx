@@ -77,7 +77,7 @@ const UseCases = () => {
             <div className="max-w-3xl mx-auto text-center">
               <span className="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">SERVING EVERY CORNER OF HOSPITALITY</span>
               <h1 className="text-4xl font-bold mb-6 font-inter text-gray-950 md:text-6xl">Use Cases</h1>
-              <p className="text-lg text-blue-700/80 mb-8 font-inter">
+              <p className="text-lg mb-8 font-inter text-slate-800">
                 Discover tailored solutions for every segment of the food service industry. From food trucks to fine dining establishments, we provide specialized tools to enhance your operations.
               </p>
               <Button asChild className="btn-primary font-inter bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 py-6 px-8 rounded-xl shadow-lg">
