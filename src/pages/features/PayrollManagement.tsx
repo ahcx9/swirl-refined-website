@@ -58,7 +58,7 @@ const PayrollManagement = () => {
                     Our payroll management solution reduces the time spent on administrative tasks by up to 80%, allowing you to focus on what matters most—running your restaurant and serving your customers.
                   </p>
                   <Button asChild className="self-start btn-primary">
-                    <Link to="/contact">Schedule a Demo</Link>
+                    <Link to="/contact">Get Started For Free</Link>
                   </Button>
                 </div>
               </div>
@@ -104,10 +104,10 @@ const PayrollManagement = () => {
               <p className="mb-6">Join thousands of restaurant owners who trust our platform for their payroll needs.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button asChild className="btn-primary">
-                  <Link to="/contact">Contact Sales</Link>
+                  <Link to="/contact">Get Started For Free</Link>
                 </Button>
                 <Button asChild variant="outline">
-                  <Link to="/products">View All Solutions</Link>
+                  
                 </Button>
               </div>
             </div>
