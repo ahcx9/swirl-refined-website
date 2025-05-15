@@ -36,7 +36,7 @@ const HomeInventorySection = () => {
                         <div className="overflow-hidden">
                           <img alt="Inventory Management Dashboard" loading="eager" fetchPriority="high" decoding="sync" style={{
                           transform: 'translateZ(0)'
-                        }} src="/lovable-uploads/f274f291-3347-4cc6-b6d9-6774165b32cd.png" className="w-full h-auto rounded-lg shadow-inner transform scale-100 object-cover" />
+                        }} className="w-full h-auto rounded-lg shadow-inner transform scale-100 object-cover" src="/lovable-uploads/5245388f-d3d0-478b-aeff-1b60e7ac7ba3.png" />
                         </div>
                       </AspectRatio>
                       
