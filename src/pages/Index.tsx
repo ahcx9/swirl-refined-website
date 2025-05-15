@@ -32,9 +32,11 @@ const Index = () => {
         </div>
         <Features />
         <UseCasesSection />
-        <HomePOSSection />
-        <HomeInventorySection />
-        <HomeFinancialAnalyticsSection />
+        <div className="bg-gradient-to-b from-white to-blue-50/30">
+          <HomePOSSection />
+          <HomeInventorySection />
+          <HomeFinancialAnalyticsSection />
+        </div>
         <StepProcess />
         <NextGenFeatures />
         <BlogSection />

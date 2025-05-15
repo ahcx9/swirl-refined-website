@@ -1,7 +1,10 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, BarChart, FileText, DollarSign, LineChart, FileBarChart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+
 const HomeFinancialAnalyticsSection = () => {
   const features = [{
     icon: BarChart,
@@ -19,13 +22,14 @@ const HomeFinancialAnalyticsSection = () => {
     icon: DollarSign,
     text: 'Customizable reporting'
   }];
+  
   return <section className="py-16 overflow-hidden relative">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 to-white -z-10"></div>
       
       <div className="container-custom relative">
         <div className="grid md:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Content column */}
-          <div className="md:col-span-6 lg:col-span-7 order-2 md:order-1">
+          <div className="md:col-span-6 lg:col-span-5 order-2 md:order-1">
             <div className="animate-on-scroll">
               <div className="mb-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/80 border border-blue-100 backdrop-blur-sm">
                 <span className="text-blue-600 font-medium">Data-Driven Decisions for Restaurant Success</span>
@@ -57,23 +61,31 @@ const HomeFinancialAnalyticsSection = () => {
             </div>
           </div>
           
-          {/* Image column - made smaller and more visible */}
-          <div className="md:col-span-6 lg:col-span-5 order-1 md:order-2">
-            <Card className="overflow-hidden border-0 shadow-xl rounded-2xl bg-gradient-to-br from-blue-600/5 to-indigo-600/10 max-w-md mx-auto">
-              <CardContent className="p-0">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-indigo-600/5 rounded-xl"></div>
-                  
-                  <div className="perspective-1000">
-                    <div className="transform transition-all duration-700 hover:scale-[1.02]">
-                      <img alt="Financial Analytics Dashboard" loading="eager" className="w-full h-auto rounded-lg shadow-inner object-contain" src="/lovable-uploads/2e0f4208-a025-4a95-a266-cf5c3b63fb68.png" />
-                      
-                      <div className="absolute bottom-4 right-4 bg-blue-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
-                        Clear Financial Insights
+          {/* Image column - made larger and more visible like other sections */}
+          <div className="md:col-span-6 lg:col-span-7 order-1 md:order-2">
+            <Card className="overflow-hidden border-0 shadow-xl rounded-2xl bg-gradient-to-br from-blue-600/5 to-indigo-600/10 mx-auto">
+              <CardContent className="p-1 md:p-2">
+                <AspectRatio ratio={16/10} className="overflow-hidden rounded-xl">
+                  <div className="relative h-full w-full">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-indigo-600/5 rounded-xl"></div>
+                    
+                    <div className="perspective-1000 h-full w-full">
+                      <div className="transform transition-all duration-700 hover:scale-[1.01] h-full w-full flex items-center justify-center">
+                        <img 
+                          alt="Financial Analytics Dashboard" 
+                          loading="eager" 
+                          fetchPriority="high"
+                          className="w-full h-auto rounded-lg shadow-inner object-contain" 
+                          src="/lovable-uploads/2e0f4208-a025-4a95-a266-cf5c3b63fb68.png" 
+                        />
                       </div>
                     </div>
+                    
+                    <div className="absolute bottom-4 right-4 bg-blue-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
+                      Clear Financial Insights
+                    </div>
                   </div>
-                </div>
+                </AspectRatio>
               </CardContent>
             </Card>
           </div>
@@ -85,4 +97,5 @@ const HomeFinancialAnalyticsSection = () => {
       <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-indigo-300/20 rounded-full blur-3xl -z-10"></div>
     </section>;
 };
+
 export default HomeFinancialAnalyticsSection;
