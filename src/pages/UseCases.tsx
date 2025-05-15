@@ -101,9 +101,9 @@ const UseCases = () => {
                       <div className={`w-14 h-14 rounded-full ${segment.iconBg} flex items-center justify-center ${segment.iconColor}`}>
                         <segment.icon className="h-7 w-7" />
                       </div>
-                      <CardTitle className="font-inter text-2xl text-purple-dark">{segment.title}</CardTitle>
+                      <CardTitle className="font-inter text-2xl text-swirl-blue">{segment.title}</CardTitle>
                     </div>
-                    <CardDescription className="font-inter mt-2 text-base text-cyan-700">{segment.description}</CardDescription>
+                    <CardDescription className="font-inter mt-2 text-base text-amber-950">{segment.description}</CardDescription>
                   </CardHeader>
                 </Card>)}
             </div>
