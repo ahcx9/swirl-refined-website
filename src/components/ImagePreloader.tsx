@@ -1,6 +1,7 @@
 
 import { useEffect } from 'react';
 import { preloadImages } from '@/utils/imagePreloader';
+import { toast } from '@/hooks/use-toast';
 
 // List of critical images that should be preloaded immediately
 const CRITICAL_IMAGES = [
@@ -22,16 +23,40 @@ const IMPORTANT_IMAGES = [
   "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format"
 ];
 
+// Restaurant logos for TrustedRestaurants component
+const RESTAURANT_LOGOS = [
+  "/lovable-uploads/a8754738-56a4-4a8c-9f5c-3e927d004034.png",
+  "/lovable-uploads/b2a2c52b-6298-4bda-8fd2-e0cab6171584.png",
+  "/lovable-uploads/9c58af8c-a78c-4160-a783-7f54412c5b7b.png",
+  "/lovable-uploads/9000dd52-fbe9-4430-8c38-eb0ab5e87e57.png",
+  "/lovable-uploads/c94d5f7d-130d-41cd-beb1-b2e68c9cbb68.png",
+  "/lovable-uploads/8640f632-7915-47fa-b872-fc41d1a44c0b.png",
+  "/lovable-uploads/14839f2a-a0c1-41c9-be9b-29e27db33069.png",
+  "/lovable-uploads/e2451a50-0cd8-43cc-91e7-db85f6e18a53.png",
+  "/lovable-uploads/e5232452-9f07-430a-98e1-a6fa00f50235.png"
+];
+
 const ImagePreloader = () => {
   useEffect(() => {
     // First, preload critical images with high priority
-    preloadImages(CRITICAL_IMAGES, 3)
+    preloadImages(CRITICAL_IMAGES, 5)
       .then(() => {
-        // After critical images, load important ones
-        return preloadImages(IMPORTANT_IMAGES, 1);
+        // After critical images, load restaurant logos with priority
+        return preloadImages(RESTAURANT_LOGOS, 3);
+      })
+      .then(() => {
+        // Finally load important images
+        return preloadImages(IMPORTANT_IMAGES, 2);
       })
       .catch(err => {
         console.error('Error preloading images:', err);
+        // Show a subtle toast notification for image loading issues
+        toast({
+          title: "Some images may load slower",
+          description: "We're working on optimizing the experience",
+          variant: "default",
+          duration: 3000
+        });
       });
       
     // Use intersection observer to detect when we're about to need other images

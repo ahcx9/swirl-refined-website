@@ -19,16 +19,22 @@ export const preloadImage = ({ src, priority = 'auto', as = 'image' }: PreloadIm
       link.as = as;
       link.href = src;
       link.onload = () => resolve();
-      link.onerror = (err) => reject(err);
+      link.onerror = () => {
+        console.log(`Preload failed for ${src}, falling back to image object`);
+        // Continue with Image object as fallback
+        const img = new Image();
+        img.src = src;
+        img.onload = () => resolve();
+        img.onerror = () => reject(new Error(`Failed to preload image: ${src}`));
+      };
       document.head.appendChild(link);
     }
     
     // Always create an image object as fallback or for low/auto priority
     const img = new Image();
     img.src = src;
-    img.fetchPriority = priority;
     img.onload = () => resolve();
-    img.onerror = (err) => reject(err);
+    img.onerror = () => reject(new Error(`Failed to preload image: ${src}`));
   });
 };
 
@@ -38,7 +44,12 @@ export const preloadImage = ({ src, priority = 'auto', as = 'image' }: PreloadIm
 export const preloadImages = (images: string[], highPriorityCount = 1): Promise<void[]> => {
   const prioritizedImages = images.map((src, index) => {
     const priority = index < highPriorityCount ? 'high' : 'auto';
-    return preloadImage({ src, priority });
+    return preloadImage({ src, priority })
+      .catch(err => {
+        console.error(`Error preloading image ${src}:`, err);
+        // Return a resolved promise to prevent one failed image from stopping all others
+        return Promise.resolve();
+      });
   });
   
   return Promise.all(prioritizedImages);

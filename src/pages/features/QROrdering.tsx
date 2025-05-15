@@ -1,12 +1,25 @@
-import React from 'react';
+
+import React, { useEffect } from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import TrustedRestaurants from '@/components/TrustedRestaurants';
 import { ShoppingCart, CheckCircle, CreditCard, TrendingUp, Clock, Smartphone, UserPlus, MenuSquare, Phone, Utensils } from 'lucide-react';
+import { preloadImages } from '@/utils/imagePreloader';
+
 const QROrdering = () => {
-  return <div className="min-h-screen flex flex-col">
+  // Preload images when the component mounts
+  useEffect(() => {
+    // Preload QR ordering specific images
+    preloadImages([
+      "/lovable-uploads/b782c244-bfdc-479d-929c-fbb28e8a4040.png",
+      "/lovable-uploads/cb050b33-51a3-4f11-bd02-f9fe6ffdde44.png"
+    ], 2);
+  }, []);
+
+  return (
+    <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-24 pb-16">
         <section className="bg-purple-light/10 py-20">
@@ -24,7 +37,7 @@ const QROrdering = () => {
                 contactless ordering experience that today's diners prefer.
               </p>
               <Button asChild size="lg" className="btn-primary">
-                <Link to="/contact">Get Started for Free</Link>
+                <a href="https://app.swirl.cx/register">Get Started for Free</a>
               </Button>
             </div>
           </div>
@@ -65,7 +78,12 @@ const QROrdering = () => {
                 </div>
               </div>
               <div className="rounded-xl overflow-hidden shadow-lg">
-                <img src="/lovable-uploads/b782c244-bfdc-479d-929c-fbb28e8a4040.png" alt="QR code scanning experience" className="w-full h-auto object-cover" />
+                <img 
+                  src="/lovable-uploads/b782c244-bfdc-479d-929c-fbb28e8a4040.png" 
+                  alt="QR code scanning experience" 
+                  className="w-full h-auto object-cover" 
+                  loading="eager"
+                />
               </div>
             </div>
           </div>
@@ -109,7 +127,12 @@ const QROrdering = () => {
           <div className="container-custom">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
-                <img src="/lovable-uploads/cb050b33-51a3-4f11-bd02-f9fe6ffdde44.png" alt="Order at your ease on smartphone" className="rounded-xl shadow-lg w-full h-auto" />
+                <img 
+                  src="/lovable-uploads/cb050b33-51a3-4f11-bd02-f9fe6ffdde44.png" 
+                  alt="Order at your ease on smartphone" 
+                  className="rounded-xl shadow-lg w-full h-auto" 
+                  loading="eager"
+                />
               </div>
               <div className="order-1 md:order-2">
                 <h2 className="text-3xl font-bold mb-6">Order at Your Ease</h2>
@@ -227,13 +250,15 @@ const QROrdering = () => {
                 experience while increasing efficiency and revenue.
               </p>
               <Button asChild size="lg" className="btn-primary">
-                <Link to="/contact">Get Started For Free</Link>
+                <a href="https://app.swirl.cx/register">Get Started For Free</a>
               </Button>
             </div>
           </div>
         </section>
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default QROrdering;

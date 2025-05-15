@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
+import { preloadImages } from '@/utils/imagePreloader';
 
 const TrustedRestaurants = () => {
   const logos = [
@@ -43,6 +44,15 @@ const TrustedRestaurants = () => {
 
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  
+  // Preload all logo images with high priority
+  useEffect(() => {
+    const logoUrls = logos.map(logo => logo.src);
+    preloadImages(logoUrls, 4)
+      .catch(err => {
+        console.error('Error preloading logo images:', err);
+      });
+  }, []);
   
   useEffect(() => {
     const scrollContainer = scrollRef.current;
@@ -90,6 +100,7 @@ const TrustedRestaurants = () => {
                   src={logo.src} 
                   alt={logo.alt}
                   className="max-h-full max-w-full object-contain"
+                  loading={index < 3 ? "eager" : "lazy"}
                 />
               </div>
             ))}
@@ -104,6 +115,7 @@ const TrustedRestaurants = () => {
                   src={logo.src} 
                   alt={logo.alt}
                   className="max-h-full max-w-full object-contain"
+                  loading="lazy"
                 />
               </div>
             ))}
