@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+
 const HeroSection = () => {
   return <div className="flex flex-col gap-8 mb-16 bg-transparent">
       <div className="w-full text-center">
@@ -22,13 +24,22 @@ const HeroSection = () => {
       </div>
       
       <div className="w-full">
-        <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-300/20 to-indigo-300/20 rounded-2xl blur-3xl opacity-50"></div>
-          <div className="bg-gradient-to-br from-blue-50/90 to-indigo-50/90 overflow-hidden p-4 shadow-xl relative rounded-2xl bg-transparent">
-            <img src="/lovable-uploads/947b4eab-99e0-4ea2-ad4e-5fb3a2f90fab.png" alt="Digital Menu on Mobile Devices" className="w-1/2 h-auto mx-auto object-contain rounded-lg transform hover:scale-[1.02] transition-transform duration-500" loading="eager" />
-          </div>
+        <div className="relative mx-auto max-w-2xl">
+          <img 
+            src="/lovable-uploads/947b4eab-99e0-4ea2-ad4e-5fb3a2f90fab.png" 
+            alt="Digital Menu on Mobile Devices" 
+            className="w-4/5 h-auto mx-auto object-contain transform hover:scale-[1.02] transition-transform duration-500" 
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            style={{
+              maxWidth: "100%",
+              filter: "drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.15))"
+            }}
+          />
         </div>
       </div>
     </div>;
 };
+
 export default HeroSection;
