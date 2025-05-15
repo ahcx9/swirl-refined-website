@@ -59,7 +59,7 @@ const HomeInventorySection = () => {
               
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">Inventory Management</h2>
               
-              <p className="mb-8 text-lg leading-relaxed text-slate-500">
+              <p className="mb-8 text-lg leading-relaxed text-neutral-700">
                 Take control of your restaurant's inventory with real-time tracking, automated ordering, 
                 and waste management tools. Reduce costs, minimize waste, and never run out of essential ingredients.
               </p>
