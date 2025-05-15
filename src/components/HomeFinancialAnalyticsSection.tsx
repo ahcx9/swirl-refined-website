@@ -1,35 +1,25 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, BarChart, FileText, DollarSign, LineChart, FileBarChart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-
 const HomeFinancialAnalyticsSection = () => {
-  const features = [
-    {
-      icon: BarChart,
-      text: 'Real-time revenue tracking'
-    }, 
-    {
-      icon: FileText,
-      text: 'Food & labor cost analysis'
-    }, 
-    {
-      icon: LineChart,
-      text: 'Menu performance insights'
-    }, 
-    {
-      icon: FileBarChart,
-      text: 'Profit & loss statements'
-    }, 
-    {
-      icon: DollarSign,
-      text: 'Customizable reporting'
-    }
-  ];
-  
-  return (
-    <section className="py-16 overflow-hidden relative">
+  const features = [{
+    icon: BarChart,
+    text: 'Real-time revenue tracking'
+  }, {
+    icon: FileText,
+    text: 'Food & labor cost analysis'
+  }, {
+    icon: LineChart,
+    text: 'Menu performance insights'
+  }, {
+    icon: FileBarChart,
+    text: 'Profit & loss statements'
+  }, {
+    icon: DollarSign,
+    text: 'Customizable reporting'
+  }];
+  return <section className="py-16 overflow-hidden relative">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 to-white -z-10"></div>
       
       <div className="container-custom relative">
@@ -43,22 +33,20 @@ const HomeFinancialAnalyticsSection = () => {
               
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">Financial Reports</h2>
               
-              <p className="text-blue-600/80 mb-8 text-lg leading-relaxed">
+              <p className="mb-8 text-lg leading-relaxed text-neutral-700">
                 Turn data into actionable insights with our comprehensive financial analytics tools. Track sales trends, 
                 identify your most profitable items, monitor labor costs, and make informed decisions for your restaurant.
               </p>
               
               <div className="grid grid-cols-1 gap-3 mb-10">
-                {features.map((feature, index) => (
-                  <Card key={index} className="bg-white/80 border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
+                {features.map((feature, index) => <Card key={index} className="bg-white/80 border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
                     <CardContent className="p-4 flex items-center gap-3">
                       <div className="p-2 rounded-full bg-blue-50">
                         <feature.icon className="h-5 w-5 text-blue-600" />
                       </div>
                       <span className="text-blue-600/80">{feature.text}</span>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
               
               <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg text-white">
@@ -78,12 +66,7 @@ const HomeFinancialAnalyticsSection = () => {
                   
                   <div className="perspective-1000">
                     <div className="transform transition-all duration-700 hover:scale-[1.02]">
-                      <img 
-                        src="/lovable-uploads/459383dc-eff1-410b-af47-ff49a9a0a01e.png" 
-                        alt="Financial Analytics Dashboard" 
-                        loading="eager" 
-                        className="w-full h-auto rounded-lg shadow-inner object-contain" 
-                      />
+                      <img src="/lovable-uploads/459383dc-eff1-410b-af47-ff49a9a0a01e.png" alt="Financial Analytics Dashboard" loading="eager" className="w-full h-auto rounded-lg shadow-inner object-contain" />
                       
                       <div className="absolute bottom-4 right-4 bg-blue-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
                         Clear Financial Insights
@@ -100,8 +83,6 @@ const HomeFinancialAnalyticsSection = () => {
       {/* Decorative elements */}
       <div className="absolute top-1/4 left-0 w-64 h-64 bg-blue-300/20 rounded-full blur-3xl -z-10"></div>
       <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-indigo-300/20 rounded-full blur-3xl -z-10"></div>
-    </section>
-  );
+    </section>;
 };
-
 export default HomeFinancialAnalyticsSection;
