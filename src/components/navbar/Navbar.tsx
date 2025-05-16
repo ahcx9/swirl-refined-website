@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { NavigationItems } from './NavigationItems';
 import { MobileMenu } from './MobileMenu';
 import { WhatsApp } from '@/components/SocialIcons';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { useLanguage } from '@/contexts/LanguageContext';
 import CustomCTAButton from '@/components/CustomCTAButton';
 
@@ -123,9 +122,6 @@ const Navbar = () => {
         </div>
         
         <div className="hidden md:flex items-center gap-4">
-          {/* Language Switcher */}
-          <LanguageSwitcher />
-          
           {/* WhatsApp Button - adjusted size */}
           <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full py-3 px-4 flex items-center gap-2">
             <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">
@@ -136,7 +132,7 @@ const Navbar = () => {
             
           {/* CTA Button - adjusted size */}
           <div className="hidden md:block">
-            <CustomCTAButton href="https://app.swirl.cx/register" className="scale-90 py-2.5" openInNewTab>
+            <CustomCTAButton href="https://app.swirl.cx/register" className="scale-95 py-2.5" openInNewTab>
               {t('nav.getStarted')}
             </CustomCTAButton>
           </div>
