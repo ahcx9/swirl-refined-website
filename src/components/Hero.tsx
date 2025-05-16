@@ -59,7 +59,7 @@ const Hero = () => {
           
           <div className="flex justify-center">
             <CustomCTAButton href="https://app.swirl.cx/register">
-              Get Started For Free />
+              Get Started For Free
             </CustomCTAButton>
           </div>
         </div>
