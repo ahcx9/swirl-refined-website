@@ -38,9 +38,19 @@ html[dir="rtl"] .icon-arrow svg {
   transform: scaleX(-1);
 }
 
-/* Flip flex direction for layouts */
+/* Fix navbar layout in RTL mode */
 html[dir="rtl"] .flex-row {
   flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .justify-between {
+  justify-content: space-between;
+}
+
+/* Fix navbar positioning for items */
+html[dir="rtl"] .NavigationMenuContent {
+  left: auto !important;
+  right: 0 !important;
 }
 
 /* Adjust text alignment */
@@ -50,12 +60,6 @@ html[dir="rtl"] .text-left {
 
 html[dir="rtl"] .text-right {
   text-align: left;
-}
-
-/* Fix navigation menus */
-html[dir="rtl"] .NavigationMenuContent {
-  left: auto;
-  right: 0;
 }
 
 /* Fix dropdown positioning */
@@ -84,13 +88,24 @@ html[dir="rtl"] .gap-2 {
   flex-direction: row-reverse;
 }
 
-/* Fix navbar layout */
-html[dir="rtl"] .justify-between {
+/* Adjust navbar styles for RTL */
+html[dir="rtl"] .navbar-container {
   flex-direction: row-reverse;
+}
+
+/* Fix mobile menu in RTL mode */
+html[dir="rtl"] .mobile-menu {
+  left: auto;
+  right: 0;
 }
 
 /* Adjust CTA button styling */
 html[dir="rtl"] .btn-content .btn-title {
   padding-right: 0;
   padding-left: 30px;
+}
+
+/* Ensure proper flex behavior in RTL mode */
+html[dir="rtl"] .flex {
+  display: flex;
 }

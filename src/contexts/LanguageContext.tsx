@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 
 type Language = 'en' | 'ar';
@@ -69,13 +68,27 @@ const translations = {
     'digitalMenu.cta': 'Ready to revolutionize your menu experience?',
     'digitalMenu.cta.subtitle': 'Join restaurants worldwide already using our digital menu system to enhance customer experience and streamline operations.',
     
+    // Inventory Management Page
+    'inventory.title': 'Inventory Management',
+    'inventory.subtitle': 'Take control of your restaurant\'s inventory with our advanced management system. Track stock levels, reduce waste, and optimize your purchasing with real-time monitoring and predictive analytics.',
+    'inventory.features': 'Key Inventory Management Features',
+    'inventory.why': 'Why Invest in Inventory Management?',
+    'inventory.benefits': 'Key Benefits',
+    'inventory.integration': 'Integration Capabilities',
+    'inventory.ready': 'Ready to optimize your inventory?',
+    'inventory.join': 'Join successful restaurants that have reduced waste, lowered costs, and improved efficiency with Swirl\'s comprehensive inventory management solution.',
+    
     // Footer
     'footer.company': 'Company',
     'footer.products': 'Products',
     'footer.resources': 'Resources',
     'footer.contact': 'Contact Us',
     'footer.copyright': 'All rights reserved',
-    // Add more translations as needed
+    
+    // Other Pages
+    'notFound.title': 'Page Not Found',
+    'notFound.message': 'The page you are looking for doesn\'t exist or has been moved.',
+    'notFound.back': 'Go back to home',
   },
   ar: {
     // Navigation
@@ -133,13 +146,27 @@ const translations = {
     'digitalMenu.cta': 'هل أنت مستعد لثورة في تجربة القائمة الخاصة بك؟',
     'digitalMenu.cta.subtitle': 'انضم إلى المطاعم في جميع أنحاء العالم التي تستخدم بالفعل نظام القائمة الرقمية لدينا لتعزيز تجربة العملاء وتبسيط العمليات.',
     
+    // Inventory Management Page
+    'inventory.title': 'إدارة المخزون',
+    'inventory.subtitle': 'تولى السيطرة على مخزون مطعمك بنظام الإدارة المتقدم. تتبع مستويات المخزون، وتقليل الهدر، وتحسين عملية الشراء من خلال المراقبة في الوقت الحقيقي والتحليلات التنبؤية.',
+    'inventory.features': 'ميزات إدارة المخزون الرئيسية',
+    'inventory.why': 'لماذا الاستثمار في إدارة المخزون؟',
+    'inventory.benefits': 'الفوائد الرئيسية',
+    'inventory.integration': 'قدرات التكامل',
+    'inventory.ready': 'هل أنت جاهز لتحسين المخزون الخاص بك؟',
+    'inventory.join': 'انضم إلى المطاعم الناجحة التي قللت من الهدر، وخفضت التكاليف، وحسنت الكفاءة مع حل Swirl الشامل لإدارة المخزون.',
+    
     // Footer
     'footer.company': 'الشركة',
     'footer.products': 'المنتجات',
     'footer.resources': 'الموارد',
     'footer.contact': 'اتصل بنا',
     'footer.copyright': 'جميع الحقوق محفوظة',
-    // Add more translations as needed
+    
+    // Other Pages
+    'notFound.title': 'الصفحة غير موجودة',
+    'notFound.message': 'الصفحة التي تبحث عنها غير موجودة أو تم نقلها.',
+    'notFound.back': 'العودة إلى الصفحة الرئيسية',
   }
 };
 

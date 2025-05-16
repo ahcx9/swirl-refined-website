@@ -80,12 +80,12 @@ const Navbar = () => {
   const { t, language } = useLanguage();
 
   const mainLinks = [
-    { name: 'Point of Sale', path: '/products/restaurant-point-of-sale' },
-    { name: 'Inventory Management', path: '/products/inventory-management' },
-    { name: 'Digital Menu', path: '/products/digital-menu' },
-    { name: 'QR Ordering', path: '/products/qr-ordering' },
+    { name: t('nav.pointOfSale'), path: '/products/restaurant-point-of-sale' },
+    { name: t('nav.inventoryManagement'), path: '/products/inventory-management' },
+    { name: t('nav.digitalMenu'), path: '/products/digital-menu' },
+    { name: t('nav.qrOrdering'), path: '/products/qr-ordering' },
     { name: t('nav.features'), items: features },
-    { name: 'Usecases', path: '/use-cases' },
+    { name: t('nav.usecases'), path: '/use-cases' },
     { name: t('nav.contact'), path: '/contact' },
   ];
 
@@ -109,8 +109,8 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-[1800px] mx-auto px-4 xl:px-8 flex justify-between items-center">
-        <div className="flex items-center">
-          <Link to="/" className="flex items-center mr-8">
+        <div className={`flex items-center ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
+          <Link to="/" className={`flex items-center ${language === 'ar' ? 'ml-8' : 'mr-8'}`}>
             <img 
               src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png" 
               alt="Swirl Logo" 
@@ -123,28 +123,28 @@ const Navbar = () => {
           </div>
         </div>
         
-        <div className="hidden md:flex items-center gap-4">
+        <div className={`hidden md:flex items-center gap-4 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
           {/* Language Switcher */}
           <LanguageSwitcher />
           
-          {/* WhatsApp Button - increased size */}
-          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full py-6 px-4 flex items-center gap-2">
+          {/* WhatsApp Button - adjusted size */}
+          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full py-3 px-4 flex items-center gap-2">
             <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">
-              <WhatsApp size={20} className="flex-shrink-0" />
-              <span className="text-sm md:text-base font-medium">Chat on WhatsApp</span>
+              <WhatsApp size={18} className="flex-shrink-0" />
+              <span className="text-sm font-medium whitespace-nowrap">Chat on WhatsApp</span>
             </a>
           </Button>  
             
-          {/* CTA Button - reduced size */}
+          {/* CTA Button - adjusted size */}
           <div className="hidden md:block">
-            <CustomCTAButton href="https://app.swirl.cx/register" className="scale-95" openInNewTab>
+            <CustomCTAButton href="https://app.swirl.cx/register" className="scale-90 py-2.5" openInNewTab>
               {t('nav.getStarted')}
             </CustomCTAButton>
           </div>
         </div>
 
         <button
-          className="xl:hidden text-black"
+          className={`xl:hidden text-black ${language === 'ar' ? 'order-first' : ''}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={38} /> : <Menu size={38} />}

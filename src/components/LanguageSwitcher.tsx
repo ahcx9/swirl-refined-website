@@ -36,12 +36,14 @@ const LanguageSwitcher: React.FC = () => {
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
-        <span className="font-medium">Language</span>
+        <span className="font-medium whitespace-nowrap">
+          {language === 'en' ? 'Language' : 'اللغة'}
+        </span>
         <ChevronDown className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} size={16} />
       </button>
       
       {isOpen && (
-        <div className="absolute z-10 mt-1 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <div className={`absolute z-10 mt-1 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${language === 'ar' ? 'right-0' : 'left-0'}`}>
           <div className="py-1" role="none">
             <button
               onClick={() => handleLanguageChange('en')}
@@ -52,7 +54,7 @@ const LanguageSwitcher: React.FC = () => {
             </button>
             <button
               onClick={() => handleLanguageChange('ar')}
-              className={`block w-full text-left px-4 py-2 text-sm ${language === 'ar' ? 'bg-gray-100 text-blue-600' : 'text-gray-700'} hover:bg-gray-100`}
+              className={`block w-full text-right px-4 py-2 text-sm ${language === 'ar' ? 'bg-gray-100 text-blue-600' : 'text-gray-700'} hover:bg-gray-100`}
               role="menuitem"
             >
               العربية

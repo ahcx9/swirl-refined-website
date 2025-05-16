@@ -23,7 +23,7 @@ export const MobileMenu = ({
   toggleDropdown,
   onClose
 }: MobileMenuProps) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   if (!isOpen) return null;
 
@@ -32,25 +32,25 @@ export const MobileMenu = ({
   };
 
   return (
-    <div className="xl:hidden bg-white shadow-lg fixed top-[80px] left-0 right-0 h-[calc(100vh-80px)] overflow-y-auto z-50">
+    <div className={`xl:hidden bg-white shadow-lg fixed top-[80px] left-0 right-0 h-[calc(100vh-80px)] overflow-y-auto z-50 ${language === 'ar' ? 'rtl' : ''}`}>
       <div className="container-custom py-6 flex flex-col space-y-4">
         {links.map((link) => (
           link.items ? (
             <div key={link.name} className="space-y-3 border-b border-gray-100 pb-4">
               <button 
                 onClick={() => toggleDropdown(link.name)}
-                className="flex justify-between items-center w-full font-medium text-black font-inter py-2 text-xl"
+                className={`flex justify-between items-center w-full font-medium text-black font-inter py-2 text-xl ${language === 'ar' ? 'flex-row-reverse' : ''}`}
               >
                 <span>{link.name}</span>
                 <ChevronDown className={`transition-transform ${activeDropdown === link.name ? 'rotate-180' : ''}`} size={22} />
               </button>
               {activeDropdown === link.name && (
-                <div className="pl-4 space-y-4 mt-2">
+                <div className={`pl-4 space-y-4 mt-2 ${language === 'ar' ? 'pr-4 pl-0' : ''}`}>
                   {link.items.map((item: any) => (
                     <Link
                       key={item.title}
                       to={item.path}
-                      className="flex items-center text-black hover:text-blue-600 transition-colors py-2 font-inter"
+                      className={`flex items-center text-black hover:text-blue-600 transition-colors py-2 font-inter ${language === 'ar' ? 'flex-row-reverse justify-end' : ''}`}
                       onClick={onClose}
                     >
                       {getIconComponent(item.icon)}
@@ -65,7 +65,7 @@ export const MobileMenu = ({
               {isExternalLink(link.path!) ? (
                 <a
                   href={link.path!}
-                  className={`text-black hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block`}
+                  className={`text-black hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block ${language === 'ar' ? 'text-right' : ''}`}
                   onClick={onClose}
                 >
                   {link.name}
@@ -73,7 +73,7 @@ export const MobileMenu = ({
               ) : (
                 <Link
                   to={link.path!}
-                  className={`text-black hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block`}
+                  className={`text-black hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block ${language === 'ar' ? 'text-right' : ''}`}
                   onClick={onClose}
                 >
                   {link.name}
@@ -83,20 +83,20 @@ export const MobileMenu = ({
           )
         ))}
         
-        {/* WhatsApp Button for Mobile - Increased size to match CTA */}
+        {/* WhatsApp Button - matched with CTA size */}
         <div className="mt-4 mb-2">
-          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full py-6 px-4 w-full flex items-center justify-center gap-2">
+          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full py-3 px-4 w-full flex items-center justify-center gap-2">
             <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">
-              <WhatsApp size={20} className="flex-shrink-0" />
-              <span className="text-sm md:text-base font-medium">Chat on WhatsApp</span>
+              <WhatsApp size={18} className="flex-shrink-0" />
+              <span className="text-sm font-medium">{t('nav.chatOnWhatsapp')}</span>
             </a>
           </Button>
         </div>
         
-        {/* Smaller CTA Button */}
+        {/* CTA Button */}
         <div className="mt-2 pt-2">
           <div className="mx-auto">
-            <CustomCTAButton href="https://app.swirl.cx/register" className="w-full scale-95" openInNewTab>
+            <CustomCTAButton href="https://app.swirl.cx/register" className="w-full scale-90 py-2.5" openInNewTab>
               {t('nav.getStarted')}
             </CustomCTAButton>
           </div>
