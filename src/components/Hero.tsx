@@ -1,9 +1,11 @@
+
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import Autoplay from 'embla-carousel-autoplay';
 import { useLanguage } from '@/contexts/LanguageContext';
+
 const Hero = () => {
   const [loaded, setLoaded] = useState(false);
   const {
@@ -48,7 +50,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center max-w-5xl mx-auto mb-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-black xl:text-7xl">
-            {t('hero.title')} <span className="text-slate-400">Restaurant Sales</span>
+            {t('hero.title')}
           </h1>
           
           <p className="text-xl md:text-2xl text-swirl-gray mb-10 max-w-3xl mx-auto">
