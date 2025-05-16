@@ -1,7 +1,8 @@
+
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
+import CustomCTAButton from '@/components/CustomCTAButton';
 import { Link } from 'react-router-dom';
 import { CalendarDays, Users, BellRing, CalendarClock, CalendarCheck, ArrowRight } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
@@ -37,9 +38,9 @@ const Reservations = () => {
               <p className="text-lg text-swirl-gray mb-8">
                 Streamline your restaurant's reservation process with our advanced booking system. Manage tables, handle waitlists, and deliver exceptional guest experiences.
               </p>
-              <Button asChild className="btn-primary">
-                <Link to="/contact">Get Started for Free</Link>
-              </Button>
+              <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                Get Started for Free
+              </CustomCTAButton>
             </div>
           </div>
         </section>

@@ -1,8 +1,9 @@
+
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Users, UserCheck, BarChart, Mail, Gift, Star } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import CustomCTAButton from '@/components/CustomCTAButton';
 import { Link } from 'react-router-dom';
 const CRM = () => {
   const features = [{
@@ -47,12 +48,9 @@ const CRM = () => {
               </p>
               
               <div className="flex gap-4">
-                <Button asChild className="btn-primary text-base">
-                  <Link to="/contact">Get Started For Free</Link>
-                </Button>
-                <Button asChild variant="outline" className="text-base">
-                  
-                </Button>
+                <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                  Get Started For Free
+                </CustomCTAButton>
               </div>
             </div>
             
@@ -195,9 +193,9 @@ const CRM = () => {
             <p className="text-lg text-swirl-gray mb-8 max-w-3xl mx-auto">
               Join successful restaurants that use Swirl's CRM to build stronger customer relationships, increase repeat business, and boost revenue.
             </p>
-            <Button asChild className="btn-primary text-base">
-              <Link to="/contact">Get Started for Free</Link>
-            </Button>
+            <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+              Get Started for Free
+            </CustomCTAButton>
           </section>
         </div>
       </main>

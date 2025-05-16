@@ -1,8 +1,9 @@
+
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { LayoutDashboard, PieChart, LineChart, FilePlus2, Calculator } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import CustomCTAButton from '@/components/CustomCTAButton';
 import { Link } from 'react-router-dom';
 
 const FinancialReports = () => {
@@ -43,9 +44,9 @@ const FinancialReports = () => {
                 </p>
 
                 <div className="flex gap-4 justify-center">
-                  <Button asChild className="btn-primary">
-                    <Link to="/contact">Get Started for Free</Link>
-                  </Button>
+                  <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-100">
+                    Get Started for Free
+                  </CustomCTAButton>
                 </div>
               </div>
 
@@ -160,9 +161,9 @@ const FinancialReports = () => {
               <p className="text-lg text-swirl-gray mb-8 max-w-3xl mx-auto">
                 Join successful restaurant owners who have improved their profit margins by gaining full visibility into their financial performance with Swirl's comprehensive reporting tools.
               </p>
-              <Button asChild className="btn-primary text-base">
-                <Link to="/contact">Get Started for Free</Link>
-              </Button>
+              <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                Get Started for Free
+              </CustomCTAButton>
             </section>
           </div>
         </div>

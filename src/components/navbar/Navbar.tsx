@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { NavigationItems } from './NavigationItems';
 import { MobileMenu } from './MobileMenu';
 import { WhatsApp } from '@/components/SocialIcons';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 const features = [
   {
@@ -75,16 +74,15 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const { t } = useLanguage();
 
   const mainLinks = [
-    { name: t('nav.pointOfSale'), path: '/products/restaurant-point-of-sale' },
-    { name: t('nav.inventoryManagement'), path: '/products/inventory-management' },
-    { name: t('nav.digitalMenu'), path: '/products/digital-menu' },
-    { name: t('nav.qrOrdering'), path: '/products/qr-ordering' },
-    { name: t('nav.features'), items: features },
-    { name: t('nav.usecases'), path: '/use-cases' },
-    { name: t('nav.contact'), path: '/contact' },
+    { name: 'Point of Sale', path: '/products/restaurant-point-of-sale' },
+    { name: 'Inventory Management', path: '/products/inventory-management' },
+    { name: 'Digital Menu', path: '/products/digital-menu' },
+    { name: 'QR Ordering', path: '/products/qr-ordering' },
+    { name: 'Features', items: features },
+    { name: 'Use Cases', path: '/use-cases' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   useEffect(() => {
@@ -112,7 +110,7 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png" 
               alt="Swirl Logo" 
-              className="h-12 w-auto object-contain"
+              className="h-14 w-auto object-contain" 
             />
           </Link>
 
@@ -130,9 +128,9 @@ const Navbar = () => {
             </a>
           </Button>  
             
-          {/* CTA Button - using the animated style from Hero */}
+          {/* CTA Button - using the animated style from Hero but slightly smaller */}
           <div className="hidden md:block">
-            <div className="btn-conteiner scale-100">
+            <div className="btn-conteiner scale-90">
               <a className="btn-content" href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
                 <span className="btn-title">Get Started For Free</span>
                 <span className="icon-arrow">

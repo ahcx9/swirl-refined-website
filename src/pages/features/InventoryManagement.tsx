@@ -1,8 +1,8 @@
 
 import React from 'react';
+import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Package, TrendingUp, Clipboard, Users, BarChart, AlertTriangle, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import CustomCTAButton from '@/components/CustomCTAButton';
@@ -42,6 +42,7 @@ const InventoryManagement = () => {
   ];
   
   return <div className="min-h-screen flex flex-col">
+      <Navbar />
       <main className="flex-grow pt-28 pb-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
@@ -150,8 +151,8 @@ const InventoryManagement = () => {
               <p className="text-lg text-swirl-gray mb-10 max-w-3xl mx-auto">
                 {t('inventory.join')}
               </p>
-              <CustomCTAButton href="https://app.swirl.cx/register" className="flex items-center gap-2" openInNewTab>
-                {t('cta.getStarted')} <ArrowRight className="h-4 w-4" />
+              <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                {t('cta.getStarted')}
               </CustomCTAButton>
             </section>
           </div>

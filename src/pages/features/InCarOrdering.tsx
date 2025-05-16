@@ -1,7 +1,8 @@
+
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
+import CustomCTAButton from '@/components/CustomCTAButton';
 import { Link } from 'react-router-dom';
 import { Car, MapPin, Clock, CreditCard, Bell, Smartphone, ArrowRight, CheckCircle } from 'lucide-react';
 const InCarOrdering = () => {
@@ -40,12 +41,9 @@ const InCarOrdering = () => {
               </p>
               
               <div className="flex gap-4">
-                <Button asChild className="btn-primary text-base">
-                  <Link to="/contact">Get Started for Free</Link>
-                </Button>
-                <Button asChild variant="outline" className="text-base">
-                  
-                </Button>
+                <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                  Get Started for Free
+                </CustomCTAButton>
               </div>
             </div>
             
@@ -186,9 +184,9 @@ const InCarOrdering = () => {
             <p className="text-lg text-swirl-gray mb-8 max-w-3xl mx-auto">
               Join forward-thinking restaurants that are enhancing customer convenience and increasing revenue with our innovative In-Car Ordering solution.
             </p>
-            <Button asChild className="btn-primary text-base">
-              <Link to="/contact">Get Started For Free</Link>
-            </Button>
+            <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+              Get Started For Free
+            </CustomCTAButton>
           </section>
         </div>
       </main>

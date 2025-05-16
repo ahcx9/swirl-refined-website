@@ -1,9 +1,9 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, BarChart, FileText, DollarSign, LineChart, FileBarChart } from 'lucide-react';
+import { BarChart, FileText, DollarSign, LineChart, FileBarChart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import CustomCTAButton from '@/components/CustomCTAButton';
 
 const HomeFinancialAnalyticsSection = () => {
   const features = [{
@@ -53,11 +53,9 @@ const HomeFinancialAnalyticsSection = () => {
                   </Card>)}
               </div>
               
-              <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg text-white">
-                <a href="https://app.swirl.cx/register" className="flex items-center gap-2">
-                  Get Started For Free <ArrowRight className="h-4 w-4" />
-                </a>
-              </Button>
+              <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                Get Started For Free
+              </CustomCTAButton>
             </div>
           </div>
           
