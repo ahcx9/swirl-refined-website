@@ -1,20 +1,20 @@
-
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import Autoplay from 'embla-carousel-autoplay';
 import { useLanguage } from '@/contexts/LanguageContext';
-
 const Hero = () => {
   const [loaded, setLoaded] = useState(false);
-  const { t } = useLanguage();
+  const {
+    t
+  } = useLanguage();
   const images = ["/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png", "/lovable-uploads/189d6c7d-6cc1-4e88-bbce-a9e8f69a073f.png", "/lovable-uploads/292d5cb0-2907-4d50-9380-03c565cb8849.png"];
 
   // Preload the images with higher priority
   useEffect(() => {
     const preloadImages = () => {
-      const imagePromises = images.map((src) => {
+      const imagePromises = images.map(src => {
         return new Promise((resolve, reject) => {
           const img = new Image();
           img.src = src;
@@ -29,10 +29,7 @@ const Hero = () => {
       preloadLink.as = 'image';
       preloadLink.href = images[0];
       document.head.appendChild(preloadLink);
-      
-      Promise.all(imagePromises)
-        .then(() => setLoaded(true))
-        .catch(err => console.error('Error preloading images:', err));
+      Promise.all(imagePromises).then(() => setLoaded(true)).catch(err => console.error('Error preloading images:', err));
     };
 
     // Start preloading immediately
@@ -41,13 +38,13 @@ const Hero = () => {
 
   // Auto-scroll plugin configuration
   const autoplayOptions = {
-    delay: 3000, // 3 seconds between slides
-    stopOnInteraction: false, // continue auto-scrolling after user interaction
-    rootNode: (emblaRoot: any) => emblaRoot.parentElement, // required for proper initialization
+    delay: 3000,
+    // 3 seconds between slides
+    stopOnInteraction: false,
+    // continue auto-scrolling after user interaction
+    rootNode: (emblaRoot: any) => emblaRoot.parentElement // required for proper initialization
   };
-
-  return (
-    <section className="pt-32 pb-12 md:pt-36 lg:pt-40 md:pb-16 min-h-[80vh] flex items-center bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20 bg-indigo-100">
+  return <section className="pt-32 pb-12 md:pt-36 lg:pt-40 md:pb-16 min-h-[80vh] flex items-center bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20 bg-blue-200">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center max-w-5xl mx-auto mb-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-black xl:text-7xl">
@@ -77,43 +74,29 @@ const Hero = () => {
         </div>
         
         <div className="mt-12 w-full max-w-5xl mx-auto">
-          {loaded ? (
-            <Carousel className="w-full" plugins={[Autoplay(autoplayOptions)]}>
+          {loaded ? <Carousel className="w-full" plugins={[Autoplay(autoplayOptions)]}>
               <CarouselContent>
-                {images.map((image, index) => (
-                  <CarouselItem key={index}>
+                {images.map((image, index) => <CarouselItem key={index}>
                     <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-b from-blue-100/50 to-white p-2">
-                      <AspectRatio ratio={(index === 2) ? 21 / 9 : 16 / 9}>
-                        <img 
-                          src={image} 
-                          alt={`Restaurant management system ${index + 1}`} 
-                          className={`w-full h-full object-contain mx-auto rounded-xl ${index === 2 ? 'max-w-[120%] scale-115' : ''}`}
-                          loading={index === 0 ? "eager" : "lazy"}
-                          style={{
-                            maxHeight: '55vh',
-                            transform: index === 2 ? 'translateZ(0) scale(1.15)' : 'translateZ(0)' // Hardware acceleration + wider 3rd image
-                          }} 
-                        />
+                      <AspectRatio ratio={index === 2 ? 21 / 9 : 16 / 9}>
+                        <img src={image} alt={`Restaurant management system ${index + 1}`} className={`w-full h-full object-contain mx-auto rounded-xl ${index === 2 ? 'max-w-[120%] scale-115' : ''}`} loading={index === 0 ? "eager" : "lazy"} style={{
+                    maxHeight: '55vh',
+                    transform: index === 2 ? 'translateZ(0) scale(1.15)' : 'translateZ(0)' // Hardware acceleration + wider 3rd image
+                  }} />
                       </AspectRatio>
                       <div className="absolute inset-0 bg-gradient-to-t from-blue-600/5 to-transparent rounded-2xl py-[20px]"></div>
                     </div>
-                  </CarouselItem>
-                ))}
+                  </CarouselItem>)}
               </CarouselContent>
               <div className="flex justify-center mt-6">
                 <CarouselPrevious className="relative static transform-none mx-2 bg-gradient-to-r from-blue-500/80 to-blue-600/80 border-none text-white hover:bg-blue-700/90 hover:text-white" />
                 <CarouselNext className="relative static transform-none mx-2 bg-gradient-to-r from-blue-500/80 to-blue-600/80 border-none text-white hover:bg-blue-700/90 hover:text-white" />
               </div>
-            </Carousel>
-          ) : (
-            <div className="h-[55vh] w-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl">
+            </Carousel> : <div className="h-[55vh] w-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl">
               <div className="w-16 h-16 border-4 border-swirl-blue border-t-transparent rounded-full animate-spin"></div>
-            </div>
-          )}
+            </div>}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
