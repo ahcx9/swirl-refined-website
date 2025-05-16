@@ -22,7 +22,7 @@ const POSHero = () => {
           {t('pos.subtitle')}
         </p>
 
-        <div className="btn-conteiner scale-110">
+        <div className="btn-conteiner scale-125">
           <a className="btn-content" href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
             <span className="btn-title">{t('cta.getStarted')}</span>
             <span className="icon-arrow">

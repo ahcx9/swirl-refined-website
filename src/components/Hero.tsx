@@ -59,7 +59,7 @@ const Hero = () => {
           </p>
           
           <div className="flex justify-center">
-            <div className="btn-conteiner scale-125">
+            <div className="btn-conteiner scale-150">
               <a className="btn-content" href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
                 <span className="btn-title">{t('cta.getStarted')}</span>
                 <span className="icon-arrow">
@@ -83,15 +83,15 @@ const Hero = () => {
                 {images.map((image, index) => (
                   <CarouselItem key={index}>
                     <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-b from-blue-100/50 to-white p-2">
-                      <AspectRatio ratio={index === 2 ? 20 / 9 : 16 / 9}>
+                      <AspectRatio ratio={(index === 2) ? 21 / 9 : 16 / 9}>
                         <img 
                           src={image} 
                           alt={`Restaurant management system ${index + 1}`} 
-                          className={`w-full h-full object-contain mx-auto rounded-xl ${index === 2 ? 'max-w-[110%] scale-110' : ''}`}
+                          className={`w-full h-full object-contain mx-auto rounded-xl ${index === 2 ? 'max-w-[120%] scale-115' : ''}`}
                           loading={index === 0 ? "eager" : "lazy"}
                           style={{
                             maxHeight: '55vh',
-                            transform: index === 2 ? 'translateZ(0) scale(1.1)' : 'translateZ(0)' // Hardware acceleration + wider 3rd image
+                            transform: index === 2 ? 'translateZ(0) scale(1.15)' : 'translateZ(0)' // Hardware acceleration + wider 3rd image
                           }} 
                         />
                       </AspectRatio>

@@ -12,7 +12,7 @@ const ProductHero = () => {
             Discover our suite of integrated tools designed to revolutionize how you run your restaurant business.
           </p>
           
-          <div className="btn-conteiner scale-110">
+          <div className="btn-conteiner scale-125">
             <a className="btn-content" href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
               <span className="btn-title">Get Started For Free</span>
               <span className="icon-arrow">

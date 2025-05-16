@@ -16,10 +16,11 @@ const CustomCTAButton: React.FC<CustomCTAButtonProps> = ({
   onClick,
   openInNewTab = false,
 }) => {
+  // Using solid blue background now instead of gradient
   const buttonClasses = `
     relative inline-flex items-center justify-center overflow-hidden whitespace-nowrap
-    rounded-full bg-blue-600 px-8 py-3
-    text-base font-medium text-white transition duration-300 ease-out hover:bg-blue-700
+    rounded-full bg-blue-600 px-10 py-4
+    text-lg font-medium text-white transition duration-300 ease-out hover:bg-blue-700
     hover:shadow-lg
     ${className}
   `;
