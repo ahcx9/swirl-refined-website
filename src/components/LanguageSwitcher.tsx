@@ -1,9 +1,10 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ChevronDown } from 'lucide-react';
 
 const LanguageSwitcher: React.FC = () => {
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -21,10 +22,11 @@ const LanguageSwitcher: React.FC = () => {
   }, []);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
-  
-  const handleLanguageChange = (lang: 'en' | 'ar') => {
-    setLanguage(lang);
+
+  // Since we only support English now, this function is simplified
+  const handleLanguageChange = () => {
     setIsOpen(false);
+    // No need to change the language since we only support English
   };
 
   return (
@@ -36,27 +38,20 @@ const LanguageSwitcher: React.FC = () => {
         aria-haspopup="true"
       >
         <span className="font-medium whitespace-nowrap">
-          {language === 'en' ? 'Language' : 'اللغة'}
+          Language
         </span>
         <ChevronDown className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} size={16} />
       </button>
       
       {isOpen && (
-        <div className={`absolute z-10 mt-1 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${language === 'ar' ? 'right-0' : 'left-0'}`}>
+        <div className="absolute z-10 mt-1 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none left-0">
           <div className="py-1" role="none">
             <button
-              onClick={() => handleLanguageChange('en')}
-              className={`block w-full text-left px-4 py-2 text-sm ${language === 'en' ? 'bg-gray-100 text-blue-600' : 'text-gray-700'} hover:bg-gray-100`}
+              onClick={handleLanguageChange}
+              className="block w-full text-left px-4 py-2 text-sm bg-gray-100 text-blue-600 hover:bg-gray-100"
               role="menuitem"
             >
               English
-            </button>
-            <button
-              onClick={() => handleLanguageChange('ar')}
-              className={`block w-full text-right px-4 py-2 text-sm ${language === 'ar' ? 'bg-gray-100 text-blue-600' : 'text-gray-700'} hover:bg-gray-100`}
-              role="menuitem"
-            >
-              العربية
             </button>
           </div>
         </div>
