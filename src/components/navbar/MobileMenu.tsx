@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { getIconComponent } from './utils';
+import { WhatsApp } from '@/components/SocialIcons';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -77,10 +78,23 @@ export const MobileMenu = ({
             </div>
           )
         ))}
-        <div className="mt-6 pt-4">
-          <Button asChild className="btn-primary w-full font-inter text-lg py-6">
-            <a href="https://app.swirl.cx/register" onClick={onClose}>Get Started For Free</a>
+        
+        {/* WhatsApp Button for Mobile */}
+        <div className="mt-4 mb-2">
+          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full py-5 w-full flex items-center justify-center gap-2">
+            <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">
+              <WhatsApp size={18} className="flex-shrink-0" />
+              <span className="text-sm md:text-base">Chat on WhatsApp</span>
+            </a>
           </Button>
+        </div>
+        
+        <div className="mt-2 pt-2">
+          <div className="mx-auto">
+            <CustomCTAButton href="https://app.swirl.cx/register" className="w-full">
+              Get Started For Free
+            </CustomCTAButton>
+          </div>
         </div>
       </div>
     </div>

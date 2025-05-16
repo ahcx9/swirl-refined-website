@@ -6,6 +6,9 @@ import { Button } from '@/components/ui/button';
 import { NavigationItems } from './NavigationItems';
 import { MobileMenu } from './MobileMenu';
 import { WhatsApp } from '@/components/SocialIcons';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { useLanguage } from '@/contexts/LanguageContext';
+import CustomCTAButton from '@/components/CustomCTAButton';
 
 const features = [
   {
@@ -70,20 +73,21 @@ const features = [
   }
 ];
 
-const mainLinks = [
-  { name: 'Point of Sale', path: '/products/restaurant-point-of-sale' },
-  { name: 'Digital Menu', path: '/products/digital-menu' },
-  { name: 'QR Ordering', path: '/products/qr-ordering' },
-  { name: 'Inventory Management', path: '/products/inventory-management' },
-  { name: 'Features', items: features },
-  { name: 'Usecases', path: '/use-cases' },
-  { name: 'Contact', path: '/contact' },
-];
-
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const { t } = useLanguage();
+
+  const mainLinks = [
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.products'), path: '/products' },
+    { name: 'Digital Menu', path: '/products/digital-menu' },
+    { name: 'QR Ordering', path: '/products/qr-ordering' },
+    { name: t('nav.features'), items: features },
+    { name: 'Usecases', path: '/use-cases' },
+    { name: t('nav.contact'), path: '/contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -120,6 +124,9 @@ const Navbar = () => {
         </div>
         
         <div className="hidden md:flex items-center gap-4">
+          {/* Language Switcher */}
+          <LanguageSwitcher />
+          
           <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full py-5 flex items-center gap-2">
             <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">
               <WhatsApp size={18} className="flex-shrink-0" />
@@ -127,9 +134,11 @@ const Navbar = () => {
             </a>
           </Button>  
             
-          <Button asChild className="font-inter text-xl bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 py-6 px-8">
-            <a href="https://app.swirl.cx/register">Get Started For Free</a>
-          </Button>
+          <div className="hidden md:block">
+            <CustomCTAButton href="https://app.swirl.cx/register">
+              {t('nav.getStarted')}
+            </CustomCTAButton>
+          </div>
         </div>
 
         <button

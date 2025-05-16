@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import CustomCTAButton from './CustomCTAButton';
 
 const CTASection = () => {
   return (
@@ -30,13 +30,11 @@ const CTASection = () => {
                 delight customers, and boost their bottom line.
               </p>
               
-              <Button 
-                asChild 
-                size="xl" 
-                className="bg-gradient-to-r from-blue-400 via-blue-300 to-white text-blue-900 hover:text-blue-950 shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105"
-              >
-                <a href="https://app.swirl.cx/register">Get Started for Free</a>
-              </Button>
+              <div className="flex justify-center">
+                <CustomCTAButton href="https://app.swirl.cx/register">
+                  Get Started for Free
+                </CustomCTAButton>
+              </div>
             </div>
           </div>
         </div>

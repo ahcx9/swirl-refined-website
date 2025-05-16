@@ -24,6 +24,7 @@ import CRM from './pages/features/CRM';
 import FinancialReports from './pages/features/FinancialReports';
 import PayrollManagement from './pages/features/PayrollManagement';
 import LoadingScreen from './components/LoadingScreen';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,7 +33,7 @@ function App() {
     // Simulate loading time
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1500); // Reduced loading time for better UX
 
     return () => clearTimeout(timer);
   }, []);
@@ -42,35 +43,37 @@ function App() {
   }
 
   return (
-    <Router>
-      <Navbar />
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/products" element={<ProductOverview />} />
-        <Route path="/use-cases" element={<UseCases />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/terms" element={<TermsOfService />} />
-        <Route path="/sitemap" element={<Sitemap />} />
-        
-        {/* Feature pages */}
-        <Route path="/products/digital-menu" element={<DigitalMenu />} />
-        <Route path="/products/qr-ordering" element={<QROrdering />} />
-        <Route path="/products/restaurant-analytics" element={<Analytics />} />
-        <Route path="/products/restaurant-point-of-sale" element={<PointOfSale />} />
-        <Route path="/products/inventory-management" element={<InventoryManagement />} />
-        <Route path="/products/reservations" element={<Reservations />} />
-        <Route path="/products/kitchen-display" element={<KitchenDisplay />} />
-        <Route path="/products/ordering-from-car" element={<InCarOrdering />} />
-        <Route path="/products/in-car-ordering" element={<InCarOrdering />} />
-        <Route path="/products/customer-relationship-management" element={<CRM />} />
-        <Route path="/products/financial-reports" element={<FinancialReports />} />
-        <Route path="/products/payroll-management" element={<PayrollManagement />} />
-        
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <Navbar />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/products" element={<ProductOverview />} />
+          <Route path="/use-cases" element={<UseCases />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/sitemap" element={<Sitemap />} />
+          
+          {/* Feature pages */}
+          <Route path="/products/digital-menu" element={<DigitalMenu />} />
+          <Route path="/products/qr-ordering" element={<QROrdering />} />
+          <Route path="/products/restaurant-analytics" element={<Analytics />} />
+          <Route path="/products/restaurant-point-of-sale" element={<PointOfSale />} />
+          <Route path="/products/inventory-management" element={<InventoryManagement />} />
+          <Route path="/products/reservations" element={<Reservations />} />
+          <Route path="/products/kitchen-display" element={<KitchenDisplay />} />
+          <Route path="/products/ordering-from-car" element={<InCarOrdering />} />
+          <Route path="/products/in-car-ordering" element={<InCarOrdering />} />
+          <Route path="/products/customer-relationship-management" element={<CRM />} />
+          <Route path="/products/financial-reports" element={<FinancialReports />} />
+          <Route path="/products/payroll-management" element={<PayrollManagement />} />
+          
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </LanguageProvider>
   );
 }
 

@@ -61,10 +61,9 @@ const TrustedRestaurants = () => {
     // Clone the logos for seamless scrolling
     const scrollWidth = scrollContainer.scrollWidth;
     
-    // Adjust speed here - reduced the multiplier for faster scrolling
-    // Faster on mobile, slightly slower on desktop
-    const isMobile = window.innerWidth < 768;
-    const animationDuration = isMobile ? scrollWidth * 0.008 : scrollWidth * 0.012;
+    // Same animation duration for all devices - faster
+    // Using a fixed value for better performance and consistent speed
+    const animationDuration = scrollWidth * 0.005;
     
     scrollContainer.style.animation = `scrollLogos ${animationDuration}s linear infinite`;
     
