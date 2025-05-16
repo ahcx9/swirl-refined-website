@@ -80,10 +80,10 @@ const Hero = () => {
               <CarouselContent>
                 {images.map((image, index) => <CarouselItem key={index}>
                     <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-b from-blue-100/50 to-white p-2">
-                      <AspectRatio ratio={index === 2 ? 21 / 9 : 16 / 9}>
-                        <img src={image} alt={`Restaurant management system ${index + 1}`} className={`w-full h-full object-contain mx-auto rounded-xl ${index === 2 ? 'max-w-[120%] scale-115' : ''}`} loading={index === 0 ? "eager" : "lazy"} style={{
+                      <AspectRatio ratio={16 / 9}>
+                        <img src={image} alt={`Restaurant management system ${index + 1}`} className="w-full h-full object-contain mx-auto rounded-xl" loading={index === 0 ? "eager" : "lazy"} style={{
                     maxHeight: '55vh',
-                    transform: index === 2 ? 'translateZ(0) scale(1.15)' : 'translateZ(0)' // Hardware acceleration + wider 3rd image
+                    transform: 'translateZ(0)' // Hardware acceleration
                   }} />
                       </AspectRatio>
                       <div className="absolute inset-0 bg-gradient-to-t from-blue-600/5 to-transparent rounded-2xl py-[20px]"></div>
