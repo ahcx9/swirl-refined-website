@@ -5,12 +5,18 @@ interface CustomCTAButtonProps {
   children: React.ReactNode;
   href: string;
   className?: string;
+  openInNewTab?: boolean;
 }
 
-const CustomCTAButton = ({ children, href, className = '' }: CustomCTAButtonProps) => {
+const CustomCTAButton = ({ children, href, className = '', openInNewTab = false }: CustomCTAButtonProps) => {
   return (
     <div className={`btn-conteiner ${className}`}>
-      <a className="btn-content" href={href}>
+      <a 
+        className="btn-content" 
+        href={href} 
+        target={openInNewTab ? "_blank" : "_self"} 
+        rel={openInNewTab ? "noopener noreferrer" : ""}
+      >
         <span className="btn-title">{children}</span>
         <span className="icon-arrow">
           <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">

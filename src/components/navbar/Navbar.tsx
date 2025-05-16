@@ -77,11 +77,11 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const mainLinks = [
-    { name: t('nav.home'), path: '/' },
-    { name: t('nav.products'), path: '/products' },
+    { name: 'Point of Sale', path: '/products/restaurant-point-of-sale' },
+    { name: 'Inventory Management', path: '/products/inventory-management' },
     { name: 'Digital Menu', path: '/products/digital-menu' },
     { name: 'QR Ordering', path: '/products/qr-ordering' },
     { name: t('nav.features'), items: features },
@@ -127,15 +127,17 @@ const Navbar = () => {
           {/* Language Switcher */}
           <LanguageSwitcher />
           
-          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full py-5 flex items-center gap-2">
+          {/* WhatsApp Button - increased size */}
+          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full py-6 px-4 flex items-center gap-2">
             <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">
-              <WhatsApp size={18} className="flex-shrink-0" />
-              <span className="text-sm md:text-base">Chat on WhatsApp</span>
+              <WhatsApp size={20} className="flex-shrink-0" />
+              <span className="text-sm md:text-base font-medium">Chat on WhatsApp</span>
             </a>
           </Button>  
             
+          {/* CTA Button - reduced size */}
           <div className="hidden md:block">
-            <CustomCTAButton href="https://app.swirl.cx/register">
+            <CustomCTAButton href="https://app.swirl.cx/register" className="scale-95" openInNewTab>
               {t('nav.getStarted')}
             </CustomCTAButton>
           </div>

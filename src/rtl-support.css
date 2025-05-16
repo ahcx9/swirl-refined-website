@@ -1,0 +1,96 @@
+
+/* RTL Support Styles */
+
+/* Basic RTL styles */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Flip padding and margins in RTL mode */
+html[dir="rtl"] .xl\:px-8 {
+  padding-right: 2rem !important;
+  padding-left: 2rem !important;
+}
+
+html[dir="rtl"] .mr-8 {
+  margin-right: 0 !important;
+  margin-left: 2rem !important;
+}
+
+html[dir="rtl"] .ml-8 {
+  margin-left: 0 !important;
+  margin-right: 2rem !important;
+}
+
+html[dir="rtl"] .mr-4 {
+  margin-right: 0 !important;
+  margin-left: 1rem !important;
+}
+
+html[dir="rtl"] .ml-4 {
+  margin-left: 0 !important;
+  margin-right: 1rem !important;
+}
+
+/* Flip icons in RTL mode */
+html[dir="rtl"] .icon-arrow svg {
+  transform: scaleX(-1);
+}
+
+/* Flip flex direction for layouts */
+html[dir="rtl"] .flex-row {
+  flex-direction: row-reverse;
+}
+
+/* Adjust text alignment */
+html[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+html[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+/* Fix navigation menus */
+html[dir="rtl"] .NavigationMenuContent {
+  left: auto;
+  right: 0;
+}
+
+/* Fix dropdown positioning */
+html[dir="rtl"] [data-state="open"] {
+  transform-origin: top right;
+}
+
+/* Fix carousel navigation */
+html[dir="rtl"] .carousel {
+  direction: ltr; /* Keep carousel direction ltr for proper functioning */
+}
+
+/* Fix positioning for absolute elements */
+html[dir="rtl"] .right-0 {
+  right: auto;
+  left: 0;
+}
+
+html[dir="rtl"] .left-0 {
+  left: auto;
+  right: 0;
+}
+
+/* Fix button icons alignment */
+html[dir="rtl"] .gap-2 {
+  flex-direction: row-reverse;
+}
+
+/* Fix navbar layout */
+html[dir="rtl"] .justify-between {
+  flex-direction: row-reverse;
+}
+
+/* Adjust CTA button styling */
+html[dir="rtl"] .btn-content .btn-title {
+  padding-right: 0;
+  padding-left: 30px;
+}

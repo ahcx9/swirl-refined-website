@@ -1,28 +1,65 @@
 
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { ChevronDown } from 'lucide-react';
 
 const LanguageSwitcher: React.FC = () => {
   const { language, setLanguage } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const toggleDropdown = () => setIsOpen(!isOpen);
+  
+  const handleLanguageChange = (lang: 'en' | 'ar') => {
+    setLanguage(lang);
+    setIsOpen(false);
+  };
 
   return (
-    <div className="flex items-center gap-2 relative group">
-      <div className="flex items-center gap-2 cursor-pointer">
-        <button
-          onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
-          className="flex items-center gap-2 rounded-md py-2 px-3 transition-all hover:bg-gray-100 text-black"
-        >
-          <span className="inline-flex items-center justify-center rounded-full overflow-hidden w-5 h-5 border border-gray-200">
-            {language === 'en' ? '🇬🇧' : '🇸🇦'}
-          </span>
-          <span className="font-medium text-sm">
-            {language === 'en' ? 'English' : 'العربية'}
-          </span>
-          <span className="text-xs text-gray-400">
-            {language === 'en' ? '/ العربية' : '/ English'}
-          </span>
-        </button>
-      </div>
+    <div className="relative" ref={dropdownRef}>
+      <button
+        onClick={toggleDropdown}
+        className="flex items-center gap-2 rounded-md py-2 px-3 transition-all hover:bg-gray-100 text-black"
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+      >
+        <span className="font-medium">Language</span>
+        <ChevronDown className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} size={16} />
+      </button>
+      
+      {isOpen && (
+        <div className="absolute z-10 mt-1 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="py-1" role="none">
+            <button
+              onClick={() => handleLanguageChange('en')}
+              className={`block w-full text-left px-4 py-2 text-sm ${language === 'en' ? 'bg-gray-100 text-blue-600' : 'text-gray-700'} hover:bg-gray-100`}
+              role="menuitem"
+            >
+              English
+            </button>
+            <button
+              onClick={() => handleLanguageChange('ar')}
+              className={`block w-full text-left px-4 py-2 text-sm ${language === 'ar' ? 'bg-gray-100 text-blue-600' : 'text-gray-700'} hover:bg-gray-100`}
+              role="menuitem"
+            >
+              العربية
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,8 +1,11 @@
 
 import React from 'react';
 import CustomCTAButton from './CustomCTAButton';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const CTASection = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="py-20 md:py-24 animate-on-scroll">
       <div className="container-custom">
@@ -23,16 +26,15 @@ const CTASection = () => {
             
             <div className="relative z-10 text-center max-w-3xl mx-auto">
               <h2 className="text-3xl font-bold mb-6 text-white">
-                Ready to Transform Your Restaurant Experience?
+                {t('cta.transform')}
               </h2>
               <p className="text-lg text-white/90 mb-10">
-                Join thousands of restaurants already using swirl.cx to streamline operations, 
-                delight customers, and boost their bottom line.
+                {t('cta.join')}
               </p>
               
               <div className="flex justify-center">
-                <CustomCTAButton href="https://app.swirl.cx/register">
-                  Get Started for Free
+                <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                  {t('cta.getStarted')}
                 </CustomCTAButton>
               </div>
             </div>

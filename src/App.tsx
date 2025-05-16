@@ -26,6 +26,9 @@ import PayrollManagement from './pages/features/PayrollManagement';
 import LoadingScreen from './components/LoadingScreen';
 import { LanguageProvider } from './contexts/LanguageContext';
 
+// Add CSS for RTL support
+import './rtl-support.css';
+
 function App() {
   const [loading, setLoading] = useState(true);
 

@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { getIconComponent } from './utils';
 import { WhatsApp } from '@/components/SocialIcons';
 import CustomCTAButton from '@/components/CustomCTAButton';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -22,6 +23,8 @@ export const MobileMenu = ({
   toggleDropdown,
   onClose
 }: MobileMenuProps) => {
+  const { t } = useLanguage();
+  
   if (!isOpen) return null;
 
   const isExternalLink = (path: string) => {
@@ -59,18 +62,18 @@ export const MobileMenu = ({
             </div>
           ) : (
             <div key={link.name} className="border-b border-gray-100">
-              {isExternalLink(link.path) ? (
+              {isExternalLink(link.path!) ? (
                 <a
-                  href={link.path}
-                  className="text-black hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block"
+                  href={link.path!}
+                  className={`text-black hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block`}
                   onClick={onClose}
                 >
                   {link.name}
                 </a>
               ) : (
                 <Link
-                  to={link.path}
-                  className="text-black hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block"
+                  to={link.path!}
+                  className={`text-black hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block`}
                   onClick={onClose}
                 >
                   {link.name}
@@ -80,20 +83,21 @@ export const MobileMenu = ({
           )
         ))}
         
-        {/* WhatsApp Button for Mobile */}
+        {/* WhatsApp Button for Mobile - Increased size to match CTA */}
         <div className="mt-4 mb-2">
-          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full py-5 w-full flex items-center justify-center gap-2">
+          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full py-6 px-4 w-full flex items-center justify-center gap-2">
             <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">
-              <WhatsApp size={18} className="flex-shrink-0" />
-              <span className="text-sm md:text-base">Chat on WhatsApp</span>
+              <WhatsApp size={20} className="flex-shrink-0" />
+              <span className="text-sm md:text-base font-medium">Chat on WhatsApp</span>
             </a>
           </Button>
         </div>
         
+        {/* Smaller CTA Button */}
         <div className="mt-2 pt-2">
           <div className="mx-auto">
-            <CustomCTAButton href="https://app.swirl.cx/register" className="w-full">
-              Get Started For Free
+            <CustomCTAButton href="https://app.swirl.cx/register" className="w-full scale-95" openInNewTab>
+              {t('nav.getStarted')}
             </CustomCTAButton>
           </div>
         </div>

@@ -1,9 +1,12 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import { CreditCard } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import CustomCTAButton from '@/components/CustomCTAButton';
 
 const POSHero = () => {
+  const { t } = useLanguage();
+  
   return (
     <div className="mb-16 relative">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-blue-100/20 rounded-3xl -z-10"></div>
@@ -13,19 +16,16 @@ const POSHero = () => {
           <div className="p-2 rounded-full bg-gradient-to-r from-blue-100 to-blue-200">
             <CreditCard className="text-blue-600 h-6 w-6" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-black">Point of Sale System</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-black">{t('pos.title')}</h1>
         </div>
         
         <p className="text-lg mb-8 leading-relaxed max-w-3xl mx-auto text-slate-950 text-left">
-          A modern, intuitive point-of-sale system designed specifically for restaurants. 
-          Streamline your operations with fast checkout, easy table management, and 
-          seamless payment processing. Our complete solution includes both powerful 
-          software and reliable hardware options to fit your specific needs.
+          {t('pos.subtitle')}
         </p>
 
-        <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700">
-          <a href="https://app.swirl.cx/register">Get Started For Free</a>
-        </Button>
+        <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+          {t('cta.getStarted')}
+        </CustomCTAButton>
       </div>
 
       <div className="overflow-hidden rounded-xl shadow-2xl max-w-5xl mx-auto transform hover:scale-[1.01] transition-transform duration-500">
