@@ -23,7 +23,7 @@ export const MobileMenu = ({
   toggleDropdown,
   onClose
 }: MobileMenuProps) => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   
   if (!isOpen) return null;
 
@@ -32,25 +32,25 @@ export const MobileMenu = ({
   };
 
   return (
-    <div className={`xl:hidden bg-white shadow-lg fixed top-[80px] left-0 right-0 h-[calc(100vh-80px)] overflow-y-auto z-50 ${language === 'ar' ? 'rtl' : ''}`}>
+    <div className="xl:hidden bg-white shadow-lg fixed top-[80px] left-0 right-0 h-[calc(100vh-80px)] overflow-y-auto z-50">
       <div className="container-custom py-6 flex flex-col space-y-4">
         {links.map((link) => (
           link.items ? (
             <div key={link.name} className="space-y-3 border-b border-gray-100 pb-4">
               <button 
                 onClick={() => toggleDropdown(link.name)}
-                className={`flex justify-between items-center w-full font-medium text-black font-inter py-2 text-xl ${language === 'ar' ? 'flex-row-reverse' : ''}`}
+                className="flex justify-between items-center w-full font-medium text-black font-inter py-2 text-xl"
               >
                 <span>{link.name}</span>
                 <ChevronDown className={`transition-transform ${activeDropdown === link.name ? 'rotate-180' : ''}`} size={22} />
               </button>
               {activeDropdown === link.name && (
-                <div className={`pl-4 space-y-4 mt-2 ${language === 'ar' ? 'pr-4 pl-0' : ''}`}>
+                <div className="pl-4 space-y-4 mt-2">
                   {link.items.map((item: any) => (
                     <Link
                       key={item.title}
                       to={item.path}
-                      className={`flex items-center text-black hover:text-blue-600 transition-colors py-2 font-inter ${language === 'ar' ? 'flex-row-reverse justify-end' : ''}`}
+                      className="flex items-center text-black hover:text-blue-600 transition-colors py-2 font-inter"
                       onClick={onClose}
                     >
                       {getIconComponent(item.icon)}
@@ -65,7 +65,7 @@ export const MobileMenu = ({
               {isExternalLink(link.path!) ? (
                 <a
                   href={link.path!}
-                  className={`text-black hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block ${language === 'ar' ? 'text-right' : ''}`}
+                  className="text-black hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block"
                   onClick={onClose}
                 >
                   {link.name}
@@ -73,7 +73,7 @@ export const MobileMenu = ({
               ) : (
                 <Link
                   to={link.path!}
-                  className={`text-black hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block ${language === 'ar' ? 'text-right' : ''}`}
+                  className="text-black hover:text-blue-600 transition-colors font-medium py-3 text-xl font-inter block"
                   onClick={onClose}
                 >
                   {link.name}

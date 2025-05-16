@@ -1,6 +1,6 @@
-import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import React, { createContext, useState, useContext, ReactNode } from 'react';
 
-type Language = 'en' | 'ar';
+type Language = 'en';
 
 interface LanguageContextType {
   language: Language;
@@ -10,7 +10,7 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-// Comprehensive translations for the entire website
+// Translations only for English
 const translations = {
   en: {
     // Navigation
@@ -89,114 +89,22 @@ const translations = {
     'notFound.title': 'Page Not Found',
     'notFound.message': 'The page you are looking for doesn\'t exist or has been moved.',
     'notFound.back': 'Go back to home',
-  },
-  ar: {
-    // Navigation
-    'nav.pointOfSale': 'نقطة البيع',
-    'nav.inventoryManagement': 'إدارة المخزون',
-    'nav.digitalMenu': 'القائمة الرقمية',
-    'nav.qrOrdering': 'الطلب عبر رمز QR',
-    'nav.features': 'المميزات',
-    'nav.usecases': 'حالات الاستخدام',
-    'nav.contact': 'اتصل بنا',
-    'nav.getStarted': 'ابدأ مجانًا',
-    'nav.language': 'اللغة',
-    'nav.chatOnWhatsapp': 'الدردشة على واتساب',
-    
-    // Hero Section
-    'hero.title': 'تمكين عصر جديد من مبيعات المطاعم',
-    'hero.subtitle': 'نظام إدارة مطاعم متكامل وحديث لأصحاب المطاعم الطموحين',
-    
-    // Features Section
-    'features.title': 'منصة إدارة المطاعم الشاملة',
-    'features.subtitle': 'كل ما تحتاجه لإدارة مطعمك، في مكان واحد',
-    'features.pos': 'نقطة البيع',
-    'features.pos.desc': 'نظام نقاط بيع سريع وموثوق وسهل الاستخدام',
-    'features.inventory': 'إدارة المخزون',
-    'features.inventory.desc': 'تتبع المخزون، وإدارة الموردين، وتقليل الهدر',
-    'features.menu': 'القائمة الرقمية',
-    'features.menu.desc': 'إنشاء قوائم رقمية جميلة يحبها العملاء',
-    'features.qr': 'الطلب عبر رمز QR',
-    'features.qr.desc': 'تمكين الطلب بدون تلامس باستخدام رموز QR',
-    'features.analytics': 'التحليلات',
-    'features.analytics.desc': 'الحصول على رؤى حول أداء عملك',
-    'features.crm': 'إدارة العملاء',
-    'features.crm.desc': 'بناء علاقات مع عملائك',
-    
-    // Call to Action Sections
-    'cta.transform': 'هل أنت جاهز لتحويل تجربة مطعمك؟',
-    'cta.join': 'انضم إلى آلاف المطاعم التي تستخدم بالفعل swirl.cx',
-    'cta.getStarted': 'ابدأ مجانًا',
-    'cta.ready': 'هل أنت مستعد لتحديث نظام نقاط البيع الخاص بمطعمك؟',
-    'cta.contact': 'اتصل بنا اليوم للحصول على عرض توضيحي مخصص وتسعير مصمم خصيصًا لاحتياجات وميزانية مطعمك الفريدة.',
-    
-    // Point of Sale Page
-    'pos.title': 'نظام نقاط البيع',
-    'pos.subtitle': 'نظام نقاط بيع حديث وبديهي مصمم خصيصًا للمطاعم. قم بتبسيط عملياتك مع الخروج السريع، وإدارة الطاولات بسهولة، ومعالجة الدفع السلسة. يتضمن حلنا الشامل كلاً من البرامج القوية وخيارات الأجهزة الموثوقة لتناسب احتياجاتك المحددة.',
-    'pos.features': 'الميزات',
-    'pos.hardware': 'حلول الأجهزة',
-    'pos.benefits': 'الفوائد',
-    
-    // Digital Menu Page
-    'digitalMenu.title': 'القائمة الرقمية',
-    'digitalMenu.subtitle': 'قم بإنشاء قوائم رقمية جميلة وتفاعلية يسهل تحديثها في الوقت الفعلي. مثالية للمطاعم التي تتطلع إلى تحديث تجربة الطلب مع لغات متعددة، وعملات، ومعلومات غذائية، وأوصاف قوائم مدعومة بالذكاء الاصطناعي.',
-    'digitalMenu.features': 'الميزات',
-    'digitalMenu.benefits': 'الفوائد',
-    'digitalMenu.testimonials': 'ماذا يقول عملاؤنا',
-    'digitalMenu.cta': 'هل أنت مستعد لثورة في تجربة القائمة الخاصة بك؟',
-    'digitalMenu.cta.subtitle': 'انضم إلى المطاعم في جميع أنحاء العالم التي تستخدم بالفعل نظام القائمة الرقمية لدينا لتعزيز تجربة العملاء وتبسيط العمليات.',
-    
-    // Inventory Management Page
-    'inventory.title': 'إدارة المخزون',
-    'inventory.subtitle': 'تولى السيطرة على مخزون مطعمك بنظام الإدارة المتقدم. تتبع مستويات المخزون، وتقليل الهدر، وتحسين عملية الشراء من خلال المراقبة في الوقت الحقيقي والتحليلات التنبؤية.',
-    'inventory.features': 'ميزات إدارة المخزون الرئيسية',
-    'inventory.why': 'لماذا الاستثمار في إدارة المخزون؟',
-    'inventory.benefits': 'الفوائد الرئيسية',
-    'inventory.integration': 'قدرات التكامل',
-    'inventory.ready': 'هل أنت جاهز لتحسين المخزون الخاص بك؟',
-    'inventory.join': 'انضم إلى المطاعم الناجحة التي قللت من الهدر، وخفضت التكاليف، وحسنت الكفاءة مع حل Swirl الشامل لإدارة المخزون.',
-    
-    // Footer
-    'footer.company': 'الشركة',
-    'footer.products': 'المنتجات',
-    'footer.resources': 'الموارد',
-    'footer.contact': 'اتصل بنا',
-    'footer.copyright': 'جميع الحقوق محفوظة',
-    
-    // Other Pages
-    'notFound.title': 'الصفحة غير موجودة',
-    'notFound.message': 'الصفحة التي تبحث عنها غير موجودة أو تم نقلها.',
-    'notFound.back': 'العودة إلى الصفحة الرئيسية',
   }
 };
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>(() => {
-    // Check if language preference is stored in localStorage
-    const savedLanguage = localStorage.getItem('language') as Language;
-    return savedLanguage === 'ar' ? 'ar' : 'en'; // Default to 'en' if not found
-  });
-
-  // Save language preference to localStorage whenever it changes
-  useEffect(() => {
-    localStorage.setItem('language', language);
-    
-    // Apply RTL direction for Arabic
-    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
-    document.documentElement.lang = language;
-    
-    // Add a class to the body for additional styling if needed
-    if (language === 'ar') {
-      document.body.classList.add('rtl');
-    } else {
-      document.body.classList.remove('rtl');
-    }
-  }, [language]);
+  // Only English is supported now
+  const [language] = useState<Language>('en');
 
   // Translation function
   const t = (key: string): string => {
     // Return the translation or the key if the translation doesn't exist
     return translations[language][key as keyof typeof translations[typeof language]] || key;
+  };
+
+  // setLanguage function is kept for API compatibility but does nothing
+  const setLanguage = () => {
+    // Do nothing as we only support English now
   };
 
   return (

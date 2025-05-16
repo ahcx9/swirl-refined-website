@@ -20,14 +20,20 @@ const CustomCTAButton: React.FC<CustomCTAButtonProps> = ({
     relative inline-flex items-center justify-center overflow-hidden whitespace-nowrap
     rounded-full bg-gradient-to-r from-purple-600 to-blue-500 px-8 py-3
     text-sm font-medium text-white transition duration-300 ease-out hover:from-purple-700
-    hover:to-blue-600 hover:shadow-lg hover:translate-y-[-2px]
+    hover:to-blue-600 hover:shadow-lg
     ${className}
   `;
 
+  // Button content with arrow animation
   const buttonContent = (
     <>
-      <span className="btn-content flex items-center justify-center">
-        <span className="btn-title whitespace-nowrap">{children}</span>
+      <span className="absolute right-0 flex h-full w-10 translate-x-0 transform items-center justify-start duration-300 group-hover:translate-x-4">
+        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </span>
+      <span className="flex items-center justify-center whitespace-nowrap transition-all duration-300 group-hover:translate-x-[-10px]">
+        {children}
       </span>
     </>
   );
@@ -36,7 +42,7 @@ const CustomCTAButton: React.FC<CustomCTAButtonProps> = ({
     return (
       <a 
         href={href} 
-        className={buttonClasses} 
+        className={`group ${buttonClasses}`} 
         onClick={onClick}
         target={openInNewTab ? '_blank' : undefined}
         rel={openInNewTab ? 'noopener noreferrer' : undefined}
@@ -47,7 +53,7 @@ const CustomCTAButton: React.FC<CustomCTAButtonProps> = ({
   }
 
   return (
-    <button className={buttonClasses} onClick={onClick}>
+    <button className={`group ${buttonClasses}`} onClick={onClick}>
       {buttonContent}
     </button>
   );

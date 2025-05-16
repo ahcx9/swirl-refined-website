@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -109,8 +108,8 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-[1800px] mx-auto px-4 xl:px-8 flex justify-between items-center">
-        <div className={`flex items-center ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
-          <Link to="/" className={`flex items-center ${language === 'ar' ? 'ml-8' : 'mr-8'}`}>
+        <div className="flex items-center">
+          <Link to="/" className="mr-8">
             <img 
               src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png" 
               alt="Swirl Logo" 
@@ -123,7 +122,7 @@ const Navbar = () => {
           </div>
         </div>
         
-        <div className={`hidden md:flex items-center gap-4 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
+        <div className="hidden md:flex items-center gap-4">
           {/* Language Switcher */}
           <LanguageSwitcher />
           
@@ -144,7 +143,7 @@ const Navbar = () => {
         </div>
 
         <button
-          className={`xl:hidden text-black ${language === 'ar' ? 'order-first' : ''}`}
+          className="xl:hidden text-black"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={38} /> : <Menu size={38} />}
