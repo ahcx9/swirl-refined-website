@@ -5,6 +5,7 @@ import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { getIconComponent } from './utils';
 import { WhatsApp } from '@/components/SocialIcons';
+import CustomCTAButton from '@/components/CustomCTAButton';
 
 interface MobileMenuProps {
   isOpen: boolean;
