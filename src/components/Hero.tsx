@@ -58,7 +58,7 @@ const Hero = () => {
           </p>
           
           <div className="flex justify-center">
-            <div className="btn-conteiner scale-150">
+            <div className="btn-conteiner scale-125">
               <a className="btn-content" href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
                 <span className="btn-title">{t('cta.getStarted')}</span>
                 <span className="icon-arrow">
