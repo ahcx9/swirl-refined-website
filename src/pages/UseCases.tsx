@@ -1,9 +1,10 @@
+
 import React from 'react';
 import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 import { Truck, Utensils, Building, Store, Hotel, ChefHat, Coffee as CoffeeShop } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import CustomCTAButton from '@/components/CustomCTAButton';
+
 const UseCases = () => {
   const segments = [{
     title: "Food Trucks",
@@ -80,9 +81,9 @@ const UseCases = () => {
               <p className="text-lg mb-8 font-inter text-slate-800">
                 Discover tailored solutions for every segment of the food service industry. From food trucks to fine dining establishments, we provide specialized tools to enhance your operations.
               </p>
-              <Button asChild className="btn-primary font-inter bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 py-6 px-8 rounded-xl shadow-lg">
-                <Link to="https://app.swirl.cx/register">Get Started For Free</Link>
-              </Button>
+              <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-90">
+                Get Started For Free
+              </CustomCTAButton>
             </div>
           </div>
         </section>

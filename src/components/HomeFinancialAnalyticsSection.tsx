@@ -53,7 +53,7 @@ const HomeFinancialAnalyticsSection = () => {
                   </Card>)}
               </div>
               
-              <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+              <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-90">
                 Get Started For Free
               </CustomCTAButton>
             </div>
@@ -77,7 +77,8 @@ const HomeFinancialAnalyticsSection = () => {
                       style={{
                         maxWidth: "100%",
                         height: "auto",
-                        objectPosition: "center"
+                        objectPosition: "center",
+                        transform: 'translateZ(0)' // Hardware acceleration
                       }}
                     />
                     

@@ -13,29 +13,44 @@ const Hero = () => {
   } = useLanguage();
   const images = ["/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png", "/lovable-uploads/189d6c7d-6cc1-4e88-bbce-a9e8f69a073f.png", "/lovable-uploads/292d5cb0-2907-4d50-9380-03c565cb8849.png"];
 
-  // Preload the images with higher priority
+  // Optimized image preloading for faster loading
   useEffect(() => {
     const preloadImages = () => {
+      // Preload critical images with higher priority & use link rel="preload"
+      const links = images.map(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        link.fetchPriority = 'high';
+        return link;
+      });
+      
+      links.forEach(link => document.head.appendChild(link));
+      
+      // Set up Image objects for onload events
       const imagePromises = images.map(src => {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
           const img = new Image();
           img.src = src;
-          img.onload = resolve;
-          img.onerror = reject;
+          img.fetchPriority = 'high';
+          img.decoding = 'async';
+          if (img.complete) {
+            resolve(null);
+          } else {
+            img.onload = () => resolve(null);
+            img.onerror = () => resolve(null); // Continue even if image fails
+          }
         });
       });
 
-      // Also preload the first image with link preload
-      const preloadLink = document.createElement('link');
-      preloadLink.rel = 'preload';
-      preloadLink.as = 'image';
-      preloadLink.href = images[0];
-      document.head.appendChild(preloadLink);
-      Promise.all(imagePromises).then(() => setLoaded(true)).catch(err => console.error('Error preloading images:', err));
+      Promise.all(imagePromises).then(() => setLoaded(true));
     };
 
-    // Start preloading immediately
     preloadImages();
+    // After a timeout, force the loaded state to ensure UI doesn't get stuck
+    const timer = setTimeout(() => setLoaded(true), 300);
+    return () => clearTimeout(timer);
   }, []);
 
   // Auto-scroll plugin configuration
@@ -58,7 +73,7 @@ const Hero = () => {
           </p>
           
           <div className="flex justify-center">
-            <div className="btn-conteiner scale-100">
+            <div className="btn-conteiner scale-90"> {/* Reduced from scale-100 to scale-90 */}
               <a className="btn-content" href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
                 <span className="btn-title">{t('cta.getStarted')}</span>
                 <span className="icon-arrow">
@@ -81,7 +96,7 @@ const Hero = () => {
                 {images.map((image, index) => <CarouselItem key={index}>
                     <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-b from-blue-100/50 to-white p-2">
                       <AspectRatio ratio={16 / 9}>
-                        <img src={image} alt={`Restaurant management system ${index + 1}`} className="w-full h-full object-contain mx-auto rounded-xl" loading={index === 0 ? "eager" : "lazy"} style={{
+                        <img src={image} alt={`Restaurant management system ${index + 1}`} className="w-full h-full object-contain mx-auto rounded-xl" loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : "auto"} decoding="async" style={{
                     maxHeight: '55vh',
                     transform: 'translateZ(0)' // Hardware acceleration
                   }} />

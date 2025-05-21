@@ -33,7 +33,7 @@ const CTASection = () => {
               </p>
               
               <div className="flex justify-center">
-                <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-90">
                   {t('cta.getStarted')}
                 </CustomCTAButton>
               </div>

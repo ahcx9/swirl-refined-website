@@ -12,7 +12,7 @@ const ProductCTA = () => {
       <p className="text-lg text-swirl-gray mb-8 max-w-2xl mx-auto">
         {t('cta.join')}
       </p>
-      <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+      <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-85">
         {t('cta.getStarted')}
       </CustomCTAButton>
     </div>

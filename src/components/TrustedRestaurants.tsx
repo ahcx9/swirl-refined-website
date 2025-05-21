@@ -45,27 +45,32 @@ const TrustedRestaurants = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   
-  // Preload all logo images with high priority
+  // Preload all logo images with high priority for instant loading
   useEffect(() => {
     const logoUrls = logos.map(logo => logo.src);
-    preloadImages(logoUrls, 4)
+    // Force high priority loading
+    preloadImages(logoUrls, 5)
       .catch(err => {
         console.error('Error preloading logo images:', err);
       });
+      
+    // Also add direct preload links to head for critical logos
+    logos.slice(0, 4).forEach(logo => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.href = logo.src;
+      link.as = 'image';
+      link.fetchPriority = 'high';
+      document.head.appendChild(link);
+    });
   }, []);
   
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
     
-    // Clone the logos for seamless scrolling
-    const scrollWidth = scrollContainer.scrollWidth;
-    
-    // Same animation duration for all devices - faster
-    // Using a fixed value for better performance and consistent speed
-    const animationDuration = scrollWidth * 0.005;
-    
-    scrollContainer.style.animation = `scrollLogos ${animationDuration}s linear infinite`;
+    // Improved animation for smooth scrolling
+    const animationDuration = 25; // Fixed duration in seconds
     
     // Add animation keyframes dynamically
     const styleSheet = document.createElement("style");
@@ -74,8 +79,19 @@ const TrustedRestaurants = () => {
         0% { transform: translateX(0); }
         100% { transform: translateX(calc(-50% - 1rem)); }
       }
+      
+      .logo-scroll-animation {
+        animation: scrollLogos ${animationDuration}s linear infinite;
+        will-change: transform;
+      }
     `;
     document.head.appendChild(styleSheet);
+    
+    setTimeout(() => {
+      if (scrollContainer) {
+        scrollContainer.classList.add('logo-scroll-animation');
+      }
+    }, 100);
     
     return () => {
       document.head.removeChild(styleSheet);
@@ -88,18 +104,21 @@ const TrustedRestaurants = () => {
         <h3 className="text-xl font-medium text-center mb-8 text-swirl-gray">Trusted by Restaurants Worldwide</h3>
         
         <div className="relative w-full overflow-hidden" ref={containerRef}>
-          <div className="flex animate-on-scroll" ref={scrollRef}>
+          <div className="flex" ref={scrollRef}>
             {/* First set of logos */}
             {logos.map((logo, index) => (
               <div 
                 key={`logo-1-${index}`} 
-                className="bg-white p-4 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[90px] md:w-[150px] md:h-[100px] mx-3 flex items-center justify-center"
+                className="bg-white px-4 py-3 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[90px] md:w-[150px] md:h-[100px] mx-3 flex items-center justify-center"
               >
                 <img 
                   src={logo.src} 
                   alt={logo.alt}
                   className="max-h-full max-w-full object-contain"
-                  loading={index < 3 ? "eager" : "lazy"}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  style={{ transform: 'translateZ(0)' }} // Hardware acceleration
                 />
               </div>
             ))}
@@ -108,13 +127,14 @@ const TrustedRestaurants = () => {
             {logos.map((logo, index) => (
               <div 
                 key={`logo-2-${index}`} 
-                className="bg-white p-4 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[90px] md:w-[150px] md:h-[100px] mx-3 flex items-center justify-center"
+                className="bg-white px-4 py-3 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[90px] md:w-[150px] md:h-[100px] mx-3 flex items-center justify-center"
               >
                 <img 
                   src={logo.src} 
                   alt={logo.alt}
                   className="max-h-full max-w-full object-contain"
-                  loading="lazy"
+                  loading="eager" 
+                  style={{ transform: 'translateZ(0)' }} // Hardware acceleration
                 />
               </div>
             ))}

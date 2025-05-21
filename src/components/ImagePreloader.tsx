@@ -1,7 +1,6 @@
 
 import { useEffect } from 'react';
 import { preloadImages } from '@/utils/imagePreloader';
-import { toast } from '@/hooks/use-toast';
 
 // List of critical images that should be preloaded immediately
 const CRITICAL_IMAGES = [
@@ -17,10 +16,7 @@ const CRITICAL_IMAGES = [
 // Second-tier important images to load after critical ones
 const IMPORTANT_IMAGES = [
   "/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png", // Logo
-  "/lovable-uploads/85df272f-78b0-4180-bd9e-a069e750623a.png", // Kitchen display
-  "https://images.unsplash.com/photo-1576749872435-ff88a193f066?q=80&w=800&auto=format",
-  "https://images.unsplash.com/photo-1585914641050-fa9883c4e21c?q=80&w=800&auto=format",
-  "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format"
+  "/lovable-uploads/85df272f-78b0-4180-bd9e-a069e750623a.png" // Kitchen display
 ];
 
 // Restaurant logos for TrustedRestaurants component
@@ -38,48 +34,71 @@ const RESTAURANT_LOGOS = [
 
 const ImagePreloader = () => {
   useEffect(() => {
-    // First, preload critical images with high priority
-    preloadImages(CRITICAL_IMAGES, 5)
-      .then(() => {
-        // After critical images, load restaurant logos with priority
-        return preloadImages(RESTAURANT_LOGOS, 3);
-      })
-      .then(() => {
-        // Finally load important images
-        return preloadImages(IMPORTANT_IMAGES, 2);
-      })
-      .catch(err => {
-        console.error('Error preloading images:', err);
-        // Show a subtle toast notification for image loading issues
-        toast({
-          title: "Some images may load slower",
-          description: "We're working on optimizing the experience",
-          variant: "default",
-          duration: 3000
-        });
-      });
+    // Immediately add preload links to the head for critical images
+    CRITICAL_IMAGES.forEach(src => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = src;
+      link.fetchPriority = 'high';
+      document.head.appendChild(link);
+    });
+    
+    // Also add preload links for logos
+    RESTAURANT_LOGOS.forEach(src => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = src;
+      document.head.appendChild(link);
+    });
+
+    // Preload critical images using Image objects for browser caching
+    const preloadWithHighPriority = () => {
+      const allImportantImages = [...CRITICAL_IMAGES, ...RESTAURANT_LOGOS];
       
-    // Use intersection observer to detect when we're about to need other images
+      // Preload all critical images immediately with maximum priority
+      preloadImages(allImportantImages, 10)
+        .then(() => {
+          // After critical images are loaded, load secondary images
+          return preloadImages(IMPORTANT_IMAGES, 5);
+        })
+        .catch(err => {
+          console.error('Error preloading images:', err);
+        });
+    };
+    
+    // Start preloading immediately
+    preloadWithHighPriority();
+    
+    // Use Intersection Observer API to preload images as user scrolls near them
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            // When a section comes into view, load its images
+            // Find all images in the section that need to be preloaded
             const section = entry.target;
-            // Add type assertion to access dataset
-            const preloadImagesAttr = (section as HTMLElement).dataset.preloadImages;
-            if (preloadImagesAttr) {
-              const imagesToLoad = preloadImagesAttr.split(',');
-              preloadImages(imagesToLoad);
-            }
+            const images = section.querySelectorAll('img[loading="lazy"]');
+            
+            // Preload these images
+            images.forEach(img => {
+              const imageElement = img as HTMLImageElement;
+              if (imageElement.src && !imageElement.complete) {
+                imageElement.fetchPriority = 'high';
+                imageElement.loading = 'eager';
+              }
+            });
+            
+            // Stop observing this section after preloading its images
+            observer.unobserve(section);
           }
         });
       },
-      { rootMargin: '200px' } // Start loading when within 200px
+      { rootMargin: '300px' } // Start loading when within 300px
     );
     
-    // Observe sections with data-preload-images attribute
-    document.querySelectorAll('[data-preload-images]').forEach(section => {
+    // Observe all sections with images
+    document.querySelectorAll('section').forEach(section => {
       observer.observe(section);
     });
     
@@ -88,7 +107,7 @@ const ImagePreloader = () => {
     };
   }, []);
   
-  // This is a utility component, it doesn't render anything
+  // This component doesn't render anything
   return null;
 };
 

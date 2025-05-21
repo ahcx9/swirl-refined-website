@@ -1,8 +1,10 @@
+
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Package, Tag, BarChart, HardDrive, List } from 'lucide-react';
+import { Package, Tag, BarChart, HardDrive, List } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import CustomCTAButton from '@/components/CustomCTAButton';
+
 const HomeInventorySection = () => {
   const features = [{
     icon: Package,
@@ -36,7 +38,7 @@ const HomeInventorySection = () => {
                         <div className="overflow-hidden">
                           <img alt="Inventory Management Dashboard" loading="eager" fetchPriority="high" decoding="sync" style={{
                           transform: 'translateZ(0)'
-                        }} className="w-full h-auto rounded-lg shadow-inner transform scale-100 object-cover" src="/lovable-uploads/5245388f-d3d0-478b-aeff-1b60e7ac7ba3.png" />
+                        }} className="w-full h-auto object-cover rounded-lg shadow-inner transform scale-100" src="/lovable-uploads/5245388f-d3d0-478b-aeff-1b60e7ac7ba3.png" />
                         </div>
                       </AspectRatio>
                       
@@ -75,11 +77,9 @@ const HomeInventorySection = () => {
                   </Card>)}
               </div>
               
-              <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg text-white">
-                <a href="https://app.swirl.cx/register" className="flex items-center gap-2">
-                  Get Started For Free <ArrowRight className="h-4 w-4" />
-                </a>
-              </Button>
+              <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-90">
+                Get Started For Free
+              </CustomCTAButton>
             </div>
           </div>
         </div>
