@@ -65,7 +65,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center max-w-5xl mx-auto mb-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-700 xl:text-7xl">
-            {t('hero.title')}
+            <span className="text-gray-400">Restaurant Sales</span> {t('hero.title').replace('Restaurant Sales', '').trim()}
           </h1>
           
           <p className="text-xl md:text-2xl text-swirl-gray mb-10 max-w-3xl mx-auto">
@@ -94,14 +94,12 @@ const Hero = () => {
           {loaded ? <Carousel className="w-full" plugins={[Autoplay(autoplayOptions)]}>
               <CarouselContent>
                 {images.map((image, index) => <CarouselItem key={index}>
-                    <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-b from-blue-100/50 to-white p-2">
+                    <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                       <AspectRatio ratio={16 / 9}>
-                        <img src={image} alt={`Restaurant management system ${index + 1}`} className="w-full h-full object-contain mx-auto rounded-xl" loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : "auto"} decoding="async" style={{
-                    maxHeight: '55vh',
+                        <img src={image} alt={`Restaurant management system ${index + 1}`} className="w-full h-full object-cover" loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : "auto"} decoding="async" style={{
                     transform: 'translateZ(0)' // Hardware acceleration
                   }} />
                       </AspectRatio>
-                      <div className="absolute inset-0 bg-gradient-to-t from-blue-600/5 to-transparent rounded-2xl py-[20px]"></div>
                     </div>
                   </CarouselItem>)}
               </CarouselContent>

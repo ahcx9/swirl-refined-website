@@ -83,23 +83,22 @@ export const MobileMenu = ({
           )
         ))}
         
-        {/* WhatsApp Button - matched with CTA size */}
-        <div className="mt-4 mb-2">
-          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full py-3 px-4 w-full flex items-center justify-center gap-2">
+        {/* Button container with equal sizing */}
+        <div className="mt-6 space-y-3 max-w-xs mx-auto">
+          {/* WhatsApp Button - compact mobile design */}
+          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full h-10 px-4 w-full flex items-center justify-center gap-2">
             <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">
-              <WhatsApp size={18} className="flex-shrink-0" />
+              <WhatsApp size={16} className="flex-shrink-0" />
               <span className="text-sm font-medium">{t('nav.chatOnWhatsapp')}</span>
             </a>
           </Button>
-        </div>
         
-        {/* CTA Button */}
-        <div className="mt-2 pt-2">
-          <div className="mx-auto">
-            <CustomCTAButton href="https://app.swirl.cx/register" className="w-full scale-90 py-2.5" openInNewTab>
+          {/* CTA Button - matched mobile design */}
+          <Button asChild className="bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 text-white h-10 px-4 w-full text-sm font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300">
+            <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
               {t('nav.getStarted')}
-            </CustomCTAButton>
-          </div>
+            </a>
+          </Button>
         </div>
       </div>
     </div>
