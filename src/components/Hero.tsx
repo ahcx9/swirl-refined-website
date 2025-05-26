@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -61,14 +60,15 @@ const Hero = () => {
     // continue auto-scrolling after user interaction
     rootNode: (emblaRoot: any) => emblaRoot.parentElement // required for proper initialization
   };
+  
   return <section className="pt-32 pb-12 md:pt-36 lg:pt-40 md:pb-16 min-h-[80vh] flex items-center bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20 bg-blue-200">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center max-w-5xl mx-auto mb-8">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-700 xl:text-7xl">
-            <span className="text-gray-400">Restaurant Sales</span> {t('hero.title').replace('Restaurant Sales', '').trim()}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-700 xl:text-7xl font-inter">
+            <span className="text-gray-400">Powering the New Era of</span> Restaurant Sales
           </h1>
           
-          <p className="text-xl md:text-2xl text-swirl-gray mb-10 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-swirl-gray mb-10 max-w-3xl mx-auto font-inter">
             {t('hero.subtitle')}
           </p>
           

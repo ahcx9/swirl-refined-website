@@ -120,16 +120,16 @@ const Navbar = () => {
         </div>
         
         <div className="hidden md:flex items-center gap-3">
-          {/* WhatsApp Button - compact design */}
-          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full h-9 px-3 flex items-center gap-2">
+          {/* WhatsApp Button - increased size */}
+          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full h-11 px-5 flex items-center gap-2 font-inter">
             <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">
-              <WhatsApp size={16} className="flex-shrink-0" />
-              <span className="text-xs font-medium whitespace-nowrap">WhatsApp</span>
+              <WhatsApp size={18} className="flex-shrink-0" />
+              <span className="text-sm font-medium whitespace-nowrap">WhatsApp</span>
             </a>
           </Button>  
             
-          {/* CTA Button - matched size with WhatsApp */}
-          <Button asChild className="bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 text-white h-9 px-4 text-xs font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300">
+          {/* CTA Button - increased size to match WhatsApp */}
+          <Button asChild className="bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 text-white h-11 px-5 text-sm font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 font-inter">
             <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
               Get Started Free
             </a>

@@ -54,7 +54,7 @@ export const MobileMenu = ({
                       onClick={onClose}
                     >
                       {getIconComponent(item.icon)}
-                      <span className="text-lg">{item.title}</span>
+                      <span className="text-lg font-inter">{item.title}</span>
                     </Link>
                   ))}
                 </div>
@@ -85,16 +85,16 @@ export const MobileMenu = ({
         
         {/* Button container with equal sizing */}
         <div className="mt-6 space-y-3 max-w-xs mx-auto">
-          {/* WhatsApp Button - compact mobile design */}
-          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full h-10 px-4 w-full flex items-center justify-center gap-2">
+          {/* WhatsApp Button - increased mobile size */}
+          <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full h-12 px-5 w-full flex items-center justify-center gap-2 font-inter">
             <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">
-              <WhatsApp size={16} className="flex-shrink-0" />
-              <span className="text-sm font-medium">{t('nav.chatOnWhatsapp')}</span>
+              <WhatsApp size={18} className="flex-shrink-0" />
+              <span className="text-sm font-medium font-inter">{t('nav.chatOnWhatsapp')}</span>
             </a>
           </Button>
         
-          {/* CTA Button - matched mobile design */}
-          <Button asChild className="bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 text-white h-10 px-4 w-full text-sm font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300">
+          {/* CTA Button - increased mobile size to match WhatsApp */}
+          <Button asChild className="bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 text-white h-12 px-5 w-full text-sm font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 font-inter">
             <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
               {t('nav.getStarted')}
             </a>
