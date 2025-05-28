@@ -106,17 +106,12 @@ const Navbar = () => {
     >
       <div className="max-w-[1800px] mx-auto px-4 xl:px-8 flex justify-between items-center">
         <div className="flex items-center">
-          <Link to="/" className="mr-8 flex items-center gap-3">
+          <Link to="/" className="mr-8">
             <img 
               src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png" 
               alt="Swirl Logo" 
               className="h-14 w-auto object-contain" 
             />
-            <div className="hidden lg:block">
-              <span className="text-lg font-semibold text-gray-700 font-inter">
-                AI-Powered Restaurant Management Platform
-              </span>
-            </div>
           </Link>
 
           <div className="hidden xl:flex items-center">
