@@ -12,6 +12,7 @@ import Footer from '@/components/Footer';
 import HomePOSSection from '@/components/HomePOSSection';
 import HomeInventorySection from '@/components/HomeInventorySection';
 import HomeFinancialAnalyticsSection from '@/components/HomeFinancialAnalyticsSection';
+import HotelIndustrySection from '@/components/HotelIndustrySection';
 import UseCasesSection from '@/components/UseCasesSection';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import ImagePreloader from '@/components/ImagePreloader';
@@ -36,6 +37,7 @@ const Index = () => {
           <HomePOSSection />
           <HomeInventorySection />
           <HomeFinancialAnalyticsSection />
+          <HotelIndustrySection />
         </div>
         <StepProcess />
         <NextGenFeatures />
