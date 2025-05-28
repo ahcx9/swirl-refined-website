@@ -1,21 +1,40 @@
-
 import React from 'react';
 import { QrCode, Clock, Dumbbell, Coffee, Utensils, Waves, Calendar, MapPin, Wifi, Car } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import CustomCTAButton from '@/components/CustomCTAButton';
-
 const HotelIndustrySection = () => {
-  const hotelServices = [
-    { icon: Utensils, label: 'Room Service', time: '24/7', color: 'bg-orange-500' },
-    { icon: Coffee, label: 'Breakfast', time: '6:00 - 11:00', color: 'bg-amber-500' },
-    { icon: Dumbbell, label: 'Fitness Center', time: '5:00 - 23:00', color: 'bg-red-500' },
-    { icon: Waves, label: 'Spa & Wellness', time: '9:00 - 21:00', color: 'bg-blue-500' },
-    { icon: Car, label: 'Valet Parking', time: 'On Request', color: 'bg-gray-500' },
-    { icon: Wifi, label: 'Business Center', time: '24/7', color: 'bg-green-500' }
-  ];
-
-  return (
-    <section className="py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
+  const hotelServices = [{
+    icon: Utensils,
+    label: 'Room Service',
+    time: '24/7',
+    color: 'bg-orange-500'
+  }, {
+    icon: Coffee,
+    label: 'Breakfast',
+    time: '6:00 - 11:00',
+    color: 'bg-amber-500'
+  }, {
+    icon: Dumbbell,
+    label: 'Fitness Center',
+    time: '5:00 - 23:00',
+    color: 'bg-red-500'
+  }, {
+    icon: Waves,
+    label: 'Spa & Wellness',
+    time: '9:00 - 21:00',
+    color: 'bg-blue-500'
+  }, {
+    icon: Car,
+    label: 'Valet Parking',
+    time: 'On Request',
+    color: 'bg-gray-500'
+  }, {
+    icon: Wifi,
+    label: 'Business Center',
+    time: '24/7',
+    color: 'bg-green-500'
+  }];
+  return <section className="py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-20 left-10 w-32 h-32 bg-blue-200/20 rounded-full blur-3xl"></div>
@@ -30,9 +49,9 @@ const HotelIndustrySection = () => {
             <span className="text-blue-700 font-semibold text-sm uppercase tracking-wide">Revolutionizing Hotel Guest Experience</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900 leading-tight py-0 md:text-7xl">
             Transform Your Hotel with
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 px-0 py-[9px]">
               Smart Digital Solutions
             </span>
           </h2>
@@ -107,8 +126,7 @@ const HotelIndustrySection = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Available Services</h3>
               
               <div className="grid grid-cols-2 gap-4">
-                {hotelServices.map((service, index) => (
-                  <Card key={index} className="group hover:scale-105 transition-all duration-300 border-0 shadow-md hover:shadow-xl bg-white/90 backdrop-blur-sm">
+                {hotelServices.map((service, index) => <Card key={index} className="group hover:scale-105 transition-all duration-300 border-0 shadow-md hover:shadow-xl bg-white/90 backdrop-blur-sm">
                     <CardContent className="p-4">
                       <div className={`w-12 h-12 ${service.color} rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
                         <service.icon className="text-white" size={24} />
@@ -119,8 +137,7 @@ const HotelIndustrySection = () => {
                         <span>{service.time}</span>
                       </div>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
             </div>
 
@@ -170,8 +187,6 @@ const HotelIndustrySection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HotelIndustrySection;
