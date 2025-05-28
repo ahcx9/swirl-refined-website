@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { QrCode, Menu, ShoppingCart, ArrowRight, Smartphone, Eye, MousePointer } from 'lucide-react';
-
 const StepProcess = () => {
-  return (
-    <section className="py-20 md:py-24 flex items-center bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 animate-on-scroll">
+  return <section className="py-20 md:py-24 flex items-center bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 animate-on-scroll">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-blue-600 to-teal-500 bg-clip-text text-transparent">
@@ -29,7 +26,9 @@ const StepProcess = () => {
                 <ArrowRight className="text-blue-500 animate-bounce" size={24} />
               </div>
               <div className="absolute top-1/2 left-2/3 transform -translate-y-1/2 -translate-x-1/2">
-                <ArrowRight className="text-teal-500 animate-bounce" size={24} style={{ animationDelay: '0.5s' }} />
+                <ArrowRight className="text-teal-500 animate-bounce" size={24} style={{
+                animationDelay: '0.5s'
+              }} />
               </div>
             </div>
           </div>
@@ -83,11 +82,15 @@ const StepProcess = () => {
                     <Menu className="text-white" size={36} />
                   </div>
                   {/* Floating eye icon */}
-                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center animate-bounce" style={{ animationDelay: '0.3s' }}>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center animate-bounce" style={{
+                  animationDelay: '0.3s'
+                }}>
                     <Eye className="text-blue-600" size={16} />
                   </div>
                   {/* Glowing effect */}
-                  <div className="absolute inset-0 w-24 h-24 rounded-full bg-blue-400 opacity-20 animate-ping" style={{ animationDelay: '0.5s' }}></div>
+                  <div className="absolute inset-0 w-24 h-24 rounded-full bg-blue-400 opacity-20 animate-ping" style={{
+                  animationDelay: '0.5s'
+                }}></div>
                 </div>
                 
                 {/* Step Number */}
@@ -122,11 +125,15 @@ const StepProcess = () => {
                     <ShoppingCart className="text-white" size={36} />
                   </div>
                   {/* Floating click icon */}
-                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center animate-bounce" style={{ animationDelay: '0.6s' }}>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center animate-bounce" style={{
+                  animationDelay: '0.6s'
+                }}>
                     <MousePointer className="text-teal-600" size={16} />
                   </div>
                   {/* Glowing effect */}
-                  <div className="absolute inset-0 w-24 h-24 rounded-full bg-teal-400 opacity-20 animate-ping" style={{ animationDelay: '1s' }}></div>
+                  <div className="absolute inset-0 w-24 h-24 rounded-full bg-teal-400 opacity-20 animate-ping" style={{
+                  animationDelay: '1s'
+                }}></div>
                 </div>
                 
                 {/* Step Number */}
@@ -151,14 +158,12 @@ const StepProcess = () => {
           {/* Bottom CTA */}
           <div className="text-center mt-16">
             <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-500 via-blue-500 to-teal-500 rounded-full text-white font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <span>Experience the Future of Dining</span>
-              <ArrowRight className="ml-3 animate-pulse" size={20} />
+              
+              
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default StepProcess;
