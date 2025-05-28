@@ -133,7 +133,7 @@ const Navbar = () => {
           {/* CTA Button - increased size to match WhatsApp */}
           <Button asChild className="bg-gradient-to-r from-swirl-blue to-blue-500 hover:from-swirl-blue/90 hover:to-blue-600 text-white h-11 px-5 text-sm font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 font-inter">
             <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
-              Get Started Free
+              Get Started For Free!
             </a>
           </Button>
         </div>
