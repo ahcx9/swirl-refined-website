@@ -6,68 +6,59 @@ import { Link } from 'react-router-dom';
 import { ChefHat, Timer, Bell, ClipboardCheck, Settings, ArrowRight, CheckCircle, Users, BarChart3, Zap } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-
 const KitchenDisplay = () => {
-  const features = [
-    {
-      title: "Real-time Order Management",
-      description: "Monitor and manage orders in real-time with instant updates from front-of-house.",
-      icon: Timer
-    },
-    {
-      title: "Recipe Management",
-      description: "Access digital recipes, prep instructions, and plating guides instantly.",
-      icon: ChefHat
-    },
-    {
-      title: "Order Priority & Alerts",
-      description: "Smart prioritization system with customizable alerts for urgent orders.",
-      icon: Bell
-    },
-    {
-      title: "Performance Analytics",
-      description: "Track kitchen performance metrics, preparation times, and efficiency.",
-      icon: ClipboardCheck
-    },
-    {
-      title: "Customizable Interface",
-      description: "Tailor the display layout and features to your kitchen's needs.",
-      icon: Settings
-    }
-  ];
-
-  const benefits = [
-    {
-      icon: Zap,
-      title: "Increase Kitchen Speed",
-      description: "Reduce ticket times by 25% with streamlined order flow and clear visual priorities."
-    },
-    {
-      icon: CheckCircle,
-      title: "Reduce Errors",
-      description: "Digital orders eliminate handwriting confusion and ensure order accuracy."
-    },
-    {
-      icon: Users,
-      title: "Improve Communication",
-      description: "Real-time updates keep front and back of house perfectly synchronized."
-    },
-    {
-      icon: BarChart3,
-      title: "Data-Driven Insights",
-      description: "Make informed decisions with detailed kitchen performance analytics."
-    }
-  ];
-
-  const stats = [
-    { number: "25%", label: "Faster Order Processing" },
-    { number: "40%", label: "Fewer Order Errors" },
-    { number: "30%", label: "Improved Efficiency" },
-    { number: "95%", label: "Customer Satisfaction" }
-  ];
-
-  return (
-    <div className="min-h-screen flex flex-col bg-white">
+  const features = [{
+    title: "Real-time Order Management",
+    description: "Monitor and manage orders in real-time with instant updates from front-of-house.",
+    icon: Timer
+  }, {
+    title: "Recipe Management",
+    description: "Access digital recipes, prep instructions, and plating guides instantly.",
+    icon: ChefHat
+  }, {
+    title: "Order Priority & Alerts",
+    description: "Smart prioritization system with customizable alerts for urgent orders.",
+    icon: Bell
+  }, {
+    title: "Performance Analytics",
+    description: "Track kitchen performance metrics, preparation times, and efficiency.",
+    icon: ClipboardCheck
+  }, {
+    title: "Customizable Interface",
+    description: "Tailor the display layout and features to your kitchen's needs.",
+    icon: Settings
+  }];
+  const benefits = [{
+    icon: Zap,
+    title: "Increase Kitchen Speed",
+    description: "Reduce ticket times by 25% with streamlined order flow and clear visual priorities."
+  }, {
+    icon: CheckCircle,
+    title: "Reduce Errors",
+    description: "Digital orders eliminate handwriting confusion and ensure order accuracy."
+  }, {
+    icon: Users,
+    title: "Improve Communication",
+    description: "Real-time updates keep front and back of house perfectly synchronized."
+  }, {
+    icon: BarChart3,
+    title: "Data-Driven Insights",
+    description: "Make informed decisions with detailed kitchen performance analytics."
+  }];
+  const stats = [{
+    number: "25%",
+    label: "Faster Order Processing"
+  }, {
+    number: "40%",
+    label: "Fewer Order Errors"
+  }, {
+    number: "30%",
+    label: "Improved Efficiency"
+  }, {
+    number: "95%",
+    label: "Customer Satisfaction"
+  }];
+  return <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <main className="flex-grow pt-24">
         {/* Hero Section */}
@@ -90,19 +81,12 @@ const KitchenDisplay = () => {
                   <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
                     Start Free Trial
                   </CustomCTAButton>
-                  <Button variant="outline" size="lg" className="text-blue-600 border-blue-200 hover:bg-blue-50">
-                    Watch Demo
-                  </Button>
+                  
                 </div>
               </div>
               <div className="relative">
                 <div className="rounded-2xl p-8 relative overflow-hidden">
-                  <img 
-                    src="/lovable-uploads/9f01aee3-0939-40fc-8e7b-a0f216172704.png" 
-                    alt="Kitchen Display System Interface" 
-                    className="w-full h-auto rounded-xl shadow-lg relative z-10" 
-                    loading="eager" 
-                  />
+                  <img src="/lovable-uploads/9f01aee3-0939-40fc-8e7b-a0f216172704.png" alt="Kitchen Display System Interface" className="w-full h-auto rounded-xl shadow-lg relative z-10" loading="eager" />
                 </div>
               </div>
             </div>
@@ -113,12 +97,10 @@ const KitchenDisplay = () => {
         <section className="py-12 bg-white border-b border-gray-100">
           <div className="container-custom">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
+              {stats.map((stat, index) => <div key={index} className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">{stat.number}</div>
                   <div className="text-gray-600 text-sm md:text-base">{stat.label}</div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </section>
@@ -135,8 +117,7 @@ const KitchenDisplay = () => {
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature, index) => (
-                <Card key={feature.title} className="bg-white border-0 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+              {features.map((feature, index) => <Card key={feature.title} className="bg-white border-0 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
                   <CardHeader className="pb-4">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="p-2 bg-blue-100 rounded-lg">
@@ -148,8 +129,7 @@ const KitchenDisplay = () => {
                       {feature.description}
                     </CardDescription>
                   </CardHeader>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </section>
@@ -166,8 +146,7 @@ const KitchenDisplay = () => {
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex gap-4 p-6 rounded-xl bg-blue-50/50 hover:bg-blue-50 transition-colors">
+              {benefits.map((benefit, index) => <div key={index} className="flex gap-4 p-6 rounded-xl bg-blue-50/50 hover:bg-blue-50 transition-colors">
                   <div className="flex-shrink-0">
                     <div className="p-3 bg-blue-100 rounded-lg">
                       <benefit.icon className="h-6 w-6 text-blue-600" />
@@ -177,8 +156,7 @@ const KitchenDisplay = () => {
                     <h3 className="text-xl font-semibold mb-2 text-gray-900">{benefit.title}</h3>
                     <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </section>
@@ -250,8 +228,6 @@ const KitchenDisplay = () => {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default KitchenDisplay;
