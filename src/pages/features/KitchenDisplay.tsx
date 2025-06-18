@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
@@ -72,7 +71,7 @@ const KitchenDisplay = () => {
       <Navbar />
       <main className="flex-grow pt-24">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-50 via-white to-blue-50/30 py-20">
+        <section className="bg-white py-20">
           <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -97,14 +96,13 @@ const KitchenDisplay = () => {
                 </div>
               </div>
               <div className="relative">
-                <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl p-8 relative overflow-hidden">
+                <div className="rounded-2xl p-8 relative overflow-hidden">
                   <img 
                     src="/lovable-uploads/9f01aee3-0939-40fc-8e7b-a0f216172704.png" 
                     alt="Kitchen Display System Interface" 
                     className="w-full h-auto rounded-xl shadow-lg relative z-10" 
                     loading="eager" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent rounded-2xl"></div>
                 </div>
               </div>
             </div>
