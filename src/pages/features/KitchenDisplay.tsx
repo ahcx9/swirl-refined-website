@@ -53,17 +53,21 @@ const KitchenDisplay = () => {
                 <img 
                   src="/lovable-uploads/9f01aee3-0939-40fc-8e7b-a0f216172704.png" 
                   alt="Kitchen Display System Interface" 
-                  className="w-full h-auto object-contain rounded-xl shadow-2xl" 
+                  className="w-full object-contain rounded-xl shadow-2xl" 
                   style={{
                     filter: 'drop-shadow(0 20px 25px rgb(0 0 0 / 0.15)) drop-shadow(0 8px 10px rgb(0 0 0 / 0.1))',
-                    maxHeight: '70vh'
+                    height: '80vh',
+                    maxHeight: '80vh',
+                    backgroundColor: 'transparent',
+                    mixBlendMode: 'multiply'
                   }} 
                   loading="eager" 
                 />
               </div>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map(feature => <Card key={feature.title} className="card-hover">
+              {features.map(feature => (
+                <Card key={feature.title} className="card-hover">
                   <CardHeader>
                     <div className="flex items-center gap-3">
                       <feature.icon className="h-6 w-6 text-purple" />
@@ -71,7 +75,8 @@ const KitchenDisplay = () => {
                     </div>
                     <CardDescription>{feature.description}</CardDescription>
                   </CardHeader>
-                </Card>)}
+                </Card>
+              ))}
             </div>
           </div>
         </section>
