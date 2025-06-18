@@ -49,17 +49,14 @@ const KitchenDisplay = () => {
         <section className="py-12">
           <div className="container-custom">
             <div className="mb-16 flex justify-center">
-              <div className="max-w-6xl bg-transparent rounded-xl p-4">
+              <div className="max-w-7xl">
                 <img 
                   src="/lovable-uploads/9f01aee3-0939-40fc-8e7b-a0f216172704.png" 
                   alt="Kitchen Display System Interface" 
-                  className="w-full object-contain rounded-xl shadow-2xl" 
+                  className="w-full object-contain rounded-xl" 
                   style={{
-                    filter: 'drop-shadow(0 20px 25px rgb(0 0 0 / 0.15)) drop-shadow(0 8px 10px rgb(0 0 0 / 0.1))',
-                    height: '80vh',
-                    maxHeight: '80vh',
-                    backgroundColor: 'transparent',
-                    mixBlendMode: 'multiply'
+                    height: '90vh',
+                    maxHeight: '90vh'
                   }} 
                   loading="eager" 
                 />
