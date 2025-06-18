@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
@@ -6,6 +5,7 @@ import CustomCTAButton from '@/components/CustomCTAButton';
 import { Link } from 'react-router-dom';
 import { ChefHat, Timer, Bell, ClipboardCheck, Settings } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+
 const KitchenDisplay = () => {
   const features = [{
     title: "Real-time Order Management",
@@ -28,7 +28,8 @@ const KitchenDisplay = () => {
     description: "Tailor the display layout and features to your kitchen's needs.",
     icon: Settings
   }];
-  return <div className="min-h-screen flex flex-col">
+  return (
+    <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-24">
         <section className="bg-purple-light/10 py-20">
@@ -48,10 +49,17 @@ const KitchenDisplay = () => {
         <section className="py-12">
           <div className="container-custom">
             <div className="mb-16 flex justify-center">
-              <div className="max-w-2xl bg-transparent rounded-xl p-4">
-                <img src="/lovable-uploads/85df272f-78b0-4180-bd9e-a069e750623a.png" alt="Kitchen Display System Interface" className="w-full h-auto object-contain rounded-xl" style={{
-                filter: 'drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1))'
-              }} loading="eager" />
+              <div className="max-w-6xl bg-transparent rounded-xl p-4">
+                <img 
+                  src="/lovable-uploads/9f01aee3-0939-40fc-8e7b-a0f216172704.png" 
+                  alt="Kitchen Display System Interface" 
+                  className="w-full h-auto object-contain rounded-xl shadow-2xl" 
+                  style={{
+                    filter: 'drop-shadow(0 20px 25px rgb(0 0 0 / 0.15)) drop-shadow(0 8px 10px rgb(0 0 0 / 0.1))',
+                    maxHeight: '70vh'
+                  }} 
+                  loading="eager" 
+                />
               </div>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -91,6 +99,8 @@ const KitchenDisplay = () => {
         </section>
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default KitchenDisplay;

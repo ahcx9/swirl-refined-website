@@ -69,8 +69,8 @@ const TrustedRestaurants = () => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
     
-    // Improved animation for smooth scrolling
-    const animationDuration = 25; // Fixed duration in seconds
+    // Faster animation for mobile and desktop - reduced duration significantly
+    const animationDuration = 12; // Reduced from 25 to 12 seconds for much faster scrolling
     
     // Add animation keyframes dynamically
     const styleSheet = document.createElement("style");
@@ -83,6 +83,12 @@ const TrustedRestaurants = () => {
       .logo-scroll-animation {
         animation: scrollLogos ${animationDuration}s linear infinite;
         will-change: transform;
+      }
+      
+      @media (max-width: 768px) {
+        .logo-scroll-animation {
+          animation: scrollLogos 8s linear infinite;
+        }
       }
     `;
     document.head.appendChild(styleSheet);
