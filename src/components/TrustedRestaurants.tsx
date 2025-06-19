@@ -48,7 +48,6 @@ const TrustedRestaurants = () => {
   // Preload all logo images with high priority for instant loading
   useEffect(() => {
     const logoUrls = logos.map(logo => logo.src);
-    // Force high priority loading
     preloadImages(logoUrls, 5)
       .catch(err => {
         console.error('Error preloading logo images:', err);
@@ -60,7 +59,7 @@ const TrustedRestaurants = () => {
       link.rel = 'preload';
       link.href = logo.src;
       link.as = 'image';
-      link.fetchPriority = 'high';
+      link.crossOrigin = 'anonymous';
       document.head.appendChild(link);
     });
   }, []);
@@ -69,8 +68,9 @@ const TrustedRestaurants = () => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
     
-    // Faster animation for mobile and desktop - reduced duration significantly
-    const animationDuration = 12; // Reduced from 25 to 12 seconds for much faster scrolling
+    // Much faster animation for mobile, moderate for desktop
+    const animationDuration = 15; // Desktop duration
+    const mobileAnimationDuration = 6; // Much faster mobile duration
     
     // Add animation keyframes dynamically
     const styleSheet = document.createElement("style");
@@ -87,7 +87,7 @@ const TrustedRestaurants = () => {
       
       @media (max-width: 768px) {
         .logo-scroll-animation {
-          animation: scrollLogos 8s linear infinite;
+          animation: scrollLogos ${mobileAnimationDuration}s linear infinite;
         }
       }
     `;
@@ -111,7 +111,7 @@ const TrustedRestaurants = () => {
         
         <div className="relative w-full overflow-hidden" ref={containerRef}>
           <div className="flex" ref={scrollRef}>
-            {/* First set of logos */}
+            {/*  set of logos */}
             {logos.map((logo, index) => (
               <div 
                 key={`logo-1-${index}`} 
@@ -122,9 +122,9 @@ const TrustedRestaurants = () => {
                   alt={logo.alt}
                   className="max-h-full max-w-full object-contain"
                   loading="eager"
-                  fetchPriority="high"
+                  crossOrigin="anonymous"
                   decoding="async"
-                  style={{ transform: 'translateZ(0)' }} // Hardware acceleration
+                  style={{ transform: 'translateZ(0)' }}
                 />
               </div>
             ))}
@@ -140,7 +140,8 @@ const TrustedRestaurants = () => {
                   alt={logo.alt}
                   className="max-h-full max-w-full object-contain"
                   loading="eager" 
-                  style={{ transform: 'translateZ(0)' }} // Hardware acceleration
+                  crossOrigin="anonymous"
+                  style={{ transform: 'translateZ(0)' }}
                 />
               </div>
             ))}

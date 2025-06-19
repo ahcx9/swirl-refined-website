@@ -22,23 +22,31 @@ const HomeInventorySection = () => {
     icon: HardDrive,
     text: 'Ingredient-level tracking'
   }];
-  return <section className="py-16 overflow-hidden relative bg-gradient-to-br from-indigo-50/30 to-white">
+  
+  return (
+    <section className="py-16 overflow-hidden relative bg-white">
       <div className="container-custom relative">
         <div className="grid md:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Image column - using the uploaded image */}
+          {/* Image column - enlarged and clearer */}
           <div className="md:col-span-7">
-            <Card className="overflow-hidden border-0 shadow-xl rounded-2xl bg-gradient-to-br from-indigo-600/5 to-blue-600/10">
+            <Card className="overflow-hidden border-0 shadow-xl rounded-2xl bg-white">
               <CardContent className="p-0">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-indigo-600/5 rounded-xl"></div>
-                  
                   <div className="perspective-1000 overflow-hidden rounded-lg">
-                    <div className="transform transition-all duration-700 hover:scale-[1.05]">
+                    <div className="transform transition-all duration-700 hover:scale-[1.02]">
                       <AspectRatio ratio={16 / 9}>
                         <div className="overflow-hidden">
-                          <img alt="Inventory Management Dashboard" loading="eager" fetchPriority="high" decoding="sync" style={{
-                          transform: 'translateZ(0)'
-                        }} className="w-full h-auto object-cover rounded-lg shadow-inner transform scale-100" src="/lovable-uploads/5245388f-d3d0-478b-aeff-1b60e7ac7ba3.png" />
+                          <img 
+                            alt="Inventory Management Dashboard" 
+                            loading="eager" 
+                            fetchPriority="high" 
+                            decoding="sync" 
+                            style={{
+                              transform: 'translateZ(0) scale(1.1)'
+                            }} 
+                            className="w-full h-auto object-cover rounded-lg shadow-inner" 
+                            src="/lovable-uploads/5245388f-d3d0-478b-aeff-1b60e7ac7ba3.png" 
+                          />
                         </div>
                       </AspectRatio>
                       
@@ -67,14 +75,16 @@ const HomeInventorySection = () => {
               </p>
               
               <div className="grid grid-cols-1 gap-3 mb-10">
-                {features.map((feature, index) => <Card key={index} className="bg-white/80 border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
+                {features.map((feature, index) => (
+                  <Card key={index} className="bg-white/80 border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
                     <CardContent className="p-4 flex items-center gap-3 bg-slate-50">
                       <div className="p-2 rounded-full bg-blue-50">
                         <feature.icon className="h-5 w-5 text-blue-600" />
                       </div>
                       <span className="text-amber-950">{feature.text}</span>
                     </CardContent>
-                  </Card>)}
+                  </Card>
+                ))}
               </div>
               
               <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-90">
@@ -88,6 +98,8 @@ const HomeInventorySection = () => {
       {/* Decorative elements */}
       <div className="absolute top-1/3 right-0 w-72 h-72 bg-blue-300/20 rounded-full blur-3xl -z-10"></div>
       <div className="absolute bottom-1/3 left-0 w-64 h-64 bg-indigo-300/20 rounded-full blur-3xl -z-10"></div>
-    </section>;
+    </section>
+  );
 };
+
 export default HomeInventorySection;

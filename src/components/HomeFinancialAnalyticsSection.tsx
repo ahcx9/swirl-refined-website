@@ -23,9 +23,8 @@ const HomeFinancialAnalyticsSection = () => {
     text: 'Customizable reporting'
   }];
   
-  return <section className="py-16 overflow-hidden relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 to-white -z-10"></div>
-      
+  return (
+    <section className="py-16 overflow-hidden relative bg-white">
       <div className="container-custom relative">
         <div className="grid md:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Content column */}
@@ -43,14 +42,16 @@ const HomeFinancialAnalyticsSection = () => {
               </p>
               
               <div className="grid grid-cols-1 gap-3 mb-10">
-                {features.map((feature, index) => <Card key={index} className="bg-white/80 border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
+                {features.map((feature, index) => (
+                  <Card key={index} className="bg-white/80 border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
                     <CardContent className="p-4 flex items-center gap-3">
                       <div className="p-2 rounded-full bg-blue-50">
                         <feature.icon className="h-5 w-5 text-blue-600" />
                       </div>
                       <span className="text-amber-950">{feature.text}</span>
                     </CardContent>
-                  </Card>)}
+                  </Card>
+                ))}
               </div>
               
               <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-90">
@@ -59,26 +60,24 @@ const HomeFinancialAnalyticsSection = () => {
             </div>
           </div>
           
-          {/* Image column - significantly enlarged for better visibility and readability */}
+          {/* Image column - enlarged and clearer with white background */}
           <div className="md:col-span-7 order-1 md:order-2">
-            <Card className="overflow-hidden border-0 shadow-2xl rounded-2xl bg-gradient-to-br from-blue-600/5 to-indigo-600/10 mx-auto">
+            <Card className="overflow-hidden border-0 shadow-2xl rounded-2xl bg-white mx-auto">
               <CardContent className="p-0">
                 <AspectRatio ratio={16/9} className="overflow-hidden rounded-xl">
                   <div className="relative h-full w-full">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-indigo-600/5 rounded-xl"></div>
-                    
                     <img 
                       alt="Financial Analytics Dashboard" 
                       loading="eager" 
                       fetchPriority="high"
                       decoding="async"
-                      className="w-full h-full object-fill rounded-lg" 
+                      className="w-full h-full object-cover rounded-lg" 
                       src="/lovable-uploads/2e0f4208-a025-4a95-a266-cf5c3b63fb68.png" 
                       style={{
                         maxWidth: "100%",
                         height: "auto",
                         objectPosition: "center",
-                        transform: 'translateZ(0)' // Hardware acceleration
+                        transform: 'translateZ(0) scale(1.1)'
                       }}
                     />
                     
@@ -96,7 +95,8 @@ const HomeFinancialAnalyticsSection = () => {
       {/* Decorative elements */}
       <div className="absolute top-1/4 left-0 w-64 h-64 bg-blue-300/20 rounded-full blur-3xl -z-10"></div>
       <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-indigo-300/20 rounded-full blur-3xl -z-10"></div>
-    </section>;
+    </section>
+  );
 };
 
 export default HomeFinancialAnalyticsSection;
