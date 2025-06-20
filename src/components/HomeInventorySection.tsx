@@ -40,15 +40,15 @@ const HomeInventorySection = () => {
           {/* Image column - moved to left */}
           <div className="md:col-span-7 order-1">
             <Card className="overflow-hidden border-0 shadow-xl rounded-2xl bg-gradient-to-br from-gray-50 to-white">
-              <CardContent className="p-4">
+              <CardContent className="p-0">
                 <div className="relative">
                   <div className="perspective-1000">
                     <div className="transform transition-all duration-700 hover:scale-[1.02]">
-                      <AspectRatio ratio={4 / 3}>
+                      <AspectRatio ratio={16 / 10}>
                         <img 
                           src="/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png" 
                           alt="Inventory Management Interface" 
-                          className="w-full h-full object-contain rounded-lg" 
+                          className="w-full h-full object-cover rounded-2xl" 
                           loading="eager" 
                           fetchPriority="high" 
                           decoding="sync" 
