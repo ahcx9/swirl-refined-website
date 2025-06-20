@@ -45,7 +45,7 @@ const HomeInventorySection = () => {
                               transform: 'translateZ(0) scale(1.0)'
                             }} 
                             className="w-full h-auto object-cover rounded-lg shadow-inner" 
-                            src="/lovable-uploads/5247792d-2f0e-4761-9a2e-f09c9aaba40a.png" 
+                            src="/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png" 
                           />
                         </div>
                       </AspectRatio>
