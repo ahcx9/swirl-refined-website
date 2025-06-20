@@ -35,17 +35,17 @@ const HomeInventorySection = () => {
                   <div className="perspective-1000 overflow-hidden rounded-lg">
                     <div className="transform transition-all duration-700 hover:scale-[1.02]">
                       <AspectRatio ratio={16 / 9}>
-                        <div className="overflow-hidden">
+                        <div className="overflow-hidden bg-white">
                           <img 
                             alt="Inventory Management Dashboard" 
                             loading="eager" 
                             fetchPriority="high" 
                             decoding="sync" 
                             style={{
-                              transform: 'translateZ(0) scale(1.1)'
+                              transform: 'translateZ(0) scale(1.0)'
                             }} 
                             className="w-full h-auto object-cover rounded-lg shadow-inner" 
-                            src="/lovable-uploads/5245388f-d3d0-478b-aeff-1b60e7ac7ba3.png" 
+                            src="/lovable-uploads/5247792d-2f0e-4761-9a2e-f09c9aaba40a.png" 
                           />
                         </div>
                       </AspectRatio>

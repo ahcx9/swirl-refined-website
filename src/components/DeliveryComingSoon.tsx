@@ -10,22 +10,22 @@ const DeliveryComingSoon = () => {
     {
       name: "Talabat",
       color: "from-orange-400 to-orange-600",
-      icon: "🍽️"
+      logo: "https://logos-world.net/wp-content/uploads/2021/02/Talabat-Logo.png"
     },
     {
-      name: "CareemFood",
-      color: "from-green-400 to-green-600",
-      icon: "🚗"
+      name: "Careem",
+      color: "from-green-400 to-green-600", 
+      logo: "https://logos-world.net/wp-content/uploads/2020/11/Careem-Logo.png"
     },
     {
-      name: "NoonFood",
+      name: "Noon Food",
       color: "from-yellow-400 to-yellow-600",
-      icon: "🍔"
+      logo: "https://logos-world.net/wp-content/uploads/2021/02/Noon-Logo.png"
     },
     {
       name: "Deliveroo",
       color: "from-teal-400 to-teal-600",
-      icon: "🛵"
+      logo: "https://logos-world.net/wp-content/uploads/2020/11/Deliveroo-Logo.png"
     }
   ];
 
@@ -47,7 +47,7 @@ const DeliveryComingSoon = () => {
   }, []);
 
   const handleWhatsAppRedirect = () => {
-    window.open('https://wa.me/your-whatsapp-number', '_blank');
+    window.open('https://wa.me/971543853877', '_blank');
   };
 
   return (
@@ -133,10 +133,21 @@ const DeliveryComingSoon = () => {
                     index === currentApp ? 'scale-125 z-10' : 'scale-75 opacity-50'
                   }`}
                 >
-                  <div className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${app.color} flex items-center justify-center text-3xl shadow-2xl border-4 ${
+                  <div className={`w-20 h-20 rounded-2xl bg-white flex items-center justify-center shadow-2xl border-4 ${
                     index === currentApp ? 'border-white' : 'border-transparent'
                   }`}>
-                    {app.icon}
+                    <img 
+                      src={app.logo} 
+                      alt={app.name}
+                      className="w-16 h-16 object-contain"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.nextElementSibling.style.display = 'block';
+                      }}
+                    />
+                    <div className="hidden text-2xl font-bold text-gray-800">
+                      {app.name.charAt(0)}
+                    </div>
                   </div>
                   {index === currentApp && (
                     <div className="absolute -top-2 -right-2">
