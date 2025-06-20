@@ -9,22 +9,22 @@ const DeliveryAppShowcase = () => {
     {
       name: "Talabat",
       color: "from-orange-400 to-orange-600",
-      logo: "https://logos-world.net/wp-content/uploads/2021/02/Talabat-Logo.png"
+      logo: "/lovable-uploads/70a5e9b4-f538-469f-8c1a-0d7e504bebbd.png"
     },
     {
       name: "Careem",
       color: "from-green-400 to-green-600", 
-      logo: "https://logos-world.net/wp-content/uploads/2020/11/Careem-Logo.png"
+      logo: "/lovable-uploads/a2ee4e8c-8b4d-4521-a82a-39df6b6529aa.png"
     },
     {
       name: "Noon Food",
       color: "from-yellow-400 to-yellow-600",
-      logo: "https://logos-world.net/wp-content/uploads/2021/02/Noon-Logo.png"
+      logo: "/lovable-uploads/2d0d5063-3561-4218-963a-c3ddb6af0a44.png"
     },
     {
       name: "Deliveroo",
       color: "from-teal-400 to-teal-600",
-      logo: "https://logos-world.net/wp-content/uploads/2020/11/Deliveroo-Logo.png"
+      logo: "/lovable-uploads/0e8b0620-df50-4144-bbd0-9c5eed7e00f5.png"
     }
   ];
 
