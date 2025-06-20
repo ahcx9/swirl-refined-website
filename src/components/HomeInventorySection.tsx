@@ -42,9 +42,9 @@ const HomeInventorySection = () => {
                             fetchPriority="high" 
                             decoding="sync" 
                             style={{
-                              transform: 'translateZ(0) scale(1.0)'
+                              transform: 'translateZ(0) scale(0.8)'
                             }} 
-                            className="w-full h-auto object-cover rounded-lg shadow-inner" 
+                            className="w-full h-auto object-contain rounded-lg shadow-inner" 
                             src="/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png" 
                           />
                         </div>
