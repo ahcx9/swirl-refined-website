@@ -1,9 +1,10 @@
 
-import React from 'react';
-import { Package, Tag, BarChart, HardDrive, List } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Package, Tag, BarChart, HardDrive, List } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import { preloadImage } from '@/utils/imagePreloader';
 
 const HomeInventorySection = () => {
   const features = [{
@@ -22,46 +23,22 @@ const HomeInventorySection = () => {
     icon: HardDrive,
     text: 'Ingredient-level tracking'
   }];
+
+  // Preload the inventory image
+  useEffect(() => {
+    const mainImage = "/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png";
+    preloadImage({
+      src: mainImage,
+      priority: 'high'
+    });
+  }, []);
   
   return (
     <section className="py-16 overflow-hidden relative bg-white">
       <div className="container-custom relative">
         <div className="grid md:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Image column - enlarged and clearer */}
-          <div className="md:col-span-7">
-            <Card className="overflow-hidden border-0 shadow-xl rounded-2xl bg-white">
-              <CardContent className="p-0">
-                <div className="relative">
-                  <div className="perspective-1000 overflow-hidden rounded-lg">
-                    <div className="transform transition-all duration-700 hover:scale-[1.02]">
-                      <AspectRatio ratio={16 / 9}>
-                        <div className="overflow-hidden bg-white">
-                          <img 
-                            alt="Inventory Management Dashboard" 
-                            loading="eager" 
-                            fetchPriority="high" 
-                            decoding="sync" 
-                            style={{
-                              transform: 'translateZ(0) scale(0.8)'
-                            }} 
-                            className="w-full h-auto object-contain rounded-lg shadow-inner" 
-                            src="/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png" 
-                          />
-                        </div>
-                      </AspectRatio>
-                      
-                      <div className="absolute bottom-4 left-4 bg-blue-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
-                        Smart Inventory Control
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-          
           {/* Content column */}
-          <div className="md:col-span-5">
+          <div className="md:col-span-5 order-2 md:order-1">
             <div className="animate-on-scroll">
               <div className="mb-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/80 border border-blue-100 backdrop-blur-sm">
                 <span className="text-blue-600 font-medium">Smart Stock Control for Your Business</span>
@@ -77,7 +54,7 @@ const HomeInventorySection = () => {
               <div className="grid grid-cols-1 gap-3 mb-10">
                 {features.map((feature, index) => (
                   <Card key={index} className="bg-white/80 border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
-                    <CardContent className="p-4 flex items-center gap-3 bg-slate-50">
+                    <CardContent className="p-4 flex items-center gap-3">
                       <div className="p-2 rounded-full bg-blue-50">
                         <feature.icon className="h-5 w-5 text-blue-600" />
                       </div>
@@ -87,17 +64,50 @@ const HomeInventorySection = () => {
                 ))}
               </div>
               
-              <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-90">
-                Get Started For Free
-              </CustomCTAButton>
+              <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg text-white">
+                <a href="https://app.swirl.cx/register" className="flex items-center gap-2">
+                  Get Started For Free <ArrowRight className="h-4 w-4" />
+                </a>
+              </Button>
             </div>
+          </div>
+          
+          {/* Image column */}
+          <div className="md:col-span-7 order-1 md:order-2">
+            <Card className="overflow-hidden border-0 shadow-xl rounded-2xl bg-white">
+              <CardContent className="p-0">
+                <div className="relative">
+                  <div className="perspective-1000">
+                    <div className="transform transition-all duration-700 hover:scale-[1.02]">
+                      <AspectRatio ratio={16 / 9}>
+                        <img 
+                          src="/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png" 
+                          alt="Inventory Management Interface" 
+                          className="w-full h-auto object-cover rounded-lg shadow-inner" 
+                          loading="eager" 
+                          fetchPriority="high" 
+                          decoding="sync" 
+                          style={{
+                            transform: 'translateZ(0)'
+                          }}
+                        />
+                      </AspectRatio>
+                      
+                      <div className="absolute bottom-4 right-4 bg-blue-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
+                        Smart Inventory Control
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
       
       {/* Decorative elements */}
-      <div className="absolute top-1/3 right-0 w-72 h-72 bg-blue-300/20 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-1/3 left-0 w-64 h-64 bg-indigo-300/20 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute top-1/4 left-0 w-64 h-64 bg-blue-300/20 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-indigo-300/20 rounded-full blur-3xl -z-10"></div>
     </section>
   );
 };
