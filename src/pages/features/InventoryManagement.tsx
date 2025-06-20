@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
@@ -41,7 +40,8 @@ const InventoryManagement = () => {
     "Prevent stockouts that could impact menu availability"
   ];
   
-  return <div className="min-h-screen flex flex-col">
+  return (
+    <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-28 pb-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container-custom">
@@ -66,12 +66,12 @@ const InventoryManagement = () => {
                 </CustomCTAButton>
               </div>
 
-              <div className="overflow-hidden rounded-xl shadow-2xl max-w-5xl mx-auto transform hover:scale-[1.01] transition-transform duration-500">
-                <div className="bg-gradient-to-br from-blue-50 to-white p-3 rounded-xl">
+              <div className="overflow-hidden rounded-xl shadow-2xl max-w-4xl mx-auto transform hover:scale-[1.01] transition-transform duration-500">
+                <div className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl max-h-96">
                   <img 
                     src="/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png" 
                     alt="Inventory Management System Interface" 
-                    className="w-full h-auto object-cover rounded-lg shadow-inner" 
+                    className="w-full h-full object-contain rounded-lg" 
                     loading="eager" 
                     fetchPriority="high"
                     decoding="async"
@@ -84,7 +84,8 @@ const InventoryManagement = () => {
               <h2 className="text-3xl font-bold mb-12 text-center text-black">{t('inventory.features')}</h2>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {features.map(feature => <div key={feature.title} className="bg-white rounded-xl p-8 shadow-soft border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                {features.map(feature => (
+                  <div key={feature.title} className="bg-white rounded-xl p-8 shadow-soft border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                     <div className="flex items-center gap-3 mb-5">
                       <div className="p-3 rounded-full bg-purple-light/30">
                         <feature.icon className="text-purple h-5 w-5" />
@@ -92,7 +93,8 @@ const InventoryManagement = () => {
                       <h3 className="text-xl font-semibold text-black">{feature.title}</h3>
                     </div>
                     <p className="text-swirl-gray leading-relaxed">{feature.description}</p>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </section>
 
@@ -114,14 +116,16 @@ const InventoryManagement = () => {
                 <div className="w-full md:w-1/2">
                   <h3 className="text-xl font-semibold mb-6 text-black">{t('inventory.benefits')}</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {benefits.map((benefit, index) => <div key={index} className="flex items-start gap-4">
+                    {benefits.map((benefit, index) => (
+                      <div key={index} className="flex items-start gap-4">
                         <div className="bg-green-500 rounded-full p-1.5 mt-1">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-white" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                           </svg>
                         </div>
                         <p className="text-gray-700 font-medium">{benefit}</p>
-                      </div>)}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -164,6 +168,8 @@ const InventoryManagement = () => {
         </div>
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default InventoryManagement;
