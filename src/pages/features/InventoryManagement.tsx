@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
@@ -46,10 +47,8 @@ const InventoryManagement = () => {
       <main className="flex-grow pt-28 pb-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
-            <div className="mb-16 relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-blue-100/20 rounded-3xl -z-10"></div>
-              
-              <div className="text-center mb-10 pt-8">
+            <div className="relative">
+              <div className="text-center">
                 <div className="inline-flex items-center gap-4 mb-6 bg-blue-50/80 px-6 py-3 rounded-full">
                   <div className="p-2 rounded-full bg-gradient-to-r from-blue-100 to-blue-200">
                     <Package className="text-blue-600 h-6 w-6" />
@@ -61,7 +60,7 @@ const InventoryManagement = () => {
                   {t('inventory.subtitle')}
                 </p>
 
-                <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-85">
+                <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-85 mb-8">
                   {t('cta.getStarted')}
                 </CustomCTAButton>
               </div>
@@ -78,7 +77,7 @@ const InventoryManagement = () => {
               </div>
             </div>
 
-            <section className="mb-20">
+            <section className="mb-20 mt-20">
               <h2 className="text-3xl font-bold mb-12 text-center text-black">{t('inventory.features')}</h2>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

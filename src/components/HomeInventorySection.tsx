@@ -34,8 +34,8 @@ const HomeInventorySection = () => {
   }, []);
   
   return (
-    <section className="py-16 overflow-hidden relative bg-white">
-      <div className="container-custom relative">
+    <section className="overflow-hidden relative bg-white">
+      <div className="container-custom relative py-8">
         <div className="grid md:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Image column - moved to left */}
           <div className="md:col-span-7 order-1">
