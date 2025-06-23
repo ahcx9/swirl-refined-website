@@ -67,18 +67,14 @@ const InventoryManagement = () => {
               </div>
 
               <div className="overflow-hidden rounded-xl shadow-2xl max-w-5xl mx-auto transform hover:scale-[1.01] transition-transform duration-500">
-                <div className="bg-gradient-to-br from-blue-50 to-white p-4 rounded-xl">
-                  <div className="w-full" style={{ aspectRatio: '16/10' }}>
-                    <img 
-                      src="/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png" 
-                      alt="Inventory Management System Interface" 
-                      className="w-full h-full object-contain rounded-lg" 
-                      loading="eager" 
-                      fetchPriority="high"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
+                <img 
+                  src="/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png" 
+                  alt="Inventory Management System Interface" 
+                  className="w-full h-auto" 
+                  loading="eager" 
+                  fetchPriority="high"
+                  decoding="async"
+                />
               </div>
             </div>
 
