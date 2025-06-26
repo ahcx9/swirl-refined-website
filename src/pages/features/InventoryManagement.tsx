@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
@@ -60,16 +59,16 @@ const InventoryManagement = () => {
                   {t('inventory.subtitle')}
                 </p>
 
-                <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-85 mb-8">
+                <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-85 mb-6">
                   {t('cta.getStarted')}
                 </CustomCTAButton>
               </div>
 
-              <div className="overflow-hidden rounded-xl shadow-2xl max-w-5xl mx-auto transform hover:scale-[1.01] transition-transform duration-500">
+              <div className="rounded-xl shadow-2xl max-w-5xl mx-auto transform hover:scale-[1.01] transition-transform duration-500">
                 <img 
                   src="/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png" 
                   alt="Inventory Management System Interface" 
-                  className="w-full h-auto" 
+                  className="w-full h-auto rounded-xl" 
                   loading="eager" 
                   fetchPriority="high"
                   decoding="async"
@@ -77,7 +76,7 @@ const InventoryManagement = () => {
               </div>
             </div>
 
-            <section className="mb-20 mt-20">
+            <section className="mb-20 mt-16">
               <h2 className="text-3xl font-bold mb-12 text-center text-black">{t('inventory.features')}</h2>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
