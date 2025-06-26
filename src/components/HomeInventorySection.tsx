@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Package, Tag, BarChart, HardDrive, List } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { preloadImage } from '@/utils/imagePreloader';
 
 const HomeInventorySection = () => {
@@ -79,19 +78,16 @@ const HomeInventorySection = () => {
                 <div className="relative">
                   <div className="perspective-1000">
                     <div className="transform transition-all duration-700 hover:scale-[1.02]">
-                      <AspectRatio ratio={16 / 9}>
-                        <img 
-                          src="/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png" 
-                          alt="Inventory Management Interface" 
-                          className="w-full h-auto object-cover rounded-lg shadow-inner" 
-                          loading="eager" 
-                          fetchPriority="high" 
-                          decoding="sync" 
-                          style={{
-                            transform: 'translateZ(0)'
-                          }}
-                        />
-                      </AspectRatio>
+                      <img 
+                        src="/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png" 
+                        alt="Inventory Management Interface" 
+                        className="w-full h-auto rounded-lg shadow-inner" 
+                        loading="eager" 
+                        decoding="sync" 
+                        style={{
+                          transform: 'translateZ(0)'
+                        }}
+                      />
                       
                       <div className="absolute bottom-4 right-4 bg-blue-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
                         Smart Inventory Control
