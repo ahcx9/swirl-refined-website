@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import HeroSection from '@/components/features/digital-menu/HeroSection';
-import DigitalMenuTabs from '@/components/features/digital-menu/DigitalMenuTabs';
+import FeaturesGrid from '@/components/features/digital-menu/FeaturesGrid';
 import TestimonialsSection from '@/components/features/digital-menu/TestimonialsSection';
 const DigitalMenu = () => {
   return <div className="min-h-screen flex flex-col">
@@ -13,7 +13,11 @@ const DigitalMenu = () => {
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <HeroSection />
-            <DigitalMenuTabs />
+          </div>
+        </div>
+        <FeaturesGrid />
+        <div className="container-custom">
+          <div className="max-w-5xl mx-auto">
             <TestimonialsSection />
 
             <div className="text-center p-10 bg-gradient-to-br from-blue-50 to-indigo-50/50 rounded-2xl border border-blue-100/30 shadow-md">
