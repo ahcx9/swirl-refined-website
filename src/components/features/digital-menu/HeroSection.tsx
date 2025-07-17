@@ -10,13 +10,13 @@ const HeroSection = () => {
     <div className="flex flex-col gap-8 mb-16 bg-transparent">
       <div className="w-full text-center">
         <div className="flex items-center justify-center gap-4 mb-6 px-0 mx-0 py-[30px]">
-          <div className="p-3 rounded-full bg-gradient-to-br from-blue-100 to-indigo-100">
-            <FileText className="text-blue-600 h-6 w-6" />
+          <div className="p-3 rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-400/30">
+            <FileText className="text-blue-400 h-6 w-6" />
           </div>
-          <h1 className="text-4xl font-bold text-black">{t('digitalMenu.title')}</h1>
+          <h1 className="text-4xl font-bold text-white">{t('digitalMenu.title')}</h1>
         </div>
         
-        <p className="text-lg mb-8 leading-relaxed max-w-2xl mx-auto text-slate-950 text-left">
+        <p className="text-lg mb-8 leading-relaxed max-w-2xl mx-auto text-blue-200 text-left">
           {t('digitalMenu.subtitle')}
         </p>
 
