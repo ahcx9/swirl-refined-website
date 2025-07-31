@@ -1,6 +1,6 @@
 
 import { useEffect } from 'react';
-import { preloadImages } from '@/utils/imagePreloader';
+import { preloadImages, addResourceHints, setupLazyLoading } from '@/utils/imagePreloader';
 
 // List of critical images that should be preloaded immediately
 const CRITICAL_IMAGES = [
@@ -71,7 +71,19 @@ const ImagePreloader = () => {
     // Start preloading immediately
     preloadWithHighPriority();
     
-    // Use Intersection Observer API to preload images as user scrolls near them
+    // Add resource hints for faster loading
+    const externalDomains = [
+      ...CRITICAL_IMAGES,
+      ...IMPORTANT_IMAGES,
+      ...RESTAURANT_LOGOS
+    ].filter(url => url.startsWith('http'));
+    
+    addResourceHints(externalDomains);
+
+    // Setup lazy loading
+    setupLazyLoading();
+
+    // Use enhanced Intersection Observer API to preload images as user scrolls near them
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -80,12 +92,18 @@ const ImagePreloader = () => {
             const section = entry.target;
             const images = section.querySelectorAll('img[loading="lazy"]');
             
-            // Preload these images
+            // Preload these images with fade-in effect
             images.forEach(img => {
               const imageElement = img as HTMLImageElement;
               if (imageElement.src && !imageElement.complete) {
                 imageElement.fetchPriority = 'high';
                 imageElement.loading = 'eager';
+                // Add smooth fade-in transition
+                imageElement.style.opacity = '0';
+                imageElement.onload = () => {
+                  imageElement.style.transition = 'opacity 0.3s ease-in-out';
+                  imageElement.style.opacity = '1';
+                };
               }
             });
             
@@ -94,7 +112,7 @@ const ImagePreloader = () => {
           }
         });
       },
-      { rootMargin: '300px' } // Start loading when within 300px
+      { rootMargin: '200px' } // Start loading when within 200px for better performance
     );
     
     // Observe all sections with images
