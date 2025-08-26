@@ -23,6 +23,7 @@ import InCarOrdering from './pages/features/InCarOrdering';
 import CRM from './pages/features/CRM';
 import FinancialReports from './pages/features/FinancialReports';
 import PayrollManagement from './pages/features/PayrollManagement';
+import SwirlHardware from './pages/features/SwirlHardware';
 import LoadingScreen from './components/LoadingScreen';
 import { LanguageProvider } from './contexts/LanguageContext';
 
@@ -69,6 +70,7 @@ function App() {
           <Route path="/products/customer-relationship-management" element={<CRM />} />
           <Route path="/products/financial-reports" element={<FinancialReports />} />
           <Route path="/products/payroll-management" element={<PayrollManagement />} />
+          <Route path="/products/swirl-hardware" element={<SwirlHardware />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -11,7 +11,12 @@ const Hero = () => {
   const {
     t
   } = useLanguage();
-  const images = ["/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png", "/lovable-uploads/189d6c7d-6cc1-4e88-bbce-a9e8f69a073f.png", "/lovable-uploads/292d5cb0-2907-4d50-9380-03c565cb8849.png"];
+  const images = [
+    '/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png',
+    '/lovable-uploads/189d6c7d-6cc1-4e88-bbce-a9e8f69a073f.png', 
+    '/lovable-uploads/292d5cb0-2907-4d50-9380-03c565cb8849.png',
+    '/lovable-uploads/ef1ae84d-c680-4f8e-b799-d041b9649bb8.png'
+  ];
 
   // Optimized image preloading for faster loading
   useEffect(() => {
@@ -53,13 +58,9 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Auto-scroll plugin configuration
-  const autoplayOptions = {
-    delay: 3000,
-    // 3 seconds between slides
-    stopOnInteraction: false,
-    // continue auto-scrolling after user interaction
-    rootNode: (emblaRoot: any) => emblaRoot.parentElement // required for proper initialization
+  // Carousel configuration (no autoplay)
+  const carouselOptions = {
+    loop: true,
   };
   
   return <section className="pt-32 pb-12 md:pt-36 lg:pt-40 md:pb-16 min-h-[80vh] flex items-center bg-white">
@@ -92,7 +93,7 @@ const Hero = () => {
         </div>
         
         <div className="mt-12 w-full max-w-5xl mx-auto">
-          {loaded ? <Carousel className="w-full" plugins={[Autoplay(autoplayOptions)]}>
+          {loaded ? <Carousel className="w-full" opts={carouselOptions}>
               <CarouselContent>
                 {images.map((image, index) => <CarouselItem key={index}>
                     <div className="relative rounded-2xl overflow-hidden shadow-2xl">
