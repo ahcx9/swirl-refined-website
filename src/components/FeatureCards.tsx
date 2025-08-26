@@ -20,8 +20,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, icon, ima
           src={image} 
           alt={title} 
           className="w-full h-full object-cover"
-          loading={index <= 1 ? "eager" : "lazy"}
+          loading={index === 0 ? "eager" : "lazy"}
           fetchPriority={index === 0 ? "high" : "auto"}
+          decoding="async"
           style={{transform: 'translateZ(0)'}} // Hardware acceleration
         />
       </AspectRatio>
@@ -64,26 +65,15 @@ const FeatureCards = () => {
     }
   ];
 
-  // Preload images
+  // Optimize preloading - only preload first feature card image
   useEffect(() => {
-    // Preload the first two images with high priority
-    const preloadHighPriorityImages = () => {
-      features.slice(0, 2).forEach(feature => {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'image';
-        link.href = feature.image;
-        document.head.appendChild(link);
-      });
-
-      // Preload the rest normally
-      features.slice(2).forEach(feature => {
-        const img = new Image();
-        img.src = feature.image;
-      });
-    };
-
-    preloadHighPriorityImages();
+    // Only preload the first feature card image since it's above the fold
+    const firstFeatureImage = features[0].image;
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = firstFeatureImage;
+    document.head.appendChild(link);
   }, []);
 
   return (

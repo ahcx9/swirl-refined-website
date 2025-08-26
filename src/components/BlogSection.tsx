@@ -21,7 +21,14 @@ const BlogPostCard = ({
 }: BlogPostProps) => {
   return <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full flex flex-col">
       <div className="relative h-48 overflow-hidden">
-        <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105" />
+        <img 
+          src={image} 
+          alt={title} 
+          className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105" 
+          loading="lazy"
+          decoding="async"
+          style={{ transform: 'translateZ(0)' }}
+        />
       </div>
       <CardContent className="p-6 flex flex-col flex-grow">
         <div className="flex items-center text-sm text-gray-500 space-x-4 mb-3">

@@ -45,23 +45,14 @@ const TrustedRestaurants = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   
-  // Preload all logo images with high priority for instant loading
+  // Only preload first few visible logos, let others load lazily
   useEffect(() => {
-    const logoUrls = logos.map(logo => logo.src);
-    preloadImages(logoUrls, 5)
+    // Only preload first 4 logos that are immediately visible
+    const criticalLogoUrls = logos.slice(0, 4).map(logo => logo.src);
+    preloadImages(criticalLogoUrls, 4)
       .catch(err => {
-        console.error('Error preloading logo images:', err);
+        console.error('Error preloading critical logo images:', err);
       });
-      
-    // Also add direct preload links to head for critical logos
-    logos.slice(0, 4).forEach(logo => {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.href = logo.src;
-      link.as = 'image';
-      link.crossOrigin = 'anonymous';
-      document.head.appendChild(link);
-    });
   }, []);
   
   useEffect(() => {
@@ -121,7 +112,8 @@ const TrustedRestaurants = () => {
                   src={logo.src} 
                   alt={logo.alt}
                   className="max-h-full max-w-full object-contain"
-                  loading="eager"
+                  loading={index < 4 ? "eager" : "lazy"}
+                  fetchPriority={index < 2 ? "high" : "auto"}
                   crossOrigin="anonymous"
                   decoding="async"
                   style={{ transform: 'translateZ(0)' }}
@@ -139,8 +131,10 @@ const TrustedRestaurants = () => {
                   src={logo.src} 
                   alt={logo.alt}
                   className="max-h-full max-w-full object-contain"
-                  loading="eager" 
+                  loading={index < 4 ? "eager" : "lazy"}
+                  fetchPriority={index < 2 ? "high" : "auto"}
                   crossOrigin="anonymous"
+                  decoding="async"
                   style={{ transform: 'translateZ(0)' }}
                 />
               </div>
