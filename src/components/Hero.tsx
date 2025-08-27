@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import LazyImage from '@/components/LazyImage';
 import Autoplay from 'embla-carousel-autoplay';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -98,9 +99,13 @@ const Hero = () => {
                 {images.map((image, index) => <CarouselItem key={index}>
                     <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                       <AspectRatio ratio={16 / 9}>
-                        <img src={image} alt={`Restaurant management system ${index + 1}`} className="w-full h-full object-cover" loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : "auto"} decoding="async" style={{
-                    transform: 'translateZ(0)' // Hardware acceleration
-                  }} />
+                        <LazyImage
+                          src={image}
+                          alt={`Restaurant Management System ${index + 1}`}
+                          className="w-full h-full object-cover rounded-lg shadow-2xl"
+                          loading="eager"
+                          priority="high"
+                        />
                       </AspectRatio>
                     </div>
                   </CarouselItem>)}

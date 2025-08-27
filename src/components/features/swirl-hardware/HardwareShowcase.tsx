@@ -21,7 +21,8 @@ const HardwareShowcase = () => {
                 src="/lovable-uploads/cf8ec88c-d51e-4941-b048-05cdb833c48b.jpg" 
                 alt="Modern POS System with Tablet and Thermal Printer in Restaurant Setting" 
                 className="w-full h-auto object-cover rounded-lg shadow-inner" 
-                loading="lazy"
+                loading="eager"
+                priority="high"
               />
             </div>
           </div>
@@ -36,10 +37,11 @@ const HardwareShowcase = () => {
           <div className="overflow-hidden rounded-xl shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
             <div className="bg-gradient-to-br from-gray-50 to-white p-3 rounded-xl">
               <LazyImage 
-                src="/lovable-uploads/ef1ae84d-c680-4f8e-b799-d041b9649bb8.png" 
+                src="/lovable-uploads/2bbf790c-35c7-4511-a4a7-7d48e4faf0f2.png" 
                 alt="Sleek POS Terminal on Modern Curved Counter" 
                 className="w-full h-auto object-cover rounded-lg shadow-inner" 
-                loading="lazy"
+                loading="eager"
+                priority="high"
               />
             </div>
           </div>
