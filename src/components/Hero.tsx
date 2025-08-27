@@ -12,10 +12,10 @@ const Hero = () => {
     t
   } = useLanguage();
   const images = [
+    '/lovable-uploads/ef1ae84d-c680-4f8e-b799-d041b9649bb8.png', // Restaurant Management System 4 - First image
     '/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png',
     '/lovable-uploads/189d6c7d-6cc1-4e88-bbce-a9e8f69a073f.png', 
-    '/lovable-uploads/292d5cb0-2907-4d50-9380-03c565cb8849.png',
-    '/lovable-uploads/ef1ae84d-c680-4f8e-b799-d041b9649bb8.png'
+    '/lovable-uploads/292d5cb0-2907-4d50-9380-03c565cb8849.png'
   ];
 
   // Optimized image preloading for faster loading

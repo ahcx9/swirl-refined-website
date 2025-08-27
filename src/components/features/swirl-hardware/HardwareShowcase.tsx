@@ -18,7 +18,7 @@ const HardwareShowcase = () => {
           <div className="overflow-hidden rounded-xl shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
             <div className="bg-gradient-to-br from-gray-50 to-white p-3 rounded-xl">
               <LazyImage 
-                src="/lovable-uploads/3d525584-79e8-4afc-9a74-82e6339ced12.png" 
+                src="/lovable-uploads/cf8ec88c-d51e-4941-b048-05cdb833c48b.jpg" 
                 alt="Modern POS System with Tablet and Thermal Printer in Restaurant Setting" 
                 className="w-full h-auto object-cover rounded-lg shadow-inner" 
                 loading="lazy"
