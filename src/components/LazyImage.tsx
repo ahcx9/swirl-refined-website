@@ -20,18 +20,13 @@ const LazyImage = ({
   ...props 
 }: LazyImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(loading === 'eager' || priority === 'high');
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
-  // Debug logging
-  useEffect(() => {
-    console.log('LazyImage rendering:', { src, alt, loading });
-  }, [src, alt, loading]);
-
   useEffect(() => {
     const img = imgRef.current;
-    if (!img) return;
+    if (!img || loading === 'eager' || priority === 'high') return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -45,15 +40,13 @@ const LazyImage = ({
 
     observer.observe(img);
     return () => observer.disconnect();
-  }, []);
+  }, [loading, priority]);
 
   const handleLoad = () => {
-    console.log('Image loaded successfully:', src);
     setIsLoaded(true);
   };
 
   const handleError = () => {
-    console.error('Image failed to load:', src);
     setHasError(true);
   };
 
