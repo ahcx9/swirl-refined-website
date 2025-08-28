@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -7,56 +7,13 @@ import Autoplay from 'embla-carousel-autoplay';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero = () => {
-  const [loaded, setLoaded] = useState(false);
-  const {
-    t
-  } = useLanguage();
+  const { t } = useLanguage();
   const images = [
     '/lovable-uploads/f6c24e1a-f2c1-459f-a1c4-4920e0ab11cd.png', // Restaurant Management System - First image (user uploaded)
     '/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png',
     '/lovable-uploads/189d6c7d-6cc1-4e88-bbce-a9e8f69a073f.png', 
     '/lovable-uploads/292d5cb0-2907-4d50-9380-03c565cb8849.png'
   ];
-
-  // Optimized image preloading for faster loading
-  useEffect(() => {
-    const preloadImages = () => {
-      // Preload critical images with higher priority & use link rel="preload"
-      const links = images.map(src => {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'image';
-        link.href = src;
-        link.fetchPriority = 'high';
-        return link;
-      });
-      
-      links.forEach(link => document.head.appendChild(link));
-      
-      // Set up Image objects for onload events
-      const imagePromises = images.map(src => {
-        return new Promise((resolve) => {
-          const img = new Image();
-          img.src = src;
-          img.fetchPriority = 'high';
-          img.decoding = 'async';
-          if (img.complete) {
-            resolve(null);
-          } else {
-            img.onload = () => resolve(null);
-            img.onerror = () => resolve(null); // Continue even if image fails
-          }
-        });
-      });
-
-      Promise.all(imagePromises).then(() => setLoaded(true));
-    };
-
-    preloadImages();
-    // After a timeout, force the loaded state to ensure UI doesn't get stuck
-    const timer = setTimeout(() => setLoaded(true), 300);
-    return () => clearTimeout(timer);
-  }, []);
 
   // Carousel configuration (no autoplay)
   const carouselOptions = {
@@ -93,7 +50,7 @@ const Hero = () => {
         </div>
         
         <div className="mt-12 w-full max-w-5xl mx-auto">
-          {loaded ? <Carousel className="w-full" opts={carouselOptions}>
+          <Carousel className="w-full" opts={carouselOptions}>
               <CarouselContent>
                 {images.map((image, index) => <CarouselItem key={index}>
                     <div className="relative rounded-2xl overflow-hidden shadow-2xl">
@@ -102,8 +59,7 @@ const Hero = () => {
                           src={image}
                           alt={`Restaurant Management System ${index + 1}`}
                           className="w-full h-full object-cover rounded-lg shadow-2xl"
-                          loading={index === 0 ? "eager" : "lazy"}
-                          fetchPriority={index === 0 ? "high" : "low"}
+                          loading="eager"
                           decoding="async"
                         />
                       </AspectRatio>
@@ -114,9 +70,7 @@ const Hero = () => {
                 <CarouselPrevious className="relative static transform-none mx-2 bg-gradient-to-r from-blue-500/80 to-blue-600/80 border-none text-white hover:bg-blue-700/90 hover:text-white" />
                 <CarouselNext className="relative static transform-none mx-2 bg-gradient-to-r from-blue-500/80 to-blue-600/80 border-none text-white hover:bg-blue-700/90 hover:text-white" />
               </div>
-            </Carousel> : <div className="h-[55vh] w-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl">
-              <div className="w-16 h-16 border-4 border-swirl-blue border-t-transparent rounded-full animate-spin"></div>
-            </div>}
+            </Carousel>
         </div>
       </div>
     </section>;

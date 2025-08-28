@@ -19,8 +19,10 @@ const LazyImage = ({
   loading = 'lazy',
   ...props 
 }: LazyImageProps) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(loading === 'eager' || priority === 'high');
+  // For eager loading or high priority, show images immediately
+  const shouldShowImmediately = loading === 'eager' || priority === 'high';
+  const [isLoaded, setIsLoaded] = useState(shouldShowImmediately);
+  const [isInView, setIsInView] = useState(shouldShowImmediately);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -78,7 +80,6 @@ const LazyImage = ({
           hasError && "opacity-0"
         )}
         loading={loading}
-        fetchPriority={priority}
         decoding="async"
         onLoad={handleLoad}
         onError={handleError}

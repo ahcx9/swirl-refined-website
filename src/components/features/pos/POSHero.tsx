@@ -35,7 +35,6 @@ const POSHero = () => {
             alt="POS System Interface" 
             className="w-full h-auto object-cover rounded-lg shadow-inner" 
             loading="eager" 
-            fetchPriority="high"
             decoding="async"
           />
         </div>
