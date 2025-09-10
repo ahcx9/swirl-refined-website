@@ -18,7 +18,7 @@ const HardwareShowcase = () => {
           <div className="overflow-hidden rounded-xl shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
             <div className="bg-gradient-to-br from-gray-50 to-white p-3 rounded-xl">
               <LazyImage 
-                src="/lovable-uploads/89058cc3-7a81-4cad-a305-36331a3694f8.png" 
+                src="/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png" 
                 alt="Sleek POS Terminal with Modern Design on Wooden Counter" 
                 className="w-full h-auto object-cover rounded-lg shadow-inner" 
                 loading="eager"
@@ -37,7 +37,7 @@ const HardwareShowcase = () => {
           <div className="overflow-hidden rounded-xl shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
             <div className="bg-gradient-to-br from-gray-50 to-white p-3 rounded-xl">
               <LazyImage 
-                src="/lovable-uploads/f6c24e1a-f2c1-459f-a1c4-4920e0ab11cd.png" 
+                src="/lovable-uploads/947b4eab-99e0-4ea2-ad4e-5fb3a2f90fab.png" 
                 alt="Complete Restaurant Management System Setup in Modern Restaurant Environment" 
                 className="w-full h-auto object-cover rounded-lg shadow-inner" 
                 loading="eager"
