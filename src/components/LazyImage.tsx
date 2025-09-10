@@ -21,7 +21,7 @@ const LazyImage = ({
 }: LazyImageProps) => {
   // For eager loading or high priority, show images immediately
   const shouldShowImmediately = loading === 'eager' || priority === 'high';
-  const [isLoaded, setIsLoaded] = useState(shouldShowImmediately);
+  const [isLoaded, setIsLoaded] = useState(true); // Always start as loaded for immediate visibility
   const [isInView, setIsInView] = useState(shouldShowImmediately);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -75,8 +75,8 @@ const LazyImage = ({
         alt={alt}
         className={cn(
           className,
-          fadeIn && "transition-opacity duration-500",
-          isLoaded ? "opacity-100" : "opacity-0",
+          fadeIn && !shouldShowImmediately && "transition-opacity duration-500",
+          "opacity-100", // Always show images immediately
           hasError && "opacity-0"
         )}
         loading={loading}
