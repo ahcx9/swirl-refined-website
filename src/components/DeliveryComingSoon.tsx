@@ -18,7 +18,7 @@ const DeliveryComingSoon = () => {
   const handleWhatsAppRedirect = () => {
     window.open('https://wa.me/971543853877', '_blank');
   };
-  return <section id="delivery-coming-soon" className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900">
+  return <section id="delivery-coming-soon" className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
       <DeliveryBackgroundEffects />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -36,10 +36,10 @@ const DeliveryComingSoon = () => {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed">
             Revolutionary one-click integration with all major delivery platforms. 
             <br className="hidden md:block" />
-            Manage everything from one unified dashboard.
+            Manage everything from one unified dashboard - available now!
           </p>
 
           <DeliveryAppShowcase />

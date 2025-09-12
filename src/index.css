@@ -57,7 +57,7 @@
     line-height: 1.6;
     letter-spacing: -0.01em;
     height: 100%;
-    zoom: 0.90; /* Further reduced from 0.95 to 0.90 for better clarity */
+    zoom: 0.80; /* Set to 80% for optimal desktop viewing */
   }
   h1 {
     @apply text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight;

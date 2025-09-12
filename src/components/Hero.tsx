@@ -53,11 +53,11 @@ const Hero = () => {
           <Carousel className="w-full" opts={carouselOptions}>
               <CarouselContent>
                  {images.map((image, index) => <CarouselItem key={index}>
-                    <div className="relative rounded-2xl overflow-hidden shadow-2xl min-h-[500px]">
+                    <div className="relative rounded-2xl overflow-hidden shadow-2xl min-h-[350px]">
                         <img
                           src={image}
                           alt={`Restaurant Management System ${index + 1}`}
-                          className="w-full h-full min-h-[500px] object-cover object-center"
+                          className="w-full h-full min-h-[350px] object-cover object-center"
                           loading="eager"
                           decoding="async"
                         />
