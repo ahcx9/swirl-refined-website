@@ -18,9 +18,9 @@ const HardwareShowcase = () => {
           <div className="overflow-hidden rounded-xl shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
             <div className="bg-gradient-to-br from-gray-50 to-white p-3 rounded-xl">
               <LazyImage 
-                src="/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png" 
-                alt="Sleek POS Terminal with Modern Design on Wooden Counter" 
-                className="w-full h-auto object-cover rounded-lg shadow-inner" 
+                src="/lovable-uploads/58a9bd9a-d0f4-4ac5-9594-7fd1113c75b1.png" 
+                alt="Modern POS Terminal with Menu Management System in Restaurant Setting" 
+                className="w-full h-80 object-cover rounded-lg shadow-inner" 
                 loading="eager"
                 priority="high"
               />
@@ -37,9 +37,9 @@ const HardwareShowcase = () => {
           <div className="overflow-hidden rounded-xl shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
             <div className="bg-gradient-to-br from-gray-50 to-white p-3 rounded-xl">
               <LazyImage 
-                src="/lovable-uploads/947b4eab-99e0-4ea2-ad4e-5fb3a2f90fab.png" 
-                alt="Complete Restaurant Management System Setup in Modern Restaurant Environment" 
-                className="w-full h-auto object-cover rounded-lg shadow-inner" 
+                src="/lovable-uploads/2aa1ea9e-9fa0-4b55-9f77-5936d997a227.png" 
+                alt="Sleek POS Terminal Setup on Modern Counter with Elegant Design" 
+                className="w-full h-80 object-cover rounded-lg shadow-inner" 
                 loading="eager"
                 priority="high"
               />

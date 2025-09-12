@@ -9,7 +9,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const Hero = () => {
   const { t } = useLanguage();
   const images = [
-    '/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png',
+    '/lovable-uploads/58a9bd9a-d0f4-4ac5-9594-7fd1113c75b1.png',
     '/lovable-uploads/189d6c7d-6cc1-4e88-bbce-a9e8f69a073f.png', 
     '/lovable-uploads/292d5cb0-2907-4d50-9380-03c565cb8849.png',
     '/lovable-uploads/947b4eab-99e0-4ea2-ad4e-5fb3a2f90fab.png'
