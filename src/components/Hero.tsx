@@ -52,9 +52,9 @@ const Hero = () => {
         <div className="mt-12 w-full max-w-5xl mx-auto">
           <Carousel className="w-full" opts={carouselOptions}>
               <CarouselContent>
-                {images.map((image, index) => <CarouselItem key={index}>
+                 {images.map((image, index) => <CarouselItem key={index}>
                     <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                      <AspectRatio ratio={16 / 9}>
+                      <AspectRatio ratio={4 / 3}>
                         <img
                           src={image}
                           alt={`Restaurant Management System ${index + 1}`}

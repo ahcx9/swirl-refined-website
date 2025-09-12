@@ -20,7 +20,7 @@ const HardwareShowcase = () => {
               <LazyImage 
                 src="/lovable-uploads/58a9bd9a-d0f4-4ac5-9594-7fd1113c75b1.png" 
                 alt="Modern POS Terminal with Menu Management System in Restaurant Setting" 
-                className="w-full h-80 object-contain rounded-lg shadow-inner" 
+                className="w-full h-96 object-contain rounded-lg shadow-inner" 
                 loading="eager"
                 priority="high"
               />
@@ -39,7 +39,7 @@ const HardwareShowcase = () => {
               <LazyImage 
                 src="/lovable-uploads/2aa1ea9e-9fa0-4b55-9f77-5936d997a227.png" 
                 alt="Sleek POS Terminal Setup on Modern Counter with Elegant Design" 
-                className="w-full h-80 object-contain rounded-lg shadow-inner" 
+                className="w-full h-96 object-contain rounded-lg shadow-inner" 
                 loading="eager"
                 priority="high"
               />
