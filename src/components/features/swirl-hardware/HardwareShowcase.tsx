@@ -16,15 +16,13 @@ const HardwareShowcase = () => {
         {/* First Hardware Image */}
         <div className="group">
           <div className="overflow-hidden rounded-xl shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
-            <div className="bg-gradient-to-br from-gray-50 to-white p-3 rounded-xl">
-              <LazyImage 
-                src="/lovable-uploads/58a9bd9a-d0f4-4ac5-9594-7fd1113c75b1.png" 
-                alt="Modern POS Terminal with Menu Management System in Restaurant Setting" 
-                className="w-full h-96 object-contain rounded-lg shadow-inner" 
-                loading="eager"
-                priority="high"
-              />
-            </div>
+            <LazyImage 
+              src="/lovable-uploads/58a9bd9a-d0f4-4ac5-9594-7fd1113c75b1.png" 
+              alt="Modern POS Terminal with Menu Management System in Restaurant Setting" 
+              className="w-full h-[500px] object-cover object-center rounded-xl" 
+              loading="eager"
+              priority="high"
+            />
           </div>
           <div className="mt-4 text-center">
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Modern Terminal Design</h3>
@@ -35,15 +33,13 @@ const HardwareShowcase = () => {
         {/* Second Hardware Image */}
         <div className="group">
           <div className="overflow-hidden rounded-xl shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
-            <div className="bg-gradient-to-br from-gray-50 to-white p-3 rounded-xl">
-              <LazyImage 
-                src="/lovable-uploads/2aa1ea9e-9fa0-4b55-9f77-5936d997a227.png" 
-                alt="Sleek POS Terminal Setup on Modern Counter with Elegant Design" 
-                className="w-full h-96 object-contain rounded-lg shadow-inner" 
-                loading="eager"
-                priority="high"
-              />
-            </div>
+            <LazyImage 
+              src="/lovable-uploads/2aa1ea9e-9fa0-4b55-9f77-5936d997a227.png" 
+              alt="Sleek POS Terminal Setup on Modern Counter with Elegant Design" 
+              className="w-full h-[500px] object-cover object-center rounded-xl" 
+              loading="eager"
+              priority="high"
+            />
           </div>
           <div className="mt-4 text-center">
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Complete POS Solution</h3>

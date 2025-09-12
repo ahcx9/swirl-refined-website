@@ -53,16 +53,14 @@ const Hero = () => {
           <Carousel className="w-full" opts={carouselOptions}>
               <CarouselContent>
                  {images.map((image, index) => <CarouselItem key={index}>
-                    <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                      <AspectRatio ratio={4 / 3}>
+                    <div className="relative rounded-2xl overflow-hidden shadow-2xl min-h-[500px]">
                         <img
                           src={image}
                           alt={`Restaurant Management System ${index + 1}`}
-                          className="w-full h-full object-contain rounded-lg shadow-2xl bg-gradient-to-br from-gray-50 to-white"
+                          className="w-full h-full min-h-[500px] object-cover object-center"
                           loading="eager"
                           decoding="async"
                         />
-                      </AspectRatio>
                     </div>
                   </CarouselItem>)}
               </CarouselContent>
