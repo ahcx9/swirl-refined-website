@@ -20,7 +20,7 @@ const Hero = () => {
     loop: true,
   };
   
-  return <section className="pt-32 pb-12 md:pt-36 lg:pt-40 md:pb-16 min-h-[80vh] flex items-center bg-white">
+  return <section className="pt-32 pb-12 md:pt-36 lg:pt-40 md:pb-16 min-h-[80vh] flex items-center bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center max-w-5xl mx-auto mb-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-700 xl:text-7xl font-inter">
@@ -52,12 +52,16 @@ const Hero = () => {
         <div className="mt-12 w-full max-w-5xl mx-auto">
           <Carousel className="w-full" opts={carouselOptions}>
               <CarouselContent>
-                 {images.map((image, index) => <CarouselItem key={index}>
-                    <div className="relative rounded-2xl overflow-hidden shadow-2xl min-h-[350px]">
+                  {images.map((image, index) => <CarouselItem key={index}>
+                    <div className={`relative rounded-2xl overflow-hidden shadow-2xl ${
+                      index === 0 || index === 3 ? 'min-h-[280px]' : 'min-h-[350px]'
+                    }`}>
                         <img
                           src={image}
                           alt={`Restaurant Management System ${index + 1}`}
-                          className="w-full h-full min-h-[350px] object-cover object-center"
+                          className={`w-full h-full object-cover object-center ${
+                            index === 0 || index === 3 ? 'min-h-[280px]' : 'min-h-[350px]'
+                          }`}
                           loading="eager"
                           decoding="async"
                         />

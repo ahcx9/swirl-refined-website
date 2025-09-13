@@ -10,13 +10,21 @@ import { Link } from 'react-router-dom';
 const SwirlHardware = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-grow pt-28 pb-20 bg-gradient-to-b from-white to-gray-50">
+      <main className="flex-grow pt-28 pb-20 bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
-            <SwirlHardwareHero />
-            <HardwareShowcase />
-            <HardwareFeatures />
-            <PrinterKitchenSection />
+            <div className="bg-gradient-to-b from-transparent via-blue-50/20 to-indigo-50/30 rounded-3xl mb-8">
+              <SwirlHardwareHero />
+            </div>
+            <div className="bg-gradient-to-b from-indigo-50/30 via-slate-50/20 to-blue-50/40 rounded-3xl mb-8 p-8">
+              <HardwareShowcase />
+            </div>
+            <div className="bg-gradient-to-b from-blue-50/40 via-indigo-50/20 to-slate-50/30 rounded-3xl mb-8 p-8">
+              <HardwareFeatures />
+            </div>
+            <div className="bg-gradient-to-b from-slate-50/30 via-blue-50/30 to-indigo-50/20 rounded-3xl mb-8 p-8">
+              <PrinterKitchenSection />
+            </div>
             
             {/* Call to Action Section */}
             <div className="text-center p-10 bg-gradient-to-br from-blue-50 to-indigo-50/50 rounded-2xl border border-blue-100/30 shadow-md mt-16">

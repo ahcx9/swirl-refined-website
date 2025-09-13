@@ -32,20 +32,30 @@ const Index = () => {
           <Hero />
           <TrustedRestaurants />
         </div>
-        <Features />
-        <UseCasesSection />
-        <div className="bg-gradient-to-b from-white to-blue-50/30">
+        <div className="bg-gradient-to-b from-slate-50/50 via-blue-50/30 to-white">
+          <Features />
+        </div>
+        <div className="bg-gradient-to-b from-white via-indigo-50/20 to-slate-50/40">
+          <UseCasesSection />
+        </div>
+        <div className="bg-gradient-to-b from-slate-50/40 to-blue-50/30">
           <HomePOSSection />
           <HomeInventorySection />
           <HomeFinancialAnalyticsSection />
           <HotelIndustrySection />
         </div>
-        <StepProcess />
-        <NextGenFeatures />
-        <DeliveryComingSoon />
-        <BlogSection />
-        <FAQSection />
-        <CTASection />
+        <div className="bg-gradient-to-b from-blue-50/30 via-slate-50/20 to-indigo-50/30">
+          <StepProcess />
+          <NextGenFeatures />
+        </div>
+        <div className="bg-gradient-to-b from-indigo-50/30 via-blue-50/20 to-white">
+          <DeliveryComingSoon />
+          <BlogSection />
+        </div>
+        <div className="bg-gradient-to-b from-white via-slate-50/30 to-blue-50/20">
+          <FAQSection />
+          <CTASection />
+        </div>
       </main>
       <Footer />
     </div>
