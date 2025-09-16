@@ -20,8 +20,9 @@ const Hero = () => {
     loop: true,
   };
   
-  return <section className="pt-32 pb-12 md:pt-36 lg:pt-40 md:pb-16 min-h-[80vh] flex items-center bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30">
-      <div className="container mx-auto px-4 max-w-7xl">
+  return <section className="pt-32 pb-12 md:pt-36 lg:pt-40 md:pb-16 min-h-[80vh] flex items-center bg-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('/src/assets/dotted-background.png')] bg-repeat opacity-40" />
+      <div className="container mx-auto px-4 max-w-7xl relative z-10">
         <div className="text-center max-w-5xl mx-auto mb-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-700 xl:text-7xl font-inter">
             <span className="text-gray-400">Powering the New Era of</span> Restaurant Sales
@@ -52,21 +53,17 @@ const Hero = () => {
         <div className="mt-12 w-full max-w-5xl mx-auto">
           <Carousel className="w-full" opts={carouselOptions}>
               <CarouselContent>
-                  {images.map((image, index) => <CarouselItem key={index}>
-                    <div className={`relative rounded-2xl overflow-hidden shadow-2xl ${
-                      index === 0 || index === 3 ? 'min-h-[280px]' : 'min-h-[350px]'
-                    }`}>
-                        <img
-                          src={image}
-                          alt={`Restaurant Management System ${index + 1}`}
-                          className={`w-full h-full object-cover object-center ${
-                            index === 0 || index === 3 ? 'min-h-[280px]' : 'min-h-[350px]'
-                          }`}
-                          loading="eager"
-                          decoding="async"
-                        />
-                    </div>
-                  </CarouselItem>)}
+                   {images.map((image, index) => <CarouselItem key={index}>
+                     <div className="relative rounded-2xl overflow-hidden shadow-2xl min-h-[250px]">
+                         <img
+                           src={image}
+                           alt={`Restaurant Management System ${index + 1}`}
+                           className="w-full h-full object-cover object-center min-h-[250px]"
+                           loading="eager"
+                           decoding="async"
+                         />
+                     </div>
+                   </CarouselItem>)}
               </CarouselContent>
               <div className="flex justify-center mt-6">
                 <CarouselPrevious className="relative static transform-none mx-2 bg-gradient-to-r from-blue-500/80 to-blue-600/80 border-none text-white hover:bg-blue-700/90 hover:text-white" />
