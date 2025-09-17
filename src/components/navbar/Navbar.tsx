@@ -118,7 +118,7 @@ const Navbar = () => {
               src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png" 
               alt="Swirl Logo" 
               className={`w-auto object-contain transition-all duration-300 ${
-                isScrolled ? 'h-18 md:h-22' : 'h-20 md:h-24'
+                isScrolled ? 'h-20 md:h-28' : 'h-24 md:h-32'
               }`}
             />
           </Link>
