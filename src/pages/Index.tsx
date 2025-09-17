@@ -23,7 +23,14 @@ const Index = () => {
   useScrollAnimation();
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col"
+      style={{
+        backgroundImage: 'url("/src/assets/dotted-background.png")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       {/* Preload all critical images */}
       <ImagePreloader />
       
@@ -32,27 +39,34 @@ const Index = () => {
           <Hero />
           <TrustedRestaurants />
         </div>
-        <div className="bg-gradient-to-b from-slate-50/50 via-blue-50/30 to-white">
+        <div className="bg-white/20 backdrop-blur-sm"
+          style={{
+            backgroundImage: 'url("/src/assets/dotted-background.png")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
           <Features />
         </div>
-        <div className="bg-gradient-to-b from-white via-indigo-50/20 to-slate-50/40">
+        <div className="bg-white/10 backdrop-blur-sm">
           <UseCasesSection />
         </div>
-        <div className="bg-gradient-to-b from-slate-50/40 to-blue-50/30">
+        <div className="bg-white/10 backdrop-blur-sm">
           <HomePOSSection />
           <HomeInventorySection />
           <HomeFinancialAnalyticsSection />
           <HotelIndustrySection />
         </div>
-        <div className="bg-gradient-to-b from-blue-50/30 via-slate-50/20 to-indigo-50/30">
+        <div className="bg-white/10 backdrop-blur-sm">
           <StepProcess />
           <NextGenFeatures />
         </div>
-        <div className="bg-gradient-to-b from-indigo-50/30 via-blue-50/20 to-white">
+        <div className="bg-white/10 backdrop-blur-sm">
           <DeliveryComingSoon />
           <BlogSection />
         </div>
-        <div className="bg-gradient-to-b from-white via-slate-50/30 to-blue-50/20">
+        <div className="bg-white/10 backdrop-blur-sm">
           <FAQSection />
           <CTASection />
         </div>

@@ -9,8 +9,15 @@ import { Link } from 'react-router-dom';
 
 const SwirlHardware = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <main className="flex-grow pt-28 pb-20 bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-50/30">
+    <div className="min-h-screen flex flex-col"
+      style={{
+        backgroundImage: 'url("/src/assets/dotted-background.png")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      <main className="flex-grow pt-28 pb-20 bg-white/20 backdrop-blur-sm">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
             <div className="bg-gradient-to-b from-transparent via-blue-50/20 to-indigo-50/30 rounded-3xl mb-8">

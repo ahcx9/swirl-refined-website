@@ -39,6 +39,14 @@ const TrustedRestaurants = () => {
     {
       src: "/lovable-uploads/e5232452-9f07-430a-98e1-a6fa00f50235.png",
       alt: "Tamasha"
+    },
+    {
+      src: "/src/assets/kyra-club-logo.jpeg",
+      alt: "KYRA Club"
+    },
+    {
+      src: "/src/assets/uccelli-cafe-logo.jpeg", 
+      alt: "Uccelli Café"
     }
   ];
 

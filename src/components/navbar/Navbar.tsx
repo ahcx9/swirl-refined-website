@@ -118,7 +118,7 @@ const Navbar = () => {
               src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png" 
               alt="Swirl Logo" 
               className={`w-auto object-contain transition-all duration-300 ${
-                isScrolled ? 'h-16 md:h-18' : 'h-14 md:h-20'
+                isScrolled ? 'h-18 md:h-22' : 'h-20 md:h-24'
               }`}
             />
           </Link>
@@ -128,7 +128,7 @@ const Navbar = () => {
           </div>
         </div>
         
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-6">
           {/* WhatsApp Button - increased size */}
           <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full h-11 px-5 flex items-center gap-2 font-inter">
             <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">

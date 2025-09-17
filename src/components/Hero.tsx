@@ -58,7 +58,7 @@ const Hero = () => {
                          <img
                            src={image}
                            alt={`Restaurant Management System ${index + 1}`}
-                           className="w-full h-full object-cover object-center min-h-[250px]"
+                           className="w-full h-full object-cover object-center min-h-[200px]"
                            loading="eager"
                            decoding="async"
                          />
