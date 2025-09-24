@@ -9,7 +9,7 @@ import POSCallToAction from '@/components/features/pos/POSCallToAction';
 const PointOfSale = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-grow pt-28 pb-20 bg-gradient-to-b from-white to-gray-50">
+      <main className="flex-grow pt-36 pb-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
             <POSHero />

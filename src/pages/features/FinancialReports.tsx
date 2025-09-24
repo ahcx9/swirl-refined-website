@@ -27,7 +27,7 @@ const FinancialReports = () => {
   
   return <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-28 pb-16 bg-gradient-to-b from-white to-gray-50">
+      <main className="flex-grow pt-36 pb-16 bg-gradient-to-b from-white to-gray-50">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col gap-16 mb-20">

@@ -17,7 +17,7 @@ const SwirlHardware = () => {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      <main className="flex-grow pt-28 pb-20 bg-white/20 backdrop-blur-sm">
+      <main className="flex-grow pt-36 pb-20 bg-white/20 backdrop-blur-sm">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
             <div className="bg-gradient-to-b from-transparent via-blue-50/20 to-indigo-50/30 rounded-3xl mb-8">

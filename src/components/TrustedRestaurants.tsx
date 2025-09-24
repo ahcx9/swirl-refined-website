@@ -41,12 +41,16 @@ const TrustedRestaurants = () => {
       alt: "Tamasha"
     },
     {
-      src: "/src/assets/kyra-club-logo.jpeg",
+      src: "/lovable-uploads/cf8ec88c-d51e-4941-b048-05cdb833c48b.jpg",
       alt: "KYRA Club"
     },
     {
-      src: "/src/assets/uccelli-cafe-logo.jpeg", 
+      src: "/lovable-uploads/535c3886-674a-48f2-a7e7-99cbc2c15dbc.png", 
       alt: "Uccelli Café"
+    },
+    {
+      src: "/lovable-uploads/31b9ef24-c2ca-46ef-85b7-23f0ec080d8d.png",
+      alt: "Quarter Plate"
     }
   ];
 
@@ -116,16 +120,15 @@ const TrustedRestaurants = () => {
                 key={`logo-1-${index}`} 
                 className="bg-white px-4 py-3 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[90px] md:w-[150px] md:h-[100px] mx-3 flex items-center justify-center"
               >
-                <img 
-                  src={logo.src} 
-                  alt={logo.alt}
-                  className="max-h-full max-w-full object-contain"
-                  loading={index < 4 ? "eager" : "lazy"}
-                  fetchPriority={index < 2 ? "high" : "auto"}
-                  crossOrigin="anonymous"
-                  decoding="async"
-                  style={{ transform: 'translateZ(0)' }}
-                />
+                 <img 
+                   src={logo.src} 
+                   alt={logo.alt}
+                   className="max-h-full max-w-full object-contain"
+                   loading={index < 4 ? "eager" : "lazy"}
+                   crossOrigin="anonymous"
+                   decoding="async"
+                   style={{ transform: 'translateZ(0)' }}
+                 />
               </div>
             ))}
             
@@ -135,16 +138,15 @@ const TrustedRestaurants = () => {
                 key={`logo-2-${index}`} 
                 className="bg-white px-4 py-3 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[90px] md:w-[150px] md:h-[100px] mx-3 flex items-center justify-center"
               >
-                <img 
-                  src={logo.src} 
-                  alt={logo.alt}
-                  className="max-h-full max-w-full object-contain"
-                  loading={index < 4 ? "eager" : "lazy"}
-                  fetchPriority={index < 2 ? "high" : "auto"}
-                  crossOrigin="anonymous"
-                  decoding="async"
-                  style={{ transform: 'translateZ(0)' }}
-                />
+                 <img 
+                   src={logo.src} 
+                   alt={logo.alt}
+                   className="max-h-full max-w-full object-contain"
+                   loading={index < 4 ? "eager" : "lazy"}
+                   crossOrigin="anonymous"
+                   decoding="async"
+                   style={{ transform: 'translateZ(0)' }}
+                 />
               </div>
             ))}
           </div>

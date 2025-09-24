@@ -33,7 +33,7 @@ const InventoryManagement = () => {
   const benefits = ["Reduce food waste by up to 40%", "Lower inventory carrying costs by 20-30%", "Minimize emergency orders and associated premium costs", "Improve cash flow by preventing overstock situations", "Ensure optimal stock levels for each ingredient", "Prevent stockouts that could impact menu availability"];
   return <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-28 pb-20 bg-gradient-to-b from-white to-gray-50">
+      <main className="flex-grow pt-36 pb-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
             <div className="relative my-0 py-0">

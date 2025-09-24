@@ -21,7 +21,7 @@ const QROrdering = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-24 pb-16">
+      <main className="flex-grow pt-36 pb-16">
         <section className="bg-purple-light/10 py-20">
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
