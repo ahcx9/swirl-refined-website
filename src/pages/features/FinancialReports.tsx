@@ -32,11 +32,11 @@ const FinancialReports = () => {
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col gap-16 mb-20">
               <div className="w-full text-center">
-                <div className="flex items-center justify-center gap-4 mb-8 py-[30px]">
-                  <div className="p-3 rounded-full bg-purple-light/30">
-                    <LayoutDashboard className="text-purple h-6 w-6" />
+                <div className="flex items-center justify-center gap-6 mb-12 py-12 bg-white/80 backdrop-blur rounded-2xl shadow-lg">
+                  <div className="p-4 rounded-full bg-purple-light/40 shadow-md">
+                    <LayoutDashboard className="text-purple h-8 w-8" />
                   </div>
-                  <h1 className="text-3xl md:text-4xl font-bold text-black">Financial Reports</h1>
+                  <h1 className="text-4xl md:text-5xl font-bold text-black">Financial Reports</h1>
                 </div>
                 
                 <p className="text-lg text-swirl-gray mb-10 leading-relaxed max-w-3xl mx-auto">
