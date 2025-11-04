@@ -34,8 +34,8 @@ const HomePOSSection = () => {
   }, []);
   
   return (
-    <section className="py-16 overflow-hidden relative bg-white">
-      <div className="container-custom relative">
+    <section className="py-12 md:py-16 lg:py-24 overflow-hidden relative bg-white">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid md:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Content column */}
           <div className="md:col-span-5 order-2 md:order-1">

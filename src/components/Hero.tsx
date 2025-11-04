@@ -20,20 +20,20 @@ const Hero = () => {
     loop: true,
   };
   
-  return <section className="pt-32 pb-12 md:pt-36 lg:pt-40 md:pb-16 min-h-[80vh] flex items-center bg-white relative overflow-hidden">
+  return <section className="py-16 md:py-20 lg:py-28 min-h-[80vh] flex items-center bg-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/src/assets/dotted-background.png')] bg-repeat opacity-40" />
-      <div className="container mx-auto px-4 max-w-7xl relative z-10">
-        <div className="text-center max-w-5xl mx-auto mb-8">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-700 xl:text-7xl font-inter">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center md:text-left max-w-2xl mx-auto md:mx-0 mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-gray-700 font-inter">
             <span className="text-gray-400">Powering the New Era of</span> Restaurant Sales
           </h1>
           
-          <p className="text-xl md:text-2xl text-swirl-gray mb-10 max-w-3xl mx-auto font-inter">
+          <p className="text-xl text-swirl-gray mb-8 max-w-2xl font-inter">
             {t('hero.subtitle')}
           </p>
           
-          <div className="flex justify-center">
-            <div className="btn-conteiner scale-90"> {/* Reduced from scale-100 to scale-90 */}
+          <div className="flex justify-center md:justify-start">
+            <div className="btn-conteiner">
               <a className="btn-content" href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
                 <span className="btn-title">{t('cta.getStarted')}</span>
                 <span className="icon-arrow">
@@ -50,26 +50,22 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className="mt-12 w-full max-w-5xl mx-auto">
-          <Carousel className="w-full" opts={carouselOptions}>
-              <CarouselContent>
-                   {images.map((image, index) => <CarouselItem key={index}>
-                     <div className="relative rounded-2xl overflow-hidden shadow-2xl min-h-[50px]">
-                         <img
-                           src={image}
-                           alt={`Restaurant Management System ${index + 1}`}
-                           className="w-full h-full object-cover object-center min-h-[200px]"
-                           loading="eager"
-                           decoding="async"
-                         />
-                     </div>
-                   </CarouselItem>)}
-              </CarouselContent>
-              <div className="flex justify-center mt-6">
-                <CarouselPrevious className="relative static transform-none mx-2 bg-gradient-to-r from-blue-500/80 to-blue-600/80 border-none text-white hover:bg-blue-700/90 hover:text-white" />
-                <CarouselNext className="relative static transform-none mx-2 bg-gradient-to-r from-blue-500/80 to-blue-600/80 border-none text-white hover:bg-blue-700/90 hover:text-white" />
-              </div>
-            </Carousel>
+        <div className="mt-12 w-full max-w-5xl mx-auto overflow-hidden">
+          <div className="relative">
+            <div className="flex animate-scroll-infinite gap-6">
+              {[...images, ...images].map((image, index) => (
+                <div key={index} className="flex-shrink-0 w-[90%] md:w-[45%] lg:w-[30%] rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src={image}
+                    alt={`Restaurant Management System ${(index % images.length) + 1}`}
+                    className="w-full h-auto object-cover aspect-[4/3]"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>;
