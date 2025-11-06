@@ -43,18 +43,18 @@ const Testimonials = () => {
   const activeTestimonial = testimonials[activeIndex];
 
   return (
-    <section className="py-12 md:py-16 lg:py-24 bg-purple-light/10">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold">What Our Clients Say</h2>
-          <p className="text-lg text-swirl-gray max-w-2xl mx-auto">
+    <section className="section-padding bg-purple-light/10">
+      <div className="container-custom">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
+          <p className="text-lg text-swirl-gray max-w-3xl mx-auto">
             Hear from restaurant owners and managers who have transformed their businesses with Swirl.cx
           </p>
         </div>
         
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl border border-black/10 shadow-sm p-6 md:p-8 relative">
-          <div className="flex flex-col md:flex-row gap-6 items-center">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden flex-shrink-0 border-4 border-purple-light">
+        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-card p-8 md:p-12 relative">
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden flex-shrink-0 border-4 border-purple-light">
               <img 
                 src={activeTestimonial.image} 
                 alt={activeTestimonial.name} 

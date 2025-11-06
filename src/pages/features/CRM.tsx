@@ -29,7 +29,7 @@ const CRM = () => {
   }];
   return <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-36 pb-16">
+      <main className="flex-grow pt-28 pb-16">
         <div className="container-custom max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row gap-12 mb-16">
             <div className="w-full md:w-1/2 flex flex-col justify-center">

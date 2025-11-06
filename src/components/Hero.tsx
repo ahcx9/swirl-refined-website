@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -7,33 +7,74 @@ import Autoplay from 'embla-carousel-autoplay';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero = () => {
-  const { t } = useLanguage();
-  const images = [
-    '/lovable-uploads/58a9bd9a-d0f4-4ac5-9594-7fd1113c75b1.png',
-    '/lovable-uploads/189d6c7d-6cc1-4e88-bbce-a9e8f69a073f.png', 
-    '/lovable-uploads/292d5cb0-2907-4d50-9380-03c565cb8849.png',
-    '/lovable-uploads/947b4eab-99e0-4ea2-ad4e-5fb3a2f90fab.png'
-  ];
+  const [loaded, setLoaded] = useState(false);
+  const {
+    t
+  } = useLanguage();
+  const images = ["/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png", "/lovable-uploads/189d6c7d-6cc1-4e88-bbce-a9e8f69a073f.png", "/lovable-uploads/292d5cb0-2907-4d50-9380-03c565cb8849.png"];
 
-  // Carousel configuration (no autoplay)
-  const carouselOptions = {
-    loop: true,
+  // Optimized image preloading for faster loading
+  useEffect(() => {
+    const preloadImages = () => {
+      // Preload critical images with higher priority & use link rel="preload"
+      const links = images.map(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        link.fetchPriority = 'high';
+        return link;
+      });
+      
+      links.forEach(link => document.head.appendChild(link));
+      
+      // Set up Image objects for onload events
+      const imagePromises = images.map(src => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = src;
+          img.fetchPriority = 'high';
+          img.decoding = 'async';
+          if (img.complete) {
+            resolve(null);
+          } else {
+            img.onload = () => resolve(null);
+            img.onerror = () => resolve(null); // Continue even if image fails
+          }
+        });
+      });
+
+      Promise.all(imagePromises).then(() => setLoaded(true));
+    };
+
+    preloadImages();
+    // After a timeout, force the loaded state to ensure UI doesn't get stuck
+    const timer = setTimeout(() => setLoaded(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Auto-scroll plugin configuration
+  const autoplayOptions = {
+    delay: 3000,
+    // 3 seconds between slides
+    stopOnInteraction: false,
+    // continue auto-scrolling after user interaction
+    rootNode: (emblaRoot: any) => emblaRoot.parentElement // required for proper initialization
   };
   
-  return <section className="py-16 md:py-20 lg:py-28 min-h-[80vh] flex items-center bg-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/src/assets/dotted-background.png')] bg-repeat opacity-40" />
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center md:text-left max-w-2xl mx-auto md:mx-0 mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-gray-700 font-inter">
+  return <section className="pt-32 pb-12 md:pt-36 lg:pt-40 md:pb-16 min-h-[80vh] flex items-center bg-white">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="text-center max-w-5xl mx-auto mb-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-700 xl:text-7xl font-inter">
             <span className="text-gray-400">Powering the New Era of</span> Restaurant Sales
           </h1>
           
-          <p className="text-xl text-swirl-gray mb-8 max-w-2xl font-inter">
+          <p className="text-xl md:text-2xl text-swirl-gray mb-10 max-w-3xl mx-auto font-inter">
             {t('hero.subtitle')}
           </p>
           
-          <div className="flex justify-center md:justify-start">
-            <div className="btn-conteiner">
+          <div className="flex justify-center">
+            <div className="btn-conteiner scale-90"> {/* Reduced from scale-100 to scale-90 */}
               <a className="btn-content" href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
                 <span className="btn-title">{t('cta.getStarted')}</span>
                 <span className="icon-arrow">
@@ -50,22 +91,26 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className="mt-12 w-full max-w-5xl mx-auto overflow-hidden">
-          <div className="relative">
-            <div className="flex animate-scroll-infinite gap-6">
-              {[...images, ...images].map((image, index) => (
-                <div key={index} className="flex-shrink-0 w-[90%] md:w-[45%] lg:w-[30%] rounded-2xl overflow-hidden shadow-2xl">
-                  <img
-                    src={image}
-                    alt={`Restaurant Management System ${(index % images.length) + 1}`}
-                    className="w-full h-auto object-cover aspect-[4/3]"
-                    loading="eager"
-                    decoding="async"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="mt-12 w-full max-w-5xl mx-auto">
+          {loaded ? <Carousel className="w-full" plugins={[Autoplay(autoplayOptions)]}>
+              <CarouselContent>
+                {images.map((image, index) => <CarouselItem key={index}>
+                    <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                      <AspectRatio ratio={16 / 9}>
+                        <img src={image} alt={`Restaurant management system ${index + 1}`} className="w-full h-full object-cover" loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : "auto"} decoding="async" style={{
+                    transform: 'translateZ(0)' // Hardware acceleration
+                  }} />
+                      </AspectRatio>
+                    </div>
+                  </CarouselItem>)}
+              </CarouselContent>
+              <div className="flex justify-center mt-6">
+                <CarouselPrevious className="relative static transform-none mx-2 bg-gradient-to-r from-blue-500/80 to-blue-600/80 border-none text-white hover:bg-blue-700/90 hover:text-white" />
+                <CarouselNext className="relative static transform-none mx-2 bg-gradient-to-r from-blue-500/80 to-blue-600/80 border-none text-white hover:bg-blue-700/90 hover:text-white" />
+              </div>
+            </Carousel> : <div className="h-[55vh] w-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl">
+              <div className="w-16 h-16 border-4 border-swirl-blue border-t-transparent rounded-full animate-spin"></div>
+            </div>}
         </div>
       </div>
     </section>;

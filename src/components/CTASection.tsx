@@ -7,10 +7,10 @@ const CTASection = () => {
   const { t } = useLanguage();
   
   return (
-    <section className="py-12 md:py-16 lg:py-24 animate-on-scroll">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-br from-swirl-blue/90 via-swirl-blue to-blue-700 rounded-2xl overflow-hidden">
-          <div className="relative px-6 py-12 md:p-16">
+    <section className="py-20 md:py-24 animate-on-scroll">
+      <div className="container-custom">
+        <div className="bg-gradient-to-br from-swirl-blue/90 via-swirl-blue to-blue-700 rounded-3xl overflow-hidden">
+          <div className="relative px-6 py-16 md:p-16">
             {/* Background pattern */}
             <div className="absolute inset-0 overflow-hidden opacity-10">
               <div className="absolute -right-10 -top-10 w-72 h-72 bg-white rounded-full"></div>
@@ -24,16 +24,16 @@ const CTASection = () => {
               <div className="absolute top-40 left-1/2 w-8 h-8 bg-white/20 rounded-full animate-float" style={{ animationDelay: "2s" }}></div>
             </div>
             
-            <div className="relative z-10 text-center max-w-2xl mx-auto space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+            <div className="relative z-10 text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold mb-6 text-white">
                 {t('cta.transform')}
               </h2>
-              <p className="text-lg text-white/90">
+              <p className="text-lg text-white/90 mb-10">
                 {t('cta.join')}
               </p>
               
-              <div className="flex justify-center pt-2">
-                <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+              <div className="flex justify-center">
+                <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-90">
                   {t('cta.getStarted')}
                 </CustomCTAButton>
               </div>

@@ -7,74 +7,68 @@ import { NavigationItems } from './NavigationItems';
 import { MobileMenu } from './MobileMenu';
 import { WhatsApp } from '@/components/SocialIcons';
 
-  const features = [
-    {
-      title: 'Digital Menu',
-      path: '/products/digital-menu',
-      description: 'Create interactive digital menus that are easy to update.',
-      icon: 'restaurant-menu'
-    },
-    {
-      title: 'QR Ordering',
-      path: '/products/qr-ordering',
-      description: 'Enable contactless ordering through QR codes.',
-      icon: 'qr-code'
-    },
-    {
-      title: 'Analytics',
-      path: '/products/restaurant-analytics',
-      description: 'Track and analyze your restaurant performance.',
-      icon: 'chart-bar'
-    },
-    {
-      title: 'Point of Sale',
-      path: '/products/restaurant-point-of-sale',
-      description: 'Modern point-of-sale for restaurant operations.',
-      icon: 'credit-card'
-    },
-    {
-      title: 'Financial Reports',
-      path: '/products/financial-reports',
-      description: 'Comprehensive financial tracking and reporting.',
-      icon: 'file-chart-bar'
-    },
-    {
-      title: 'Kitchen Display',
-      path: '/products/kitchen-display',
-      description: 'Streamline kitchen operations and order management.',
-      icon: 'chef-hat'
-    },
-    {
-      title: 'Reservations',
-      path: '/products/reservations',
-      description: 'Manage bookings and optimize table turnover.',
-      icon: 'calendar'
-    },
-    {
-      title: 'In-Car Ordering',
-      path: '/products/ordering-from-car',
-      description: 'Enable convenient ordering directly from vehicles.',
-      icon: 'car'
-    },
-    {
-      title: 'CRM',
-      path: '/products/customer-relationship-management',
-      description: 'Manage customer relationships effectively.',
-      icon: 'users'
-    },
-    {
-      title: 'Payroll Management',
-      path: '/products/payroll-management',
-      description: 'Streamline your staff payments and tracking.',
-      icon: 'dollar-sign'
-    },
-    {
-      title: 'Swirl Hardware',
-      path: '/products/swirl-hardware',
-      description: 'Modern POS hardware with sleek design and fastest speed.',
-      icon: 'monitor'
-    }
-  ];
+const features = [
+  {
+    title: 'Digital Menu',
+    path: '/products/digital-menu',
+    description: 'Create interactive digital menus that are easy to update.',
+    icon: 'restaurant-menu'
+  },
+  {
+    title: 'QR Ordering',
+    path: '/products/qr-ordering',
+    description: 'Enable contactless ordering through QR codes.',
+    icon: 'qr-code'
+  },
+  {
+    title: 'Analytics',
+    path: '/products/restaurant-analytics',
+    description: 'Track and analyze your restaurant performance.',
+    icon: 'chart-bar'
+  },
+  {
+    title: 'Point of Sale',
+    path: '/products/restaurant-point-of-sale',
+    description: 'Modern point-of-sale for restaurant operations.',
+    icon: 'credit-card'
+  },
+  {
+    title: 'Financial Reports',
+    path: '/products/financial-reports',
+    description: 'Comprehensive financial tracking and reporting.',
+    icon: 'file-chart-bar'
+  },
+  {
+    title: 'Kitchen Display',
+    path: '/products/kitchen-display',
+    description: 'Streamline kitchen operations and order management.',
+    icon: 'chef-hat'
+  },
+  {
+    title: 'Reservations',
+    path: '/products/reservations',
+    description: 'Manage bookings and optimize table turnover.',
+    icon: 'calendar'
+  },
+  {
+    title: 'In-Car Ordering',
+    path: '/products/ordering-from-car',
+    description: 'Enable convenient ordering directly from vehicles.',
+    icon: 'car'
+  },
+  {
+    title: 'CRM',
+    path: '/products/customer-relationship-management',
+    description: 'Manage customer relationships effectively.',
+    icon: 'users'
+  },
+  {
+    title: 'Payroll Management',
+    path: '/products/payroll-management',
+    description: 'Streamline your staff payments and tracking.',
+    icon: 'dollar-sign'
+  }
+];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -83,7 +77,6 @@ const Navbar = () => {
 
   const mainLinks = [
     { name: 'Point of Sale', path: '/products/restaurant-point-of-sale' },
-    { name: 'Swirl Hardware', path: '/products/swirl-hardware' },
     { name: 'Inventory Management', path: '/products/inventory-management' },
     { name: 'Digital Menu', path: '/products/digital-menu' },
     { name: 'QR Ordering', path: '/products/qr-ordering' },
@@ -118,7 +111,7 @@ const Navbar = () => {
               src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png" 
               alt="Swirl Logo" 
               className={`w-auto object-contain transition-all duration-300 ${
-                isScrolled ? 'h-28 md:h-36' : 'h-32 md:h-40'
+                isScrolled ? 'h-16' : 'h-14'
               }`}
             />
           </Link>
@@ -128,7 +121,7 @@ const Navbar = () => {
           </div>
         </div>
         
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-3">
           {/* WhatsApp Button - increased size */}
           <Button asChild variant="secondary" className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0 rounded-full h-11 px-5 flex items-center gap-2 font-inter">
             <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">

@@ -23,14 +23,7 @@ const Index = () => {
   useScrollAnimation();
 
   return (
-    <div className="min-h-screen flex flex-col"
-      style={{
-        backgroundImage: 'url("/src/assets/dotted-background.png")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
+    <div className="min-h-screen flex flex-col">
       {/* Preload all critical images */}
       <ImagePreloader />
       
@@ -39,37 +32,20 @@ const Index = () => {
           <Hero />
           <TrustedRestaurants />
         </div>
-        <div className="bg-white/20 backdrop-blur-sm"
-          style={{
-            backgroundImage: 'url("/src/assets/dotted-background.png")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        >
-          <Features />
-        </div>
-        <div className="bg-white/10 backdrop-blur-sm">
-          <UseCasesSection />
-        </div>
-        <div className="bg-white/10 backdrop-blur-sm">
+        <Features />
+        <UseCasesSection />
+        <div className="bg-gradient-to-b from-white to-blue-50/30">
           <HomePOSSection />
           <HomeInventorySection />
           <HomeFinancialAnalyticsSection />
           <HotelIndustrySection />
         </div>
-        <div className="bg-white/10 backdrop-blur-sm">
-          <StepProcess />
-          <NextGenFeatures />
-        </div>
-        <div className="bg-white/10 backdrop-blur-sm">
-          <DeliveryComingSoon />
-          <BlogSection />
-        </div>
-        <div className="bg-white/10 backdrop-blur-sm">
-          <FAQSection />
-          <CTASection />
-        </div>
+        <StepProcess />
+        <NextGenFeatures />
+        <DeliveryComingSoon />
+        <BlogSection />
+        <FAQSection />
+        <CTASection />
       </main>
       <Footer />
     </div>

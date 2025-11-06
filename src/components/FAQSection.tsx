@@ -35,9 +35,9 @@ const FAQSection = () => {
     question: "Can I customize the digital menu to match my brand?",
     answer: "Absolutely! Our digital menu is highly customizable. You can add your logo, choose colors that match your brand, upload high-quality images of your dishes, create categories, add item descriptions, highlight specials, and even include nutritional information. We also support multiple languages and currencies for international customers."
   }];
-  return <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 space-y-4">
+  return <section className="py-20 md:py-24 bg-gradient-to-b from-white to-gray-50">
+      <div className="container-custom">
+        <div className="text-center mb-12">
           <span className="bg-indigo-100 text-indigo-800 px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">GET ANSWERS</span>
           <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-slate-950">
             Frequently Asked Questions

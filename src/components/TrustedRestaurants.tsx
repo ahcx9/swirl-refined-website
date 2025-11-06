@@ -39,32 +39,29 @@ const TrustedRestaurants = () => {
     {
       src: "/lovable-uploads/e5232452-9f07-430a-98e1-a6fa00f50235.png",
       alt: "Tamasha"
-    },
-    {
-      src: "/lovable-uploads/cf8ec88c-d51e-4941-b048-05cdb833c48b.jpg",
-      alt: "KYRA Club"
-    },
-    {
-      src: "/lovable-uploads/535c3886-674a-48f2-a7e7-99cbc2c15dbc.png", 
-      alt: "Uccelli Café"
-    },
-    {
-      src: "/lovable-uploads/31b9ef24-c2ca-46ef-85b7-23f0ec080d8d.png",
-      alt: "Quarter Plate"
     }
   ];
 
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   
-  // Only preload first few visible logos, let others load lazily
+  // Preload all logo images with high priority for instant loading
   useEffect(() => {
-    // Only preload first 4 logos that are immediately visible
-    const criticalLogoUrls = logos.slice(0, 4).map(logo => logo.src);
-    preloadImages(criticalLogoUrls, 4)
+    const logoUrls = logos.map(logo => logo.src);
+    preloadImages(logoUrls, 5)
       .catch(err => {
-        console.error('Error preloading critical logo images:', err);
+        console.error('Error preloading logo images:', err);
       });
+      
+    // Also add direct preload links to head for critical logos
+    logos.slice(0, 4).forEach(logo => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.href = logo.src;
+      link.as = 'image';
+      link.crossOrigin = 'anonymous';
+      document.head.appendChild(link);
+    });
   }, []);
   
   useEffect(() => {
@@ -120,15 +117,15 @@ const TrustedRestaurants = () => {
                 key={`logo-1-${index}`} 
                 className="bg-white px-4 py-3 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[90px] md:w-[150px] md:h-[100px] mx-3 flex items-center justify-center"
               >
-                 <img 
-                   src={logo.src} 
-                   alt={logo.alt}
-                   className="max-h-full max-w-full object-contain"
-                   loading={index < 4 ? "eager" : "lazy"}
-                   crossOrigin="anonymous"
-                   decoding="async"
-                   style={{ transform: 'translateZ(0)' }}
-                 />
+                <img 
+                  src={logo.src} 
+                  alt={logo.alt}
+                  className="max-h-full max-w-full object-contain"
+                  loading="eager"
+                  crossOrigin="anonymous"
+                  decoding="async"
+                  style={{ transform: 'translateZ(0)' }}
+                />
               </div>
             ))}
             
@@ -138,15 +135,14 @@ const TrustedRestaurants = () => {
                 key={`logo-2-${index}`} 
                 className="bg-white px-4 py-3 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[90px] md:w-[150px] md:h-[100px] mx-3 flex items-center justify-center"
               >
-                 <img 
-                   src={logo.src} 
-                   alt={logo.alt}
-                   className="max-h-full max-w-full object-contain"
-                   loading={index < 4 ? "eager" : "lazy"}
-                   crossOrigin="anonymous"
-                   decoding="async"
-                   style={{ transform: 'translateZ(0)' }}
-                 />
+                <img 
+                  src={logo.src} 
+                  alt={logo.alt}
+                  className="max-h-full max-w-full object-contain"
+                  loading="eager" 
+                  crossOrigin="anonymous"
+                  style={{ transform: 'translateZ(0)' }}
+                />
               </div>
             ))}
           </div>

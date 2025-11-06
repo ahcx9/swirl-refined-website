@@ -1,13 +1,13 @@
 import React from 'react';
 import { QrCode, Menu, ShoppingCart, ArrowRight, Smartphone, Eye, MousePointer } from 'lucide-react';
 const StepProcess = () => {
-  return <section className="py-12 md:py-16 lg:py-24 flex items-center bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 animate-on-scroll">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-teal-500 bg-clip-text text-transparent">
+  return <section className="py-20 md:py-24 flex items-center bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 animate-on-scroll">
+      <div className="container-custom">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-blue-600 to-teal-500 bg-clip-text text-transparent">
             Your Guest's Journey
           </h2>
-          <p className="text-gray-700 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-700 text-xl max-w-4xl mx-auto leading-relaxed">
             Transform dining into an effortless digital experience with our intuitive 3-step process
           </p>
         </div>
@@ -36,11 +36,11 @@ const StepProcess = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Step 1 - Scan */}
             <div className="relative group">
-              <div className="flex flex-col items-center text-center rounded-2xl border border-purple-100 shadow-sm p-5 md:p-6 bg-white hover:shadow-lg transition-all duration-300">
+              <div className="flex flex-col items-center text-center p-8 rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 border border-purple-100">
                 {/* Floating Icon Container */}
-                <div className="relative mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <QrCode className="text-white h-6 w-6 md:h-8 md:w-8" />
+                <div className="relative mb-8">
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <QrCode className="text-white" size={36} />
                   </div>
                   {/* Floating phone icon */}
                   <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center animate-bounce">
@@ -75,11 +75,11 @@ const StepProcess = () => {
             
             {/* Step 2 - Browse */}
             <div className="relative group">
-              <div className="flex flex-col items-center text-center rounded-2xl border border-blue-100 shadow-sm p-5 md:p-6 bg-white hover:shadow-lg transition-all duration-300">
+              <div className="flex flex-col items-center text-center p-8 rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 border border-blue-100">
                 {/* Floating Icon Container */}
-                <div className="relative mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <Menu className="text-white h-6 w-6 md:h-8 md:w-8" />
+                <div className="relative mb-8">
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Menu className="text-white" size={36} />
                   </div>
                   {/* Floating eye icon */}
                   <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center animate-bounce" style={{
@@ -118,11 +118,11 @@ const StepProcess = () => {
             
             {/* Step 3 - Order */}
             <div className="relative group">
-              <div className="flex flex-col items-center text-center rounded-2xl border border-teal-100 shadow-sm p-5 md:p-6 bg-white hover:shadow-lg transition-all duration-300">
+              <div className="flex flex-col items-center text-center p-8 rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 border border-teal-100">
                 {/* Floating Icon Container */}
-                <div className="relative mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-teal-500 to-teal-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <ShoppingCart className="text-white h-6 w-6 md:h-8 md:w-8" />
+                <div className="relative mb-8">
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-r from-teal-500 to-teal-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <ShoppingCart className="text-white" size={36} />
                   </div>
                   {/* Floating click icon */}
                   <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center animate-bounce" style={{

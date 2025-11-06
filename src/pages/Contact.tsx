@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import { MapPin, Mail, Phone, Globe, Send, Star, CheckCircle, Users, MessageSquare, Linkedin } from 'lucide-react';
+import { MapPin, Mail, Phone, Globe, Send, Star, CheckCircle, Users, MessageSquare } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { WhatsApp, Instagram, TikTok } from '@/components/SocialIcons';
+import { WhatsApp } from '@/components/SocialIcons';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -264,8 +264,8 @@ Message: ${formData.message}
                         </div>
                         <div>
                           <h3 className="font-semibold text-gray-900 mb-2">Email Us</h3>
-                          <a href="mailto:abid@swirl.cx" className="text-green-600 hover:text-green-700 font-medium text-lg">
-                            abid@swirl.cx
+                          <a href="mailto:hello@swirl.cx" className="text-green-600 hover:text-green-700 font-medium text-lg">
+                            hello@swirl.cx
                           </a>
                           <p className="text-gray-500 text-sm mt-1">We'll respond within 24 hours</p>
                         </div>
@@ -311,32 +311,14 @@ Message: ${formData.message}
                 <div className="bg-gray-50 rounded-xl p-6">
                   <h3 className="font-semibold text-gray-900 mb-4">Follow Us</h3>
                   <div className="flex space-x-4">
-                    <a 
-                      href="https://www.linkedin.com/company/swirl-cx" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="p-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
-                      aria-label="LinkedIn"
-                    >
-                      <Linkedin size={20} />
+                    <a href="https://www.linkedin.com/company/swirl-cx" className="text-blue-600 hover:text-blue-700 font-medium">
+                      LinkedIn
                     </a>
-                    <a 
-                      href="https://www.instagram.com/swirl.cx?igsh=MTk4dDZlOTZqNHFjcg%3D%3D&utm_source=qr" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="p-3 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white rounded-full hover:opacity-90 transition-opacity"
-                      aria-label="Instagram"
-                    >
-                      <Instagram size={20} />
+                    <a href="https://www.instagram.com/swirl.cx?igsh=MTk4dDZlOTZqNHFjcg%3D%3D&utm_source=qr" className="text-pink-600 hover:text-pink-700 font-medium">
+                      Instagram
                     </a>
-                    <a 
-                      href="https://www.tiktok.com/@swirlcx?_t=ZS-8w7vcghzhWT&_r=1" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="p-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
-                      aria-label="TikTok"
-                    >
-                      <TikTok size={20} />
+                    <a href="https://www.tiktok.com/@swirlcx?_t=ZS-8w7vcghzhWT&_r=1" className="text-gray-900 hover:text-gray-700 font-medium">
+                      TikTok
                     </a>
                   </div>
                 </div>

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import DeliveryBadge from './delivery/DeliveryBadge';
@@ -5,20 +6,26 @@ import DeliveryAppShowcase from './delivery/DeliveryAppShowcase';
 import DeliveryFeatureGrid from './delivery/DeliveryFeatureGrid';
 import DeliveryProgressBar from './delivery/DeliveryProgressBar';
 import DeliveryBackgroundEffects from './delivery/DeliveryBackgroundEffects';
+
 const DeliveryComingSoon = () => {
   const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), {
-      threshold: 0.3
-    });
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
     const section = document.getElementById('delivery-coming-soon');
     if (section) observer.observe(section);
     return () => observer.disconnect();
   }, []);
+
   const handleWhatsAppRedirect = () => {
     window.open('https://wa.me/971543853877', '_blank');
   };
-  return <section id="delivery-coming-soon" className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700">
+
+  return (
+    <section id="delivery-coming-soon" className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900">
       <DeliveryBackgroundEffects />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -36,10 +43,10 @@ const DeliveryComingSoon = () => {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
             Revolutionary one-click integration with all major delivery platforms. 
             <br className="hidden md:block" />
-            Manage everything from one unified dashboard - available now!
+            Manage everything from one unified dashboard.
           </p>
 
           <DeliveryAppShowcase />
@@ -47,11 +54,19 @@ const DeliveryComingSoon = () => {
           <DeliveryFeatureGrid isVisible={isVisible} />
 
           {/* CTA */}
-          
+          <div 
+            className="inline-flex items-center gap-4 bg-gradient-to-r from-orange-500 to-red-600 rounded-full px-8 py-4 shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 group cursor-pointer"
+            onClick={handleWhatsAppRedirect}
+          >
+            <span className="text-white font-bold text-lg">Get Notified When We Launch</span>
+            <ArrowRight className="text-white group-hover:translate-x-1 transition-transform" size={24} />
+          </div>
 
           <DeliveryProgressBar />
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default DeliveryComingSoon;

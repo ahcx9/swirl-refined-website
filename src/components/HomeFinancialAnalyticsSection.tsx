@@ -68,8 +68,8 @@ const HomeFinancialAnalyticsSection = () => {
                   <div className="relative h-full w-full">
                     <img 
                       alt="Financial Analytics Dashboard" 
-                      loading="lazy" 
-                      fetchPriority="auto"
+                      loading="eager" 
+                      fetchPriority="high"
                       decoding="async"
                       className="w-full h-full object-cover rounded-lg" 
                       src="/lovable-uploads/2e0f4208-a025-4a95-a266-cf5c3b63fb68.png" 

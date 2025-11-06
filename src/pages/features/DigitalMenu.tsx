@@ -9,7 +9,7 @@ import TestimonialsSection from '@/components/features/digital-menu/Testimonials
 const DigitalMenu = () => {
   return <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-36 pb-16 bg-gradient-to-b from-white to-blue-50/20">
+      <main className="flex-grow pt-24 pb-16 bg-gradient-to-b from-white to-blue-50/20">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <HeroSection />

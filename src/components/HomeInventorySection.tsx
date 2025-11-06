@@ -1,8 +1,9 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Package, Tag, BarChart, HardDrive, List } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { preloadImage } from '@/utils/imagePreloader';
 
 const HomeInventorySection = () => {
   const features = [{
@@ -22,7 +23,14 @@ const HomeInventorySection = () => {
     text: 'Ingredient-level tracking'
   }];
 
-  // Remove preloading - this image is below the fold and should load lazily
+  // Preload the inventory image
+  useEffect(() => {
+    const mainImage = "/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png";
+    preloadImage({
+      src: mainImage,
+      priority: 'high'
+    });
+  }, []);
   
   return (
     <section className="py-16 overflow-hidden relative bg-white">
@@ -74,8 +82,8 @@ const HomeInventorySection = () => {
                         src="/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png" 
                         alt="Inventory Management Interface" 
                         className="w-full h-auto rounded-lg shadow-inner" 
-                        loading="lazy" 
-                        decoding="async" 
+                        loading="eager" 
+                        decoding="sync" 
                         style={{
                           transform: 'translateZ(0)'
                         }}

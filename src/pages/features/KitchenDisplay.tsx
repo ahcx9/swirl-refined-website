@@ -60,7 +60,7 @@ const KitchenDisplay = () => {
   }];
   return <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      <main className="flex-grow pt-36">
+      <main className="flex-grow pt-24">
         {/* Hero Section */}
         <section className="bg-white py-20">
           <div className="container-custom">

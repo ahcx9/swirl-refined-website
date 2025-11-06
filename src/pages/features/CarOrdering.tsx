@@ -43,7 +43,7 @@ const InCarOrdering = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-36 pb-16">
+      <main className="flex-grow pt-24 pb-16">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">

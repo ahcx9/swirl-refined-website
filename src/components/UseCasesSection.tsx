@@ -69,7 +69,7 @@ const UseCasesSection = () => {
   const handleCardMouseLeave = () => {
     setHoveredCase(null);
   };
-  return <section className="py-12 md:py-16 lg:py-24 relative overflow-hidden">
+  return <section className="py-24 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-gray-50 to-transparent"></div>
@@ -78,19 +78,22 @@ const UseCasesSection = () => {
         <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-50 rounded-full opacity-30 blur-3xl"></div>
       </div>
       
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-12 max-w-2xl mx-auto space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-black">
+      <div className="container-custom relative z-10">
+        <div className="text-center mb-12 md:mb-20 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">
             Serving Every Corner of Hospitality
           </h2>
-          <p className="text-lg text-swirl-gray">
+          <p className="text-lg text-swirl-gray mb-8">
             Our solutions adapt to the unique needs of different food service businesses, 
             helping each type thrive in their own way.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {useCases.map(useCase => <div key={useCase.id} className="group relative bg-white rounded-2xl border border-black/10 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-lg" onMouseEnter={() => handleCardMouseEnter(useCase.id)} onMouseLeave={handleCardMouseLeave}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {useCases.map(useCase => <div key={useCase.id} className="group relative bg-white rounded-2xl overflow-hidden shadow-sm border border-blue-200 transition-all duration-500" style={{
+          transform: hoveredCase === useCase.id ? 'translateY(-10px)' : 'translateY(0)',
+          boxShadow: hoveredCase === useCase.id ? '0 20px 30px -10px rgba(59, 130, 246, 0.2)' : '0 4px 6px -1px rgba(59, 130, 246, 0.1)'
+        }} onMouseEnter={() => handleCardMouseEnter(useCase.id)} onMouseLeave={handleCardMouseLeave}>
               {/* Card background with gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${useCase.bgGradient} opacity-60`}></div>
               
@@ -120,10 +123,10 @@ const UseCasesSection = () => {
             }}></div>}
               </div>
               
-              <div className="relative z-10 p-5 md:p-6 h-full flex flex-col bg-gray-100">
+              <div className="relative z-10 p-6 md:p-8 h-full flex flex-col bg-gray-100">
                 {/* Icon */}
-                <div className={`w-12 h-12 rounded-full ${useCase.color} bg-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform duration-300`}>
-                  <useCase.icon className="h-5 w-5 md:h-6 md:w-6" />
+                <div className={`w-14 h-14 rounded-full ${useCase.color} bg-white flex items-center justify-center mb-5 shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                  <useCase.icon size={28} />
                 </div>
                 
                 {/* Content */}

@@ -75,26 +75,3 @@ export const optimizeImageUrl = (url: string): string => {
   
   return url;
 };
-
-/**
- * Detect slow network connection
- */
-export const isSlowConnection = (): boolean => {
-  // @ts-ignore - Navigator.connection is experimental
-  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-  if (!connection) return false;
-  
-  // Consider 2G, slow-2g as slow
-  return connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g';
-};
-
-/**
- * Create responsive image srcset for better loading
- */
-export const createResponsiveSrcSet = (baseSrc: string, sizes: number[] = [400, 800, 1200]): string => {
-  if (!baseSrc.includes('images.unsplash.com')) return '';
-  
-  return sizes
-    .map(size => `${baseSrc}&w=${size} ${size}w`)
-    .join(', ');
-};

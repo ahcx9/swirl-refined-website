@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { 
   FileText, ShoppingCart, BarChart, CreditCard, LayoutDashboard,
-  Users, Car, Calendar, Package, ChefHat, Utensils, FileBarChart, Monitor
+  Users, Car, Calendar, Package, ChefHat, Utensils, FileBarChart
 } from 'lucide-react';
 
 interface NavigationItem {
@@ -45,7 +45,6 @@ export const NavigationItems = ({ items, textColor = "text-swirl-blue" }: Naviga
       'chef-hat': <ChefHat size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
       'calendar': <Utensils size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
       'file-chart-bar': <FileBarChart size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
-      'monitor': <Monitor size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
     };
     
     return iconMap[iconName] || null;
