@@ -79,9 +79,7 @@ const SwirlHardware = () => {
       <section className="py-12 md:py-16 lg:py-24 bg-background">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Complete Hardware Ecosystem
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Complete hardware solution for restaurants/cafes</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Modern systems designed for fast moving restaurant to ensure smoothest billing you/your staff can have</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
