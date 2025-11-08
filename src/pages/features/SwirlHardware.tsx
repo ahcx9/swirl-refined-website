@@ -110,10 +110,7 @@ const SwirlHardware = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
                 Why Choose Swirl Hardware?
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Our hardware solutions are specifically selected and configured to work 
-                seamlessly with Swirl POS software, ensuring maximum reliability and performance.
-              </p>
+              <p className="text-lg text-muted-foreground mb-8">Our hardware solutions are specifically selected and configured to work seamlessly with swirl POS software, ensuring maximum reliability and performance.</p>
               <div className="space-y-4">
                 {benefits.map((benefit, index) => <div key={index} className="flex items-start gap-3">
                     {benefit.icon}
