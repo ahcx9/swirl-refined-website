@@ -49,9 +49,7 @@ const SwirlHardware = () => {
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="text-center md:text-left">
-              <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">cloud based point-of-sale system<Package className="h-4 w-4" />
-                Complete Hardware Solutions
-              </div>
+              
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">swirl POS hardware solutions</h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl">Everything you need to run your restaurant efficiently. From tablets to printers,kitchen display screen - all optimized for Swirl POS.</p>
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start">
