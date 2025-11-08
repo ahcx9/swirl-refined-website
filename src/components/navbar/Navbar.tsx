@@ -67,6 +67,12 @@ const features = [
     path: '/products/payroll-management',
     description: 'Streamline your staff payments and tracking.',
     icon: 'dollar-sign'
+  },
+  {
+    title: 'Swirl Hardware',
+    path: '/products/swirl-hardware',
+    description: 'Complete POS hardware solutions for your restaurant.',
+    icon: 'package'
   }
 ];
 
@@ -78,6 +84,7 @@ const Navbar = () => {
   const mainLinks = [
     { name: 'Point of Sale', path: '/products/restaurant-point-of-sale' },
     { name: 'Inventory Management', path: '/products/inventory-management' },
+    { name: 'Swirl Hardware', path: '/products/swirl-hardware' },
     { name: 'Digital Menu', path: '/products/digital-menu' },
     { name: 'QR Ordering', path: '/products/qr-ordering' },
     { name: 'Features', items: features },

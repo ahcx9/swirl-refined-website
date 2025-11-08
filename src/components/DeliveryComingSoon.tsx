@@ -25,7 +25,7 @@ const DeliveryComingSoon = () => {
   };
 
   return (
-    <section id="delivery-coming-soon" className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900">
+    <section id="delivery-coming-soon" className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900">
       <DeliveryBackgroundEffects />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -55,10 +55,10 @@ const DeliveryComingSoon = () => {
 
           {/* CTA */}
           <div 
-            className="inline-flex items-center gap-4 bg-gradient-to-r from-orange-500 to-red-600 rounded-full px-8 py-4 shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 group cursor-pointer"
+            className="inline-flex items-center gap-4 bg-gradient-to-r from-green-500 to-green-600 rounded-full px-8 py-4 shadow-2xl hover:shadow-green-500/25 transition-all duration-300 group cursor-pointer"
             onClick={handleWhatsAppRedirect}
           >
-            <span className="text-white font-bold text-lg">Get Notified When We Launch</span>
+            <span className="text-white font-bold text-lg">Explore Integrations Now</span>
             <ArrowRight className="text-white group-hover:translate-x-1 transition-transform" size={24} />
           </div>
 

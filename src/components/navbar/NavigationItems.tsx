@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { 
   FileText, ShoppingCart, BarChart, CreditCard, LayoutDashboard,
-  Users, Car, Calendar, Package, ChefHat, Utensils, FileBarChart
+  Users, Car, Calendar, Package, ChefHat, Utensils, FileBarChart, DollarSign
 } from 'lucide-react';
 
 interface NavigationItem {
@@ -40,7 +40,7 @@ export const NavigationItems = ({ items, textColor = "text-swirl-blue" }: Naviga
       'file-text': <LayoutDashboard size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
       'users': <Users size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
       'car': <Car size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
-      'dollar-sign': <Calendar size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
+      'dollar-sign': <DollarSign size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
       'package': <Package size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
       'chef-hat': <ChefHat size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
       'calendar': <Utensils size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
