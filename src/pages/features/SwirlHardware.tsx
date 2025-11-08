@@ -35,9 +35,6 @@ const SwirlHardware = () => {
     text: 'Seamless integration with Swirl POS software'
   }, {
     icon: <CheckCircle className="h-5 w-5 md:h-6 md:w-6 text-green-600" />,
-    text: 'Full warranty and technical support included'
-  }, {
-    icon: <CheckCircle className="h-5 w-5 md:h-6 md:w-6 text-green-600" />,
     text: 'Easy setup with plug-and-play configuration'
   }, {
     icon: <CheckCircle className="h-5 w-5 md:h-6 md:w-6 text-green-600" />,
