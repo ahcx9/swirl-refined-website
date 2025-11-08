@@ -52,7 +52,7 @@ const SwirlHardware = () => {
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="text-center md:text-left">
-              <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">cloud based point-of-sale system <Package className="h-4 w-4" />
+              <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">cloud based point-of-sale system<Package className="h-4 w-4" />
                 Complete Hardware Solutions
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">swirl POS hardware solutions</h1>
