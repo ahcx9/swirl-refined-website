@@ -85,19 +85,13 @@
 
   /* Optimize image loading and rendering */
   img {
-    content-visibility: auto;
     will-change: auto;
-  }
-  
-  /* Optimize sections for better rendering */
-  section {
-    content-visibility: auto;
-    contain: layout style paint;
   }
   
   /* GPU acceleration for images */
   img[loading="lazy"] {
     transform: translateZ(0);
+    backface-visibility: hidden;
   }
 }
 
@@ -131,12 +125,15 @@
   .animate-on-scroll {
     opacity: 0;
     transform: translateY(25px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
   
   .animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
+    will-change: auto;
   }
   
   /* Creative card animations */

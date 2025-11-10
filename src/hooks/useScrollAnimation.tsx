@@ -8,20 +8,21 @@ export function useScrollAnimation() {
     // Initialize intersection observer
     observerRef.current = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        // Add visible class when element is in view
-        if (entry.isIntersecting) {
+        // Only add visible class when element enters viewport
+        // Never remove it to prevent flickering
+        if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
           // Add a slight delay for staggered animation effect
           setTimeout(() => {
             entry.target.classList.add('visible');
             // Once animation is done, unobserve to save resources
             observerRef.current?.unobserve(entry.target);
-          }, 100);
+          }, 50);
         }
       });
     }, {
       root: null, // viewport
-      rootMargin: '0px',
-      threshold: 0.15 // 15% of the element visible to trigger animation
+      rootMargin: '50px', // Start animation slightly before element enters viewport
+      threshold: 0.1 // 10% of the element visible to trigger animation
     });
     
     // Select all elements with animate-on-scroll class
