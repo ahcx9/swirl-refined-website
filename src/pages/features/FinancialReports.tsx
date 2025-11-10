@@ -54,8 +54,8 @@ const FinancialReports = () => {
                 <div className="bg-gradient-to-br from-purple-light/30 to-white rounded-xl p-4 max-w-4xl mx-auto">
                   <div className="overflow-hidden rounded-lg">
                     <img 
-                      alt="Financial reporting dashboard" 
-                      src="/lovable-uploads/b4d4c92f-5f67-4263-8c64-fd8643abe8cd.png" 
+                      alt="Financial Analytics Dashboard with comprehensive reporting" 
+                      src="/lovable-uploads/financial-analytics-dashboard.png"
                       className="w-full h-auto rounded-lg shadow-md transform scale-100 transition-transform duration-700 hover:scale-105"
                       loading="eager"
                       fetchPriority="high"

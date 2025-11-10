@@ -67,12 +67,12 @@ const HomeFinancialAnalyticsSection = () => {
                 <AspectRatio ratio={16/9} className="overflow-hidden rounded-xl">
                   <div className="relative h-full w-full">
                     <img 
-                      alt="Financial Analytics Dashboard" 
+                      alt="Financial Analytics Dashboard showing revenue, orders, and payment methods" 
                       loading="eager" 
                       fetchPriority="high"
                       decoding="async"
                       className="w-full h-full object-cover rounded-lg" 
-                      src="/lovable-uploads/2e0f4208-a025-4a95-a266-cf5c3b63fb68.png" 
+                      src="/lovable-uploads/financial-analytics-dashboard.png"
                       style={{
                         maxWidth: "100%",
                         height: "auto",

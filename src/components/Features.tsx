@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { LayoutDashboard, ShoppingCart, BarChart, CreditCard, Users, Package, Car, Calendar, FileText } from 'lucide-react';
+import { LayoutDashboard, ShoppingCart, BarChart, CreditCard, Users, Package, Car, Calendar, FileText, Monitor } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CustomCTAButton from '@/components/CustomCTAButton';
 
@@ -58,6 +58,12 @@ const features = [{
   description: 'Track stock and optimize purchasing.',
   icon: Package,
   path: '/products/inventory-management'
+}, {
+  id: 'swirl-hardware',
+  title: 'Swirl Hardware',
+  description: 'Professional POS hardware for your restaurant.',
+  icon: Monitor,
+  path: '/products/swirl-hardware'
 }];
 const Features = () => {
   return <section id="features" className="py-20 md:py-28 flex items-center bg-gradient-to-b from-blue-50/30 to-white">
