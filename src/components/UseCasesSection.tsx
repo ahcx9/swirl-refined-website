@@ -16,32 +16,32 @@ const useCases: UseCaseType[] = [{
   title: 'Food Trucks',
   description: 'Mobile ordering & compact POS solutions perfect for food trucks and mobile vendors.',
   icon: Truck,
-  color: 'text-blue-600',
-  bgGradient: 'from-blue-50 to-blue-100',
+  color: 'text-orange-600',
+  bgGradient: 'from-orange-50 via-amber-50 to-yellow-50',
   pattern: 'radial'
 }, {
   id: 'fine-dining',
   title: 'Fine Dining',
   description: 'Elegant reservation systems & tableside ordering for upscale restaurants.',
   icon: Utensils,
-  color: 'text-blue-600',
-  bgGradient: 'from-blue-50 to-blue-100',
+  color: 'text-purple-600',
+  bgGradient: 'from-purple-50 via-fuchsia-50 to-pink-50',
   pattern: 'radial'
 }, {
   id: 'cafes',
   title: 'Cafes & Bakeries',
   description: 'Quick-service solutions for cafes, bakeries, and patisseries.',
   icon: Coffee,
-  color: 'text-blue-600',
-  bgGradient: 'from-blue-50 to-blue-100',
+  color: 'text-amber-700',
+  bgGradient: 'from-amber-50 via-orange-50 to-red-50',
   pattern: 'dots'
 }, {
   id: 'quick-service',
   title: 'Quick Service',
   description: 'Fast, efficient systems for quick service restaurants and food courts.',
   icon: Store,
-  color: 'text-blue-600',
-  bgGradient: 'from-blue-50 to-blue-100',
+  color: 'text-emerald-600',
+  bgGradient: 'from-emerald-50 via-teal-50 to-cyan-50',
   pattern: 'radial'
 }, {
   id: 'cloud-kitchens',
@@ -49,16 +49,16 @@ const useCases: UseCaseType[] = [{
   description: 'Optimized delivery management for virtual restaurants and ghost kitchens.',
   icon: ChefHat,
   color: 'text-blue-600',
-  bgGradient: 'from-blue-50 to-blue-100',
+  bgGradient: 'from-blue-50 via-indigo-50 to-violet-50',
   pattern: 'wave'
 }, {
   id: 'hotels',
   title: 'Hotels & Resorts',
   description: 'Integrated F&B solutions for hotels, resorts and hospitality venues.',
   icon: Hotel,
-  color: 'text-blue-600',
-  bgGradient: 'from-blue-50 to-blue-100',
-  pattern: 'dots' // Changed from 'circles' to 'dots' to match the others
+  color: 'text-rose-600',
+  bgGradient: 'from-rose-50 via-pink-50 to-fuchsia-50',
+  pattern: 'dots'
 }];
 const UseCasesSection = () => {
   const navigate = useNavigate();
@@ -70,32 +70,50 @@ const UseCasesSection = () => {
     setHoveredCase(null);
   };
   return <section className="py-24 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-gray-50 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-gray-50 to-transparent"></div>
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-50 rounded-full opacity-30 blur-3xl"></div>
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-50 rounded-full opacity-30 blur-3xl"></div>
+      {/* Colorful background decorations */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-purple-50 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-blue-50 to-transparent"></div>
+        
+        {/* Colorful floating orbs */}
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-purple-300 to-pink-300 rounded-full opacity-20 blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 -left-32 w-80 h-80 bg-gradient-to-br from-blue-300 to-cyan-300 rounded-full opacity-20 blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute -bottom-20 right-1/4 w-72 h-72 bg-gradient-to-br from-orange-300 to-yellow-300 rounded-full opacity-20 blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
       
       <div className="container-custom relative z-10">
         <div className="text-center mb-12 md:mb-20 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">
-            Serving Every Corner of Hospitality
+          {/* Colorful animated badge */}
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold text-sm mb-6 shadow-lg animate-fade-in">
+            <span className="animate-pulse">✨</span>
+            <span>Solutions for Every Hospitality Business</span>
+            <span className="animate-pulse">✨</span>
+          </div>
+          
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Serving Every Corner of Hospitality
+            </span>
           </h2>
-          <p className="text-lg text-swirl-gray mb-8">
+          <p className="text-lg text-gray-600 mb-8">
             Our solutions adapt to the unique needs of different food service businesses, 
             helping each type thrive in their own way.
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {useCases.map(useCase => <div key={useCase.id} className="group relative bg-white rounded-2xl overflow-hidden shadow-sm border border-blue-200 transition-all duration-500" style={{
-          transform: hoveredCase === useCase.id ? 'translateY(-10px)' : 'translateY(0)',
-          boxShadow: hoveredCase === useCase.id ? '0 20px 30px -10px rgba(59, 130, 246, 0.2)' : '0 4px 6px -1px rgba(59, 130, 246, 0.1)'
-        }} onMouseEnter={() => handleCardMouseEnter(useCase.id)} onMouseLeave={handleCardMouseLeave}>
-              {/* Card background with gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${useCase.bgGradient} opacity-60`}></div>
+          {useCases.map(useCase => <div 
+            key={useCase.id} 
+            className="group relative bg-white rounded-2xl overflow-hidden shadow-lg border-2 transition-all duration-500 hover:shadow-2xl"
+            style={{
+              transform: hoveredCase === useCase.id ? 'translateY(-12px) scale(1.02)' : 'translateY(0) scale(1)',
+              borderColor: hoveredCase === useCase.id ? 'currentColor' : 'transparent'
+            }}
+            onMouseEnter={() => handleCardMouseEnter(useCase.id)} 
+            onMouseLeave={handleCardMouseLeave}
+          >
+            {/* Vibrant gradient background */}
+            <div className={`absolute inset-0 bg-gradient-to-br ${useCase.bgGradient} opacity-80 transition-opacity duration-300 group-hover:opacity-90`}></div>
               
               {/* Pattern overlay - unique for each card */}
               <div className="absolute inset-0 opacity-10">
@@ -123,10 +141,11 @@ const UseCasesSection = () => {
             }}></div>}
               </div>
               
-              <div className="relative z-10 p-6 md:p-8 h-full flex flex-col bg-gray-100">
-                {/* Icon */}
-                <div className={`w-14 h-14 rounded-full ${useCase.color} bg-white flex items-center justify-center mb-5 shadow-sm group-hover:scale-110 transition-transform duration-300`}>
-                  <useCase.icon size={28} />
+              <div className="relative z-10 p-6 md:p-8 h-full flex flex-col">
+                {/* Icon with colored ring effect */}
+                <div className={`relative w-16 h-16 rounded-full ${useCase.color} bg-white flex items-center justify-center mb-5 shadow-lg group-hover:scale-125 group-hover:rotate-6 transition-all duration-300`}>
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-current to-transparent opacity-20"></div>
+                  <useCase.icon size={30} className="relative z-10" />
                 </div>
                 
                 {/* Content */}
@@ -137,10 +156,14 @@ const UseCasesSection = () => {
                   {useCase.description}
                 </p>
                 
-                {/* Interactive element - reveals on hover */}
+                {/* CTA Button - appears on hover */}
                 <div className="transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <Button variant="outline" className={`border ${useCase.color} text-gray-700 hover:bg-white`} onClick={() => navigate('/use-cases')}>
-                    Learn more
+                  <Button 
+                    variant="outline" 
+                    className={`border-2 ${useCase.color} bg-white hover:bg-gradient-to-r hover:from-white hover:to-current/10 font-semibold shadow-md hover:shadow-lg`}
+                    onClick={() => navigate('/use-cases')}
+                  >
+                    Explore Solutions →
                   </Button>
                 </div>
               </div>
@@ -148,8 +171,12 @@ const UseCasesSection = () => {
         </div>
         
         <div className="text-center mt-16">
-          <Button asChild size="xl" className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900">
-            <a href="/use-cases">Explore All Use Cases</a>
+          <Button 
+            asChild 
+            size="xl" 
+            className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+          >
+            <a href="/use-cases">Explore All Use Cases →</a>
           </Button>
         </div>
       </div>
