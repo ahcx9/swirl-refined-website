@@ -72,7 +72,7 @@ const HomeFinancialAnalyticsSection = () => {
                       fetchPriority="high"
                       decoding="async"
                       className="w-full h-full object-cover rounded-lg" 
-                      src="/lovable-uploads/financial-analytics-dashboard.png"
+                      src="/lovable-uploads/b4d4c92f-5f67-4263-8c64-fd8643abe8cd.png"
                       style={{
                         maxWidth: "100%",
                         height: "auto",
