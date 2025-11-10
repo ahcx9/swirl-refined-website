@@ -208,7 +208,7 @@ Message: ${formData.message}
                         <div>
                           <h3 className="font-semibold text-gray-900 mb-2">Visit Us</h3>
                           <p className="text-gray-700 font-medium">Hanging Garden Tower, 2nd Floor, Office 13</p>
-                          <p className="text-gray-600">Khalidya, Abu Dhabi, UAE 🇦🇪</p>
+                          <p className="text-gray-600">Hamdan Street, Abu Dhabi, UAE 🇦🇪</p>
                         </div>
                       </div>
                     </CardContent>
