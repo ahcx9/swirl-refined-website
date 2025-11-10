@@ -68,8 +68,7 @@ const HomeFinancialAnalyticsSection = () => {
                   <div className="relative h-full w-full">
                     <img 
                       alt="Financial Analytics Dashboard showing revenue, orders, and payment methods" 
-                      loading="eager" 
-                      fetchPriority="high"
+                      loading="lazy" 
                       decoding="async"
                       className="w-full h-full object-cover rounded-lg" 
                       src="/lovable-uploads/b4d4c92f-5f67-4263-8c64-fd8643abe8cd.png"
@@ -77,7 +76,8 @@ const HomeFinancialAnalyticsSection = () => {
                         maxWidth: "100%",
                         height: "auto",
                         objectPosition: "center",
-                        transform: 'translateZ(0) scale(1.1)'
+                        transform: 'translateZ(0) scale(1.1)',
+                        willChange: 'transform'
                       }}
                     />
                     

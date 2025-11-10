@@ -1,9 +1,8 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Package, Tag, BarChart, HardDrive, List } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { preloadImage } from '@/utils/imagePreloader';
 
 const HomeInventorySection = () => {
   const features = [{
@@ -22,15 +21,6 @@ const HomeInventorySection = () => {
     icon: HardDrive,
     text: 'Ingredient-level tracking'
   }];
-
-  // Preload the inventory image
-  useEffect(() => {
-    const mainImage = "/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png";
-    preloadImage({
-      src: mainImage,
-      priority: 'high'
-    });
-  }, []);
   
   return (
     <section className="py-16 overflow-hidden relative bg-white">
@@ -82,11 +72,9 @@ const HomeInventorySection = () => {
                         src="/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png" 
                         alt="Inventory Management Interface" 
                         className="w-full h-auto rounded-lg shadow-inner" 
-                        loading="eager" 
-                        decoding="sync" 
-                        style={{
-                          transform: 'translateZ(0)'
-                        }}
+                        loading="lazy" 
+                        decoding="async" 
+                        style={{ transform: 'translateZ(0)', willChange: 'transform' }}
                       />
                       
                       <div className="absolute bottom-4 right-4 bg-blue-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">

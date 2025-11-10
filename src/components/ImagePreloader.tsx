@@ -34,8 +34,12 @@ const RESTAURANT_LOGOS = [
 
 const ImagePreloader = () => {
   useEffect(() => {
-    // Immediately add preload links to the head for critical images
-    CRITICAL_IMAGES.forEach(src => {
+    // Detect if mobile for reduced preloading
+    const isMobile = window.innerWidth < 768;
+    const preloadCount = isMobile ? 3 : CRITICAL_IMAGES.length;
+    
+    // Preload only the most critical images (hero carousel first image)
+    CRITICAL_IMAGES.slice(0, preloadCount).forEach(src => {
       const link = document.createElement('link');
       link.rel = 'preload';
       link.as = 'image';
@@ -44,67 +48,15 @@ const ImagePreloader = () => {
       document.head.appendChild(link);
     });
     
-    // Also add preload links for logos
-    RESTAURANT_LOGOS.forEach(src => {
+    // Preload fewer logos on mobile
+    const logoCount = isMobile ? 4 : RESTAURANT_LOGOS.length;
+    RESTAURANT_LOGOS.slice(0, logoCount).forEach(src => {
       const link = document.createElement('link');
       link.rel = 'preload';
       link.as = 'image';
       link.href = src;
       document.head.appendChild(link);
     });
-
-    // Preload critical images using Image objects for browser caching
-    const preloadWithHighPriority = () => {
-      const allImportantImages = [...CRITICAL_IMAGES, ...RESTAURANT_LOGOS];
-      
-      // Preload all critical images immediately with maximum priority
-      preloadImages(allImportantImages, 10)
-        .then(() => {
-          // After critical images are loaded, load secondary images
-          return preloadImages(IMPORTANT_IMAGES, 5);
-        })
-        .catch(err => {
-          console.error('Error preloading images:', err);
-        });
-    };
-    
-    // Start preloading immediately
-    preloadWithHighPriority();
-    
-    // Use Intersection Observer API to preload images as user scrolls near them
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Find all images in the section that need to be preloaded
-            const section = entry.target;
-            const images = section.querySelectorAll('img[loading="lazy"]');
-            
-            // Preload these images
-            images.forEach(img => {
-              const imageElement = img as HTMLImageElement;
-              if (imageElement.src && !imageElement.complete) {
-                imageElement.fetchPriority = 'high';
-                imageElement.loading = 'eager';
-              }
-            });
-            
-            // Stop observing this section after preloading its images
-            observer.unobserve(section);
-          }
-        });
-      },
-      { rootMargin: '300px' } // Start loading when within 300px
-    );
-    
-    // Observe all sections with images
-    document.querySelectorAll('section').forEach(section => {
-      observer.observe(section);
-    });
-    
-    return () => {
-      observer.disconnect();
-    };
   }, []);
   
   // This component doesn't render anything

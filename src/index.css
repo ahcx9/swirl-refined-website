@@ -83,9 +83,21 @@
     font-family: 'Inter', sans-serif;
   }
 
-  /* Improve image loading */
+  /* Optimize image loading and rendering */
   img {
     content-visibility: auto;
+    will-change: auto;
+  }
+  
+  /* Optimize sections for better rendering */
+  section {
+    content-visibility: auto;
+    contain: layout style paint;
+  }
+  
+  /* GPU acceleration for images */
+  img[loading="lazy"] {
+    transform: translateZ(0);
   }
 }
 
