@@ -107,7 +107,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-2' : 'bg-white py-4'
+        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-3' : 'bg-white py-5'
       }`}
     >
       <div className="max-w-[1800px] mx-auto px-4 xl:px-8 flex justify-between items-center">
@@ -119,7 +119,7 @@ const Navbar = () => {
               loading="eager"
               fetchPriority="high"
               className={`w-auto object-contain transition-all duration-300 ${
-                isScrolled ? 'h-28' : 'h-40'
+                isScrolled ? 'h-16' : 'h-20'
               }`}
             />
           </Link>
