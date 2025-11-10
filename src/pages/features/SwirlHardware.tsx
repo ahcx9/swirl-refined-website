@@ -12,7 +12,7 @@ const SwirlHardware = () => {
     description: 'High-speed receipt printers with auto-cutter and multiple connectivity options.'
   }, {
     icon: <CreditCard className="h-6 w-6 md:h-8 md:w-8 text-swirl-blue" />,
-    title: 'pos hardware',
+    title: 'POS Hardware',
     description: 'Complete POS hardware ecosystem including tablets, printers, payment terminals, and accessories for seamless restaurant operations.'
   }, {
     icon: <Monitor className="h-6 w-6 md:h-8 md:w-8 text-swirl-blue" />,
