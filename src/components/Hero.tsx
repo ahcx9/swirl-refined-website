@@ -59,8 +59,9 @@ const Hero = () => {
   return <section className="pt-32 pb-12 md:pt-36 lg:pt-40 md:pb-16 min-h-[80vh] flex items-center bg-white">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center max-w-5xl mx-auto mb-8">
-          <h1 className="text-4xl md:text-5xl leading-tight mb-6 font-inter text-center font-semibold xl:text-7xl text-indigo-700 lg:text-7xl">
-            powering the new era of restaurant sales
+          <h1 className="text-4xl md:text-5xl leading-tight mb-6 font-inter text-center font-semibold xl:text-7xl lg:text-7xl">
+            <span className="text-foreground">powering the new era of </span>
+            <span className="text-indigo-700">restaurant sales</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-swirl-gray mb-10 max-w-3xl mx-auto font-inter">
