@@ -64,7 +64,7 @@ const HomeFinancialAnalyticsSection = () => {
                     maxWidth: "100%",
                     height: "auto",
                     objectPosition: "center",
-                    transform: 'translateZ(0) scale(1.1)',
+                    transform: 'translateZ(0) scale(0.95)',
                     willChange: 'transform'
                   }} />
                     
