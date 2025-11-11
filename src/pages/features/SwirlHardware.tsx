@@ -93,48 +93,88 @@ const SwirlHardware = () => {
       </section>
 
       {/* Self-Service Kiosk Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="py-24 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="absolute top-20 right-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"></div>
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+        
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
             {/* Image - Left Side */}
-            <div className="animate-on-scroll order-2 md:order-1">
-              <img 
-                src="/lovable-uploads/mini-kiosk.jpg" 
-                alt="Swirl Self-Service Kiosk with Printer and Payment Terminal" 
-                className="rounded-2xl shadow-lg w-full max-w-md mx-auto h-auto"
-              />
+            <div className="animate-on-scroll order-2 md:order-1 relative">
+              <div className="relative">
+                {/* Glow effect behind image */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 rounded-3xl blur-2xl opacity-20 scale-105"></div>
+                
+                {/* Image container with floating animation */}
+                <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl">
+                  <img 
+                    src="/lovable-uploads/mini-kiosk-no-bg.png" 
+                    alt="Swirl Self-Service Kiosk with Printer and Payment Terminal" 
+                    className="w-full max-w-sm mx-auto h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                
+                {/* Floating badge */}
+                <div className="absolute -top-4 -right-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-3 rounded-full shadow-lg transform rotate-12 hover:rotate-0 transition-transform duration-300">
+                  <span className="font-bold text-sm">40% Faster</span>
+                </div>
+              </div>
             </div>
             
             {/* Content - Right Side */}
-            <div className="space-y-6 animate-on-scroll order-1 md:order-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Self-Service Kiosk Experience
-              </h2>
-              <p className="text-xl text-gray-600">
-                Empower your customers with fast, intuitive self-checkout that reduces wait times and increases order accuracy.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">HD touchscreen for easy navigation and menu browsing</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Integrated thermal printer for instant receipt printing</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Built-in payment terminal for seamless transactions</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Reduces wait times by up to 40% during peak hours</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Increases order accuracy and customer satisfaction</span>
-                </li>
-              </ul>
+            <div className="space-y-8 animate-on-scroll order-1 md:order-2">
+              <div>
+                <div className="inline-block mb-4">
+                  <span className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold rounded-full shadow-lg">
+                    Self-Service Technology
+                  </span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                  Self-Service Kiosk Experience
+                </h2>
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  Empower your customers with fast, intuitive self-checkout that reduces wait times and increases order accuracy.
+                </p>
+              </div>
+              
+              <div className="grid gap-4">
+                <div className="flex items-start gap-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl hover:bg-white/80 transition-all duration-300 hover:shadow-md group">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
+                    <CheckCircle className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-foreground text-lg leading-relaxed">HD touchscreen for easy navigation and menu browsing</span>
+                </div>
+                
+                <div className="flex items-start gap-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl hover:bg-white/80 transition-all duration-300 hover:shadow-md group">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
+                    <CheckCircle className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-foreground text-lg leading-relaxed">Integrated thermal printer for instant receipt printing</span>
+                </div>
+                
+                <div className="flex items-start gap-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl hover:bg-white/80 transition-all duration-300 hover:shadow-md group">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
+                    <CheckCircle className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-foreground text-lg leading-relaxed">Built-in payment terminal for seamless transactions</span>
+                </div>
+                
+                <div className="flex items-start gap-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl hover:bg-white/80 transition-all duration-300 hover:shadow-md group">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
+                    <CheckCircle className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-foreground text-lg leading-relaxed">Reduces wait times by up to 40% during peak hours</span>
+                </div>
+                
+                <div className="flex items-start gap-4 p-4 bg-white/60 backdrop-blur-sm rounded-xl hover:bg-white/80 transition-all duration-300 hover:shadow-md group">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
+                    <CheckCircle className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-foreground text-lg leading-relaxed">Increases order accuracy and customer satisfaction</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
