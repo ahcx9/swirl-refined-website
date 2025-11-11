@@ -54,14 +54,14 @@ const SwirlHardware = () => {
               </div>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">point-of-sale hardware system</h1>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">swirl hardware</h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto">
               Everything you need to run your restaurant efficiently. Enterprise-grade hardware that's beautiful, reliable, and built to last.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="rounded-xl px-8 py-6 text-lg font-semibold">
-                <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">Get Started For Free!</a>
+                <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">Lets Talk</a>
               </Button>
               <Button asChild variant="outline" className="rounded-xl px-8 py-6 text-lg font-semibold">
                 
@@ -97,7 +97,9 @@ const SwirlHardware = () => {
         {/* Decorative Background Elements */}
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         <div className="absolute top-20 right-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"></div>
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow" style={{
+        animationDelay: '1s'
+      }}></div>
         
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -109,11 +111,7 @@ const SwirlHardware = () => {
                 
                 {/* Image container with floating animation */}
                 <div className="relative">
-                  <img 
-                    src="/lovable-uploads/kiosk-latest.png" 
-                    alt="Swirl Self-Service Kiosk with Printer and Payment Terminal" 
-                    className="w-full max-w-lg mx-auto h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500"
-                  />
+                  <img src="/lovable-uploads/kiosk-latest.png" alt="Swirl Self-Service Kiosk with Printer and Payment Terminal" className="w-full max-w-lg mx-auto h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500" />
                 </div>
                 
                 {/* Floating badge */}
@@ -230,11 +228,7 @@ const SwirlHardware = () => {
 
             {/* Image - Right Side */}
             <div className="animate-on-scroll order-1 md:order-2">
-              <img 
-                src="/lovable-uploads/pos-hardware-setup.png" 
-                alt="Complete Swirl Restaurant Hardware Setup" 
-                className="rounded-2xl shadow-lg w-full max-w-lg mx-auto h-auto"
-              />
+              <img src="/lovable-uploads/pos-hardware-setup.png" alt="Complete Swirl Restaurant Hardware Setup" className="rounded-2xl shadow-lg w-full max-w-lg mx-auto h-auto" />
             </div>
           </div>
         </div>
@@ -253,14 +247,10 @@ const SwirlHardware = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="rounded-xl px-8 py-6 text-lg font-semibold">
-                <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">
-                  Talk to Hardware Expert
-                </a>
+                <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">Get Started for Free</a>
               </Button>
               <Button asChild variant="outline" className="rounded-xl px-8 py-6 text-lg font-semibold">
-                <a href="/contact">
-                  Schedule a Demo
-                </a>
+                
               </Button>
             </div>
           </div>
