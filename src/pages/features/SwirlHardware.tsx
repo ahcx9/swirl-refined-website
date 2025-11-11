@@ -112,7 +112,7 @@ const SwirlHardware = () => {
                   <img 
                     src="/lovable-uploads/kiosk-latest.png" 
                     alt="Swirl Self-Service Kiosk with Printer and Payment Terminal" 
-                    className="w-full max-w-sm mx-auto h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                    className="w-full max-w-lg mx-auto h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 
