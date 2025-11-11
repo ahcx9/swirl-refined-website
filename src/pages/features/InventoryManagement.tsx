@@ -33,14 +33,14 @@ const InventoryManagement = () => {
   const benefits = ["Reduce food waste by up to 40%", "Lower inventory carrying costs by 20-30%", "Minimize emergency orders and associated premium costs", "Improve cash flow by preventing overstock situations", "Ensure optimal stock levels for each ingredient", "Prevent stockouts that could impact menu availability"];
   return <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-28 pb-20 bg-gradient-to-b from-white to-gray-50">
+      <main className="flex-grow pt-28 pb-20 bg-white">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
             <div className="relative my-0 py-0">
               <div className="text-center my-[30px]">
-                <div className="inline-flex items-center gap-4 mb-6 bg-blue-50/80 px-6 py-3 rounded-full">
-                  <div className="p-2 rounded-full bg-gradient-to-r from-blue-100 to-blue-200">
-                    <Package className="text-blue-600 h-6 w-6" />
+                <div className="inline-flex items-center gap-4 mb-6 bg-white border border-gray-200 px-6 py-3 rounded-full">
+                  <div className="p-2 rounded-full bg-white border border-gray-200">
+                    <Package className="text-gray-700 h-6 w-6" />
                   </div>
                   <h1 className="text-3xl md:text-4xl font-bold text-black">{t('inventory.title')}</h1>
                 </div>
@@ -55,7 +55,7 @@ const InventoryManagement = () => {
               </div>
 
               <div className="rounded-xl shadow-2xl max-w-5xl mx-auto transform hover:scale-[1.01] transition-transform duration-500">
-                <img src="/lovable-uploads/e0608b68-c4cd-45f8-a941-befaefe9e4e4.png" alt="Inventory Management System Interface" loading="eager" fetchPriority="high" decoding="async" className="w-full h-auto rounded-xl object-scale-down" />
+                <img src="/lovable-uploads/inventory-overview.png" alt="Inventory Management System Interface" loading="eager" fetchPriority="high" decoding="async" className="w-full h-auto rounded-xl object-scale-down" />
               </div>
             </div>
 
@@ -65,8 +65,8 @@ const InventoryManagement = () => {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {features.map(feature => <div key={feature.title} className="bg-white rounded-xl p-8 shadow-soft border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                     <div className="flex items-center gap-3 mb-5">
-                      <div className="p-3 rounded-full bg-purple-light/30">
-                        <feature.icon className="text-purple h-5 w-5" />
+                      <div className="p-3 rounded-full bg-white border border-gray-200">
+                        <feature.icon className="text-gray-700 h-5 w-5" />
                       </div>
                       <h3 className="text-xl font-semibold text-black">{feature.title}</h3>
                     </div>
@@ -75,7 +75,7 @@ const InventoryManagement = () => {
               </div>
             </section>
 
-            <section className="mb-20 bg-gradient-to-r from-purple-light/20 to-blue-100/20 p-10 md:p-14 rounded-2xl">
+            <section className="mb-20 bg-white border border-gray-200 p-10 md:p-14 rounded-2xl">
               <div className="flex flex-col md:flex-row gap-12">
                 <div className="w-full md:w-1/2">
                   <h2 className="text-2xl font-bold mb-8 text-black">{t('inventory.why')}</h2>
@@ -114,15 +114,15 @@ const InventoryManagement = () => {
                 </p>
                 
                 <div className="grid md:grid-cols-3 gap-8">
-                  <div className="text-center p-8 bg-blue-50/50 rounded-lg">
+                  <div className="text-center p-8 bg-white border border-gray-200 rounded-lg">
                     <h3 className="font-semibold mb-4 text-black">POS Integration</h3>
                     <p className="text-gray-600 leading-relaxed">Automatically update inventory levels when items are sold through your POS system.</p>
                   </div>
-                  <div className="text-center p-8 bg-blue-50/50 rounded-lg">
+                  <div className="text-center p-8 bg-white border border-gray-200 rounded-lg">
                     <h3 className="font-semibold mb-4 text-black">Supplier Connections</h3>
                     <p className="text-gray-600 leading-relaxed">Connect directly with suppliers for streamlined ordering and receiving processes.</p>
                   </div>
-                  <div className="text-center p-8 bg-blue-50/50 rounded-lg">
+                  <div className="text-center p-8 bg-white border border-gray-200 rounded-lg">
                     <h3 className="font-semibold mb-4 text-black">Financial Software</h3>
                     <p className="text-gray-600 leading-relaxed">Sync with accounting systems to track inventory costs and financial performance.</p>
                   </div>
