@@ -110,7 +110,7 @@ const SwirlHardware = () => {
                 {/* Image container with floating animation */}
                 <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl">
                   <img 
-                    src="/lovable-uploads/mini-kiosk-no-bg.png" 
+                    src="/lovable-uploads/kiosk-latest.png" 
                     alt="Swirl Self-Service Kiosk with Printer and Payment Terminal" 
                     className="w-full max-w-sm mx-auto h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500"
                   />
