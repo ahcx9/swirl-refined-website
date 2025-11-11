@@ -30,8 +30,8 @@ const HomeFinancialAnalyticsSection = () => {
           {/* Content column */}
           <div className="md:col-span-5 order-2 md:order-1">
             <div className="animate-on-scroll">
-              <div className="mb-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/80 border border-blue-100 backdrop-blur-sm">
-                <span className="text-blue-600 font-medium">Data-Driven Decisions for Restaurant Success</span>
+              <div className="mb-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200">
+                <span className="text-gray-700 font-medium">Data-Driven Decisions for Restaurant Success</span>
               </div>
               
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">Financial Reports</h2>
@@ -43,10 +43,10 @@ const HomeFinancialAnalyticsSection = () => {
               
               <div className="grid grid-cols-1 gap-3 mb-10">
                 {features.map((feature, index) => (
-                  <Card key={index} className="bg-white/80 border-blue-100 shadow-sm hover:shadow-md transition-all duration-300">
+                  <Card key={index} className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
                     <CardContent className="p-4 flex items-center gap-3">
-                      <div className="p-2 rounded-full bg-blue-50">
-                        <feature.icon className="h-5 w-5 text-blue-600" />
+                      <div className="p-2 rounded-full bg-white border border-gray-200">
+                        <feature.icon className="h-5 w-5 text-gray-700" />
                       </div>
                       <span className="text-amber-950">{feature.text}</span>
                     </CardContent>
@@ -71,7 +71,7 @@ const HomeFinancialAnalyticsSection = () => {
                       loading="lazy" 
                       decoding="async"
                       className="w-full h-full object-cover rounded-lg" 
-                      src="/lovable-uploads/b4d4c92f-5f67-4263-8c64-fd8643abe8cd.png"
+                      src="/lovable-uploads/financial-analytics-dashboard.jpg"
                       style={{
                         maxWidth: "100%",
                         height: "auto",
@@ -81,7 +81,7 @@ const HomeFinancialAnalyticsSection = () => {
                       }}
                     />
                     
-                    <div className="absolute bottom-6 right-6 bg-blue-500/90 backdrop-blur-sm text-white px-5 py-3 rounded-lg shadow-lg text-base font-medium">
+                    <div className="absolute bottom-6 right-6 bg-white border border-gray-300 text-gray-800 px-5 py-3 rounded-lg shadow-lg text-base font-medium">
                       Clear Financial Insights
                     </div>
                   </div>
@@ -91,10 +91,6 @@ const HomeFinancialAnalyticsSection = () => {
           </div>
         </div>
       </div>
-      
-      {/* Decorative elements */}
-      <div className="absolute top-1/4 left-0 w-64 h-64 bg-blue-300/20 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-indigo-300/20 rounded-full blur-3xl -z-10"></div>
     </section>
   );
 };

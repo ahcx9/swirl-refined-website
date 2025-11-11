@@ -27,14 +27,14 @@ const FinancialReports = () => {
   
   return <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-28 pb-16 bg-gradient-to-b from-white to-gray-50">
+      <main className="flex-grow pt-28 pb-16 bg-white">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col gap-16 mb-20">
               <div className="w-full text-center">
                 <div className="flex items-center justify-center gap-4 mb-8 py-[30px]">
-                  <div className="p-3 rounded-full bg-purple-light/30">
-                    <LayoutDashboard className="text-purple h-6 w-6" />
+                  <div className="p-3 rounded-full bg-white border border-gray-200">
+                    <LayoutDashboard className="text-gray-700 h-6 w-6" />
                   </div>
                   <h1 className="text-3xl md:text-4xl font-bold text-black">Financial Reports</h1>
                 </div>
@@ -51,11 +51,11 @@ const FinancialReports = () => {
               </div>
 
               <div className="w-full py-0 my-0 mx-0 px-0">
-                <div className="bg-gradient-to-br from-purple-light/30 to-white rounded-xl p-4 max-w-4xl mx-auto">
+                <div className="bg-white rounded-xl p-4 max-w-4xl mx-auto">
                   <div className="overflow-hidden rounded-lg">
                     <img 
                       alt="Financial Analytics Dashboard with comprehensive reporting" 
-                      src="/lovable-uploads/b4d4c92f-5f67-4263-8c64-fd8643abe8cd.png"
+                      src="/lovable-uploads/financial-analytics-dashboard.jpg"
                       className="w-full h-auto rounded-lg shadow-md transform scale-100 transition-transform duration-700 hover:scale-105"
                       loading="eager"
                       fetchPriority="high"
@@ -76,8 +76,8 @@ const FinancialReports = () => {
               
               <div className="grid md:grid-cols-2 gap-8">
                 {benefits.map(benefit => <div key={benefit.title} className="bg-white rounded-xl p-8 shadow-md flex gap-6 items-start hover:shadow-lg transition-shadow">
-                    <div className="p-3 rounded-full bg-purple-light/30">
-                      <benefit.icon className="text-purple h-6 w-6" />
+                    <div className="p-3 rounded-full bg-white border border-gray-200">
+                      <benefit.icon className="text-gray-700 h-6 w-6" />
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
@@ -87,68 +87,68 @@ const FinancialReports = () => {
               </div>
             </section>
 
-            <section className="mb-20 bg-gradient-to-r from-purple-light/20 to-blue-100/20 p-8 md:p-12 rounded-2xl">
+            <section className="mb-20 bg-white p-8 md:p-12 rounded-2xl">
               <h2 className="text-3xl font-bold mb-8 text-center">Specialized Financial Reports</h2>
               
               <div className="grid md:grid-cols-3 gap-8">
-                <div className="bg-white/80 backdrop-blur p-6 rounded-xl">
-                  <h3 className="text-xl font-semibold mb-4 text-purple">Daily Sales Reports</h3>
+                <div className="bg-white border border-gray-200 p-6 rounded-xl">
+                  <h3 className="text-xl font-semibold mb-4 text-gray-800">Daily Sales Reports</h3>
                   <p className="text-gray-700 mb-4">
                     Track daily revenue with detailed breakdowns by category, payment method, and time period.
                   </p>
                   <ul className="space-y-2">
                     <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-purple rounded-full"></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
                       <span>Hourly sales tracking</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-purple rounded-full"></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
                       <span>Payment method analysis</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-purple rounded-full"></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
                       <span>Server performance metrics</span>
                     </li>
                   </ul>
                 </div>
                 
-                <div className="bg-white/80 backdrop-blur p-6 rounded-xl">
-                  <h3 className="text-xl font-semibold mb-4 text-purple">Food & Labor Cost Reports</h3>
+                <div className="bg-white border border-gray-200 p-6 rounded-xl">
+                  <h3 className="text-xl font-semibold mb-4 text-gray-800">Food & Labor Cost Reports</h3>
                   <p className="text-gray-700 mb-4">
                     Monitor your two biggest expenses with detailed cost tracking and percentage calculations.
                   </p>
                   <ul className="space-y-2">
                     <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-purple rounded-full"></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
                       <span>COGS percentage tracking</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-purple rounded-full"></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
                       <span>Labor cost ratios</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-purple rounded-full"></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
                       <span>Item profitability analysis</span>
                     </li>
                   </ul>
                 </div>
                 
-                <div className="bg-white/80 backdrop-blur p-6 rounded-xl">
-                  <h3 className="text-xl font-semibold mb-4 text-purple">Tax & Compliance Reports</h3>
+                <div className="bg-white border border-gray-200 p-6 rounded-xl">
+                  <h3 className="text-xl font-semibold mb-4 text-gray-800">Tax & Compliance Reports</h3>
                   <p className="text-gray-700 mb-4">
                     Simplify tax preparation with reports designed to meet accounting and regulatory requirements.
                   </p>
                   <ul className="space-y-2">
                     <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-purple rounded-full"></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
                       <span>Sales tax reporting</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-purple rounded-full"></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
                       <span>Payroll tax calculations</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-purple rounded-full"></div>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
                       <span>Year-end reporting</span>
                     </li>
                   </ul>
