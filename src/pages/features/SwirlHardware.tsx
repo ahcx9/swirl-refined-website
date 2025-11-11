@@ -92,6 +92,66 @@ const SwirlHardware = () => {
         </div>
       </section>
 
+      {/* Complete Restaurant Setup Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Content - Left Side */}
+            <div className="space-y-6 animate-on-scroll order-2 md:order-1">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+                Complete Restaurant Setup
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Everything works together seamlessly - from front of house to back of kitchen
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-foreground text-lg">All devices sync in real-time across your restaurant</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-foreground text-lg">Kitchen receives orders instantly via KDS</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-foreground text-lg">Printers automatically route tickets to right stations</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-foreground text-lg">One system, zero complexity</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Image - Right Side */}
+            <div className="animate-on-scroll order-1 md:order-2">
+              <img 
+                src="/lovable-uploads/pos-hardware-setup.png" 
+                alt="Complete Swirl Restaurant Hardware Setup" 
+                className="rounded-2xl shadow-lg w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA Section */}
       <section className="py-20 bg-gray-50 border-t">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">

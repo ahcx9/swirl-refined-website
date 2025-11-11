@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, Zap, Shield, Clock } from 'lucide-react';
+import { CheckCircle, Zap, Package, Clock } from 'lucide-react';
 
 const HardwareShowcaseSection = () => {
   return (
@@ -27,7 +27,7 @@ const HardwareShowcaseSection = () => {
             {[
               { icon: CheckCircle, title: 'iPad & Android Compatible', desc: 'Works seamlessly with your preferred devices' },
               { icon: Zap, title: 'Lightning Fast Setup', desc: 'Get up and running quickly' },
-              { icon: Shield, title: 'Military-Grade Security', desc: 'End-to-end encryption for all transactions' },
+              { icon: Package, title: 'Plug & Play Setup', desc: 'Easy installation with no technical expertise required' },
               { icon: Clock, title: '24/7 Technical Support', desc: 'Always here when you need assistance' }
             ].map((feature, idx) => (
               <div key={idx} className="flex gap-4 p-4 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
