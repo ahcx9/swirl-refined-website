@@ -28,7 +28,7 @@ const HardwareShowcaseSection = () => {
               
               {/* Floating badge */}
               <div className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg transform rotate-12 hover:rotate-0 transition-transform duration-300">
-                <span className="font-bold text-sm">d</span>
+                <span className="font-bold text-sm">lightning fast billing with our POS</span>
               </div>
             </div>
           </div>
