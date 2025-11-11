@@ -108,7 +108,7 @@ const SwirlHardware = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 rounded-3xl blur-2xl opacity-20 scale-105"></div>
                 
                 {/* Image container with floating animation */}
-                <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl">
+                <div className="relative">
                   <img 
                     src="/lovable-uploads/kiosk-latest.png" 
                     alt="Swirl Self-Service Kiosk with Printer and Payment Terminal" 

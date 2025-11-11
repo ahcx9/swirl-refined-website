@@ -25,8 +25,8 @@ const HardwareShowcaseSection = () => {
               {/* Glow effect behind image */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 rounded-3xl blur-2xl opacity-20 scale-105"></div>
               
-              {/* Image container */}
-              <div className="relative bg-white rounded-3xl p-6 shadow-2xl">
+              {/* Image without white container */}
+              <div className="relative">
                 <img 
                   src="/lovable-uploads/swirl-pos-hardware.jpg" 
                   alt="Complete Swirl POS Hardware Setup" 
