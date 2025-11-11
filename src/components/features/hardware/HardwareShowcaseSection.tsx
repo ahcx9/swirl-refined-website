@@ -17,9 +17,9 @@ const HardwareShowcaseSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative animate-on-scroll">
             <img 
-              src="/lovable-uploads/pos-hardware-setup.png" 
+              src="/lovable-uploads/swirl-pos-hardware.jpg" 
               alt="Complete Swirl POS Hardware Setup" 
-              className="rounded-2xl shadow-lg w-full h-auto"
+              className="rounded-2xl shadow-lg w-full max-w-md h-auto mx-auto"
             />
           </div>
 
