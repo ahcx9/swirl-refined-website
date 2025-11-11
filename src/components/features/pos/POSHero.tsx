@@ -20,7 +20,7 @@ const POSHero = () => {
         </div>
         
         <p className="text-lg mb-8 leading-relaxed max-w-3xl mx-auto text-slate-950 text-left">
-          Swirl POS is a next-generation, cloud-based restaurant management system designed to simplify and unify operations for restaurants, cafés, and food courts. Built under the Swirl.cx platform, it goes beyond billing — combining POS, QR menu ordering, inventory, CRM, analytics, and aggregator integrations in one intelligent system.
+          swirl POS is a next-generation, cloud-based restaurant management system designed to simplify and unify operations for restaurants, cafés, and food courts. Built under the swirl.cx platform, it goes beyond billing — combining POS, QR menu ordering, inventory, CRM, analytics, and aggregator integrations in one intelligent system.
         </p>
 
         <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-85">
