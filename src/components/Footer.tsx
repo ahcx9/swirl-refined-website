@@ -17,12 +17,10 @@ const Footer = () => {
               swirl.cx
             </Link>
             <p className="text-white/60 text-sm mt-2 mb-4 max-w-md">
-              A full stack restaurant management solution with cloud based POS, QR self ordering, Inventory, Operations & CRM.
+              A full stack restaurant management solution with cloud based POS, QR self ordering, Inventory, Operations
+              & CRM.
             </p>
-            <p className="text-white/70 mb-5 max-w-md text-sm leading-relaxed">
-              Transforming restaurant management with innovative digital solutions. Our integrated platform helps you
-              streamline operations, increase revenue, and enhance customer experience.
-            </p>
+            <p className="text-white/70 mb-5 max-w-md text-sm leading-relaxed"></p>
             <div className="flex space-x-3">
               <a
                 href="https://www.linkedin.com/company/swirl-cx"
