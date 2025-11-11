@@ -30,7 +30,7 @@ const SwirlHardware = () => {
     icon: MonitorSmartphone,
     title: 'Self-Service Kiosks',
     description: 'Customer-facing ordering kiosks to reduce wait times and increase order accuracy',
-    features: ['21.5" touchscreen', 'Payment integration', 'Custom branding', 'Multiple language support', 'Queue management']
+    features: ['10.5" touchscreen', 'Payment integration', 'Custom branding', 'Multiple language support', 'Queue management']
   }, {
     icon: Tv,
     title: 'Menu Display Screen',
