@@ -1,5 +1,5 @@
 import React from 'react';
-import { Monitor, Printer, Tablet, ScanLine, MonitorSmartphone, Tv, Shield, Zap, Globe } from 'lucide-react';
+import { Monitor, Printer, Tablet, ScanLine, MonitorSmartphone, Tv, Shield, Zap, Globe, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import HardwareShowcaseSection from '@/components/features/hardware/HardwareShowcaseSection';
 import HardwareProductCard from '@/components/features/hardware/HardwareProductCard';
@@ -92,6 +92,54 @@ const SwirlHardware = () => {
         </div>
       </section>
 
+      {/* Self-Service Kiosk Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Image - Left Side */}
+            <div className="animate-on-scroll order-2 md:order-1">
+              <img 
+                src="/lovable-uploads/mini-kiosk.jpg" 
+                alt="Swirl Self-Service Kiosk with Printer and Payment Terminal" 
+                className="rounded-2xl shadow-lg w-full max-w-md mx-auto h-auto"
+              />
+            </div>
+            
+            {/* Content - Right Side */}
+            <div className="space-y-6 animate-on-scroll order-1 md:order-2">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                Self-Service Kiosk Experience
+              </h2>
+              <p className="text-xl text-gray-600">
+                Empower your customers with fast, intuitive self-checkout that reduces wait times and increases order accuracy.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">HD touchscreen for easy navigation and menu browsing</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Integrated thermal printer for instant receipt printing</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Built-in payment terminal for seamless transactions</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Reduces wait times by up to 40% during peak hours</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Increases order accuracy and customer satisfaction</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Complete Restaurant Setup Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -145,7 +193,7 @@ const SwirlHardware = () => {
               <img 
                 src="/lovable-uploads/pos-hardware-setup.png" 
                 alt="Complete Swirl Restaurant Hardware Setup" 
-                className="rounded-2xl shadow-lg w-full h-auto"
+                className="rounded-2xl shadow-lg w-full max-w-lg mx-auto h-auto"
               />
             </div>
           </div>
