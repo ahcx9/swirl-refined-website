@@ -7,9 +7,9 @@ const CTASection = () => {
   const { t } = useLanguage();
   
   return (
-    <section className="py-20 md:py-24 animate-on-scroll">
+    <section className="py-20 md:py-24 animate-on-scroll font-inter">
       <div className="container-custom">
-        <div className="bg-gradient-to-br from-swirl-blue/90 via-swirl-blue to-blue-700 rounded-3xl overflow-hidden">
+        <div className="bg-swirl-blue rounded-3xl overflow-hidden">
           <div className="relative px-6 py-16 md:p-16">
             {/* Background pattern */}
             <div className="absolute inset-0 overflow-hidden opacity-10">

@@ -26,7 +26,7 @@ const translations = {
     "nav.chatOnWhatsapp": "Chat on WhatsApp",
 
     // Hero Section
-    "hero.title": "Powering the New Era of Restaurant Sales",
+    "hero.title": "powering the new era of restaurant sales",
     "hero.subtitle":
       "Modern full stack (back of house & front of house) restaurant management system for ambitious restaurateurs.",
 
@@ -47,10 +47,10 @@ const translations = {
     "features.crm.desc": "Build relationships with your customers.",
 
     // Call to Action Sections
-    "cta.transform": "Ready to Transform Your Restaurant Experience?",
-    "cta.join": "Join thousands of restaurants already using swirl.cx",
-    "cta.getStarted": "Get Started for Free",
-    "cta.ready": "Ready to modernize your restaurant's point of sale?",
+    "cta.transform": "ready to transform your restaurant experience?",
+    "cta.join": "join thousands of restaurants already using swirl.cx",
+    "cta.getStarted": "get started for free",
+    "cta.ready": "ready to modernize your restaurant's point of sale?",
     "cta.contact":
       "Contact us today for a personalized demonstration and pricing tailored to your restaurant's unique needs and budget.",
 
@@ -74,16 +74,16 @@ const translations = {
       "Join restaurants worldwide already using our digital menu system to enhance customer experience and streamline operations.",
 
     // Inventory Management Page
-    "inventory.title": "Inventory Management",
+    "inventory.title": "inventory management",
     "inventory.subtitle":
       "Take control of your restaurant's inventory with our advanced management system. Track stock levels, reduce waste, and optimize your purchasing with real-time monitoring and predictive analytics.",
-    "inventory.features": "Key Inventory Management Features",
-    "inventory.why": "Why Invest in Inventory Management?",
-    "inventory.benefits": "Key Benefits",
-    "inventory.integration": "Integration Capabilities",
-    "inventory.ready": "Ready to optimize your inventory?",
+    "inventory.features": "key inventory management features",
+    "inventory.why": "why invest in inventory management?",
+    "inventory.benefits": "key benefits",
+    "inventory.integration": "integration capabilities",
+    "inventory.ready": "ready to optimize your inventory?",
     "inventory.join":
-      "Join successful restaurants that have reduced waste, lowered costs, and improved efficiency with Swirl's comprehensive inventory management solution.",
+      "Join successful restaurants that have reduced waste, lowered costs, and improved efficiency with swirl's comprehensive inventory management solution.",
 
     // Footer
     "footer.company": "Company",

@@ -9,10 +9,10 @@ const SitemapSection = ({ title, links }: { title: string; links: { name: string
     <ul className="space-y-2">
       {links.map((link, index) => (
         <li key={index}>
-          <Link
-            to={link.path}
-            className="flex items-center hover:text-purple transition-colors py-1"
-          >
+            <Link
+              to={link.path}
+              className="flex items-center hover:text-swirl-blue transition-colors py-1 font-inter"
+            >
             <ChevronRight className="h-4 w-4 mr-2" />
             {link.name}
           </Link>
@@ -33,15 +33,14 @@ const Sitemap = () => {
   const productPages = [
     { name: 'Digital Menu', path: '/products/digital-menu' },
     { name: 'QR Ordering', path: '/products/qr-ordering' },
-    { name: 'Analytics', path: '/products/analytics' },
+    { name: 'Analytics', path: '/products/restaurant-analytics' },
     { name: 'Point of Sale (POS)', path: '/products/restaurant-point-of-sale' },
     { name: 'Financial Reports', path: '/products/financial-reports' },
     { name: 'Customer Relationship Management', path: '/products/customer-relationship-management' },
     { name: 'In-Car Ordering', path: '/products/ordering-from-car' },
-    { name: 'Payroll Management', path: '/products/payroll-management' },
     { name: 'Inventory Management', path: '/products/inventory-management' },
     { name: 'Kitchen Display System', path: '/products/kitchen-display' },
-    { name: 'Reservations', path: '/products/reservations' },
+    { name: 'Swirl Hardware', path: '/products/swirl-hardware' },
   ];
 
   const legalPages = [

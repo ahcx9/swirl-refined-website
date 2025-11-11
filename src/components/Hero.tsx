@@ -21,7 +21,7 @@ const Hero = () => {
         <div className="text-center max-w-5xl mx-auto mb-8">
           <h1 className="text-4xl md:text-5xl leading-tight mb-6 font-inter text-center font-semibold xl:text-7xl lg:text-7xl">
             <span className="text-foreground">powering the new era of </span>
-            <span className="text-indigo-700">restaurant sales</span>
+            <span className="text-swirl-blue">restaurant sales</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-swirl-gray mb-10 max-w-3xl mx-auto font-inter">
@@ -68,8 +68,8 @@ const Hero = () => {
               ))}
             </CarouselContent>
             <div className="flex justify-center mt-6">
-              <CarouselPrevious className="relative static transform-none mx-2 bg-gradient-to-r from-blue-500/80 to-blue-600/80 border-none text-white hover:bg-blue-700/90 hover:text-white" />
-              <CarouselNext className="relative static transform-none mx-2 bg-gradient-to-r from-blue-500/80 to-blue-600/80 border-none text-white hover:bg-blue-700/90 hover:text-white" />
+            <CarouselPrevious className="relative static transform-none mx-2 bg-swirl-blue border-none text-white hover:bg-blue-700 hover:text-white" />
+              <CarouselNext className="relative static transform-none mx-2 bg-swirl-blue border-none text-white hover:bg-blue-700 hover:text-white" />
             </div>
           </Carousel>
         </div>

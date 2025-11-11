@@ -45,12 +45,6 @@ const features = [
     icon: 'chef-hat'
   },
   {
-    title: 'Reservations',
-    path: '/products/reservations',
-    description: 'Manage bookings and optimize table turnover.',
-    icon: 'calendar'
-  },
-  {
     title: 'In-Car Ordering',
     path: '/products/ordering-from-car',
     description: 'Enable convenient ordering directly from vehicles.',
@@ -63,16 +57,16 @@ const features = [
     icon: 'users'
   },
   {
-    title: 'Payroll Management',
-    path: '/products/payroll-management',
-    description: 'Streamline your staff payments and tracking.',
-    icon: 'dollar-sign'
+    title: 'Inventory Management',
+    path: '/products/inventory-management',
+    description: 'Track and manage your restaurant inventory.',
+    icon: 'package'
   },
   {
     title: 'Swirl Hardware',
     path: '/products/swirl-hardware',
     description: 'Complete POS hardware solutions for your restaurant.',
-    icon: 'package'
+    icon: 'monitor'
   }
 ];
 

@@ -47,12 +47,6 @@ const features = [{
   icon: Car,
   path: '/products/ordering-from-car'
 }, {
-  id: 'payroll',
-  title: 'Payroll Management',
-  description: 'Streamline staff payments and labor costs.',
-  icon: Calendar,
-  path: '/products/payroll-management'
-}, {
   id: 'inventory',
   title: 'Inventory Management',
   description: 'Track stock and optimize purchasing.',
@@ -66,10 +60,10 @@ const features = [{
   path: '/products/swirl-hardware'
 }];
 const Features = () => {
-  return <section id="features" className="py-20 md:py-28 flex items-center bg-gradient-to-b from-blue-50/30 to-white">
+  return <section id="features" className="py-20 md:py-28 flex items-center bg-gradient-to-b from-blue-50/30 to-white font-inter">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-gray-950">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-swirl-blue">
             Solutions for Modern Restaurants
           </h2>
           <p className="text-base md:text-lg text-swirl-gray max-w-2xl mx-auto mb-10">
@@ -78,11 +72,11 @@ const Features = () => {
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-4 md:gap-6">
-          {features.map(feature => <Link to={feature.path} key={feature.id} className="bg-gradient-to-br from-white to-blue-50/60 rounded-xl shadow-sm hover:shadow-xl p-4 transition-all duration-300 hover:-translate-y-1 border border-blue-100/20 group flex flex-col items-center text-center">
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-100/80 to-indigo-100/80 flex items-center justify-center mb-3 group-hover:bg-gradient-to-br group-hover:from-blue-200 group-hover:to-indigo-200 transition-colors">
-                <feature.icon className="text-blue-600" size={24} />
+          {features.map(feature => <Link to={feature.path} key={feature.id} className="bg-white rounded-xl shadow-sm hover:shadow-xl p-4 transition-all duration-300 hover:-translate-y-1 border border-blue-100/20 group flex flex-col items-center text-center">
+              <div className="w-14 h-14 rounded-full bg-swirl-blue/10 flex items-center justify-center mb-3 group-hover:bg-swirl-blue/20 transition-colors">
+                <feature.icon className="text-swirl-blue" size={24} />
               </div>
-              <h3 className="text-base md:text-lg font-medium mb-2 group-hover:text-blue-700 transition-colors">{feature.title}</h3>
+              <h3 className="text-base md:text-lg font-medium mb-2 group-hover:text-swirl-blue transition-colors">{feature.title}</h3>
               <p className="text-xs md:text-sm text-gray-500">{feature.description}</p>
             </Link>)}
         </div>

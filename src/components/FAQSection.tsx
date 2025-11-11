@@ -20,8 +20,8 @@ const FAQSection = () => {
     question: "How does swirl.cx handle inventory management?",
     answer: "Our inventory management system tracks stock levels in real-time, automatically updating as orders are placed. It provides alerts for low stock items, helps reduce waste with predictive ordering based on sales trends, and offers detailed reports on food costs. The system integrates directly with our POS, so you always know exactly what ingredients you have and what you need to order."
   }, {
-    question: "Can swirl.cx help with staff management and payroll?",
-    answer: "Yes, our platform includes comprehensive staff management features, including scheduling, time tracking, performance analytics, and payroll integration. Managers can easily track labor costs against revenue, optimize staffing based on busy periods, and manage employee information all in one place."
+    question: "Can swirl.cx help with staff management?",
+    answer: "Yes, our platform includes comprehensive staff management features, including scheduling, time tracking, and performance analytics. Managers can easily track labor costs against revenue, optimize staffing based on busy periods, and manage employee information all in one place."
   }, {
     question: "Is there a long-term contract?",
     answer: "No. We offer flexible monthly subscriptions with no long-term commitment required. We're confident you'll love our platform and want to stay, but you're free to cancel anytime."
@@ -35,11 +35,11 @@ const FAQSection = () => {
     question: "Can I customize the digital menu to match my brand?",
     answer: "Absolutely! Our digital menu is highly customizable. You can add your logo, choose colors that match your brand, upload high-quality images of your dishes, create categories, add item descriptions, highlight specials, and even include nutritional information. We also support multiple languages and currencies for international customers."
   }];
-  return <section className="py-20 md:py-24 bg-gradient-to-b from-white to-gray-50">
+  return <section className="py-20 md:py-24 bg-gradient-to-b from-white to-gray-50 font-inter">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <span className="bg-indigo-100 text-indigo-800 px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">GET ANSWERS</span>
-          <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-slate-950">
+          <span className="bg-swirl-blue/10 text-swirl-blue px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">GET ANSWERS</span>
+          <h2 className="text-3xl font-bold mb-6 text-swirl-blue">
             Frequently Asked Questions
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
@@ -52,8 +52,8 @@ const FAQSection = () => {
             {faqs.map((faq, index) => <div key={index} className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100">
                 <Accordion type="single" collapsible className="w-full">
                   <AccordionItem value={`item-${index}`} className="border-none">
-                    <AccordionTrigger className="text-left font-medium text-lg px-6 py-4 hover:no-underline hover:bg-gradient-to-r hover:from-purple-50 hover:to-indigo-50 group">
-                      <span className="group-hover:text-purple-600 transition-colors duration-200">{faq.question}</span>
+                    <AccordionTrigger className="text-left font-medium text-lg px-6 py-4 hover:no-underline hover:bg-swirl-blue/5 group">
+                      <span className="group-hover:text-swirl-blue transition-colors duration-200">{faq.question}</span>
                     </AccordionTrigger>
                     <AccordionContent className="text-swirl-gray px-6 pb-5">
                       {faq.answer}

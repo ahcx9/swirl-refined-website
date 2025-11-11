@@ -38,7 +38,7 @@ const BlogPostCard = ({
         <h3 className="text-xl font-semibold mb-2 line-clamp-2">{title}</h3>
         <p className="text-gray-600 mb-4 line-clamp-3 flex-grow">{excerpt}</p>
         
-        <a href={`https://blog.swirl.cx/${link}`} target="_blank" rel="noopener noreferrer" className="flex items-center text-purple font-medium hover:text-purple-dark transition-colors mt-auto">
+        <a href={`https://blog.swirl.cx/${link}`} target="_blank" rel="noopener noreferrer" className="flex items-center text-swirl-blue font-medium hover:text-blue-700 transition-colors mt-auto">
           Read More
           <ArrowRight size={16} className="ml-1" />
         </a>
@@ -63,10 +63,10 @@ const blogPosts = [{
   link: "https://blog.swirl.cx/2025/03/06/elevating-dining/"
 }];
 const BlogSection = () => {
-  return <section className="py-16 bg-gray-50">
+  return <section className="py-16 bg-gray-50 font-inter">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-gray-950">
+          <h2 className="text-3xl font-bold mb-6 text-swirl-blue">
             Latest from Our Blog
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
