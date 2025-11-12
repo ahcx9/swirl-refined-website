@@ -1,9 +1,7 @@
-
 import React from 'react';
 import { LayoutDashboard, ShoppingCart, BarChart, CreditCard, Users, Package, Car, Calendar, FileText, Monitor } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CustomCTAButton from '@/components/CustomCTAButton';
-
 const features = [{
   id: 'digital-menu',
   title: 'Digital Menu',
@@ -63,7 +61,7 @@ const Features = () => {
   return <section id="features" className="py-20 md:py-28 flex items-center bg-gradient-to-b from-blue-50/30 to-white font-inter">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-swirl-blue">
+          <h2 className="text-3xl font-bold mb-6 text-neutral-950 md:text-4xl">
             Solutions for Modern Restaurants
           </h2>
           <p className="text-base md:text-lg text-swirl-gray max-w-2xl mx-auto mb-10">
