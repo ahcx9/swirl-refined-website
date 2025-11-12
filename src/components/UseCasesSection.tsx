@@ -83,7 +83,7 @@ const UseCasesSection = () => {
             <span className="animate-pulse">✨</span>
           </div>
           
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-swirl-blue">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-900">
             Serving Every Corner of Hospitality
           </h2>
           <p className="text-lg text-gray-600 mb-8">
