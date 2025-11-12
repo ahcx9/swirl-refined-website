@@ -49,7 +49,7 @@ const HomeHardwareSection = () => {
                   <img 
                     src="/lovable-uploads/pos-hardware-setup.png" 
                     alt="swirl Complete Hardware Setup" 
-                    className="w-full max-w-md mx-auto h-auto rounded-xl object-cover"
+                    className="w-full h-auto rounded-xl object-cover"
                     loading="lazy"
                     decoding="async"
                     style={{ transform: 'translateZ(0)', willChange: 'transform' }}
