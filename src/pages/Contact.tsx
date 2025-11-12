@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { WhatsApp } from '@/components/SocialIcons';
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -18,9 +17,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
   const businessTypes = ['Restaurant', 'Cafe', 'Food Truck', 'Fine Dining', 'Cloud Kitchen', 'Bakery', 'Hotel'];
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -34,23 +31,18 @@ Phone: ${formData.phone}
 Business Type: ${formData.businessType}
 Message: ${formData.message}
     `;
-
     const mailtoLink = `mailto:abid@swirl.cx?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
-
     setSubmitted(true);
     setIsSubmitting(false);
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
-  return (
-    <div className="min-h-screen flex flex-col bg-white font-inter">
+  return <div className="min-h-screen flex flex-col bg-white font-inter">
       <Navbar />
       <main className="flex-grow pt-24">
         {/* Hero Section */}
@@ -61,17 +53,12 @@ Message: ${formData.message}
                 <MessageSquare size={20} />
                 <span>Let's Connect</span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-swirl-blue">
-                Ready to Transform Your Business?
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Join thousands of restaurants already using swirl to streamline operations and boost profits. 
-                Let's discuss how we can help your business grow.
-              </p>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-swirl-blue">Ready to Transform Your F&B Outlet?</h1>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">Join thousands of restaurants already using swirl to streamline operations and make things easy. Let's discuss how we can help your F&B brand grow.</p>
               <div className="flex items-center justify-center gap-6 text-sm text-gray-500">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="text-swirl-blue" size={16} />
-                  <span>Free Consultation</span>
+                  <span>Easy to migrate</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="text-swirl-blue" size={16} />
@@ -102,75 +89,36 @@ Message: ${formData.message}
                         </div>
                         <h2 className="text-2xl font-bold">Get Started Today</h2>
                       </div>
-                      <p className="text-white/90">
-                        Tell us about your business and we'll show you how swirl can help you succeed.
-                      </p>
+                      <p className="text-white/90">Tell us about your restaurant/cafe and we'll show you how swirl can help you in operations.</p>
                     </div>
                     
                     <div className="p-8">
-                      {submitted ? (
-                        <div className="text-center py-12">
+                      {submitted ? <div className="text-center py-12">
                           <div className="w-16 h-16 bg-swirl-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
                             <CheckCircle className="text-swirl-blue" size={32} />
                           </div>
                           <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
                           <p className="text-gray-600">Your message has been sent. We'll get back to you soon!</p>
-                        </div>
-                      ) : (
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        </div> : <form onSubmit={handleSubmit} className="space-y-6">
                           <div className="grid md:grid-cols-2 gap-6">
                             <div>
                               <Label htmlFor="name" className="text-gray-700 font-medium">Full Name *</Label>
-                              <Input
-                                id="name"
-                                name="name"
-                                type="text"
-                                required
-                                value={formData.name}
-                                onChange={handleChange}
-                                className="mt-2 border-gray-200 focus:border-swirl-blue focus:ring-swirl-blue"
-                                placeholder="Enter your full name"
-                              />
+                              <Input id="name" name="name" type="text" required value={formData.name} onChange={handleChange} className="mt-2 border-gray-200 focus:border-swirl-blue focus:ring-swirl-blue" placeholder="Enter your full name" />
                             </div>
                             <div>
                               <Label htmlFor="email" className="text-gray-700 font-medium">Email Address *</Label>
-                              <Input
-                                id="email"
-                                name="email"
-                                type="email"
-                                required
-                                value={formData.email}
-                                onChange={handleChange}
-                                className="mt-2 border-gray-200 focus:border-swirl-blue focus:ring-swirl-blue"
-                                placeholder="Enter your email"
-                              />
+                              <Input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} className="mt-2 border-gray-200 focus:border-swirl-blue focus:ring-swirl-blue" placeholder="Enter your email" />
                             </div>
                           </div>
                           
                           <div className="grid md:grid-cols-2 gap-6">
                             <div>
                               <Label htmlFor="phone" className="text-gray-700 font-medium">Phone Number *</Label>
-                              <Input
-                                id="phone"
-                                name="phone"
-                                type="tel"
-                                required
-                                value={formData.phone}
-                                onChange={handleChange}
-                                className="mt-2 border-gray-200 focus:border-swirl-blue focus:ring-swirl-blue"
-                                placeholder="Enter your phone number"
-                              />
+                              <Input id="phone" name="phone" type="tel" required value={formData.phone} onChange={handleChange} className="mt-2 border-gray-200 focus:border-swirl-blue focus:ring-swirl-blue" placeholder="Enter your phone number" />
                             </div>
                             <div>
                               <Label htmlFor="businessType" className="text-gray-700 font-medium">Business Type *</Label>
-                              <select
-                                id="businessType"
-                                name="businessType"
-                                required
-                                value={formData.businessType}
-                                onChange={handleChange}
-                                className="mt-2 w-full h-10 px-3 py-2 border border-gray-200 rounded-md focus:border-swirl-blue focus:ring-swirl-blue focus:outline-none"
-                              >
+                              <select id="businessType" name="businessType" required value={formData.businessType} onChange={handleChange} className="mt-2 w-full h-10 px-3 py-2 border border-gray-200 rounded-md focus:border-swirl-blue focus:ring-swirl-blue focus:outline-none">
                                 <option value="">Select your business type</option>
                                 {businessTypes.map(type => <option key={type} value={type}>{type}</option>)}
                               </select>
@@ -179,36 +127,19 @@ Message: ${formData.message}
                           
                           <div>
                             <Label htmlFor="message" className="text-gray-700 font-medium">Tell us about your needs</Label>
-                            <textarea
-                              id="message"
-                              name="message"
-                              rows={4}
-                              value={formData.message}
-                              onChange={handleChange}
-                              className="mt-2 w-full px-3 py-2 border border-gray-200 rounded-md focus:border-swirl-blue focus:ring-swirl-blue focus:outline-none resize-none"
-                              placeholder="What challenges are you facing? How can we help?"
-                            />
+                            <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className="mt-2 w-full px-3 py-2 border border-gray-200 rounded-md focus:border-swirl-blue focus:ring-swirl-blue focus:outline-none resize-none" placeholder="What challenges are you facing? How can we help?" />
                           </div>
                           
-                          <Button
-                            type="submit"
-                            disabled={isSubmitting}
-                            className="w-full bg-swirl-blue hover:bg-blue-700 text-white py-6 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                          >
-                            {isSubmitting ? (
-                              <div className="flex items-center gap-2">
+                          <Button type="submit" disabled={isSubmitting} className="w-full bg-swirl-blue hover:bg-blue-700 text-white py-6 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                            {isSubmitting ? <div className="flex items-center gap-2">
                                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                                 Sending...
-                              </div>
-                            ) : (
-                              <div className="flex items-center gap-2">
+                              </div> : <div className="flex items-center gap-2">
                                 <Send size={20} />
                                 Send Message
-                              </div>
-                            )}
+                              </div>}
                           </Button>
-                        </form>
-                      )}
+                        </form>}
                     </div>
                   </CardContent>
                 </Card>
@@ -218,10 +149,7 @@ Message: ${formData.message}
               <div className="order-1 lg:order-2 space-y-8">
                 <div>
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
-                  <p className="text-lg text-gray-600 leading-relaxed">
-                    Ready to revolutionize your restaurant operations? Our team is here to help you 
-                    streamline your business and boost your profits with swirl's comprehensive platform.
-                  </p>
+                  <p className="text-lg text-gray-600 leading-relaxed">Ready to revolutionize your restaurant operations? Our team is here to help you streamline your restaurant/cafe and boost your profits with swirl's comprehensive platform.</p>
                 </div>
 
                 {/* Contact Cards */}
@@ -315,8 +243,6 @@ Message: ${formData.message}
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Contact;
