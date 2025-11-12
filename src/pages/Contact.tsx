@@ -13,9 +13,9 @@ const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
   email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
   phone: z.string().trim().min(7, "Phone number must be at least 7 digits").max(20, "Phone number must be less than 20 characters").regex(/^[+\d\s()-]+$/, "Phone number contains invalid characters"),
-  business_type: z.enum(['POS System', 'QR Ordering & Menu', 'Inventory Management', 'CRM', 'Analytics & Reports'], {
+  business_type: z.enum(['Restaurant', 'Cafe', 'Food Truck', 'Fine Dining', 'Cloud Kitchen', 'Bakery', 'Hotel'], {
     errorMap: () => ({
-      message: "Please select a service"
+      message: "Please select a business type"
     })
   }),
   message: z.string().trim().max(2000, "Message must be less than 2000 characters").optional()
@@ -31,7 +31,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const businessTypes = ['POS System', 'QR Ordering & Menu', 'Inventory Management', 'CRM', 'Analytics & Reports'];
+  const businessTypes = ['Restaurant', 'Cafe', 'Food Truck', 'Fine Dining', 'Cloud Kitchen', 'Bakery', 'Hotel'];
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -195,7 +195,7 @@ const Contact = () => {
                           </div>
                           
                           <div>
-                            <Label htmlFor="message" className="text-gray-700 font-medium">How can we help your restaurant grow?</Label>
+                            <Label htmlFor="message" className="text-gray-700 font-medium">Tell us about your needs</Label>
                             <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className="mt-2 w-full px-3 py-2 border border-gray-200 rounded-md focus:border-swirl-blue focus:ring-swirl-blue focus:outline-none resize-none" placeholder="What challenges are you facing? How can we help?" />
                             {errors.message && <p className="text-sm text-red-500 mt-1">{errors.message}</p>}
                           </div>
