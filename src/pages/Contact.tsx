@@ -9,13 +9,16 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { WhatsApp } from '@/components/SocialIcons';
 import { z } from 'zod';
-
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
   email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
   phone: z.string().trim().min(7, "Phone number must be at least 7 digits").max(20, "Phone number must be less than 20 characters").regex(/^[+\d\s()-]+$/, "Phone number contains invalid characters"),
-  business_type: z.enum(['Restaurant', 'Cafe', 'Food Truck', 'Fine Dining', 'Cloud Kitchen', 'Bakery', 'Hotel'], { errorMap: () => ({ message: "Please select a business type" }) }),
-  message: z.string().trim().max(2000, "Message must be less than 2000 characters").optional(),
+  business_type: z.enum(['Restaurant', 'Cafe', 'Food Truck', 'Fine Dining', 'Cloud Kitchen', 'Bakery', 'Hotel'], {
+    errorMap: () => ({
+      message: "Please select a business type"
+    })
+  }),
+  message: z.string().trim().max(2000, "Message must be less than 2000 characters").optional()
 });
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -33,7 +36,6 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setErrors({});
-
     try {
       // Validate form data
       const validatedData = contactSchema.parse({
@@ -41,21 +43,20 @@ const Contact = () => {
         email: formData.email,
         phone: formData.phone,
         business_type: formData.businessType,
-        message: formData.message || undefined,
+        message: formData.message || undefined
       });
 
       // Save to database
-      const { error } = await supabase
-        .from('contact_submissions')
-        .insert([{
-          name: validatedData.name,
-          email: validatedData.email,
-          phone: validatedData.phone,
-          business_type: validatedData.business_type,
-          message: validatedData.message || null,
-          status: 'new'
-        }]);
-
+      const {
+        error
+      } = await supabase.from('contact_submissions').insert([{
+        name: validatedData.name,
+        email: validatedData.email,
+        phone: validatedData.phone,
+        business_type: validatedData.business_type,
+        message: validatedData.message || null,
+        status: 'new'
+      }]);
       if (error) throw error;
 
       // Send email notification
@@ -72,7 +73,6 @@ const Contact = () => {
       } catch (emailError) {
         console.error('Email notification failed (but form was saved):', emailError);
       }
-
       setSubmitted(true);
       setFormData({
         name: '',
@@ -84,7 +84,7 @@ const Contact = () => {
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldErrors: Record<string, string> = {};
-        error.errors.forEach((err) => {
+        error.errors.forEach(err => {
           if (err.path[0]) {
             const field = err.path[0].toString();
             // Map business_type back to businessType for display
@@ -118,7 +118,7 @@ const Contact = () => {
                 <MessageSquare size={20} />
                 <span>Let's Connect</span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-swirl-blue">Ready to Transform Your F&B Outlet?</h1>
+              <h1 className="text-5xl font-bold mb-6 text-gray-900 md:text-6xl">Ready to Transform Your F&B Outlet?</h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">Join thousands of restaurants already using swirl to streamline operations and make things easy. Let's discuss how we can help your F&B brand grow.</p>
               <div className="flex items-center justify-center gap-6 text-sm text-gray-500">
                 <div className="flex items-center gap-2">
