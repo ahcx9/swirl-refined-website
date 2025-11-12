@@ -282,7 +282,7 @@ const Contact = () => {
                         <h3 className="font-bold text-xl mb-2">Need Instant Help?</h3>
                         <p className="text-white/90">Chat with us on WhatsApp for immediate assistance</p>
                       </div>
-                      <Button asChild className="bg-white text-swirl-blue hover:bg-gray-50 font-semibold">
+                      <Button asChild className="bg-white text-white hover:bg-gray-50 font-semibold">
                         <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                           <WhatsApp size={20} />
                           Chat Now
