@@ -36,7 +36,7 @@ const HomeHardwareSection = () => {
             <Card className="overflow-hidden border-0 shadow-2xl rounded-2xl bg-white mx-auto">
               <CardContent className="p-0">
                 <div className="relative">
-                  <img src="/lovable-uploads/pos-hardware-setup.png" alt="swirl Complete Hardware Setup" className="w-full max-h-[450px] rounded-xl object-cover object-[center_30%]" loading="lazy" decoding="async" style={{
+                  <img src="/lovable-uploads/pos-hardware-setup.png" alt="swirl Complete Hardware Setup" className="w-full max-h-[450px] rounded-xl object-cover object-[center_20%]" loading="lazy" decoding="async" style={{
                   transform: 'translateZ(0)',
                   willChange: 'transform'
                 }} />
