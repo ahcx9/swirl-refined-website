@@ -62,7 +62,7 @@ const Features = () => {
       <div className="container-custom">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-6 text-neutral-950 md:text-4xl">
-            Solutions for Modern Restaurants
+            All Your Tools in One Platform
           </h2>
           <p className="text-base md:text-lg text-swirl-gray max-w-2xl mx-auto mb-10">
             Our integrated suite of tools helps you manage every aspect of your restaurant efficiently.
