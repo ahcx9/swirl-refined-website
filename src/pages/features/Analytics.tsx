@@ -55,7 +55,7 @@ const Analytics = () => {
               </div>
 
               <div className="w-full py-0 my-0 mx-0 px-0">
-                <div className="bg-gradient-to-br from-purple-light/30 to-white rounded-xl p-4 max-w-4xl mx-auto">
+                <div className="max-w-4xl mx-auto">
                   <div className="overflow-hidden rounded-lg">
                     <img 
                       src="/lovable-uploads/visitor-analytics.png" 
