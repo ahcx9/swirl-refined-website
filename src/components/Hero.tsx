@@ -58,7 +58,7 @@ const Hero = () => {
                         alt={`Restaurant management system ${index + 1}`} 
                         className="w-full h-full object-cover" 
                         loading={index === 0 ? "eager" : "lazy"} 
-                        fetchPriority={index === 0 ? "high" : "auto"} 
+                        fetchPriority={index === 0 ? "high" : "auto"}
                         decoding="async"
                         style={{ transform: 'translateZ(0)', willChange: 'transform' }}
                       />

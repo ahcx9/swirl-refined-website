@@ -85,7 +85,7 @@ const HomePOSSection = () => {
                           alt="Swirl POS Interface" 
                           className="w-full h-auto object-cover rounded-lg shadow-inner" 
                           loading="eager" 
-                          fetchPriority="high" 
+                          fetchPriority="high"
                           decoding="sync" 
                           style={{
                             transform: 'translateZ(0)'
