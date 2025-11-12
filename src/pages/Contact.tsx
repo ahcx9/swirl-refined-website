@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { MapPin, Mail, Phone, Send, CheckCircle, MessageSquare } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,19 +23,34 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Create mailto link
-    const subject = `New Contact Form Submission from ${formData.name}`;
-    const body = `
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Business Type: ${formData.businessType}
-Message: ${formData.message}
-    `;
-    const mailtoLink = `mailto:abid@swirl.cx?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
-    setSubmitted(true);
-    setIsSubmitting(false);
+    try {
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([{
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          business_type: formData.businessType,
+          message: formData.message,
+          status: 'new'
+        }]);
+
+      if (error) throw error;
+
+      setSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        businessType: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting your form. Please try again or contact us directly at hello@swirl.cx');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({

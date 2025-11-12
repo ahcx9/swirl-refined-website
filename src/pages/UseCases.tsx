@@ -69,7 +69,7 @@ const UseCases = () => {
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
               <span className="bg-swirl-blue text-white px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">SERVING EVERY CORNER OF HOSPITALITY</span>
-              <h1 className="text-4xl font-bold mb-6 font-inter text-swirl-blue md:text-6xl">Use Cases</h1>
+              <h1 className="text-4xl font-bold mb-6 font-inter text-gray-900 md:text-6xl">Use Cases</h1>
               <p className="text-lg mb-8 font-inter text-gray-700">
                 Discover tailored solutions for every segment of the food service industry. From food trucks to fine dining establishments, we provide specialized tools to enhance your operations.
               </p>
@@ -94,7 +94,7 @@ const UseCases = () => {
                       alt={segment.title}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                   </div>
                   
                   <CardHeader className="relative z-10">
