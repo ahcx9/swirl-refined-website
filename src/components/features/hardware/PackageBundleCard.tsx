@@ -74,7 +74,7 @@ const PackageBundleCard = ({ name, price, priceSubtext, description, features, h
           }`}
         >
           <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">
-            Get Started
+            get started for free
           </a>
         </Button>
       </div>

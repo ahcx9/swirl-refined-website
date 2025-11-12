@@ -79,7 +79,7 @@ const KitchenDisplay = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                    Start Free Trial
+                    get started for free
                   </CustomCTAButton>
                   
                 </div>
@@ -217,7 +217,7 @@ const KitchenDisplay = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                  Start Free Trial
+                  get started for free
                 </CustomCTAButton>
                 <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600">
                   Contact Sales

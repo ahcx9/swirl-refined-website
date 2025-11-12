@@ -37,7 +37,7 @@ const QROrdering = () => {
                 contactless ordering experience that today's diners prefer.
               </p>
               <Button asChild size="lg" className="btn-primary">
-                <a href="https://app.swirl.cx/register">Get Started for Free</a>
+                <a href="https://app.swirl.cx/register">get started for free</a>
               </Button>
             </div>
           </div>
@@ -250,7 +250,7 @@ const QROrdering = () => {
                 experience while increasing efficiency and revenue.
               </p>
               <Button asChild size="lg" className="btn-primary">
-                <a href="https://app.swirl.cx/register">Get Started For Free</a>
+                <a href="https://app.swirl.cx/register">get started for free</a>
               </Button>
             </div>
           </div>

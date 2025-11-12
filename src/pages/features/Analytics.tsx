@@ -49,7 +49,7 @@ const Analytics = () => {
 
                 <div className="flex gap-4 justify-center">
                   <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                    Get Started for Free
+                    get started for free
                   </CustomCTAButton>
                 </div>
               </div>
@@ -217,7 +217,7 @@ const Analytics = () => {
                 Join smart restaurant operators who use Swirl's analytics to increase profits, reduce costs, and deliver exceptional dining experiences.
               </p>
               <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                Get Started for Free
+                get started for free
               </CustomCTAButton>
             </section>
           </div>

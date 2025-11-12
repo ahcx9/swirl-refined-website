@@ -61,7 +61,7 @@ const SwirlHardware = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="rounded-xl px-8 py-6 text-lg font-semibold">
-                <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">Lets Talk</a>
+                <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">get started for free</a>
               </Button>
               <Button asChild variant="outline" className="rounded-xl px-8 py-6 text-lg font-semibold">
                 
@@ -238,7 +238,7 @@ const SwirlHardware = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="rounded-xl px-8 py-6 text-lg font-semibold">
-                <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">Get Started for Free</a>
+                <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer">get started for free</a>
               </Button>
               <Button asChild variant="outline" className="rounded-xl px-8 py-6 text-lg font-semibold">
                 

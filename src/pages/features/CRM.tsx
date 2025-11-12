@@ -49,7 +49,7 @@ const CRM = () => {
               
               <div className="flex gap-4">
                 <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                  Get Started For Free
+                  get started for free
                 </CustomCTAButton>
               </div>
             </div>
@@ -194,7 +194,7 @@ const CRM = () => {
               Join successful restaurants that use Swirl's CRM to build stronger customer relationships, increase repeat business, and boost revenue.
             </p>
             <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-              Get Started for Free
+              get started for free
             </CustomCTAButton>
           </section>
         </div>

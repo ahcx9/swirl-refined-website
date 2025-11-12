@@ -42,7 +42,7 @@ const InCarOrdering = () => {
               
               <div className="flex gap-4">
                 <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-90">
-                  Get Started for Free
+                  get started for free
                 </CustomCTAButton>
               </div>
             </div>
@@ -185,7 +185,7 @@ const InCarOrdering = () => {
               Join forward-thinking restaurants that are enhancing customer convenience and increasing revenue with our innovative In-Car Ordering solution.
             </p>
             <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-90">
-              Get Started For Free
+              get started for free
             </CustomCTAButton>
           </section>
         </div>

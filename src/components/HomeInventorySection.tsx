@@ -55,7 +55,7 @@ const HomeInventorySection = () => {
               
               <Button asChild variant="default" size="lg" className="bg-gray-800 hover:bg-gray-900 shadow-lg text-white">
                 <a href="https://app.swirl.cx/register" className="flex items-center gap-2">
-                  Get Started For Free <ArrowRight className="h-4 w-4" />
+                  get started for free <ArrowRight className="h-4 w-4" />
                 </a>
               </Button>
             </div>

@@ -45,7 +45,7 @@ const FinancialReports = () => {
 
                 <div className="flex gap-4 justify-center">
                   <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-100">
-                    Get Started for Free
+                    get started for free
                   </CustomCTAButton>
                 </div>
               </div>
@@ -162,7 +162,7 @@ const FinancialReports = () => {
                 Join successful restaurant owners who have improved their profit margins by gaining full visibility into their financial performance with Swirl's comprehensive reporting tools.
               </p>
               <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                Get Started for Free
+                get started for free
               </CustomCTAButton>
             </section>
           </div>

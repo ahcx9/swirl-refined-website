@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Footer from '@/components/Footer';
-import { Truck, Utensils, Building, Store, Hotel, ChefHat, Coffee as CoffeeShop } from 'lucide-react';
+import { Truck, Utensils, Store, Hotel, ChefHat, Coffee as CoffeeShop } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import CustomCTAButton from '@/components/CustomCTAButton';
 
@@ -10,79 +10,71 @@ const UseCases = () => {
     title: "Food Trucks",
     description: "Streamline your mobile food business with our comprehensive POS system, inventory tracking, and mobile ordering solutions designed specifically for food trucks.",
     icon: Truck,
+    image: '/lovable-uploads/food-truck.jpg',
     bgColor: "from-blue-50 to-blue-100",
-    iconColor: "text-blue-600",
-    iconBg: "bg-blue-100",
+    iconColor: "text-swirl-blue",
+    iconBg: "bg-blue-50",
     borderColor: "border-blue-200"
   }, {
     title: "Fine Dining",
     description: "Elevate your fine dining experience with sophisticated reservation management, table service optimization, and integrated payment solutions.",
     icon: Utensils,
-    bgColor: "from-indigo-50 to-indigo-100",
-    iconColor: "text-indigo-600",
-    iconBg: "bg-indigo-100",
-    borderColor: "border-indigo-200"
-  }, {
-    title: "Cafes",
-    description: "Boost your cafe operations with fast POS, automated loyalty programs, and efficient inventory management designed for high-volume service.",
-    icon: CoffeeShop,
-    bgColor: "from-sky-50 to-sky-100",
-    iconColor: "text-sky-600",
-    iconBg: "bg-sky-100",
-    borderColor: "border-sky-200"
-  }, {
-    title: "Bakeries",
-    description: "Manage your bakery efficiently with production scheduling, ingredient tracking, and customer pre-ordering systems tailored for bakery operations.",
-    icon: Store,
-    bgColor: "from-cyan-50 to-cyan-100",
-    iconColor: "text-cyan-600",
-    iconBg: "bg-cyan-100",
-    borderColor: "border-cyan-200"
-  }, {
-    title: "Coffee Shops",
-    description: "Power your coffee shop with quick service solutions, customizable loyalty programs, and mobile ordering capabilities for the modern coffee enthusiast.",
-    icon: CoffeeShop,
+    image: '/lovable-uploads/fine-dining-interior.jpg',
     bgColor: "from-blue-50 to-blue-100",
-    iconColor: "text-blue-600",
-    iconBg: "bg-blue-100",
+    iconColor: "text-swirl-blue",
+    iconBg: "bg-blue-50",
+    borderColor: "border-blue-200"
+  }, {
+    title: "Cafes & Bakeries",
+    description: "Boost your cafe and bakery operations with fast POS, automated loyalty programs, and efficient inventory management designed for high-volume service.",
+    icon: CoffeeShop,
+    image: '/lovable-uploads/cafe-interior.jpg',
+    bgColor: "from-blue-50 to-blue-100",
+    iconColor: "text-swirl-blue",
+    iconBg: "bg-blue-50",
+    borderColor: "border-blue-200"
+  }, {
+    title: "Quick Service",
+    description: "Fast, efficient systems for quick service restaurants and food courts with rapid order processing and streamlined operations.",
+    icon: Store,
+    image: '/lovable-uploads/quick-service.jpg',
+    bgColor: "from-blue-50 to-blue-100",
+    iconColor: "text-swirl-blue",
+    iconBg: "bg-blue-50",
     borderColor: "border-blue-200"
   }, {
     title: "Cloud Kitchens",
     description: "Optimize your delivery-only kitchen with robust order management, multiple delivery platform integration, and real-time kitchen display systems.",
     icon: ChefHat,
-    bgColor: "from-indigo-50 to-indigo-100",
-    iconColor: "text-indigo-600",
-    iconBg: "bg-indigo-100",
-    borderColor: "border-indigo-200"
+    image: '/lovable-uploads/cloud-kitchen.jpg',
+    bgColor: "from-blue-50 to-blue-100",
+    iconColor: "text-swirl-blue",
+    iconBg: "bg-blue-50",
+    borderColor: "border-blue-200"
   }, {
-    title: "Hotels",
+    title: "Hotels & Resorts",
     description: "Integrate your hotel's F&B operations with room service management, multiple outlet support, and centralized billing solutions.",
     icon: Hotel,
-    bgColor: "from-sky-50 to-sky-100",
-    iconColor: "text-sky-600",
-    iconBg: "bg-sky-100",
-    borderColor: "border-sky-200"
-  }, {
-    title: "Casual Dining",
-    description: "Enhance your casual dining restaurant with table management, integrated payments, and customer engagement tools for a seamless dining experience.",
-    icon: Building,
-    bgColor: "from-cyan-50 to-cyan-100",
-    iconColor: "text-cyan-600",
-    iconBg: "bg-cyan-100",
-    borderColor: "border-cyan-200"
+    image: '/lovable-uploads/hotel-resort.jpg',
+    bgColor: "from-blue-50 to-blue-100",
+    iconColor: "text-swirl-blue",
+    iconBg: "bg-blue-50",
+    borderColor: "border-blue-200"
   }];
-  return <div className="min-h-screen flex flex-col">
+
+  return (
+    <div className="min-h-screen flex flex-col">
       <main className="flex-grow pt-28">
-        <section className="bg-gradient-to-br from-blue-100/60 to-indigo-100/50 py-20">
+        <section className="bg-gradient-to-br from-blue-50 to-blue-100/50 py-20">
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
-              <span className="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">SERVING EVERY CORNER OF HOSPITALITY</span>
-              <h1 className="text-4xl font-bold mb-6 font-inter text-gray-950 md:text-6xl">Use Cases</h1>
-              <p className="text-lg mb-8 font-inter text-slate-800">
+              <span className="bg-swirl-blue text-white px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">SERVING EVERY CORNER OF HOSPITALITY</span>
+              <h1 className="text-4xl font-bold mb-6 font-inter text-swirl-blue md:text-6xl">Use Cases</h1>
+              <p className="text-lg mb-8 font-inter text-gray-700">
                 Discover tailored solutions for every segment of the food service industry. From food trucks to fine dining establishments, we provide specialized tools to enhance your operations.
               </p>
               <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-90">
-                Get Started For Free
+                get started for free
               </CustomCTAButton>
             </div>
           </div>
@@ -91,11 +83,19 @@ const UseCases = () => {
         <section className="py-20 bg-gradient-to-b from-white to-blue-50/30">
           <div className="container-custom">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {segments.map((segment, index) => <Card key={segment.title} className={`overflow-hidden transform transition-all duration-500 hover:scale-105 hover:rotate-1 border-2 ${segment.borderColor} rounded-xl`}>
+              {segments.map((segment, index) => (
+                <Card key={segment.title} className={`overflow-hidden transform transition-all duration-500 hover:scale-105 border-2 ${segment.borderColor} rounded-xl shadow-lg hover:shadow-2xl`}>
                   <div className={`absolute inset-0 bg-gradient-to-br ${segment.bgColor} opacity-50 z-0`}></div>
-                  <div className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-white/20"></div>
-                  <div className="absolute top-4 right-4 w-3 h-3 rounded-full bg-blue-200/70"></div>
-                  <div className="absolute top-8 right-8 w-2 h-2 rounded-full bg-blue-300/50"></div>
+                  
+                  {/* Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={segment.image} 
+                      alt={segment.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
+                  </div>
                   
                   <CardHeader className="relative z-10">
                     <div className="flex items-center gap-4 mb-3">
@@ -104,14 +104,17 @@ const UseCases = () => {
                       </div>
                       <CardTitle className="font-inter text-2xl text-swirl-blue">{segment.title}</CardTitle>
                     </div>
-                    <CardDescription className="font-inter mt-2 text-base text-amber-950">{segment.description}</CardDescription>
+                    <CardDescription className="font-inter mt-2 text-base text-gray-700">{segment.description}</CardDescription>
                   </CardHeader>
-                </Card>)}
+                </Card>
+              ))}
             </div>
           </div>
         </section>
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default UseCases;
