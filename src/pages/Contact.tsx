@@ -195,8 +195,8 @@ const Contact = () => {
                           </div>
                           
                           <div>
-                            <Label htmlFor="message" className="text-gray-700 font-medium">Tell us about your needs</Label>
-                            <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className="mt-2 w-full px-3 py-2 border border-gray-200 rounded-md focus:border-swirl-blue focus:ring-swirl-blue focus:outline-none resize-none" placeholder="What challenges are you facing? How can we help?" />
+                            <Label htmlFor="message" className="text-gray-700 font-medium">How can swirl help you for your F&B Brand?</Label>
+                            <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className="mt-2 w-full px-3 py-2 border border-gray-200 rounded-md focus:border-swirl-blue focus:ring-swirl-blue focus:outline-none resize-none" placeholder="point-of-sale, qr ordering, inventory management, real time reporting" />
                             {errors.message && <p className="text-sm text-red-500 mt-1">{errors.message}</p>}
                           </div>
                           
