@@ -119,7 +119,13 @@ const Contact = () => {
                 <span>Let's Connect</span>
               </div>
               <h1 className="text-5xl font-bold mb-6 text-gray-900 md:text-6xl">Ready to Transform Your F&B Outlet?</h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">Join thousands of restaurants already using swirl to streamline operations and make things easy. Let's discuss how we can help your F&B brand grow.</p>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">Join the many restaurants leveraging Swirl to optimize operations and enhance efficiency. We’d be glad to discuss how we can contribute to your F&B brand’s growth.
+
+
+
+
+
+            </p>
               <div className="flex items-center justify-center gap-6 text-sm text-gray-500">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="text-swirl-blue" size={16} />
