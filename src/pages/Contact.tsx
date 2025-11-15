@@ -119,7 +119,7 @@ const Contact = () => {
                 <span>Let's Connect</span>
               </div>
               <h1 className="text-5xl font-bold mb-6 text-gray-900 md:text-6xl">Ready to Transform Your F&B Outlet?</h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">Join the many restaurants leveraging Swirl to optimize operations and enhance efficiency. We’d be glad to discuss how we can contribute to your F&B brand’s growth.
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">Join the many restaurants leveraging swirl to optimize operations and enhance efficiency. We’d be glad to discuss how we can contribute to your F&B brand’s growth.
 
 
 
