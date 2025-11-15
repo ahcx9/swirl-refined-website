@@ -234,6 +234,7 @@
     transition: 0.5s;
     margin-right: 0px;
     transform: scale(0.6);
+    -webkit-transform: scale(0.6);
   }
 
   .btn-content:hover .icon-arrow {
@@ -252,25 +253,32 @@
   #arrow-icon-one {
     transition: 0.4s;
     transform: translateX(-60%);
+    -webkit-transform: translateX(-60%);
   }
 
   #arrow-icon-two {
     transition: 0.5s;
     transform: translateX(-30%);
+    -webkit-transform: translateX(-30%);
   }
 
   .btn-content:hover #arrow-icon-three {
     animation: color_anim 1s infinite 0.2s;
+    -webkit-animation: color_anim 1s infinite 0.2s;
   }
 
   .btn-content:hover #arrow-icon-one {
     transform: translateX(0%);
+    -webkit-transform: translateX(0%);
     animation: color_anim 1s infinite 0.6s;
+    -webkit-animation: color_anim 1s infinite 0.6s;
   }
 
   .btn-content:hover #arrow-icon-two {
     transform: translateX(0%);
+    -webkit-transform: translateX(0%);
     animation: color_anim 1s infinite 0.4s;
+    -webkit-animation: color_anim 1s infinite 0.4s;
   }
 
   @keyframes color_anim {
@@ -297,6 +305,43 @@
       outline: 0.2em solid var(--color-background);
       outline-offset: 0;
     }
+  }
+
+  /* Safari-specific fixes for image loading and carousel */
+  @supports (-webkit-appearance: none) {
+    .embla__slide img {
+      -webkit-transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      image-rendering: -webkit-optimize-contrast;
+    }
+    
+    /* Fix for aspect ratio in Safari */
+    [data-radix-aspect-ratio-wrapper] {
+      -webkit-transform: translateZ(0);
+    }
+    
+    /* Ensure CTA button renders properly */
+    .btn-content {
+      -webkit-transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+    }
+    
+    .icon-arrow svg {
+      -webkit-transform: translateZ(0);
+    }
+  }
+
+  /* Prevent half-image issues in carousel */
+  .embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    position: relative;
+  }
+
+  .embla__container {
+    display: flex;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 }
 
