@@ -39,6 +39,18 @@ const TrustedRestaurants = () => {
     {
       src: "/lovable-uploads/e5232452-9f07-430a-98e1-a6fa00f50235.png",
       alt: "Tamasha"
+    },
+    {
+      src: "/lovable-uploads/uccelli-cafe.jpeg",
+      alt: "Uccelli Café"
+    },
+    {
+      src: "/lovable-uploads/delight-hyderabadi-kitchen.webp",
+      alt: "Delight Hyderabadi Kitchen"
+    },
+    {
+      src: "/lovable-uploads/kaleda.png",
+      alt: "Kaleda Traditional Indian Taste"
     }
   ];
 
@@ -115,7 +127,7 @@ const TrustedRestaurants = () => {
             {logos.map((logo, index) => (
               <div 
                 key={`logo-1-${index}`} 
-                className="bg-white px-4 py-3 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[90px] md:w-[150px] md:h-[100px] mx-3 flex items-center justify-center"
+                className="bg-white px-3 py-2 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[110px] h-[75px] sm:w-[130px] sm:h-[90px] md:w-[150px] md:h-[100px] mx-2 sm:mx-3 flex items-center justify-center"
               >
                 <img 
                   src={logo.src} 
@@ -133,7 +145,7 @@ const TrustedRestaurants = () => {
             {logos.map((logo, index) => (
               <div 
                 key={`logo-2-${index}`} 
-                className="bg-white px-4 py-3 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[90px] md:w-[150px] md:h-[100px] mx-3 flex items-center justify-center"
+                className="bg-white px-3 py-2 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[110px] h-[75px] sm:w-[130px] sm:h-[90px] md:w-[150px] md:h-[100px] mx-2 sm:mx-3 flex items-center justify-center"
               >
                 <img 
                   src={logo.src} 
