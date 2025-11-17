@@ -5,20 +5,32 @@ import { preloadImages } from '@/utils/imagePreloader';
 const TrustedRestaurants = () => {
   const logos = [
     {
-      src: "/lovable-uploads/a8754738-56a4-4a8c-9f5c-3e927d004034.png",
-      alt: "Taste of Tongue"
+      src: "/lovable-uploads/9000dd52-fbe9-4430-8c38-eb0ab5e87e57.png",
+      alt: "Seern Restaurant"
     },
     {
-      src: "/lovable-uploads/b2a2c52b-6298-4bda-8fd2-e0cab6171584.png",
-      alt: "Garage Cafe"
+      src: "/lovable-uploads/uccelli-cafe.jpeg",
+      alt: "Uccelli Café"
     },
     {
       src: "/lovable-uploads/9c58af8c-a78c-4160-a783-7f54412c5b7b.png",
       alt: "Bombay Restaurant & Cafe"
     },
     {
-      src: "/lovable-uploads/9000dd52-fbe9-4430-8c38-eb0ab5e87e57.png",
-      alt: "Seern Restaurant"
+      src: "/lovable-uploads/e2451a50-0cd8-43cc-91e7-db85f6e18a53.png",
+      alt: "La Pino'z Pizza"
+    },
+    {
+      src: "/lovable-uploads/kaleda.png",
+      alt: "Kaleda Traditional Indian Taste"
+    },
+    {
+      src: "/lovable-uploads/a8754738-56a4-4a8c-9f5c-3e927d004034.png",
+      alt: "Taste of Tongue"
+    },
+    {
+      src: "/lovable-uploads/b2a2c52b-6298-4bda-8fd2-e0cab6171584.png",
+      alt: "Garage Cafe"
     },
     {
       src: "/lovable-uploads/c94d5f7d-130d-41cd-beb1-b2e68c9cbb68.png",
@@ -33,24 +45,28 @@ const TrustedRestaurants = () => {
       alt: "Shibara"
     },
     {
-      src: "/lovable-uploads/e2451a50-0cd8-43cc-91e7-db85f6e18a53.png",
-      alt: "La Pino'z Pizza"
-    },
-    {
       src: "/lovable-uploads/e5232452-9f07-430a-98e1-a6fa00f50235.png",
       alt: "Tamasha"
-    },
-    {
-      src: "/lovable-uploads/uccelli-cafe.jpeg",
-      alt: "Uccelli Café"
     },
     {
       src: "/lovable-uploads/delight-hyderabadi-kitchen.webp",
       alt: "Delight Hyderabadi Kitchen"
     },
     {
-      src: "/lovable-uploads/kaleda.png",
-      alt: "Kaleda Traditional Indian Taste"
+      src: "/lovable-uploads/walnut-bakery.png",
+      alt: "Walnut World Bakery & Patisserie"
+    },
+    {
+      src: "/lovable-uploads/ambani-restaurant.png",
+      alt: "Ambani Restaurant"
+    },
+    {
+      src: "/lovable-uploads/food-book.png",
+      alt: "Food Book"
+    },
+    {
+      src: "/lovable-uploads/quarter-plate.png",
+      alt: "Quarter Plate"
     }
   ];
 
