@@ -9,7 +9,7 @@ const HomeFinancialAnalyticsSection = () => {
     text: 'Real-time revenue tracking'
   }, {
     icon: FileText,
-    text: 'Food & labor cost analysis'
+    text: 'Payment method breakdown'
   }, {
     icon: LineChart,
     text: 'Menu performance insights'
