@@ -73,23 +73,11 @@ const TrustedRestaurants = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   
-  // Preload all logo images with high priority for instant loading
+  // Preload logo images - optimized to avoid duplication with ImagePreloader
   useEffect(() => {
     const logoUrls = logos.map(logo => logo.src);
-    preloadImages(logoUrls, 5)
-      .catch(err => {
-        console.error('Error preloading logo images:', err);
-      });
-      
-    // Also add direct preload links to head for critical logos
-    logos.slice(0, 4).forEach(logo => {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.href = logo.src;
-      link.as = 'image';
-      link.crossOrigin = 'anonymous';
-      document.head.appendChild(link);
-    });
+    // Preload with lower priority since critical ones are handled by ImagePreloader
+    preloadImages(logoUrls, 3);
   }, []);
   
   useEffect(() => {
