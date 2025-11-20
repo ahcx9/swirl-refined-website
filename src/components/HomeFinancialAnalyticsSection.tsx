@@ -15,7 +15,7 @@ const HomeFinancialAnalyticsSection = () => {
     text: 'Menu performance insights'
   }, {
     icon: FileBarChart,
-    text: 'Profit & loss statements'
+    text: 'Track staff revenue & performance'
   }, {
     icon: DollarSign,
     text: 'Customizable reporting'
