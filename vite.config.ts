@@ -23,14 +23,7 @@ export default defineConfig(({ mode }) => ({
   build: {
     // Add build optimization settings
     chunkSizeWarningLimit: 1600,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true, // Remove console.log in production
-        drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn']
-      }
-    },
+    minify: 'esbuild',
     rollupOptions: {
       output: {
         manualChunks: {
@@ -74,5 +67,8 @@ export default defineConfig(({ mode }) => ({
       }
     },
     cssMinify: true
+  },
+  esbuild: {
+    drop: mode === 'production' ? ['console', 'debugger'] : []
   }
 }));
