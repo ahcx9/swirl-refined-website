@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CreditCard, Receipt, ShoppingCart, DollarSign, ChefHat } from 'lucide-react';
+import { ArrowRight, CreditCard, Receipt, ShoppingCart, Zap, ChefHat } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { preloadImage } from '@/utils/imagePreloader';
@@ -15,8 +15,8 @@ const HomePOSSection = () => {
     icon: ShoppingCart,
     text: 'Check splitting & table transfers'
   }, {
-    icon: DollarSign,
-    text: 'Integrated payment processing'
+    icon: Zap,
+    text: 'Lightning fast punching orders'
   }, {
     icon: ChefHat,
     text: 'Kitchen display integration'
