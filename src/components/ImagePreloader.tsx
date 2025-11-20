@@ -19,19 +19,6 @@ const IMPORTANT_IMAGES = [
   "/lovable-uploads/85df272f-78b0-4180-bd9e-a069e750623a.png" // Kitchen display
 ];
 
-// Restaurant logos for TrustedRestaurants component
-const RESTAURANT_LOGOS = [
-  "/lovable-uploads/a8754738-56a4-4a8c-9f5c-3e927d004034.png",
-  "/lovable-uploads/b2a2c52b-6298-4bda-8fd2-e0cab6171584.png",
-  "/lovable-uploads/9c58af8c-a78c-4160-a783-7f54412c5b7b.png",
-  "/lovable-uploads/9000dd52-fbe9-4430-8c38-eb0ab5e87e57.png",
-  "/lovable-uploads/c94d5f7d-130d-41cd-beb1-b2e68c9cbb68.png",
-  "/lovable-uploads/8640f632-7915-47fa-b872-fc41d1a44c0b.png",
-  "/lovable-uploads/14839f2a-a0c1-41c9-be9b-29e27db33069.png",
-  "/lovable-uploads/e2451a50-0cd8-43cc-91e7-db85f6e18a53.png",
-  "/lovable-uploads/e5232452-9f07-430a-98e1-a6fa00f50235.png"
-];
-
 const ImagePreloader = () => {
   useEffect(() => {
     // Detect if mobile for reduced preloading
@@ -48,15 +35,8 @@ const ImagePreloader = () => {
       document.head.appendChild(link);
     });
     
-    // Preload fewer logos on mobile
-    const logoCount = isMobile ? 4 : RESTAURANT_LOGOS.length;
-    RESTAURANT_LOGOS.slice(0, logoCount).forEach(src => {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'image';
-      link.href = src;
-      document.head.appendChild(link);
-    });
+    // Preload important images with lower priority
+    preloadImages(IMPORTANT_IMAGES, 2);
   }, []);
   
   // This component doesn't render anything
