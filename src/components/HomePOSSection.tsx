@@ -61,7 +61,7 @@ const HomePOSSection = () => {
                     <img 
                       src="/lovable-uploads/swirl-pos-orders-dashboard.png" 
                       alt="Swirl POS Orders Dashboard - Table Management System" 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                       width={700}
                       height={450}
                       loading="eager"
@@ -84,7 +84,7 @@ const HomePOSSection = () => {
                     <img 
                       src="/lovable-uploads/swirl-pos-billing-dashboard.png" 
                       alt="Swirl POS Billing Dashboard - Checkout and Payment System" 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                       width={700}
                       height={450}
                       loading="eager"
