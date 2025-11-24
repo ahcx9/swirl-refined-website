@@ -477,6 +477,73 @@
 .stagger-animate > *:nth-child(4) { animation-delay: 0.3s; }
 .stagger-animate > *:nth-child(5) { animation-delay: 0.4s; }
 
+/* 3D perspective card effect for POS section */
+.perspective-card {
+  transform: perspective(1200px) rotateY(-1deg) rotateX(1deg);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.perspective-card:hover {
+  transform: perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1.02);
+}
+
+/* Animated gradient border */
+.gradient-border-animated {
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(135deg, #0052CC, #00A3FF, #0052CC) border-box;
+  border: 2px solid transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Blue glow shadow */
+.blue-glow {
+  box-shadow: 
+    0 10px 40px -10px rgba(0, 82, 204, 0.3),
+    0 20px 60px -15px rgba(0, 82, 204, 0.2),
+    0 0 80px rgba(0, 163, 255, 0.1);
+}
+
+/* Feature card hover effects */
+.feature-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 20px 40px -10px rgba(0, 82, 204, 0.2);
+}
+
+/* Icon bounce animation */
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.feature-card:hover .feature-icon {
+  animation: iconBounce 0.6s ease;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse slow animation */
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 /* RTL Support for Arabic Language */
 [dir='rtl'] {
   text-align: right;
