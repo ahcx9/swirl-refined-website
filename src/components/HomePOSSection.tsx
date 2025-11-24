@@ -62,8 +62,8 @@ const HomePOSSection = () => {
               {/* POS Dashboard Image */}
               <div className="relative bg-white">
                 <img 
-                  src="/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png" 
-                  alt="Cloud-Based Point of Sale System Interface" 
+                  src="/lovable-uploads/swirl-pos-orders-dashboard.png" 
+                  alt="Swirl POS Orders Dashboard - Table Management System" 
                   className="w-full h-auto"
                   width={1400}
                   height={900}
