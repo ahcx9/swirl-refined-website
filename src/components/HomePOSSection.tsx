@@ -57,11 +57,11 @@ const HomePOSSection = () => {
                   </span>
                 </div>
                 <div className="relative perspective-card blue-glow gradient-border-animated rounded-2xl overflow-hidden bg-white p-1">
-                  <div className="relative bg-white">
+                  <div className="relative bg-white h-[450px] overflow-hidden">
                     <img 
                       src="/lovable-uploads/swirl-pos-orders-dashboard.png" 
                       alt="Swirl POS Orders Dashboard - Table Management System" 
-                      className="w-full h-auto"
+                      className="w-full h-full object-cover"
                       width={700}
                       height={450}
                       loading="eager"
@@ -80,11 +80,11 @@ const HomePOSSection = () => {
                   </span>
                 </div>
                 <div className="relative perspective-card blue-glow gradient-border-animated rounded-2xl overflow-hidden bg-white p-1">
-                  <div className="relative bg-white">
+                  <div className="relative bg-white h-[450px] overflow-hidden">
                     <img 
                       src="/lovable-uploads/swirl-pos-billing-dashboard.png" 
                       alt="Swirl POS Billing Dashboard - Checkout and Payment System" 
-                      className="w-full h-auto"
+                      className="w-full h-full object-cover"
                       width={700}
                       height={450}
                       loading="eager"
