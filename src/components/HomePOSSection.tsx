@@ -45,20 +45,8 @@ const HomePOSSection = () => {
         {/* Dashboard Showcase - Large Centered Image */}
         <div className="relative mb-16 md:mb-20 animate-on-scroll">
           <div className="relative max-w-6xl mx-auto">
-            {/* Browser Chrome Frame */}
+            {/* Dashboard Frame */}
             <div className="relative perspective-card blue-glow gradient-border-animated rounded-2xl overflow-hidden bg-white p-1">
-              {/* Browser Header */}
-              <div className="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b border-gray-200">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                </div>
-                <div className="flex-1 ml-4 bg-white rounded px-3 py-1 text-xs text-gray-500">
-                  app.swirl.cx/pos
-                </div>
-              </div>
-              
               {/* POS Dashboard Image */}
               <div className="relative bg-white">
                 <img 
@@ -72,18 +60,6 @@ const HomePOSSection = () => {
                 />
               </div>
             </div>
-
-            {/* Floating Metric Badges */}
-            {floatingBadges.map((badge, index) => (
-              <div
-                key={index}
-                className={`hidden md:block absolute ${badge.position} animate-float bg-white shadow-xl rounded-2xl px-6 py-3 border border-blue-200`}
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="text-xs text-gray-600 font-medium">{badge.label}</div>
-                <div className="text-2xl font-bold text-blue-600">{badge.value}</div>
-              </div>
-            ))}
           </div>
         </div>
 
