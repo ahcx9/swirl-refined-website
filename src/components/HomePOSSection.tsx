@@ -42,23 +42,58 @@ const HomePOSSection = () => {
           </p>
         </div>
 
-        {/* Dashboard Showcase - Large Centered Image */}
+        {/* Dashboard Showcase - Dual Display */}
         <div className="relative mb-16 md:mb-20 animate-on-scroll">
-          <div className="relative max-w-6xl mx-auto">
-            {/* Dashboard Frame */}
-            <div className="relative perspective-card blue-glow gradient-border-animated rounded-2xl overflow-hidden bg-white p-1">
-              {/* POS Dashboard Image */}
-              <div className="relative bg-white">
-                <img 
-                  src="/lovable-uploads/swirl-pos-orders-dashboard.png" 
-                  alt="Swirl POS Orders Dashboard - Table Management System" 
-                  className="w-full h-auto"
-                  width={1400}
-                  height={900}
-                  loading="eager"
-                  style={{ transform: 'translateZ(0)' }}
-                />
+          <div className="relative max-w-7xl mx-auto">
+            {/* Desktop: Side-by-side, Mobile: Stacked */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+              
+              {/* Order Management Dashboard */}
+              <div className="relative group">
+                <div className="text-center mb-4">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold">
+                    <Cloud className="h-4 w-4" />
+                    Order Management
+                  </span>
+                </div>
+                <div className="relative perspective-card blue-glow gradient-border-animated rounded-2xl overflow-hidden bg-white p-1">
+                  <div className="relative bg-white">
+                    <img 
+                      src="/lovable-uploads/swirl-pos-orders-dashboard.png" 
+                      alt="Swirl POS Orders Dashboard - Table Management System" 
+                      className="w-full h-auto"
+                      width={700}
+                      height={450}
+                      loading="eager"
+                      style={{ transform: 'translateZ(0)' }}
+                    />
+                  </div>
+                </div>
               </div>
+
+              {/* Billing & Checkout Dashboard */}
+              <div className="relative group">
+                <div className="text-center mb-4">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold">
+                    <CreditCard className="h-4 w-4" />
+                    Billing & Checkout
+                  </span>
+                </div>
+                <div className="relative perspective-card blue-glow gradient-border-animated rounded-2xl overflow-hidden bg-white p-1">
+                  <div className="relative bg-white">
+                    <img 
+                      src="/lovable-uploads/swirl-pos-billing-dashboard.png" 
+                      alt="Swirl POS Billing Dashboard - Checkout and Payment System" 
+                      className="w-full h-auto"
+                      width={700}
+                      height={450}
+                      loading="eager"
+                      style={{ transform: 'translateZ(0)' }}
+                    />
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
