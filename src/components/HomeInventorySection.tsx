@@ -2,10 +2,8 @@ import React from 'react';
 import { Package, Tag, BarChart, HardDrive, List, TrendingUp, AlertCircle, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import CustomCTAButton from '@/components/CustomCTAButton';
-
 const HomeInventorySection = () => {
-  return (
-    <section className="py-20 md:py-24 overflow-hidden relative bg-white">
+  return <section className="py-20 md:py-24 overflow-hidden relative bg-white">
       <div className="container-custom relative">
         {/* Header */}
         <div className="text-center mb-16 animate-on-scroll">
@@ -27,18 +25,12 @@ const HomeInventorySection = () => {
           <Card className="bento-large group relative overflow-hidden border-2 border-blue-100 hover:border-blue-300 shadow-lg hover:shadow-2xl transition-all duration-500">
             <CardContent className="p-0 h-full">
               <div className="relative h-full">
-                <img 
-                  src="/lovable-uploads/inventory-overview.png" 
-                  alt="Inventory Management Dashboard showing real-time stock levels" 
-                  className="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700"
-                  width={1200}
-                  height={800}
-                  loading="lazy"
-                  style={{ transform: 'translateZ(0)' }}
-                />
+                <img src="/lovable-uploads/inventory-overview.png" alt="Inventory Management Dashboard showing real-time stock levels" className="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700" width={1200} height={800} loading="lazy" style={{
+                transform: 'translateZ(0)'
+              }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm px-5 py-3 rounded-xl shadow-xl border border-blue-200">
-                  <div className="text-sm font-semibold text-blue-600">Live Dashboard</div>
+                  
                 </div>
               </div>
             </CardContent>
@@ -57,7 +49,9 @@ const HomeInventorySection = () => {
                 </div>
               </div>
               <div className="w-full bg-blue-200 rounded-full h-3 overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full animate-pulse-slow" style={{ width: '94%' }}></div>
+                <div className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full animate-pulse-slow" style={{
+                width: '94%'
+              }}></div>
               </div>
             </CardContent>
           </Card>
@@ -150,8 +144,6 @@ const HomeInventorySection = () => {
 
       {/* Background dot pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(rgba(0,82,204,0.05)_1px,transparent_1px)] bg-[size:24px_24px] -z-10"></div>
-    </section>
-  );
+    </section>;
 };
-
 export default HomeInventorySection;
