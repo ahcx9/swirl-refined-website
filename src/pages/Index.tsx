@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
@@ -17,10 +18,13 @@ import DeliveryComingSoon from '@/components/DeliveryComingSoon';
 import HomeHardwareSection from '@/components/HomeHardwareSection';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import ImagePreloader from '@/components/ImagePreloader';
+
 const Index = () => {
   // Initialize scroll animation
   useScrollAnimation();
-  return <div className="min-h-screen flex flex-col">
+
+  return (
+    <div className="min-h-screen flex flex-col">
       {/* Preload all critical images */}
       <ImagePreloader />
       
@@ -35,7 +39,7 @@ const Index = () => {
           <HomePOSSection />
           <HomeInventorySection />
           <HomeFinancialAnalyticsSection />
-          
+          <HomeHardwareSection />
           <HotelIndustrySection />
         </div>
         <StepProcess />
@@ -46,6 +50,8 @@ const Index = () => {
         <CTASection />
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;

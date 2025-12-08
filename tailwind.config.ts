@@ -120,8 +120,8 @@ export default {
         'float': 'float 6s ease-in-out infinite'
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'sans-serif'],
-        display: ['Plus Jakarta Sans', 'sans-serif']
+        sans: ['Inter', 'sans-serif'],
+        display: ['Montserrat', 'sans-serif']
       },
       boxShadow: {
         'soft': '0 10px 25px -5px rgba(0, 82, 204, 0.05)',
