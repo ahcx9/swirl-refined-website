@@ -5,32 +5,20 @@ import { preloadImages } from '@/utils/imagePreloader';
 const TrustedRestaurants = () => {
   const logos = [
     {
-      src: "/lovable-uploads/9000dd52-fbe9-4430-8c38-eb0ab5e87e57.png",
-      alt: "Seern Restaurant"
-    },
-    {
-      src: "/lovable-uploads/uccelli-cafe.jpeg",
-      alt: "Uccelli Café"
-    },
-    {
-      src: "/lovable-uploads/9c58af8c-a78c-4160-a783-7f54412c5b7b.png",
-      alt: "Bombay Restaurant & Cafe"
-    },
-    {
-      src: "/lovable-uploads/e2451a50-0cd8-43cc-91e7-db85f6e18a53.png",
-      alt: "La Pino'z Pizza"
-    },
-    {
-      src: "/lovable-uploads/kaleda.png",
-      alt: "Kaleda Traditional Indian Taste"
-    },
-    {
       src: "/lovable-uploads/a8754738-56a4-4a8c-9f5c-3e927d004034.png",
       alt: "Taste of Tongue"
     },
     {
       src: "/lovable-uploads/b2a2c52b-6298-4bda-8fd2-e0cab6171584.png",
       alt: "Garage Cafe"
+    },
+    {
+      src: "/lovable-uploads/9c58af8c-a78c-4160-a783-7f54412c5b7b.png",
+      alt: "Bombay Restaurant & Cafe"
+    },
+    {
+      src: "/lovable-uploads/9000dd52-fbe9-4430-8c38-eb0ab5e87e57.png",
+      alt: "Seern Restaurant"
     },
     {
       src: "/lovable-uploads/c94d5f7d-130d-41cd-beb1-b2e68c9cbb68.png",
@@ -45,39 +33,35 @@ const TrustedRestaurants = () => {
       alt: "Shibara"
     },
     {
+      src: "/lovable-uploads/e2451a50-0cd8-43cc-91e7-db85f6e18a53.png",
+      alt: "La Pino'z Pizza"
+    },
+    {
       src: "/lovable-uploads/e5232452-9f07-430a-98e1-a6fa00f50235.png",
       alt: "Tamasha"
-    },
-    {
-      src: "/lovable-uploads/delight-hyderabadi-kitchen.webp",
-      alt: "Delight Hyderabadi Kitchen"
-    },
-    {
-      src: "/lovable-uploads/walnut-bakery.png",
-      alt: "Walnut World Bakery & Patisserie"
-    },
-    {
-      src: "/lovable-uploads/ambani-restaurant.png",
-      alt: "Ambani Restaurant"
-    },
-    {
-      src: "/lovable-uploads/food-book.png",
-      alt: "Food Book"
-    },
-    {
-      src: "/lovable-uploads/quarter-plate.png",
-      alt: "Quarter Plate"
     }
   ];
 
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   
-  // Preload logo images - optimized to avoid duplication with ImagePreloader
+  // Preload all logo images with high priority for instant loading
   useEffect(() => {
     const logoUrls = logos.map(logo => logo.src);
-    // Preload with lower priority since critical ones are handled by ImagePreloader
-    preloadImages(logoUrls, 3);
+    preloadImages(logoUrls, 5)
+      .catch(err => {
+        console.error('Error preloading logo images:', err);
+      });
+      
+    // Also add direct preload links to head for critical logos
+    logos.slice(0, 4).forEach(logo => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.href = logo.src;
+      link.as = 'image';
+      link.crossOrigin = 'anonymous';
+      document.head.appendChild(link);
+    });
   }, []);
   
   useEffect(() => {
@@ -131,7 +115,7 @@ const TrustedRestaurants = () => {
             {logos.map((logo, index) => (
               <div 
                 key={`logo-1-${index}`} 
-                className="bg-white px-3 py-2 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[110px] h-[75px] sm:w-[130px] sm:h-[90px] md:w-[150px] md:h-[100px] mx-2 sm:mx-3 flex items-center justify-center"
+                className="bg-white px-4 py-3 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[90px] md:w-[150px] md:h-[100px] mx-3 flex items-center justify-center"
               >
                 <img 
                   src={logo.src} 
@@ -149,7 +133,7 @@ const TrustedRestaurants = () => {
             {logos.map((logo, index) => (
               <div 
                 key={`logo-2-${index}`} 
-                className="bg-white px-3 py-2 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[110px] h-[75px] sm:w-[130px] sm:h-[90px] md:w-[150px] md:h-[100px] mx-2 sm:mx-3 flex items-center justify-center"
+                className="bg-white px-4 py-3 rounded-lg hover:shadow-md transition-all duration-300 flex-shrink-0 w-[130px] h-[90px] md:w-[150px] md:h-[100px] mx-3 flex items-center justify-center"
               >
                 <img 
                   src={logo.src} 

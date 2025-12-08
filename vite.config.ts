@@ -22,8 +22,7 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     // Add build optimization settings
-    chunkSizeWarningLimit: 1600,
-    minify: 'esbuild',
+    chunkSizeWarningLimit: 1600, // Increase the size warning limit
     rollupOptions: {
       output: {
         manualChunks: {
@@ -65,10 +64,6 @@ export default defineConfig(({ mode }) => ({
           ]
         }
       }
-    },
-    cssMinify: true
-  },
-  esbuild: {
-    drop: mode === 'production' ? ['console', 'debugger'] : []
+    }
   }
 }));

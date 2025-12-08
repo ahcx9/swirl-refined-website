@@ -47,18 +47,11 @@ const Hero = () => {
         </div>
         
         <div className="mt-12 w-full max-w-5xl mx-auto">
-          <Carousel 
-            className="w-full" 
-            plugins={[Autoplay(autoplayOptions)]}
-            opts={{
-              loop: true,
-              align: 'start',
-            }}
-          >
+          <Carousel className="w-full" plugins={[Autoplay(autoplayOptions)]}>
             <CarouselContent>
               {images.map((image, index) => (
                 <CarouselItem key={index}>
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ height: '100%', minHeight: '400px' }}>
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                     <AspectRatio ratio={16 / 9}>
                       <img 
                         src={image} 
@@ -67,12 +60,7 @@ const Hero = () => {
                         loading={index === 0 ? "eager" : "lazy"} 
                         fetchPriority={index === 0 ? "high" : "auto"}
                         decoding="async"
-                        style={{ 
-                          transform: 'translateZ(0)', 
-                          willChange: 'transform',
-                          WebkitTransform: 'translateZ(0)',
-                          imageRendering: '-webkit-optimize-contrast'
-                        }}
+                        style={{ transform: 'translateZ(0)', willChange: 'transform' }}
                       />
                     </AspectRatio>
                   </div>

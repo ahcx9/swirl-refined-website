@@ -8,18 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { WhatsApp } from '@/components/SocialIcons';
-import { z } from 'zod';
-const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
-  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
-  phone: z.string().trim().min(7, "Phone number must be at least 7 digits").max(20, "Phone number must be less than 20 characters").regex(/^[+\d\s()-]+$/, "Phone number contains invalid characters"),
-  business_type: z.enum(['Restaurant', 'Cafe', 'Food Truck', 'Fine Dining', 'Cloud Kitchen', 'Bakery', 'Hotel'], {
-    errorMap: () => ({
-      message: "Please select a business type"
-    })
-  }),
-  message: z.string().trim().max(2000, "Message must be less than 2000 characters").optional()
-});
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -30,49 +18,41 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState<Record<string, string>>({});
   const businessTypes = ['Restaurant', 'Cafe', 'Food Truck', 'Fine Dining', 'Cloud Kitchen', 'Bakery', 'Hotel'];
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setErrors({});
-    try {
-      // Validate form data
-      const validatedData = contactSchema.parse({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        business_type: formData.businessType,
-        message: formData.message || undefined
-      });
 
+    try {
       // Save to database
-      const {
-        error
-      } = await supabase.from('contact_submissions').insert([{
-        name: validatedData.name,
-        email: validatedData.email,
-        phone: validatedData.phone,
-        business_type: validatedData.business_type,
-        message: validatedData.message || null,
-        status: 'new'
-      }]);
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([{
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          business_type: formData.businessType,
+          message: formData.message,
+          status: 'new'
+        }]);
+
       if (error) throw error;
 
       // Send email notification
       try {
         await supabase.functions.invoke('send-contact-notification', {
           body: {
-            name: validatedData.name,
-            email: validatedData.email,
-            phone: validatedData.phone,
-            business_type: validatedData.business_type,
-            message: validatedData.message
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            business_type: formData.businessType,
+            message: formData.message
           }
         });
       } catch (emailError) {
         console.error('Email notification failed (but form was saved):', emailError);
       }
+
       setSubmitted(true);
       setFormData({
         name: '',
@@ -82,21 +62,8 @@ const Contact = () => {
         message: ''
       });
     } catch (error) {
-      if (error instanceof z.ZodError) {
-        const fieldErrors: Record<string, string> = {};
-        error.errors.forEach(err => {
-          if (err.path[0]) {
-            const field = err.path[0].toString();
-            // Map business_type back to businessType for display
-            const displayField = field === 'business_type' ? 'businessType' : field;
-            fieldErrors[displayField] = err.message;
-          }
-        });
-        setErrors(fieldErrors);
-      } else {
-        console.error('Error submitting form:', error);
-        alert('There was an error submitting your form. Please try again or contact us directly at hello@swirl.cx');
-      }
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting your form. Please try again or contact us directly at hello@swirl.cx');
     } finally {
       setIsSubmitting(false);
     }
@@ -118,14 +85,8 @@ const Contact = () => {
                 <MessageSquare size={20} />
                 <span>Let's Connect</span>
               </div>
-              <h1 className="text-5xl font-bold mb-6 text-gray-900 md:text-6xl">Ready to Transform Your F&B Outlet?</h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">Join the many restaurants leveraging swirl to optimize operations and enhance efficiency. We’d be glad to discuss how we can contribute to your F&B brand’s growth.
-
-
-
-
-
-            </p>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-swirl-blue">Ready to Transform Your F&B Outlet?</h1>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">Join thousands of restaurants already using swirl to streamline operations and make things easy. Let's discuss how we can help your F&B brand grow.</p>
               <div className="flex items-center justify-center gap-6 text-sm text-gray-500">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="text-swirl-blue" size={16} />
@@ -175,12 +136,10 @@ const Contact = () => {
                             <div>
                               <Label htmlFor="name" className="text-gray-700 font-medium">Full Name *</Label>
                               <Input id="name" name="name" type="text" required value={formData.name} onChange={handleChange} className="mt-2 border-gray-200 focus:border-swirl-blue focus:ring-swirl-blue" placeholder="Enter your full name" />
-                              {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name}</p>}
                             </div>
                             <div>
                               <Label htmlFor="email" className="text-gray-700 font-medium">Email Address *</Label>
                               <Input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} className="mt-2 border-gray-200 focus:border-swirl-blue focus:ring-swirl-blue" placeholder="Enter your email" />
-                              {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email}</p>}
                             </div>
                           </div>
                           
@@ -188,7 +147,6 @@ const Contact = () => {
                             <div>
                               <Label htmlFor="phone" className="text-gray-700 font-medium">Phone Number *</Label>
                               <Input id="phone" name="phone" type="tel" required value={formData.phone} onChange={handleChange} className="mt-2 border-gray-200 focus:border-swirl-blue focus:ring-swirl-blue" placeholder="Enter your phone number" />
-                              {errors.phone && <p className="text-sm text-red-500 mt-1">{errors.phone}</p>}
                             </div>
                             <div>
                               <Label htmlFor="businessType" className="text-gray-700 font-medium">Business Type *</Label>
@@ -196,14 +154,12 @@ const Contact = () => {
                                 <option value="">Select your business type</option>
                                 {businessTypes.map(type => <option key={type} value={type}>{type}</option>)}
                               </select>
-                              {errors.businessType && <p className="text-sm text-red-500 mt-1">{errors.businessType}</p>}
                             </div>
                           </div>
                           
                           <div>
-                            <Label htmlFor="message" className="text-gray-700 font-medium">How can swirl help you for your F&B Brand?</Label>
-                            <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className="mt-2 w-full px-3 py-2 border border-gray-200 rounded-md focus:border-swirl-blue focus:ring-swirl-blue focus:outline-none resize-none" placeholder="point-of-sale, qr ordering, inventory management, real time reporting" />
-                            {errors.message && <p className="text-sm text-red-500 mt-1">{errors.message}</p>}
+                            <Label htmlFor="message" className="text-gray-700 font-medium">Tell us about your needs</Label>
+                            <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className="mt-2 w-full px-3 py-2 border border-gray-200 rounded-md focus:border-swirl-blue focus:ring-swirl-blue focus:outline-none resize-none" placeholder="What challenges are you facing? How can we help?" />
                           </div>
                           
                           <Button type="submit" disabled={isSubmitting} className="w-full bg-swirl-blue hover:bg-blue-700 text-white py-6 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
@@ -288,7 +244,7 @@ const Contact = () => {
                         <h3 className="font-bold text-xl mb-2">Need Instant Help?</h3>
                         <p className="text-white/90">Chat with us on WhatsApp for immediate assistance</p>
                       </div>
-                      <Button asChild className="bg-white text-white hover:bg-gray-50 font-semibold">
+                      <Button asChild className="bg-white text-swirl-blue hover:bg-gray-50 font-semibold">
                         <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                           <WhatsApp size={20} />
                           Chat Now

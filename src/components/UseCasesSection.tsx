@@ -120,7 +120,7 @@ const UseCasesSection = () => {
                 </div>
                 
                 {/* Content */}
-                <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-900">
+                <h3 className="text-xl md:text-2xl font-bold mb-3 text-swirl-blue">
                   {useCase.title}
                 </h3>
                 <p className="text-gray-600 mb-6 flex-grow">

@@ -55,11 +55,11 @@ const Analytics = () => {
               </div>
 
               <div className="w-full py-0 my-0 mx-0 px-0">
-                <div className="max-w-4xl mx-auto">
+                <div className="bg-gradient-to-br from-purple-light/30 to-white rounded-xl p-4 max-w-4xl mx-auto">
                   <div className="overflow-hidden rounded-lg">
                     <img 
-                      src="/lovable-uploads/visitor-analytics.png" 
-                      alt="Menu & Visitor Analytics Dashboard"
+                      src="/lovable-uploads/35e9fd73-7370-41cc-89e5-6259df112af0.png" 
+                      alt="Menu & Visitor Analytics Dashboard" 
                       className="w-full h-auto rounded-lg shadow-md transform scale-100 transition-transform duration-700 hover:scale-105"
                       loading="eager"
                       fetchPriority="high"

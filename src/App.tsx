@@ -23,30 +23,18 @@ import CRM from './pages/features/CRM';
 import FinancialReports from './pages/features/FinancialReports';
 import SwirlHardware from './pages/features/SwirlHardware';
 import LoadingScreen from './components/LoadingScreen';
-import StructuredData from './components/StructuredData';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check if page is loaded
-    if (document.readyState === 'complete') {
+    // Simulate loading time
+    const timer = setTimeout(() => {
       setLoading(false);
-    } else {
-      const handleLoad = () => setLoading(false);
-      window.addEventListener('load', handleLoad);
-      
-      // Fallback timeout for slow connections
-      const timer = setTimeout(() => {
-        setLoading(false);
-      }, 800);
+    }, 1500); // Reduced loading time for better UX
 
-      return () => {
-        window.removeEventListener('load', handleLoad);
-        clearTimeout(timer);
-      };
-    }
+    return () => clearTimeout(timer);
   }, []);
 
   if (loading) {
@@ -56,7 +44,6 @@ function App() {
   return (
     <LanguageProvider>
       <Router>
-        <StructuredData />
         <Navbar />
         <ScrollToTop />
         <Routes>
