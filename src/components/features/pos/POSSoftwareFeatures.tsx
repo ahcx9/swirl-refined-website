@@ -3,7 +3,7 @@ import {
   Monitor, 
   LayoutGrid, 
   WifiOff, 
-  Package, 
+  Zap, 
   Users, 
   Cloud, 
   BarChart3, 
@@ -65,9 +65,9 @@ const POSSoftwareFeatures = () => {
       delay: 300,
     },
     {
-      title: "Inventory Tracking",
-      description: "Real-time inventory management integrated with your menu items.",
-      icon: Package,
+      title: "Fastest Billing Ever",
+      description: "Lightning-fast order punching and billing. Process transactions in seconds with our optimized checkout flow.",
+      icon: Zap,
       delay: 400,
     },
     {
