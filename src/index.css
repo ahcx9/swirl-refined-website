@@ -378,6 +378,7 @@
 .animate-delay-500 { transition-delay: 500ms; }
 .animate-delay-600 { transition-delay: 600ms; }
 .animate-delay-700 { transition-delay: 700ms; }
+.animate-delay-800 { transition-delay: 800ms; }
 
 /* RTL Support for Arabic Language */
 [dir='rtl'] {
