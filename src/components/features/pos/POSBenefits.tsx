@@ -23,7 +23,7 @@ const POSBenefits = () => {
       <div className="grid md:grid-cols-3 gap-6">
         <BenefitCard icon={<Clock className="text-purple h-6 w-6 shrink-0" />} title="Fast, reliable, and easy to use" description="Your team starts billing in minutes, even during peak hours." />
         
-        <BenefitCard icon={<Database className="text-purple h-6 w-6 shrink-0" />} title="Reduce Errors" description="Minimize order and inventory mistakes with our intelligent validation system, leading to happier customers and better inventory control." />
+        <BenefitCard icon={<Database className="text-purple h-6 w-6 shrink-0" />} title="Connected to your entire operation" description="POS, QR ordering, KDS, inventory, CRM, and reporting — all seamlessly linked." />
         
         <BenefitCard icon={<QrCode className="text-purple h-6 w-6 shrink-0" />} title="Enhance Experience" description="Create seamless dining experiences with faster service and accurate orders every time, building customer loyalty and repeat business." />
       </div>
