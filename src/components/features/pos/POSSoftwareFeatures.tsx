@@ -84,7 +84,7 @@ const POSSoftwareFeatures = () => {
     },
     {
       title: "Smart Order Routing",
-      description: "See what's working. Fix what's not. Live sales, item performance, staff insights — can be accessed remotely.",
+      description: "Orders flow automatically from POS to kitchen displays/print.",
       icon: BarChart3,
       delay: 700,
     },
