@@ -112,7 +112,7 @@ const POSSoftwareFeatures = () => {
           </div>
           
           <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Powerful Software Features
+            Designed for Effortless Restaurant Operations
           </h2>
           
           <p className="animate-on-scroll animate-delay-200 text-lg text-gray-600 max-w-2xl mx-auto">
