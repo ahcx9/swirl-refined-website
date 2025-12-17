@@ -1,139 +1,64 @@
 import React from "react";
-import { 
-  Monitor, 
-  LayoutGrid, 
-  WifiOff, 
-  Package, 
-  Users, 
-  Cloud, 
-  BarChart3, 
-  UtensilsCrossed,
-  Sparkles,
-  LucideIcon
-} from "lucide-react";
-import useScrollAnimation from "@/hooks/useScrollAnimation";
+import { CheckCircle, Laptop } from "lucide-react";
 
-interface FeatureCardProps {
-  title: string;
-  description: string;
-  icon: LucideIcon;
-  delay: number;
-}
-
-const FeatureCard = ({ title, description, icon: Icon, delay }: FeatureCardProps) => (
-  <div 
-    className={`animate-on-scroll animate-delay-${delay} group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-blue-100/50 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-100/30 hover:-translate-y-2 transition-all duration-500`}
-  >
-    {/* Icon Container */}
-    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-blue-200">
-      <Icon className="w-7 h-7 text-white" strokeWidth={1.5} />
+const FeatureCard = ({ title, description }: { title: string; description: string }) => (
+  <div className="bg-white rounded-xl p-6 shadow-soft border border-gray-100 hover:shadow-card hover:-translate-y-1 transition-all duration-300">
+    <div className="flex items-center gap-2 mb-3">
+      <CheckCircle size={18} className="text-green-500 shrink-0" />
+      <h3 className="text-xl font-semibold">{title}</h3>
     </div>
-    
-    {/* Content */}
-    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
-      {title}
-    </h3>
-    <p className="text-sm text-gray-600 leading-relaxed">
-      {description}
-    </p>
-    
-    {/* Hover Glow Effect */}
-    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50/0 to-blue-100/0 group-hover:from-blue-50/50 group-hover:to-blue-100/30 transition-all duration-500 -z-10" />
+    <p className="text-swirl-gray leading-relaxed">{description}</p>
   </div>
 );
 
 const POSSoftwareFeatures = () => {
-  useScrollAnimation();
-  
   const features = [
     {
-      title: "Modern Design POS",
+      title: "Intuitive Interface",
       description: "User-friendly design that's easy to learn and requires minimal training.",
-      icon: Monitor,
-      delay: 100,
     },
     {
       title: "Table Management",
-      description: "Full control over every table. Assign tables, track status, and manage dining flow effortlessly.",
-      icon: LayoutGrid,
-      delay: 200,
+      description: "Drag-and-drop interface for easy table assignments and status monitoring.",
     },
     {
-      title: "Offline Mode",
-      description: "Keep billing even without internet. No downtime, no lost sales — our POS works offline & syncs when online.",
-      icon: WifiOff,
-      delay: 300,
+      title: "Payment Processing",
+      description: "Support for all major payment methods including contactless and mobile payments.",
     },
     {
       title: "Inventory Tracking",
       description: "Real-time inventory management integrated with your menu items.",
-      icon: Package,
-      delay: 400,
     },
     {
       title: "Staff Management",
-      description: "Manage staff without micromanaging. Roles, permissions, shifts, and performance — all in one place.",
-      icon: Users,
-      delay: 500,
+      description: "Time tracking, role-based permissions, and performance analytics.",
     },
     {
       title: "Cloud Synchronization",
       description: "Access your data from anywhere with secure cloud storage and backups.",
-      icon: Cloud,
-      delay: 600,
     },
     {
       title: "Reporting & Analytics",
-      description: "See what's working. Fix what's not. Live sales, item performance, staff insights — can be accessed remotely.",
-      icon: BarChart3,
-      delay: 700,
+      description: "Comprehensive reporting tools for sales, inventory, and staff performance.",
     },
     {
       title: "Menu Management",
-      description: "Update menus in seconds. Edit prices, items, modifiers, and availability instantly.",
-      icon: UtensilsCrossed,
-      delay: 800,
+      description: "Easily create and update menu items, modifiers, and pricing.",
     },
   ];
 
   return (
-    <section className="relative py-20 bg-white overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-100/40 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-50/60 rounded-full blur-3xl -z-10" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-blue-50/30 to-transparent rounded-full blur-3xl -z-10" />
-      
-      <div className="container mx-auto px-4 md:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="animate-on-scroll inline-flex items-center gap-2 bg-blue-50 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Sparkles className="w-4 h-4" />
-            <span>Powerful Software</span>
-          </div>
-          
-          <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Powerful Software Features
-          </h2>
-          
-          <p className="animate-on-scroll animate-delay-200 text-lg text-gray-600 max-w-2xl mx-auto">
-            Everything you need to run your restaurant smoothly, all in one platform
-          </p>
-        </div>
+    <div className="bg-gradient-to-r from-purple-light/30 to-purple/5 p-8 md:p-10 rounded-xl">
+      <h2 className="text-2xl font-bold mb-8 flex items-center">
+        <Laptop className="mr-3 text-purple" /> Designed for Effortless Restaurant Operations
+      </h2>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              title={feature.title}
-              description={feature.description}
-              icon={feature.icon}
-              delay={feature.delay}
-            />
-          ))}
-        </div>
+      <div className="grid md:grid-cols-2 gap-6">
+        {features.map((feature, index) => (
+          <FeatureCard key={index} title={feature.title} description={feature.description} />
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 
