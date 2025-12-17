@@ -21,7 +21,7 @@ const POSBenefits = () => {
       <h2 className="text-2xl font-bold mb-8 text-center">Why swirl Point-of-Sale for billing</h2>
       
       <div className="grid md:grid-cols-3 gap-6">
-        <BenefitCard icon={<Clock className="text-purple h-6 w-6 shrink-0" />} title="Fast, reliable, and easy to use" description="Streamline operations and reduce manual tasks with automation features that give you more time to focus on your customers." />
+        <BenefitCard icon={<Clock className="text-purple h-6 w-6 shrink-0" />} title="Fast, reliable, and easy to use" description="Your team starts billing in minutes, even during peak hours." />
         
         <BenefitCard icon={<Database className="text-purple h-6 w-6 shrink-0" />} title="Reduce Errors" description="Minimize order and inventory mistakes with our intelligent validation system, leading to happier customers and better inventory control." />
         
