@@ -25,6 +25,11 @@ const DeliveryAppShowcase = () => {
       name: "Deliveroo",
       color: "from-teal-400 to-teal-600",
       logo: "/lovable-uploads/0e8b0620-df50-4144-bbd0-9c5eed7e00f5.png"
+    },
+    {
+      name: "Keeta",
+      color: "from-red-400 to-red-600",
+      logo: "/lovable-uploads/keeta-logo.png"
     }
   ];
 
