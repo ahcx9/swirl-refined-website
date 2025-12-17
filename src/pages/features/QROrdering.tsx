@@ -308,19 +308,19 @@ const QROrdering = () => {
         <TrustedRestaurants />
 
         {/* Final CTA */}
-        <section className="py-20 bg-gradient-to-br from-primary to-primary/80">
+        <section className="py-20 bg-white">
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Ready to Revolutionize Your Ordering?
               </h2>
-              <p className="animate-on-scroll animate-delay-100 text-lg text-white/80 mb-8">
+              <p className="animate-on-scroll animate-delay-100 text-lg text-gray-600 mb-8">
                 Join thousands of restaurants using QR ordering to boost efficiency and revenue
               </p>
               <div className="animate-on-scroll animate-delay-200">
                 <a 
                   href="https://app.swirl.cx/register"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                 >
                   get started for free
                   <ArrowRight className="w-5 h-5" />
