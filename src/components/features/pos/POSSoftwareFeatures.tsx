@@ -83,7 +83,7 @@ const POSSoftwareFeatures = () => {
       delay: 600,
     },
     {
-      title: "Reporting & Analytics",
+      title: "Smart Order Routing",
       description: "See what's working. Fix what's not. Live sales, item performance, staff insights — can be accessed remotely.",
       icon: BarChart3,
       delay: 700,
