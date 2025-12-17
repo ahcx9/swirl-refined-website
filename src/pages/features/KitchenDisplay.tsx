@@ -86,7 +86,7 @@ const KitchenDisplay = () => {
               </div>
               <div className="relative">
                 <div className="rounded-2xl p-8 relative overflow-hidden">
-                  <img src="/lovable-uploads/9f01aee3-0939-40fc-8e7b-a0f216172704.png" alt="Kitchen Display System Interface" className="w-full h-auto rounded-xl shadow-lg relative z-10" loading="eager" />
+                  <img src="/lovable-uploads/kitchen-display-hero.png" alt="Kitchen Display System Interface" className="w-full h-auto rounded-xl shadow-lg relative z-10" loading="eager" />
                 </div>
               </div>
             </div>
