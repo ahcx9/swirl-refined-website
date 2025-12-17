@@ -14,16 +14,17 @@ const FeatureCard = ({ title, description }: { title: string; description: strin
 const POSSoftwareFeatures = () => {
   const features = [
     {
-      title: "Modern Design",
+      title: "Modern Design POS",
       description: "User-friendly design that's easy to learn and requires minimal training.",
     },
     {
       title: "Table Management",
-      description: "Drag-and-drop interface for easy table assignments and status monitoring.",
+      description: "Full control over every table. Assign tables, track status, and manage dining flow effortlessly.",
     },
     {
-      title: "Payment Processing",
-      description: "Support for all major payment methods including contactless and mobile payments.",
+      title: "Offline Mode",
+      description:
+        "Keep billing even without internet. No downtime, no lost sales — our POS works offline & syncs when online.",
     },
     {
       title: "Inventory Tracking",
@@ -31,7 +32,8 @@ const POSSoftwareFeatures = () => {
     },
     {
       title: "Staff Management",
-      description: "Time tracking, role-based permissions, and performance analytics.",
+      description:
+        "Manage staff without micromanaging. Roles, permissions, shifts, and performance — all in one place..",
     },
     {
       title: "Cloud Synchronization",
@@ -39,11 +41,12 @@ const POSSoftwareFeatures = () => {
     },
     {
       title: "Reporting & Analytics",
-      description: "Comprehensive reporting tools for sales, inventory, and staff performance.",
+      description:
+        "See what’s working. Fix what’s not. Live sales, item performance, staff insights — can be accessed remotely.",
     },
     {
       title: "Menu Management",
-      description: "Easily create and update menu items, modifiers, and pricing.",
+      description: "Update menus in seconds.Edit prices, items, modifiers, and availability instantly.",
     },
   ];
 
