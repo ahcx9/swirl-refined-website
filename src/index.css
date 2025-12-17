@@ -370,6 +370,15 @@
 .stagger-animate > *:nth-child(4) { animation-delay: 0.3s; }
 .stagger-animate > *:nth-child(5) { animation-delay: 0.4s; }
 
+/* Staggered animation delays for scroll animations */
+.animate-delay-100 { transition-delay: 100ms; }
+.animate-delay-200 { transition-delay: 200ms; }
+.animate-delay-300 { transition-delay: 300ms; }
+.animate-delay-400 { transition-delay: 400ms; }
+.animate-delay-500 { transition-delay: 500ms; }
+.animate-delay-600 { transition-delay: 600ms; }
+.animate-delay-700 { transition-delay: 700ms; }
+
 /* RTL Support for Arabic Language */
 [dir='rtl'] {
   text-align: right;
