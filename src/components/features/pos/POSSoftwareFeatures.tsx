@@ -16,7 +16,7 @@ const FeatureCard = ({
 const POSSoftwareFeatures = () => {
   const features = [{
     title: "Intuitive Interface",
-    description: "User-friendly design that's easy to learn and requires minimal training."
+    description: "Simple to learn. Fast to use. Staff can start billing in minutes — no long training needed."
   }, {
     title: "Table Management",
     description: "Drag-and-drop interface for easy table assignments and status monitoring."
