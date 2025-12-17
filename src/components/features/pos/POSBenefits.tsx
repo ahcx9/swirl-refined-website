@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, Database, QrCode } from 'lucide-react';
+import { Clock, Database, Building2 } from 'lucide-react';
 interface BenefitCardProps {
   icon: React.ReactNode;
   title: string;
@@ -25,7 +25,7 @@ const POSBenefits = () => {
         
         <BenefitCard icon={<Database className="text-purple h-6 w-6 shrink-0" />} title="Connected to your entire operation" description="POS, QR ordering, KDS, inventory, CRM, and reporting — all seamlessly linked." />
         
-        <BenefitCard icon={<QrCode className="text-purple h-6 w-6 shrink-0" />} title="Enhance Experience" description="Create seamless dining experiences with faster service and accurate orders every time, building customer loyalty and repeat business." />
+        <BenefitCard icon={<Building2 className="text-purple h-6 w-6 shrink-0" />} title="One POS for single or multiple outlets" description="Manage menus, pricing, and reporting across all branches from one system." />
       </div>
     </div>;
 };
