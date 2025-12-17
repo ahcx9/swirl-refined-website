@@ -74,7 +74,7 @@ const translations = {
       "Join restaurants worldwide already using our digital menu system to enhance customer experience and streamline operations.",
 
     // Inventory Management Page
-    "inventory.title": "inventory management",
+    "inventory.title": "Inventory Management",
     "inventory.subtitle":
       "Take control of your restaurant's inventory with our advanced management system. Track stock levels, reduce waste, and optimize your purchasing with real-time monitoring and predictive analytics.",
     "inventory.features": "key inventory management features",

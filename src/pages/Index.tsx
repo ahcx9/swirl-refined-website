@@ -5,6 +5,7 @@ import Features from '@/components/Features';
 import StepProcess from '@/components/StepProcess';
 import NextGenFeatures from '@/components/NextGenFeatures';
 import TrustedRestaurants from '@/components/TrustedRestaurants';
+import WhySwirlSection from '@/components/WhySwirlSection';
 import BlogSection from '@/components/BlogSection';
 import FAQSection from '@/components/FAQSection';
 import CTASection from '@/components/CTASection';
@@ -33,6 +34,7 @@ const Index = () => {
           <Hero />
           <TrustedRestaurants />
         </div>
+        <WhySwirlSection />
         <Features />
         <UseCasesSection />
         <div className="bg-gradient-to-b from-white to-blue-50/30">
