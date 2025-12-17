@@ -1,239 +1,305 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 import TrustedRestaurants from '@/components/TrustedRestaurants';
-import { ShoppingCart, CheckCircle, CreditCard, TrendingUp, Clock, Smartphone, UserPlus, MenuSquare, Phone, Utensils } from 'lucide-react';
+import { QrCode, ScanLine, ShoppingCart, CreditCard, Utensils, TrendingUp, Clock, Users, Smartphone, CheckCircle, Star, ArrowRight, Sparkles, Zap, BarChart, Shield, Phone } from 'lucide-react';
 import { preloadImages } from '@/utils/imagePreloader';
+import CustomCTAButton from '@/components/CustomCTAButton';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const QROrdering = () => {
-  // Preload images when the component mounts
+  useScrollAnimation();
+  
   useEffect(() => {
-    // Preload QR ordering specific images
     preloadImages([
       "/lovable-uploads/b782c244-bfdc-479d-929c-fbb28e8a4040.png",
       "/lovable-uploads/cb050b33-51a3-4f11-bd02-f9fe6ffdde44.png"
     ], 2);
   }, []);
 
+  const processSteps = [
+    { icon: ScanLine, title: "Scan", description: "Scan QR code at table" },
+    { icon: ShoppingCart, title: "Browse", description: "View menu & customize" },
+    { icon: Utensils, title: "Order", description: "Place order instantly" },
+    { icon: CreditCard, title: "Pay", description: "Pay securely online" }
+  ];
+
+  const stats = [
+    { value: "+20%", label: "Revenue Increase", icon: TrendingUp },
+    { value: "-30%", label: "Wait Time", icon: Clock },
+    { value: "+15%", label: "Average Order", icon: BarChart },
+    { value: "99.9%", label: "Uptime", icon: Shield }
+  ];
+
+  const customerBenefits = [
+    "Browse menu with high-quality images",
+    "View nutritional info and allergens",
+    "Customize orders with special requests",
+    "Pay securely through multiple options",
+    "Track order status in real-time"
+  ];
+
+  const restaurantBenefits = [
+    "Reduce labor costs significantly",
+    "Minimize order errors to near zero",
+    "Increase table turnover by 20%",
+    "Gather valuable customer data",
+    "Update menu and prices instantly"
+  ];
+
+  const features = [
+    {
+      icon: Smartphone,
+      title: "No App Required",
+      description: "Works on any smartphone browser — no downloads needed"
+    },
+    {
+      icon: Zap,
+      title: "Lightning Fast",
+      description: "Orders go directly to kitchen, cutting wait times dramatically"
+    },
+    {
+      icon: TrendingUp,
+      title: "Smart Upselling",
+      description: "AI-powered recommendations increase average order value"
+    },
+    {
+      icon: BarChart,
+      title: "Rich Analytics",
+      description: "Understand customer preferences and optimize your menu"
+    }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-24 pb-16">
-        <section className="bg-purple-light/10 py-20">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="flex justify-center mb-6">
-                <div className="p-3 rounded-full bg-purple-light/30">
-                  <ShoppingCart className="text-purple h-8 w-8" />
-                </div>
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">QR Ordering System</h1>
-              <p className="text-lg text-swirl-gray mb-8">
-                Transform your dining experience with our seamless QR code ordering solution. 
-                Reduce wait times, minimize errors, and increase table turnover while providing a 
-                contactless ordering experience that today's diners prefer.
-              </p>
-              <Button asChild size="lg" className="btn-primary">
-                <a href="https://app.swirl.cx/register">get started for free</a>
-              </Button>
-            </div>
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="relative pt-32 pb-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
           </div>
-        </section>
-
-        <section className="py-20">
+          
           <div className="container-custom">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Streamline Your Restaurant's Ordering Process</h2>
-                <p className="text-swirl-gray mb-8">
-                  Our QR ordering system allows customers to scan, browse, customize, and pay for their orders directly 
-                  from their smartphones. This contactless solution minimizes wait times and reduces staff workload while 
-                  providing a modern dining experience.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="text-purple h-6 w-6 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-lg">Instant Access</h3>
-                      <p className="text-swirl-gray">Customers can access your full menu immediately without waiting for staff</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="text-purple h-6 w-6 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-lg">Real-time Orders</h3>
-                      <p className="text-swirl-gray">Orders go directly to your kitchen display system for faster preparation</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="text-purple h-6 w-6 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-lg">Integrated Payments</h3>
-                      <p className="text-swirl-gray">Secure payment processing with multiple options including credit cards and digital wallets</p>
-                    </div>
-                  </div>
+            <div className="max-w-6xl mx-auto">
+              {/* Badge */}
+              <div className="animate-on-scroll flex justify-center mb-8">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/20">
+                  <QrCode className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-semibold text-primary">QR Ordering System</span>
                 </div>
-              </div>
-              <div className="rounded-xl overflow-hidden shadow-lg">
-                <img 
-                  src="/lovable-uploads/b782c244-bfdc-479d-929c-fbb28e8a4040.png" 
-                  alt="QR code scanning experience" 
-                  className="w-full h-auto object-cover" 
-                  loading="eager"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 bg-gray-50">
-          <div className="container-custom">
-            <h2 className="text-3xl font-bold mb-12 text-center">Key Benefits</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-xl p-8 shadow-soft border border-gray-100 hover:shadow-lg transition-shadow">
-                <CreditCard className="text-purple h-10 w-10 mb-4" />
-                <h3 className="text-xl font-semibold mb-4">Increased Revenue</h3>
-                <p className="text-swirl-gray">
-                  Boost average order value by 15-20% through automated upselling, cross-selling, 
-                  and seamless menu browsing that encourages exploration and add-ons.
-                </p>
               </div>
               
-              <div className="bg-white rounded-xl p-8 shadow-soft border border-gray-100 hover:shadow-lg transition-shadow">
-                <Clock className="text-purple h-10 w-10 mb-4" />
-                <h3 className="text-xl font-semibold mb-4">Reduced Wait Times</h3>
-                <p className="text-swirl-gray">
-                  Decrease customer wait times by up to 30% with instant ordering capabilities, 
-                  improving dining experience and increasing table turnover.
+              {/* Heading */}
+              <div className="text-center mb-12">
+                <h1 className="animate-on-scroll animate-delay-100 text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                  Scan. Order.<br />
+                  <span className="text-primary">Enjoy.</span>
+                </h1>
+                <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                  Transform your dining experience with contactless ordering that delights customers and boosts revenue.
                 </p>
+                <div className="animate-on-scroll animate-delay-300">
+                  <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                    get started for free
+                  </CustomCTAButton>
+                </div>
               </div>
               
-              <div className="bg-white rounded-xl p-8 shadow-soft border border-gray-100 hover:shadow-lg transition-shadow">
-                <TrendingUp className="text-purple h-10 w-10 mb-4" />
-                <h3 className="text-xl font-semibold mb-4">Valuable Insights</h3>
-                <p className="text-swirl-gray">
-                  Collect detailed data on ordering patterns, popular items, peak times, and customer 
-                  preferences to optimize your menu and operations.
-                </p>
+              {/* Process Flow */}
+              <div className="animate-on-scroll animate-delay-400 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto">
+                {processSteps.map((step, index) => (
+                  <div key={index} className="relative text-center">
+                    <div className="w-16 h-16 mx-auto mb-3 rounded-2xl bg-primary/10 flex items-center justify-center">
+                      <step.icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-gray-900 mb-1">{step.title}</h3>
+                    <p className="text-sm text-gray-500">{step.description}</p>
+                    {index < processSteps.length - 1 && (
+                      <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-primary/30 to-transparent -translate-x-1/2" />
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-20">
+        {/* Stats Banner */}
+        <section className="py-12 bg-primary">
           <div className="container-custom">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1">
-                <img 
-                  src="/lovable-uploads/cb050b33-51a3-4f11-bd02-f9fe6ffdde44.png" 
-                  alt="Order at your ease on smartphone" 
-                  className="rounded-xl shadow-lg w-full h-auto" 
-                  loading="eager"
-                />
+            <div className="max-w-4xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {stats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <stat.icon className="w-8 h-8 text-white/80 mx-auto mb-2" />
+                    <div className="text-3xl md:text-4xl font-bold text-white mb-1">{stat.value}</div>
+                    <div className="text-sm text-white/70">{stat.label}</div>
+                  </div>
+                ))}
               </div>
-              <div className="order-1 md:order-2">
-                <h2 className="text-3xl font-bold mb-6">Order at Your Ease</h2>
-                <p className="text-swirl-gray mb-6">
-                  Our QR ordering system provides customers with a seamless and intuitive ordering experience. 
-                  View detailed item descriptions, dietary information, preparation time, and customize orders 
-                  directly from their smartphones.
-                </p>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-purple-light/30 p-2 rounded-full">
-                      <Smartphone className="text-purple h-5 w-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Mobile Optimized</h3>
-                      <p className="text-swirl-gray">Responsive design works perfectly on any device with no app download required</p>
-                    </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="py-20 bg-white">
+          <div className="container-custom">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
+                    <Sparkles className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-semibold text-primary">Powerful Features</span>
                   </div>
-                  <div className="flex items-start gap-4">
-                    <div className="bg-purple-light/30 p-2 rounded-full">
-                      <MenuSquare className="text-purple h-5 w-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Dietary Information</h3>
-                      <p className="text-swirl-gray">Display calories, allergens, and preparation time for informed choices</p>
-                    </div>
+                  <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    Streamline Your Ordering Process
+                  </h2>
+                  <p className="animate-on-scroll animate-delay-200 text-lg text-gray-600 mb-8">
+                    Our QR ordering system allows customers to scan, browse, customize, and pay directly from their smartphones — no app download required.
+                  </p>
+                  
+                  <div className="space-y-4">
+                    {features.map((feature, index) => (
+                      <div 
+                        key={index}
+                        className={`animate-on-scroll animate-delay-${(index + 2) * 100} flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300`}
+                      >
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                          <feature.icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-gray-900 mb-1">{feature.title}</h3>
+                          <p className="text-gray-600 text-sm">{feature.description}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <div className="flex items-start gap-4">
-                    <div className="bg-purple-light/30 p-2 rounded-full">
-                      <Utensils className="text-purple h-5 w-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Customization Options</h3>
-                      <p className="text-swirl-gray">Allow customers to modify dishes according to their preferences</p>
-                    </div>
-                  </div>
+                </div>
+                
+                <div className="animate-on-scroll animate-delay-300 rounded-2xl overflow-hidden shadow-2xl">
+                  <img 
+                    src="/lovable-uploads/b782c244-bfdc-479d-929c-fbb28e8a4040.png" 
+                    alt="QR code scanning experience" 
+                    className="w-full h-auto"
+                    loading="eager"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Benefits Comparison */}
         <section className="py-20 bg-gray-50">
           <div className="container-custom">
-            <h2 className="text-3xl font-bold mb-10 text-center">Enhanced Restaurant Experience</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-xl p-8 shadow-soft border border-gray-100">
-                <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                  <Phone className="text-purple h-5 w-5" />
-                  <span>For Your Customers</span>
-                </h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <span>Browse menu items with high-quality images and detailed descriptions</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <span>View nutritional information and allergen details</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <span>Customize orders with special requests and modifications</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <span>Pay securely through integrated payment processing</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <span>Track order status in real-time</span>
-                  </li>
-                </ul>
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  Benefits for Everyone
+                </h2>
               </div>
-              <div className="bg-white rounded-xl p-8 shadow-soft border border-gray-100">
-                <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                  <Utensils className="text-purple h-5 w-5" />
-                  <span>For Your Restaurant</span>
-                </h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <span>Reduce labor costs with streamlined ordering process</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <span>Minimize order errors with customer-driven input</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <span>Increase table turnover rates by up to 20%</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <span>Gather valuable customer data and preferences</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="text-purple h-5 w-5 mt-0.5 flex-shrink-0" />
-                    <span>Update menu items and prices in real-time</span>
-                  </li>
-                </ul>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* For Customers */}
+                <div className="animate-on-scroll animate-delay-100 bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <Phone className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">For Your Customers</h3>
+                  </div>
+                  <ul className="space-y-4">
+                    {customerBenefits.map((benefit, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <CheckCircle className="w-4 h-4 text-primary" />
+                        </div>
+                        <span className="text-gray-700">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                {/* For Restaurant */}
+                <div className="animate-on-scroll animate-delay-200 bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <Utensils className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">For Your Restaurant</h3>
+                  </div>
+                  <ul className="space-y-4">
+                    {restaurantBenefits.map((benefit, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <CheckCircle className="w-4 h-4 text-primary" />
+                        </div>
+                        <span className="text-gray-700">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Order at Ease Section */}
+        <section className="py-20 bg-white">
+          <div className="container-custom">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="animate-on-scroll order-2 md:order-1 rounded-2xl overflow-hidden shadow-2xl">
+                  <img 
+                    src="/lovable-uploads/cb050b33-51a3-4f11-bd02-f9fe6ffdde44.png" 
+                    alt="Order at your ease on smartphone" 
+                    className="w-full h-auto"
+                    loading="eager"
+                  />
+                </div>
+                
+                <div className="order-1 md:order-2">
+                  <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    Order at Your Ease
+                  </h2>
+                  <p className="animate-on-scroll animate-delay-100 text-lg text-gray-600 mb-8">
+                    Give your customers the seamless ordering experience they deserve. View detailed descriptions, dietary information, prep times, and customize every order — all from their phone.
+                  </p>
+                  
+                  <div className="animate-on-scroll animate-delay-200 space-y-4">
+                    <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <Smartphone className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-gray-900 mb-1">Mobile Optimized</h3>
+                        <p className="text-gray-600 text-sm">Works perfectly on any device — no app needed</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <Users className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-gray-900 mb-1">Table Splitting</h3>
+                        <p className="text-gray-600 text-sm">Let groups order and pay separately</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <Star className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-gray-900 mb-1">Customization</h3>
+                        <p className="text-gray-600 text-sm">Detailed modifiers and special requests</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -241,17 +307,25 @@ const QROrdering = () => {
 
         <TrustedRestaurants />
 
-        <section className="py-20 bg-purple-light/10 rounded-lg my-12 mx-4">
+        {/* Final CTA */}
+        <section className="py-20 bg-gradient-to-br from-primary to-primary/80">
           <div className="container-custom">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6">Ready to revolutionize your ordering process?</h2>
-              <p className="text-lg mb-8">
-                Join thousands of restaurants already using our QR ordering system to enhance customer 
-                experience while increasing efficiency and revenue.
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-white mb-4">
+                Ready to Revolutionize Your Ordering?
+              </h2>
+              <p className="animate-on-scroll animate-delay-100 text-lg text-white/80 mb-8">
+                Join thousands of restaurants using QR ordering to boost efficiency and revenue
               </p>
-              <Button asChild size="lg" className="btn-primary">
-                <a href="https://app.swirl.cx/register">get started for free</a>
-              </Button>
+              <div className="animate-on-scroll animate-delay-200">
+                <a 
+                  href="https://app.swirl.cx/register"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                >
+                  get started for free
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
         </section>
