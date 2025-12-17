@@ -40,7 +40,7 @@ const POSSoftwareFeatures = () => {
     description: "Easily create and update menu items, modifiers, and pricing."
   }];
   return <div className="bg-gradient-to-r from-purple-light/30 to-purple/5 p-8 md:p-10 rounded-xl">
-      <h2 className="text-2xl font-bold mb-8 flex items-center">Powerful POS, Built for Busy Restaurants<Laptop className="mr-3 text-purple" /> Powerful Software Features
+      <h2 className="text-2xl font-bold mb-8 flex items-center">Powerful POS, Built for Busy Restaurants<Laptop className="mr-3 text-purple" /> ​
       </h2>
       
       <div className="grid md:grid-cols-2 gap-6">
