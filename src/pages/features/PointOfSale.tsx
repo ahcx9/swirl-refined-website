@@ -77,7 +77,7 @@ const PointOfSale = () => {
     { icon: UtensilsCrossed, title: "Dine In", description: "In-house orders" },
     { icon: Receipt, title: "Takeaway", description: "Counter pickups" },
     { icon: Truck, title: "Delivery", description: "Own delivery" },
-    { icon: Layers, title: "Aggregators", description: "Zomato/Swiggy/etc" },
+    { icon: Layers, title: "Aggregators", description: "Talabat/Keeta" },
     { icon: QrCode, title: "QR Orders", description: "Digital ordering" }
   ];
 
