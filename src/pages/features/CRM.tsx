@@ -1,205 +1,241 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import { Users, UserCheck, BarChart, Mail, Gift, Star } from 'lucide-react';
+import { Users, UserCheck, BarChart, Mail, Gift, Star, ArrowRight, CheckCircle, Sparkles, TrendingUp, Heart } from 'lucide-react';
 import CustomCTAButton from '@/components/CustomCTAButton';
-import { Link } from 'react-router-dom';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+
 const CRM = () => {
-  const features = [{
-    title: "Customer Profiles",
-    description: "Build comprehensive profiles with preferences, allergies, birthdays, and visit history.",
-    icon: UserCheck
-  }, {
-    title: "Loyalty Programs",
-    description: "Create and manage custom loyalty programs with points, tiers, and special rewards.",
-    icon: Gift
-  }, {
-    title: "Marketing Campaigns",
-    description: "Design and execute targeted email and SMS campaigns to specific customer segments.",
-    icon: Mail
-  }, {
-    title: "Customer Analytics",
-    description: "Track customer acquisition, retention, and lifetime value with detailed analytics.",
-    icon: BarChart
-  }, {
-    title: "Feedback Management",
-    description: "Collect, analyze, and respond to customer feedback to improve service quality.",
-    icon: Star
-  }];
-  return <div className="min-h-screen flex flex-col">
+  useScrollAnimation();
+
+  const features = [
+    { title: "Customer Profiles", description: "Build profiles with preferences, allergies, birthdays, and history", icon: UserCheck },
+    { title: "Loyalty Programs", description: "Create custom programs with points, tiers, and special rewards", icon: Gift },
+    { title: "Marketing Campaigns", description: "Design targeted email and SMS campaigns", icon: Mail },
+    { title: "Customer Analytics", description: "Track acquisition, retention, and lifetime value", icon: BarChart },
+    { title: "Feedback Management", description: "Collect and respond to customer feedback", icon: Star }
+  ];
+
+  const stats = [
+    { value: "25%", label: "More Return Visits", icon: TrendingUp },
+    { value: "15%", label: "Higher Spend", icon: BarChart },
+    { value: "30%", label: "Better Marketing", icon: Mail }
+  ];
+
+  const howItWorks = [
+    { step: "1", title: "Collect Data", description: "Gather customer info through reservations, orders, and sign-ups" },
+    { step: "2", title: "Build Profiles", description: "Create comprehensive profiles with preferences and history" },
+    { step: "3", title: "Segment Customers", description: "Group by behavior, preferences, or spending" },
+    { step: "4", title: "Engage & Reward", description: "Send targeted offers that drive repeat visits" }
+  ];
+
+  const turnGuestsItems = [
+    "Recognize returning customers and acknowledge loyalty",
+    "Send personalized offers based on ordering history",
+    "Reward repeat business with points and exclusive perks",
+    "Re-engage lapsed customers before they're gone"
+  ];
+
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      <main className="flex-grow pt-28 pb-16">
-        <div className="container-custom max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-12 mb-16">
-            <div className="w-full md:w-1/2 flex flex-col justify-center">
-              <div className="mb-6">
-                <span className="bg-purple/10 text-purple px-4 py-2 rounded-full text-sm font-semibold">CUSTOMER RELATIONS</span>
-              </div>
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 rounded-full bg-purple-light/30">
-                  <Users className="text-purple h-6 w-6" />
-                </div>
-                <h1 className="text-4xl lg:text-5xl font-bold">Restaurant CRM</h1>
-              </div>
-              
-              <p className="text-xl text-swirl-gray mb-8">
-                Build lasting relationships with your customers. Our restaurant-specific CRM helps you understand guest preferences, reward loyalty, and deliver personalized experiences that turn first-time visitors into regular patrons.
-              </p>
-              
-              <div className="flex gap-4">
-                <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                  get started for free
-                </CustomCTAButton>
-              </div>
-            </div>
-            
-            <div className="w-full md:w-1/2">
-              <img alt="Customer relationship management" className="w-full h-[400px] object-cover rounded-xl shadow-lg" src="/lovable-uploads/72bc496f-dfad-4fef-a00b-a049a08c0700.png" />
-            </div>
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="relative pt-32 pb-20 bg-white overflow-hidden">
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
           </div>
 
-          <section className="mb-20">
-            <h2 className="text-3xl font-bold mb-12 text-center">Key CRM Features</h2>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map(feature => <div key={feature.title} className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-2 bg-purple-light/30 rounded-lg">
-                      <feature.icon className="text-purple h-5 w-5" />
-                    </div>
-                    <h3 className="text-xl font-semibold">{feature.title}</h3>
-                  </div>
-                  <p className="text-gray-600">{feature.description}</p>
-                </div>)}
-            </div>
-          </section>
-
-          <section className="mb-20">
-            <div className="bg-gradient-to-r from-purple-light/20 to-blue-100/20 p-8 md:p-12 rounded-2xl">
+          <div className="container-custom">
+            <div className="max-w-6xl mx-auto">
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                  <h2 className="text-3xl font-bold mb-6">Turn Guests into Regulars</h2>
-                  <p className="text-lg text-swirl-gray mb-6">
-                    In today's competitive restaurant industry, building customer loyalty is more important than ever. With Swirl's CRM system, you can:
+                  <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
+                    <Users className="w-5 h-5 text-primary" />
+                    <span className="text-sm font-semibold text-primary">Customer Relations</span>
+                  </div>
+                  
+                  <h1 className="animate-on-scroll animate-delay-100 text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                    Turn Guests Into<br />
+                    <span className="text-primary">Regulars</span>
+                  </h1>
+                  
+                  <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 mb-8">
+                    Build lasting relationships with your customers. Understand preferences, reward loyalty, and deliver personalized experiences.
+                  </p>
+                  
+                  <div className="animate-on-scroll animate-delay-300">
+                    <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                      get started for free
+                    </CustomCTAButton>
+                  </div>
+                </div>
+                
+                <div className="animate-on-scroll animate-delay-400">
+                  <div className="rounded-2xl overflow-hidden shadow-2xl">
+                    <img 
+                      alt="Customer relationship management" 
+                      className="w-full h-auto"
+                      src="/lovable-uploads/72bc496f-dfad-4fef-a00b-a049a08c0700.png"
+                      loading="eager"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="container-custom">
+            <div className="max-w-4xl mx-auto">
+              <div className="grid grid-cols-3 gap-4 md:gap-8">
+                {stats.map((stat, index) => (
+                  <div 
+                    key={index}
+                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 text-center`}
+                  >
+                    <stat.icon className="w-8 h-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                    <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-1">{stat.value}</div>
+                    <div className="text-sm text-gray-500">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Grid */}
+        <section className="py-20 bg-white">
+          <div className="container-custom">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
+                  <Sparkles className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-semibold text-primary">Key Features</span>
+                </div>
+                <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  Everything to Build Customer Loyalty
+                </h2>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {features.map((feature, index) => (
+                  <div 
+                    key={index}
+                    className={`animate-on-scroll animate-delay-${(index % 3 + 1) * 100} group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}
+                  >
+                    <div className="w-14 h-14 mb-5 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
+                      <feature.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Turn Guests into Regulars */}
+        <section className="py-20 bg-gray-50">
+          <div className="container-custom">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="animate-on-scroll">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
+                    <Heart className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-semibold text-primary">Build Loyalty</span>
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    Turn Guests into Regulars
+                  </h2>
+                  <p className="text-lg text-gray-600 mb-8">
+                    In today's competitive restaurant industry, building customer loyalty is more important than ever.
                   </p>
                   
                   <ul className="space-y-4">
-                    <li className="flex items-start gap-3">
-                      <div className="p-1 rounded-full bg-purple-light/30 mt-1">
-                        <svg className="h-4 w-4 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <span className="text-lg">Recognize returning customers and acknowledge their loyalty</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="p-1 rounded-full bg-purple-light/30 mt-1">
-                        <svg className="h-4 w-4 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <span className="text-lg">Send personalized offers based on ordering history</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="p-1 rounded-full bg-purple-light/30 mt-1">
-                        <svg className="h-4 w-4 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <span className="text-lg">Reward repeat business with points, discounts, and exclusive perks</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="p-1 rounded-full bg-purple-light/30 mt-1">
-                        <svg className="h-4 w-4 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <span className="text-lg">Re-engage lapsed customers before they're gone for good</span>
-                    </li>
+                    {turnGuestsItems.map((item, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <CheckCircle className="w-4 h-4 text-primary" />
+                        </div>
+                        <span className="text-gray-700">{item}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 
-                <div>
-                  <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" alt="Restaurant customers" className="rounded-xl shadow-lg" />
+                <div className="animate-on-scroll animate-delay-200">
+                  <div className="rounded-2xl overflow-hidden shadow-xl">
+                    <img 
+                      src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" 
+                      alt="Happy restaurant customers" 
+                      className="w-full h-auto"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section className="mb-20">
-            <h2 className="text-3xl font-bold mb-12 text-center">How Our Restaurant CRM Works</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="bg-purple-light/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold text-purple">1</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Collect Data</h3>
-                <p className="text-gray-600">Seamlessly gather customer information through reservations, online orders, and loyalty sign-ups.</p>
+        {/* How It Works */}
+        <section className="py-20 bg-white">
+          <div className="container-custom">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  How Our CRM Works
+                </h2>
               </div>
-              
-              <div className="text-center">
-                <div className="bg-purple-light/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold text-purple">2</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Build Profiles</h3>
-                <p className="text-gray-600">Create comprehensive customer profiles with preferences, history, and spending patterns.</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-purple-light/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold text-purple">3</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Segment Customers</h3>
-                <p className="text-gray-600">Group customers based on behavior, preferences, frequency, or spending for targeted marketing.</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-purple-light/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold text-purple">4</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Engage & Reward</h3>
-                <p className="text-gray-600">Send targeted communications and personalized offers that drive repeat visits and increase spending.</p>
+
+              <div className="grid md:grid-cols-4 gap-6">
+                {howItWorks.map((item, index) => (
+                  <div 
+                    key={index}
+                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} text-center`}
+                  >
+                    <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-primary text-white flex items-center justify-center font-bold text-xl">
+                      {item.step}
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                    <p className="text-sm text-gray-600">{item.description}</p>
+                  </div>
+                ))}
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section className="mb-20">
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <h2 className="text-3xl font-bold mb-8 text-center">The Impact of Effective CRM</h2>
-              
-              <div className="grid md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <div className="text-purple text-4xl font-bold mb-2">25%</div>
-                  <p className="text-lg font-medium">Increase in return visits from existing customers</p>
-                </div>
-                
-                <div>
-                  <div className="text-purple text-4xl font-bold mb-2">15%</div>
-                  <p className="text-lg font-medium">Higher average spend from loyalty program members</p>
-                </div>
-                
-                <div>
-                  <div className="text-purple text-4xl font-bold mb-2">30%</div>
-                  <p className="text-lg font-medium">More effective marketing with targeted campaigns</p>
-                </div>
+        {/* Final CTA */}
+        <section className="py-20 bg-gradient-to-br from-primary to-primary/90">
+          <div className="container-custom">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-white mb-4">
+                Ready to Transform Customer Relationships?
+              </h2>
+              <p className="animate-on-scroll animate-delay-100 text-lg text-white/80 mb-8">
+                Join successful restaurants building stronger customer loyalty with swirl CRM
+              </p>
+              <div className="animate-on-scroll animate-delay-200">
+                <a 
+                  href="https://app.swirl.cx/register"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                >
+                  get started for free
+                  <ArrowRight className="w-5 h-5" />
+                </a>
               </div>
             </div>
-          </section>
-
-          <section className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-6">Ready to transform your customer relationships?</h2>
-            <p className="text-lg text-swirl-gray mb-8 max-w-3xl mx-auto">
-              Join successful restaurants that use Swirl's CRM to build stronger customer relationships, increase repeat business, and boost revenue.
-            </p>
-            <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-              get started for free
-            </CustomCTAButton>
-          </section>
-        </div>
+          </div>
+        </section>
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default CRM;
