@@ -164,33 +164,40 @@ const SwirlHardware = () => {
               </p>
             </div>
 
-            {/* Kiosk Images Grid */}
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <div className="animate-on-scroll animate-delay-100 group">
-                <div className="bg-gray-50 rounded-2xl p-6 hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2">
-                  <img 
-                    src="/lovable-uploads/kiosk-1.webp" 
-                    alt="Swirl Self-Service Kiosk" 
-                    className="w-full h-auto rounded-xl group-hover:scale-[1.02] transition-transform duration-500"
-                  />
-                </div>
-              </div>
-              <div className="animate-on-scroll animate-delay-200 group">
-                <div className="bg-gray-50 rounded-2xl p-6 hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2">
+            {/* Kiosk Images Grid - 2 Column Premium Layout */}
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+              <div className="animate-on-scroll animate-delay-100 group relative">
+                <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-2xl -z-10 group-hover:bg-primary/20 transition-colors duration-500" />
+                <div className="bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-3">
                   <img 
                     src="/lovable-uploads/kiosk-2.webp" 
-                    alt="Swirl Kiosk Interface" 
+                    alt="Swirl Self-Ordering Kiosk Interface" 
                     className="w-full h-auto rounded-xl group-hover:scale-[1.02] transition-transform duration-500"
                   />
+                  <div className="mt-4 text-center">
+                    <p className="font-semibold text-gray-900">Intuitive Touch Interface</p>
+                    <p className="text-sm text-gray-500">Easy browsing & ordering</p>
+                  </div>
+                </div>
+                <div className="absolute -top-3 -right-3 px-3 py-1.5 bg-primary text-white text-xs font-bold rounded-full shadow-lg">
+                  Touchscreen
                 </div>
               </div>
-              <div className="animate-on-scroll animate-delay-300 group">
-                <div className="bg-gray-50 rounded-2xl p-6 hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2">
+              <div className="animate-on-scroll animate-delay-200 group relative">
+                <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-2xl -z-10 group-hover:bg-primary/20 transition-colors duration-500" />
+                <div className="bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-3">
                   <img 
                     src="/lovable-uploads/kiosk-3.webp" 
-                    alt="Swirl Kiosk Design" 
+                    alt="Swirl Kiosk Premium Design" 
                     className="w-full h-auto rounded-xl group-hover:scale-[1.02] transition-transform duration-500"
                   />
+                  <div className="mt-4 text-center">
+                    <p className="font-semibold text-gray-900">Premium Build Quality</p>
+                    <p className="text-sm text-gray-500">Built for high-traffic locations</p>
+                  </div>
+                </div>
+                <div className="absolute -top-3 -right-3 px-3 py-1.5 bg-green-500 text-white text-xs font-bold rounded-full shadow-lg">
+                  Easy Setup
                 </div>
               </div>
             </div>
