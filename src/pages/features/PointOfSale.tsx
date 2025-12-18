@@ -6,17 +6,16 @@ import POSTabs from '@/components/features/pos/POSTabs';
 import POSBenefits from '@/components/features/pos/POSBenefits';
 import POSCallToAction from '@/components/features/pos/POSCallToAction';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { Smartphone, Zap, Percent, ArrowLeftRight, LayoutGrid, TrendingUp, FileText, Users, Layers, CheckCircle, Sparkles, Clock, Shield, Receipt, Truck, QrCode, UtensilsCrossed } from 'lucide-react';
+import { Smartphone, Zap, Percent, ArrowLeftRight, LayoutGrid, TrendingUp, FileText, Users, Layers, CheckCircle, Sparkles, Clock, Shield, Receipt, Truck, QrCode, UtensilsCrossed, Tablet } from 'lucide-react';
 
 const PointOfSale = () => {
   useScrollAnimation();
 
   const captainFeatures = [
-    "Instant order punching from any table",
-    "Real-time sync with kitchen",
-    "Split bills & customize orders",
-    "Works on Android/iOS",
-    "Offline mode support"
+    { icon: Tablet, text: "Punch orders via Android tablet or phone" },
+    { icon: Zap, text: "Real-time sync with kitchen" },
+    { icon: ArrowLeftRight, text: "Split bills & customize orders" },
+    { icon: Clock, text: "Offline mode support" }
   ];
 
   const quickBillingFeatures = [
@@ -91,34 +90,85 @@ const PointOfSale = () => {
             <POSHero />
             <POSTabs />
 
-            {/* Captain Ordering App Section */}
-            <section className="py-16 mb-8">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="animate-on-scroll">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
-                    <Smartphone className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-semibold text-primary">Captain Ordering App</span>
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    Tableside Ordering Made Simple
-                  </h2>
-                  <p className="text-lg text-gray-600 mb-6">
-                    Empower your staff to take orders directly at the table with our mobile captain app. Orders sync instantly with the kitchen.
-                  </p>
-                  <ul className="space-y-3">
-                    {captainFeatures.map((feature, index) => (
-                      <li key={index} className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+            {/* Captain Ordering App Section - HUGE & AMAZING */}
+            <section className="py-20 mb-8 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 rounded-3xl -z-10" />
+              <div className="absolute top-10 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10" />
+              <div className="absolute bottom-10 left-10 w-48 h-48 bg-primary/5 rounded-full blur-3xl -z-10" />
+
+              <div className="text-center mb-12">
+                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 border border-primary/20 shadow-lg">
+                  <Smartphone className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-semibold text-primary">Captain Ordering App</span>
+                  <span className="px-2 py-0.5 bg-orange-500 text-white text-xs font-bold rounded-full">Android Only</span>
                 </div>
-                <div className="animate-on-scroll animate-delay-200 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 flex items-center justify-center">
-                  <div className="text-center">
-                    <Smartphone className="w-24 h-24 text-primary mx-auto mb-4" />
-                    <p className="text-lg font-semibold text-gray-900">Mobile Captain App</p>
-                    <p className="text-gray-600">Works on any smartphone</p>
+                <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                  Tableside Ordering<br />
+                  <span className="text-primary">Made Simple</span>
+                </h2>
+                <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+                  Empower your staff to take orders directly at the table using any Android tablet or smartphone. Orders sync instantly with the kitchen.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                {/* Visual - Large Phone/Tablet Mockup */}
+                <div className="animate-on-scroll animate-delay-300 relative order-2 md:order-1">
+                  <div className="relative max-w-md mx-auto">
+                    {/* Phone Frame */}
+                    <div className="bg-gray-900 rounded-[3rem] p-3 shadow-2xl">
+                      <div className="bg-white rounded-[2.5rem] overflow-hidden aspect-[9/16] flex items-center justify-center">
+                        <div className="text-center p-8">
+                          <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-xl">
+                            <Smartphone className="w-10 h-10 text-white" />
+                          </div>
+                          <h4 className="text-xl font-bold text-gray-900 mb-2">Captain App</h4>
+                          <p className="text-gray-500 text-sm mb-4">Take orders instantly</p>
+                          <div className="space-y-2">
+                            <div className="h-10 bg-gray-100 rounded-lg flex items-center px-4 text-sm text-gray-600">
+                              Table 5 - 4 guests
+                            </div>
+                            <div className="h-10 bg-primary/10 rounded-lg flex items-center px-4 text-sm text-primary font-medium">
+                              + Add Item
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Floating Order Cards */}
+                    <div className="absolute -top-4 -right-8 bg-white rounded-xl shadow-xl p-4 border border-gray-100 animate-bounce">
+                      <p className="text-sm font-bold text-gray-900">Order #142</p>
+                      <p className="text-xs text-green-500">Sent to Kitchen ✓</p>
+                    </div>
+                    <div className="absolute -bottom-4 -left-8 bg-white rounded-xl shadow-xl p-4 border border-gray-100">
+                      <p className="text-sm font-bold text-gray-900">Table 8</p>
+                      <p className="text-xs text-primary">Bill Ready</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Features List */}
+                <div className="animate-on-scroll order-1 md:order-2 space-y-4">
+                  {captainFeatures.map((feature, index) => (
+                    <div 
+                      key={index}
+                      className="group flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                    >
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
+                        <feature.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="pt-2">
+                        <span className="text-gray-900 font-medium">{feature.text}</span>
+                      </div>
+                    </div>
+                  ))}
+
+                  {/* Android Badge */}
+                  <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mt-6">
+                    <p className="text-orange-700 text-sm">
+                      <strong>Note:</strong> Captain App works on Android tablets and smartphones only. iOS is not supported.
+                    </p>
                   </div>
                 </div>
               </div>
