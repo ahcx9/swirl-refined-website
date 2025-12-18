@@ -1,175 +1,384 @@
-
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import { LayoutDashboard, PieChart, LineChart, FilePlus2, Calculator } from 'lucide-react';
+import { 
+  LayoutDashboard, PieChart, LineChart, FilePlus2, Calculator, 
+  DollarSign, TrendingUp, CreditCard, Wallet, Receipt, 
+  ArrowRight, Sparkles, Clock, Printer, History, FileText,
+  CheckCircle, BarChart3, Percent, Calendar
+} from 'lucide-react';
 import CustomCTAButton from '@/components/CustomCTAButton';
-import { Link } from 'react-router-dom';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const FinancialReports = () => {
-  const benefits = [{
-    title: "Comprehensive P&L Statements",
-    description: "Generate detailed profit and loss statements with customizable date ranges and categories.",
-    icon: FilePlus2
-  }, {
-    title: "Advanced Cost Analysis",
-    description: "Track and analyze all your costs including food costs, labor, and overhead expenses.",
-    icon: Calculator
-  }, {
-    title: "Revenue Trends",
-    description: "Visualize your sales data over time to identify patterns, seasonality, and growth opportunities.",
-    icon: LineChart
-  }, {
-    title: "Financial Forecasting",
-    description: "Use AI-powered predictions to forecast future revenue and plan accordingly.",
-    icon: PieChart
-  }];
-  
-  return <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-grow pt-28 pb-16 bg-white">
-        <div className="container-custom">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col gap-16 mb-20">
-              <div className="w-full text-center">
-                <div className="flex items-center justify-center gap-4 mb-8 py-[30px]">
-                  <div className="p-3 rounded-full bg-white border border-gray-200">
-                    <LayoutDashboard className="text-gray-700 h-6 w-6" />
-                  </div>
-                  <h1 className="text-3xl md:text-4xl font-bold text-black">Financial Reports</h1>
-                </div>
-                
-                <p className="text-lg text-swirl-gray mb-10 leading-relaxed max-w-3xl mx-auto">
-                  Gain complete visibility into your restaurant's financial health. Our comprehensive reporting tools help you track performance, control costs, and make data-driven decisions to increase profitability.
-                </p>
+  useScrollAnimation();
 
-                <div className="flex gap-4 justify-center">
-                  <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-100">
-                    get started for free
-                  </CustomCTAButton>
+  const dashboardMetrics = [
+    { icon: DollarSign, label: "Total Revenue", value: "$124,580", change: "+12.5%", positive: true },
+    { icon: Receipt, label: "Avg Order Value", value: "$28.40", change: "+8.2%", positive: true },
+    { icon: Percent, label: "Total Discounts", value: "$3,240", change: "-15%", positive: true },
+    { icon: TrendingUp, label: "Net Profit", value: "$42,150", change: "+18.7%", positive: true }
+  ];
+
+  const paymentMethods = [
+    { name: "Card Payments", percentage: 45, icon: CreditCard, color: "bg-primary" },
+    { name: "Cash", percentage: 25, icon: DollarSign, color: "bg-green-500" },
+    { name: "UPI / Wallets", percentage: 20, icon: Wallet, color: "bg-purple-500" },
+    { name: "Online Orders", percentage: 10, icon: Receipt, color: "bg-orange-500" }
+  ];
+
+  const keyFeatures = [
+    { icon: LineChart, title: "Daily Sales Reports", description: "Track revenue by hour, day, or week" },
+    { icon: Calculator, title: "P&L Statements", description: "Complete profit & loss breakdown" },
+    { icon: PieChart, title: "Cost Analysis", description: "Food, labor & overhead tracking" },
+    { icon: TrendingUp, title: "Revenue Forecasting", description: "AI-powered predictions" },
+    { icon: FilePlus2, title: "Tax Compliance", description: "Ready for accounting & audits" },
+    { icon: BarChart3, title: "Data Export", description: "Export to Excel, CSV, PDF" }
+  ];
+
+  const shiftReportFeatures = [
+    { icon: Printer, text: "Print complete sales data at shift end" },
+    { icon: History, text: "View all past shift reports anytime" },
+    { icon: PieChart, text: "Sales breakdown by category" },
+    { icon: DollarSign, text: "Cash drawer reconciliation" },
+    { icon: TrendingUp, text: "Staff performance per shift" }
+  ];
+
+  const specializedReports = [
+    {
+      title: "Daily Sales Reports",
+      description: "Track daily revenue with detailed breakdowns",
+      items: ["Hourly sales tracking", "Payment method analysis", "Server performance metrics"]
+    },
+    {
+      title: "Food & Labor Cost",
+      description: "Monitor your biggest expenses",
+      items: ["COGS percentage tracking", "Labor cost ratios", "Item profitability analysis"]
+    },
+    {
+      title: "Tax & Compliance",
+      description: "Simplify tax preparation",
+      items: ["Sales tax reporting", "Payroll tax calculations", "Year-end reporting"]
+    }
+  ];
+
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
+      <Navbar />
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="relative pt-32 pb-20 bg-white overflow-hidden">
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
+          </div>
+
+          <div className="container-custom">
+            <div className="max-w-6xl mx-auto text-center">
+              <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
+                <LayoutDashboard className="w-5 h-5 text-primary" />
+                <span className="text-sm font-semibold text-primary">Financial Reports</span>
+              </div>
+              
+              <h1 className="animate-on-scroll animate-delay-100 text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                Know Your Numbers.<br />
+                <span className="text-primary">Grow Your Business.</span>
+              </h1>
+              
+              <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Complete visibility into your restaurant's financial health. Track performance, control costs, and make data-driven decisions.
+              </p>
+              
+              <div className="animate-on-scroll animate-delay-300">
+                <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                  get started for free
+                </CustomCTAButton>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Dashboard Metrics Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="container-custom">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                {dashboardMetrics.map((metric, index) => (
+                  <div 
+                    key={index}
+                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <metric.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <span className={`text-sm font-bold px-2 py-1 rounded-full ${metric.positive ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'}`}>
+                        {metric.change}
+                      </span>
+                    </div>
+                    <p className="text-sm text-gray-500 mb-1">{metric.label}</p>
+                    <p className="text-2xl md:text-3xl font-bold text-gray-900">{metric.value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Payment Method Breakdown */}
+        <section className="py-20 bg-white">
+          <div className="container-custom">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="animate-on-scroll">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
+                    <PieChart className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-semibold text-primary">Payment Analytics</span>
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Payment Method Breakdown
+                  </h2>
+                  <p className="text-lg text-gray-600 mb-8">
+                    Understand how your customers pay. Optimize payment options based on real data.
+                  </p>
+                  
+                  <div className="space-y-4">
+                    {paymentMethods.map((method, index) => (
+                      <div key={index} className="group">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-3">
+                            <div className={`w-10 h-10 rounded-lg ${method.color} flex items-center justify-center`}>
+                              <method.icon className="w-5 h-5 text-white" />
+                            </div>
+                            <span className="font-medium text-gray-900">{method.name}</span>
+                          </div>
+                          <span className="font-bold text-gray-900">{method.percentage}%</span>
+                        </div>
+                        <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                          <div 
+                            className={`h-full ${method.color} rounded-full transition-all duration-1000`}
+                            style={{ width: `${method.percentage}%` }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="animate-on-scroll animate-delay-200">
+                  <img 
+                    src="/lovable-uploads/financial-analytics-dashboard.jpg" 
+                    alt="Financial Analytics Dashboard" 
+                    className="rounded-2xl shadow-2xl w-full h-auto hover:scale-[1.02] transition-transform duration-500"
+                  />
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
 
-              <div className="w-full py-0 my-0 mx-0 px-0">
-                <div className="bg-white rounded-xl p-4 max-w-4xl mx-auto">
-                  <div className="overflow-hidden rounded-lg">
-                    <img 
-                      alt="Financial Analytics Dashboard with comprehensive reporting" 
-                      src="/lovable-uploads/financial-analytics-dashboard.jpg"
-                      className="w-full h-auto rounded-lg shadow-md transform scale-100 transition-transform duration-700 hover:scale-105"
-                      loading="eager"
-                      fetchPriority="high"
-                      decoding="async"
-                      style={{
-                        maxWidth: "100%",
-                        height: "auto",
-                        objectFit: "cover"
-                      }}
-                    />
+        {/* Key Features Grid */}
+        <section className="py-20 bg-gray-50">
+          <div className="container-custom">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
+                  <Sparkles className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-semibold text-primary">Key Features</span>
+                </div>
+                <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  Everything You Need to Track Finances
+                </h2>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {keyFeatures.map((feature, index) => (
+                  <div 
+                    key={index}
+                    className={`animate-on-scroll animate-delay-${(index % 3 + 1) * 100} group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}
+                  >
+                    <div className="w-14 h-14 mb-5 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
+                      <feature.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Shift Reports Section - GRAND */}
+        <section className="py-20 bg-white relative overflow-hidden">
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-3xl" />
+          </div>
+
+          <div className="container-custom">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                {/* Content */}
+                <div className="animate-on-scroll">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-primary/5 rounded-full mb-6 border border-primary/20">
+                    <Clock className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-semibold text-primary">Shift Reports</span>
+                    <span className="px-2 py-0.5 bg-primary text-white text-xs font-bold rounded-full">ESSENTIAL</span>
+                  </div>
+                  
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    End-of-Shift Reports<br />
+                    <span className="text-primary">Made Easy</span>
+                  </h2>
+                  
+                  <p className="text-lg text-gray-600 mb-8">
+                    Complete sales summary at the end of every shift. Print instantly or view anytime from your dashboard.
+                  </p>
+
+                  <div className="space-y-4">
+                    {shiftReportFeatures.map((feature, index) => (
+                      <div 
+                        key={index}
+                        className="group flex items-start gap-4 p-4 bg-gray-50 rounded-xl hover:bg-primary/5 transition-colors duration-300"
+                      >
+                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                          <feature.icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <span className="text-gray-700 font-medium pt-2">{feature.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Visual */}
+                <div className="animate-on-scroll animate-delay-200 relative">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 relative">
+                    {/* Header */}
+                    <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
+                      <div>
+                        <h4 className="font-bold text-gray-900">Shift Report</h4>
+                        <p className="text-sm text-gray-500">Dec 18, 2025 • Evening Shift</p>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <button className="p-2 bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors">
+                          <Printer className="w-4 h-4 text-primary" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Stats */}
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                      <div className="bg-gray-50 rounded-xl p-4">
+                        <p className="text-sm text-gray-500">Total Sales</p>
+                        <p className="text-2xl font-bold text-gray-900">$4,280</p>
+                      </div>
+                      <div className="bg-gray-50 rounded-xl p-4">
+                        <p className="text-sm text-gray-500">Orders</p>
+                        <p className="text-2xl font-bold text-gray-900">156</p>
+                      </div>
+                      <div className="bg-gray-50 rounded-xl p-4">
+                        <p className="text-sm text-gray-500">Avg Order</p>
+                        <p className="text-2xl font-bold text-gray-900">$27.44</p>
+                      </div>
+                      <div className="bg-gray-50 rounded-xl p-4">
+                        <p className="text-sm text-gray-500">Cash Collected</p>
+                        <p className="text-2xl font-bold text-gray-900">$1,070</p>
+                      </div>
+                    </div>
+
+                    {/* Categories */}
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-600">Dine In</span>
+                        <span className="font-bold">$2,140</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-600">Takeaway</span>
+                        <span className="font-bold">$856</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-600">Delivery</span>
+                        <span className="font-bold">$1,284</span>
+                      </div>
+                    </div>
+
+                    {/* Badge */}
+                    <div className="absolute -top-4 -right-4 px-4 py-2 bg-primary text-white text-sm font-bold rounded-full shadow-lg">
+                      One-Click Print
+                    </div>
+                  </div>
+
+                  {/* Floating badge */}
+                  <div className="absolute -bottom-4 -left-4 bg-green-500 text-white px-4 py-2 rounded-full shadow-lg text-sm font-bold flex items-center gap-2">
+                    <History className="w-4 h-4" />
+                    View Past Reports
                   </div>
                 </div>
               </div>
             </div>
-
-            <section className="mb-20">
-              <h2 className="text-3xl font-bold mb-12 text-center text-black">Key Financial Reporting Features</h2>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                {benefits.map(benefit => <div key={benefit.title} className="bg-white rounded-xl p-8 shadow-md flex gap-6 items-start hover:shadow-lg transition-shadow">
-                    <div className="p-3 rounded-full bg-white border border-gray-200">
-                      <benefit.icon className="text-gray-700 h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
-                      <p className="text-swirl-gray">{benefit.description}</p>
-                    </div>
-                  </div>)}
-              </div>
-            </section>
-
-            <section className="mb-20 bg-white p-8 md:p-12 rounded-2xl">
-              <h2 className="text-3xl font-bold mb-8 text-center">Specialized Financial Reports</h2>
-              
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="bg-white border border-gray-200 p-6 rounded-xl">
-                  <h3 className="text-xl font-semibold mb-4 text-gray-800">Daily Sales Reports</h3>
-                  <p className="text-gray-700 mb-4">
-                    Track daily revenue with detailed breakdowns by category, payment method, and time period.
-                  </p>
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                      <span>Hourly sales tracking</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                      <span>Payment method analysis</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                      <span>Server performance metrics</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div className="bg-white border border-gray-200 p-6 rounded-xl">
-                  <h3 className="text-xl font-semibold mb-4 text-gray-800">Food & Labor Cost Reports</h3>
-                  <p className="text-gray-700 mb-4">
-                    Monitor your two biggest expenses with detailed cost tracking and percentage calculations.
-                  </p>
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                      <span>COGS percentage tracking</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                      <span>Labor cost ratios</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                      <span>Item profitability analysis</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div className="bg-white border border-gray-200 p-6 rounded-xl">
-                  <h3 className="text-xl font-semibold mb-4 text-gray-800">Tax & Compliance Reports</h3>
-                  <p className="text-gray-700 mb-4">
-                    Simplify tax preparation with reports designed to meet accounting and regulatory requirements.
-                  </p>
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                      <span>Sales tax reporting</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                      <span>Payroll tax calculations</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                      <span>Year-end reporting</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-6">Transform Your Financial Management</h2>
-              <p className="text-lg text-swirl-gray mb-8 max-w-3xl mx-auto">
-                Join successful restaurant owners who have improved their profit margins by gaining full visibility into their financial performance with Swirl's comprehensive reporting tools.
-              </p>
-              <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                get started for free
-              </CustomCTAButton>
-            </section>
           </div>
-        </div>
+        </section>
+
+        {/* Specialized Reports */}
+        <section className="py-20 bg-gray-50">
+          <div className="container-custom">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  Specialized Financial Reports
+                </h2>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-6">
+                {specializedReports.map((report, index) => (
+                  <div 
+                    key={index}
+                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300`}
+                  >
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{report.title}</h3>
+                    <p className="text-gray-600 mb-6">{report.description}</p>
+                    <ul className="space-y-3">
+                      {report.items.map((item, i) => (
+                        <li key={i} className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                          <span className="text-gray-700">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA */}
+        <section className="py-20 bg-gradient-to-br from-primary to-primary/90">
+          <div className="container-custom">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-white mb-4">
+                Transform Your Financial Management
+              </h2>
+              <p className="animate-on-scroll animate-delay-100 text-lg text-white/80 mb-8">
+                Join successful restaurant owners who have improved profit margins with complete financial visibility.
+              </p>
+              <div className="animate-on-scroll animate-delay-200">
+                <a 
+                  href="https://app.swirl.cx/register"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                >
+                  get started for free
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
 
 export default FinancialReports;

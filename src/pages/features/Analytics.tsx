@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import { BarChart, PieChart, LineChart, TrendingUp, Database, ArrowRight, Sparkles, Users, Clock, DollarSign, CheckCircle } from 'lucide-react';
+import { BarChart, PieChart, LineChart, TrendingUp, Database, ArrowRight, Sparkles, Users, Clock, DollarSign, CheckCircle, QrCode, UserPlus, RefreshCw, Smartphone, Eye } from 'lucide-react';
 import CustomCTAButton from '@/components/CustomCTAButton';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -21,6 +21,18 @@ const Analytics = () => {
     { title: "Performance Trends", description: "Identify growth opportunities with trend analysis", icon: TrendingUp },
     { title: "Data Export", description: "Export data in multiple formats for external use", icon: Database },
     { title: "Menu Analytics", description: "Track which items perform best and optimize pricing", icon: PieChart }
+  ];
+
+  const visitorStats = [
+    { icon: QrCode, value: "12,450", label: "Total QR Scans", change: "+24% this month" },
+    { icon: RefreshCw, value: "68%", label: "Repeat Visitors", change: "Loyal customers" },
+    { icon: UserPlus, value: "32%", label: "New Visitors", change: "Growing audience" }
+  ];
+
+  const visitorInsights = [
+    { icon: Clock, text: "Peak scanning hours: 12-2pm & 7-9pm" },
+    { icon: Smartphone, text: "Device breakdown: 85% Mobile, 15% Tablet" },
+    { icon: Eye, text: "Avg menu view time: 4.2 minutes" }
   ];
 
   const analyticsCategories = [
@@ -67,37 +79,64 @@ const Analytics = () => {
 
           <div className="container-custom">
             <div className="max-w-6xl mx-auto">
-              {/* Badge */}
-              <div className="animate-on-scroll flex justify-center mb-8">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
-                  <BarChart className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Restaurant Analytics</span>
-                </div>
-              </div>
+              <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+                {/* Text Content */}
+                <div>
+                  <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
+                    <BarChart className="w-5 h-5 text-primary" />
+                    <span className="text-sm font-semibold text-primary">Restaurant Analytics</span>
+                  </div>
 
-              <div className="text-center mb-12">
-                <h1 className="animate-on-scroll animate-delay-100 text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                  Data That Drives<br />
-                  <span className="text-primary">Decisions</span>
-                </h1>
-                <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                  Transform raw data into actionable insights. Understand your business, optimize operations, and make informed decisions.
-                </p>
-                <div className="animate-on-scroll animate-delay-300">
-                  <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                    get started for free
-                  </CustomCTAButton>
+                  <h1 className="animate-on-scroll animate-delay-100 text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                    Data That Drives<br />
+                    <span className="text-primary">Decisions</span>
+                  </h1>
+                  
+                  <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 mb-8">
+                    Transform raw data into actionable insights. Understand your business, optimize operations, and make informed decisions.
+                  </p>
+                  
+                  <div className="animate-on-scroll animate-delay-300">
+                    <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                      get started for free
+                    </CustomCTAButton>
+                  </div>
                 </div>
-              </div>
 
-              {/* Dashboard Preview */}
-              <div className="animate-on-scroll animate-delay-400 max-w-4xl mx-auto">
-                <img 
-                  src="/lovable-uploads/35e9fd73-7370-41cc-89e5-6259df112af0.png" 
-                  alt="Analytics Dashboard" 
-                  className="w-full h-auto hover:scale-[1.02] transition-transform duration-500"
-                  loading="eager"
-                />
+                {/* Dashboard Preview with Quirky Design */}
+                <div className="animate-on-scroll animate-delay-400 relative">
+                  {/* Floating data points */}
+                  <div className="absolute -top-4 -left-4 px-3 py-2 bg-green-500 text-white text-sm font-bold rounded-full shadow-lg animate-bounce z-10">
+                    +25%
+                  </div>
+                  <div className="absolute top-1/4 -right-4 px-3 py-2 bg-primary text-white text-sm font-bold rounded-full shadow-lg z-10">
+                    Live
+                  </div>
+                  <div className="absolute -bottom-4 left-1/4 px-3 py-2 bg-orange-500 text-white text-sm font-bold rounded-full shadow-lg z-10">
+                    Peak Hour
+                  </div>
+
+                  {/* Decorative chart lines */}
+                  <div className="absolute -z-10 top-0 left-0 w-full h-full">
+                    <svg className="w-full h-full opacity-20" viewBox="0 0 400 300">
+                      <path d="M0,150 Q100,100 200,140 T400,100" stroke="#0052CC" strokeWidth="2" fill="none" strokeDasharray="5,5" />
+                      <path d="M0,200 Q100,180 200,220 T400,180" stroke="#0052CC" strokeWidth="2" fill="none" strokeDasharray="5,5" />
+                    </svg>
+                  </div>
+
+                  {/* Blue glow effect */}
+                  <div className="absolute inset-0 bg-primary/10 rounded-2xl blur-xl -z-10 scale-110" />
+
+                  {/* Main image */}
+                  <div className="relative bg-white rounded-2xl shadow-2xl shadow-primary/20 overflow-hidden border border-primary/10">
+                    <img 
+                      src="/lovable-uploads/35e9fd73-7370-41cc-89e5-6259df112af0.png" 
+                      alt="Analytics Dashboard" 
+                      className="w-full h-auto hover:scale-[1.02] transition-transform duration-500"
+                      loading="eager"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -123,8 +162,66 @@ const Analytics = () => {
           </div>
         </section>
 
+        {/* Visitor Analytics Section - NEW */}
+        <section className="py-20 bg-white relative overflow-hidden">
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+          </div>
+
+          <div className="container-custom">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-primary/5 rounded-full mb-6 border border-primary/20">
+                  <QrCode className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-semibold text-primary">Visitor Analytics</span>
+                  <span className="px-2 py-0.5 bg-primary text-white text-xs font-bold rounded-full">NEW</span>
+                </div>
+                <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                  See Who's Scanning<br />
+                  <span className="text-primary">Your QR Codes</span>
+                </h2>
+                <p className="animate-on-scroll animate-delay-200 text-lg text-gray-600 max-w-2xl mx-auto">
+                  Track every interaction and understand your audience with detailed visitor analytics.
+                </p>
+              </div>
+
+              {/* Visitor Stats Cards */}
+              <div className="grid md:grid-cols-3 gap-6 mb-12">
+                {visitorStats.map((stat, index) => (
+                  <div 
+                    key={index}
+                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 text-center`}
+                  >
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
+                      <stat.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">{stat.value}</div>
+                    <p className="text-lg font-semibold text-gray-700 mb-1">{stat.label}</p>
+                    <p className="text-sm text-primary">{stat.change}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Additional Insights */}
+              <div className="grid md:grid-cols-3 gap-4">
+                {visitorInsights.map((insight, index) => (
+                  <div 
+                    key={index}
+                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} flex items-center gap-4 p-5 bg-gray-50 rounded-xl hover:bg-primary/5 transition-colors duration-300`}
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <insight.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <span className="text-gray-700 font-medium">{insight.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Features Grid */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gray-50">
           <div className="container-custom">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
@@ -156,7 +253,7 @@ const Analytics = () => {
         </section>
 
         {/* Data-Driven Decisions */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-white">
           <div className="container-custom">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
@@ -169,7 +266,7 @@ const Analytics = () => {
                 {decisions.map((decision, index) => (
                   <div 
                     key={index}
-                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-300`}
+                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-300`}
                   >
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{decision.title}</h3>
                     <p className="text-gray-600 mb-6">{decision.description}</p>
@@ -189,7 +286,7 @@ const Analytics = () => {
         </section>
 
         {/* Analytics Categories */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-gray-50">
           <div className="container-custom">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">

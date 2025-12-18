@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import CustomCTAButton from '@/components/CustomCTAButton';
-import { Car, MapPin, Clock, CreditCard, Bell, Smartphone, CheckCircle, ArrowRight, Sparkles, TrendingUp, Users, Shield } from 'lucide-react';
+import { Car, MapPin, Clock, CreditCard, Bell, Smartphone, CheckCircle, ArrowRight, Sparkles, TrendingUp, Users, Shield, QrCode } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const InCarOrdering = () => {
@@ -71,14 +71,47 @@ const InCarOrdering = () => {
                   </div>
                 </div>
                 
-                <div className="animate-on-scroll animate-delay-400">
-                  <div className="rounded-2xl overflow-hidden shadow-2xl">
+                {/* Hero Image - Food Truck with QR */}
+                <div className="animate-on-scroll animate-delay-400 relative">
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                     <img 
-                      alt="In-Car Ordering Service" 
+                      alt="Food Truck with In-Car QR Ordering" 
                       className="w-full h-auto"
-                      src="/lovable-uploads/535c3886-674a-48f2-a7e7-99cbc2c15dbc.png" 
+                      src="/lovable-uploads/food-truck.jpg" 
                       loading="eager"
                     />
+                    
+                    {/* Overlay elements to make it more compelling */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                    
+                    {/* QR Code Stand Visual */}
+                    <div className="absolute bottom-8 left-8 bg-white rounded-xl p-4 shadow-xl">
+                      <div className="flex items-center gap-3">
+                        <div className="w-16 h-16 bg-gray-900 rounded-lg flex items-center justify-center">
+                          <QrCode className="w-10 h-10 text-white" />
+                        </div>
+                        <div>
+                          <p className="font-bold text-gray-900 text-sm">Scan to Order</p>
+                          <p className="text-xs text-gray-500">From your car</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Order Status Badge */}
+                    <div className="absolute top-8 right-8 bg-green-500 text-white px-4 py-2 rounded-full shadow-lg text-sm font-bold flex items-center gap-2">
+                      <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                      Order Ready!
+                    </div>
+
+                    {/* Phone Mockup */}
+                    <div className="absolute bottom-8 right-8 bg-gray-900 rounded-2xl p-2 shadow-xl w-24">
+                      <div className="bg-white rounded-xl h-40 flex items-center justify-center">
+                        <div className="text-center">
+                          <Smartphone className="w-6 h-6 text-primary mx-auto mb-1" />
+                          <p className="text-xs font-bold text-gray-900">Ordering...</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

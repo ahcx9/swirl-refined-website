@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { CreditCard } from 'lucide-react';
+import { CreditCard, Cloud } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import CustomCTAButton from '@/components/CustomCTAButton';
 
@@ -9,36 +8,35 @@ const POSHero = () => {
   
   return (
     <div className="mb-16 relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-blue-100/20 rounded-3xl -z-10"></div>
-      
-      <div className="text-center mb-10 pt-8">
-        <div className="inline-flex items-center gap-4 mb-6 bg-blue-50/80 px-6 py-3 rounded-full">
-          <div className="p-2 rounded-full bg-gradient-to-r from-blue-100 to-blue-200">
-            <CreditCard className="text-blue-600 h-6 w-6" />
-          </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-black">{t('pos.title')}</h1>
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
+          <Cloud className="w-5 h-5 text-primary" />
+          <span className="text-sm font-semibold text-primary">Cloud-Based Point of Sale</span>
         </div>
         
-        <p className="text-lg mb-8 leading-relaxed max-w-3xl mx-auto text-slate-950 text-left">
-          swirl POS is a next-generation, cloud-based restaurant management system designed to simplify and unify operations for restaurants, cafés, and food courts. Built under the swirl.cx platform, it goes beyond billing — combining POS, QR menu ordering, inventory, CRM, analytics, and aggregator integrations in one intelligent system.
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          Simple. Fast.<br />
+          <span className="text-primary">Reliable.</span>
+        </h1>
+        
+        <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          The complete cloud-based POS system designed for modern restaurants. Bill faster, manage smarter, grow bigger.
         </p>
 
-        <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-85">
+        <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
           {t('cta.getStarted')}
         </CustomCTAButton>
       </div>
 
-      <div className="overflow-hidden rounded-xl shadow-2xl max-w-5xl mx-auto transform hover:scale-[1.01] transition-transform duration-500">
-        <div className="bg-gradient-to-br from-blue-50 to-white p-3 rounded-xl">
-          <img 
-            src="/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png" 
-            alt="POS System Interface" 
-            className="w-full h-auto object-cover rounded-lg shadow-inner" 
-            loading="eager" 
-            fetchPriority="high"
-            decoding="async"
-          />
-        </div>
+      <div className="overflow-hidden rounded-2xl shadow-2xl max-w-5xl mx-auto transform hover:scale-[1.01] transition-transform duration-500">
+        <img 
+          src="/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png" 
+          alt="Cloud POS System Interface" 
+          className="w-full h-auto" 
+          loading="eager" 
+          fetchPriority="high"
+          decoding="async"
+        />
       </div>
     </div>
   );
