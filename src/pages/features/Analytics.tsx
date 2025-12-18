@@ -92,14 +92,12 @@ const Analytics = () => {
 
               {/* Dashboard Preview */}
               <div className="animate-on-scroll animate-delay-400 max-w-4xl mx-auto">
-                <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
-                  <img 
-                    src="/lovable-uploads/35e9fd73-7370-41cc-89e5-6259df112af0.png" 
-                    alt="Analytics Dashboard" 
-                    className="w-full h-auto rounded-xl hover:scale-[1.02] transition-transform duration-500"
-                    loading="eager"
-                  />
-                </div>
+                <img 
+                  src="/lovable-uploads/35e9fd73-7370-41cc-89e5-6259df112af0.png" 
+                  alt="Analytics Dashboard" 
+                  className="w-full h-auto hover:scale-[1.02] transition-transform duration-500"
+                  loading="eager"
+                />
               </div>
             </div>
           </div>
