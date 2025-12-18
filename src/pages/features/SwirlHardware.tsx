@@ -168,15 +168,15 @@ const SwirlHardware = () => {
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
               <div className="animate-on-scroll animate-delay-100 group">
                 <img 
-                  src="/lovable-uploads/kiosk-1.webp" 
-                  alt="Swirl Self-Ordering Kiosk" 
+                  src="/lovable-uploads/kiosk-2-2.webp" 
+                  alt="Swirl Self-Ordering Kiosk on Stand" 
                   className="w-full h-auto rounded-xl hover:scale-[1.02] transition-transform duration-500"
                 />
               </div>
               <div className="animate-on-scroll animate-delay-200 group">
                 <img 
                   src="/lovable-uploads/kiosk-3.webp" 
-                  alt="Swirl Kiosk Design" 
+                  alt="Swirl Wall-Mounted Kiosk" 
                   className="w-full h-auto rounded-xl hover:scale-[1.02] transition-transform duration-500"
                 />
               </div>
