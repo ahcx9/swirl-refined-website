@@ -105,7 +105,7 @@ const DigitalMenu = () => {
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                   Upload Your Menu.<br />
-                  <span className="text-primary">Let AI Do the Rest.</span>
+                  Let <span className="text-primary">AI</span> Do the Rest.
                 </h2>
                 <p className="animate-on-scroll animate-delay-200 text-lg text-gray-600 max-w-2xl mx-auto">
                   Transform any menu PDF or image into a fully categorized digital menu in seconds. No manual data entry needed.
