@@ -1,9 +1,9 @@
 import React from "react";
 import { 
-  Monitor, 
+  History, 
   LayoutGrid, 
   WifiOff, 
-  Zap, 
+  Zap,
   Users, 
   Cloud, 
   BarChart3, 
@@ -49,7 +49,7 @@ const POSSoftwareFeatures = () => {
     {
       title: "Order Timeline",
       description: "Track every order from punch to delivery with real-time status updates and timestamps.",
-      icon: Monitor,
+      icon: History,
       delay: 100,
     },
     {
