@@ -9,7 +9,7 @@ const POSHero = () => {
   return (
     <div className="mb-16 relative">
       <div className="text-center mb-12">
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6 mt-8 md:mt-12">
           <Cloud className="w-5 h-5 text-primary" />
           <span className="text-sm font-semibold text-primary">Cloud-Based Point of Sale</span>
         </div>
