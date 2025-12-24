@@ -7,82 +7,50 @@ import POSBenefits from '@/components/features/pos/POSBenefits';
 import POSCallToAction from '@/components/features/pos/POSCallToAction';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Smartphone, Zap, Percent, ArrowLeftRight, LayoutGrid, TrendingUp, FileText, Users, Layers, CheckCircle, Sparkles, Clock, Shield, Receipt, Truck, QrCode, UtensilsCrossed, Tablet, Map, Building, FileCheck, Languages, BadgeCheck, Globe, Apple, StickyNote, Settings2, DollarSign, Copy, GitBranch, Timer, ChefHat, ArrowRight, RefreshCw, Image as ImageIcon, ArrowUpDown } from 'lucide-react';
-
 const PointOfSale = () => {
   useScrollAnimation();
-
-  const captainFeatures = [
-    { icon: Smartphone, text: "Punch orders via any tablet or smartphone" },
-    { icon: Zap, text: "Real-time sync with kitchen" },
-    { icon: ArrowLeftRight, text: "Split bills & customize orders" },
-    { icon: Clock, text: "Offline mode support" }
-  ];
-
-  const quickBillingFeatures = [
-    "One-tap item selection",
-    "Instant bill generation",
-    "Multiple payment modes",
-    "Auto-calculated taxes",
-    "Receipt printing in <2 seconds"
-  ];
-
-  const discountFeatures = [
-    "Happy hour auto-discounts",
-    "Combo & bundle deals",
-    "Staff-level discount limits",
-    "Coupon code support",
-    "Loyalty point redemption"
-  ];
-
-  const tableFeatures = [
-    "Drag-and-drop table transfer",
-    "Split & merge tables",
-    "Transfer partial items",
-    "Complete order history maintained"
-  ];
-
-  const floorFeatures = [
-    "Custom floor plans",
-    "Real-time table status",
-    "Color-coded occupancy",
-    "Multiple floor support",
-    "Section-based staff assignment"
-  ];
-
-  const aggregatorFeatures = [
-    "Zomato, Swiggy, Talabat integration",
-    "Platform-specific pricing",
-    "Auto-markup management",
-    "Commission tracking",
-    "Consolidated reporting"
-  ];
-
-  const pastOrderFeatures = [
-    "Search by date, bill number, or customer",
-    "Instant bill reprint",
-    "Order modification history",
-    "Export for accounting",
-    "Void/refund tracking"
-  ];
-
-  const userAccessFeatures = [
-    "Admin/Manager/Cashier/Waiter roles",
-    "Custom permission sets",
-    "Activity logging",
-    "Sales per staff tracking",
-    "Login audit trail"
-  ];
-
-  const billingTabs = [
-    { icon: UtensilsCrossed, title: "Dine In", description: "In-house orders" },
-    { icon: Receipt, title: "Takeaway", description: "Counter pickups" },
-    { icon: Truck, title: "Delivery", description: "Own delivery" },
-    { icon: Layers, title: "Aggregators", description: "Zomato/Swiggy/etc" },
-    { icon: QrCode, title: "QR Orders", description: "Digital ordering" }
-  ];
-
-  return (
-    <div className="min-h-screen flex flex-col bg-white">
+  const captainFeatures = [{
+    icon: Smartphone,
+    text: "Punch orders via any tablet or smartphone"
+  }, {
+    icon: Zap,
+    text: "Real-time sync with kitchen"
+  }, {
+    icon: ArrowLeftRight,
+    text: "Split bills & customize orders"
+  }, {
+    icon: Clock,
+    text: "Offline mode support"
+  }];
+  const quickBillingFeatures = ["One-tap item selection", "Instant bill generation", "Multiple payment modes", "Auto-calculated taxes", "Receipt printing in <2 seconds"];
+  const discountFeatures = ["Happy hour auto-discounts", "Combo & bundle deals", "Staff-level discount limits", "Coupon code support", "Loyalty point redemption"];
+  const tableFeatures = ["Drag-and-drop table transfer", "Split & merge tables", "Transfer partial items", "Complete order history maintained"];
+  const floorFeatures = ["Custom floor plans", "Real-time table status", "Color-coded occupancy", "Multiple floor support", "Section-based staff assignment"];
+  const aggregatorFeatures = ["Zomato, Swiggy, Talabat integration", "Platform-specific pricing", "Auto-markup management", "Commission tracking", "Consolidated reporting"];
+  const pastOrderFeatures = ["Search by date, bill number, or customer", "Instant bill reprint", "Order modification history", "Export for accounting", "Void/refund tracking"];
+  const userAccessFeatures = ["Admin/Manager/Cashier/Waiter roles", "Custom permission sets", "Activity logging", "Sales per staff tracking", "Login audit trail"];
+  const billingTabs = [{
+    icon: UtensilsCrossed,
+    title: "Dine In",
+    description: "In-house orders"
+  }, {
+    icon: Receipt,
+    title: "Takeaway",
+    description: "Counter pickups"
+  }, {
+    icon: Truck,
+    title: "Delivery",
+    description: "Own delivery"
+  }, {
+    icon: Layers,
+    title: "Aggregators",
+    description: "Zomato/Swiggy/etc"
+  }, {
+    icon: QrCode,
+    title: "QR Orders",
+    description: "Digital ordering"
+  }];
+  return <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <main className="flex-grow pt-28 pb-20">
         <div className="container-custom">
@@ -150,19 +118,14 @@ const PointOfSale = () => {
 
                 {/* Features List */}
                 <div className="animate-on-scroll order-1 md:order-2 space-y-4">
-                  {captainFeatures.map((feature, index) => (
-                    <div 
-                      key={index}
-                      className="group flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                    >
+                  {captainFeatures.map((feature, index) => <div key={index} className="group flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
                         <feature.icon className="w-6 h-6 text-white" />
                       </div>
                       <div className="pt-2">
                         <span className="text-gray-900 font-medium">{feature.text}</span>
                       </div>
-                    </div>
-                  ))}
+                    </div>)}
 
                   {/* Platform Badge */}
                   <div className="bg-gradient-to-r from-primary/10 to-green-100 border border-primary/20 rounded-xl p-4 mt-6">
@@ -197,12 +160,10 @@ const PointOfSale = () => {
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Lightning Fast Billing</h3>
                   <p className="text-gray-600 mb-6">The fastest billing in the industry. Process transactions in seconds.</p>
                   <ul className="space-y-2">
-                    {quickBillingFeatures.map((feature, index) => (
-                      <li key={index} className="flex items-center gap-2 text-sm">
+                    {quickBillingFeatures.map((feature, index) => <li key={index} className="flex items-center gap-2 text-sm">
                         <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
                         <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </div>
 
@@ -214,12 +175,10 @@ const PointOfSale = () => {
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Flexible Discount Control</h3>
                   <p className="text-gray-600 mb-6">Complete control over discounts, offers, and promotional pricing.</p>
                   <ul className="space-y-2">
-                    {discountFeatures.map((feature, index) => (
-                      <li key={index} className="flex items-center gap-2 text-sm">
+                    {discountFeatures.map((feature, index) => <li key={index} className="flex items-center gap-2 text-sm">
                         <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
                         <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </div>
               </div>
@@ -241,18 +200,13 @@ const PointOfSale = () => {
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                {billingTabs.map((tab, index) => (
-                  <div 
-                    key={index}
-                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} group bg-white rounded-xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center`}
-                  >
+                {billingTabs.map((tab, index) => <div key={index} className={`animate-on-scroll animate-delay-${(index + 1) * 100} group bg-white rounded-xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center`}>
                     <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                       <tab.icon className="w-6 h-6 text-primary" />
                     </div>
                     <h4 className="font-bold text-gray-900 mb-1">{tab.title}</h4>
                     <p className="text-xs text-gray-500">{tab.description}</p>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </section>
 
@@ -365,19 +319,28 @@ const PointOfSale = () => {
 
               {/* KDS Features */}
               <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mt-12 max-w-4xl mx-auto">
-                {[
-                  { icon: Zap, text: "Real-time sync" },
-                  { icon: Layers, text: "Color-coded status" },
-                  { icon: Timer, text: "Timer alerts" },
-                  { icon: Building, text: "Multi-station" },
-                  { icon: ArrowLeftRight, text: "Recall orders" },
-                  { icon: TrendingUp, text: "Analytics" }
-                ].map((feature, index) => (
-                  <div key={index} className="animate-on-scroll text-center p-4 bg-white rounded-xl border border-gray-100 hover:border-orange-200 hover:shadow-lg transition-all duration-300">
+                {[{
+                icon: Zap,
+                text: "Real-time sync"
+              }, {
+                icon: Layers,
+                text: "Color-coded status"
+              }, {
+                icon: Timer,
+                text: "Timer alerts"
+              }, {
+                icon: Building,
+                text: "Multi-station"
+              }, {
+                icon: ArrowLeftRight,
+                text: "Recall orders"
+              }, {
+                icon: TrendingUp,
+                text: "Analytics"
+              }].map((feature, index) => <div key={index} className="animate-on-scroll text-center p-4 bg-white rounded-xl border border-gray-100 hover:border-orange-200 hover:shadow-lg transition-all duration-300">
                     <feature.icon className="w-6 h-6 text-orange-500 mx-auto mb-2" />
                     <p className="text-sm font-medium text-gray-700">{feature.text}</p>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </section>
 
@@ -397,19 +360,10 @@ const PointOfSale = () => {
                     Add notes, special instructions, and allergy warnings to any order item. Kitchen staff see exactly what they need.
                   </p>
                   <ul className="space-y-3">
-                    {[
-                      "Free-text notes for any item",
-                      "Quick modifier tags (Spicy, No Salt, Rush)",
-                      "Allergy alert warnings",
-                      "Kitchen-visible special instructions",
-                      "Per-item customization",
-                      "Modification history tracking"
-                    ].map((feature, index) => (
-                      <li key={index} className="flex items-center gap-3">
+                    {["Free-text notes for any item", "Quick modifier tags (Spicy, No Salt, Rush)", "Allergy alert warnings", "Kitchen-visible special instructions", "Per-item customization", "Modification history tracking"].map((feature, index) => <li key={index} className="flex items-center gap-3">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                         <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </div>
 
@@ -544,15 +498,25 @@ const PointOfSale = () => {
 
                 {/* Features List */}
                 <div className="animate-on-scroll order-1 md:order-2 space-y-4">
-                  {[
-                    { title: "Unlimited Modifiers", desc: "Create as many modifier groups as needed" },
-                    { title: "Dynamic Pricing", desc: "Each modifier can add/subtract from base price" },
-                    { title: "Required/Optional", desc: "Set mandatory or optional selections" },
-                    { title: "Combo Deals", desc: "Bundle items with special pricing" },
-                    { title: "Nested Modifiers", desc: "Modifiers within modifiers for complex items" },
-                    { title: "Visual Selection", desc: "Image-based modifier selection for staff" }
-                  ].map((feature, index) => (
-                    <div key={index} className="group flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-purple-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  {[{
+                  title: "Unlimited Modifiers",
+                  desc: "Create as many modifier groups as needed"
+                }, {
+                  title: "Dynamic Pricing",
+                  desc: "Each modifier can add/subtract from base price"
+                }, {
+                  title: "Required/Optional",
+                  desc: "Set mandatory or optional selections"
+                }, {
+                  title: "Combo Deals",
+                  desc: "Bundle items with special pricing"
+                }, {
+                  title: "Nested Modifiers",
+                  desc: "Modifiers within modifiers for complex items"
+                }, {
+                  title: "Visual Selection",
+                  desc: "Image-based modifier selection for staff"
+                }].map((feature, index) => <div key={index} className="group flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-purple-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-purple-200">
                         <CheckCircle className="w-6 h-6 text-white" />
                       </div>
@@ -560,8 +524,7 @@ const PointOfSale = () => {
                         <h4 className="font-bold text-gray-900 mb-1">{feature.title}</h4>
                         <p className="text-sm text-gray-600">{feature.desc}</p>
                       </div>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
             </section>
@@ -612,7 +575,10 @@ const PointOfSale = () => {
                     {/* Floor Grid */}
                     <div className="p-8 bg-gradient-to-br from-gray-50 to-white min-h-[400px] relative">
                       {/* Grid Pattern Background */}
-                      <div className="absolute inset-0 opacity-30" style={{backgroundImage: 'radial-gradient(circle, #e5e7eb 1px, transparent 1px)', backgroundSize: '24px 24px'}} />
+                      <div className="absolute inset-0 opacity-30" style={{
+                      backgroundImage: 'radial-gradient(circle, #e5e7eb 1px, transparent 1px)',
+                      backgroundSize: '24px 24px'
+                    }} />
                       
                       {/* Tables Grid */}
                       <div className="relative grid grid-cols-4 md:grid-cols-6 gap-4">
@@ -726,19 +692,10 @@ const PointOfSale = () => {
                   <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
                     <h4 className="font-bold text-gray-900 mb-4">Key Features</h4>
                     <ul className="space-y-3">
-                      {[
-                        "Custom floor plan design",
-                        "Drag-drop table transfer",
-                        "Multi-floor support",
-                        "Section staff assignment",
-                        "Real-time sync across devices",
-                        "Table merge & split"
-                      ].map((feature, index) => (
-                        <li key={index} className="flex items-center gap-2 text-sm">
+                      {["Custom floor plan design", "Drag-drop table transfer", "Multi-floor support", "Section staff assignment", "Real-time sync across devices", "Table merge & split"].map((feature, index) => <li key={index} className="flex items-center gap-2 text-sm">
                           <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
                           <span className="text-gray-700">{feature}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
                   </div>
                 </div>
@@ -750,12 +707,10 @@ const PointOfSale = () => {
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="animate-on-scroll animate-delay-200 order-2 md:order-1 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8">
                   <div className="grid grid-cols-3 gap-4 text-center">
-                    {['Zomato', 'Swiggy', 'Talabat'].map((platform, index) => (
-                      <div key={index} className="bg-white rounded-xl p-4">
+                    {['Zomato', 'Swiggy', 'Talabat'].map((platform, index) => <div key={index} className="bg-white rounded-xl p-4">
                         <p className="font-semibold text-gray-900">{platform}</p>
                         <p className="text-xs text-gray-500">Integrated</p>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
                 <div className="animate-on-scroll order-1 md:order-2">
@@ -770,12 +725,10 @@ const PointOfSale = () => {
                     Manage different pricing for delivery platforms while tracking commissions and profitability.
                   </p>
                   <ul className="space-y-3">
-                    {aggregatorFeatures.map((feature, index) => (
-                      <li key={index} className="flex items-center gap-3">
+                    {aggregatorFeatures.map((feature, index) => <li key={index} className="flex items-center gap-3">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                         <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </div>
               </div>
@@ -846,21 +799,25 @@ const PointOfSale = () => {
                         <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-xl shadow-primary/30 animate-pulse">
                           <Copy className="w-8 h-8 text-white" />
                         </div>
-                        <div className="absolute -inset-2 border-2 border-dashed border-primary/40 rounded-full animate-spin" style={{ animationDuration: '8s' }} />
+                        <div className="absolute -inset-2 border-2 border-dashed border-primary/40 rounded-full animate-spin" style={{
+                        animationDuration: '8s'
+                      }} />
                       </div>
                       <p className="mt-4 text-sm font-bold text-primary">Clone in seconds!</p>
                       <div className="flex items-center gap-1 mt-2">
                         <ArrowRight className="w-4 h-4 text-primary animate-pulse" />
-                        <ArrowRight className="w-4 h-4 text-primary animate-pulse" style={{ animationDelay: '0.2s' }} />
-                        <ArrowRight className="w-4 h-4 text-primary animate-pulse" style={{ animationDelay: '0.4s' }} />
+                        <ArrowRight className="w-4 h-4 text-primary animate-pulse" style={{
+                        animationDelay: '0.2s'
+                      }} />
+                        <ArrowRight className="w-4 h-4 text-primary animate-pulse" style={{
+                        animationDelay: '0.4s'
+                      }} />
                       </div>
                     </div>
 
                     {/* Destination Branch */}
                     <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-6 border-2 border-primary/30 relative overflow-hidden">
-                      <div className="absolute -top-3 left-4 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">
-                        New Branch
-                      </div>
+                      
                       <div className="absolute inset-0 bg-primary/5 animate-pulse" />
                       <div className="relative">
                         <div className="flex items-center gap-3 mb-4">
@@ -898,25 +855,37 @@ const PointOfSale = () => {
 
               {/* Features Grid */}
               <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
-                {[
-                  { icon: Copy, title: "Full Menu Copy", desc: "All items & categories" },
-                  { icon: RefreshCw, title: "Sync or Customize", desc: "Your choice" },
-                  { icon: ImageIcon, title: "Keep All Images", desc: "Auto-transferred" },
-                  { icon: DollarSign, title: "Retain Pricing", desc: "Structure intact" },
-                  { icon: Settings2, title: "All Modifiers", desc: "Sizes & add-ons" },
-                  { icon: ArrowUpDown, title: "Bulk Import", desc: "CSV/Excel support" }
-                ].map((feature, index) => (
-                  <div 
-                    key={index}
-                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} bg-white rounded-xl p-4 text-center border border-gray-100 hover:border-primary/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
-                  >
+                {[{
+                icon: Copy,
+                title: "Full Menu Copy",
+                desc: "All items & categories"
+              }, {
+                icon: RefreshCw,
+                title: "Sync or Customize",
+                desc: "Your choice"
+              }, {
+                icon: ImageIcon,
+                title: "Keep All Images",
+                desc: "Auto-transferred"
+              }, {
+                icon: DollarSign,
+                title: "Retain Pricing",
+                desc: "Structure intact"
+              }, {
+                icon: Settings2,
+                title: "All Modifiers",
+                desc: "Sizes & add-ons"
+              }, {
+                icon: ArrowUpDown,
+                title: "Bulk Import",
+                desc: "CSV/Excel support"
+              }].map((feature, index) => <div key={index} className={`animate-on-scroll animate-delay-${(index + 1) * 100} bg-white rounded-xl p-4 text-center border border-gray-100 hover:border-primary/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}>
                     <div className="w-10 h-10 mx-auto rounded-lg bg-primary/10 flex items-center justify-center mb-3">
                       <feature.icon className="w-5 h-5 text-primary" />
                     </div>
                     <h4 className="font-bold text-gray-900 text-sm mb-1">{feature.title}</h4>
                     <p className="text-xs text-gray-500">{feature.desc}</p>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </section>
 
@@ -931,12 +900,10 @@ const PointOfSale = () => {
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Find Any Bill, Anytime</h3>
                   <p className="text-gray-600 mb-6">Complete order history at your fingertips with powerful search.</p>
                   <ul className="space-y-2">
-                    {pastOrderFeatures.map((feature, index) => (
-                      <li key={index} className="flex items-center gap-2 text-sm">
+                    {pastOrderFeatures.map((feature, index) => <li key={index} className="flex items-center gap-2 text-sm">
                         <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
                         <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </div>
 
@@ -948,12 +915,10 @@ const PointOfSale = () => {
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Role-Based Access Control</h3>
                   <p className="text-gray-600 mb-6">Know which staff is performing how with detailed tracking.</p>
                   <ul className="space-y-2">
-                    {userAccessFeatures.map((feature, index) => (
-                      <li key={index} className="flex items-center gap-2 text-sm">
+                    {userAccessFeatures.map((feature, index) => <li key={index} className="flex items-center gap-2 text-sm">
                         <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
                         <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </div>
               </div>
@@ -1076,7 +1041,10 @@ const PointOfSale = () => {
                       {/* QR Code Section */}
                       <div className="mt-6 pt-4 border-t border-dashed flex items-center gap-4">
                         <div className="w-24 h-24 bg-gray-100 rounded-lg p-2 flex items-center justify-center">
-                          <div className="w-full h-full bg-gray-900 rounded" style={{backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23fff' width='100' height='100'/%3E%3Crect fill='%23000' x='10' y='10' width='20' height='20'/%3E%3Crect fill='%23000' x='40' y='10' width='10' height='10'/%3E%3Crect fill='%23000' x='70' y='10' width='20' height='20'/%3E%3Crect fill='%23000' x='10' y='40' width='10' height='10'/%3E%3Crect fill='%23000' x='30' y='40' width='10' height='10'/%3E%3Crect fill='%23000' x='50' y='40' width='20' height='10'/%3E%3Crect fill='%23000' x='80' y='40' width='10' height='10'/%3E%3Crect fill='%23000' x='10' y='70' width='20' height='20'/%3E%3Crect fill='%23000' x='40' y='60' width='10' height='10'/%3E%3Crect fill='%23000' x='60' y='70' width='10' height='10'/%3E%3Crect fill='%23000' x='80' y='70' width='10' height='20'/%3E%3C/svg%3E")`, backgroundSize: 'cover'}} />
+                          <div className="w-full h-full bg-gray-900 rounded" style={{
+                          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23fff' width='100' height='100'/%3E%3Crect fill='%23000' x='10' y='10' width='20' height='20'/%3E%3Crect fill='%23000' x='40' y='10' width='10' height='10'/%3E%3Crect fill='%23000' x='70' y='10' width='20' height='20'/%3E%3Crect fill='%23000' x='10' y='40' width='10' height='10'/%3E%3Crect fill='%23000' x='30' y='40' width='10' height='10'/%3E%3Crect fill='%23000' x='50' y='40' width='20' height='10'/%3E%3Crect fill='%23000' x='80' y='40' width='10' height='10'/%3E%3Crect fill='%23000' x='10' y='70' width='20' height='20'/%3E%3Crect fill='%23000' x='40' y='60' width='10' height='10'/%3E%3Crect fill='%23000' x='60' y='70' width='10' height='10'/%3E%3Crect fill='%23000' x='80' y='70' width='10' height='20'/%3E%3C/svg%3E")`,
+                          backgroundSize: 'cover'
+                        }} />
                         </div>
                         <div className="flex-1">
                           <p className="text-xs text-gray-500 mb-1">ZATCA Compliant QR</p>
@@ -1094,25 +1062,37 @@ const PointOfSale = () => {
                 {/* Features List */}
                 <div className="animate-on-scroll order-1 lg:order-2 space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {[
-                      { icon: QrCode, title: "Auto QR Generation", desc: "QR codes generated on every invoice" },
-                      { icon: Languages, title: "Arabic + English", desc: "Bilingual invoice support" },
-                      { icon: Percent, title: "VAT Calculation", desc: "Automatic 15% VAT computation" },
-                      { icon: FileCheck, title: "Real-time Reporting", desc: "Instant ZATCA submission" },
-                      { icon: BadgeCheck, title: "Digital Stamp", desc: "Cryptographic validation" },
-                      { icon: Shield, title: "Audit Ready", desc: "Complete compliance logs" }
-                    ].map((feature, index) => (
-                      <div 
-                        key={index}
-                        className="group bg-white rounded-xl p-5 border border-gray-100 hover:border-green-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                      >
+                    {[{
+                    icon: QrCode,
+                    title: "Auto QR Generation",
+                    desc: "QR codes generated on every invoice"
+                  }, {
+                    icon: Languages,
+                    title: "Arabic + English",
+                    desc: "Bilingual invoice support"
+                  }, {
+                    icon: Percent,
+                    title: "VAT Calculation",
+                    desc: "Automatic 15% VAT computation"
+                  }, {
+                    icon: FileCheck,
+                    title: "Real-time Reporting",
+                    desc: "Instant ZATCA submission"
+                  }, {
+                    icon: BadgeCheck,
+                    title: "Digital Stamp",
+                    desc: "Cryptographic validation"
+                  }, {
+                    icon: Shield,
+                    title: "Audit Ready",
+                    desc: "Complete compliance logs"
+                  }].map((feature, index) => <div key={index} className="group bg-white rounded-xl p-5 border border-gray-100 hover:border-green-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                         <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-lg shadow-green-200">
                           <feature.icon className="w-5 h-5 text-white" />
                         </div>
                         <h4 className="font-bold text-gray-900 mb-1">{feature.title}</h4>
                         <p className="text-sm text-gray-500">{feature.desc}</p>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
 
                   {/* Trust Badge */}
@@ -1135,8 +1115,6 @@ const PointOfSale = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default PointOfSale;
