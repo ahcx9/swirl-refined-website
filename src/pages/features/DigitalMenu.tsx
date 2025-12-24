@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import { FileText, Globe, DollarSign, Utensils, Clock, Star, Bot, Smartphone, BarChart, Sparkles, Check, ArrowRight, Palette, Languages, Zap, Upload, Brain, Wand2, FileImage, Timer } from 'lucide-react';
+import { FileText, Globe, DollarSign, Utensils, Clock, Star, Bot, Smartphone, BarChart, Sparkles, Check, ArrowRight, Palette, Languages, Zap, Upload, Brain, Wand2, FileImage, Timer, GitBranch, Building, Copy, RefreshCw, Settings } from 'lucide-react';
 import CustomCTAButton from '@/components/CustomCTAButton';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -285,6 +285,150 @@ const DigitalMenu = () => {
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
                     <p className="text-gray-600">{step.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Multi-Branch Menu Import Section */}
+        <section className="py-20 bg-white relative overflow-hidden">
+          {/* Background Effects */}
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute top-20 right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-10 left-10 w-48 h-48 bg-primary/5 rounded-full blur-3xl" />
+          </div>
+
+          <div className="container-custom">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
+                  <GitBranch className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-semibold text-primary">Multi-Branch Ready</span>
+                </div>
+                <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                  Clone Your Menu to<br />
+                  <span className="text-primary">New Branches Instantly</span>
+                </h2>
+                <p className="animate-on-scroll animate-delay-200 text-lg text-gray-600 max-w-2xl mx-auto">
+                  Save hours of setup time when opening new locations. Transfer your entire menu structure in seconds.
+                </p>
+              </div>
+
+              {/* Branch Transfer Visual */}
+              <div className="animate-on-scroll animate-delay-300 max-w-4xl mx-auto mb-16">
+                <div className="relative bg-gray-50 rounded-3xl p-8 border border-gray-200">
+                  <div className="grid md:grid-cols-3 gap-6 items-center">
+                    {/* Source Branch */}
+                    <div className="bg-white rounded-2xl p-6 border-2 border-gray-200 relative shadow-lg">
+                      <div className="absolute -top-3 left-4 px-3 py-1 bg-gray-700 text-white text-xs font-bold rounded-full">
+                        Source
+                      </div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                          <Building className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <p className="font-bold text-gray-900">Branch A</p>
+                          <p className="text-xs text-gray-500">Main Store</p>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-sm">
+                          <Check className="w-4 h-4 text-green-500" />
+                          <span className="text-gray-700">150 menu items</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm">
+                          <Check className="w-4 h-4 text-green-500" />
+                          <span className="text-gray-700">12 categories</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm">
+                          <Check className="w-4 h-4 text-green-500" />
+                          <span className="text-gray-700">All modifiers</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm">
+                          <Check className="w-4 h-4 text-green-500" />
+                          <span className="text-gray-700">Images & pricing</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Transfer Animation */}
+                    <div className="flex flex-col items-center justify-center py-4">
+                      <div className="relative">
+                        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-xl shadow-primary/30 animate-pulse">
+                          <Copy className="w-8 h-8 text-white" />
+                        </div>
+                        <div className="absolute -inset-2 border-2 border-dashed border-primary/40 rounded-full animate-spin" style={{ animationDuration: '8s' }} />
+                      </div>
+                      <p className="mt-4 text-sm font-bold text-primary">Clone in seconds!</p>
+                      <div className="flex items-center gap-1 mt-2">
+                        <ArrowRight className="w-4 h-4 text-primary animate-pulse" />
+                        <ArrowRight className="w-4 h-4 text-primary animate-pulse" style={{ animationDelay: '0.2s' }} />
+                        <ArrowRight className="w-4 h-4 text-primary animate-pulse" style={{ animationDelay: '0.4s' }} />
+                      </div>
+                    </div>
+
+                    {/* Destination Branch */}
+                    <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-6 border-2 border-primary/30 relative overflow-hidden shadow-lg">
+                      <div className="absolute -top-3 left-4 px-3 py-1 bg-primary text-white text-xs font-bold rounded-full">
+                        New Branch
+                      </div>
+                      <div className="absolute inset-0 bg-primary/5 animate-pulse" />
+                      <div className="relative">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                            <Building className="w-6 h-6 text-primary" />
+                          </div>
+                          <div>
+                            <p className="font-bold text-gray-900">Branch B</p>
+                            <p className="text-xs text-primary font-medium">New Store</p>
+                          </div>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2 text-sm">
+                            <Zap className="w-4 h-4 text-primary" />
+                            <span className="text-gray-700 font-medium">150 items cloned</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm">
+                            <Zap className="w-4 h-4 text-primary" />
+                            <span className="text-gray-700 font-medium">12 categories</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm">
+                            <Zap className="w-4 h-4 text-primary" />
+                            <span className="text-gray-700 font-medium">All modifiers</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-sm">
+                            <Zap className="w-4 h-4 text-primary" />
+                            <span className="text-gray-700 font-medium">Ready to customize</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Features Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
+                {[
+                  { icon: Copy, title: "Full Menu Copy", desc: "All items & categories" },
+                  { icon: RefreshCw, title: "Sync or Customize", desc: "Your choice" },
+                  { icon: FileImage, title: "Keep All Images", desc: "Auto-transferred" },
+                  { icon: DollarSign, title: "Retain Pricing", desc: "Structure intact" },
+                  { icon: Settings, title: "All Modifiers", desc: "Sizes & add-ons" },
+                  { icon: Upload, title: "Bulk Import", desc: "CSV/Excel support" }
+                ].map((feature, index) => (
+                  <div 
+                    key={index}
+                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} bg-gray-50 rounded-xl p-4 text-center border border-gray-100 hover:border-primary/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
+                  >
+                    <div className="w-10 h-10 mx-auto rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                      <feature.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <h4 className="font-bold text-gray-900 text-sm mb-1">{feature.title}</h4>
+                    <p className="text-xs text-gray-500">{feature.desc}</p>
                   </div>
                 ))}
               </div>
