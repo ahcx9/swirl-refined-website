@@ -26,9 +26,9 @@ const translations = {
     "nav.chatOnWhatsapp": "Chat on WhatsApp",
 
     // Hero Section
-    "hero.title": "powering the new era of restaurant sales",
+    "hero.title": "The all-in-one platform to run, control, and scale your restaurant.",
     "hero.subtitle":
-      "Modern full stack (back of house & front of house) restaurant management system for ambitious restaurateurs.",
+      "POS, QR ordering, inventory, CRM, analytics, and AI insights — all connected in one powerful system..",
 
     // Features Section
     "features.title": "All-in-one Restaurant Management Platform",
