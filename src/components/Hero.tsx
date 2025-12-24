@@ -31,7 +31,7 @@ const Hero = () => {
           
           <div className="flex justify-center">
             <div className="btn-conteiner scale-90"> {/* Reduced from scale-100 to scale-90 */}
-              <a className="btn-content" href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer">
+              <a className="btn-content" href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Swirl" target="_blank" rel="noopener noreferrer">
                 <span className="btn-title">{t('cta.getStarted')}</span>
                 <span className="icon-arrow">
                   <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg">

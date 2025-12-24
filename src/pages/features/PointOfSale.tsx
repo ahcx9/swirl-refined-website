@@ -137,8 +137,8 @@ const PointOfSale = () => {
                         <span className="text-sm font-medium text-gray-700">iOS</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
-                          <Smartphone className="w-4 h-4 text-white" />
+                        <div className="w-8 h-8 bg-[#3DDC84] rounded-lg flex items-center justify-center">
+                          <Tablet className="w-4 h-4 text-white" />
                         </div>
                         <span className="text-sm font-medium text-gray-700">Android</span>
                       </div>
@@ -212,18 +212,18 @@ const PointOfSale = () => {
 
             {/* Kitchen Display System Section */}
             <section className="py-20 mb-8 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-primary/5 rounded-3xl -z-10" />
-              <div className="absolute top-10 right-10 w-64 h-64 bg-orange-100/50 rounded-full blur-3xl -z-10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-white to-primary/10 rounded-3xl -z-10" />
+              <div className="absolute top-10 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10" />
               <div className="absolute bottom-10 left-10 w-48 h-48 bg-primary/10 rounded-full blur-3xl -z-10" />
 
               <div className="text-center mb-12">
-                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 border border-orange-200 shadow-lg">
-                  <ChefHat className="w-5 h-5 text-orange-500" />
-                  <span className="text-sm font-semibold text-orange-600">Kitchen Display System</span>
+                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 border border-primary/20 shadow-lg">
+                  <ChefHat className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-semibold text-primary">Kitchen Display System</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                   From Order to Kitchen<br />
-                  <span className="text-orange-500">In Real-Time</span>
+                  <span className="text-primary">In Real-Time</span>
                 </h2>
                 <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
                   Streamline kitchen operations with live order displays, timer alerts, and multi-station support.
@@ -337,8 +337,8 @@ const PointOfSale = () => {
               }, {
                 icon: TrendingUp,
                 text: "Analytics"
-              }].map((feature, index) => <div key={index} className="animate-on-scroll text-center p-4 bg-white rounded-xl border border-gray-100 hover:border-orange-200 hover:shadow-lg transition-all duration-300">
-                    <feature.icon className="w-6 h-6 text-orange-500 mx-auto mb-2" />
+              }].map((feature, index) => <div key={index} className="animate-on-scroll text-center p-4 bg-white rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-lg transition-all duration-300">
+                    <feature.icon className="w-6 h-6 text-primary mx-auto mb-2" />
                     <p className="text-sm font-medium text-gray-700">{feature.text}</p>
                   </div>)}
               </div>
@@ -407,17 +407,17 @@ const PointOfSale = () => {
 
             {/* Modifier Management Section */}
             <section className="py-20 mb-8 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-primary/5 rounded-3xl -z-10" />
-              <div className="absolute top-10 left-10 w-64 h-64 bg-purple-100/50 rounded-full blur-3xl -z-10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-white to-primary/10 rounded-3xl -z-10" />
+              <div className="absolute top-10 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10" />
 
               <div className="text-center mb-12">
-                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 border border-purple-200 shadow-lg">
-                  <Settings2 className="w-5 h-5 text-purple-500" />
-                  <span className="text-sm font-semibold text-purple-600">Modifier Management</span>
+                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 border border-primary/20 shadow-lg">
+                  <Settings2 className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-semibold text-primary">Modifier Management</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                   Sizes, Add-ons &<br />
-                  <span className="text-purple-500">Customizations</span>
+                  <span className="text-primary">Customizations</span>
                 </h2>
                 <p className="animate-on-scroll animate-delay-200 text-lg text-gray-600 max-w-2xl mx-auto">
                   Create unlimited modifiers, size variants, and add-on options. Perfect for combos and customizable items.
@@ -429,7 +429,7 @@ const PointOfSale = () => {
                 <div className="animate-on-scroll order-2 md:order-1">
                   <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-6">
                     <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                      <Settings2 className="w-5 h-5 text-purple-500" />
+                      <Settings2 className="w-5 h-5 text-primary" />
                       Pizza Configuration
                     </h4>
 
@@ -437,15 +437,15 @@ const PointOfSale = () => {
                     <div className="mb-6">
                       <p className="text-sm text-gray-500 mb-3">Select Size</p>
                       <div className="grid grid-cols-3 gap-2">
-                        <button className="p-3 border border-gray-200 rounded-xl text-center hover:border-purple-300 transition-colors">
+                        <button className="p-3 border border-gray-200 rounded-xl text-center hover:border-primary/30 transition-colors">
                           <p className="font-medium text-gray-700">Small</p>
                           <p className="text-xs text-gray-500">+₹0</p>
                         </button>
-                        <button className="p-3 border-2 border-purple-500 bg-purple-50 rounded-xl text-center">
-                          <p className="font-medium text-purple-700">Medium</p>
-                          <p className="text-xs text-purple-500">+₹50</p>
+                        <button className="p-3 border-2 border-primary bg-primary/10 rounded-xl text-center">
+                          <p className="font-medium text-primary">Medium</p>
+                          <p className="text-xs text-primary">+₹50</p>
                         </button>
-                        <button className="p-3 border border-gray-200 rounded-xl text-center hover:border-purple-300 transition-colors">
+                        <button className="p-3 border border-gray-200 rounded-xl text-center hover:border-primary/30 transition-colors">
                           <p className="font-medium text-gray-700">Large</p>
                           <p className="text-xs text-gray-500">+₹100</p>
                         </button>
@@ -456,29 +456,29 @@ const PointOfSale = () => {
                     <div className="mb-6">
                       <p className="text-sm text-gray-500 mb-3">Add-ons</p>
                       <div className="grid grid-cols-2 gap-2">
-                        <label className="flex items-center gap-2 p-3 border-2 border-purple-500 bg-purple-50 rounded-xl cursor-pointer">
-                          <CheckCircle className="w-4 h-4 text-purple-500" />
+                        <label className="flex items-center gap-2 p-3 border-2 border-primary bg-primary/10 rounded-xl cursor-pointer">
+                          <CheckCircle className="w-4 h-4 text-primary" />
                           <div>
                             <p className="text-sm font-medium text-gray-700">Extra Cheese</p>
                             <p className="text-xs text-gray-500">+₹30</p>
                           </div>
                         </label>
-                        <label className="flex items-center gap-2 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-purple-300">
+                        <label className="flex items-center gap-2 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-primary/30">
                           <div className="w-4 h-4 border border-gray-300 rounded" />
                           <div>
                             <p className="text-sm font-medium text-gray-700">Jalapeños</p>
                             <p className="text-xs text-gray-500">+₹20</p>
                           </div>
                         </label>
-                        <label className="flex items-center gap-2 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-purple-300">
+                        <label className="flex items-center gap-2 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-primary/30">
                           <div className="w-4 h-4 border border-gray-300 rounded" />
                           <div>
                             <p className="text-sm font-medium text-gray-700">Mushrooms</p>
                             <p className="text-xs text-gray-500">+₹25</p>
                           </div>
                         </label>
-                        <label className="flex items-center gap-2 p-3 border-2 border-purple-500 bg-purple-50 rounded-xl cursor-pointer">
-                          <CheckCircle className="w-4 h-4 text-purple-500" />
+                        <label className="flex items-center gap-2 p-3 border-2 border-primary bg-primary/10 rounded-xl cursor-pointer">
+                          <CheckCircle className="w-4 h-4 text-primary" />
                           <div>
                             <p className="text-sm font-medium text-gray-700">Olives</p>
                             <p className="text-xs text-gray-500">+₹20</p>
@@ -489,7 +489,7 @@ const PointOfSale = () => {
 
                     {/* Modifier Groups */}
                     <div className="flex gap-2">
-                      <span className="px-4 py-2 bg-purple-100 text-purple-700 text-sm font-medium rounded-full">Toppings</span>
+                      <span className="px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full">Toppings</span>
                       <span className="px-4 py-2 bg-gray-100 text-gray-600 text-sm font-medium rounded-full">Crust</span>
                       <span className="px-4 py-2 bg-gray-100 text-gray-600 text-sm font-medium rounded-full">Sauce</span>
                     </div>
@@ -516,8 +516,8 @@ const PointOfSale = () => {
                 }, {
                   title: "Visual Selection",
                   desc: "Image-based modifier selection for staff"
-                }].map((feature, index) => <div key={index} className="group flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-purple-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-purple-200">
+                }].map((feature, index) => <div key={index} className="group flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
                         <CheckCircle className="w-6 h-6 text-white" />
                       </div>
                       <div>
@@ -1110,6 +1110,30 @@ const PointOfSale = () => {
             </section>
 
             <POSBenefits />
+
+            {/* Book Demo CTA */}
+            <section className="py-16 text-center">
+              <div className="btn-conteiner scale-100">
+                <a 
+                  className="btn-content" 
+                  href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Swirl%20POS"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <span className="btn-title">Book Demo</span>
+                  <span className="icon-arrow">
+                    <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                      <g id="arrow" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                        <path id="arrow-icon-one" d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z" fill="#FFFFFF"></path>
+                        <path id="arrow-icon-two" d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z" fill="#FFFFFF"></path>
+                        <path id="arrow-icon-three" d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z" fill="#FFFFFF"></path>
+                      </g>
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </section>
+
             <POSCallToAction />
           </div>
         </div>
