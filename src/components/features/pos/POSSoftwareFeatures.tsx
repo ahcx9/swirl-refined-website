@@ -47,8 +47,8 @@ const POSSoftwareFeatures = () => {
   
   const features = [
     {
-      title: "Modern Design POS",
-      description: "User-friendly design that's easy to learn and requires minimal training.",
+      title: "Order Timeline",
+      description: "Track every order from punch to delivery with real-time status updates and timestamps.",
       icon: Monitor,
       delay: 100,
     },
