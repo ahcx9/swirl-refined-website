@@ -15,8 +15,8 @@ const POSHero = () => {
         </div>
         
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-          Simple. Fast.<br />
-          <span className="text-primary">Reliable.</span>
+          More than a <span className="text-primary">POS</span>.<br />
+          Your restaurant's operating system.
         </h1>
         
         <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">

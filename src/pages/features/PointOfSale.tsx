@@ -6,13 +6,13 @@ import POSTabs from '@/components/features/pos/POSTabs';
 import POSBenefits from '@/components/features/pos/POSBenefits';
 import POSCallToAction from '@/components/features/pos/POSCallToAction';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { Smartphone, Zap, Percent, ArrowLeftRight, LayoutGrid, TrendingUp, FileText, Users, Layers, CheckCircle, Sparkles, Clock, Shield, Receipt, Truck, QrCode, UtensilsCrossed, Tablet, Map, Building, FileCheck, Languages, BadgeCheck, Globe } from 'lucide-react';
+import { Smartphone, Zap, Percent, ArrowLeftRight, LayoutGrid, TrendingUp, FileText, Users, Layers, CheckCircle, Sparkles, Clock, Shield, Receipt, Truck, QrCode, UtensilsCrossed, Tablet, Map, Building, FileCheck, Languages, BadgeCheck, Globe, Apple, StickyNote, Settings2, DollarSign, Copy, GitBranch, Timer, ChefHat, ArrowRight } from 'lucide-react';
 
 const PointOfSale = () => {
   useScrollAnimation();
 
   const captainFeatures = [
-    { icon: Tablet, text: "Punch orders via Android tablet or phone" },
+    { icon: Smartphone, text: "Punch orders via any tablet or smartphone" },
     { icon: Zap, text: "Real-time sync with kitchen" },
     { icon: ArrowLeftRight, text: "Split bills & customize orders" },
     { icon: Clock, text: "Offline mode support" }
@@ -100,14 +100,14 @@ const PointOfSale = () => {
                 <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 border border-primary/20 shadow-lg">
                   <Smartphone className="w-5 h-5 text-primary" />
                   <span className="text-sm font-semibold text-primary">Captain Ordering App</span>
-                  <span className="px-2 py-0.5 bg-orange-500 text-white text-xs font-bold rounded-full">Android Only</span>
+                  <span className="px-2 py-0.5 bg-gradient-to-r from-primary to-green-500 text-white text-xs font-bold rounded-full">iOS & Android</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                   Tableside Ordering<br />
                   <span className="text-primary">Made Simple</span>
                 </h2>
                 <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-                  Empower your staff to take orders directly at the table using any Android tablet or smartphone. Orders sync instantly with the kitchen.
+                  Empower your staff to take orders directly at the table using any iOS or Android tablet or smartphone. Orders sync instantly with the kitchen.
                 </p>
               </div>
 
@@ -164,11 +164,23 @@ const PointOfSale = () => {
                     </div>
                   ))}
 
-                  {/* Android Badge */}
-                  <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mt-6">
-                    <p className="text-orange-700 text-sm">
-                      <strong>Note:</strong> Captain App works on Android tablets and smartphones only. iOS is not supported.
-                    </p>
+                  {/* Platform Badge */}
+                  <div className="bg-gradient-to-r from-primary/10 to-green-100 border border-primary/20 rounded-xl p-4 mt-6">
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center">
+                          <Apple className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="text-sm font-medium text-gray-700">iOS</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
+                          <Smartphone className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="text-sm font-medium text-gray-700">Android</span>
+                      </div>
+                      <span className="text-sm text-gray-500">Both platforms supported</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -241,6 +253,316 @@ const PointOfSale = () => {
                     <p className="text-xs text-gray-500">{tab.description}</p>
                   </div>
                 ))}
+              </div>
+            </section>
+
+            {/* Kitchen Display System Section */}
+            <section className="py-20 mb-8 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-primary/5 rounded-3xl -z-10" />
+              <div className="absolute top-10 right-10 w-64 h-64 bg-orange-100/50 rounded-full blur-3xl -z-10" />
+              <div className="absolute bottom-10 left-10 w-48 h-48 bg-primary/10 rounded-full blur-3xl -z-10" />
+
+              <div className="text-center mb-12">
+                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 border border-orange-200 shadow-lg">
+                  <ChefHat className="w-5 h-5 text-orange-500" />
+                  <span className="text-sm font-semibold text-orange-600">Kitchen Display System</span>
+                </div>
+                <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                  From Order to Kitchen<br />
+                  <span className="text-orange-500">In Real-Time</span>
+                </h2>
+                <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+                  Streamline kitchen operations with live order displays, timer alerts, and multi-station support.
+                </p>
+              </div>
+
+              {/* KDS Visual */}
+              <div className="animate-on-scroll animate-delay-300 max-w-5xl mx-auto">
+                <div className="bg-gray-900 rounded-2xl p-6 shadow-2xl">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-3 h-3 bg-red-500 rounded-full" />
+                      <div className="w-3 h-3 bg-yellow-500 rounded-full" />
+                      <div className="w-3 h-3 bg-green-500 rounded-full" />
+                    </div>
+                    <div className="flex items-center gap-2 text-white/60 text-sm">
+                      <Timer className="w-4 h-4" />
+                      <span>Kitchen Display</span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {/* Order Card - New */}
+                    <div className="bg-blue-500 rounded-xl p-4 text-white transform hover:scale-105 transition-transform">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="font-bold">#142</span>
+                        <span className="px-2 py-0.5 bg-white/20 rounded text-xs">NEW</span>
+                      </div>
+                      <p className="text-sm opacity-80 mb-2">Table 3</p>
+                      <div className="space-y-1 text-sm">
+                        <p>• Margherita Pizza x1</p>
+                        <p>• Garlic Bread x2</p>
+                      </div>
+                      <div className="mt-3 pt-3 border-t border-white/20 flex items-center gap-2">
+                        <Timer className="w-4 h-4" />
+                        <span className="text-sm">0:45</span>
+                      </div>
+                    </div>
+
+                    {/* Order Card - Cooking */}
+                    <div className="bg-orange-500 rounded-xl p-4 text-white transform hover:scale-105 transition-transform animate-pulse">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="font-bold">#141</span>
+                        <span className="px-2 py-0.5 bg-white/20 rounded text-xs">COOKING</span>
+                      </div>
+                      <p className="text-sm opacity-80 mb-2">Table 7</p>
+                      <div className="space-y-1 text-sm">
+                        <p>• Chicken Biryani x2</p>
+                        <p>• Raita x2</p>
+                      </div>
+                      <div className="mt-3 pt-3 border-t border-white/20 flex items-center gap-2">
+                        <Timer className="w-4 h-4" />
+                        <span className="text-sm">8:32</span>
+                      </div>
+                    </div>
+
+                    {/* Order Card - Ready */}
+                    <div className="bg-green-500 rounded-xl p-4 text-white transform hover:scale-105 transition-transform">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="font-bold">#140</span>
+                        <span className="px-2 py-0.5 bg-white/20 rounded text-xs">READY</span>
+                      </div>
+                      <p className="text-sm opacity-80 mb-2">Takeaway</p>
+                      <div className="space-y-1 text-sm">
+                        <p>• Pasta Alfredo x1</p>
+                        <p>• Caesar Salad x1</p>
+                      </div>
+                      <div className="mt-3 pt-3 border-t border-white/20 flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4" />
+                        <span className="text-sm">Done</span>
+                      </div>
+                    </div>
+
+                    {/* Order Card - Priority */}
+                    <div className="bg-red-500 rounded-xl p-4 text-white transform hover:scale-105 transition-transform">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="font-bold">#139</span>
+                        <span className="px-2 py-0.5 bg-white/20 rounded text-xs">PRIORITY</span>
+                      </div>
+                      <p className="text-sm opacity-80 mb-2">Delivery</p>
+                      <div className="space-y-1 text-sm">
+                        <p>• Butter Chicken x1</p>
+                        <p>• Naan x3</p>
+                      </div>
+                      <div className="mt-3 pt-3 border-t border-white/20 flex items-center gap-2">
+                        <Timer className="w-4 h-4" />
+                        <span className="text-sm font-bold">12:45</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* KDS Features */}
+              <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mt-12 max-w-4xl mx-auto">
+                {[
+                  { icon: Zap, text: "Real-time sync" },
+                  { icon: Layers, text: "Color-coded status" },
+                  { icon: Timer, text: "Timer alerts" },
+                  { icon: Building, text: "Multi-station" },
+                  { icon: ArrowLeftRight, text: "Recall orders" },
+                  { icon: TrendingUp, text: "Analytics" }
+                ].map((feature, index) => (
+                  <div key={index} className="animate-on-scroll text-center p-4 bg-white rounded-xl border border-gray-100 hover:border-orange-200 hover:shadow-lg transition-all duration-300">
+                    <feature.icon className="w-6 h-6 text-orange-500 mx-auto mb-2" />
+                    <p className="text-sm font-medium text-gray-700">{feature.text}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Order Notes & Modifications Section */}
+            <section className="py-16 bg-gray-50 -mx-4 px-4 md:-mx-8 md:px-8 rounded-2xl mb-8">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="animate-on-scroll">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
+                    <StickyNote className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-semibold text-primary">Order Modifications</span>
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Customize Every Order<br />
+                    <span className="text-primary">With Ease</span>
+                  </h2>
+                  <p className="text-lg text-gray-600 mb-8">
+                    Add notes, special instructions, and allergy warnings to any order item. Kitchen staff see exactly what they need.
+                  </p>
+                  <ul className="space-y-3">
+                    {[
+                      "Free-text notes for any item",
+                      "Quick modifier tags (Spicy, No Salt, Rush)",
+                      "Allergy alert warnings",
+                      "Kitchen-visible special instructions",
+                      "Per-item customization",
+                      "Modification history tracking"
+                    ].map((feature, index) => (
+                      <li key={index} className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Order Card Visual */}
+                <div className="animate-on-scroll animate-delay-200">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 max-w-sm mx-auto">
+                    <div className="flex items-center justify-between mb-4">
+                      <h4 className="font-bold text-gray-900">Margherita Pizza</h4>
+                      <span className="text-primary font-bold">₹399</span>
+                    </div>
+                    
+                    {/* Note Input */}
+                    <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mb-4">
+                      <div className="flex items-start gap-2">
+                        <StickyNote className="w-4 h-4 text-yellow-600 mt-0.5" />
+                        <div>
+                          <p className="text-sm text-yellow-800 font-medium">Special Instructions</p>
+                          <p className="text-sm text-yellow-700 mt-1">"No onions, extra cheese, well done crust"</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Quick Tags */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <span className="px-3 py-1 bg-red-100 text-red-700 text-xs font-medium rounded-full">🌶️ Spicy</span>
+                      <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full">🧂 No Salt</span>
+                      <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-medium rounded-full">⚡ Rush</span>
+                    </div>
+
+                    {/* Allergy Warning */}
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+                      <div className="flex items-center gap-2">
+                        <Shield className="w-4 h-4 text-red-500" />
+                        <span className="text-xs text-red-700 font-medium">Allergy: Gluten-free requested</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Modifier Management Section */}
+            <section className="py-20 mb-8 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-primary/5 rounded-3xl -z-10" />
+              <div className="absolute top-10 left-10 w-64 h-64 bg-purple-100/50 rounded-full blur-3xl -z-10" />
+
+              <div className="text-center mb-12">
+                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 border border-purple-200 shadow-lg">
+                  <Settings2 className="w-5 h-5 text-purple-500" />
+                  <span className="text-sm font-semibold text-purple-600">Modifier Management</span>
+                </div>
+                <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                  Sizes, Add-ons &<br />
+                  <span className="text-purple-500">Customizations</span>
+                </h2>
+                <p className="animate-on-scroll animate-delay-200 text-lg text-gray-600 max-w-2xl mx-auto">
+                  Create unlimited modifiers, size variants, and add-on options. Perfect for combos and customizable items.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+                {/* Modifier Visual */}
+                <div className="animate-on-scroll order-2 md:order-1">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-6">
+                    <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                      <Settings2 className="w-5 h-5 text-purple-500" />
+                      Pizza Configuration
+                    </h4>
+
+                    {/* Size Selection */}
+                    <div className="mb-6">
+                      <p className="text-sm text-gray-500 mb-3">Select Size</p>
+                      <div className="grid grid-cols-3 gap-2">
+                        <button className="p-3 border border-gray-200 rounded-xl text-center hover:border-purple-300 transition-colors">
+                          <p className="font-medium text-gray-700">Small</p>
+                          <p className="text-xs text-gray-500">+₹0</p>
+                        </button>
+                        <button className="p-3 border-2 border-purple-500 bg-purple-50 rounded-xl text-center">
+                          <p className="font-medium text-purple-700">Medium</p>
+                          <p className="text-xs text-purple-500">+₹50</p>
+                        </button>
+                        <button className="p-3 border border-gray-200 rounded-xl text-center hover:border-purple-300 transition-colors">
+                          <p className="font-medium text-gray-700">Large</p>
+                          <p className="text-xs text-gray-500">+₹100</p>
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Add-ons Grid */}
+                    <div className="mb-6">
+                      <p className="text-sm text-gray-500 mb-3">Add-ons</p>
+                      <div className="grid grid-cols-2 gap-2">
+                        <label className="flex items-center gap-2 p-3 border-2 border-purple-500 bg-purple-50 rounded-xl cursor-pointer">
+                          <CheckCircle className="w-4 h-4 text-purple-500" />
+                          <div>
+                            <p className="text-sm font-medium text-gray-700">Extra Cheese</p>
+                            <p className="text-xs text-gray-500">+₹30</p>
+                          </div>
+                        </label>
+                        <label className="flex items-center gap-2 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-purple-300">
+                          <div className="w-4 h-4 border border-gray-300 rounded" />
+                          <div>
+                            <p className="text-sm font-medium text-gray-700">Jalapeños</p>
+                            <p className="text-xs text-gray-500">+₹20</p>
+                          </div>
+                        </label>
+                        <label className="flex items-center gap-2 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-purple-300">
+                          <div className="w-4 h-4 border border-gray-300 rounded" />
+                          <div>
+                            <p className="text-sm font-medium text-gray-700">Mushrooms</p>
+                            <p className="text-xs text-gray-500">+₹25</p>
+                          </div>
+                        </label>
+                        <label className="flex items-center gap-2 p-3 border-2 border-purple-500 bg-purple-50 rounded-xl cursor-pointer">
+                          <CheckCircle className="w-4 h-4 text-purple-500" />
+                          <div>
+                            <p className="text-sm font-medium text-gray-700">Olives</p>
+                            <p className="text-xs text-gray-500">+₹20</p>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+
+                    {/* Modifier Groups */}
+                    <div className="flex gap-2">
+                      <span className="px-4 py-2 bg-purple-100 text-purple-700 text-sm font-medium rounded-full">Toppings</span>
+                      <span className="px-4 py-2 bg-gray-100 text-gray-600 text-sm font-medium rounded-full">Crust</span>
+                      <span className="px-4 py-2 bg-gray-100 text-gray-600 text-sm font-medium rounded-full">Sauce</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Features List */}
+                <div className="animate-on-scroll order-1 md:order-2 space-y-4">
+                  {[
+                    { title: "Unlimited Modifiers", desc: "Create as many modifier groups as needed" },
+                    { title: "Dynamic Pricing", desc: "Each modifier can add/subtract from base price" },
+                    { title: "Required/Optional", desc: "Set mandatory or optional selections" },
+                    { title: "Combo Deals", desc: "Bundle items with special pricing" },
+                    { title: "Nested Modifiers", desc: "Modifiers within modifiers for complex items" },
+                    { title: "Visual Selection", desc: "Image-based modifier selection for staff" }
+                  ].map((feature, index) => (
+                    <div key={index} className="group flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-purple-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-purple-200">
+                        <CheckCircle className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900 mb-1">{feature.title}</h4>
+                        <p className="text-sm text-gray-600">{feature.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </section>
 
