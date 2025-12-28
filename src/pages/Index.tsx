@@ -4,7 +4,6 @@ import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import StepProcess from '@/components/StepProcess';
 import NextGenFeatures from '@/components/NextGenFeatures';
-import TrustedRestaurants from '@/components/TrustedRestaurants';
 import WhySwirlSection from '@/components/WhySwirlSection';
 import BlogSection from '@/components/BlogSection';
 import FAQSection from '@/components/FAQSection';
@@ -30,10 +29,7 @@ const Index = () => {
       <ImagePreloader />
       
       <main className="flex-grow">
-        <div className="full-viewport-section">
-          <Hero />
-          <TrustedRestaurants />
-        </div>
+        <Hero />
         <WhySwirlSection />
         <Features />
         <UseCasesSection />
