@@ -21,6 +21,7 @@ import KitchenDisplay from './pages/features/KitchenDisplay';
 import InCarOrdering from './pages/features/InCarOrdering';
 import CRM from './pages/features/CRM';
 import FinancialReports from './pages/features/FinancialReports';
+import Accounting from './pages/features/Accounting';
 import SwirlHardware from './pages/features/SwirlHardware';
 import { LanguageProvider } from './contexts/LanguageContext';
 
@@ -50,6 +51,7 @@ function App() {
           <Route path="/products/in-car-ordering" element={<InCarOrdering />} />
           <Route path="/products/customer-relationship-management" element={<CRM />} />
           <Route path="/products/financial-reports" element={<FinancialReports />} />
+          <Route path="/products/accounting" element={<Accounting />} />
           <Route path="/products/swirl-hardware" element={<SwirlHardware />} />
           
           <Route path="*" element={<NotFound />} />
