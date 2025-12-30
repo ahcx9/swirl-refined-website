@@ -17,13 +17,14 @@ import {
 } from 'lucide-react';
 import { Button } from './ui/button';
 
-// Reduced to 5 premium logos
+// Updated 6 logos
 const logos = [
-  { src: "/lovable-uploads/9623693d-a2e0-48ea-8d68-911775324f30.png", alt: "Seern Restaurant" },
-  { src: "/lovable-uploads/72bc496f-dfad-4fef-a00b-a049a08c0700.png", alt: "Uccelli Café" },
-  { src: "/lovable-uploads/a1037d43-9706-4594-98e2-b879fa17ae5c.png", alt: "Bombay Restaurant & Cafe" },
-  { src: "/lovable-uploads/4127f4ed-f4a1-452d-bdba-5bc27d6fb8bc.png", alt: "La Pino'z Pizza" },
-  { src: "/lovable-uploads/6e0d0241-ba77-477a-84cd-a700f8183303.png", alt: "Kaleda Traditional Indian Taste" },
+  { src: "/lovable-uploads/9000dd52-fbe9-4430-8c38-eb0ab5e87e57.png", alt: "Seern Restaurant" },
+  { src: "/lovable-uploads/uccelli-cafe-logo.jpeg", alt: "Uccelli Café" },
+  { src: "/lovable-uploads/bombay-logo-new.png", alt: "Bombay Restaurant & Cafe" },
+  { src: "/lovable-uploads/bb-logo.jpeg", alt: "B&B" },
+  { src: "/lovable-uploads/b2a2c52b-6298-4bda-8fd2-e0cab6171584.png", alt: "Garage Café" },
+  { src: "/lovable-uploads/kaleda-logo.png", alt: "Kaleda Traditional Indian Taste" },
 ];
 
 // ============ DOODLES - Positioned in outer margins only ============
@@ -130,9 +131,9 @@ const CTAArrowDoodle = () => (
 const POSHardwareMockup = () => (
   <div className="relative" style={{ transform: 'perspective(1200px) rotateY(-3deg) rotateX(1deg)' }}>
     {/* Tablet Stand - Base */}
-    <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-40 h-5 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-500 rounded-full shadow-lg" />
+    <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-32 md:w-40 h-5 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-500 rounded-full shadow-lg" />
     {/* Tablet Stand - Neck */}
-    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-5 h-20 bg-gradient-to-r from-gray-400 via-gray-300 to-gray-400 rounded-sm shadow-md" />
+    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-5 h-16 md:h-20 bg-gradient-to-r from-gray-400 via-gray-300 to-gray-400 rounded-sm shadow-md" />
     
     {/* Tablet Body Frame */}
     <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-2xl p-2 shadow-2xl shadow-black/40">
@@ -140,7 +141,7 @@ const POSHardwareMockup = () => (
       <div className="absolute top-3 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-700" />
       
       {/* Screen Content - BIGGER */}
-      <div className="bg-white rounded-xl overflow-hidden w-[320px] md:w-[380px] lg:w-[420px]">
+      <div className="bg-white rounded-xl overflow-hidden w-[280px] md:w-[340px] lg:w-[380px]">
         {/* POS Header Bar */}
         <div className="bg-primary px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -225,22 +226,19 @@ const POSHardwareMockup = () => (
   </div>
 );
 
-// iPhone QR Ordering Mockup - LARGER
+// iPhone QR Ordering Mockup - STATIC (no animation)
 const IPhoneQRMockup = () => (
   <div 
     className="relative"
-    style={{ 
-      transform: 'perspective(1200px) rotateY(6deg)',
-      animation: 'float-slow 6s ease-in-out infinite'
-    }}
+    style={{ transform: 'perspective(1200px) rotateY(6deg)' }}
   >
     {/* iPhone Frame */}
     <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-[2.8rem] p-2 shadow-2xl shadow-black/50">
       {/* Dynamic Island */}
       <div className="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-full z-10" />
       
-      {/* Screen - BIGGER */}
-      <div className="bg-white rounded-[2.2rem] overflow-hidden w-[190px] md:w-[210px] h-[400px] md:h-[440px]">
+      {/* Screen */}
+      <div className="bg-white rounded-[2.2rem] overflow-hidden w-[170px] md:w-[190px] h-[360px] md:h-[400px]">
         {/* Header with QR branding */}
         <div className="bg-gradient-to-r from-primary to-primary/85 px-4 pt-10 pb-4">
           <div className="flex items-center gap-2 mb-1">
@@ -284,18 +282,6 @@ const IPhoneQRMockup = () => (
               <Plus className="w-4 h-4 text-primary" />
             </button>
           </div>
-          
-          <div className="flex gap-2 p-2.5 bg-gray-50 rounded-xl">
-            <div className="w-12 h-12 bg-gradient-to-br from-amber-200 to-amber-300 rounded-xl flex items-center justify-center text-xl">🍝</div>
-            <div className="flex-1 min-w-0">
-              <p className="font-semibold text-[11px] text-foreground truncate">Carbonara</p>
-              <p className="text-[9px] text-muted-foreground">Creamy bacon pasta</p>
-              <p className="text-xs font-bold text-primary mt-0.5">AED 55</p>
-            </div>
-            <button className="self-center w-7 h-7 bg-primary/15 rounded-full flex items-center justify-center flex-shrink-0">
-              <Plus className="w-4 h-4 text-primary" />
-            </button>
-          </div>
         </div>
         
         {/* Cart Button Fixed at Bottom */}
@@ -310,85 +296,82 @@ const IPhoneQRMockup = () => (
   </div>
 );
 
-// Inventory Mockup - Corner card
-const InventoryMockup = () => (
-  <div 
-    className="bg-white rounded-xl shadow-xl border border-gray-100 p-3 w-[170px] md:w-[190px]"
-    style={{ animation: 'float-slow 7s ease-in-out infinite', animationDelay: '0.5s' }}
-  >
-    <div className="flex items-center gap-2 mb-3">
-      <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
-        <Package className="w-4 h-4 text-primary" />
+// Inventory Mockup - STATIC (no animation)
+const InventoryMockup = ({ compact = false }: { compact?: boolean }) => (
+  <div className={`bg-white rounded-xl shadow-xl border border-gray-100 p-3 ${compact ? 'w-[130px]' : 'w-[160px] md:w-[180px]'}`}>
+    <div className="flex items-center gap-2 mb-2">
+      <div className={`${compact ? 'w-5 h-5' : 'w-7 h-7'} rounded-lg bg-primary/10 flex items-center justify-center`}>
+        <Package className={`${compact ? 'w-3 h-3' : 'w-4 h-4'} text-primary`} />
       </div>
-      <span className="text-xs font-bold">Inventory</span>
+      <span className={`${compact ? 'text-[10px]' : 'text-xs'} font-bold`}>Inventory</span>
     </div>
     {/* Stock alerts */}
-    <div className="space-y-2">
-      <div className="flex justify-between items-center text-[11px]">
+    <div className="space-y-1.5">
+      <div className="flex justify-between items-center text-[10px]">
         <span className="text-muted-foreground">Chicken</span>
-        <span className="text-red-500 font-bold px-1.5 py-0.5 bg-red-50 rounded">Low: 5kg</span>
+        <span className="text-red-500 font-bold px-1 py-0.5 bg-red-50 rounded text-[9px]">Low</span>
       </div>
-      <div className="flex justify-between items-center text-[11px]">
+      <div className="flex justify-between items-center text-[10px]">
         <span className="text-muted-foreground">Olive Oil</span>
-        <span className="text-amber-600 font-bold px-1.5 py-0.5 bg-amber-50 rounded">Med: 12L</span>
+        <span className="text-amber-600 font-bold px-1 py-0.5 bg-amber-50 rounded text-[9px]">Med</span>
       </div>
-      <div className="flex justify-between items-center text-[11px]">
-        <span className="text-muted-foreground">Flour</span>
-        <span className="text-green-600 font-bold px-1.5 py-0.5 bg-green-50 rounded">OK: 25kg</span>
+      {!compact && (
+        <div className="flex justify-between items-center text-[10px]">
+          <span className="text-muted-foreground">Flour</span>
+          <span className="text-green-600 font-bold px-1 py-0.5 bg-green-50 rounded text-[9px]">OK</span>
+        </div>
+      )}
+    </div>
+    {!compact && (
+      <div className="h-10 mt-2 bg-gray-50 rounded-lg flex items-center justify-center">
+        <BarChart3 className="w-6 h-6 text-primary/20" />
       </div>
-    </div>
-    <div className="h-12 mt-3 bg-gray-50 rounded-lg flex items-center justify-center">
-      <BarChart3 className="w-8 h-8 text-primary/20" />
-    </div>
+    )}
   </div>
 );
 
-// KDS Mockup - Kitchen display with running orders
-const KDSMockup = () => (
-  <div 
-    className="bg-gray-900 rounded-xl shadow-xl p-3 w-[160px] md:w-[180px]"
-    style={{ animation: 'float-slow 6s ease-in-out infinite', animationDelay: '1s' }}
-  >
-    <div className="flex items-center gap-2 mb-3">
-      <Monitor className="w-4 h-4 text-white" />
-      <span className="text-[11px] font-bold text-white">Kitchen Display</span>
+// KDS Mockup - STATIC (no animation)
+const KDSMockup = ({ compact = false }: { compact?: boolean }) => (
+  <div className={`bg-gray-900 rounded-xl shadow-xl p-2.5 ${compact ? 'w-[130px]' : 'w-[150px] md:w-[170px]'}`}>
+    <div className="flex items-center gap-2 mb-2">
+      <Monitor className={`${compact ? 'w-3 h-3' : 'w-4 h-4'} text-white`} />
+      <span className={`${compact ? 'text-[9px]' : 'text-[10px]'} font-bold text-white`}>Kitchen Display</span>
     </div>
     {/* Running orders */}
-    <div className="space-y-2">
-      <div className="bg-amber-500/20 border border-amber-500/30 rounded-lg px-2.5 py-2">
+    <div className="space-y-1.5">
+      <div className="bg-amber-500/20 border border-amber-500/30 rounded-lg px-2 py-1.5">
         <div className="flex justify-between items-center">
-          <span className="text-[11px] text-amber-300 font-bold">#1247</span>
+          <span className="text-[10px] text-amber-300 font-bold">#1247</span>
           <div className="flex items-center gap-1">
-            <Clock className="w-3 h-3 text-amber-400" />
-            <span className="text-[10px] text-amber-400">3:45</span>
+            <Clock className="w-2.5 h-2.5 text-amber-400" />
+            <span className="text-[9px] text-amber-400">3:45</span>
           </div>
         </div>
-        <span className="text-[10px] text-white/70">Preparing...</span>
+        <span className="text-[9px] text-white/70">Preparing...</span>
       </div>
-      <div className="bg-green-500/20 border border-green-500/30 rounded-lg px-2.5 py-2">
+      <div className="bg-green-500/20 border border-green-500/30 rounded-lg px-2 py-1.5">
         <div className="flex justify-between items-center">
-          <span className="text-[11px] text-green-300 font-bold">#1246</span>
-          <span className="text-[10px] text-green-400 font-medium">Ready</span>
+          <span className="text-[10px] text-green-300 font-bold">#1246</span>
+          <span className="text-[9px] text-green-400 font-medium">Ready</span>
         </div>
-        <span className="text-[10px] text-white/70">Table 3</span>
+        <span className="text-[9px] text-white/70">Table 3</span>
       </div>
-      <div className="bg-primary/20 border border-primary/30 rounded-lg px-2.5 py-2">
-        <div className="flex justify-between items-center">
-          <span className="text-[11px] text-primary/80 font-bold">#1245</span>
-          <span className="text-[10px] text-primary/60">New</span>
+      {!compact && (
+        <div className="bg-primary/20 border border-primary/30 rounded-lg px-2 py-1.5">
+          <div className="flex justify-between items-center">
+            <span className="text-[10px] text-primary/80 font-bold">#1245</span>
+            <span className="text-[9px] text-primary/60">New</span>
+          </div>
+          <span className="text-[9px] text-white/70">Dine-in</span>
         </div>
-        <span className="text-[10px] text-white/70">Dine-in</span>
-      </div>
+      )}
     </div>
   </div>
 );
 
-// Floating Badge Component
-const FloatingBadge = ({ children, className = "", delay = "0s" }: { children: React.ReactNode; className?: string; delay?: string }) => (
-  <div 
-    className={`absolute bg-white/95 backdrop-blur-md rounded-xl px-3.5 py-2.5 shadow-xl shadow-black/8 border border-gray-100/80 ${className}`}
-    style={{ animation: 'float-slow 5s ease-in-out infinite', animationDelay: delay }}
-  >
+// Floating Badge Component - STATIC (no animation)
+const FloatingBadge = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
+  <div className={`absolute bg-white/95 backdrop-blur-md rounded-xl px-3.5 py-2.5 shadow-xl shadow-black/8 border border-gray-100/80 ${className}`}>
     {children}
   </div>
 );
@@ -397,12 +380,12 @@ const FloatingBadge = ({ children, className = "", delay = "0s" }: { children: R
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen bg-white overflow-hidden pt-20 pb-8">
+    <section className="relative min-h-screen bg-white overflow-hidden pt-28 md:pt-32 pb-8">
       
-      {/* ======== DOODLES - Outer margins only, hidden on mobile ======== */}
-      <div className="absolute inset-0 pointer-events-none text-primary hidden lg:block">
+      {/* ======== DOODLES - Outer margins only, hidden on mobile/tablet ======== */}
+      <div className="absolute inset-0 pointer-events-none text-primary hidden xl:block">
         {/* Left margin doodles */}
-        <div className="absolute top-28 left-4 opacity-[0.06]">
+        <div className="absolute top-32 left-4 opacity-[0.06]">
           <DoodleBilling />
         </div>
         <div className="absolute top-1/2 -translate-y-1/2 left-6 opacity-[0.05]">
@@ -413,28 +396,28 @@ const Hero: React.FC = () => {
         </div>
         
         {/* Right margin doodles - above/below mockup area */}
-        <div className="absolute top-24 right-4 opacity-[0.055]">
+        <div className="absolute top-28 right-4 opacity-[0.055]">
           <DoodleAnalytics />
         </div>
-        <div className="absolute bottom-24 right-6 opacity-[0.05]">
+        <div className="absolute bottom-28 right-6 opacity-[0.05]">
           <DoodleReports />
         </div>
         
         {/* Corner doodles */}
-        <div className="absolute top-36 left-28 opacity-[0.04]">
+        <div className="absolute top-40 left-28 opacity-[0.04]">
           <DoodleKDSSmall />
         </div>
-        <div className="absolute bottom-36 right-20 opacity-[0.06]">
+        <div className="absolute bottom-40 right-24 opacity-[0.06]">
           <DoodleQRCode />
         </div>
       </div>
 
       {/* ======== MAIN CONTENT ======== */}
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[75vh]">
           
-          {/* ======== LEFT COLUMN: COPY & CTAs ======== */}
-          <div className="space-y-7 text-center lg:text-left order-2 lg:order-1">
+          {/* ======== LEFT COLUMN: COPY & CTAs - order-1 on mobile (text first) ======== */}
+          <div className="space-y-7 text-center lg:text-left order-1">
             
             {/* Main Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] xl:text-6xl font-bold text-foreground leading-[1.08] tracking-tight animate-fade-in">
@@ -476,12 +459,12 @@ const Hero: React.FC = () => {
               </span>
             </p>
 
-            {/* 5 Logo Strip - Greyscale to Color on Hover */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-7 md:gap-10 pt-3 animate-fade-in animation-delay-800">
+            {/* 6 Logo Strip - Greyscale to Color on Hover */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 md:gap-8 pt-3 animate-fade-in animation-delay-800">
               {logos.map((logo, index) => (
                 <div 
                   key={index} 
-                  className="h-9 md:h-11 lg:h-12 grayscale brightness-[0.35] opacity-80 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
+                  className="h-8 md:h-10 lg:h-11 grayscale brightness-[0.35] opacity-80 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
                 >
                   <img
                     src={logo.src}
@@ -494,11 +477,23 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* ======== RIGHT COLUMN: PRODUCT MOCKUPS ECOSYSTEM ======== */}
-          <div className="relative h-[450px] md:h-[580px] lg:h-[680px] animate-fade-in animation-delay-600 order-1 lg:order-2">
+          {/* ======== RIGHT COLUMN: PRODUCT MOCKUPS ECOSYSTEM - order-2 on mobile ======== */}
+          <div className="relative h-[520px] md:h-[560px] lg:h-[640px] animate-fade-in animation-delay-600 order-2 mt-4 md:mt-0">
             
-            {/* Floating Badges - Hidden on mobile */}
-            <FloatingBadge className="hidden md:flex top-0 left-0 md:left-4 z-30" delay="0.3s">
+            {/* Inventory Mockup - Top left corner */}
+            <div className="absolute top-0 left-0 z-20">
+              {/* Compact version on mobile/tablet */}
+              <div className="block lg:hidden">
+                <InventoryMockup compact />
+              </div>
+              {/* Full version on desktop */}
+              <div className="hidden lg:block">
+                <InventoryMockup />
+              </div>
+            </div>
+
+            {/* Floating Badge - Hidden on mobile */}
+            <FloatingBadge className="hidden md:flex top-0 right-0 lg:right-auto lg:left-[200px] z-30">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
                   <CheckCircle2 className="w-4 h-4 text-green-600" />
@@ -510,7 +505,30 @@ const Hero: React.FC = () => {
               </div>
             </FloatingBadge>
 
-            <FloatingBadge className="hidden md:flex bottom-1/3 -left-4 md:left-0 z-30" delay="0.7s">
+            {/* Main POS Hardware - Center */}
+            <div className="flex justify-center pt-16 md:pt-20 lg:pt-12">
+              <POSHardwareMockup />
+            </div>
+
+            {/* iPhone QR Mockup - Right of POS, hidden on mobile */}
+            <div className="hidden md:block absolute right-0 top-20 lg:top-16 z-20">
+              <IPhoneQRMockup />
+            </div>
+
+            {/* KDS Mockup - Bottom right corner */}
+            <div className="absolute bottom-0 right-0 z-20">
+              {/* Compact version on mobile/tablet */}
+              <div className="block lg:hidden">
+                <KDSMockup compact />
+              </div>
+              {/* Full version on desktop */}
+              <div className="hidden lg:block">
+                <KDSMockup />
+              </div>
+            </div>
+
+            {/* Floating Badge - QR Scanned, hidden on mobile */}
+            <FloatingBadge className="hidden lg:flex bottom-1/3 left-0 z-30">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                   <QrCode className="w-4 h-4 text-primary" />
@@ -521,26 +539,6 @@ const Hero: React.FC = () => {
                 </div>
               </div>
             </FloatingBadge>
-
-            {/* Main POS Hardware - Center, Larger */}
-            <div className="flex justify-center pt-4 md:pt-8">
-              <POSHardwareMockup />
-            </div>
-
-            {/* iPhone QR Mockup - Hidden on mobile */}
-            <div className="hidden md:block absolute right-0 lg:right-4 top-16 z-20">
-              <IPhoneQRMockup />
-            </div>
-
-            {/* Inventory Mockup - Top left corner - Hidden on mobile/tablet */}
-            <div className="hidden lg:block absolute top-8 -left-4 z-10">
-              <InventoryMockup />
-            </div>
-
-            {/* KDS Mockup - Bottom right corner - Hidden on mobile/tablet */}
-            <div className="hidden lg:block absolute bottom-12 right-0 z-10">
-              <KDSMockup />
-            </div>
           </div>
         </div>
       </div>
