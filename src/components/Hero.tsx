@@ -13,7 +13,9 @@ import {
   Receipt,
   Package,
   Monitor,
-  Clock
+  Clock,
+  Calculator,
+  TrendingUp
 } from 'lucide-react';
 import { Button } from './ui/button';
 
@@ -117,6 +119,21 @@ const DoodleReports = () => (
   </svg>
 );
 
+const DoodleAccounting = () => (
+  <svg className="w-18 h-20" viewBox="0 0 80 100" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <rect x="10" y="10" width="60" height="80" rx="4" className="stroke-primary" />
+    <line x1="10" y1="28" x2="70" y2="28" className="stroke-primary" />
+    <rect x="18" y="36" width="12" height="10" rx="2" className="stroke-primary fill-primary/8" />
+    <rect x="34" y="36" width="12" height="10" rx="2" className="stroke-primary fill-primary/8" />
+    <rect x="50" y="36" width="12" height="10" rx="2" className="stroke-primary fill-primary/8" />
+    <rect x="18" y="50" width="12" height="10" rx="2" className="stroke-primary fill-primary/8" />
+    <rect x="34" y="50" width="12" height="10" rx="2" className="stroke-primary fill-primary/8" />
+    <rect x="50" y="50" width="12" height="10" rx="2" className="stroke-primary fill-primary/8" />
+    <text x="18" y="22" fontSize="7" className="fill-primary" fontFamily="monospace">12,450.00</text>
+    <rect x="34" y="68" width="28" height="14" rx="2" className="stroke-primary fill-primary/15" />
+  </svg>
+);
+
 // CTA Arrow Doodle
 const CTAArrowDoodle = () => (
   <svg className="absolute -left-14 top-1/2 -translate-y-1/2 w-12 h-10 opacity-[0.15] text-primary hidden xl:block" viewBox="0 0 60 50" fill="none" stroke="currentColor" strokeWidth="2">
@@ -127,7 +144,7 @@ const CTAArrowDoodle = () => (
 
 // ============ HARDWARE MOCKUP COMPONENTS ============
 
-// Premium POS Hardware Mockup - LARGER
+// Premium POS Hardware Mockup
 const POSHardwareMockup = () => (
   <div className="relative" style={{ transform: 'perspective(1200px) rotateY(-3deg) rotateX(1deg)' }}>
     {/* Tablet Stand - Base */}
@@ -140,84 +157,70 @@ const POSHardwareMockup = () => (
       {/* Camera notch */}
       <div className="absolute top-3 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-700" />
       
-      {/* Screen Content - BIGGER */}
-      <div className="bg-white rounded-xl overflow-hidden w-[280px] md:w-[340px] lg:w-[380px]">
+      {/* Screen Content */}
+      <div className="bg-white rounded-xl overflow-hidden w-[240px] md:w-[280px] lg:w-[320px]">
         {/* POS Header Bar */}
-        <div className="bg-primary px-4 py-3 flex items-center justify-between">
+        <div className="bg-primary px-3 py-2.5 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-              <Receipt className="w-4 h-4 text-white" />
+            <div className="w-7 h-7 bg-white/20 rounded-lg flex items-center justify-center">
+              <Receipt className="w-3.5 h-3.5 text-white" />
             </div>
-            <span className="text-white font-semibold text-sm">Swirl POS</span>
+            <span className="text-white font-semibold text-xs">Swirl POS</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-white/80 text-xs font-medium">Table 5</span>
+            <span className="text-white/80 text-[10px] font-medium">Table 5</span>
           </div>
         </div>
         
         {/* Order Items List */}
-        <div className="p-4 space-y-2">
-          <div className="flex items-center justify-between py-2.5 border-b border-gray-100">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-xs font-bold text-primary">2×</div>
+        <div className="p-3 space-y-1.5">
+          <div className="flex items-center justify-between py-2 border-b border-gray-100">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 bg-primary/10 rounded-md flex items-center justify-center text-[10px] font-bold text-primary">2×</div>
               <div>
-                <span className="text-sm font-medium text-foreground block">Chicken Shawarma</span>
-                <span className="text-[10px] text-muted-foreground">Extra garlic sauce</span>
+                <span className="text-xs font-medium text-foreground block">Chicken Shawarma</span>
+                <span className="text-[9px] text-muted-foreground">Extra garlic sauce</span>
               </div>
             </div>
-            <span className="text-sm font-semibold text-foreground">AED 36</span>
+            <span className="text-xs font-semibold text-foreground">AED 36</span>
           </div>
-          <div className="flex items-center justify-between py-2.5 border-b border-gray-100">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-xs font-bold text-primary">1×</div>
+          <div className="flex items-center justify-between py-2 border-b border-gray-100">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 bg-primary/10 rounded-md flex items-center justify-center text-[10px] font-bold text-primary">1×</div>
               <div>
-                <span className="text-sm font-medium text-foreground block">Grilled Lamb Kebab</span>
-                <span className="text-[10px] text-muted-foreground">Medium spice</span>
+                <span className="text-xs font-medium text-foreground block">Grilled Lamb Kebab</span>
+                <span className="text-[9px] text-muted-foreground">Medium spice</span>
               </div>
             </div>
-            <span className="text-sm font-semibold text-foreground">AED 42</span>
-          </div>
-          <div className="flex items-center justify-between py-2.5 border-b border-gray-100">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-xs font-bold text-primary">3×</div>
-              <div>
-                <span className="text-sm font-medium text-foreground block">Arabic Coffee</span>
-                <span className="text-[10px] text-muted-foreground">Traditional blend</span>
-              </div>
-            </div>
-            <span className="text-sm font-semibold text-foreground">AED 27</span>
+            <span className="text-xs font-semibold text-foreground">AED 42</span>
           </div>
           
           {/* Totals Section */}
-          <div className="pt-3 space-y-1.5 border-t border-gray-100 mt-2">
-            <div className="flex justify-between text-xs text-muted-foreground">
+          <div className="pt-2 space-y-1 border-t border-gray-100 mt-1">
+            <div className="flex justify-between text-[10px] text-muted-foreground">
               <span>Subtotal</span>
-              <span>AED 105.00</span>
+              <span>AED 78.00</span>
             </div>
-            <div className="flex justify-between text-xs text-muted-foreground">
-              <span>VAT (5%)</span>
-              <span>AED 5.25</span>
-            </div>
-            <div className="flex justify-between text-base font-bold text-foreground pt-2 border-t border-gray-200">
+            <div className="flex justify-between text-sm font-bold text-foreground pt-1 border-t border-gray-200">
               <span>Total</span>
-              <span className="text-primary">AED 110.25</span>
+              <span className="text-primary">AED 81.90</span>
             </div>
           </div>
           
           {/* Payment Method Buttons */}
-          <div className="grid grid-cols-3 gap-2 pt-3">
-            <button className="flex flex-col items-center gap-1.5 p-3 bg-green-500 hover:bg-green-600 rounded-xl transition-colors shadow-sm">
-              <Banknote className="w-5 h-5 text-white" />
-              <span className="text-[10px] font-semibold text-white">Cash</span>
+          <div className="grid grid-cols-3 gap-1.5 pt-2">
+            <button className="flex flex-col items-center gap-1 p-2 bg-green-500 rounded-lg">
+              <Banknote className="w-4 h-4 text-white" />
+              <span className="text-[9px] font-semibold text-white">Cash</span>
             </button>
-            <button className="flex flex-col items-center gap-1.5 p-3 bg-primary hover:bg-primary/90 rounded-xl transition-colors shadow-sm">
-              <CreditCard className="w-5 h-5 text-white" />
-              <span className="text-[10px] font-semibold text-white">Card</span>
+            <button className="flex flex-col items-center gap-1 p-2 bg-primary rounded-lg">
+              <CreditCard className="w-4 h-4 text-white" />
+              <span className="text-[9px] font-semibold text-white">Card</span>
             </button>
-            <button className="flex flex-col items-center gap-1.5 p-3 bg-gray-600 hover:bg-gray-700 rounded-xl transition-colors shadow-sm">
-              <SplitSquareVertical className="w-5 h-5 text-white" />
-              <span className="text-[10px] font-semibold text-white">Split</span>
+            <button className="flex flex-col items-center gap-1 p-2 bg-gray-600 rounded-lg">
+              <SplitSquareVertical className="w-4 h-4 text-white" />
+              <span className="text-[9px] font-semibold text-white">Split</span>
             </button>
           </div>
         </div>
@@ -226,68 +229,67 @@ const POSHardwareMockup = () => (
   </div>
 );
 
-// iPhone QR Ordering Mockup - STATIC (no animation)
+// iPhone QR Ordering Mockup
 const IPhoneQRMockup = () => (
   <div 
     className="relative"
     style={{ transform: 'perspective(1200px) rotateY(6deg)' }}
   >
     {/* iPhone Frame */}
-    <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-[2.8rem] p-2 shadow-2xl shadow-black/50">
+    <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-[2.5rem] p-1.5 shadow-2xl shadow-black/50">
       {/* Dynamic Island */}
-      <div className="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-full z-10" />
+      <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-4 bg-black rounded-full z-10" />
       
       {/* Screen */}
-      <div className="bg-white rounded-[2.2rem] overflow-hidden w-[170px] md:w-[190px] h-[360px] md:h-[400px]">
+      <div className="bg-white rounded-[2rem] overflow-hidden w-[150px] h-[320px]">
         {/* Header with QR branding */}
-        <div className="bg-gradient-to-r from-primary to-primary/85 px-4 pt-10 pb-4">
-          <div className="flex items-center gap-2 mb-1">
-            <QrCode className="w-5 h-5 text-white" />
-            <span className="text-white font-bold text-sm">Scan to Order</span>
+        <div className="bg-gradient-to-r from-primary to-primary/85 px-3 pt-8 pb-3">
+          <div className="flex items-center gap-1.5 mb-1">
+            <QrCode className="w-4 h-4 text-white" />
+            <span className="text-white font-bold text-xs">Scan to Order</span>
           </div>
-          <p className="text-white/75 text-[10px]">La Bella Italia • Table 8</p>
+          <p className="text-white/75 text-[9px]">La Bella Italia • Table 8</p>
         </div>
         
         {/* Category Tabs */}
-        <div className="px-3 pt-3">
-          <div className="flex gap-1.5 overflow-x-auto pb-2">
-            <span className="px-3 py-1.5 bg-primary text-white text-[10px] font-medium rounded-full whitespace-nowrap">Mains</span>
-            <span className="px-3 py-1.5 bg-gray-100 text-gray-600 text-[10px] font-medium rounded-full whitespace-nowrap">Drinks</span>
-            <span className="px-3 py-1.5 bg-gray-100 text-gray-600 text-[10px] font-medium rounded-full whitespace-nowrap">Desserts</span>
+        <div className="px-2 pt-2">
+          <div className="flex gap-1 overflow-x-auto pb-1.5">
+            <span className="px-2 py-1 bg-primary text-white text-[9px] font-medium rounded-full whitespace-nowrap">Mains</span>
+            <span className="px-2 py-1 bg-gray-100 text-gray-600 text-[9px] font-medium rounded-full whitespace-nowrap">Drinks</span>
           </div>
         </div>
         
         {/* Menu Items */}
-        <div className="px-3 space-y-2 mt-1">
-          <div className="flex gap-2 p-2.5 bg-gray-50 rounded-xl">
-            <div className="w-12 h-12 bg-gradient-to-br from-orange-200 to-orange-300 rounded-xl flex items-center justify-center text-xl">🍕</div>
+        <div className="px-2 space-y-1.5 mt-1">
+          <div className="flex gap-1.5 p-2 bg-gray-50 rounded-lg">
+            <div className="w-10 h-10 bg-gradient-to-br from-orange-200 to-orange-300 rounded-lg flex items-center justify-center text-base">🍕</div>
             <div className="flex-1 min-w-0">
-              <p className="font-semibold text-[11px] text-foreground truncate">Margherita Pizza</p>
-              <p className="text-[9px] text-muted-foreground">Fresh tomato, mozzarella</p>
-              <p className="text-xs font-bold text-primary mt-0.5">AED 48</p>
+              <p className="font-semibold text-[10px] text-foreground truncate">Margherita Pizza</p>
+              <p className="text-[8px] text-muted-foreground">Fresh tomato</p>
+              <p className="text-[10px] font-bold text-primary mt-0.5">AED 48</p>
             </div>
-            <button className="self-center w-7 h-7 bg-primary rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-              <Plus className="w-4 h-4 text-white" />
+            <button className="self-center w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+              <Plus className="w-3 h-3 text-white" />
             </button>
           </div>
           
-          <div className="flex gap-2 p-2.5 bg-gray-50 rounded-xl">
-            <div className="w-12 h-12 bg-gradient-to-br from-green-200 to-green-300 rounded-xl flex items-center justify-center text-xl">🥗</div>
+          <div className="flex gap-1.5 p-2 bg-gray-50 rounded-lg">
+            <div className="w-10 h-10 bg-gradient-to-br from-green-200 to-green-300 rounded-lg flex items-center justify-center text-base">🥗</div>
             <div className="flex-1 min-w-0">
-              <p className="font-semibold text-[11px] text-foreground truncate">Greek Salad</p>
-              <p className="text-[9px] text-muted-foreground">Feta, olives, cucumber</p>
-              <p className="text-xs font-bold text-primary mt-0.5">AED 32</p>
+              <p className="font-semibold text-[10px] text-foreground truncate">Greek Salad</p>
+              <p className="text-[8px] text-muted-foreground">Feta, olives</p>
+              <p className="text-[10px] font-bold text-primary mt-0.5">AED 32</p>
             </div>
-            <button className="self-center w-7 h-7 bg-primary/15 rounded-full flex items-center justify-center flex-shrink-0">
-              <Plus className="w-4 h-4 text-primary" />
+            <button className="self-center w-6 h-6 bg-primary/15 rounded-full flex items-center justify-center flex-shrink-0">
+              <Plus className="w-3 h-3 text-primary" />
             </button>
           </div>
         </div>
         
         {/* Cart Button Fixed at Bottom */}
-        <div className="absolute bottom-5 left-3 right-3">
-          <button className="w-full py-3 bg-primary hover:bg-primary/90 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/30 transition-colors">
-            <ShoppingCart className="w-4 h-4" />
+        <div className="absolute bottom-4 left-2 right-2">
+          <button className="w-full py-2 bg-primary text-white text-[10px] font-bold rounded-lg flex items-center justify-center gap-1.5 shadow-lg shadow-primary/30">
+            <ShoppingCart className="w-3 h-3" />
             View Cart (2) • AED 80
           </button>
         </div>
@@ -296,83 +298,86 @@ const IPhoneQRMockup = () => (
   </div>
 );
 
-// Inventory Mockup - STATIC (no animation)
+// Inventory Mockup
 const InventoryMockup = ({ compact = false }: { compact?: boolean }) => (
-  <div className={`bg-white rounded-xl shadow-xl border border-gray-100 p-3 ${compact ? 'w-[130px]' : 'w-[160px] md:w-[180px]'}`}>
-    <div className="flex items-center gap-2 mb-2">
-      <div className={`${compact ? 'w-5 h-5' : 'w-7 h-7'} rounded-lg bg-primary/10 flex items-center justify-center`}>
-        <Package className={`${compact ? 'w-3 h-3' : 'w-4 h-4'} text-primary`} />
+  <div className={`bg-white rounded-xl shadow-xl border border-gray-100 ${compact ? 'p-2 w-[110px]' : 'p-3 w-[140px]'}`}>
+    <div className="flex items-center gap-1.5 mb-2">
+      <div className={`${compact ? 'w-5 h-5' : 'w-6 h-6'} rounded-lg bg-primary/10 flex items-center justify-center`}>
+        <Package className={`${compact ? 'w-2.5 h-2.5' : 'w-3 h-3'} text-primary`} />
       </div>
-      <span className={`${compact ? 'text-[10px]' : 'text-xs'} font-bold`}>Inventory</span>
+      <span className={`${compact ? 'text-[9px]' : 'text-[10px]'} font-bold`}>Inventory</span>
     </div>
-    {/* Stock alerts */}
-    <div className="space-y-1.5">
-      <div className="flex justify-between items-center text-[10px]">
+    <div className="space-y-1">
+      <div className="flex justify-between items-center text-[9px]">
         <span className="text-muted-foreground">Chicken</span>
-        <span className="text-red-500 font-bold px-1 py-0.5 bg-red-50 rounded text-[9px]">Low</span>
+        <span className="text-red-500 font-bold px-1 py-0.5 bg-red-50 rounded text-[8px]">Low</span>
       </div>
-      <div className="flex justify-between items-center text-[10px]">
+      <div className="flex justify-between items-center text-[9px]">
         <span className="text-muted-foreground">Olive Oil</span>
-        <span className="text-amber-600 font-bold px-1 py-0.5 bg-amber-50 rounded text-[9px]">Med</span>
+        <span className="text-amber-600 font-bold px-1 py-0.5 bg-amber-50 rounded text-[8px]">Med</span>
       </div>
       {!compact && (
-        <div className="flex justify-between items-center text-[10px]">
+        <div className="flex justify-between items-center text-[9px]">
           <span className="text-muted-foreground">Flour</span>
-          <span className="text-green-600 font-bold px-1 py-0.5 bg-green-50 rounded text-[9px]">OK</span>
+          <span className="text-green-600 font-bold px-1 py-0.5 bg-green-50 rounded text-[8px]">OK</span>
         </div>
       )}
     </div>
-    {!compact && (
-      <div className="h-10 mt-2 bg-gray-50 rounded-lg flex items-center justify-center">
-        <BarChart3 className="w-6 h-6 text-primary/20" />
-      </div>
-    )}
   </div>
 );
 
-// KDS Mockup - STATIC (no animation)
+// KDS Mockup
 const KDSMockup = ({ compact = false }: { compact?: boolean }) => (
-  <div className={`bg-gray-900 rounded-xl shadow-xl p-2.5 ${compact ? 'w-[130px]' : 'w-[150px] md:w-[170px]'}`}>
-    <div className="flex items-center gap-2 mb-2">
-      <Monitor className={`${compact ? 'w-3 h-3' : 'w-4 h-4'} text-white`} />
-      <span className={`${compact ? 'text-[9px]' : 'text-[10px]'} font-bold text-white`}>Kitchen Display</span>
+  <div className={`bg-gray-900 rounded-xl shadow-xl ${compact ? 'p-2 w-[110px]' : 'p-2.5 w-[140px]'}`}>
+    <div className="flex items-center gap-1.5 mb-2">
+      <Monitor className={`${compact ? 'w-2.5 h-2.5' : 'w-3 h-3'} text-white`} />
+      <span className={`${compact ? 'text-[8px]' : 'text-[9px]'} font-bold text-white`}>Kitchen Display</span>
     </div>
-    {/* Running orders */}
-    <div className="space-y-1.5">
-      <div className="bg-amber-500/20 border border-amber-500/30 rounded-lg px-2 py-1.5">
+    <div className="space-y-1">
+      <div className="bg-amber-500/20 border border-amber-500/30 rounded-md px-1.5 py-1">
         <div className="flex justify-between items-center">
-          <span className="text-[10px] text-amber-300 font-bold">#1247</span>
-          <div className="flex items-center gap-1">
-            <Clock className="w-2.5 h-2.5 text-amber-400" />
-            <span className="text-[9px] text-amber-400">3:45</span>
+          <span className="text-[9px] text-amber-300 font-bold">#1247</span>
+          <div className="flex items-center gap-0.5">
+            <Clock className="w-2 h-2 text-amber-400" />
+            <span className="text-[8px] text-amber-400">3:45</span>
           </div>
         </div>
-        <span className="text-[9px] text-white/70">Preparing...</span>
       </div>
-      <div className="bg-green-500/20 border border-green-500/30 rounded-lg px-2 py-1.5">
+      <div className="bg-green-500/20 border border-green-500/30 rounded-md px-1.5 py-1">
         <div className="flex justify-between items-center">
-          <span className="text-[10px] text-green-300 font-bold">#1246</span>
-          <span className="text-[9px] text-green-400 font-medium">Ready</span>
+          <span className="text-[9px] text-green-300 font-bold">#1246</span>
+          <span className="text-[8px] text-green-400 font-medium">Ready</span>
         </div>
-        <span className="text-[9px] text-white/70">Table 3</span>
+      </div>
+    </div>
+  </div>
+);
+
+// Accounting Mockup - NEW
+const AccountingMockup = ({ compact = false }: { compact?: boolean }) => (
+  <div className={`bg-white rounded-xl shadow-xl border border-gray-100 ${compact ? 'p-2 w-[110px]' : 'p-3 w-[140px]'}`}>
+    <div className="flex items-center gap-1.5 mb-2">
+      <div className={`${compact ? 'w-5 h-5' : 'w-6 h-6'} rounded-lg bg-emerald-100 flex items-center justify-center`}>
+        <Calculator className={`${compact ? 'w-2.5 h-2.5' : 'w-3 h-3'} text-emerald-600`} />
+      </div>
+      <span className={`${compact ? 'text-[9px]' : 'text-[10px]'} font-bold`}>Accounting</span>
+    </div>
+    <div className="space-y-1">
+      <div className="flex justify-between items-center text-[9px]">
+        <span className="text-muted-foreground">Today</span>
+        <span className="text-emerald-600 font-bold">AED 4,520</span>
+      </div>
+      <div className="flex justify-between items-center text-[9px]">
+        <span className="text-muted-foreground">Week</span>
+        <span className="text-primary font-bold">AED 28K</span>
       </div>
       {!compact && (
-        <div className="bg-primary/20 border border-primary/30 rounded-lg px-2 py-1.5">
-          <div className="flex justify-between items-center">
-            <span className="text-[10px] text-primary/80 font-bold">#1245</span>
-            <span className="text-[9px] text-primary/60">New</span>
-          </div>
-          <span className="text-[9px] text-white/70">Dine-in</span>
+        <div className="h-6 mt-1.5 bg-gradient-to-r from-emerald-50 to-green-50 rounded-md flex items-center justify-center">
+          <TrendingUp className="w-3 h-3 text-emerald-500" />
+          <span className="text-[8px] ml-1 text-emerald-600 font-medium">+12.5%</span>
         </div>
       )}
     </div>
-  </div>
-);
-
-// Floating Badge Component - STATIC (no animation)
-const FloatingBadge = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <div className={`absolute bg-white/95 backdrop-blur-md rounded-xl px-3.5 py-2.5 shadow-xl shadow-black/8 border border-gray-100/80 ${className}`}>
-    {children}
   </div>
 );
 
@@ -380,7 +385,7 @@ const FloatingBadge = ({ children, className = "" }: { children: React.ReactNode
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen bg-white overflow-hidden pt-28 md:pt-32 pb-8">
+    <section className="relative min-h-screen bg-white overflow-hidden pt-32 md:pt-36 lg:pt-32 pb-8">
       
       {/* ======== DOODLES - Outer margins only, hidden on mobile/tablet ======== */}
       <div className="absolute inset-0 pointer-events-none text-primary hidden xl:block">
@@ -395,7 +400,7 @@ const Hero: React.FC = () => {
           <DoodleCRM />
         </div>
         
-        {/* Right margin doodles - above/below mockup area */}
+        {/* Right margin doodles */}
         <div className="absolute top-28 right-4 opacity-[0.055]">
           <DoodleAnalytics />
         </div>
@@ -409,6 +414,9 @@ const Hero: React.FC = () => {
         </div>
         <div className="absolute bottom-40 right-24 opacity-[0.06]">
           <DoodleQRCode />
+        </div>
+        <div className="absolute top-1/3 right-28 opacity-[0.05]">
+          <DoodleAccounting />
         </div>
       </div>
 
@@ -459,17 +467,17 @@ const Hero: React.FC = () => {
               </span>
             </p>
 
-            {/* 6 Logo Strip - Greyscale to Color on Hover */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 md:gap-8 pt-3 animate-fade-in animation-delay-800">
+            {/* 6 Logo Strip - Circular Modern Design */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-5 pt-3 animate-fade-in animation-delay-800">
               {logos.map((logo, index) => (
                 <div 
                   key={index} 
-                  className="h-8 md:h-10 lg:h-11 grayscale brightness-[0.35] opacity-80 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
+                  className="w-14 h-14 md:w-16 md:h-16 lg:w-[72px] lg:h-[72px] rounded-full bg-white shadow-lg shadow-black/5 border border-gray-100 flex items-center justify-center p-2 md:p-2.5 grayscale brightness-[0.4] opacity-90 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-110 hover:shadow-xl hover:border-primary/20 transition-all duration-300 cursor-pointer"
                 >
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="h-full w-auto object-contain"
+                    className="w-full h-full object-contain rounded-full"
                     loading="eager"
                   />
                 </div>
@@ -478,67 +486,31 @@ const Hero: React.FC = () => {
           </div>
 
           {/* ======== RIGHT COLUMN: PRODUCT MOCKUPS ECOSYSTEM - order-2 on mobile ======== */}
-          <div className="relative h-[520px] md:h-[560px] lg:h-[640px] animate-fade-in animation-delay-600 order-2 mt-4 md:mt-0">
+          <div className="relative h-[480px] md:h-[520px] lg:h-[600px] animate-fade-in animation-delay-600 order-2 mt-4 md:mt-0">
             
-            {/* Inventory Mockup - Top left corner */}
+            {/* Inventory Mockup - Top left corner, clear of center */}
             <div className="absolute top-0 left-0 z-20">
-              {/* Compact version on mobile/tablet */}
-              <div className="block lg:hidden">
-                <InventoryMockup compact />
-              </div>
-              {/* Full version on desktop */}
-              <div className="hidden lg:block">
-                <InventoryMockup />
-              </div>
+              <InventoryMockup compact />
             </div>
 
-            {/* Floating Badge - Hidden on mobile */}
-            <FloatingBadge className="hidden md:flex top-0 right-0 lg:right-auto lg:left-[200px] z-30">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
-                  <CheckCircle2 className="w-4 h-4 text-green-600" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-foreground">Order Placed!</p>
-                  <p className="text-[10px] text-muted-foreground">Table 5 • #1248</p>
-                </div>
-              </div>
-            </FloatingBadge>
+            {/* Accounting Mockup - Top right corner, clear of center */}
+            <div className="absolute top-0 right-0 z-20">
+              <AccountingMockup compact />
+            </div>
 
-            {/* Main POS Hardware - Center */}
-            <div className="flex justify-center pt-16 md:pt-20 lg:pt-12">
+            {/* Main POS + iPhone Row - Flex centered, starts lower to avoid corners */}
+            <div className="flex items-start justify-center gap-3 md:gap-4 lg:gap-5 pt-20 md:pt-16 lg:pt-14">
               <POSHardwareMockup />
-            </div>
-
-            {/* iPhone QR Mockup - Right of POS, hidden on mobile */}
-            <div className="hidden md:block absolute right-0 top-20 lg:top-16 z-20">
-              <IPhoneQRMockup />
-            </div>
-
-            {/* KDS Mockup - Bottom right corner */}
-            <div className="absolute bottom-0 right-0 z-20">
-              {/* Compact version on mobile/tablet */}
-              <div className="block lg:hidden">
-                <KDSMockup compact />
-              </div>
-              {/* Full version on desktop */}
-              <div className="hidden lg:block">
-                <KDSMockup />
+              {/* iPhone - hidden on mobile */}
+              <div className="hidden md:block">
+                <IPhoneQRMockup />
               </div>
             </div>
 
-            {/* Floating Badge - QR Scanned, hidden on mobile */}
-            <FloatingBadge className="hidden lg:flex bottom-1/3 left-0 z-30">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                  <QrCode className="w-4 h-4 text-primary" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-foreground">QR Scanned</p>
-                  <p className="text-[10px] text-muted-foreground">Menu Loaded</p>
-                </div>
-              </div>
-            </FloatingBadge>
+            {/* KDS Mockup - Bottom center (below POS & iPhone) */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20">
+              <KDSMockup compact />
+            </div>
           </div>
         </div>
       </div>
