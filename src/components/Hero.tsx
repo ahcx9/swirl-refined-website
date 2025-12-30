@@ -457,7 +457,7 @@ const Hero: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[75vh]">
           
           {/* ======== LEFT COLUMN: COPY & CTAs - order-1 on mobile (text first) ======== */}
-          <div className="space-y-7 text-center lg:text-left order-1 lg:-translate-x-8 xl:-translate-x-12">
+          <div className="space-y-7 text-center lg:text-left order-1 lg:-translate-x-16 xl:-translate-x-24">
             
             {/* Main Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] xl:text-6xl font-bold text-foreground leading-[1.08] tracking-tight animate-fade-in">
