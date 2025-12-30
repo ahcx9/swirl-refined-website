@@ -521,8 +521,8 @@ const Hero: React.FC = () => {
           {/* ======== RIGHT COLUMN: PRODUCT MOCKUPS ECOSYSTEM - order-2 on mobile ======== */}
           <div className="relative h-[500px] md:h-[560px] lg:h-[680px] xl:h-[720px] animate-fade-in animation-delay-600 order-2 mt-4 md:mt-0">
             
-            {/* Inventory Mockup - Left side, positioned completely outside POS area */}
-            <div className="absolute top-0 left-0 md:top-4 lg:top-20 lg:-left-16 xl:-left-24 z-20">
+            {/* Inventory Mockup - Far left, completely outside POS */}
+            <div className="absolute top-0 left-0 md:top-4 lg:top-24 lg:-left-40 xl:-left-52 z-20">
               {/* Mobile/Tablet: compact version */}
               <div className="lg:hidden">
                 <InventoryMockup compact />
@@ -533,8 +533,8 @@ const Hero: React.FC = () => {
               </div>
             </div>
 
-            {/* Accounting Mockup - Right side, positioned completely outside POS area */}
-            <div className="absolute top-0 right-0 md:top-4 lg:top-20 lg:-right-16 xl:-right-24 z-20">
+            {/* Accounting Mockup - Far right, completely outside iPhone */}
+            <div className="absolute top-0 right-0 md:top-4 lg:top-24 lg:-right-40 xl:-right-52 z-20">
               {/* Mobile/Tablet: compact version */}
               <div className="lg:hidden">
                 <AccountingMockup compact />
