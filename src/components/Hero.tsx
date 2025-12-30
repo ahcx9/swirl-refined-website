@@ -7,11 +7,14 @@ import {
   Link as LinkIcon, 
   Sparkles,
   Check,
-  BarChart3,
   Building2,
   Receipt,
-  Box,
-  TrendingUp
+  Wallet,
+  Banknote,
+  SplitSquareVertical,
+  CheckCircle2,
+  Clock,
+  ShoppingBag
 } from 'lucide-react';
 import { Button } from './ui/button';
 import CustomCTAButton from './CustomCTAButton';
@@ -46,40 +49,40 @@ const featureStrip = [
 const floatingCards = [
   { 
     icon: Receipt, 
-    title: "Live POS Billing", 
-    badge: "Active",
+    title: "Quick Billing", 
+    badge: "< 2 sec",
     badgeColor: "bg-green-500",
     position: "top-4 -left-4 lg:top-8 lg:-left-8",
     delay: "0s"
   },
   { 
-    icon: Box, 
-    title: "Smart Inventory", 
-    badge: "Auto-reorder",
+    icon: Wallet, 
+    title: "Multi-Payment", 
+    badge: "Cash • Card • Split",
     badgeColor: "bg-primary",
     position: "top-0 -right-4 lg:top-4 lg:-right-8",
     delay: "0.5s"
   },
   { 
-    icon: TrendingUp, 
-    title: "Real-time Sales", 
-    badge: "+24% today",
-    badgeColor: "bg-emerald-500",
+    icon: ShoppingBag, 
+    title: "Order Queue", 
+    badge: "12 pending",
+    badgeColor: "bg-amber-500",
     position: "bottom-32 -left-4 lg:bottom-36 lg:-left-12",
     delay: "1s"
   },
   { 
-    icon: Sparkles, 
-    title: "AI Insights", 
-    badge: "Predictions",
+    icon: Building2, 
+    title: "Table Management", 
+    badge: "8 occupied",
     badgeColor: "bg-violet-500",
     position: "bottom-20 -right-4 lg:bottom-24 lg:-right-8",
     delay: "1.5s"
   },
   { 
-    icon: Building2, 
-    title: "Multi-Branch", 
-    badge: "12 outlets",
+    icon: CheckCircle2, 
+    title: "Digital Receipt", 
+    badge: "SMS • Email",
     badgeColor: "bg-primary",
     position: "-bottom-2 left-1/2 -translate-x-1/2",
     delay: "2s"
@@ -181,36 +184,135 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column - Product Visual */}
-          <div className="relative h-[350px] md:h-[450px] lg:h-[500px] animate-fade-in animation-delay-600 order-1 lg:order-2">
-            {/* Main Dashboard Image */}
+          {/* Right Column - POS Billing Mockup */}
+          <div className="relative h-[400px] md:h-[480px] lg:h-[520px] animate-fade-in animation-delay-600 order-1 lg:order-2">
+            {/* Main POS Interface Card */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative w-full max-w-md lg:max-w-lg mx-auto">
+              <div className="relative w-full max-w-sm lg:max-w-md mx-auto">
                 <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-3xl blur-2xl opacity-60" />
-                <img 
-                  src="/lovable-uploads/2bbf790c-35c7-4511-a4a7-7d48e4faf0f2.png" 
-                  alt="Swirl POS Dashboard"
-                  className="relative w-full h-auto rounded-2xl shadow-2xl shadow-primary/20 border border-white/50"
-                  loading="eager"
-                />
+                
+                {/* POS Terminal Card */}
+                <div className="relative bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-white/50 overflow-hidden">
+                  {/* POS Header */}
+                  <div className="bg-primary px-4 py-3 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                        <CreditCard className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-white font-semibold text-sm">Swirl POS</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                      <span className="text-white/80 text-xs">Table 5</span>
+                    </div>
+                  </div>
+                  
+                  {/* Order Items */}
+                  <div className="p-4 space-y-3">
+                    <div className="flex items-center justify-between py-2 border-b border-gray-100">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-xs font-bold text-primary">2×</div>
+                        <span className="text-sm font-medium text-foreground">Chicken Shawarma</span>
+                      </div>
+                      <span className="text-sm font-semibold text-foreground">AED 36</span>
+                    </div>
+                    <div className="flex items-center justify-between py-2 border-b border-gray-100">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-xs font-bold text-primary">1×</div>
+                        <span className="text-sm font-medium text-foreground">Hummus Plate</span>
+                      </div>
+                      <span className="text-sm font-semibold text-foreground">AED 18</span>
+                    </div>
+                    <div className="flex items-center justify-between py-2 border-b border-gray-100">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-xs font-bold text-primary">3×</div>
+                        <span className="text-sm font-medium text-foreground">Arabic Coffee</span>
+                      </div>
+                      <span className="text-sm font-semibold text-foreground">AED 27</span>
+                    </div>
+                    
+                    {/* Total Section */}
+                    <div className="pt-2 space-y-1">
+                      <div className="flex justify-between text-xs text-muted-foreground">
+                        <span>Subtotal</span>
+                        <span>AED 81.00</span>
+                      </div>
+                      <div className="flex justify-between text-xs text-muted-foreground">
+                        <span>VAT (5%)</span>
+                        <span>AED 4.05</span>
+                      </div>
+                      <div className="flex justify-between text-base font-bold text-foreground pt-2 border-t border-gray-200">
+                        <span>Total</span>
+                        <span className="text-primary">AED 85.05</span>
+                      </div>
+                    </div>
+                    
+                    {/* Payment Buttons */}
+                    <div className="grid grid-cols-3 gap-2 pt-3">
+                      <button className="flex flex-col items-center gap-1 p-3 bg-primary/10 rounded-xl hover:bg-primary/20 transition-colors group">
+                        <Banknote className="w-5 h-5 text-primary" />
+                        <span className="text-xs font-medium text-foreground">Cash</span>
+                      </button>
+                      <button className="flex flex-col items-center gap-1 p-3 bg-primary rounded-xl hover:bg-primary/90 transition-colors group">
+                        <CreditCard className="w-5 h-5 text-white" />
+                        <span className="text-xs font-medium text-white">Card</span>
+                      </button>
+                      <button className="flex flex-col items-center gap-1 p-3 bg-primary/10 rounded-xl hover:bg-primary/20 transition-colors group">
+                        <SplitSquareVertical className="w-5 h-5 text-primary" />
+                        <span className="text-xs font-medium text-foreground">Split</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Receipt Preview - Floating Top Right */}
+            <div 
+              className="absolute top-0 -right-2 lg:-right-6 z-20 hidden md:block"
+              style={{ animation: `float-slow 7s ease-in-out infinite`, animationDelay: '0.3s' }}
+            >
+              <div className="bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-xl shadow-primary/10 border border-white/60">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
+                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-foreground">Order #1247</p>
+                    <span className="inline-block text-[10px] px-2 py-0.5 rounded-full bg-green-500 text-white">Paid</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Pending Orders - Floating Left */}
+            <div 
+              className="absolute top-8 -left-2 lg:-left-6 z-20 hidden md:block"
+              style={{ animation: `float-slow 6s ease-in-out infinite`, animationDelay: '0.6s' }}
+            >
+              <div className="bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-xl shadow-primary/10 border border-white/60">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center">
+                    <Clock className="w-4 h-4 text-amber-500" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-foreground">Pending</p>
+                    <span className="inline-block text-[10px] px-2 py-0.5 rounded-full bg-amber-500 text-white">3 orders</span>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Floating Feature Cards */}
-            {floatingCards.map((card, index) => (
+            {floatingCards.slice(0, 3).map((card, index) => (
               <div
                 key={index}
-                className={`absolute ${card.position} z-20 hidden md:block`}
-                style={{ 
-                  animationDelay: card.delay,
-                }}
+                className={`absolute ${card.position} z-20 hidden lg:block`}
+                style={{ animationDelay: card.delay }}
               >
                 <div 
                   className="bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-xl shadow-primary/10 border border-white/60 hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
-                  style={{
-                    animation: `float-slow 6s ease-in-out infinite`,
-                    animationDelay: card.delay,
-                  }}
+                  style={{ animation: `float-slow 6s ease-in-out infinite`, animationDelay: card.delay }}
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
