@@ -148,9 +148,9 @@ const CTAArrowDoodle = () => (
 const POSHardwareMockup = () => (
   <div className="relative" style={{ transform: 'perspective(1200px) rotateY(-3deg) rotateX(1deg)' }}>
     {/* Tablet Stand - Base */}
-    <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-32 md:w-40 h-5 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-500 rounded-full shadow-lg" />
+    <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-36 md:w-44 lg:w-52 xl:w-56 h-5 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-500 rounded-full shadow-lg" />
     {/* Tablet Stand - Neck */}
-    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-5 h-16 md:h-20 bg-gradient-to-r from-gray-400 via-gray-300 to-gray-400 rounded-sm shadow-md" />
+    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-5 h-16 md:h-20 lg:h-24 bg-gradient-to-r from-gray-400 via-gray-300 to-gray-400 rounded-sm shadow-md" />
     
     {/* Tablet Body Frame */}
     <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-2xl p-2 shadow-2xl shadow-black/40">
@@ -158,69 +158,69 @@ const POSHardwareMockup = () => (
       <div className="absolute top-3 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-gray-700" />
       
       {/* Screen Content */}
-      <div className="bg-white rounded-xl overflow-hidden w-[240px] md:w-[280px] lg:w-[320px]">
+      <div className="bg-white rounded-xl overflow-hidden w-[240px] md:w-[300px] lg:w-[380px] xl:w-[420px]">
         {/* POS Header Bar */}
-        <div className="bg-primary px-3 py-2.5 flex items-center justify-between">
+        <div className="bg-primary px-3 lg:px-4 py-2.5 lg:py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-white/20 rounded-lg flex items-center justify-center">
-              <Receipt className="w-3.5 h-3.5 text-white" />
+            <div className="w-7 h-7 lg:w-8 lg:h-8 bg-white/20 rounded-lg flex items-center justify-center">
+              <Receipt className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-white" />
             </div>
-            <span className="text-white font-semibold text-xs">Swirl POS</span>
+            <span className="text-white font-semibold text-xs lg:text-sm">Swirl POS</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-white/80 text-[10px] font-medium">Table 5</span>
+            <span className="text-white/80 text-[10px] lg:text-xs font-medium">Table 5</span>
           </div>
         </div>
         
         {/* Order Items List */}
-        <div className="p-3 space-y-1.5">
-          <div className="flex items-center justify-between py-2 border-b border-gray-100">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-primary/10 rounded-md flex items-center justify-center text-[10px] font-bold text-primary">2×</div>
+        <div className="p-3 lg:p-4 space-y-1.5 lg:space-y-2">
+          <div className="flex items-center justify-between py-2 lg:py-2.5 border-b border-gray-100">
+            <div className="flex items-center gap-2 lg:gap-3">
+              <div className="w-6 h-6 lg:w-8 lg:h-8 bg-primary/10 rounded-md flex items-center justify-center text-[10px] lg:text-xs font-bold text-primary">2×</div>
               <div>
-                <span className="text-xs font-medium text-foreground block">Chicken Shawarma</span>
-                <span className="text-[9px] text-muted-foreground">Extra garlic sauce</span>
+                <span className="text-xs lg:text-sm font-medium text-foreground block">Chicken Shawarma</span>
+                <span className="text-[9px] lg:text-[10px] text-muted-foreground">Extra garlic sauce</span>
               </div>
             </div>
-            <span className="text-xs font-semibold text-foreground">AED 36</span>
+            <span className="text-xs lg:text-sm font-semibold text-foreground">AED 36</span>
           </div>
-          <div className="flex items-center justify-between py-2 border-b border-gray-100">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-primary/10 rounded-md flex items-center justify-center text-[10px] font-bold text-primary">1×</div>
+          <div className="flex items-center justify-between py-2 lg:py-2.5 border-b border-gray-100">
+            <div className="flex items-center gap-2 lg:gap-3">
+              <div className="w-6 h-6 lg:w-8 lg:h-8 bg-primary/10 rounded-md flex items-center justify-center text-[10px] lg:text-xs font-bold text-primary">1×</div>
               <div>
-                <span className="text-xs font-medium text-foreground block">Grilled Lamb Kebab</span>
-                <span className="text-[9px] text-muted-foreground">Medium spice</span>
+                <span className="text-xs lg:text-sm font-medium text-foreground block">Grilled Lamb Kebab</span>
+                <span className="text-[9px] lg:text-[10px] text-muted-foreground">Medium spice</span>
               </div>
             </div>
-            <span className="text-xs font-semibold text-foreground">AED 42</span>
+            <span className="text-xs lg:text-sm font-semibold text-foreground">AED 42</span>
           </div>
           
           {/* Totals Section */}
-          <div className="pt-2 space-y-1 border-t border-gray-100 mt-1">
-            <div className="flex justify-between text-[10px] text-muted-foreground">
+          <div className="pt-2 lg:pt-3 space-y-1 border-t border-gray-100 mt-1">
+            <div className="flex justify-between text-[10px] lg:text-xs text-muted-foreground">
               <span>Subtotal</span>
               <span>AED 78.00</span>
             </div>
-            <div className="flex justify-between text-sm font-bold text-foreground pt-1 border-t border-gray-200">
+            <div className="flex justify-between text-sm lg:text-base font-bold text-foreground pt-1 border-t border-gray-200">
               <span>Total</span>
               <span className="text-primary">AED 81.90</span>
             </div>
           </div>
           
           {/* Payment Method Buttons */}
-          <div className="grid grid-cols-3 gap-1.5 pt-2">
-            <button className="flex flex-col items-center gap-1 p-2 bg-green-500 rounded-lg">
-              <Banknote className="w-4 h-4 text-white" />
-              <span className="text-[9px] font-semibold text-white">Cash</span>
+          <div className="grid grid-cols-3 gap-1.5 lg:gap-2 pt-2 lg:pt-3">
+            <button className="flex flex-col items-center gap-1 p-2 lg:p-2.5 bg-green-500 rounded-lg">
+              <Banknote className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
+              <span className="text-[9px] lg:text-[10px] font-semibold text-white">Cash</span>
             </button>
-            <button className="flex flex-col items-center gap-1 p-2 bg-primary rounded-lg">
-              <CreditCard className="w-4 h-4 text-white" />
-              <span className="text-[9px] font-semibold text-white">Card</span>
+            <button className="flex flex-col items-center gap-1 p-2 lg:p-2.5 bg-primary rounded-lg">
+              <CreditCard className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
+              <span className="text-[9px] lg:text-[10px] font-semibold text-white">Card</span>
             </button>
-            <button className="flex flex-col items-center gap-1 p-2 bg-gray-600 rounded-lg">
-              <SplitSquareVertical className="w-4 h-4 text-white" />
-              <span className="text-[9px] font-semibold text-white">Split</span>
+            <button className="flex flex-col items-center gap-1 p-2 lg:p-2.5 bg-gray-600 rounded-lg">
+              <SplitSquareVertical className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
+              <span className="text-[9px] lg:text-[10px] font-semibold text-white">Split</span>
             </button>
           </div>
         </div>
@@ -236,60 +236,60 @@ const IPhoneQRMockup = () => (
     style={{ transform: 'perspective(1200px) rotateY(6deg)' }}
   >
     {/* iPhone Frame */}
-    <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-[2.5rem] p-1.5 shadow-2xl shadow-black/50">
+    <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-[2.5rem] lg:rounded-[3rem] p-1.5 lg:p-2 shadow-2xl shadow-black/50">
       {/* Dynamic Island */}
-      <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-16 h-4 bg-black rounded-full z-10" />
+      <div className="absolute top-2.5 lg:top-3 left-1/2 -translate-x-1/2 w-16 lg:w-20 h-4 lg:h-5 bg-black rounded-full z-10" />
       
       {/* Screen */}
-      <div className="bg-white rounded-[2rem] overflow-hidden w-[150px] h-[320px]">
+      <div className="bg-white rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden w-[150px] md:w-[160px] lg:w-[180px] xl:w-[200px] h-[320px] md:h-[340px] lg:h-[380px] xl:h-[420px]">
         {/* Header with QR branding */}
-        <div className="bg-gradient-to-r from-primary to-primary/85 px-3 pt-8 pb-3">
-          <div className="flex items-center gap-1.5 mb-1">
-            <QrCode className="w-4 h-4 text-white" />
-            <span className="text-white font-bold text-xs">Scan to Order</span>
+        <div className="bg-gradient-to-r from-primary to-primary/85 px-3 lg:px-4 pt-8 lg:pt-10 pb-3 lg:pb-4">
+          <div className="flex items-center gap-1.5 lg:gap-2 mb-1">
+            <QrCode className="w-4 h-4 lg:w-5 lg:h-5 text-white" />
+            <span className="text-white font-bold text-xs lg:text-sm">Scan to Order</span>
           </div>
-          <p className="text-white/75 text-[9px]">La Bella Italia • Table 8</p>
+          <p className="text-white/75 text-[9px] lg:text-[10px]">La Bella Italia • Table 8</p>
         </div>
         
         {/* Category Tabs */}
-        <div className="px-2 pt-2">
-          <div className="flex gap-1 overflow-x-auto pb-1.5">
-            <span className="px-2 py-1 bg-primary text-white text-[9px] font-medium rounded-full whitespace-nowrap">Mains</span>
-            <span className="px-2 py-1 bg-gray-100 text-gray-600 text-[9px] font-medium rounded-full whitespace-nowrap">Drinks</span>
+        <div className="px-2 lg:px-3 pt-2 lg:pt-3">
+          <div className="flex gap-1 lg:gap-1.5 overflow-x-auto pb-1.5 lg:pb-2">
+            <span className="px-2 lg:px-3 py-1 lg:py-1.5 bg-primary text-white text-[9px] lg:text-[10px] font-medium rounded-full whitespace-nowrap">Mains</span>
+            <span className="px-2 lg:px-3 py-1 lg:py-1.5 bg-gray-100 text-gray-600 text-[9px] lg:text-[10px] font-medium rounded-full whitespace-nowrap">Drinks</span>
           </div>
         </div>
         
         {/* Menu Items */}
-        <div className="px-2 space-y-1.5 mt-1">
-          <div className="flex gap-1.5 p-2 bg-gray-50 rounded-lg">
-            <div className="w-10 h-10 bg-gradient-to-br from-orange-200 to-orange-300 rounded-lg flex items-center justify-center text-base">🍕</div>
+        <div className="px-2 lg:px-3 space-y-1.5 lg:space-y-2 mt-1 lg:mt-2">
+          <div className="flex gap-1.5 lg:gap-2 p-2 lg:p-2.5 bg-gray-50 rounded-lg">
+            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-orange-200 to-orange-300 rounded-lg flex items-center justify-center text-base lg:text-lg">🍕</div>
             <div className="flex-1 min-w-0">
-              <p className="font-semibold text-[10px] text-foreground truncate">Margherita Pizza</p>
-              <p className="text-[8px] text-muted-foreground">Fresh tomato</p>
-              <p className="text-[10px] font-bold text-primary mt-0.5">AED 48</p>
+              <p className="font-semibold text-[10px] lg:text-xs text-foreground truncate">Margherita Pizza</p>
+              <p className="text-[8px] lg:text-[9px] text-muted-foreground">Fresh tomato</p>
+              <p className="text-[10px] lg:text-xs font-bold text-primary mt-0.5">AED 48</p>
             </div>
-            <button className="self-center w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-              <Plus className="w-3 h-3 text-white" />
+            <button className="self-center w-6 h-6 lg:w-7 lg:h-7 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+              <Plus className="w-3 h-3 lg:w-3.5 lg:h-3.5 text-white" />
             </button>
           </div>
           
-          <div className="flex gap-1.5 p-2 bg-gray-50 rounded-lg">
-            <div className="w-10 h-10 bg-gradient-to-br from-green-200 to-green-300 rounded-lg flex items-center justify-center text-base">🥗</div>
+          <div className="flex gap-1.5 lg:gap-2 p-2 lg:p-2.5 bg-gray-50 rounded-lg">
+            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-green-200 to-green-300 rounded-lg flex items-center justify-center text-base lg:text-lg">🥗</div>
             <div className="flex-1 min-w-0">
-              <p className="font-semibold text-[10px] text-foreground truncate">Greek Salad</p>
-              <p className="text-[8px] text-muted-foreground">Feta, olives</p>
-              <p className="text-[10px] font-bold text-primary mt-0.5">AED 32</p>
+              <p className="font-semibold text-[10px] lg:text-xs text-foreground truncate">Greek Salad</p>
+              <p className="text-[8px] lg:text-[9px] text-muted-foreground">Feta, olives</p>
+              <p className="text-[10px] lg:text-xs font-bold text-primary mt-0.5">AED 32</p>
             </div>
-            <button className="self-center w-6 h-6 bg-primary/15 rounded-full flex items-center justify-center flex-shrink-0">
-              <Plus className="w-3 h-3 text-primary" />
+            <button className="self-center w-6 h-6 lg:w-7 lg:h-7 bg-primary/15 rounded-full flex items-center justify-center flex-shrink-0">
+              <Plus className="w-3 h-3 lg:w-3.5 lg:h-3.5 text-primary" />
             </button>
           </div>
         </div>
         
         {/* Cart Button Fixed at Bottom */}
-        <div className="absolute bottom-4 left-2 right-2">
-          <button className="w-full py-2 bg-primary text-white text-[10px] font-bold rounded-lg flex items-center justify-center gap-1.5 shadow-lg shadow-primary/30">
-            <ShoppingCart className="w-3 h-3" />
+        <div className="absolute bottom-4 lg:bottom-5 left-2 lg:left-3 right-2 lg:right-3">
+          <button className="w-full py-2 lg:py-2.5 bg-primary text-white text-[10px] lg:text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 shadow-lg shadow-primary/30">
+            <ShoppingCart className="w-3 h-3 lg:w-3.5 lg:h-3.5" />
             View Cart (2) • AED 80
           </button>
         </div>
@@ -300,27 +300,33 @@ const IPhoneQRMockup = () => (
 
 // Inventory Mockup
 const InventoryMockup = ({ compact = false }: { compact?: boolean }) => (
-  <div className={`bg-white rounded-xl shadow-xl border border-gray-100 ${compact ? 'p-2 w-[110px]' : 'p-3 w-[140px]'}`}>
-    <div className="flex items-center gap-1.5 mb-2">
-      <div className={`${compact ? 'w-5 h-5' : 'w-6 h-6'} rounded-lg bg-primary/10 flex items-center justify-center`}>
-        <Package className={`${compact ? 'w-2.5 h-2.5' : 'w-3 h-3'} text-primary`} />
+  <div className={`bg-white rounded-xl shadow-xl border border-gray-100 ${compact ? 'p-2 w-[110px]' : 'p-3 lg:p-4 w-[140px] lg:w-[180px]'}`}>
+    <div className="flex items-center gap-1.5 lg:gap-2 mb-2 lg:mb-3">
+      <div className={`${compact ? 'w-5 h-5' : 'w-6 h-6 lg:w-7 lg:h-7'} rounded-lg bg-primary/10 flex items-center justify-center`}>
+        <Package className={`${compact ? 'w-2.5 h-2.5' : 'w-3 h-3 lg:w-4 lg:h-4'} text-primary`} />
       </div>
-      <span className={`${compact ? 'text-[9px]' : 'text-[10px]'} font-bold`}>Inventory</span>
+      <span className={`${compact ? 'text-[9px]' : 'text-[10px] lg:text-xs'} font-bold`}>Inventory</span>
     </div>
-    <div className="space-y-1">
-      <div className="flex justify-between items-center text-[9px]">
+    <div className="space-y-1 lg:space-y-1.5">
+      <div className="flex justify-between items-center text-[9px] lg:text-[10px]">
         <span className="text-muted-foreground">Chicken</span>
-        <span className="text-red-500 font-bold px-1 py-0.5 bg-red-50 rounded text-[8px]">Low</span>
+        <span className="text-red-500 font-bold px-1 lg:px-1.5 py-0.5 bg-red-50 rounded text-[8px] lg:text-[9px]">Low</span>
       </div>
-      <div className="flex justify-between items-center text-[9px]">
+      <div className="flex justify-between items-center text-[9px] lg:text-[10px]">
         <span className="text-muted-foreground">Olive Oil</span>
-        <span className="text-amber-600 font-bold px-1 py-0.5 bg-amber-50 rounded text-[8px]">Med</span>
+        <span className="text-amber-600 font-bold px-1 lg:px-1.5 py-0.5 bg-amber-50 rounded text-[8px] lg:text-[9px]">Med</span>
       </div>
       {!compact && (
-        <div className="flex justify-between items-center text-[9px]">
-          <span className="text-muted-foreground">Flour</span>
-          <span className="text-green-600 font-bold px-1 py-0.5 bg-green-50 rounded text-[8px]">OK</span>
-        </div>
+        <>
+          <div className="flex justify-between items-center text-[9px] lg:text-[10px]">
+            <span className="text-muted-foreground">Flour</span>
+            <span className="text-green-600 font-bold px-1 lg:px-1.5 py-0.5 bg-green-50 rounded text-[8px] lg:text-[9px]">OK</span>
+          </div>
+          <div className="hidden lg:flex justify-between items-center text-[10px]">
+            <span className="text-muted-foreground">Tomatoes</span>
+            <span className="text-green-600 font-bold px-1.5 py-0.5 bg-green-50 rounded text-[9px]">OK</span>
+          </div>
+        </>
       )}
     </div>
   </div>
@@ -328,54 +334,80 @@ const InventoryMockup = ({ compact = false }: { compact?: boolean }) => (
 
 // KDS Mockup
 const KDSMockup = ({ compact = false }: { compact?: boolean }) => (
-  <div className={`bg-gray-900 rounded-xl shadow-xl ${compact ? 'p-2 w-[110px]' : 'p-2.5 w-[140px]'}`}>
-    <div className="flex items-center gap-1.5 mb-2">
-      <Monitor className={`${compact ? 'w-2.5 h-2.5' : 'w-3 h-3'} text-white`} />
-      <span className={`${compact ? 'text-[8px]' : 'text-[9px]'} font-bold text-white`}>Kitchen Display</span>
+  <div className={`bg-gray-900 rounded-xl shadow-xl ${compact ? 'p-2 w-[110px]' : 'p-2.5 lg:p-3 w-[140px] lg:w-[220px] xl:w-[260px]'}`}>
+    <div className="flex items-center gap-1.5 lg:gap-2 mb-2 lg:mb-3">
+      <Monitor className={`${compact ? 'w-2.5 h-2.5' : 'w-3 h-3 lg:w-4 lg:h-4'} text-white`} />
+      <span className={`${compact ? 'text-[8px]' : 'text-[9px] lg:text-xs'} font-bold text-white`}>Kitchen Display</span>
     </div>
-    <div className="space-y-1">
-      <div className="bg-amber-500/20 border border-amber-500/30 rounded-md px-1.5 py-1">
+    <div className="space-y-1 lg:space-y-1.5">
+      <div className="bg-amber-500/20 border border-amber-500/30 rounded-md px-1.5 lg:px-2 py-1 lg:py-1.5">
         <div className="flex justify-between items-center">
-          <span className="text-[9px] text-amber-300 font-bold">#1247</span>
-          <div className="flex items-center gap-0.5">
-            <Clock className="w-2 h-2 text-amber-400" />
-            <span className="text-[8px] text-amber-400">3:45</span>
+          <span className="text-[9px] lg:text-xs text-amber-300 font-bold">#1247</span>
+          <div className="flex items-center gap-0.5 lg:gap-1">
+            <Clock className="w-2 h-2 lg:w-3 lg:h-3 text-amber-400" />
+            <span className="text-[8px] lg:text-[10px] text-amber-400">3:45</span>
           </div>
         </div>
       </div>
-      <div className="bg-green-500/20 border border-green-500/30 rounded-md px-1.5 py-1">
+      <div className="bg-green-500/20 border border-green-500/30 rounded-md px-1.5 lg:px-2 py-1 lg:py-1.5">
         <div className="flex justify-between items-center">
-          <span className="text-[9px] text-green-300 font-bold">#1246</span>
-          <span className="text-[8px] text-green-400 font-medium">Ready</span>
+          <span className="text-[9px] lg:text-xs text-green-300 font-bold">#1246</span>
+          <span className="text-[8px] lg:text-[10px] text-green-400 font-medium">Ready</span>
         </div>
       </div>
+      {/* Additional rows for desktop */}
+      {!compact && (
+        <>
+          <div className="hidden lg:block bg-blue-500/20 border border-blue-500/30 rounded-md px-2 py-1.5">
+            <div className="flex justify-between items-center">
+              <span className="text-xs text-blue-300 font-bold">#1248</span>
+              <span className="text-[10px] text-blue-400 font-medium">New</span>
+            </div>
+          </div>
+          <div className="hidden lg:block bg-purple-500/20 border border-purple-500/30 rounded-md px-2 py-1.5">
+            <div className="flex justify-between items-center">
+              <span className="text-xs text-purple-300 font-bold">#1249</span>
+              <div className="flex items-center gap-1">
+                <Clock className="w-3 h-3 text-purple-400" />
+                <span className="text-[10px] text-purple-400">1:20</span>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   </div>
 );
 
 // Accounting Mockup - NEW
 const AccountingMockup = ({ compact = false }: { compact?: boolean }) => (
-  <div className={`bg-white rounded-xl shadow-xl border border-gray-100 ${compact ? 'p-2 w-[110px]' : 'p-3 w-[140px]'}`}>
-    <div className="flex items-center gap-1.5 mb-2">
-      <div className={`${compact ? 'w-5 h-5' : 'w-6 h-6'} rounded-lg bg-emerald-100 flex items-center justify-center`}>
-        <Calculator className={`${compact ? 'w-2.5 h-2.5' : 'w-3 h-3'} text-emerald-600`} />
+  <div className={`bg-white rounded-xl shadow-xl border border-gray-100 ${compact ? 'p-2 w-[110px]' : 'p-3 lg:p-4 w-[140px] lg:w-[180px]'}`}>
+    <div className="flex items-center gap-1.5 lg:gap-2 mb-2 lg:mb-3">
+      <div className={`${compact ? 'w-5 h-5' : 'w-6 h-6 lg:w-7 lg:h-7'} rounded-lg bg-emerald-100 flex items-center justify-center`}>
+        <Calculator className={`${compact ? 'w-2.5 h-2.5' : 'w-3 h-3 lg:w-4 lg:h-4'} text-emerald-600`} />
       </div>
-      <span className={`${compact ? 'text-[9px]' : 'text-[10px]'} font-bold`}>Accounting</span>
+      <span className={`${compact ? 'text-[9px]' : 'text-[10px] lg:text-xs'} font-bold`}>Accounting</span>
     </div>
-    <div className="space-y-1">
-      <div className="flex justify-between items-center text-[9px]">
+    <div className="space-y-1 lg:space-y-1.5">
+      <div className="flex justify-between items-center text-[9px] lg:text-[10px]">
         <span className="text-muted-foreground">Today</span>
         <span className="text-emerald-600 font-bold">AED 4,520</span>
       </div>
-      <div className="flex justify-between items-center text-[9px]">
+      <div className="flex justify-between items-center text-[9px] lg:text-[10px]">
         <span className="text-muted-foreground">Week</span>
         <span className="text-primary font-bold">AED 28K</span>
       </div>
       {!compact && (
-        <div className="h-6 mt-1.5 bg-gradient-to-r from-emerald-50 to-green-50 rounded-md flex items-center justify-center">
-          <TrendingUp className="w-3 h-3 text-emerald-500" />
-          <span className="text-[8px] ml-1 text-emerald-600 font-medium">+12.5%</span>
-        </div>
+        <>
+          <div className="hidden lg:flex justify-between items-center text-[10px]">
+            <span className="text-muted-foreground">Month</span>
+            <span className="text-primary font-bold">AED 112K</span>
+          </div>
+          <div className="h-6 lg:h-8 mt-1.5 lg:mt-2 bg-gradient-to-r from-emerald-50 to-green-50 rounded-md flex items-center justify-center">
+            <TrendingUp className="w-3 h-3 lg:w-4 lg:h-4 text-emerald-500" />
+            <span className="text-[8px] lg:text-[10px] ml-1 text-emerald-600 font-medium">+12.5%</span>
+          </div>
+        </>
       )}
     </div>
   </div>
@@ -487,20 +519,34 @@ const Hero: React.FC = () => {
           </div>
 
           {/* ======== RIGHT COLUMN: PRODUCT MOCKUPS ECOSYSTEM - order-2 on mobile ======== */}
-          <div className="relative h-[480px] md:h-[520px] lg:h-[600px] animate-fade-in animation-delay-600 order-2 mt-4 md:mt-0">
+          <div className="relative h-[500px] md:h-[560px] lg:h-[680px] xl:h-[720px] animate-fade-in animation-delay-600 order-2 mt-4 md:mt-0">
             
-            {/* Inventory Mockup - Top left corner, clear of center */}
-            <div className="absolute top-0 left-0 z-20">
-              <InventoryMockup compact />
+            {/* Inventory Mockup - Top left corner, positioned to avoid POS overlap */}
+            <div className="absolute top-0 left-0 lg:-left-2 xl:-left-6 z-20">
+              {/* Mobile/Tablet: compact version */}
+              <div className="lg:hidden">
+                <InventoryMockup compact />
+              </div>
+              {/* Desktop: full version */}
+              <div className="hidden lg:block">
+                <InventoryMockup compact={false} />
+              </div>
             </div>
 
-            {/* Accounting Mockup - Top right corner, clear of center */}
-            <div className="absolute top-0 right-0 z-20">
-              <AccountingMockup compact />
+            {/* Accounting Mockup - Top right corner, positioned to avoid POS overlap */}
+            <div className="absolute top-0 right-0 lg:-right-2 xl:-right-6 z-20">
+              {/* Mobile/Tablet: compact version */}
+              <div className="lg:hidden">
+                <AccountingMockup compact />
+              </div>
+              {/* Desktop: full version */}
+              <div className="hidden lg:block">
+                <AccountingMockup compact={false} />
+              </div>
             </div>
 
             {/* Main POS + iPhone Row - Flex centered, starts lower to avoid corners */}
-            <div className="flex items-start justify-center gap-3 md:gap-4 lg:gap-5 pt-20 md:pt-16 lg:pt-14">
+            <div className="flex items-start justify-center gap-4 md:gap-5 lg:gap-8 xl:gap-10 pt-20 md:pt-16 lg:pt-14">
               <POSHardwareMockup />
               {/* iPhone - hidden on mobile */}
               <div className="hidden md:block">
@@ -508,9 +554,16 @@ const Hero: React.FC = () => {
               </div>
             </div>
 
-            {/* KDS Mockup - Bottom center (below POS & iPhone) */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20">
-              <KDSMockup compact />
+            {/* KDS Mockup - Bottom center, closer to POS/iPhone */}
+            <div className="absolute bottom-0 lg:bottom-4 left-[55%] -translate-x-1/2 z-20">
+              {/* Mobile/Tablet: compact version */}
+              <div className="lg:hidden">
+                <KDSMockup compact />
+              </div>
+              {/* Desktop: full version with more rows */}
+              <div className="hidden lg:block">
+                <KDSMockup compact={false} />
+              </div>
             </div>
           </div>
         </div>
