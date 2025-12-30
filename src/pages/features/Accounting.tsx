@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useCurrency } from '@/hooks/useCurrency';
 import { 
   Calculator, Zap, TrendingUp, Receipt, Building2, RefreshCw,
   CreditCard, Package, ShoppingCart, Users, Wallet, BarChart3,
@@ -13,6 +14,7 @@ import { Link } from 'react-router-dom';
 
 const Accounting = () => {
   useScrollAnimation();
+  const { amounts, currency } = useCurrency();
 
   const whatsappLink = "https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Swirl%20Accounting";
 
@@ -205,26 +207,26 @@ const Accounting = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                   <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-4 border border-primary/20">
                     <p className="text-sm text-muted-foreground mb-1">Today's Revenue</p>
-                    <p className="text-2xl md:text-3xl font-bold text-foreground">AED 12,450</p>
+                    <p className="text-2xl md:text-3xl font-bold text-foreground">{amounts.todayRevenue}</p>
                     <p className="text-xs text-emerald-600 mt-1 flex items-center gap-1">
                       <TrendingUp className="w-3 h-3" /> +8.2% vs yesterday
                     </p>
                   </div>
                   <div className="bg-gradient-to-br from-rose-50 to-rose-100/50 rounded-xl p-4 border border-rose-200/50">
                     <p className="text-sm text-muted-foreground mb-1">Today's Expenses</p>
-                    <p className="text-2xl md:text-3xl font-bold text-foreground">AED 4,280</p>
+                    <p className="text-2xl md:text-3xl font-bold text-foreground">{amounts.todayExpenses}</p>
                     <p className="text-xs text-muted-foreground mt-1">Operating costs</p>
                   </div>
                   <div className="bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-xl p-4 border border-emerald-200/50">
                     <p className="text-sm text-muted-foreground mb-1">Net Profit</p>
-                    <p className="text-2xl md:text-3xl font-bold text-emerald-600">AED 8,170</p>
+                    <p className="text-2xl md:text-3xl font-bold text-emerald-600">{amounts.netProfit}</p>
                     <p className="text-xs text-emerald-600 mt-1 flex items-center gap-1">
                       <CheckCircle2 className="w-3 h-3" /> 65.6% margin
                     </p>
                   </div>
                   <div className="bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-xl p-4 border border-slate-200/50">
                     <p className="text-sm text-muted-foreground mb-1">Cash Balance</p>
-                    <p className="text-2xl md:text-3xl font-bold text-foreground">AED 84,320</p>
+                    <p className="text-2xl md:text-3xl font-bold text-foreground">{amounts.cashBalance}</p>
                     <p className="text-xs text-muted-foreground mt-1">Across all accounts</p>
                   </div>
                 </div>
@@ -242,7 +244,7 @@ const Accounting = () => {
                       <div>
                         <div className="flex justify-between text-sm mb-1">
                           <span className="text-muted-foreground">Revenue</span>
-                          <span className="font-medium">AED 342,500</span>
+                          <span className="font-medium">{amounts.monthlyRevenue}</span>
                         </div>
                         <div className="h-3 bg-slate-200 rounded-full overflow-hidden">
                           <div className="h-full bg-gradient-to-r from-primary to-blue-400 rounded-full" style={{ width: '100%' }} />
@@ -251,7 +253,7 @@ const Accounting = () => {
                       <div>
                         <div className="flex justify-between text-sm mb-1">
                           <span className="text-muted-foreground">COGS</span>
-                          <span className="font-medium">AED 102,750</span>
+                          <span className="font-medium">{amounts.cogs}</span>
                         </div>
                         <div className="h-3 bg-slate-200 rounded-full overflow-hidden">
                           <div className="h-full bg-gradient-to-r from-amber-400 to-amber-500 rounded-full" style={{ width: '30%' }} />
@@ -260,7 +262,7 @@ const Accounting = () => {
                       <div>
                         <div className="flex justify-between text-sm mb-1">
                           <span className="text-muted-foreground">Labor</span>
-                          <span className="font-medium">AED 68,500</span>
+                          <span className="font-medium">{amounts.labor}</span>
                         </div>
                         <div className="h-3 bg-slate-200 rounded-full overflow-hidden">
                           <div className="h-full bg-gradient-to-r from-violet-400 to-violet-500 rounded-full" style={{ width: '20%' }} />
@@ -269,7 +271,7 @@ const Accounting = () => {
                       <div>
                         <div className="flex justify-between text-sm mb-1">
                           <span className="text-muted-foreground">Operating Expenses</span>
-                          <span className="font-medium">AED 41,100</span>
+                          <span className="font-medium">{amounts.operatingExpenses}</span>
                         </div>
                         <div className="h-3 bg-slate-200 rounded-full overflow-hidden">
                           <div className="h-full bg-gradient-to-r from-rose-400 to-rose-500 rounded-full" style={{ width: '12%' }} />
@@ -278,7 +280,7 @@ const Accounting = () => {
                     </div>
                     <div className="mt-4 pt-4 border-t border-slate-200 flex justify-between">
                       <span className="font-semibold text-foreground">Net Profit</span>
-                      <span className="font-bold text-emerald-600">AED 130,150</span>
+                      <span className="font-bold text-emerald-600">{amounts.monthlyNetProfit}</span>
                     </div>
                   </div>
 
@@ -290,15 +292,15 @@ const Accounting = () => {
                       <div className="space-y-2">
                         <div className="flex justify-between text-sm">
                           <span className="text-muted-foreground">VAT Collected</span>
-                          <span className="font-medium text-emerald-600">AED 17,125</span>
+                          <span className="font-medium text-emerald-600">{amounts.vatCollected}</span>
                         </div>
                         <div className="flex justify-between text-sm">
                           <span className="text-muted-foreground">VAT Paid</span>
-                          <span className="font-medium text-rose-600">AED 5,138</span>
+                          <span className="font-medium text-rose-600">{amounts.vatPaid}</span>
                         </div>
                         <div className="pt-2 border-t border-slate-200 flex justify-between text-sm">
                           <span className="font-medium">Net Payable</span>
-                          <span className="font-bold text-primary">AED 11,987</span>
+                          <span className="font-bold text-primary">{amounts.vatPayable}</span>
                         </div>
                       </div>
                     </div>
@@ -309,15 +311,15 @@ const Accounting = () => {
                       <div className="space-y-2">
                         <div className="flex items-center justify-between">
                           <span className="text-sm text-muted-foreground">Downtown</span>
-                          <span className="text-sm font-medium">AED 156K</span>
+                          <span className="text-sm font-medium">{amounts.outlet1}</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-sm text-muted-foreground">Marina</span>
-                          <span className="text-sm font-medium">AED 112K</span>
+                          <span className="text-sm font-medium">{amounts.outlet2}</span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-sm text-muted-foreground">JBR</span>
-                          <span className="text-sm font-medium">AED 74K</span>
+                          <span className="text-sm font-medium">{amounts.outlet3}</span>
                         </div>
                       </div>
                     </div>
