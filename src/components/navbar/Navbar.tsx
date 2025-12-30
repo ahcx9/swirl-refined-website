@@ -37,6 +37,12 @@ const features = [
     icon: 'file-chart-bar'
   },
   {
+    title: 'Accounting',
+    path: '/products/accounting',
+    description: 'Automated accounting built for restaurants.',
+    icon: 'dollar-sign'
+  },
+  {
     title: 'Kitchen Display',
     path: '/products/kitchen-display',
     description: 'Streamline kitchen operations and order management.',
