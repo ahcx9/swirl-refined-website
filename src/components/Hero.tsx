@@ -453,7 +453,7 @@ const Hero: React.FC = () => {
                   size="lg" 
                   className="h-14 px-8 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
                 >
-                  Book a Free Demo
+                  Book a Demo
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </a>
