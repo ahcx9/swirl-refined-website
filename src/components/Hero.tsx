@@ -519,7 +519,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* ======== RIGHT COLUMN: PRODUCT MOCKUPS ECOSYSTEM - order-2 on mobile ======== */}
-          <div className="relative h-[500px] md:h-[560px] lg:h-[680px] xl:h-[720px] animate-fade-in animation-delay-600 order-2 mt-4 md:mt-0">
+          <div className="relative h-[500px] md:h-[560px] lg:h-[680px] xl:h-[720px] animate-fade-in animation-delay-600 order-2 mt-4 md:mt-0 lg:translate-x-12 xl:translate-x-20">
             
             {/* Inventory Mockup - Far left, completely outside POS */}
             <div className="absolute top-0 left-0 md:top-4 lg:top-24 lg:-left-40 xl:-left-52 z-20">
