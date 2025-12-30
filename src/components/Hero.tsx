@@ -1,117 +1,85 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { 
   CreditCard, 
   QrCode, 
-  Package, 
-  Users, 
-  Link as LinkIcon, 
-  Sparkles,
   Check,
-  Building2,
-  Receipt,
-  Wallet,
   Banknote,
   SplitSquareVertical,
   CheckCircle2,
-  Clock,
-  ShoppingBag
+  Smartphone,
+  Plus,
+  ShoppingCart
 } from 'lucide-react';
 import { Button } from './ui/button';
 import CustomCTAButton from './CustomCTAButton';
 
+// Reduced to 5 logos only
 const logos = [
   { src: "/lovable-uploads/9623693d-a2e0-48ea-8d68-911775324f30.png", alt: "Seern Restaurant" },
   { src: "/lovable-uploads/72bc496f-dfad-4fef-a00b-a049a08c0700.png", alt: "Uccelli Café" },
   { src: "/lovable-uploads/a1037d43-9706-4594-98e2-b879fa17ae5c.png", alt: "Bombay Restaurant & Cafe" },
   { src: "/lovable-uploads/4127f4ed-f4a1-452d-bdba-5bc27d6fb8bc.png", alt: "La Pino'z Pizza" },
   { src: "/lovable-uploads/6e0d0241-ba77-477a-84cd-a700f8183303.png", alt: "Kaleda Traditional Indian Taste" },
-  { src: "/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png", alt: "Curry in Hurry" },
-  { src: "/lovable-uploads/4a4a7e21-2319-4b47-89c2-c17befc8735c.png", alt: "Levantine Restaurant" },
-  { src: "/lovable-uploads/35e9fd73-7370-41cc-89e5-6259df112af0.png", alt: "Shababeek" },
-  { src: "/lovable-uploads/6481954b-0983-47cf-bc73-2690acfe8ce2.png", alt: "Al Safadi" },
-  { src: "/lovable-uploads/b03f39e1-1bbe-4212-88bc-f7f70b2ba690.png", alt: "Mingzhu Chinese Restaurant" },
-  { src: "/lovable-uploads/92d5e15f-318e-46e8-9d20-bdca69d36285.png", alt: "Bawadi Express" },
-  { src: "/lovable-uploads/b95511df-1fca-4f8a-902e-7e6457ea3e70.png", alt: "Walnut World Bakery" },
-  { src: "/lovable-uploads/ae182218-4fea-45b8-840d-5752adf12d26.png", alt: "Ambani Restaurant" },
-  { src: "/lovable-uploads/cebfea27-8e23-43d1-8ca2-44bb562429f9.png", alt: "Food Book" },
-  { src: "/lovable-uploads/db359be2-d8e5-4ea7-bd57-2ca8359f3727.png", alt: "Quarter Plate" },
 ];
 
-const featureStrip = [
-  { icon: CreditCard, label: "POS & Billing" },
-  { icon: QrCode, label: "QR Ordering" },
-  { icon: Package, label: "Inventory" },
-  { icon: Users, label: "CRM & Loyalty" },
-  { icon: LinkIcon, label: "Aggregators" },
-  { icon: Sparkles, label: "AI Insights" },
-];
+// SVG Doodle Components
+const DoodlePOS = () => (
+  <svg className="absolute top-16 left-4 w-24 h-24 md:w-32 md:h-32 opacity-[0.06]" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1">
+    <rect x="20" y="10" width="60" height="80" rx="4" className="stroke-primary" />
+    <rect x="25" y="18" width="50" height="30" rx="2" className="stroke-primary" />
+    <circle cx="50" cy="70" r="8" className="stroke-primary" />
+    <line x1="25" y1="55" x2="75" y2="55" className="stroke-primary" />
+  </svg>
+);
 
-const floatingCards = [
-  { 
-    icon: Receipt, 
-    title: "Quick Billing", 
-    badge: "< 2 sec",
-    badgeColor: "bg-green-500",
-    position: "top-4 -left-4 lg:top-8 lg:-left-8",
-    delay: "0s"
-  },
-  { 
-    icon: Wallet, 
-    title: "Multi-Payment", 
-    badge: "Cash • Card • Split",
-    badgeColor: "bg-primary",
-    position: "top-0 -right-4 lg:top-4 lg:-right-8",
-    delay: "0.5s"
-  },
-  { 
-    icon: ShoppingBag, 
-    title: "Order Queue", 
-    badge: "12 pending",
-    badgeColor: "bg-amber-500",
-    position: "bottom-32 -left-4 lg:bottom-36 lg:-left-12",
-    delay: "1s"
-  },
-  { 
-    icon: Building2, 
-    title: "Table Management", 
-    badge: "8 occupied",
-    badgeColor: "bg-violet-500",
-    position: "bottom-20 -right-4 lg:bottom-24 lg:-right-8",
-    delay: "1.5s"
-  },
-  { 
-    icon: CheckCircle2, 
-    title: "Digital Receipt", 
-    badge: "SMS • Email",
-    badgeColor: "bg-primary",
-    position: "-bottom-2 left-1/2 -translate-x-1/2",
-    delay: "2s"
-  },
-];
+const DoodleQRCode = () => (
+  <svg className="absolute bottom-32 right-8 w-20 h-20 md:w-28 md:h-28 opacity-[0.06]" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <rect x="10" y="10" width="30" height="30" rx="2" className="stroke-primary" />
+    <rect x="60" y="10" width="30" height="30" rx="2" className="stroke-primary" />
+    <rect x="10" y="60" width="30" height="30" rx="2" className="stroke-primary" />
+    <rect x="18" y="18" width="14" height="14" className="stroke-primary fill-primary/10" />
+    <rect x="68" y="18" width="14" height="14" className="stroke-primary fill-primary/10" />
+    <rect x="18" y="68" width="14" height="14" className="stroke-primary fill-primary/10" />
+    <rect x="60" y="60" width="10" height="10" className="stroke-primary" />
+    <rect x="75" y="60" width="15" height="10" className="stroke-primary" />
+    <rect x="60" y="75" width="10" height="15" className="stroke-primary" />
+    <rect x="80" y="80" width="10" height="10" className="stroke-primary" />
+  </svg>
+);
+
+const DoodleChart = () => (
+  <svg className="absolute top-24 right-16 w-20 h-20 md:w-24 md:h-24 opacity-[0.05] hidden lg:block" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <line x1="10" y1="90" x2="90" y2="90" className="stroke-primary" />
+    <line x1="10" y1="10" x2="10" y2="90" className="stroke-primary" />
+    <polyline points="20,70 35,50 50,60 65,30 80,40" className="stroke-primary" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="20" cy="70" r="3" className="stroke-primary fill-primary/20" />
+    <circle cx="35" cy="50" r="3" className="stroke-primary fill-primary/20" />
+    <circle cx="50" cy="60" r="3" className="stroke-primary fill-primary/20" />
+    <circle cx="65" cy="30" r="3" className="stroke-primary fill-primary/20" />
+    <circle cx="80" cy="40" r="3" className="stroke-primary fill-primary/20" />
+  </svg>
+);
+
+const DoodleCloud = () => (
+  <svg className="absolute bottom-16 left-16 w-16 h-16 md:w-20 md:h-20 opacity-[0.05] hidden md:block" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <path d="M25 65 C10 65, 10 45, 25 45 C25 30, 45 25, 55 35 C65 25, 90 35, 85 50 C100 50, 100 70, 80 70 L25 70 C15 70, 10 60, 25 65 Z" className="stroke-primary" />
+    <line x1="40" y1="75" x2="40" y2="85" className="stroke-primary" strokeDasharray="2 2" />
+    <line x1="55" y1="75" x2="55" y2="90" className="stroke-primary" strokeDasharray="2 2" />
+    <line x1="70" y1="75" x2="70" y2="82" className="stroke-primary" strokeDasharray="2 2" />
+  </svg>
+);
+
+const DoodleInventory = () => (
+  <svg className="absolute top-1/2 left-8 w-14 h-14 md:w-16 md:h-16 opacity-[0.04] hidden lg:block" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <rect x="15" y="35" width="30" height="25" rx="2" className="stroke-primary" />
+    <rect x="55" y="35" width="30" height="25" rx="2" className="stroke-primary" />
+    <rect x="35" y="55" width="30" height="25" rx="2" className="stroke-primary" />
+    <line x1="20" y1="42" x2="40" y2="42" className="stroke-primary" />
+    <line x1="60" y1="42" x2="80" y2="42" className="stroke-primary" />
+  </svg>
+);
 
 const Hero: React.FC = () => {
-  const logoContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const style = document.createElement('style');
-    style.innerHTML = `
-      @keyframes logo-scroll-hero {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-      .logo-scroll-hero {
-        animation: logo-scroll-hero 40s linear infinite;
-      }
-      .logo-scroll-hero:hover {
-        animation-play-state: paused;
-      }
-    `;
-    document.head.appendChild(style);
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
-
   const scrollToFeatures = () => {
     const featuresSection = document.getElementById('features-section');
     if (featuresSection) {
@@ -125,12 +93,16 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-3xl" />
-        <div 
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230052CC' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
+        <div className="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-primary/4 rounded-full blur-3xl" />
+      </div>
+
+      {/* Blueprint Doodle Elements */}
+      <div className="absolute inset-0 pointer-events-none text-primary">
+        <DoodlePOS />
+        <DoodleQRCode />
+        <DoodleChart />
+        <DoodleCloud />
+        <DoodleInventory />
       </div>
 
       <div className="container-custom relative z-10">
@@ -141,15 +113,15 @@ const Hero: React.FC = () => {
           <div className="space-y-6 text-center lg:text-left order-2 lg:order-1">
             {/* Main Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1] tracking-tight animate-fade-in">
-              Run, Control & Scale Your Restaurant —{" "}
+              The Operating System for{" "}
               <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-                From One Powerful Platform
+                Modern Restaurants
               </span>
             </h1>
 
             {/* Sub-headline */}
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-fade-in animation-delay-200">
-              POS, QR Ordering, Inventory, CRM, Analytics & AI Insights — fully connected to simplify operations and accelerate growth.
+              Run billing, QR ordering, inventory, accounting, CRM & analytics from one connected platform — built to scale F&B businesses.
             </p>
 
             {/* CTA Buttons */}
@@ -167,205 +139,20 @@ const Hero: React.FC = () => {
               </Button>
             </div>
 
-            {/* Micro-Trust Signals */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center lg:justify-start text-sm text-muted-foreground animate-fade-in animation-delay-600">
-              <div className="flex items-center gap-2 justify-center lg:justify-start">
-                <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Check className="w-3 h-3 text-primary" />
-                </div>
-                <span>Trusted by growing brands across UAE & KSA</span>
-              </div>
-              <div className="flex items-center gap-2 justify-center lg:justify-start">
-                <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Check className="w-3 h-3 text-primary" />
-                </div>
-                <span>Go live in days, not months</span>
-              </div>
-            </div>
-          </div>
+            {/* Trust Line */}
+            <p className="text-sm text-muted-foreground animate-fade-in animation-delay-600">
+              <span className="inline-flex items-center gap-2">
+                <Check className="w-4 h-4 text-primary" />
+                Trusted by leading restaurant brands across the Middle East
+              </span>
+            </p>
 
-          {/* Right Column - POS Billing Mockup */}
-          <div className="relative h-[400px] md:h-[480px] lg:h-[520px] animate-fade-in animation-delay-600 order-1 lg:order-2">
-            {/* Main POS Interface Card */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative w-full max-w-sm lg:max-w-md mx-auto">
-                <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-3xl blur-2xl opacity-60" />
-                
-                {/* POS Terminal Card */}
-                <div className="relative bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-white/50 overflow-hidden">
-                  {/* POS Header */}
-                  <div className="bg-primary px-4 py-3 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                        <CreditCard className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-white font-semibold text-sm">Swirl POS</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                      <span className="text-white/80 text-xs">Table 5</span>
-                    </div>
-                  </div>
-                  
-                  {/* Order Items */}
-                  <div className="p-4 space-y-3">
-                    <div className="flex items-center justify-between py-2 border-b border-gray-100">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-xs font-bold text-primary">2×</div>
-                        <span className="text-sm font-medium text-foreground">Chicken Shawarma</span>
-                      </div>
-                      <span className="text-sm font-semibold text-foreground">AED 36</span>
-                    </div>
-                    <div className="flex items-center justify-between py-2 border-b border-gray-100">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-xs font-bold text-primary">1×</div>
-                        <span className="text-sm font-medium text-foreground">Hummus Plate</span>
-                      </div>
-                      <span className="text-sm font-semibold text-foreground">AED 18</span>
-                    </div>
-                    <div className="flex items-center justify-between py-2 border-b border-gray-100">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-xs font-bold text-primary">3×</div>
-                        <span className="text-sm font-medium text-foreground">Arabic Coffee</span>
-                      </div>
-                      <span className="text-sm font-semibold text-foreground">AED 27</span>
-                    </div>
-                    
-                    {/* Total Section */}
-                    <div className="pt-2 space-y-1">
-                      <div className="flex justify-between text-xs text-muted-foreground">
-                        <span>Subtotal</span>
-                        <span>AED 81.00</span>
-                      </div>
-                      <div className="flex justify-between text-xs text-muted-foreground">
-                        <span>VAT (5%)</span>
-                        <span>AED 4.05</span>
-                      </div>
-                      <div className="flex justify-between text-base font-bold text-foreground pt-2 border-t border-gray-200">
-                        <span>Total</span>
-                        <span className="text-primary">AED 85.05</span>
-                      </div>
-                    </div>
-                    
-                    {/* Payment Buttons */}
-                    <div className="grid grid-cols-3 gap-2 pt-3">
-                      <button className="flex flex-col items-center gap-1 p-3 bg-primary/10 rounded-xl hover:bg-primary/20 transition-colors group">
-                        <Banknote className="w-5 h-5 text-primary" />
-                        <span className="text-xs font-medium text-foreground">Cash</span>
-                      </button>
-                      <button className="flex flex-col items-center gap-1 p-3 bg-primary rounded-xl hover:bg-primary/90 transition-colors group">
-                        <CreditCard className="w-5 h-5 text-white" />
-                        <span className="text-xs font-medium text-white">Card</span>
-                      </button>
-                      <button className="flex flex-col items-center gap-1 p-3 bg-primary/10 rounded-xl hover:bg-primary/20 transition-colors group">
-                        <SplitSquareVertical className="w-5 h-5 text-primary" />
-                        <span className="text-xs font-medium text-foreground">Split</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Receipt Preview - Floating Top Right */}
-            <div 
-              className="absolute top-0 -right-2 lg:-right-6 z-20 hidden md:block"
-              style={{ animation: `float-slow 7s ease-in-out infinite`, animationDelay: '0.3s' }}
-            >
-              <div className="bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-xl shadow-primary/10 border border-white/60">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-foreground">Order #1247</p>
-                    <span className="inline-block text-[10px] px-2 py-0.5 rounded-full bg-green-500 text-white">Paid</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Pending Orders - Floating Left */}
-            <div 
-              className="absolute top-8 -left-2 lg:-left-6 z-20 hidden md:block"
-              style={{ animation: `float-slow 6s ease-in-out infinite`, animationDelay: '0.6s' }}
-            >
-              <div className="bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-xl shadow-primary/10 border border-white/60">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center">
-                    <Clock className="w-4 h-4 text-amber-500" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-foreground">Pending</p>
-                    <span className="inline-block text-[10px] px-2 py-0.5 rounded-full bg-amber-500 text-white">3 orders</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Feature Cards */}
-            {floatingCards.slice(0, 3).map((card, index) => (
-              <div
-                key={index}
-                className={`absolute ${card.position} z-20 hidden lg:block`}
-                style={{ animationDelay: card.delay }}
-              >
-                <div 
-                  className="bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-xl shadow-primary/10 border border-white/60 hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
-                  style={{ animation: `float-slow 6s ease-in-out infinite`, animationDelay: card.delay }}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <card.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground">{card.title}</p>
-                      <span className={`inline-block text-[10px] px-2 py-0.5 rounded-full text-white ${card.badgeColor}`}>
-                        {card.badge}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Feature Strip - Compact Grid */}
-        <div className="mt-8 lg:mt-12 mb-8 animate-fade-in animation-delay-800">
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-3 max-w-4xl mx-auto">
-            {featureStrip.map((feature, index) => (
-              <div 
-                key={index}
-                className="flex flex-col items-center gap-2 p-3 md:p-4 rounded-xl bg-primary/5 border border-primary/10 hover:bg-primary/10 hover:border-primary/20 transition-all duration-300 group cursor-pointer"
-              >
-                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <feature.icon className="w-4 h-4 text-primary" />
-                </div>
-                <span className="text-xs font-medium text-foreground text-center leading-tight">
-                  {feature.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Logo Trust Strip */}
-        <div className="relative animate-fade-in animation-delay-1000">
-          <p className="text-center text-sm text-muted-foreground mb-6">
-            Trusted by restaurants, cafés & cloud kitchens
-          </p>
-          
-          {/* Gradient Fade Edges */}
-          <div className="absolute left-0 top-6 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-6 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-          
-          <div className="overflow-hidden" ref={logoContainerRef}>
-            <div className="logo-scroll-hero flex items-center gap-12 w-max">
-              {[...logos, ...logos].map((logo, index) => (
+            {/* 5 Logo Strip - Static, No Marquee */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-8 pt-2 animate-fade-in animation-delay-800">
+              {logos.map((logo, index) => (
                 <div 
                   key={index} 
-                  className="flex-shrink-0 h-8 md:h-10 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  className="h-8 md:h-10 grayscale brightness-0 opacity-60 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
                 >
                   <img
                     src={logo.src}
@@ -375,6 +162,197 @@ const Hero: React.FC = () => {
                   />
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Right Column - Combined POS + QR Mockup */}
+          <div className="relative h-[450px] md:h-[520px] lg:h-[560px] animate-fade-in animation-delay-600 order-1 lg:order-2">
+            {/* Glow Background */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute w-80 h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-full blur-3xl" />
+            </div>
+
+            {/* Main POS Billing Screen */}
+            <div className="absolute left-0 lg:left-4 top-8 w-[280px] md:w-[320px] lg:w-[340px] z-10">
+              <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden transform hover:scale-[1.02] transition-transform duration-500">
+                {/* POS Header */}
+                <div className="bg-primary px-4 py-3 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                      <CreditCard className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-white font-semibold text-sm">Swirl POS</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                    <span className="text-white/80 text-xs">Table 5</span>
+                  </div>
+                </div>
+                
+                {/* Order Items */}
+                <div className="p-4 space-y-2">
+                  <div className="flex items-center justify-between py-2 border-b border-gray-100">
+                    <div className="flex items-center gap-3">
+                      <div className="w-7 h-7 bg-primary/10 rounded-lg flex items-center justify-center text-xs font-bold text-primary">2×</div>
+                      <span className="text-sm font-medium text-foreground">Chicken Shawarma</span>
+                    </div>
+                    <span className="text-sm font-semibold text-foreground">AED 36</span>
+                  </div>
+                  <div className="flex items-center justify-between py-2 border-b border-gray-100">
+                    <div className="flex items-center gap-3">
+                      <div className="w-7 h-7 bg-primary/10 rounded-lg flex items-center justify-center text-xs font-bold text-primary">1×</div>
+                      <span className="text-sm font-medium text-foreground">Grilled Kebab</span>
+                    </div>
+                    <span className="text-sm font-semibold text-foreground">AED 28</span>
+                  </div>
+                  <div className="flex items-center justify-between py-2 border-b border-gray-100">
+                    <div className="flex items-center gap-3">
+                      <div className="w-7 h-7 bg-primary/10 rounded-lg flex items-center justify-center text-xs font-bold text-primary">3×</div>
+                      <span className="text-sm font-medium text-foreground">Arabic Coffee</span>
+                    </div>
+                    <span className="text-sm font-semibold text-foreground">AED 27</span>
+                  </div>
+                  
+                  {/* Total Section */}
+                  <div className="pt-2 space-y-1">
+                    <div className="flex justify-between text-xs text-muted-foreground">
+                      <span>Subtotal</span>
+                      <span>AED 91.00</span>
+                    </div>
+                    <div className="flex justify-between text-xs text-muted-foreground">
+                      <span>VAT (5%)</span>
+                      <span>AED 4.55</span>
+                    </div>
+                    <div className="flex justify-between text-base font-bold text-foreground pt-2 border-t border-gray-200">
+                      <span>Total</span>
+                      <span className="text-primary">AED 95.55</span>
+                    </div>
+                  </div>
+                  
+                  {/* Payment Buttons */}
+                  <div className="grid grid-cols-3 gap-2 pt-3">
+                    <button className="flex flex-col items-center gap-1 p-2.5 bg-primary/10 rounded-xl hover:bg-primary/20 transition-colors">
+                      <Banknote className="w-4 h-4 text-primary" />
+                      <span className="text-[10px] font-medium text-foreground">Cash</span>
+                    </button>
+                    <button className="flex flex-col items-center gap-1 p-2.5 bg-primary rounded-xl">
+                      <CreditCard className="w-4 h-4 text-white" />
+                      <span className="text-[10px] font-medium text-white">Card</span>
+                    </button>
+                    <button className="flex flex-col items-center gap-1 p-2.5 bg-primary/10 rounded-xl hover:bg-primary/20 transition-colors">
+                      <SplitSquareVertical className="w-4 h-4 text-primary" />
+                      <span className="text-[10px] font-medium text-foreground">Split</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile QR Ordering Screen - Overlapping */}
+            <div 
+              className="absolute right-0 lg:right-4 top-20 md:top-16 w-[180px] md:w-[200px] z-20"
+              style={{ animation: 'float-slow 6s ease-in-out infinite' }}
+            >
+              <div className="bg-gray-900 rounded-[28px] p-2 shadow-2xl">
+                {/* Phone Frame */}
+                <div className="bg-white rounded-[22px] overflow-hidden">
+                  {/* Status Bar */}
+                  <div className="bg-primary/10 px-3 py-1.5 flex items-center justify-between">
+                    <span className="text-[8px] text-muted-foreground">9:41</span>
+                    <div className="w-12 h-3 bg-gray-900 rounded-full" />
+                    <div className="flex gap-1">
+                      <div className="w-2 h-2 bg-gray-400 rounded-sm" />
+                      <div className="w-2 h-2 bg-gray-400 rounded-sm" />
+                    </div>
+                  </div>
+                  
+                  {/* App Header */}
+                  <div className="bg-primary px-3 py-2 flex items-center gap-2">
+                    <QrCode className="w-4 h-4 text-white" />
+                    <span className="text-white text-xs font-semibold">Scan to Order</span>
+                  </div>
+                  
+                  {/* Menu Content */}
+                  <div className="p-3 space-y-2">
+                    <div className="text-[10px] font-semibold text-foreground mb-2">Popular Items</div>
+                    
+                    {/* Menu Item 1 */}
+                    <div className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg">
+                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <span className="text-lg">🍔</span>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-[10px] font-medium text-foreground">Classic Burger</p>
+                        <p className="text-[9px] text-muted-foreground">AED 32</p>
+                      </div>
+                      <button className="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+                        <Plus className="w-3 h-3 text-white" />
+                      </button>
+                    </div>
+                    
+                    {/* Menu Item 2 */}
+                    <div className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg">
+                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <span className="text-lg">🥗</span>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-[10px] font-medium text-foreground">Caesar Salad</p>
+                        <p className="text-[9px] text-muted-foreground">AED 24</p>
+                      </div>
+                      <button className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center">
+                        <Plus className="w-3 h-3 text-primary" />
+                      </button>
+                    </div>
+                    
+                    {/* Cart Button */}
+                    <button className="w-full mt-2 py-2 bg-primary rounded-lg flex items-center justify-center gap-2">
+                      <ShoppingCart className="w-3 h-3 text-white" />
+                      <span className="text-[10px] font-semibold text-white">View Cart (2)</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Order Placed Badge - Floating */}
+            <div 
+              className="absolute bottom-24 right-16 lg:right-24 z-30 hidden md:block"
+              style={{ animation: 'float-slow 5s ease-in-out infinite', animationDelay: '0.5s' }}
+            >
+              <div className="bg-white rounded-xl px-4 py-3 shadow-xl shadow-primary/10 border border-gray-100">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-green-500/10 rounded-full flex items-center justify-center">
+                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-foreground">Order Placed!</p>
+                    <p className="text-[10px] text-muted-foreground">Table 5 • #1248</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* QR Code Badge - Floating Bottom Left */}
+            <div 
+              className="absolute bottom-8 left-4 lg:left-8 z-30 hidden md:block"
+              style={{ animation: 'float-slow 7s ease-in-out infinite', animationDelay: '1s' }}
+            >
+              <div className="bg-white rounded-xl p-3 shadow-xl shadow-primary/10 border border-gray-100">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg p-2 flex items-center justify-center">
+                    <QrCode className="w-8 h-8 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-foreground">QR Scanned</p>
+                    <p className="text-[10px] text-muted-foreground">Menu loaded</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Smartphone Icon - Behind */}
+            <div className="absolute top-0 right-1/4 opacity-[0.03] hidden lg:block">
+              <Smartphone className="w-32 h-32 text-primary" />
             </div>
           </div>
         </div>
