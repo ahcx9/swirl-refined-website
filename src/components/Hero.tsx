@@ -1,39 +1,32 @@
 import React from 'react';
-import { 
-  CreditCard, 
-  QrCode, 
-  Check,
-  Banknote,
-  SplitSquareVertical,
-  CheckCircle2,
-  Plus,
-  ShoppingCart,
-  ArrowRight,
-  BarChart3,
-  Receipt,
-  Package,
-  Monitor,
-  Clock,
-  Calculator,
-  TrendingUp
-} from 'lucide-react';
+import { CreditCard, QrCode, Check, Banknote, SplitSquareVertical, CheckCircle2, Plus, ShoppingCart, ArrowRight, BarChart3, Receipt, Package, Monitor, Clock, Calculator, TrendingUp } from 'lucide-react';
 import { Button } from './ui/button';
 import { useCurrency } from '@/hooks/useCurrency';
 
 // Updated 6 logos
-const logos = [
-  { src: "/lovable-uploads/9000dd52-fbe9-4430-8c38-eb0ab5e87e57.png", alt: "Seern Restaurant" },
-  { src: "/lovable-uploads/uccelli-cafe-logo.jpeg", alt: "Uccelli Café" },
-  { src: "/lovable-uploads/bombay-logo-new.png", alt: "Bombay Restaurant & Cafe" },
-  { src: "/lovable-uploads/bb-logo.jpeg", alt: "B&B" },
-  { src: "/lovable-uploads/b2a2c52b-6298-4bda-8fd2-e0cab6171584.png", alt: "Garage Café" },
-  { src: "/lovable-uploads/kaleda-logo.png", alt: "Kaleda Traditional Indian Taste" },
-];
+const logos = [{
+  src: "/lovable-uploads/9000dd52-fbe9-4430-8c38-eb0ab5e87e57.png",
+  alt: "Seern Restaurant"
+}, {
+  src: "/lovable-uploads/uccelli-cafe-logo.jpeg",
+  alt: "Uccelli Café"
+}, {
+  src: "/lovable-uploads/bombay-logo-new.png",
+  alt: "Bombay Restaurant & Cafe"
+}, {
+  src: "/lovable-uploads/bb-logo.jpeg",
+  alt: "B&B"
+}, {
+  src: "/lovable-uploads/b2a2c52b-6298-4bda-8fd2-e0cab6171584.png",
+  alt: "Garage Café"
+}, {
+  src: "/lovable-uploads/kaleda-logo.png",
+  alt: "Kaleda Traditional Indian Taste"
+}];
 
 // ============ DOODLES - Positioned in outer margins only ============
 
-const DoodleBilling = () => (
-  <svg className="w-20 h-24" viewBox="0 0 100 120" fill="none" stroke="currentColor" strokeWidth="1.2">
+const DoodleBilling = () => <svg className="w-20 h-24" viewBox="0 0 100 120" fill="none" stroke="currentColor" strokeWidth="1.2">
     <rect x="15" y="5" width="70" height="95" rx="4" className="stroke-primary" />
     <line x1="25" y1="20" x2="75" y2="20" className="stroke-primary" />
     <line x1="25" y1="32" x2="65" y2="32" className="stroke-primary" />
@@ -42,11 +35,8 @@ const DoodleBilling = () => (
     <line x1="25" y1="68" x2="55" y2="68" className="stroke-primary" />
     <line x1="25" y1="85" x2="75" y2="85" className="stroke-primary" strokeWidth="1.8" />
     <text x="28" y="95" fontSize="8" className="fill-primary" fontFamily="sans-serif">TOTAL</text>
-  </svg>
-);
-
-const DoodleQRCode = () => (
-  <svg className="w-16 h-16" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5">
+  </svg>;
+const DoodleQRCode = () => <svg className="w-16 h-16" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5">
     <rect x="8" y="8" width="32" height="32" rx="3" className="stroke-primary" />
     <rect x="60" y="8" width="32" height="32" rx="3" className="stroke-primary" />
     <rect x="8" y="60" width="32" height="32" rx="3" className="stroke-primary" />
@@ -56,22 +46,16 @@ const DoodleQRCode = () => (
     <rect x="60" y="60" width="12" height="12" className="stroke-primary" />
     <rect x="76" y="60" width="16" height="12" className="stroke-primary" />
     <rect x="60" y="76" width="12" height="16" className="stroke-primary" />
-  </svg>
-);
-
-const DoodleInventory = () => (
-  <svg className="w-18 h-20" viewBox="0 0 80 110" fill="none" stroke="currentColor" strokeWidth="1.2">
+  </svg>;
+const DoodleInventory = () => <svg className="w-18 h-20" viewBox="0 0 80 110" fill="none" stroke="currentColor" strokeWidth="1.2">
     <rect x="8" y="70" width="64" height="35" rx="3" className="stroke-primary" />
     <rect x="14" y="40" width="52" height="35" rx="3" className="stroke-primary" />
     <rect x="20" y="10" width="40" height="35" rx="3" className="stroke-primary" />
     <line x1="32" y1="85" x2="48" y2="85" className="stroke-primary" />
     <line x1="28" y1="55" x2="44" y2="55" className="stroke-primary" />
     <line x1="32" y1="25" x2="45" y2="25" className="stroke-primary" />
-  </svg>
-);
-
-const DoodleAnalytics = () => (
-  <svg className="w-24 h-20" viewBox="0 0 140 120" fill="none" stroke="currentColor" strokeWidth="1.2">
+  </svg>;
+const DoodleAnalytics = () => <svg className="w-24 h-20" viewBox="0 0 140 120" fill="none" stroke="currentColor" strokeWidth="1.2">
     <rect x="10" y="10" width="120" height="90" rx="5" className="stroke-primary" />
     <line x1="25" y1="85" x2="25" y2="25" className="stroke-primary" />
     <line x1="25" y1="85" x2="115" y2="85" className="stroke-primary" />
@@ -79,11 +63,8 @@ const DoodleAnalytics = () => (
     <circle cx="55" cy="45" r="4" className="stroke-primary fill-primary/20" />
     <circle cx="70" cy="55" r="4" className="stroke-primary fill-primary/20" />
     <circle cx="90" cy="28" r="4" className="stroke-primary fill-primary/20" />
-  </svg>
-);
-
-const DoodleKDSSmall = () => (
-  <svg className="w-20 h-16" viewBox="0 0 110 90" fill="none" stroke="currentColor" strokeWidth="1.2">
+  </svg>;
+const DoodleKDSSmall = () => <svg className="w-20 h-16" viewBox="0 0 110 90" fill="none" stroke="currentColor" strokeWidth="1.2">
     <rect x="5" y="5" width="100" height="65" rx="4" className="stroke-primary" />
     <line x1="38" y1="5" x2="38" y2="70" className="stroke-primary" />
     <line x1="72" y1="5" x2="72" y2="70" className="stroke-primary" />
@@ -91,11 +72,8 @@ const DoodleKDSSmall = () => (
     <rect x="44" y="12" width="22" height="20" rx="2" className="stroke-primary fill-primary/8" />
     <rect x="78" y="12" width="22" height="20" rx="2" className="stroke-primary fill-primary/8" />
     <rect x="5" y="75" width="100" height="10" rx="3" className="stroke-primary" />
-  </svg>
-);
-
-const DoodleCRM = () => (
-  <svg className="w-20 h-18" viewBox="0 0 110 90" fill="none" stroke="currentColor" strokeWidth="1.2">
+  </svg>;
+const DoodleCRM = () => <svg className="w-20 h-18" viewBox="0 0 110 90" fill="none" stroke="currentColor" strokeWidth="1.2">
     <circle cx="30" cy="28" r="14" className="stroke-primary" />
     <circle cx="80" cy="28" r="14" className="stroke-primary" />
     <circle cx="55" cy="62" r="14" className="stroke-primary" />
@@ -105,11 +83,8 @@ const DoodleCRM = () => (
     <circle cx="30" cy="25" r="6" className="stroke-primary fill-primary/15" />
     <circle cx="80" cy="25" r="6" className="stroke-primary fill-primary/15" />
     <circle cx="55" cy="59" r="6" className="stroke-primary fill-primary/15" />
-  </svg>
-);
-
-const DoodleReports = () => (
-  <svg className="w-16 h-20" viewBox="0 0 80 105" fill="none" stroke="currentColor" strokeWidth="1.2">
+  </svg>;
+const DoodleReports = () => <svg className="w-16 h-20" viewBox="0 0 80 105" fill="none" stroke="currentColor" strokeWidth="1.2">
     <path d="M10 10 L55 10 L70 25 L70 95 L10 95 Z" className="stroke-primary" />
     <path d="M55 10 L55 25 L70 25" className="stroke-primary" />
     <line x1="18" y1="40" x2="60" y2="40" className="stroke-primary" />
@@ -117,11 +92,8 @@ const DoodleReports = () => (
     <line x1="18" y1="60" x2="58" y2="60" className="stroke-primary" />
     <line x1="18" y1="70" x2="45" y2="70" className="stroke-primary" />
     <rect x="18" y="28" width="18" height="6" className="stroke-primary fill-primary/15" rx="1" />
-  </svg>
-);
-
-const DoodleAccounting = () => (
-  <svg className="w-18 h-20" viewBox="0 0 80 100" fill="none" stroke="currentColor" strokeWidth="1.2">
+  </svg>;
+const DoodleAccounting = () => <svg className="w-18 h-20" viewBox="0 0 80 100" fill="none" stroke="currentColor" strokeWidth="1.2">
     <rect x="10" y="10" width="60" height="80" rx="4" className="stroke-primary" />
     <line x1="10" y1="28" x2="70" y2="28" className="stroke-primary" />
     <rect x="18" y="36" width="12" height="10" rx="2" className="stroke-primary fill-primary/8" />
@@ -132,26 +104,33 @@ const DoodleAccounting = () => (
     <rect x="50" y="50" width="12" height="10" rx="2" className="stroke-primary fill-primary/8" />
     <text x="18" y="22" fontSize="7" className="fill-primary" fontFamily="monospace">12,450.00</text>
     <rect x="34" y="68" width="28" height="14" rx="2" className="stroke-primary fill-primary/15" />
-  </svg>
-);
+  </svg>;
 
 // CTA Arrow Doodle
-const CTAArrowDoodle = () => (
-  <svg className="absolute -left-14 top-1/2 -translate-y-1/2 w-12 h-10 opacity-[0.15] text-primary hidden xl:block" viewBox="0 0 60 50" fill="none" stroke="currentColor" strokeWidth="2">
+const CTAArrowDoodle = () => <svg className="absolute -left-14 top-1/2 -translate-y-1/2 w-12 h-10 opacity-[0.15] text-primary hidden xl:block" viewBox="0 0 60 50" fill="none" stroke="currentColor" strokeWidth="2">
     <path d="M5 25 Q18 18, 30 25 T55 25" strokeLinecap="round" className="stroke-primary" />
     <path d="M46 18 L56 25 L46 32" strokeLinecap="round" strokeLinejoin="round" className="stroke-primary" />
-  </svg>
-);
+  </svg>;
 
 // ============ HARDWARE MOCKUP COMPONENTS ============
 
 // Premium POS Hardware Mockup
-const POSHardwareMockup = ({ amounts }: { amounts: { chickenShawarma: string; grilledLambKebab: string; posSubtotal: string; posTotal: string } }) => (
-  <div className="relative" style={{ transform: 'perspective(1200px) rotateY(-3deg) rotateX(1deg)' }}>
+const POSHardwareMockup = ({
+  amounts
+}: {
+  amounts: {
+    chickenShawarma: string;
+    grilledLambKebab: string;
+    posSubtotal: string;
+    posTotal: string;
+  };
+}) => <div className="relative" style={{
+  transform: 'perspective(1200px) rotateY(-3deg) rotateX(1deg)'
+}}>
     {/* Tablet Stand - Base */}
-    <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-36 md:w-44 lg:w-52 xl:w-56 h-5 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-500 rounded-full shadow-lg" />
+    
     {/* Tablet Stand - Neck */}
-    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-5 h-16 md:h-20 lg:h-24 bg-gradient-to-r from-gray-400 via-gray-300 to-gray-400 rounded-sm shadow-md" />
+    
     
     {/* Tablet Body Frame */}
     <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-2xl p-2 shadow-2xl shadow-black/40">
@@ -227,15 +206,20 @@ const POSHardwareMockup = ({ amounts }: { amounts: { chickenShawarma: string; gr
         </div>
       </div>
     </div>
-  </div>
-);
+  </div>;
 
 // iPhone QR Ordering Mockup
-const IPhoneQRMockup = ({ amounts }: { amounts: { margheritaPizza: string; greekSalad: string; cartTotal: string } }) => (
-  <div 
-    className="relative"
-    style={{ transform: 'perspective(1200px) rotateY(6deg)' }}
-  >
+const IPhoneQRMockup = ({
+  amounts
+}: {
+  amounts: {
+    margheritaPizza: string;
+    greekSalad: string;
+    cartTotal: string;
+  };
+}) => <div className="relative" style={{
+  transform: 'perspective(1200px) rotateY(6deg)'
+}}>
     {/* iPhone Frame */}
     <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-[2.5rem] lg:rounded-[3rem] p-1.5 lg:p-2 shadow-2xl shadow-black/50">
       {/* Dynamic Island */}
@@ -296,12 +280,14 @@ const IPhoneQRMockup = ({ amounts }: { amounts: { margheritaPizza: string; greek
         </div>
       </div>
     </div>
-  </div>
-);
+  </div>;
 
 // Inventory Mockup
-const InventoryMockup = ({ compact = false }: { compact?: boolean }) => (
-  <div className={`bg-white rounded-xl shadow-xl border border-gray-100 ${compact ? 'p-2 w-[110px]' : 'p-3 lg:p-4 w-[140px] lg:w-[180px]'}`}>
+const InventoryMockup = ({
+  compact = false
+}: {
+  compact?: boolean;
+}) => <div className={`bg-white rounded-xl shadow-xl border border-gray-100 ${compact ? 'p-2 w-[110px]' : 'p-3 lg:p-4 w-[140px] lg:w-[180px]'}`}>
     <div className="flex items-center gap-1.5 lg:gap-2 mb-2 lg:mb-3">
       <div className={`${compact ? 'w-5 h-5' : 'w-6 h-6 lg:w-7 lg:h-7'} rounded-lg bg-primary/10 flex items-center justify-center`}>
         <Package className={`${compact ? 'w-2.5 h-2.5' : 'w-3 h-3 lg:w-4 lg:h-4'} text-primary`} />
@@ -317,8 +303,7 @@ const InventoryMockup = ({ compact = false }: { compact?: boolean }) => (
         <span className="text-muted-foreground">Olive Oil</span>
         <span className="text-amber-600 font-bold px-1 lg:px-1.5 py-0.5 bg-amber-50 rounded text-[8px] lg:text-[9px]">Med</span>
       </div>
-      {!compact && (
-        <>
+      {!compact && <>
           <div className="flex justify-between items-center text-[9px] lg:text-[10px]">
             <span className="text-muted-foreground">Flour</span>
             <span className="text-green-600 font-bold px-1 lg:px-1.5 py-0.5 bg-green-50 rounded text-[8px] lg:text-[9px]">OK</span>
@@ -327,15 +312,16 @@ const InventoryMockup = ({ compact = false }: { compact?: boolean }) => (
             <span className="text-muted-foreground">Tomatoes</span>
             <span className="text-green-600 font-bold px-1.5 py-0.5 bg-green-50 rounded text-[9px]">OK</span>
           </div>
-        </>
-      )}
+        </>}
     </div>
-  </div>
-);
+  </div>;
 
 // KDS Mockup
-const KDSMockup = ({ compact = false }: { compact?: boolean }) => (
-  <div className={`bg-gray-900 rounded-xl shadow-xl ${compact ? 'p-2 w-[110px]' : 'p-2.5 lg:p-3 w-[140px] lg:w-[220px] xl:w-[260px]'}`}>
+const KDSMockup = ({
+  compact = false
+}: {
+  compact?: boolean;
+}) => <div className={`bg-gray-900 rounded-xl shadow-xl ${compact ? 'p-2 w-[110px]' : 'p-2.5 lg:p-3 w-[140px] lg:w-[220px] xl:w-[260px]'}`}>
     <div className="flex items-center gap-1.5 lg:gap-2 mb-2 lg:mb-3">
       <Monitor className={`${compact ? 'w-2.5 h-2.5' : 'w-3 h-3 lg:w-4 lg:h-4'} text-white`} />
       <span className={`${compact ? 'text-[8px]' : 'text-[9px] lg:text-xs'} font-bold text-white`}>Kitchen Display</span>
@@ -357,8 +343,7 @@ const KDSMockup = ({ compact = false }: { compact?: boolean }) => (
         </div>
       </div>
       {/* Additional rows for desktop */}
-      {!compact && (
-        <>
+      {!compact && <>
           <div className="hidden lg:block bg-blue-500/20 border border-blue-500/30 rounded-md px-2 py-1.5">
             <div className="flex justify-between items-center">
               <span className="text-xs text-blue-300 font-bold">#1248</span>
@@ -374,15 +359,22 @@ const KDSMockup = ({ compact = false }: { compact?: boolean }) => (
               </div>
             </div>
           </div>
-        </>
-      )}
+        </>}
     </div>
-  </div>
-);
+  </div>;
 
 // Accounting Mockup - NEW
-const AccountingMockup = ({ compact = false, amounts }: { compact?: boolean; amounts: { accountingToday: string; accountingWeek: string; accountingMonth: string } }) => (
-  <div className={`bg-white rounded-xl shadow-xl border border-gray-100 ${compact ? 'p-2 w-[110px]' : 'p-3 lg:p-4 w-[140px] lg:w-[180px]'}`}>
+const AccountingMockup = ({
+  compact = false,
+  amounts
+}: {
+  compact?: boolean;
+  amounts: {
+    accountingToday: string;
+    accountingWeek: string;
+    accountingMonth: string;
+  };
+}) => <div className={`bg-white rounded-xl shadow-xl border border-gray-100 ${compact ? 'p-2 w-[110px]' : 'p-3 lg:p-4 w-[140px] lg:w-[180px]'}`}>
     <div className="flex items-center gap-1.5 lg:gap-2 mb-2 lg:mb-3">
       <div className={`${compact ? 'w-5 h-5' : 'w-6 h-6 lg:w-7 lg:h-7'} rounded-lg bg-emerald-100 flex items-center justify-center`}>
         <Calculator className={`${compact ? 'w-2.5 h-2.5' : 'w-3 h-3 lg:w-4 lg:h-4'} text-emerald-600`} />
@@ -398,8 +390,7 @@ const AccountingMockup = ({ compact = false, amounts }: { compact?: boolean; amo
         <span className="text-muted-foreground">Week</span>
         <span className="text-primary font-bold">{amounts.accountingWeek}</span>
       </div>
-      {!compact && (
-        <>
+      {!compact && <>
           <div className="hidden lg:flex justify-between items-center text-[10px]">
             <span className="text-muted-foreground">Month</span>
             <span className="text-primary font-bold">{amounts.accountingMonth}</span>
@@ -408,19 +399,17 @@ const AccountingMockup = ({ compact = false, amounts }: { compact?: boolean; amo
             <TrendingUp className="w-3 h-3 lg:w-4 lg:h-4 text-emerald-500" />
             <span className="text-[8px] lg:text-[10px] ml-1 text-emerald-600 font-medium">+12.5%</span>
           </div>
-        </>
-      )}
+        </>}
     </div>
-  </div>
-);
+  </div>;
 
 // ============ MAIN HERO COMPONENT ============
 
 const Hero: React.FC = () => {
-  const { amounts } = useCurrency();
-  
-  return (
-    <section className="relative min-h-screen bg-white overflow-hidden pt-32 md:pt-36 lg:pt-32 pb-8">
+  const {
+    amounts
+  } = useCurrency();
+  return <section className="relative min-h-screen bg-white overflow-hidden pt-32 md:pt-36 lg:pt-32 pb-8">
       
       {/* ======== DOODLES - Outer margins only, hidden on mobile/tablet ======== */}
       <div className="absolute inset-0 pointer-events-none text-primary hidden xl:block">
@@ -479,16 +468,10 @@ const Hero: React.FC = () => {
             {/* CTA Zone with Arrow Doodle */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start relative animate-fade-in animation-delay-400">
               <CTAArrowDoodle />
-              <a 
-                href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20for%20Swirl"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button 
-                  size="lg" 
-                  className="h-14 px-8 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
-                  style={{ animation: 'pulse-glow 2s ease-in-out infinite' }}
-                >
+              <a href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20for%20Swirl" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="h-14 px-8 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300" style={{
+                animation: 'pulse-glow 2s ease-in-out infinite'
+              }}>
                   Book a Demo
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
@@ -497,28 +480,11 @@ const Hero: React.FC = () => {
 
             {/* Trust Line */}
             <p className="text-sm text-muted-foreground animate-fade-in animation-delay-600">
-              <span className="inline-flex items-center gap-2">
-                <Check className="w-4 h-4 text-primary" />
-                Trusted by leading restaurant brands across the Middle East
-              </span>
+              
             </p>
 
             {/* 6 Logo Strip - Circular Modern Design */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-5 pt-3 animate-fade-in animation-delay-800">
-              {logos.map((logo, index) => (
-                <div 
-                  key={index} 
-                  className="w-14 h-14 md:w-16 md:h-16 lg:w-[72px] lg:h-[72px] rounded-full bg-white shadow-lg shadow-black/5 border border-gray-100 flex items-center justify-center p-2 md:p-2.5 grayscale brightness-[0.4] opacity-90 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-110 hover:shadow-xl hover:border-primary/20 transition-all duration-300 cursor-pointer"
-                >
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="w-full h-full object-contain rounded-full"
-                    loading="eager"
-                  />
-                </div>
-              ))}
-            </div>
+            
           </div>
 
           {/* ======== RIGHT COLUMN: PRODUCT MOCKUPS ECOSYSTEM - order-2 on mobile ======== */}
@@ -571,8 +537,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
