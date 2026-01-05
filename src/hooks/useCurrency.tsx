@@ -120,6 +120,17 @@ const BASE_AMOUNTS = {
   shiftDineIn: 2140,
   shiftTakeaway: 856,
   shiftDelivery: 1284,
+  
+  // POS page - Order Modification & Modifiers
+  posPizzaPrice: 40,
+  posSizeSmall: 0,
+  posSizeMedium: 5,
+  posSizeLarge: 10,
+  posExtraCheese: 3,
+  posJalapenos: 2,
+  posMushrooms: 2.50,
+  posOlives: 2,
+  posBillReady: 245,
 };
 
 // Approximate exchange rates from AED (for display purposes only)
@@ -283,6 +294,17 @@ export function useCurrency() {
     shiftDineIn: formatAmount(BASE_AMOUNTS.shiftDineIn),
     shiftTakeaway: formatAmount(BASE_AMOUNTS.shiftTakeaway),
     shiftDelivery: formatAmount(BASE_AMOUNTS.shiftDelivery),
+    
+    // POS page - Order Modification & Modifiers
+    posPizzaPrice: formatAmount(BASE_AMOUNTS.posPizzaPrice),
+    posSizeSmall: formatAmount(BASE_AMOUNTS.posSizeSmall),
+    posSizeMedium: formatAmount(BASE_AMOUNTS.posSizeMedium),
+    posSizeLarge: formatAmount(BASE_AMOUNTS.posSizeLarge),
+    posExtraCheese: formatAmount(BASE_AMOUNTS.posExtraCheese),
+    posJalapenos: formatAmount(BASE_AMOUNTS.posJalapenos),
+    posMushrooms: formatAmount(BASE_AMOUNTS.posMushrooms),
+    posOlives: formatAmount(BASE_AMOUNTS.posOlives),
+    posBillReady: formatAmount(BASE_AMOUNTS.posBillReady),
   }), [currencyCode, rate]);
 
   return {
