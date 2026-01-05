@@ -2,8 +2,17 @@
 import React from 'react';
 import { Globe, Currency } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useCurrency } from '@/hooks/useCurrency';
 
 const AdvancedFeatures = () => {
+  const { currency, availableCurrencies } = useCurrency();
+  
+  // Get top 5 currencies with user's detected currency first
+  const topCurrencies = [
+    currency, // User's detected currency first
+    ...availableCurrencies.filter(c => c.code !== currency.code)
+  ].slice(0, 5);
+
   return (
     <section className="py-16 bg-purple-light/5">
       <div className="container-custom">
@@ -48,12 +57,16 @@ const AdvancedFeatures = () => {
                     international transactions for your customers.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['USD $', 'EUR €', 'AED د.إ', 'GBP £', '¥ JPY'].map((currency) => (
+                    {topCurrencies.map((curr, index) => (
                       <span 
-                        key={currency}
-                        className="px-3 py-1 bg-purple/5 text-purple rounded-full text-sm font-inter"
+                        key={curr.code}
+                        className={`px-3 py-1 rounded-full text-sm font-inter ${
+                          index === 0 
+                            ? 'bg-primary/10 text-primary font-medium' 
+                            : 'bg-purple/5 text-purple'
+                        }`}
                       >
-                        {currency}
+                        {curr.symbol} {curr.code}
                       </span>
                     ))}
                   </div>

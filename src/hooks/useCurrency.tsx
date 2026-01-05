@@ -8,8 +8,25 @@ interface CurrencyConfig {
 }
 
 const CURRENCIES: Record<string, CurrencyConfig> = {
+  // Gulf countries
   AED: { code: 'AED', symbol: 'AED', name: 'UAE Dirham', locale: 'ar-AE' },
   SAR: { code: 'SAR', symbol: 'SAR', name: 'Saudi Riyal', locale: 'ar-SA' },
+  OMR: { code: 'OMR', symbol: 'OMR', name: 'Omani Rial', locale: 'ar-OM' },
+  QAR: { code: 'QAR', symbol: 'QAR', name: 'Qatari Riyal', locale: 'ar-QA' },
+  KWD: { code: 'KWD', symbol: 'KWD', name: 'Kuwaiti Dinar', locale: 'ar-KW' },
+  BHD: { code: 'BHD', symbol: 'BHD', name: 'Bahraini Dinar', locale: 'ar-BH' },
+  
+  // Other Middle East
+  EGP: { code: 'EGP', symbol: 'E£', name: 'Egyptian Pound', locale: 'ar-EG' },
+  JOD: { code: 'JOD', symbol: 'JOD', name: 'Jordanian Dinar', locale: 'ar-JO' },
+  LBP: { code: 'LBP', symbol: 'L£', name: 'Lebanese Pound', locale: 'ar-LB' },
+  IQD: { code: 'IQD', symbol: 'IQD', name: 'Iraqi Dinar', locale: 'ar-IQ' },
+  
+  // South Asia
+  INR: { code: 'INR', symbol: '₹', name: 'Indian Rupee', locale: 'en-IN' },
+  PKR: { code: 'PKR', symbol: 'Rs', name: 'Pakistani Rupee', locale: 'en-PK' },
+  
+  // Western currencies
   USD: { code: 'USD', symbol: '$', name: 'US Dollar', locale: 'en-US' },
   EUR: { code: 'EUR', symbol: '€', name: 'Euro', locale: 'de-DE' },
   GBP: { code: 'GBP', symbol: '£', name: 'British Pound', locale: 'en-GB' },
@@ -17,12 +34,25 @@ const CURRENCIES: Record<string, CurrencyConfig> = {
 
 // Mapping of country codes to currencies
 const COUNTRY_TO_CURRENCY: Record<string, string> = {
-  AE: 'AED', // UAE
-  SA: 'SAR', // Saudi Arabia
-  BH: 'AED', // Bahrain (use AED as fallback)
-  QA: 'AED', // Qatar (use AED as fallback)
-  KW: 'AED', // Kuwait (use AED as fallback)
-  OM: 'AED', // Oman (use AED as fallback)
+  // Gulf countries with proper currencies
+  AE: 'AED',  // UAE
+  SA: 'SAR',  // Saudi Arabia
+  OM: 'OMR',  // Oman
+  QA: 'QAR',  // Qatar
+  KW: 'KWD',  // Kuwait
+  BH: 'BHD',  // Bahrain
+  
+  // Other Middle East
+  EG: 'EGP',  // Egypt
+  JO: 'JOD',  // Jordan
+  LB: 'LBP',  // Lebanon
+  IQ: 'IQD',  // Iraq
+  
+  // South Asia
+  IN: 'INR',  // India
+  PK: 'PKR',  // Pakistan
+  
+  // Western countries
   US: 'USD',
   GB: 'GBP',
   UK: 'GBP',
@@ -44,6 +74,7 @@ const DEFAULT_CURRENCY = 'AED';
 
 // Base amounts in AED (for conversion display purposes)
 const BASE_AMOUNTS = {
+  // Accounting page amounts
   todayRevenue: 12450,
   todayExpenses: 4280,
   netProfit: 8170,
@@ -59,37 +90,99 @@ const BASE_AMOUNTS = {
   outlet1: 156000,
   outlet2: 112000,
   outlet3: 74000,
+  
+  // Menu item prices (Hero POS mockup)
+  chickenShawarma: 36,
+  grilledLambKebab: 42,
+  posSubtotal: 78,
+  posTotal: 81.90,
+  
+  // iPhone QR mockup prices
+  margheritaPizza: 48,
+  greekSalad: 32,
+  cartTotal: 80,
+  
+  // Accounting mockup (Hero)
+  accountingToday: 4520,
+  accountingWeek: 28000,
+  accountingMonth: 112000,
+  
+  // Financial Reports page
+  totalRevenue: 124580,
+  avgOrderValue: 28.40,
+  totalDiscounts: 3240,
+  reportNetProfit: 42150,
+  
+  // Shift report values
+  shiftTotalSales: 4280,
+  shiftAvgOrder: 27.44,
+  shiftCashCollected: 1070,
+  shiftDineIn: 2140,
+  shiftTakeaway: 856,
+  shiftDelivery: 1284,
 };
 
 // Approximate exchange rates from AED (for display purposes only)
 const EXCHANGE_RATES: Record<string, number> = {
   AED: 1,
-  SAR: 1.02, // ~1 AED = 1.02 SAR
-  USD: 0.27, // ~1 AED = 0.27 USD
-  EUR: 0.25, // ~1 AED = 0.25 EUR
-  GBP: 0.21, // ~1 AED = 0.21 GBP
+  SAR: 1.02,    // ~1 AED = 1.02 SAR
+  OMR: 0.105,   // ~1 AED = 0.105 OMR
+  QAR: 0.99,    // ~1 AED = 0.99 QAR
+  KWD: 0.084,   // ~1 AED = 0.084 KWD
+  BHD: 0.103,   // ~1 AED = 0.103 BHD
+  EGP: 13.4,    // ~1 AED = 13.4 EGP
+  JOD: 0.19,    // ~1 AED = 0.19 JOD
+  LBP: 24400,   // ~1 AED = 24,400 LBP
+  IQD: 357,     // ~1 AED = 357 IQD
+  INR: 22.7,    // ~1 AED = 22.7 INR
+  PKR: 75.8,    // ~1 AED = 75.8 PKR
+  USD: 0.27,    // ~1 AED = 0.27 USD
+  EUR: 0.25,    // ~1 AED = 0.25 EUR
+  GBP: 0.21,    // ~1 AED = 0.21 GBP
+};
+
+// Timezone to country mappings
+const timezoneToCountry: Record<string, string> = {
+  // UAE
+  'Asia/Dubai': 'AE',
+  'Asia/Abu_Dhabi': 'AE',
+  
+  // Saudi Arabia
+  'Asia/Riyadh': 'SA',
+  
+  // Other Gulf
+  'Asia/Muscat': 'OM',
+  'Asia/Qatar': 'QA',
+  'Asia/Kuwait': 'KW',
+  'Asia/Bahrain': 'BH',
+  
+  // Other Middle East
+  'Africa/Cairo': 'EG',
+  'Asia/Amman': 'JO',
+  'Asia/Beirut': 'LB',
+  'Asia/Baghdad': 'IQ',
+  
+  // South Asia
+  'Asia/Kolkata': 'IN',
+  'Asia/Calcutta': 'IN',
+  'Asia/Karachi': 'PK',
+  
+  // Western
+  'Europe/London': 'GB',
+  'America/New_York': 'US',
+  'America/Los_Angeles': 'US',
+  'America/Chicago': 'US',
+  'Europe/Berlin': 'DE',
+  'Europe/Paris': 'FR',
+  'Europe/Madrid': 'ES',
+  'Europe/Rome': 'IT',
+  'Europe/Amsterdam': 'NL',
 };
 
 function detectCurrencyFromLocale(): string {
   try {
     // Try to get timezone-based country
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    
-    // Common timezone to country mappings
-    const timezoneToCountry: Record<string, string> = {
-      'Asia/Dubai': 'AE',
-      'Asia/Abu_Dhabi': 'AE',
-      'Asia/Riyadh': 'SA',
-      'Europe/London': 'GB',
-      'America/New_York': 'US',
-      'America/Los_Angeles': 'US',
-      'America/Chicago': 'US',
-      'Europe/Berlin': 'DE',
-      'Europe/Paris': 'FR',
-      'Europe/Madrid': 'ES',
-      'Europe/Rome': 'IT',
-      'Europe/Amsterdam': 'NL',
-    };
     
     if (timeZone && timezoneToCountry[timeZone]) {
       const country = timezoneToCountry[timeZone];
@@ -123,17 +216,28 @@ export function useCurrency() {
   const rate = useMemo(() => EXCHANGE_RATES[currencyCode] || 1, [currencyCode]);
 
   const formatAmount = (aedAmount: number, compact = false): string => {
-    const convertedAmount = Math.round(aedAmount * rate);
+    const convertedAmount = Math.round(aedAmount * rate * 100) / 100;
     
     if (compact && convertedAmount >= 1000) {
       const k = Math.round(convertedAmount / 1000);
       return `${currency.symbol} ${k}K`;
     }
     
-    return `${currency.symbol} ${convertedAmount.toLocaleString('en-US')}`;
+    // For very large currencies like LBP or IQD, use compact format for readability
+    if (convertedAmount >= 100000) {
+      return `${currency.symbol} ${Math.round(convertedAmount).toLocaleString('en-US')}`;
+    }
+    
+    // Format with appropriate decimal places
+    if (Number.isInteger(convertedAmount) || convertedAmount >= 100) {
+      return `${currency.symbol} ${Math.round(convertedAmount).toLocaleString('en-US')}`;
+    }
+    
+    return `${currency.symbol} ${convertedAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   };
 
   const amounts = useMemo(() => ({
+    // Accounting page
     todayRevenue: formatAmount(BASE_AMOUNTS.todayRevenue),
     todayExpenses: formatAmount(BASE_AMOUNTS.todayExpenses),
     netProfit: formatAmount(BASE_AMOUNTS.netProfit),
@@ -149,6 +253,36 @@ export function useCurrency() {
     outlet1: formatAmount(BASE_AMOUNTS.outlet1, true),
     outlet2: formatAmount(BASE_AMOUNTS.outlet2, true),
     outlet3: formatAmount(BASE_AMOUNTS.outlet3, true),
+    
+    // Hero POS mockup
+    chickenShawarma: formatAmount(BASE_AMOUNTS.chickenShawarma),
+    grilledLambKebab: formatAmount(BASE_AMOUNTS.grilledLambKebab),
+    posSubtotal: formatAmount(BASE_AMOUNTS.posSubtotal),
+    posTotal: formatAmount(BASE_AMOUNTS.posTotal),
+    
+    // Hero iPhone QR mockup
+    margheritaPizza: formatAmount(BASE_AMOUNTS.margheritaPizza),
+    greekSalad: formatAmount(BASE_AMOUNTS.greekSalad),
+    cartTotal: formatAmount(BASE_AMOUNTS.cartTotal),
+    
+    // Hero Accounting mockup
+    accountingToday: formatAmount(BASE_AMOUNTS.accountingToday),
+    accountingWeek: formatAmount(BASE_AMOUNTS.accountingWeek, true),
+    accountingMonth: formatAmount(BASE_AMOUNTS.accountingMonth, true),
+    
+    // Financial Reports page
+    totalRevenue: formatAmount(BASE_AMOUNTS.totalRevenue),
+    avgOrderValue: formatAmount(BASE_AMOUNTS.avgOrderValue),
+    totalDiscounts: formatAmount(BASE_AMOUNTS.totalDiscounts),
+    reportNetProfit: formatAmount(BASE_AMOUNTS.reportNetProfit),
+    
+    // Shift report
+    shiftTotalSales: formatAmount(BASE_AMOUNTS.shiftTotalSales),
+    shiftAvgOrder: formatAmount(BASE_AMOUNTS.shiftAvgOrder),
+    shiftCashCollected: formatAmount(BASE_AMOUNTS.shiftCashCollected),
+    shiftDineIn: formatAmount(BASE_AMOUNTS.shiftDineIn),
+    shiftTakeaway: formatAmount(BASE_AMOUNTS.shiftTakeaway),
+    shiftDelivery: formatAmount(BASE_AMOUNTS.shiftDelivery),
   }), [currencyCode, rate]);
 
   return {

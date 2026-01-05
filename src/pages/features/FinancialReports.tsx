@@ -9,15 +9,17 @@ import {
 } from 'lucide-react';
 import CustomCTAButton from '@/components/CustomCTAButton';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useCurrency } from '@/hooks/useCurrency';
 
 const FinancialReports = () => {
   useScrollAnimation();
+  const { amounts } = useCurrency();
 
   const dashboardMetrics = [
-    { icon: DollarSign, label: "Total Revenue", value: "$124,580", change: "+12.5%", positive: true },
-    { icon: Receipt, label: "Avg Order Value", value: "$28.40", change: "+8.2%", positive: true },
-    { icon: Percent, label: "Total Discounts", value: "$3,240", change: "-15%", positive: true },
-    { icon: TrendingUp, label: "Net Profit", value: "$42,150", change: "+18.7%", positive: true }
+    { icon: DollarSign, label: "Total Revenue", value: amounts.totalRevenue, change: "+12.5%", positive: true },
+    { icon: Receipt, label: "Avg Order Value", value: amounts.avgOrderValue, change: "+8.2%", positive: true },
+    { icon: Percent, label: "Total Discounts", value: amounts.totalDiscounts, change: "-15%", positive: true },
+    { icon: TrendingUp, label: "Net Profit", value: amounts.reportNetProfit, change: "+18.7%", positive: true }
   ];
 
   const paymentMethods = [
@@ -271,7 +273,7 @@ const FinancialReports = () => {
                     <div className="grid grid-cols-2 gap-4 mb-6">
                       <div className="bg-gray-50 rounded-xl p-4">
                         <p className="text-sm text-gray-500">Total Sales</p>
-                        <p className="text-2xl font-bold text-gray-900">$4,280</p>
+                        <p className="text-2xl font-bold text-gray-900">{amounts.shiftTotalSales}</p>
                       </div>
                       <div className="bg-gray-50 rounded-xl p-4">
                         <p className="text-sm text-gray-500">Orders</p>
@@ -279,11 +281,11 @@ const FinancialReports = () => {
                       </div>
                       <div className="bg-gray-50 rounded-xl p-4">
                         <p className="text-sm text-gray-500">Avg Order</p>
-                        <p className="text-2xl font-bold text-gray-900">$27.44</p>
+                        <p className="text-2xl font-bold text-gray-900">{amounts.shiftAvgOrder}</p>
                       </div>
                       <div className="bg-gray-50 rounded-xl p-4">
                         <p className="text-sm text-gray-500">Cash Collected</p>
-                        <p className="text-2xl font-bold text-gray-900">$1,070</p>
+                        <p className="text-2xl font-bold text-gray-900">{amounts.shiftCashCollected}</p>
                       </div>
                     </div>
 
@@ -291,15 +293,15 @@ const FinancialReports = () => {
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm">
                         <span className="text-gray-600">Dine In</span>
-                        <span className="font-bold">$2,140</span>
+                        <span className="font-bold">{amounts.shiftDineIn}</span>
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-gray-600">Takeaway</span>
-                        <span className="font-bold">$856</span>
+                        <span className="font-bold">{amounts.shiftTakeaway}</span>
                       </div>
                       <div className="flex justify-between text-sm">
                         <span className="text-gray-600">Delivery</span>
-                        <span className="font-bold">$1,284</span>
+                        <span className="font-bold">{amounts.shiftDelivery}</span>
                       </div>
                     </div>
 
