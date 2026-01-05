@@ -41,6 +41,7 @@ const Sitemap = () => {
     { name: 'Inventory Management', path: '/products/inventory-management' },
     { name: 'Kitchen Display System', path: '/products/kitchen-display' },
     { name: 'Swirl Hardware', path: '/products/swirl-hardware' },
+    { name: 'Accounting', path: '/products/accounting' },
   ];
 
   const legalPages = [
