@@ -225,8 +225,8 @@ const POSMockup = () => {
         </div>
       </div>
 
-      {/* Floating Floor Management Card */}
-      <div className="absolute -bottom-8 -right-4 md:-right-12 w-72 bg-white rounded-xl shadow-xl border border-gray-100 p-4 hidden md:block transform rotate-2 hover:rotate-0 transition-transform">
+      {/* Floor Management Card */}
+      <div className="mt-6 w-full max-w-sm mx-auto bg-white rounded-xl shadow-xl border border-gray-100 p-4 hidden md:block">
         <div className="flex items-center justify-between mb-3">
           <h4 className="font-bold text-gray-900 text-sm">Floor Management</h4>
           <div className="flex items-center gap-1.5">
