@@ -1,72 +1,117 @@
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import { 
-  LayoutDashboard, PieChart, LineChart, FilePlus2, Calculator, 
-  DollarSign, TrendingUp, CreditCard, Wallet, Receipt, 
-  ArrowRight, Sparkles, Clock, Printer, History, FileText,
-  CheckCircle, BarChart3, Percent, Calendar
-} from 'lucide-react';
+import { LayoutDashboard, PieChart, LineChart, FilePlus2, Calculator, DollarSign, TrendingUp, CreditCard, Wallet, Receipt, ArrowRight, Sparkles, Clock, Printer, History, FileText, CheckCircle, BarChart3, Percent, Calendar } from 'lucide-react';
 import CustomCTAButton from '@/components/CustomCTAButton';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useCurrency } from '@/hooks/useCurrency';
 import FinancialReportsMockup from '@/components/features/financial-reports/FinancialReportsMockup';
-
 const FinancialReports = () => {
   useScrollAnimation();
-  const { amounts } = useCurrency();
-
-  const dashboardMetrics = [
-    { icon: DollarSign, label: "Total Revenue", value: amounts.totalRevenue, change: "+12.5%", positive: true },
-    { icon: Receipt, label: "Avg Order Value", value: amounts.avgOrderValue, change: "+8.2%", positive: true },
-    { icon: Percent, label: "Total Discounts", value: amounts.totalDiscounts, change: "-15%", positive: true },
-    { icon: TrendingUp, label: "Net Profit", value: amounts.reportNetProfit, change: "+18.7%", positive: true }
-  ];
-
-  const paymentMethods = [
-    { name: "Card Payments", percentage: 45, icon: CreditCard, color: "bg-primary" },
-    { name: "Cash", percentage: 25, icon: DollarSign, color: "bg-green-500" },
-    { name: "UPI / Wallets", percentage: 20, icon: Wallet, color: "bg-purple-500" },
-    { name: "Online Orders", percentage: 10, icon: Receipt, color: "bg-orange-500" }
-  ];
-
-  const keyFeatures = [
-    { icon: LineChart, title: "Daily Sales Reports", description: "Track revenue by hour, day, or week" },
-    { icon: Calculator, title: "P&L Statements", description: "Complete profit & loss breakdown" },
-    { icon: PieChart, title: "Cost Analysis", description: "Food, labor & overhead tracking" },
-    { icon: TrendingUp, title: "Revenue Forecasting", description: "AI-powered predictions" },
-    { icon: FilePlus2, title: "Tax Compliance", description: "Ready for accounting & audits" },
-    { icon: BarChart3, title: "Data Export", description: "Export to Excel, CSV, PDF" }
-  ];
-
-  const shiftReportFeatures = [
-    { icon: Printer, text: "Print complete sales data at shift end" },
-    { icon: History, text: "View all past shift reports anytime" },
-    { icon: PieChart, text: "Sales breakdown by category" },
-    { icon: DollarSign, text: "Cash drawer reconciliation" },
-    { icon: TrendingUp, text: "Staff performance per shift" }
-  ];
-
-  const specializedReports = [
-    {
-      title: "Daily Sales Reports",
-      description: "Track daily revenue with detailed breakdowns",
-      items: ["Hourly sales tracking", "Payment method analysis", "Server performance metrics"]
-    },
-    {
-      title: "Food & Labor Cost",
-      description: "Monitor your biggest expenses",
-      items: ["COGS percentage tracking", "Labor cost ratios", "Item profitability analysis"]
-    },
-    {
-      title: "Tax & Compliance",
-      description: "Simplify tax preparation",
-      items: ["Sales tax reporting", "Payroll tax calculations", "Year-end reporting"]
-    }
-  ];
-
-  return (
-    <div className="min-h-screen flex flex-col bg-white">
+  const {
+    amounts
+  } = useCurrency();
+  const dashboardMetrics = [{
+    icon: DollarSign,
+    label: "Total Revenue",
+    value: amounts.totalRevenue,
+    change: "+12.5%",
+    positive: true
+  }, {
+    icon: Receipt,
+    label: "Avg Order Value",
+    value: amounts.avgOrderValue,
+    change: "+8.2%",
+    positive: true
+  }, {
+    icon: Percent,
+    label: "Total Discounts",
+    value: amounts.totalDiscounts,
+    change: "-15%",
+    positive: true
+  }, {
+    icon: TrendingUp,
+    label: "Net Profit",
+    value: amounts.reportNetProfit,
+    change: "+18.7%",
+    positive: true
+  }];
+  const paymentMethods = [{
+    name: "Card Payments",
+    percentage: 45,
+    icon: CreditCard,
+    color: "bg-primary"
+  }, {
+    name: "Cash",
+    percentage: 25,
+    icon: DollarSign,
+    color: "bg-green-500"
+  }, {
+    name: "UPI / Wallets",
+    percentage: 20,
+    icon: Wallet,
+    color: "bg-purple-500"
+  }, {
+    name: "Online Orders",
+    percentage: 10,
+    icon: Receipt,
+    color: "bg-orange-500"
+  }];
+  const keyFeatures = [{
+    icon: LineChart,
+    title: "Daily Sales Reports",
+    description: "Track revenue by hour, day, or week"
+  }, {
+    icon: Calculator,
+    title: "P&L Statements",
+    description: "Complete profit & loss breakdown"
+  }, {
+    icon: PieChart,
+    title: "Cost Analysis",
+    description: "Food, labor & overhead tracking"
+  }, {
+    icon: TrendingUp,
+    title: "Revenue Forecasting",
+    description: "AI-powered predictions"
+  }, {
+    icon: FilePlus2,
+    title: "Tax Compliance",
+    description: "Ready for accounting & audits"
+  }, {
+    icon: BarChart3,
+    title: "Data Export",
+    description: "Export to Excel, CSV, PDF"
+  }];
+  const shiftReportFeatures = [{
+    icon: Printer,
+    text: "Print complete sales data at shift end"
+  }, {
+    icon: History,
+    text: "View all past shift reports anytime"
+  }, {
+    icon: PieChart,
+    text: "Sales breakdown by category"
+  }, {
+    icon: DollarSign,
+    text: "Cash drawer reconciliation"
+  }, {
+    icon: TrendingUp,
+    text: "Staff performance per shift"
+  }];
+  const specializedReports = [{
+    title: "Daily Sales Reports",
+    description: "Track daily revenue with detailed breakdowns",
+    items: ["Hourly sales tracking", "Payment method analysis", "Server performance metrics"]
+  }, {
+    title: "Food & Labor Cost",
+    description: "Monitor your biggest expenses",
+    items: ["COGS percentage tracking", "Labor cost ratios", "Item profitability analysis"]
+  }, {
+    title: "Tax & Compliance",
+    description: "Simplify tax preparation",
+    items: ["Sales tax reporting", "Payroll tax calculations", "Year-end reporting"]
+  }];
+  return <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
@@ -111,11 +156,7 @@ const FinancialReports = () => {
           <div className="container-custom">
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                {dashboardMetrics.map((metric, index) => (
-                  <div 
-                    key={index}
-                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}
-                  >
+                {dashboardMetrics.map((metric, index) => <div key={index} className={`animate-on-scroll animate-delay-${(index + 1) * 100} group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}>
                     <div className="flex items-center justify-between mb-4">
                       <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                         <metric.icon className="w-6 h-6 text-primary" />
@@ -126,8 +167,7 @@ const FinancialReports = () => {
                     </div>
                     <p className="text-sm text-gray-500 mb-1">{metric.label}</p>
                     <p className="text-2xl md:text-3xl font-bold text-gray-900">{metric.value}</p>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
           </div>
@@ -151,8 +191,7 @@ const FinancialReports = () => {
                   </p>
                   
                   <div className="space-y-4">
-                    {paymentMethods.map((method, index) => (
-                      <div key={index} className="group">
+                    {paymentMethods.map((method, index) => <div key={index} className="group">
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center gap-3">
                             <div className={`w-10 h-10 rounded-lg ${method.color} flex items-center justify-center`}>
@@ -163,22 +202,16 @@ const FinancialReports = () => {
                           <span className="font-bold text-gray-900">{method.percentage}%</span>
                         </div>
                         <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                          <div 
-                            className={`h-full ${method.color} rounded-full transition-all duration-1000`}
-                            style={{ width: `${method.percentage}%` }}
-                          />
+                          <div className={`h-full ${method.color} rounded-full transition-all duration-1000`} style={{
+                        width: `${method.percentage}%`
+                      }} />
                         </div>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
 
                 <div className="animate-on-scroll animate-delay-200">
-                  <img 
-                    src="/lovable-uploads/financial-analytics-dashboard.jpg" 
-                    alt="Financial Analytics Dashboard" 
-                    className="rounded-2xl shadow-2xl w-full h-auto hover:scale-[1.02] transition-transform duration-500"
-                  />
+                  
                 </div>
               </div>
             </div>
@@ -200,18 +233,13 @@ const FinancialReports = () => {
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {keyFeatures.map((feature, index) => (
-                  <div 
-                    key={index}
-                    className={`animate-on-scroll animate-delay-${(index % 3 + 1) * 100} group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}
-                  >
+                {keyFeatures.map((feature, index) => <div key={index} className={`animate-on-scroll animate-delay-${(index % 3 + 1) * 100} group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}>
                     <div className="w-14 h-14 mb-5 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
                       <feature.icon className="w-7 h-7 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">{feature.title}</h3>
                     <p className="text-gray-600">{feature.description}</p>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
           </div>
@@ -245,17 +273,12 @@ const FinancialReports = () => {
                   </p>
 
                   <div className="space-y-4">
-                    {shiftReportFeatures.map((feature, index) => (
-                      <div 
-                        key={index}
-                        className="group flex items-start gap-4 p-4 bg-gray-50 rounded-xl hover:bg-primary/5 transition-colors duration-300"
-                      >
+                    {shiftReportFeatures.map((feature, index) => <div key={index} className="group flex items-start gap-4 p-4 bg-gray-50 rounded-xl hover:bg-primary/5 transition-colors duration-300">
                         <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                           <feature.icon className="w-5 h-5 text-primary" />
                         </div>
                         <span className="text-gray-700 font-medium pt-2">{feature.text}</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
 
@@ -339,23 +362,16 @@ const FinancialReports = () => {
               </div>
 
               <div className="grid md:grid-cols-3 gap-6">
-                {specializedReports.map((report, index) => (
-                  <div 
-                    key={index}
-                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300`}
-                  >
+                {specializedReports.map((report, index) => <div key={index} className={`animate-on-scroll animate-delay-${(index + 1) * 100} bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300`}>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{report.title}</h3>
                     <p className="text-gray-600 mb-6">{report.description}</p>
                     <ul className="space-y-3">
-                      {report.items.map((item, i) => (
-                        <li key={i} className="flex items-center gap-3">
+                      {report.items.map((item, i) => <li key={i} className="flex items-center gap-3">
                           <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                           <span className="text-gray-700">{item}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
           </div>
@@ -372,10 +388,7 @@ const FinancialReports = () => {
                 Join successful restaurant owners who have improved profit margins with complete financial visibility.
               </p>
               <div className="animate-on-scroll animate-delay-200">
-                <a 
-                  href="https://app.swirl.cx/register"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                >
+                <a href="https://app.swirl.cx/register" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                   get started for free
                   <ArrowRight className="w-5 h-5" />
                 </a>
@@ -385,8 +398,6 @@ const FinancialReports = () => {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default FinancialReports;
