@@ -210,8 +210,83 @@ const FinancialReports = () => {
                   </div>
                 </div>
 
-                <div className="animate-on-scroll animate-delay-200">
-                  
+                <div className="animate-on-scroll animate-delay-200 relative">
+                  {/* Payment Breakdown Mockup */}
+                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 relative overflow-hidden">
+                    {/* Header */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div>
+                        <h4 className="font-bold text-gray-900">Payment Summary</h4>
+                        <p className="text-sm text-gray-500">Today's transactions</p>
+                      </div>
+                      <div className="flex items-center gap-2 px-3 py-1.5 bg-green-50 rounded-full">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                        <span className="text-xs font-medium text-green-600">Live</span>
+                      </div>
+                    </div>
+
+                    {/* Donut Chart Visual */}
+                    <div className="flex items-center justify-center mb-6">
+                      <div className="relative w-40 h-40">
+                        <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                          {/* Background circle */}
+                          <circle cx="50" cy="50" r="40" fill="none" stroke="#f3f4f6" strokeWidth="12" />
+                          {/* Card Payments - 45% */}
+                          <circle cx="50" cy="50" r="40" fill="none" stroke="#0052CC" strokeWidth="12" strokeDasharray="113.1 251.3" strokeLinecap="round" className="transition-all duration-1000" />
+                          {/* Cash - 25% */}
+                          <circle cx="50" cy="50" r="40" fill="none" stroke="#22c55e" strokeWidth="12" strokeDasharray="62.8 251.3" strokeDashoffset="-113.1" strokeLinecap="round" className="transition-all duration-1000" />
+                          {/* UPI/Wallets - 20% */}
+                          <circle cx="50" cy="50" r="40" fill="none" stroke="#a855f7" strokeWidth="12" strokeDasharray="50.3 251.3" strokeDashoffset="-175.9" strokeLinecap="round" className="transition-all duration-1000" />
+                          {/* Online Orders - 10% */}
+                          <circle cx="50" cy="50" r="40" fill="none" stroke="#f97316" strokeWidth="12" strokeDasharray="25.1 251.3" strokeDashoffset="-226.2" strokeLinecap="round" className="transition-all duration-1000" />
+                        </svg>
+                        <div className="absolute inset-0 flex flex-col items-center justify-center">
+                          <span className="text-2xl font-bold text-gray-900">256</span>
+                          <span className="text-xs text-gray-500">Transactions</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Legend */}
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg">
+                        <div className="w-3 h-3 rounded-full bg-primary" />
+                        <div>
+                          <p className="text-xs text-gray-500">Card</p>
+                          <p className="text-sm font-bold text-gray-900">{amounts.frInStoreRevenue}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg">
+                        <div className="w-3 h-3 rounded-full bg-green-500" />
+                        <div>
+                          <p className="text-xs text-gray-500">Cash</p>
+                          <p className="text-sm font-bold text-gray-900">{amounts.shiftCashCollected}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg">
+                        <div className="w-3 h-3 rounded-full bg-purple-500" />
+                        <div>
+                          <p className="text-xs text-gray-500">UPI/Wallets</p>
+                          <p className="text-sm font-bold text-gray-900">{amounts.shiftTakeaway}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg">
+                        <div className="w-3 h-3 rounded-full bg-orange-500" />
+                        <div>
+                          <p className="text-xs text-gray-500">Online</p>
+                          <p className="text-sm font-bold text-gray-900">{amounts.frOnlineRevenue}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Decorative gradient */}
+                    <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl" />
+                  </div>
+
+                  {/* Floating badge */}
+                  <div className="absolute -top-3 -right-3 px-3 py-1.5 bg-primary text-white text-xs font-bold rounded-full shadow-lg">
+                    Real-time Data
+                  </div>
                 </div>
               </div>
             </div>
