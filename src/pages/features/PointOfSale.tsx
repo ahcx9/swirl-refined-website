@@ -372,7 +372,7 @@ const PointOfSale = () => {
                   <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 max-w-sm mx-auto">
                     <div className="flex items-center justify-between mb-4">
                       <h4 className="font-bold text-gray-900">Margherita Pizza</h4>
-                      <span className="text-primary font-bold">₹399</span>
+                      <span className="text-primary font-bold">AED 40</span>
                     </div>
                     
                     {/* Note Input */}
@@ -439,15 +439,15 @@ const PointOfSale = () => {
                       <div className="grid grid-cols-3 gap-2">
                         <button className="p-3 border border-gray-200 rounded-xl text-center hover:border-primary/30 transition-colors">
                           <p className="font-medium text-gray-700">Small</p>
-                          <p className="text-xs text-gray-500">+₹0</p>
+                          <p className="text-xs text-gray-500">+AED 0</p>
                         </button>
                         <button className="p-3 border-2 border-primary bg-primary/10 rounded-xl text-center">
                           <p className="font-medium text-primary">Medium</p>
-                          <p className="text-xs text-primary">+₹50</p>
+                          <p className="text-xs text-primary">+AED 5</p>
                         </button>
                         <button className="p-3 border border-gray-200 rounded-xl text-center hover:border-primary/30 transition-colors">
                           <p className="font-medium text-gray-700">Large</p>
-                          <p className="text-xs text-gray-500">+₹100</p>
+                          <p className="text-xs text-gray-500">+AED 10</p>
                         </button>
                       </div>
                     </div>
@@ -460,28 +460,28 @@ const PointOfSale = () => {
                           <CheckCircle className="w-4 h-4 text-primary" />
                           <div>
                             <p className="text-sm font-medium text-gray-700">Extra Cheese</p>
-                            <p className="text-xs text-gray-500">+₹30</p>
+                            <p className="text-xs text-gray-500">+AED 3</p>
                           </div>
                         </label>
                         <label className="flex items-center gap-2 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-primary/30">
                           <div className="w-4 h-4 border border-gray-300 rounded" />
                           <div>
                             <p className="text-sm font-medium text-gray-700">Jalapeños</p>
-                            <p className="text-xs text-gray-500">+₹20</p>
+                            <p className="text-xs text-gray-500">+AED 2</p>
                           </div>
                         </label>
                         <label className="flex items-center gap-2 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-primary/30">
                           <div className="w-4 h-4 border border-gray-300 rounded" />
                           <div>
                             <p className="text-sm font-medium text-gray-700">Mushrooms</p>
-                            <p className="text-xs text-gray-500">+₹25</p>
+                            <p className="text-xs text-gray-500">+AED 2.50</p>
                           </div>
                         </label>
                         <label className="flex items-center gap-2 p-3 border-2 border-primary bg-primary/10 rounded-xl cursor-pointer">
                           <CheckCircle className="w-4 h-4 text-primary" />
                           <div>
                             <p className="text-sm font-medium text-gray-700">Olives</p>
-                            <p className="text-xs text-gray-500">+₹20</p>
+                            <p className="text-xs text-gray-500">+AED 2</p>
                           </div>
                         </label>
                       </div>
@@ -607,7 +607,7 @@ const PointOfSale = () => {
                         </div>
                         <div className="aspect-square bg-primary rounded-lg flex items-center justify-center text-white font-bold shadow-lg hover:scale-105 transition-transform cursor-pointer group relative">
                           <span>9</span>
-                          <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Bill Ready • ₹2,450</div>
+                          <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Bill Ready • AED 245</div>
                         </div>
                         <div className="aspect-square bg-green-500 rounded-lg flex items-center justify-center text-white font-bold shadow-lg hover:scale-105 transition-transform cursor-pointer">10</div>
                         <div className="aspect-square bg-yellow-500 rounded-lg flex items-center justify-center text-white font-bold shadow-lg hover:scale-105 transition-transform cursor-pointer">11</div>
