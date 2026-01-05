@@ -1,7 +1,8 @@
 import React from 'react';
-import { CreditCard, Cloud } from 'lucide-react';
+import { Cloud } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import CustomCTAButton from '@/components/CustomCTAButton';
+import POSMockup from './POSMockup';
 
 const POSHero = () => {
   const { t } = useLanguage();
@@ -28,15 +29,8 @@ const POSHero = () => {
         </CustomCTAButton>
       </div>
 
-      <div className="overflow-hidden rounded-2xl shadow-2xl max-w-5xl mx-auto transform hover:scale-[1.01] transition-transform duration-500">
-        <img 
-          src="/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png" 
-          alt="Cloud POS System Interface" 
-          className="w-full h-auto" 
-          loading="eager" 
-          fetchPriority="high"
-          decoding="async"
-        />
+      <div className="py-8 px-4 md:px-8">
+        <POSMockup />
       </div>
     </div>
   );
