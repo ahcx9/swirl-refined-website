@@ -18,6 +18,7 @@ import {
   TrendingUp
 } from 'lucide-react';
 import { Button } from './ui/button';
+import { useCurrency } from '@/hooks/useCurrency';
 
 // Updated 6 logos
 const logos = [
@@ -145,7 +146,7 @@ const CTAArrowDoodle = () => (
 // ============ HARDWARE MOCKUP COMPONENTS ============
 
 // Premium POS Hardware Mockup
-const POSHardwareMockup = () => (
+const POSHardwareMockup = ({ amounts }: { amounts: { chickenShawarma: string; grilledLambKebab: string; posSubtotal: string; posTotal: string } }) => (
   <div className="relative" style={{ transform: 'perspective(1200px) rotateY(-3deg) rotateX(1deg)' }}>
     {/* Tablet Stand - Base */}
     <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-36 md:w-44 lg:w-52 xl:w-56 h-5 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-500 rounded-full shadow-lg" />
@@ -183,7 +184,7 @@ const POSHardwareMockup = () => (
                 <span className="text-[9px] lg:text-[10px] text-muted-foreground">Extra garlic sauce</span>
               </div>
             </div>
-            <span className="text-xs lg:text-sm font-semibold text-foreground">AED 36</span>
+            <span className="text-xs lg:text-sm font-semibold text-foreground">{amounts.chickenShawarma}</span>
           </div>
           <div className="flex items-center justify-between py-2 lg:py-2.5 border-b border-gray-100">
             <div className="flex items-center gap-2 lg:gap-3">
@@ -193,18 +194,18 @@ const POSHardwareMockup = () => (
                 <span className="text-[9px] lg:text-[10px] text-muted-foreground">Medium spice</span>
               </div>
             </div>
-            <span className="text-xs lg:text-sm font-semibold text-foreground">AED 42</span>
+            <span className="text-xs lg:text-sm font-semibold text-foreground">{amounts.grilledLambKebab}</span>
           </div>
           
           {/* Totals Section */}
           <div className="pt-2 lg:pt-3 space-y-1 border-t border-gray-100 mt-1">
             <div className="flex justify-between text-[10px] lg:text-xs text-muted-foreground">
               <span>Subtotal</span>
-              <span>AED 78.00</span>
+              <span>{amounts.posSubtotal}</span>
             </div>
             <div className="flex justify-between text-sm lg:text-base font-bold text-foreground pt-1 border-t border-gray-200">
               <span>Total</span>
-              <span className="text-primary">AED 81.90</span>
+              <span className="text-primary">{amounts.posTotal}</span>
             </div>
           </div>
           
@@ -230,7 +231,7 @@ const POSHardwareMockup = () => (
 );
 
 // iPhone QR Ordering Mockup
-const IPhoneQRMockup = () => (
+const IPhoneQRMockup = ({ amounts }: { amounts: { margheritaPizza: string; greekSalad: string; cartTotal: string } }) => (
   <div 
     className="relative"
     style={{ transform: 'perspective(1200px) rotateY(6deg)' }}
@@ -266,7 +267,7 @@ const IPhoneQRMockup = () => (
             <div className="flex-1 min-w-0">
               <p className="font-semibold text-[10px] lg:text-xs text-foreground truncate">Margherita Pizza</p>
               <p className="text-[8px] lg:text-[9px] text-muted-foreground">Fresh tomato</p>
-              <p className="text-[10px] lg:text-xs font-bold text-primary mt-0.5">AED 48</p>
+              <p className="text-[10px] lg:text-xs font-bold text-primary mt-0.5">{amounts.margheritaPizza}</p>
             </div>
             <button className="self-center w-6 h-6 lg:w-7 lg:h-7 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
               <Plus className="w-3 h-3 lg:w-3.5 lg:h-3.5 text-white" />
@@ -278,7 +279,7 @@ const IPhoneQRMockup = () => (
             <div className="flex-1 min-w-0">
               <p className="font-semibold text-[10px] lg:text-xs text-foreground truncate">Greek Salad</p>
               <p className="text-[8px] lg:text-[9px] text-muted-foreground">Feta, olives</p>
-              <p className="text-[10px] lg:text-xs font-bold text-primary mt-0.5">AED 32</p>
+              <p className="text-[10px] lg:text-xs font-bold text-primary mt-0.5">{amounts.greekSalad}</p>
             </div>
             <button className="self-center w-6 h-6 lg:w-7 lg:h-7 bg-primary/15 rounded-full flex items-center justify-center flex-shrink-0">
               <Plus className="w-3 h-3 lg:w-3.5 lg:h-3.5 text-primary" />
@@ -290,7 +291,7 @@ const IPhoneQRMockup = () => (
         <div className="absolute bottom-4 lg:bottom-5 left-2 lg:left-3 right-2 lg:right-3">
           <button className="w-full py-2 lg:py-2.5 bg-primary text-white text-[10px] lg:text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 shadow-lg shadow-primary/30">
             <ShoppingCart className="w-3 h-3 lg:w-3.5 lg:h-3.5" />
-            View Cart (2) • AED 80
+            View Cart (2) • {amounts.cartTotal}
           </button>
         </div>
       </div>
@@ -380,7 +381,7 @@ const KDSMockup = ({ compact = false }: { compact?: boolean }) => (
 );
 
 // Accounting Mockup - NEW
-const AccountingMockup = ({ compact = false }: { compact?: boolean }) => (
+const AccountingMockup = ({ compact = false, amounts }: { compact?: boolean; amounts: { accountingToday: string; accountingWeek: string; accountingMonth: string } }) => (
   <div className={`bg-white rounded-xl shadow-xl border border-gray-100 ${compact ? 'p-2 w-[110px]' : 'p-3 lg:p-4 w-[140px] lg:w-[180px]'}`}>
     <div className="flex items-center gap-1.5 lg:gap-2 mb-2 lg:mb-3">
       <div className={`${compact ? 'w-5 h-5' : 'w-6 h-6 lg:w-7 lg:h-7'} rounded-lg bg-emerald-100 flex items-center justify-center`}>
@@ -391,17 +392,17 @@ const AccountingMockup = ({ compact = false }: { compact?: boolean }) => (
     <div className="space-y-1 lg:space-y-1.5">
       <div className="flex justify-between items-center text-[9px] lg:text-[10px]">
         <span className="text-muted-foreground">Today</span>
-        <span className="text-emerald-600 font-bold">AED 4,520</span>
+        <span className="text-emerald-600 font-bold">{amounts.accountingToday}</span>
       </div>
       <div className="flex justify-between items-center text-[9px] lg:text-[10px]">
         <span className="text-muted-foreground">Week</span>
-        <span className="text-primary font-bold">AED 28K</span>
+        <span className="text-primary font-bold">{amounts.accountingWeek}</span>
       </div>
       {!compact && (
         <>
           <div className="hidden lg:flex justify-between items-center text-[10px]">
             <span className="text-muted-foreground">Month</span>
-            <span className="text-primary font-bold">AED 112K</span>
+            <span className="text-primary font-bold">{amounts.accountingMonth}</span>
           </div>
           <div className="h-6 lg:h-8 mt-1.5 lg:mt-2 bg-gradient-to-r from-emerald-50 to-green-50 rounded-md flex items-center justify-center">
             <TrendingUp className="w-3 h-3 lg:w-4 lg:h-4 text-emerald-500" />
@@ -416,6 +417,8 @@ const AccountingMockup = ({ compact = false }: { compact?: boolean }) => (
 // ============ MAIN HERO COMPONENT ============
 
 const Hero: React.FC = () => {
+  const { amounts } = useCurrency();
+  
   return (
     <section className="relative min-h-screen bg-white overflow-hidden pt-32 md:pt-36 lg:pt-32 pb-8">
       
@@ -537,20 +540,20 @@ const Hero: React.FC = () => {
             <div className="absolute top-0 right-0 md:top-4 lg:top-24 lg:-right-40 xl:-right-52 z-20">
               {/* Mobile/Tablet: compact version */}
               <div className="lg:hidden">
-                <AccountingMockup compact />
+                <AccountingMockup compact amounts={amounts} />
               </div>
               {/* Desktop: full version */}
               <div className="hidden lg:block">
-                <AccountingMockup compact={false} />
+                <AccountingMockup compact={false} amounts={amounts} />
               </div>
             </div>
 
             {/* Main POS + iPhone Row - Centered */}
             <div className="flex items-start justify-center gap-4 md:gap-5 lg:gap-8 xl:gap-10 pt-20 md:pt-16 lg:pt-6">
-              <POSHardwareMockup />
+              <POSHardwareMockup amounts={amounts} />
               {/* iPhone - hidden on mobile */}
               <div className="hidden md:block">
-                <IPhoneQRMockup />
+                <IPhoneQRMockup amounts={amounts} />
               </div>
             </div>
 
