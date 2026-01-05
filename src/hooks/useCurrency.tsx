@@ -131,6 +131,16 @@ const BASE_AMOUNTS = {
   posMushrooms: 2.50,
   posOlives: 2,
   posBillReady: 245,
+  
+  // Financial Reports mockup
+  frTotalRevenue: 11214.23,
+  frTotalOrders: 99,
+  frAverageBill: 113.28,
+  frTotalDiscounts: 195.97,
+  frInStoreRevenue: 11109.23,
+  frOnlineRevenue: 105,
+  frInStoreOrders: 98,
+  frOnlineOrders: 1,
 };
 
 // Approximate exchange rates from AED (for display purposes only)
@@ -305,6 +315,16 @@ export function useCurrency() {
     posMushrooms: formatAmount(BASE_AMOUNTS.posMushrooms),
     posOlives: formatAmount(BASE_AMOUNTS.posOlives),
     posBillReady: formatAmount(BASE_AMOUNTS.posBillReady),
+    
+    // Financial Reports mockup
+    frTotalRevenue: formatAmount(BASE_AMOUNTS.frTotalRevenue),
+    frTotalOrders: BASE_AMOUNTS.frTotalOrders,
+    frAverageBill: formatAmount(BASE_AMOUNTS.frAverageBill),
+    frTotalDiscounts: formatAmount(BASE_AMOUNTS.frTotalDiscounts),
+    frInStoreRevenue: formatAmount(BASE_AMOUNTS.frInStoreRevenue),
+    frOnlineRevenue: formatAmount(BASE_AMOUNTS.frOnlineRevenue),
+    frInStoreOrders: BASE_AMOUNTS.frInStoreOrders,
+    frOnlineOrders: BASE_AMOUNTS.frOnlineOrders,
   }), [currencyCode, rate]);
 
   return {

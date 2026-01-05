@@ -10,6 +10,7 @@ import {
 import CustomCTAButton from '@/components/CustomCTAButton';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useCurrency } from '@/hooks/useCurrency';
+import FinancialReportsMockup from '@/components/features/financial-reports/FinancialReportsMockup';
 
 const FinancialReports = () => {
   useScrollAnimation();
@@ -69,14 +70,14 @@ const FinancialReports = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 bg-white overflow-hidden">
+        <section className="relative pt-32 pb-12 bg-white overflow-hidden">
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
             <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
           </div>
 
           <div className="container-custom">
-            <div className="max-w-6xl mx-auto text-center">
+            <div className="max-w-6xl mx-auto text-center mb-12">
               <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
                 <LayoutDashboard className="w-5 h-5 text-primary" />
                 <span className="text-sm font-semibold text-primary">Financial Reports</span>
@@ -96,6 +97,11 @@ const FinancialReports = () => {
                   get started for free
                 </CustomCTAButton>
               </div>
+            </div>
+
+            {/* Financial Reports Mockup */}
+            <div className="animate-on-scroll animate-delay-400 px-4">
+              <FinancialReportsMockup />
             </div>
           </div>
         </section>
