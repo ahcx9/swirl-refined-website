@@ -1,6 +1,9 @@
 
 import React from 'react';
 import Hero from '@/components/Hero';
+import OwnerRealitySection from '@/components/OwnerRealitySection';
+import InvisibleCostSection from '@/components/InvisibleCostSection';
+import TransformationSection from '@/components/TransformationSection';
 import Features from '@/components/Features';
 import StepProcess from '@/components/StepProcess';
 import NextGenFeatures from '@/components/NextGenFeatures';
@@ -30,6 +33,9 @@ const Index = () => {
       
       <main className="flex-grow">
         <Hero />
+        <OwnerRealitySection />
+        <InvisibleCostSection />
+        <TransformationSection />
         <WhySwirlSection />
         <Features />
         <UseCasesSection />
