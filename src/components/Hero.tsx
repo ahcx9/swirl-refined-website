@@ -173,39 +173,7 @@ const Hero: React.FC = () => {
           {/* ======== RIGHT COLUMN: PRODUCT MOCKUPS ======== */}
           <div className="order-2 relative flex items-center justify-center lg:justify-end">
             {/* Mockup Container with perspective */}
-            <div className="relative w-full max-w-[900px] h-[500px] md:h-[600px] lg:h-[700px]">
-              
-              {/* POS Mockup - Primary, foreground */}
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 origin-top-left
-                           transform scale-[0.38] md:scale-[0.45] lg:scale-[0.5] xl:scale-[0.55]
-                           hover:scale-[0.40] md:hover:scale-[0.47] lg:hover:scale-[0.52] xl:hover:scale-[0.57]
-                           transition-transform duration-500 ease-out" style={{
-              filter: 'drop-shadow(0 25px 50px rgba(0, 82, 204, 0.15))'
-            }}>
-                <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-2xl">
-                  <POSMockup />
-                </div>
-              </div>
-              
-              {/* Inventory Mockup - Secondary, background offset */}
-              <div className="absolute right-0 md:right-[-5%] lg:right-[-10%] top-1/2 -translate-y-[40%] z-10 origin-top-right
-                           transform scale-[0.35] md:scale-[0.42] lg:scale-[0.48] xl:scale-[0.52]
-                           hover:scale-[0.37] md:hover:scale-[0.44] lg:hover:scale-[0.50] xl:hover:scale-[0.54]
-                           transition-transform duration-500 ease-out
-                           hidden md:block" style={{
-              filter: 'drop-shadow(0 20px 40px rgba(0, 82, 204, 0.12))'
-            }}>
-                <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-xl">
-                  
-                </div>
-              </div>
-
-              {/* Decorative gradient backdrop */}
-              <div className="absolute inset-0 -z-10 opacity-30">
-                <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-                <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-primary/5 rounded-full blur-2xl" />
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
