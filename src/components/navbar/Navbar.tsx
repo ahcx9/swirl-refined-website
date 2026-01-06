@@ -19,9 +19,9 @@ const features = [
     icon: 'qr-code'
   },
   {
-    title: 'Analytics',
-    path: '/products/restaurant-analytics',
-    description: 'Track and analyze your restaurant performance.',
+    title: 'Visitor Analytics',
+    path: '/products/visitor-analytics',
+    description: 'Track visitor behavior and QR scanning patterns.',
     icon: 'chart-bar'
   },
   {

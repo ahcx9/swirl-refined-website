@@ -1,26 +1,116 @@
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import { BarChart, PieChart, LineChart, TrendingUp, Database, ArrowRight, Sparkles, Users, Clock, DollarSign, CheckCircle, QrCode, UserPlus, RefreshCw, Smartphone, Eye } from 'lucide-react';
+import { BarChart, PieChart, LineChart, TrendingUp, Database, ArrowRight, Sparkles, Users, Clock, DollarSign, CheckCircle, QrCode, UserPlus, RefreshCw, Smartphone, Eye, Calendar } from 'lucide-react';
 import CustomCTAButton from '@/components/CustomCTAButton';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-const Analytics = () => {
+// Visitor Analytics Dashboard Mockup Component
+const VisitorAnalyticsMockup = () => {
+  return (
+    <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden">
+      {/* Header */}
+      <div className="px-6 py-4 border-b border-gray-100">
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-lg font-bold text-gray-900">Menu & Visitor Dashboard</h3>
+            <p className="text-sm text-gray-500">Analytics will help you understand your customers and their behavior on your menu</p>
+          </div>
+          <div className="flex items-center gap-2 px-3 py-2 bg-gray-50 rounded-lg border border-gray-200">
+            <Calendar className="w-4 h-4 text-gray-500" />
+            <span className="text-sm text-gray-600">Dec 07, 2025 - Jan 06, 2026</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Daily Visitors Section */}
+      <div className="p-6">
+        <h4 className="text-sm font-semibold text-gray-700 mb-4">Daily Visitors</h4>
+        
+        {/* Stats Cards Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div className="bg-blue-50 rounded-xl p-4 border border-blue-100">
+            <div className="flex items-center gap-2 mb-2">
+              <Users className="w-5 h-5 text-blue-600" />
+              <span className="text-xs font-medium text-blue-600">Total Visitors</span>
+            </div>
+            <p className="text-3xl font-bold text-gray-900">33</p>
+          </div>
+          
+          <div className="bg-green-50 rounded-xl p-4 border border-green-100">
+            <div className="flex items-center gap-2 mb-2">
+              <UserPlus className="w-5 h-5 text-green-600" />
+              <span className="text-xs font-medium text-green-600">Unique Visitors</span>
+            </div>
+            <p className="text-3xl font-bold text-gray-900">24</p>
+          </div>
+          
+          <div className="bg-purple-50 rounded-xl p-4 border border-purple-100">
+            <div className="flex items-center gap-2 mb-2">
+              <RefreshCw className="w-5 h-5 text-purple-600" />
+              <span className="text-xs font-medium text-purple-600">Repeat Visitors</span>
+            </div>
+            <p className="text-3xl font-bold text-gray-900">9</p>
+          </div>
+          
+          <div className="bg-orange-50 rounded-xl p-4 border border-orange-100">
+            <div className="flex items-center gap-2 mb-2">
+              <TrendingUp className="w-5 h-5 text-orange-600" />
+              <span className="text-xs font-medium text-orange-600">Repeat Percentage</span>
+            </div>
+            <p className="text-3xl font-bold text-gray-900">27.27%</p>
+          </div>
+        </div>
+
+        {/* Chart Section */}
+        <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+          <div className="flex items-center justify-between mb-4">
+            <h5 className="text-sm font-semibold text-gray-700">Unique Visits</h5>
+            <div className="flex items-center gap-1 text-xs text-gray-500">
+              <span className="w-3 h-0.5 bg-primary rounded"></span>
+              <span>Trend</span>
+            </div>
+          </div>
+          
+          {/* Simplified Chart Representation */}
+          <div className="h-32 flex items-end justify-between gap-1 px-2">
+            {[8, 12, 6, 15, 10, 18, 14, 20, 16, 22, 12, 24, 18, 26, 20, 28, 15, 30, 22, 25, 18, 28, 24, 30, 20, 26, 22, 24, 18, 20].map((height, i) => (
+              <div 
+                key={i} 
+                className="flex-1 bg-primary/20 hover:bg-primary/40 transition-colors rounded-t"
+                style={{ height: `${height * 3}px` }}
+              />
+            ))}
+          </div>
+          <div className="flex justify-between mt-2 text-[10px] text-gray-400 px-2">
+            <span>Dec 07</span>
+            <span>Dec 15</span>
+            <span>Dec 23</span>
+            <span>Dec 31</span>
+            <span>Jan 06</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const VisitorAnalytics = () => {
   useScrollAnimation();
 
   const stats = [
-    { value: "25%", label: "Higher Revenue", icon: TrendingUp },
-    { value: "40%", label: "Better Decisions", icon: BarChart },
+    { value: "25%", label: "Higher Engagement", icon: TrendingUp },
+    { value: "40%", label: "Better Insights", icon: BarChart },
     { value: "60%", label: "Time Saved", icon: Clock }
   ];
 
   const features = [
-    { title: "Real-time Dashboards", description: "Monitor performance with live updates and key metrics at a glance", icon: BarChart },
-    { title: "Sales Tracking", description: "Analyze sales by time periods, categories, and payment methods", icon: LineChart },
-    { title: "Customer Insights", description: "Understand customer behavior and spending habits", icon: Users },
-    { title: "Performance Trends", description: "Identify growth opportunities with trend analysis", icon: TrendingUp },
-    { title: "Data Export", description: "Export data in multiple formats for external use", icon: Database },
-    { title: "Menu Analytics", description: "Track which items perform best and optimize pricing", icon: PieChart }
+    { title: "Real-time Dashboards", description: "Monitor visitor activity with live updates and key metrics at a glance", icon: BarChart },
+    { title: "QR Scan Tracking", description: "Analyze how customers interact with your digital menu through QR codes", icon: QrCode },
+    { title: "Customer Insights", description: "Understand visitor behavior and engagement patterns", icon: Users },
+    { title: "Repeat Visitor Analysis", description: "Identify loyal customers and track return rates", icon: RefreshCw },
+    { title: "Data Export", description: "Export visitor data in multiple formats for external use", icon: Database },
+    { title: "Menu Performance", description: "Track which menu items get the most views", icon: PieChart }
   ];
 
   const visitorStats = [
@@ -37,32 +127,32 @@ const Analytics = () => {
 
   const analyticsCategories = [
     {
-      title: "Sales Analytics",
-      icon: DollarSign,
-      items: ["Daily, weekly, monthly revenue", "Sales by category and item", "Average check value analysis", "Peak hours identification"]
+      title: "Visitor Analytics",
+      icon: Users,
+      items: ["Daily, weekly, monthly visitors", "Unique vs repeat tracking", "Peak hours identification", "Device breakdown analysis"]
     },
     {
-      title: "Menu Performance",
+      title: "Menu Engagement",
       icon: BarChart,
-      items: ["Item profitability analysis", "Menu engineering metrics", "Promotion effectiveness", "Seasonal performance"]
+      items: ["Menu item view tracking", "Popular categories analysis", "Time spent per section", "Seasonal performance"]
     },
     {
       title: "Customer Insights",
-      icon: Users,
-      items: ["Customer frequency & retention", "Spending pattern segmentation", "Channel preferences", "Loyalty program metrics"]
+      icon: TrendingUp,
+      items: ["Customer frequency & retention", "Engagement patterns", "QR scan locations", "Loyalty identification"]
     }
   ];
 
   const decisions = [
     {
       title: "Optimize Your Menu",
-      description: "Use sales and profitability data to make informed menu decisions",
-      items: ["Identify top-performing dishes", "Optimize pricing strategies", "Analyze seasonal trends"]
+      description: "Use visitor data to make informed menu decisions",
+      items: ["Identify most-viewed dishes", "Optimize menu layout", "Analyze viewing patterns"]
     },
     {
-      title: "Staff Efficiently",
-      description: "Schedule your team based on actual business needs",
-      items: ["Identify peak service hours", "Optimize labor costs", "Track employee performance"]
+      title: "Target Your Audience",
+      description: "Understand who your customers are and when they visit",
+      items: ["Identify peak visit times", "Track customer retention", "Segment by behavior"]
     }
   ];
 
@@ -83,17 +173,17 @@ const Analytics = () => {
                 {/* Text Content */}
                 <div>
                   <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
-                    <BarChart className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-semibold text-primary">Restaurant Analytics</span>
+                    <Users className="w-5 h-5 text-primary" />
+                    <span className="text-sm font-semibold text-primary">Visitor Analytics</span>
                   </div>
 
                   <h1 className="animate-on-scroll animate-delay-100 text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                    Data That Drives<br />
-                    <span className="text-primary">Decisions</span>
+                    Understand Your<br />
+                    <span className="text-primary">Visitors</span>
                   </h1>
                   
                   <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 mb-8">
-                    Transform raw data into actionable insights. Understand your business, optimize operations, and make informed decisions.
+                    Track every interaction and gain insights into customer behavior. Know who's scanning your QR codes and how they engage with your menu.
                   </p>
                   
                   <div className="animate-on-scroll animate-delay-300">
@@ -119,39 +209,24 @@ const Analytics = () => {
                   </div>
                 </div>
 
-                {/* Dashboard Preview with Quirky Design */}
+                {/* Dashboard Mockup */}
                 <div className="animate-on-scroll animate-delay-400 relative">
                   {/* Floating data points */}
                   <div className="absolute -top-4 -left-4 px-3 py-2 bg-green-500 text-white text-sm font-bold rounded-full shadow-lg animate-bounce z-10">
-                    +25%
+                    +27%
                   </div>
                   <div className="absolute top-1/4 -right-4 px-3 py-2 bg-primary text-white text-sm font-bold rounded-full shadow-lg z-10">
                     Live
                   </div>
-                  <div className="absolute -bottom-4 left-1/4 px-3 py-2 bg-orange-500 text-white text-sm font-bold rounded-full shadow-lg z-10">
-                    Peak Hour
-                  </div>
-
-                  {/* Decorative chart lines */}
-                  <div className="absolute -z-10 top-0 left-0 w-full h-full">
-                    <svg className="w-full h-full opacity-20" viewBox="0 0 400 300">
-                      <path d="M0,150 Q100,100 200,140 T400,100" stroke="#0052CC" strokeWidth="2" fill="none" strokeDasharray="5,5" />
-                      <path d="M0,200 Q100,180 200,220 T400,180" stroke="#0052CC" strokeWidth="2" fill="none" strokeDasharray="5,5" />
-                    </svg>
+                  <div className="absolute -bottom-4 left-1/4 px-3 py-2 bg-purple-500 text-white text-sm font-bold rounded-full shadow-lg z-10">
+                    24 Unique
                   </div>
 
                   {/* Blue glow effect */}
                   <div className="absolute inset-0 bg-primary/10 rounded-2xl blur-xl -z-10 scale-110" />
 
-                  {/* Main image */}
-                  <div className="relative bg-white rounded-2xl shadow-2xl shadow-primary/20 overflow-hidden border border-primary/10">
-                    <img 
-                      src="/lovable-uploads/35e9fd73-7370-41cc-89e5-6259df112af0.png" 
-                      alt="Analytics Dashboard" 
-                      className="w-full h-auto hover:scale-[1.02] transition-transform duration-500"
-                      loading="eager"
-                    />
-                  </div>
+                  {/* Main Mockup */}
+                  <VisitorAnalyticsMockup />
                 </div>
               </div>
             </div>
@@ -178,7 +253,7 @@ const Analytics = () => {
           </div>
         </section>
 
-        {/* Visitor Analytics Section - NEW */}
+        {/* Visitor Stats Section */}
         <section className="py-20 bg-white relative overflow-hidden">
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
@@ -189,8 +264,7 @@ const Analytics = () => {
               <div className="text-center mb-16">
                 <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-primary/5 rounded-full mb-6 border border-primary/20">
                   <QrCode className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Visitor Analytics</span>
-                  <span className="px-2 py-0.5 bg-primary text-white text-xs font-bold rounded-full">NEW</span>
+                  <span className="text-sm font-semibold text-primary">QR Scan Analytics</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                   See Who's Scanning<br />
@@ -246,7 +320,7 @@ const Analytics = () => {
                   <span className="text-sm font-semibold text-primary">Key Features</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  Everything You Need to Understand Your Business
+                  Everything You Need to Understand Your Visitors
                 </h2>
               </div>
 
@@ -307,7 +381,7 @@ const Analytics = () => {
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  Analytics That Matter for Restaurants
+                  Analytics That Matter for Your Business
                 </h2>
               </div>
 
@@ -341,10 +415,10 @@ const Analytics = () => {
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-white mb-4">
-                Ready to Unlock Your Restaurant Data?
+                Ready to Understand Your Visitors?
               </h2>
               <p className="animate-on-scroll animate-delay-100 text-lg text-white/80 mb-8">
-                Join smart restaurant operators using swirl analytics to increase profits and deliver exceptional experiences.
+                Join smart restaurant operators using Swirl visitor analytics to increase engagement and deliver exceptional experiences.
               </p>
               <div className="animate-on-scroll animate-delay-200 flex justify-center">
                 <div className="btn-conteiner scale-90">
@@ -376,4 +450,4 @@ const Analytics = () => {
   );
 };
 
-export default Analytics;
+export default VisitorAnalytics;

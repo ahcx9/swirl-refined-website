@@ -14,7 +14,7 @@ import TermsOfService from './pages/TermsOfService';
 import Sitemap from './pages/Sitemap';
 import DigitalMenu from './pages/features/DigitalMenu';
 import QROrdering from './pages/features/QROrdering';
-import Analytics from './pages/features/Analytics';
+import VisitorAnalytics from './pages/features/VisitorAnalytics';
 import PointOfSale from './pages/features/PointOfSale';
 import InventoryManagement from './pages/features/InventoryManagement';
 import KitchenDisplay from './pages/features/KitchenDisplay';
@@ -43,7 +43,8 @@ function App() {
           {/* Feature pages */}
           <Route path="/products/digital-menu" element={<DigitalMenu />} />
           <Route path="/products/qr-ordering" element={<QROrdering />} />
-          <Route path="/products/restaurant-analytics" element={<Analytics />} />
+          <Route path="/products/visitor-analytics" element={<VisitorAnalytics />} />
+          <Route path="/products/restaurant-analytics" element={<VisitorAnalytics />} />
           <Route path="/products/restaurant-point-of-sale" element={<PointOfSale />} />
           <Route path="/products/inventory-management" element={<InventoryManagement />} />
           <Route path="/products/kitchen-display" element={<KitchenDisplay />} />
