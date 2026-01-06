@@ -331,14 +331,29 @@ const HomeHeroMockup: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* QR Code Visual */}
-                      <div className="bg-white border border-border/50 rounded-lg p-2 mb-2 flex items-center justify-center">
-                        <div className="grid grid-cols-5 gap-0.5">
+                      {/* QR Code Visual with Scan Animation */}
+                      <div className="bg-white border border-border/50 rounded-lg p-2 mb-2 flex items-center justify-center relative overflow-hidden">
+                        {/* Scanning Line */}
+                        <div 
+                          className="absolute inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-80"
+                          style={{
+                            animation: 'qrScan 2s ease-in-out infinite',
+                          }}
+                        />
+                        <style>{`
+                          @keyframes qrScan {
+                            0%, 100% { top: 0; opacity: 0; }
+                            10% { opacity: 0.8; }
+                            50% { top: calc(100% - 2px); opacity: 0.8; }
+                            60% { opacity: 0; }
+                          }
+                        `}</style>
+                        <div className="grid grid-cols-5 gap-0.5 relative z-10">
                           {[...Array(25)].map((_, i) => (
                             <div 
                               key={i} 
                               className={`w-1.5 h-1.5 rounded-sm ${
-                                Math.random() > 0.4 ? 'bg-gray-900' : 'bg-white'
+                                [0,1,2,3,4,5,9,10,14,15,19,20,21,22,23,24].includes(i) ? 'bg-gray-900' : 'bg-white'
                               }`}
                             />
                           ))}
