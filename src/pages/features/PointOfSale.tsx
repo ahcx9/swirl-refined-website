@@ -709,7 +709,7 @@ const PointOfSale = () => {
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="animate-on-scroll animate-delay-200 order-2 md:order-1 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8">
                   <div className="grid grid-cols-3 gap-4 text-center">
-                    {['Zomato', 'Swiggy', 'Talabat'].map((platform, index) => <div key={index} className="bg-white rounded-xl p-4">
+                    {['Zomato', 'Keeta', 'Talabat'].map((platform, index) => <div key={index} className="bg-white rounded-xl p-4">
                         <p className="font-semibold text-gray-900">{platform}</p>
                         <p className="text-xs text-gray-500">Integrated</p>
                       </div>)}
