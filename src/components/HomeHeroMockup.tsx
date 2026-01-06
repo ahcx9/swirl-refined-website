@@ -2,7 +2,7 @@ import React from 'react';
 import { 
   Package, TrendingUp, AlertTriangle, FileText, ArrowRightLeft, 
   CheckCircle2, User, Clock, MapPin, Phone, Mail, ChefHat,
-  Flame, Snowflake, Timer
+  Flame, Snowflake, Timer, QrCode, Smartphone, ShoppingCart, CreditCard
 } from 'lucide-react';
 import { useCurrency } from '@/hooks/useCurrency';
 
@@ -59,6 +59,13 @@ const HomeHeroMockup: React.FC = () => {
     },
   ];
 
+  // QR Ordering menu items
+  const qrMenuItems = [
+    { name: 'Margherita Pizza', price: 38, emoji: '🍕' },
+    { name: 'Caesar Salad', price: 28, emoji: '🥗' },
+    { name: 'Iced Latte', price: 18, emoji: '☕' },
+  ];
+
   return (
     <div className="w-full max-w-5xl mx-auto">
       {/* Main Container with Glass Effect */}
@@ -94,8 +101,8 @@ const HomeHeroMockup: React.FC = () => {
           </div>
         </div>
 
-        {/* Main Dashboard - Two Column Layout */}
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-3">
+        {/* Main Dashboard - Three Column Layout */}
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-7 gap-3">
           
           {/* POS Order Interface - Left Column (Primary Focus) */}
           <div className="lg:col-span-3 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-border/50 overflow-hidden">
@@ -203,7 +210,7 @@ const HomeHeroMockup: React.FC = () => {
             </div>
           </div>
 
-          {/* KDS Interface - Right Column */}
+          {/* KDS Interface - Middle Column */}
           <div className="lg:col-span-2 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-border/50 overflow-hidden hidden lg:block">
             {/* KDS Header */}
             <div className="bg-gradient-to-r from-primary/5 to-transparent p-3 border-b border-border/30">
@@ -224,7 +231,7 @@ const HomeHeroMockup: React.FC = () => {
             </div>
 
             {/* KDS Orders Grid */}
-            <div className="p-3 space-y-2 max-h-[320px] overflow-y-auto">
+            <div className="p-3 space-y-2 max-h-[280px] overflow-y-auto">
               {kdsOrders.map((order, index) => (
                 <div 
                   key={index} 
@@ -285,6 +292,93 @@ const HomeHeroMockup: React.FC = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* QR Ordering Interface - Right Column */}
+          <div className="lg:col-span-2 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-border/50 overflow-hidden hidden lg:block">
+            {/* QR Header */}
+            <div className="bg-gradient-to-r from-primary/5 to-transparent p-3 border-b border-border/30">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <QrCode className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-semibold text-foreground">QR Ordering</span>
+                </div>
+                <span className="flex items-center gap-1 px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-medium rounded-full">
+                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                  Live
+                </span>
+              </div>
+            </div>
+
+            {/* Phone Mockup */}
+            <div className="p-3">
+              <div className="relative mx-auto w-full max-w-[140px]">
+                {/* Phone Frame */}
+                <div className="bg-gray-900 rounded-2xl p-1.5 shadow-xl">
+                  <div className="bg-white rounded-xl overflow-hidden">
+                    {/* Phone Screen */}
+                    <div className="bg-gradient-to-b from-primary/10 to-white p-2">
+                      {/* Mini Header */}
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-1">
+                          <Smartphone className="w-2.5 h-2.5 text-primary" />
+                          <span className="text-[8px] font-medium text-foreground">Menu</span>
+                        </div>
+                        <div className="flex items-center gap-0.5 px-1.5 py-0.5 bg-primary/10 rounded-full">
+                          <ShoppingCart className="w-2 h-2 text-primary" />
+                          <span className="text-[8px] font-bold text-primary">3</span>
+                        </div>
+                      </div>
+
+                      {/* QR Code Visual */}
+                      <div className="bg-white border border-border/50 rounded-lg p-2 mb-2 flex items-center justify-center">
+                        <div className="grid grid-cols-5 gap-0.5">
+                          {[...Array(25)].map((_, i) => (
+                            <div 
+                              key={i} 
+                              className={`w-1.5 h-1.5 rounded-sm ${
+                                Math.random() > 0.4 ? 'bg-gray-900' : 'bg-white'
+                              }`}
+                            />
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Menu Items */}
+                      <div className="space-y-1.5">
+                        {qrMenuItems.map((item, index) => (
+                          <div key={index} className="flex items-center justify-between py-1 px-1.5 bg-muted/30 rounded-lg">
+                            <div className="flex items-center gap-1">
+                              <span className="text-[10px]">{item.emoji}</span>
+                              <span className="text-[8px] text-foreground truncate max-w-[60px]">{item.name}</span>
+                            </div>
+                            <span className="text-[8px] font-medium text-primary">{formatAmount(item.price)}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Pay Button */}
+                      <button className="w-full mt-2 py-1.5 bg-primary text-primary-foreground text-[8px] font-medium rounded-lg flex items-center justify-center gap-1">
+                        <CreditCard className="w-2.5 h-2.5" />
+                        Pay {formatAmount(84)}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Stats */}
+              <div className="mt-3 flex gap-2">
+                <div className="flex-1 text-center py-1.5 bg-green-50 rounded-lg border border-green-100">
+                  <p className="text-[10px] font-bold text-green-700">+20%</p>
+                  <p className="text-[8px] text-green-600">Revenue</p>
+                </div>
+                <div className="flex-1 text-center py-1.5 bg-blue-50 rounded-lg border border-blue-100">
+                  <p className="text-[10px] font-bold text-blue-700">-30%</p>
+                  <p className="text-[8px] text-blue-600">Wait Time</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
