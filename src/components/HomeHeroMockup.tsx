@@ -1,304 +1,256 @@
 import React from 'react';
 import { useCurrency } from '@/hooks/useCurrency';
-import { TrendingUp, TrendingDown, Sparkles, Clock, ChefHat, Package, DollarSign } from 'lucide-react';
+import { ArrowLeft, User, Clock, Phone, Mail, Calendar } from 'lucide-react';
 
 const HomeHeroMockup: React.FC = () => {
   const { formatAmount } = useCurrency();
 
+  const orderItems = [
+    { name: 'Red Velvet Latte', qty: 1, price: 25.00 },
+    { name: 'Spanish Latte', qty: 1, price: 28.00 },
+    { name: 'Pistachio Latte', qty: 1, price: 25.00 },
+    { name: "Texas BBQ'ed", qty: 1, price: 26.00 },
+  ];
+
+  const subtotal = orderItems.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const vat = subtotal * 0.05;
+  const total = subtotal + vat;
+
   return (
-    <div className="relative w-full h-full min-h-[500px] lg:min-h-[600px] overflow-hidden rounded-2xl">
+    <div className="relative w-full h-full min-h-[520px] lg:min-h-[600px] overflow-hidden rounded-2xl lg:rounded-3xl">
       {/* Keyframe Animations */}
       <style>{`
-        @keyframes floatCard1 {
-          0%, 100% { transform: translateY(0) rotate(-2deg); }
-          50% { transform: translateY(-8px) rotate(-1deg); }
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes floatCard2 {
-          0%, 100% { transform: translateY(0) rotate(2deg); }
-          50% { transform: translateY(-10px) rotate(1deg); }
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
         }
-        @keyframes floatCard3 {
-          0%, 100% { transform: translateY(0) rotate(-1deg); }
-          50% { transform: translateY(-6px) rotate(0deg); }
-        }
-        @keyframes floatCard4 {
-          0%, 100% { transform: translateY(0) rotate(1deg); }
-          50% { transform: translateY(-12px) rotate(2deg); }
-        }
-        @keyframes clarityPulse {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 0.6; transform: scale(1.05); }
-        }
-        @keyframes livePulse {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(1.2); }
-        }
-        @keyframes gentleBreathe {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.01); }
+        @keyframes shimmer {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
         }
       `}</style>
 
-      {/* Layer 1: Background Atmosphere */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-orange-50/30">
-        {/* Warm ambient light */}
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-100/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
-        
-        {/* Subtle noise texture overlay */}
-        <div className="absolute inset-0 opacity-[0.015]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`
-        }} />
+      {/* Background with subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50/30" />
+      
+      {/* Decorative elements */}
+      <div className="absolute top-20 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-20 w-48 h-48 bg-orange-100/30 rounded-full blur-3xl" />
 
-        {/* Manager silhouette - abstract shape on right */}
-        <div className="absolute right-0 bottom-0 w-48 h-80 lg:w-64 lg:h-96 opacity-[0.04]">
-          <div className="absolute bottom-0 right-8 w-12 h-12 lg:w-16 lg:h-16 bg-gray-800 rounded-full" />
-          <div className="absolute bottom-12 lg:bottom-16 right-4 w-20 h-48 lg:w-24 lg:h-64 bg-gray-800 rounded-t-3xl" />
-        </div>
-      </div>
-
-      {/* Layer 4: Chaos-to-Control Transition Effect */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Chaos edge - left side subtle noise */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-red-500/[0.02] via-orange-500/[0.01] to-transparent" />
-        
-        {/* Clarity wave - radial pulse from center */}
-        <div 
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-radial from-primary/10 via-primary/5 to-transparent"
-          style={{ animation: 'clarityPulse 6s ease-in-out infinite' }}
-        />
-      </div>
-
-      {/* Floating Cards - Layer 3 */}
-      {/* Card 1: Smooth Orders - Top Left */}
-      <div 
-        className="hidden md:block absolute top-8 left-4 lg:left-8 z-10"
-        style={{ animation: 'floatCard1 4s ease-in-out infinite' }}
-      >
-        <div className="bg-white/80 backdrop-blur-xl rounded-xl p-3 shadow-lg shadow-gray-200/50 border border-white/50 w-36 lg:w-44">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
-              <Clock className="w-3 h-3 text-green-600" />
-            </div>
-            <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-              <div className="h-full w-4/5 bg-gradient-to-r from-green-400 to-green-500 rounded-full" />
-            </div>
-          </div>
-          <div className="space-y-1">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded bg-green-500/20 flex items-center justify-center">
-                  <div className="w-2 h-2 text-green-500">✓</div>
-                </div>
-                <div className="flex-1 h-1.5 bg-gray-100 rounded-full">
-                  <div className="h-full bg-gray-200 rounded-full" style={{ width: `${60 + i * 10}%` }} />
-                </div>
+      {/* Main Content Container */}
+      <div className="relative z-10 p-3 lg:p-6 h-full">
+        {/* Header Bar */}
+        <div className="bg-white rounded-xl lg:rounded-2xl shadow-lg shadow-gray-200/50 border border-gray-100 p-3 lg:p-4 mb-3 lg:mb-4" style={{ animation: 'fadeInUp 0.5s ease-out' }}>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 lg:gap-3">
+              <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gray-100 rounded-full flex items-center justify-center">
+                <ArrowLeft className="w-4 h-4 lg:w-5 lg:h-5 text-gray-600" />
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Card 2: Kitchen Flow - Top Right */}
-      <div 
-        className="hidden md:block absolute top-12 right-4 lg:right-8 z-10"
-        style={{ animation: 'floatCard2 4.5s ease-in-out infinite' }}
-      >
-        <div className="bg-white/80 backdrop-blur-xl rounded-xl p-3 shadow-lg shadow-gray-200/50 border border-white/50 w-36 lg:w-44">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center">
-              <ChefHat className="w-3 h-3 text-amber-600" />
-            </div>
-            <span className="text-[10px] text-muted-foreground font-medium">All on track</span>
-          </div>
-          <div className="grid grid-cols-3 gap-1">
-            {[
-              { status: 'green', time: '2m' },
-              { status: 'green', time: '4m' },
-              { status: 'amber', time: '6m' },
-              { status: 'green', time: '1m' },
-              { status: 'green', time: '3m' },
-              { status: 'green', time: '2m' },
-            ].map((item, i) => (
-              <div 
-                key={i} 
-                className={`rounded p-1 text-center text-[8px] font-medium ${
-                  item.status === 'green' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'
-                }`}
-              >
-                {item.time}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Card 3: Inventory Health - Bottom Left */}
-      <div 
-        className="hidden lg:block absolute bottom-16 left-8 z-10"
-        style={{ animation: 'floatCard3 5s ease-in-out infinite' }}
-      >
-        <div className="bg-white/80 backdrop-blur-xl rounded-xl p-3 shadow-lg shadow-gray-200/50 border border-white/50 w-44">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
-              <Package className="w-3 h-3 text-primary" />
-            </div>
-            <span className="text-[10px] text-muted-foreground font-medium">Stock optimal</span>
-          </div>
-          <div className="flex items-end gap-1 h-12">
-            {[85, 92, 78, 95, 88, 90, 94].map((val, i) => (
-              <div key={i} className="flex-1 bg-gray-100 rounded-t-sm overflow-hidden">
-                <div 
-                  className={`w-full rounded-t-sm ${val > 85 ? 'bg-primary' : 'bg-primary/60'}`}
-                  style={{ height: `${val}%` }}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Card 4: Profit Clarity - Bottom Right */}
-      <div 
-        className="hidden lg:block absolute bottom-24 right-8 z-10"
-        style={{ animation: 'floatCard4 3.5s ease-in-out infinite' }}
-      >
-        <div className="bg-white/80 backdrop-blur-xl rounded-xl p-3 shadow-lg shadow-gray-200/50 border border-white/50 w-44">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
-              <DollarSign className="w-3 h-3 text-green-600" />
-            </div>
-            <span className="text-[10px] text-green-600 font-medium flex items-center gap-1">
-              <TrendingUp className="w-3 h-3" /> +18% this week
-            </span>
-          </div>
-          <svg className="w-full h-10" viewBox="0 0 100 30">
-            <defs>
-              <linearGradient id="profitGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#22c55e" stopOpacity="0.3" />
-                <stop offset="100%" stopColor="#22c55e" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M 0 25 Q 15 22, 25 20 T 50 15 T 75 10 T 100 5"
-              fill="none"
-              stroke="#22c55e"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-            <path
-              d="M 0 25 Q 15 22, 25 20 T 50 15 T 75 10 T 100 5 L 100 30 L 0 30 Z"
-              fill="url(#profitGradient)"
-            />
-          </svg>
-        </div>
-      </div>
-
-      {/* Layer 2: Central Command Dashboard */}
-      <div 
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-[90%] max-w-md lg:max-w-lg"
-        style={{ animation: 'gentleBreathe 8s ease-in-out infinite' }}
-      >
-        <div className="bg-white/95 backdrop-blur-2xl rounded-2xl lg:rounded-3xl shadow-2xl shadow-primary/10 border border-white/80 overflow-hidden">
-          {/* Dashboard Header */}
-          <div className="bg-gradient-to-r from-primary to-blue-600 px-4 lg:px-6 py-3 lg:py-4">
-            <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-white font-semibold text-sm lg:text-base">Restaurant Command Center</h3>
-                <p className="text-white/70 text-[10px] lg:text-xs">Everything. One view.</p>
+                <h2 className="font-bold text-base lg:text-xl text-foreground">Order #100736</h2>
+                <p className="text-[10px] lg:text-xs text-muted-foreground">Dec 30, 2025, 4:54 PM</p>
               </div>
-              <div className="flex items-center gap-2">
-                <div 
-                  className="w-2 h-2 rounded-full bg-green-400"
-                  style={{ animation: 'livePulse 2s ease-in-out infinite' }}
-                />
-                <span className="text-white/80 text-[10px] lg:text-xs font-medium">Live</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="hidden sm:flex items-center gap-1.5 bg-green-50 px-2 lg:px-3 py-1 lg:py-1.5 rounded-full">
+                <div className="w-1.5 h-1.5 bg-green-500 rounded-full" style={{ animation: 'pulse 2s infinite' }} />
+                <span className="text-[10px] lg:text-xs font-medium text-green-700">shamim (Admin)</span>
               </div>
+              <div className="bg-gray-100 px-2 lg:px-3 py-1 lg:py-1.5 rounded-full text-[10px] lg:text-xs font-medium text-gray-700">Table #009</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Grid - Order & Billing */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-4 mb-3 lg:mb-4">
+          {/* Order Panel */}
+          <div className="bg-white rounded-xl lg:rounded-2xl shadow-lg shadow-gray-200/50 border border-gray-100 p-3 lg:p-5" style={{ animation: 'fadeInUp 0.6s ease-out' }}>
+            <div className="flex items-center gap-2 mb-3 lg:mb-4">
+              <h3 className="font-semibold text-sm lg:text-base text-foreground">Order</h3>
+              <span className="bg-amber-100 text-amber-700 text-[9px] lg:text-[10px] font-semibold px-2 py-0.5 rounded uppercase">In Progress</span>
+            </div>
+            
+            <div className="space-y-2 lg:space-y-3">
+              {orderItems.map((item, idx) => (
+                <div key={idx} className="flex items-center justify-between p-2 lg:p-3 border border-gray-100 rounded-lg lg:rounded-xl hover:border-primary/20 transition-colors">
+                  <div>
+                    <p className="font-medium text-xs lg:text-sm text-foreground">{item.name}</p>
+                    <p className="text-[10px] lg:text-xs text-muted-foreground">Quantity: {item.qty} × {formatAmount(item.price)}</p>
+                  </div>
+                  <div className="font-semibold text-xs lg:text-sm text-foreground">{formatAmount(item.price)}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Action Buttons */}
+            <div className="grid grid-cols-2 gap-2 mt-3 lg:mt-4">
+              <button className="text-[10px] lg:text-xs font-medium text-red-500 border border-red-200 rounded-lg py-1.5 lg:py-2 hover:bg-red-50 transition-colors">
+                Change Status (IN_PROGRESS)
+              </button>
+              <button className="text-[10px] lg:text-xs font-medium text-gray-700 border border-gray-200 rounded-lg py-1.5 lg:py-2 hover:bg-gray-50 transition-colors">
+                Add Item to Order
+              </button>
+              <button className="text-[10px] lg:text-xs font-medium text-gray-700 border border-gray-200 rounded-lg py-1.5 lg:py-2 hover:bg-gray-50 transition-colors">
+                Change Quantities
+              </button>
+              <button className="text-[10px] lg:text-xs font-medium text-gray-700 border border-gray-200 rounded-lg py-1.5 lg:py-2 hover:bg-gray-50 transition-colors">
+                Print KOT
+              </button>
+            </div>
+            <button className="w-full text-[10px] lg:text-xs font-medium text-gray-700 border border-gray-200 rounded-lg py-1.5 lg:py-2 mt-2 hover:bg-gray-50 transition-colors">
+              Change Table
+            </button>
+          </div>
+
+          {/* Billing Panel */}
+          <div className="bg-white rounded-xl lg:rounded-2xl shadow-lg shadow-gray-200/50 border border-gray-100 p-3 lg:p-5" style={{ animation: 'fadeInUp 0.7s ease-out' }}>
+            <div className="flex items-center gap-2 mb-3 lg:mb-4">
+              <h3 className="font-semibold text-sm lg:text-base text-foreground">Billing</h3>
+              <span className="bg-yellow-100 text-yellow-700 text-[9px] lg:text-[10px] font-semibold px-2 py-0.5 rounded uppercase">Unpaid</span>
+            </div>
+
+            {/* Receipt */}
+            <div className="bg-gray-50/80 rounded-lg lg:rounded-xl p-3 lg:p-4 text-center mb-3 lg:mb-4">
+              <h4 className="font-bold text-sm lg:text-base text-foreground">Swirl Cafe</h4>
+              <p className="text-[10px] lg:text-xs text-muted-foreground">Al Khalidya</p>
+              <p className="text-[9px] lg:text-[10px] text-muted-foreground">VAT: VAT123456789</p>
+              <p className="text-[9px] lg:text-[10px] text-muted-foreground mb-2">Dec 30, 2025, 4:54 PM</p>
+              <p className="text-[10px] lg:text-xs font-medium text-foreground">Order #100736</p>
+              <p className="text-[10px] lg:text-xs text-muted-foreground">Table #009</p>
+            </div>
+
+            {/* Line Items */}
+            <div className="space-y-1.5 lg:space-y-2 mb-3 lg:mb-4">
+              <div className="grid grid-cols-12 text-[9px] lg:text-[10px] font-medium text-muted-foreground uppercase">
+                <span className="col-span-6">Name</span>
+                <span className="col-span-3 text-center">Qty</span>
+                <span className="col-span-3 text-right">Cost</span>
+              </div>
+              {orderItems.map((item, idx) => (
+                <div key={idx} className="grid grid-cols-12 text-[10px] lg:text-xs text-foreground">
+                  <span className="col-span-6">{item.name}</span>
+                  <span className="col-span-3 text-center">{item.qty}</span>
+                  <span className="col-span-3 text-right font-medium">{formatAmount(item.price)}</span>
+                </div>
+              ))}
+              <div className="border-t border-gray-200 pt-2 mt-2">
+                <div className="flex justify-between text-[10px] lg:text-xs text-muted-foreground">
+                  <span>Sub Total</span>
+                  <span>{formatAmount(subtotal)}</span>
+                </div>
+                <div className="flex justify-between text-[10px] lg:text-xs text-muted-foreground">
+                  <span>VAT (5%)</span>
+                  <span>{formatAmount(vat)}</span>
+                </div>
+                <div className="flex justify-between text-xs lg:text-sm font-bold text-foreground mt-1">
+                  <span>Total</span>
+                  <span>{formatAmount(total)}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Billing Actions */}
+            <div className="space-y-1.5 lg:space-y-2">
+              <button className="w-full text-[10px] lg:text-xs font-medium text-gray-700 border border-gray-200 rounded-lg py-1.5 lg:py-2 hover:bg-gray-50 transition-colors">
+                Print Bill
+              </button>
+              <button className="w-full text-[10px] lg:text-xs font-medium text-gray-700 border border-gray-200 rounded-lg py-1.5 lg:py-2 hover:bg-gray-50 transition-colors">
+                Apply Discount
+              </button>
+              <button className="w-full text-[10px] lg:text-xs font-semibold text-white bg-foreground rounded-lg py-2 lg:py-2.5 hover:bg-foreground/90 transition-colors">
+                Settle Bill
+              </button>
+              <button className="w-full text-[10px] lg:text-xs font-medium text-gray-700 border border-gray-200 rounded-lg py-1.5 lg:py-2 hover:bg-gray-50 transition-colors">
+                Settle Bill (No Print)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Row - Customer Info & Timeline */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-4">
+          {/* Customer Information */}
+          <div className="bg-white rounded-xl lg:rounded-2xl shadow-lg shadow-gray-200/50 border border-gray-100 p-3 lg:p-5" style={{ animation: 'fadeInUp 0.8s ease-out' }}>
+            <div className="flex items-center gap-2 mb-3">
+              <User className="w-4 h-4 text-muted-foreground" />
+              <h3 className="font-semibold text-sm lg:text-base text-foreground">Customer Information</h3>
+            </div>
+            <div className="space-y-2 lg:space-y-3">
+              <div>
+                <p className="font-semibold text-sm lg:text-base text-foreground">Abid</p>
+                <span className="inline-block bg-gray-100 text-gray-600 text-[9px] lg:text-[10px] font-medium px-2 py-0.5 rounded mt-1">Linked Customer</span>
+              </div>
+              <div className="flex items-center gap-2 text-[10px] lg:text-xs text-muted-foreground">
+                <Phone className="w-3 h-3" />
+                <span>+971543853877</span>
+              </div>
+              <div className="flex items-center gap-2 text-[10px] lg:text-xs text-muted-foreground">
+                <Mail className="w-3 h-3" />
+                <span>abid@swirl.cx</span>
+              </div>
+              <div className="flex items-center gap-2 text-[10px] lg:text-xs text-muted-foreground">
+                <Calendar className="w-3 h-3" />
+                <span>Born: Oct 23, 2000</span>
+              </div>
+              <p className="text-[10px] lg:text-xs text-muted-foreground">Gender: Male</p>
             </div>
           </div>
 
-          {/* Main Metrics Grid */}
-          <div className="p-4 lg:p-6">
-            <div className="grid grid-cols-3 gap-3 lg:gap-4 mb-4 lg:mb-6">
-              {/* Revenue */}
-              <div className="text-center">
-                <div className="text-lg lg:text-2xl font-bold text-foreground">
-                  {formatAmount(12847)}
-                </div>
-                <div className="text-[10px] lg:text-xs text-muted-foreground uppercase tracking-wide">Today's Revenue</div>
-                <div className="flex items-center justify-center gap-1 mt-1">
-                  <TrendingUp className="w-3 h-3 text-green-500" />
-                  <span className="text-[10px] lg:text-xs text-green-600 font-medium">+12%</span>
-                </div>
-              </div>
-
-              {/* Live Orders */}
-              <div className="text-center border-x border-gray-100">
-                <div className="text-lg lg:text-2xl font-bold text-foreground flex items-center justify-center gap-1">
-                  23
-                  <span 
-                    className="w-2 h-2 rounded-full bg-green-400 inline-block"
-                    style={{ animation: 'livePulse 1.5s ease-in-out infinite' }}
-                  />
-                </div>
-                <div className="text-[10px] lg:text-xs text-muted-foreground uppercase tracking-wide">Live Orders</div>
-                <div className="text-[10px] lg:text-xs text-muted-foreground mt-1">
-                  <span className="text-amber-600">5 prep</span> · <span className="text-green-600">2 ready</span>
-                </div>
-              </div>
-
-              {/* Food Cost */}
-              <div className="text-center">
-                <div className="text-lg lg:text-2xl font-bold text-foreground">28.4%</div>
-                <div className="text-[10px] lg:text-xs text-muted-foreground uppercase tracking-wide">Food Cost</div>
-                <div className="flex items-center justify-center gap-1 mt-1">
-                  <TrendingDown className="w-3 h-3 text-green-500" />
-                  <span className="text-[10px] lg:text-xs text-green-600 font-medium">-2% vs avg</span>
-                </div>
-              </div>
+          {/* Order Timeline */}
+          <div className="bg-white rounded-xl lg:rounded-2xl shadow-lg shadow-gray-200/50 border border-gray-100 p-3 lg:p-5" style={{ animation: 'fadeInUp 0.9s ease-out' }}>
+            <div className="flex items-center gap-2 mb-3">
+              <Clock className="w-4 h-4 text-muted-foreground" />
+              <h3 className="font-semibold text-sm lg:text-base text-foreground">Order Timeline</h3>
             </div>
-
-            {/* Stock Health & AI Insight Row */}
-            <div className="grid grid-cols-2 gap-3 lg:gap-4">
-              {/* Stock Health */}
-              <div className="bg-gray-50/80 rounded-xl p-3 lg:p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] lg:text-xs text-muted-foreground uppercase tracking-wide font-medium">Stock Health</span>
-                  <span className="text-xs lg:text-sm font-semibold text-green-600">94%</span>
+            <p className="text-[10px] lg:text-xs text-muted-foreground mb-3 flex items-center gap-1">
+              <User className="w-3 h-3" /> Created by: <span className="font-medium text-foreground">Cashier</span>
+            </p>
+            
+            <div className="relative">
+              {/* Timeline Line */}
+              <div className="absolute left-4 top-6 bottom-6 w-0.5 bg-gray-200" />
+              
+              {/* Timeline Events */}
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center z-10">
+                    <Clock className="w-4 h-4 text-amber-600" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="bg-amber-100 text-amber-700 text-[9px] lg:text-[10px] font-semibold px-2 py-0.5 rounded">Pending</span>
+                      <span className="bg-gray-100 text-gray-600 text-[9px] lg:text-[10px] font-medium px-2 py-0.5 rounded">Created</span>
+                    </div>
+                    <p className="text-[10px] lg:text-xs text-muted-foreground mt-1">04:54 PM • Dec 30, 2025</p>
+                  </div>
                 </div>
-                <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-                  <div 
-                    className="h-full bg-gradient-to-r from-green-400 to-green-500 rounded-full"
-                    style={{ width: '94%' }}
-                  />
+                
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center z-10 border-2 border-primary">
+                    <div className="w-3 h-3 bg-primary rounded-sm" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="bg-blue-100 text-primary text-[9px] lg:text-[10px] font-semibold px-2 py-0.5 rounded">In Progress</span>
+                      <span className="bg-green-100 text-green-700 text-[9px] lg:text-[10px] font-medium px-2 py-0.5 rounded">Current</span>
+                    </div>
+                    <p className="text-[10px] lg:text-xs text-muted-foreground mt-1">10:11 PM • Jan 3, 2026</p>
+                  </div>
                 </div>
-                <div className="text-[9px] lg:text-[10px] text-muted-foreground mt-1.5">
-                  All items optimal
-                </div>
-              </div>
-
-              {/* AI Insight */}
-              <div className="bg-gradient-to-br from-primary/5 to-blue-50 rounded-xl p-3 lg:p-4 border border-primary/10">
-                <div className="flex items-center gap-1.5 mb-2">
-                  <Sparkles className="w-3 h-3 lg:w-4 lg:h-4 text-primary" />
-                  <span className="text-[10px] lg:text-xs text-primary uppercase tracking-wide font-medium">AI Insight</span>
-                </div>
-                <p className="text-[10px] lg:text-xs text-foreground leading-relaxed">
-                  "Prep 2x Margherita for the expected 6pm rush"
-                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Live Demo Label */}
-      <div className="absolute top-4 right-4 z-30">
+      {/* Live Demo Badge */}
+      <div className="absolute top-6 right-6 z-30">
         <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm border border-gray-100">
-          <div 
-            className="w-2 h-2 rounded-full bg-green-500"
-            style={{ animation: 'livePulse 2s ease-in-out infinite' }}
-          />
+          <div className="w-2 h-2 rounded-full bg-green-500" style={{ animation: 'pulse 2s infinite' }} />
           <span className="text-[10px] lg:text-xs font-medium text-muted-foreground">Live Demo</span>
         </div>
       </div>
