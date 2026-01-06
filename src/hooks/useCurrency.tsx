@@ -144,6 +144,9 @@ const BASE_AMOUNTS = {
   
   // Inventory Management mockup
   inventoryOnHand: 20425.16,
+  
+  // CRM mockup
+  crmLifetimeValue: 9221.98,
 };
 
 // Approximate exchange rates from AED (for display purposes only)
@@ -331,6 +334,9 @@ export function useCurrency() {
     
     // Inventory Management mockup
     inventoryOnHand: formatAmount(BASE_AMOUNTS.inventoryOnHand),
+    
+    // CRM mockup
+    crmLifetimeValue: formatAmount(BASE_AMOUNTS.crmLifetimeValue),
   }), [currencyCode, rate]);
 
   return {
