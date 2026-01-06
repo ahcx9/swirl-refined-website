@@ -28,7 +28,7 @@ const PointOfSale = () => {
   const discountFeatures = ["Happy hour auto-discounts", "Combo & bundle deals", "Staff-level discount limits", "Coupon code support", "Loyalty point redemption"];
   const tableFeatures = ["Drag-and-drop table transfer", "Split & merge tables", "Transfer partial items", "Complete order history maintained"];
   const floorFeatures = ["Custom floor plans", "Real-time table status", "Color-coded occupancy", "Multiple floor support", "Section-based staff assignment"];
-  const aggregatorFeatures = ["Noon, Keeta & Talabat integration", "Platform-specific pricing", "Auto-markup management", "Commission tracking", "Consolidated reporting"];
+  const aggregatorFeatures = ["All major delivery aggregators", "Platform-specific pricing", "Auto-markup management", "Commission tracking", "Consolidated reporting"];
   const pastOrderFeatures = ["Search by date, bill number, or customer", "Instant bill reprint", "Order modification history", "Export for accounting", "Void/refund tracking"];
   const userAccessFeatures = ["Admin/Manager/Cashier/Waiter roles", "Custom permission sets", "Activity logging", "Sales per staff tracking", "Login audit trail"];
   const billingTabs = [{
