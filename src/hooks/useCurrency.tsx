@@ -141,6 +141,9 @@ const BASE_AMOUNTS = {
   frOnlineRevenue: 105,
   frInStoreOrders: 98,
   frOnlineOrders: 1,
+  
+  // Inventory Management mockup
+  inventoryOnHand: 20425.16,
 };
 
 // Approximate exchange rates from AED (for display purposes only)
@@ -325,6 +328,9 @@ export function useCurrency() {
     frOnlineRevenue: formatAmount(BASE_AMOUNTS.frOnlineRevenue),
     frInStoreOrders: BASE_AMOUNTS.frInStoreOrders,
     frOnlineOrders: BASE_AMOUNTS.frOnlineOrders,
+    
+    // Inventory Management mockup
+    inventoryOnHand: formatAmount(BASE_AMOUNTS.inventoryOnHand),
   }), [currencyCode, rate]);
 
   return {

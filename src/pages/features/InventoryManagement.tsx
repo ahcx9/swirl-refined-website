@@ -6,6 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import CustomCTAButton from '@/components/CustomCTAButton';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import InventoryMockup from '@/components/features/inventory/InventoryMockup';
 
 const InventoryManagement = () => {
   const { t } = useLanguage();
@@ -64,7 +65,7 @@ const InventoryManagement = () => {
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <main className="flex-grow">
-        {/* Hero Section - Clean White */}
+        {/* Hero Section - Two Column Layout */}
         <section className="relative pt-32 pb-20 bg-white overflow-hidden">
           {/* Subtle Background Effects */}
           <div className="absolute inset-0 -z-10">
@@ -73,57 +74,64 @@ const InventoryManagement = () => {
           </div>
           
           <div className="container-custom">
-            <div className="max-w-6xl mx-auto">
-              {/* Badge */}
-              <div className="animate-on-scroll flex justify-center mb-8">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
-                  <Package className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Inventory Management</span>
-                </div>
-              </div>
-              
-              {/* Heading */}
-              <div className="text-center mb-12">
-                <h1 className="animate-on-scroll animate-delay-100 text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                  Know Your Stock.<br />
-                  <span className="text-primary">Control Your Costs.</span>
-                </h1>
-                <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-                  Reduce waste, prevent stockouts, and take control of food costs across every location with real-time inventory tracking.
-                </p>
-                
-                {/* Animated Stats */}
-                <div className="animate-on-scroll animate-delay-300 grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto mb-10">
-                  {stats.map((stat, index) => (
-                    <div key={index} className="group relative bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <stat.icon className="w-8 h-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-                      <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                      <div className="text-sm text-gray-500">{stat.label}</div>
+            <div className="max-w-7xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                {/* Left Column - Content */}
+                <div className="lg:sticky lg:top-32">
+                  {/* Badge */}
+                  <div className="animate-on-scroll mb-6">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
+                      <Package className="w-5 h-5 text-primary" />
+                      <span className="text-sm font-semibold text-primary">Inventory Management</span>
                     </div>
-                  ))}
+                  </div>
+                  
+                  {/* Heading */}
+                  <h1 className="animate-on-scroll animate-delay-100 text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 mb-6">
+                    Know Your Stock.<br />
+                    <span className="text-primary">Control Your Costs.</span>
+                  </h1>
+                  <p className="animate-on-scroll animate-delay-200 text-lg text-gray-600 mb-8">
+                    Reduce waste, prevent stockouts, and take control of food costs across every location with real-time inventory tracking.
+                  </p>
+                  
+                  {/* Stats Row */}
+                  <div className="animate-on-scroll animate-delay-300 grid grid-cols-3 gap-4 mb-8">
+                    {stats.map((stat, index) => (
+                      <div key={index} className="text-center p-4 bg-gray-50 rounded-xl border border-gray-100">
+                        <stat.icon className="w-6 h-6 text-primary mx-auto mb-2" />
+                        <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
+                        <div className="text-xs text-gray-500">{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="animate-on-scroll animate-delay-400">
+                    <div className="btn-conteiner scale-90">
+                      <a 
+                        className="btn-content" 
+                        href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Swirl" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
+                        <span className="btn-title">Book Demo</span>
+                        <span className="icon-arrow">
+                          <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <g id="arrow" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                              <path id="arrow-icon-one" d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z" fill="#FFFFFF"></path>
+                              <path id="arrow-icon-two" d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z" fill="#FFFFFF"></path>
+                              <path id="arrow-icon-three" d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z" fill="#FFFFFF"></path>
+                            </g>
+                          </svg>
+                        </span> 
+                      </a>
+                    </div>
+                  </div>
                 </div>
                 
-                <div className="animate-on-scroll animate-delay-400">
-                  <div className="btn-conteiner scale-90">
-                    <a 
-                      className="btn-content" 
-                      href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Swirl" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      <span className="btn-title">Book Demo</span>
-                      <span className="icon-arrow">
-                        <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                          <g id="arrow" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-                            <path id="arrow-icon-one" d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z" fill="#FFFFFF"></path>
-                            <path id="arrow-icon-two" d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z" fill="#FFFFFF"></path>
-                            <path id="arrow-icon-three" d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z" fill="#FFFFFF"></path>
-                          </g>
-                        </svg>
-                      </span> 
-                    </a>
-                  </div>
+                {/* Right Column - Mockup */}
+                <div className="animate-on-scroll animate-delay-200 relative">
+                  <InventoryMockup />
                 </div>
               </div>
             </div>
