@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { Users, UserCheck, BarChart, Mail, Gift, Star, ArrowRight, CheckCircle, Sparkles, TrendingUp, Heart } from 'lucide-react';
 import CustomCTAButton from '@/components/CustomCTAButton';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import CRMMockup from '@/components/features/crm/CRMMockup';
 
 const CRM = () => {
   useScrollAnimation();
@@ -48,8 +49,8 @@ const CRM = () => {
           </div>
 
           <div className="container-custom">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
                   <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
                     <Users className="w-5 h-5 text-primary" />
@@ -72,15 +73,8 @@ const CRM = () => {
                   </div>
                 </div>
                 
-                <div className="animate-on-scroll animate-delay-400">
-                  <div className="rounded-2xl overflow-hidden shadow-2xl">
-                    <img 
-                      alt="Customer relationship management" 
-                      className="w-full h-auto"
-                      src="/lovable-uploads/72bc496f-dfad-4fef-a00b-a049a08c0700.png"
-                      loading="eager"
-                    />
-                  </div>
+                <div className="animate-on-scroll animate-delay-400 hidden lg:block">
+                  <CRMMockup />
                 </div>
               </div>
             </div>
