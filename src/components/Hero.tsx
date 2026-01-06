@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
-import POSMockup from '@/components/features/pos/POSMockup';
+import HomeHeroMockup from '@/components/HomeHeroMockup';
 
 // ============ DOODLES - Positioned in outer margins only ============
 
@@ -170,10 +170,8 @@ const Hero: React.FC = () => {
           </div>
 
           {/* ======== RIGHT COLUMN: PRODUCT MOCKUP ======== */}
-          <div className="order-2 relative flex items-center justify-center lg:justify-end animate-fade-in animation-delay-300">
-            <div className="w-full max-w-2xl">
-              <POSMockup />
-            </div>
+          <div className="order-2 relative flex items-center justify-center lg:justify-center xl:justify-end animate-fade-in animation-delay-300">
+            <HomeHeroMockup />
           </div>
         </div>
       </div>
