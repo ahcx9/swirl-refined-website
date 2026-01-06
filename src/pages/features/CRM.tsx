@@ -5,6 +5,7 @@ import { Users, UserCheck, BarChart, Mail, Gift, Star, ArrowRight, CheckCircle, 
 import CustomCTAButton from '@/components/CustomCTAButton';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import CRMMockup from '@/components/features/crm/CRMMockup';
+import FavoriteItemsMockup from '@/components/features/crm/FavoriteItemsMockup';
 
 const CRM = () => {
   useScrollAnimation();
@@ -163,13 +164,7 @@ const CRM = () => {
                 </div>
                 
                 <div className="animate-on-scroll animate-delay-200">
-                  <div className="rounded-2xl overflow-hidden shadow-xl">
-                    <img 
-                      src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" 
-                      alt="Happy restaurant customers" 
-                      className="w-full h-auto"
-                    />
-                  </div>
+                  <FavoriteItemsMockup />
                 </div>
               </div>
             </div>
