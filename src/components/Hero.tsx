@@ -95,8 +95,7 @@ const CTAArrowDoodle = () => <svg className="absolute -left-14 top-1/2 -translat
 // ============ MAIN HERO COMPONENT ============
 
 const Hero: React.FC = () => {
-  return (
-    <section className="relative min-h-screen bg-white overflow-hidden pt-32 md:pt-36 lg:pt-32 pb-8">
+  return <section className="relative min-h-screen bg-white overflow-hidden pt-32 md:pt-36 lg:pt-32 pb-8">
       
       {/* ======== DOODLES - Outer margins only, hidden on mobile/tablet ======== */}
       <div className="absolute inset-0 pointer-events-none text-primary hidden xl:block">
@@ -157,8 +156,8 @@ const Hero: React.FC = () => {
               <CTAArrowDoodle />
               <a href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20for%20Swirl" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="h-14 px-8 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300" style={{
-                  animation: 'pulse-glow 2s ease-in-out infinite'
-                }}>
+                animation: 'pulse-glow 2s ease-in-out infinite'
+              }}>
                   Book a Demo
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
@@ -177,33 +176,27 @@ const Hero: React.FC = () => {
             <div className="relative w-full max-w-[900px] h-[500px] md:h-[600px] lg:h-[700px]">
               
               {/* POS Mockup - Primary, foreground */}
-              <div 
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 origin-top-left
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 origin-top-left
                            transform scale-[0.38] md:scale-[0.45] lg:scale-[0.5] xl:scale-[0.55]
                            hover:scale-[0.40] md:hover:scale-[0.47] lg:hover:scale-[0.52] xl:hover:scale-[0.57]
-                           transition-transform duration-500 ease-out"
-                style={{
-                  filter: 'drop-shadow(0 25px 50px rgba(0, 82, 204, 0.15))',
-                }}
-              >
+                           transition-transform duration-500 ease-out" style={{
+              filter: 'drop-shadow(0 25px 50px rgba(0, 82, 204, 0.15))'
+            }}>
                 <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-2xl">
                   <POSMockup />
                 </div>
               </div>
               
               {/* Inventory Mockup - Secondary, background offset */}
-              <div 
-                className="absolute right-0 md:right-[-5%] lg:right-[-10%] top-1/2 -translate-y-[40%] z-10 origin-top-right
+              <div className="absolute right-0 md:right-[-5%] lg:right-[-10%] top-1/2 -translate-y-[40%] z-10 origin-top-right
                            transform scale-[0.35] md:scale-[0.42] lg:scale-[0.48] xl:scale-[0.52]
                            hover:scale-[0.37] md:hover:scale-[0.44] lg:hover:scale-[0.50] xl:hover:scale-[0.54]
                            transition-transform duration-500 ease-out
-                           hidden md:block"
-                style={{
-                  filter: 'drop-shadow(0 20px 40px rgba(0, 82, 204, 0.12))',
-                }}
-              >
+                           hidden md:block" style={{
+              filter: 'drop-shadow(0 20px 40px rgba(0, 82, 204, 0.12))'
+            }}>
                 <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-xl">
-                  <InventoryMockup />
+                  
                 </div>
               </div>
 
@@ -219,8 +212,6 @@ const Hero: React.FC = () => {
 
       {/* Gradient at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
