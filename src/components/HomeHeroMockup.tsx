@@ -1,407 +1,305 @@
 import React from 'react';
-import { 
-  Package, TrendingUp, AlertTriangle, FileText, ArrowRightLeft, 
-  CheckCircle2, User, Clock, MapPin, Phone, Mail, ChefHat,
-  Flame, Snowflake, Timer, QrCode, Smartphone, ShoppingCart, CreditCard
-} from 'lucide-react';
 import { useCurrency } from '@/hooks/useCurrency';
+import { TrendingUp, TrendingDown, Sparkles, Clock, ChefHat, Package, DollarSign } from 'lucide-react';
 
 const HomeHeroMockup: React.FC = () => {
   const { formatAmount } = useCurrency();
 
-  // Inventory metrics data
-  const inventoryMetrics = [
-    { label: 'Inventory on hand', value: formatAmount(125000), icon: Package, highlight: true },
-    { label: 'PO fill rate', value: '94.2%', icon: TrendingUp },
-    { label: 'Items below par', value: '12', icon: AlertTriangle },
-    { label: 'Requisitions', value: '8', icon: FileText },
-    { label: 'Transfers', value: '5', icon: ArrowRightLeft },
-    { label: 'OTIF performance', value: '97.8%', icon: CheckCircle2 },
-  ];
-
-  // POS order items
-  const orderItems = [
-    { name: 'Red Velvet Latte', qty: 1, price: 22 },
-    { name: 'Spanish Latte', qty: 2, price: 20 },
-    { name: 'Pistachio Latte', qty: 1, price: 24 },
-    { name: 'Texas BBQ\'ed Chicken', qty: 1, price: 45 },
-  ];
-
-  const subtotal = orderItems.reduce((sum, item) => sum + (item.price * item.qty), 0);
-  const vat = subtotal * 0.05;
-  const total = subtotal + vat;
-
-  // KDS orders
-  const kdsOrders = [
-    { 
-      id: '#100031', 
-      table: 'T-04', 
-      time: '3:45', 
-      status: 'prep',
-      items: [{ name: 'Hawaiian', qty: 2, type: 'hot' }]
-    },
-    { 
-      id: '#100032', 
-      table: 'T-07', 
-      time: '8:12', 
-      status: 'late',
-      items: [
-        { name: 'Pepperoni Olive', qty: 1, type: 'hot' },
-        { name: 'Fresh Juice', qty: 2, type: 'cold' }
-      ]
-    },
-    { 
-      id: '#100038', 
-      table: 'T-02', 
-      time: '1:30', 
-      status: 'prep',
-      items: [{ name: 'Classic Margherita', qty: 1, type: 'hot' }]
-    },
-  ];
-
-  // QR Ordering menu items
-  const qrMenuItems = [
-    { name: 'Margherita Pizza', price: 38, emoji: '🍕' },
-    { name: 'Caesar Salad', price: 28, emoji: '🥗' },
-    { name: 'Iced Latte', price: 18, emoji: '☕' },
-  ];
-
   return (
-    <div className="w-full max-w-5xl mx-auto">
-      {/* Main Container with Glass Effect */}
-      <div className="relative">
-        {/* Decorative glow */}
-        <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-3xl blur-2xl opacity-60" />
+    <div className="relative w-full h-full min-h-[500px] lg:min-h-[600px] overflow-hidden rounded-2xl">
+      {/* Keyframe Animations */}
+      <style>{`
+        @keyframes floatCard1 {
+          0%, 100% { transform: translateY(0) rotate(-2deg); }
+          50% { transform: translateY(-8px) rotate(-1deg); }
+        }
+        @keyframes floatCard2 {
+          0%, 100% { transform: translateY(0) rotate(2deg); }
+          50% { transform: translateY(-10px) rotate(1deg); }
+        }
+        @keyframes floatCard3 {
+          0%, 100% { transform: translateY(0) rotate(-1deg); }
+          50% { transform: translateY(-6px) rotate(0deg); }
+        }
+        @keyframes floatCard4 {
+          0%, 100% { transform: translateY(0) rotate(1deg); }
+          50% { transform: translateY(-12px) rotate(2deg); }
+        }
+        @keyframes clarityPulse {
+          0%, 100% { opacity: 0.3; transform: scale(1); }
+          50% { opacity: 0.6; transform: scale(1.05); }
+        }
+        @keyframes livePulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        @keyframes gentleBreathe {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.01); }
+        }
+      `}</style>
+
+      {/* Layer 1: Background Atmosphere */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-orange-50/30">
+        {/* Warm ambient light */}
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-100/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
         
-        {/* Inventory Metrics Strip - Top Layer */}
-        <div className="relative z-20 mb-3">
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg border border-border/50 p-3 overflow-x-auto">
-            <div className="flex gap-2 min-w-max">
-              {inventoryMetrics.map((metric, index) => (
-                <div 
-                  key={index}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-xl min-w-[140px] transition-all duration-200 hover:scale-[1.02] ${
-                    metric.highlight 
-                      ? 'bg-primary/10 border border-primary/20' 
-                      : 'bg-muted/50 border border-transparent'
-                  }`}
-                >
-                  <div className={`p-1.5 rounded-lg ${metric.highlight ? 'bg-primary text-primary-foreground' : 'bg-muted-foreground/10 text-muted-foreground'}`}>
-                    <metric.icon className="w-3.5 h-3.5" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-xs text-muted-foreground truncate">{metric.label}</p>
-                    <p className={`text-sm font-semibold ${metric.highlight ? 'text-primary' : 'text-foreground'}`}>
-                      {metric.value}
-                    </p>
-                  </div>
-                </div>
-              ))}
+        {/* Subtle noise texture overlay */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`
+        }} />
+
+        {/* Manager silhouette - abstract shape on right */}
+        <div className="absolute right-0 bottom-0 w-48 h-80 lg:w-64 lg:h-96 opacity-[0.04]">
+          <div className="absolute bottom-0 right-8 w-12 h-12 lg:w-16 lg:h-16 bg-gray-800 rounded-full" />
+          <div className="absolute bottom-12 lg:bottom-16 right-4 w-20 h-48 lg:w-24 lg:h-64 bg-gray-800 rounded-t-3xl" />
+        </div>
+      </div>
+
+      {/* Layer 4: Chaos-to-Control Transition Effect */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Chaos edge - left side subtle noise */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-red-500/[0.02] via-orange-500/[0.01] to-transparent" />
+        
+        {/* Clarity wave - radial pulse from center */}
+        <div 
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-radial from-primary/10 via-primary/5 to-transparent"
+          style={{ animation: 'clarityPulse 6s ease-in-out infinite' }}
+        />
+      </div>
+
+      {/* Floating Cards - Layer 3 */}
+      {/* Card 1: Smooth Orders - Top Left */}
+      <div 
+        className="hidden md:block absolute top-8 left-4 lg:left-8 z-10"
+        style={{ animation: 'floatCard1 4s ease-in-out infinite' }}
+      >
+        <div className="bg-white/80 backdrop-blur-xl rounded-xl p-3 shadow-lg shadow-gray-200/50 border border-white/50 w-36 lg:w-44">
+          <div className="flex items-center gap-2 mb-2">
+            <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+              <Clock className="w-3 h-3 text-green-600" />
             </div>
+            <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+              <div className="h-full w-4/5 bg-gradient-to-r from-green-400 to-green-500 rounded-full" />
+            </div>
+          </div>
+          <div className="space-y-1">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded bg-green-500/20 flex items-center justify-center">
+                  <div className="w-2 h-2 text-green-500">✓</div>
+                </div>
+                <div className="flex-1 h-1.5 bg-gray-100 rounded-full">
+                  <div className="h-full bg-gray-200 rounded-full" style={{ width: `${60 + i * 10}%` }} />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
 
-        {/* Main Dashboard - Three Column Layout */}
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-7 gap-3">
-          
-          {/* POS Order Interface - Left Column (Primary Focus) */}
-          <div className="lg:col-span-3 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-border/50 overflow-hidden">
-            {/* Order Header */}
-            <div className="bg-gradient-to-r from-primary/5 to-transparent p-4 border-b border-border/30">
-              <div className="flex items-center justify-between flex-wrap gap-2">
-                <div className="flex items-center gap-3">
-                  <span className="text-lg font-bold text-foreground">#100736</span>
-                  <span className="px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-medium rounded-full">
-                    IN PROGRESS
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-1.5 px-2 py-1 bg-muted/50 rounded-lg">
-                    <User className="w-3.5 h-3.5 text-muted-foreground" />
-                    <span className="text-xs text-muted-foreground">shamim</span>
-                    <span className="px-1.5 py-0.5 bg-primary/10 text-primary text-[10px] font-medium rounded">Admin</span>
-                  </div>
-                  <div className="flex items-center gap-1 px-2 py-1 bg-muted/50 rounded-lg">
-                    <MapPin className="w-3.5 h-3.5 text-muted-foreground" />
-                    <span className="text-xs text-muted-foreground">Table 5</span>
-                  </div>
-                </div>
-              </div>
+      {/* Card 2: Kitchen Flow - Top Right */}
+      <div 
+        className="hidden md:block absolute top-12 right-4 lg:right-8 z-10"
+        style={{ animation: 'floatCard2 4.5s ease-in-out infinite' }}
+      >
+        <div className="bg-white/80 backdrop-blur-xl rounded-xl p-3 shadow-lg shadow-gray-200/50 border border-white/50 w-36 lg:w-44">
+          <div className="flex items-center gap-2 mb-2">
+            <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center">
+              <ChefHat className="w-3 h-3 text-amber-600" />
             </div>
-
-            {/* Order Content */}
-            <div className="p-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Order Items */}
-                <div className="space-y-2">
-                  <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">Order Items</h4>
-                  {orderItems.map((item, index) => (
-                    <div key={index} className="flex items-center justify-between py-2 px-3 bg-muted/30 rounded-lg hover:bg-muted/50 transition-colors">
-                      <div className="flex items-center gap-2">
-                        <span className="w-5 h-5 flex items-center justify-center bg-primary/10 text-primary text-xs font-medium rounded">
-                          {item.qty}
-                        </span>
-                        <span className="text-sm text-foreground">{item.name}</span>
-                      </div>
-                      <span className="text-sm font-medium text-foreground">{formatAmount(item.price * item.qty)}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Billing & Customer */}
-                <div className="space-y-4">
-                  {/* Billing Summary */}
-                  <div className="bg-muted/20 rounded-xl p-3 border border-border/30">
-                    <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Billing</h4>
-                    <div className="space-y-1.5">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Subtotal</span>
-                        <span className="text-foreground">{formatAmount(subtotal)}</span>
-                      </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">VAT (5%)</span>
-                        <span className="text-foreground">{formatAmount(vat)}</span>
-                      </div>
-                      <div className="border-t border-border/50 pt-1.5 mt-1.5">
-                        <div className="flex justify-between">
-                          <span className="text-sm font-semibold text-foreground">Total</span>
-                          <span className="text-base font-bold text-primary">{formatAmount(total)}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Customer Info */}
-                  <div className="bg-muted/20 rounded-xl p-3 border border-border/30">
-                    <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Customer</h4>
-                    <div className="space-y-1.5">
-                      <div className="flex items-center gap-2 text-sm">
-                        <User className="w-3.5 h-3.5 text-muted-foreground" />
-                        <span className="text-foreground">Abid Rahman</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm">
-                        <Phone className="w-3.5 h-3.5 text-muted-foreground" />
-                        <span className="text-muted-foreground">+971 50 123 4567</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm">
-                        <Mail className="w-3.5 h-3.5 text-muted-foreground" />
-                        <span className="text-muted-foreground">abid@email.com</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-border/30">
-                <button className="px-3 py-1.5 bg-primary text-primary-foreground text-xs font-medium rounded-lg hover:bg-primary/90 transition-colors">
-                  Settle Bill
-                </button>
-                <button className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-lg hover:bg-muted/80 transition-colors">
-                  Print KOT
-                </button>
-                <button className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-lg hover:bg-muted/80 transition-colors">
-                  Add Item
-                </button>
-                <button className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-lg hover:bg-muted/80 transition-colors">
-                  Change Status
-                </button>
-              </div>
-            </div>
+            <span className="text-[10px] text-muted-foreground font-medium">All on track</span>
           </div>
-
-          {/* KDS Interface - Middle Column */}
-          <div className="lg:col-span-2 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-border/50 overflow-hidden hidden lg:block">
-            {/* KDS Header */}
-            <div className="bg-gradient-to-r from-primary/5 to-transparent p-3 border-b border-border/30">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <ChefHat className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-semibold text-foreground">Kitchen Display</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="px-2 py-0.5 bg-amber-100 text-amber-700 text-[10px] font-medium rounded-full">
-                    3 prep
-                  </span>
-                  <span className="px-2 py-0.5 bg-red-100 text-red-700 text-[10px] font-medium rounded-full">
-                    1 late
-                  </span>
-                </div>
+          <div className="grid grid-cols-3 gap-1">
+            {[
+              { status: 'green', time: '2m' },
+              { status: 'green', time: '4m' },
+              { status: 'amber', time: '6m' },
+              { status: 'green', time: '1m' },
+              { status: 'green', time: '3m' },
+              { status: 'green', time: '2m' },
+            ].map((item, i) => (
+              <div 
+                key={i} 
+                className={`rounded p-1 text-center text-[8px] font-medium ${
+                  item.status === 'green' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'
+                }`}
+              >
+                {item.time}
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
-            {/* KDS Orders Grid */}
-            <div className="p-3 space-y-2 max-h-[280px] overflow-y-auto">
-              {kdsOrders.map((order, index) => (
+      {/* Card 3: Inventory Health - Bottom Left */}
+      <div 
+        className="hidden lg:block absolute bottom-16 left-8 z-10"
+        style={{ animation: 'floatCard3 5s ease-in-out infinite' }}
+      >
+        <div className="bg-white/80 backdrop-blur-xl rounded-xl p-3 shadow-lg shadow-gray-200/50 border border-white/50 w-44">
+          <div className="flex items-center gap-2 mb-2">
+            <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
+              <Package className="w-3 h-3 text-primary" />
+            </div>
+            <span className="text-[10px] text-muted-foreground font-medium">Stock optimal</span>
+          </div>
+          <div className="flex items-end gap-1 h-12">
+            {[85, 92, 78, 95, 88, 90, 94].map((val, i) => (
+              <div key={i} className="flex-1 bg-gray-100 rounded-t-sm overflow-hidden">
                 <div 
-                  key={index} 
-                  className={`p-3 rounded-xl border transition-all duration-200 hover:shadow-md ${
-                    order.status === 'late' 
-                      ? 'bg-red-50/50 border-red-200' 
-                      : 'bg-muted/30 border-border/30'
-                  }`}
-                >
-                  {/* Order Header */}
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold text-foreground">{order.id}</span>
-                      <span className="px-1.5 py-0.5 bg-muted text-muted-foreground text-[10px] rounded">
-                        {order.table}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Timer className="w-3 h-3 text-muted-foreground" />
-                      <span className={`text-[10px] font-medium ${
-                        order.status === 'late' ? 'text-red-600' : 'text-muted-foreground'
-                      }`}>
-                        {order.time}
-                      </span>
-                      {order.status === 'late' && (
-                        <span className="px-1.5 py-0.5 bg-red-500 text-white text-[10px] font-bold rounded ml-1">
-                          LATE
-                        </span>
-                      )}
-                    </div>
-                  </div>
+                  className={`w-full rounded-t-sm ${val > 85 ? 'bg-primary' : 'bg-primary/60'}`}
+                  style={{ height: `${val}%` }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
-                  {/* Order Items */}
-                  <div className="space-y-1 mb-2">
-                    {order.items.map((item, itemIndex) => (
-                      <div key={itemIndex} className="flex items-center gap-2 text-xs">
-                        <span className="w-4 h-4 flex items-center justify-center bg-primary/10 text-primary font-medium rounded text-[10px]">
-                          {item.qty}
-                        </span>
-                        <span className="text-foreground flex-1">{item.name}</span>
-                        {item.type === 'hot' ? (
-                          <Flame className="w-3 h-3 text-orange-500" />
-                        ) : (
-                          <Snowflake className="w-3 h-3 text-blue-500" />
-                        )}
-                      </div>
-                    ))}
-                  </div>
+      {/* Card 4: Profit Clarity - Bottom Right */}
+      <div 
+        className="hidden lg:block absolute bottom-24 right-8 z-10"
+        style={{ animation: 'floatCard4 3.5s ease-in-out infinite' }}
+      >
+        <div className="bg-white/80 backdrop-blur-xl rounded-xl p-3 shadow-lg shadow-gray-200/50 border border-white/50 w-44">
+          <div className="flex items-center gap-2 mb-2">
+            <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+              <DollarSign className="w-3 h-3 text-green-600" />
+            </div>
+            <span className="text-[10px] text-green-600 font-medium flex items-center gap-1">
+              <TrendingUp className="w-3 h-3" /> +18% this week
+            </span>
+          </div>
+          <svg className="w-full h-10" viewBox="0 0 100 30">
+            <defs>
+              <linearGradient id="profitGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#22c55e" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#22c55e" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M 0 25 Q 15 22, 25 20 T 50 15 T 75 10 T 100 5"
+              fill="none"
+              stroke="#22c55e"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+            <path
+              d="M 0 25 Q 15 22, 25 20 T 50 15 T 75 10 T 100 5 L 100 30 L 0 30 Z"
+              fill="url(#profitGradient)"
+            />
+          </svg>
+        </div>
+      </div>
 
-                  {/* Action Buttons */}
-                  <div className="flex gap-1.5">
-                    <button className="flex-1 px-2 py-1 bg-primary text-primary-foreground text-[10px] font-medium rounded-lg hover:bg-primary/90 transition-colors">
-                      Mark ready
-                    </button>
-                    <button className="px-2 py-1 bg-muted text-foreground text-[10px] font-medium rounded-lg hover:bg-muted/80 transition-colors">
-                      Bump
-                    </button>
-                  </div>
-                </div>
-              ))}
+      {/* Layer 2: Central Command Dashboard */}
+      <div 
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-[90%] max-w-md lg:max-w-lg"
+        style={{ animation: 'gentleBreathe 8s ease-in-out infinite' }}
+      >
+        <div className="bg-white/95 backdrop-blur-2xl rounded-2xl lg:rounded-3xl shadow-2xl shadow-primary/10 border border-white/80 overflow-hidden">
+          {/* Dashboard Header */}
+          <div className="bg-gradient-to-r from-primary to-blue-600 px-4 lg:px-6 py-3 lg:py-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-white font-semibold text-sm lg:text-base">Restaurant Command Center</h3>
+                <p className="text-white/70 text-[10px] lg:text-xs">Everything. One view.</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <div 
+                  className="w-2 h-2 rounded-full bg-green-400"
+                  style={{ animation: 'livePulse 2s ease-in-out infinite' }}
+                />
+                <span className="text-white/80 text-[10px] lg:text-xs font-medium">Live</span>
+              </div>
             </div>
           </div>
 
-          {/* QR Ordering Interface - Right Column */}
-          <div className="lg:col-span-2 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-border/50 overflow-hidden hidden lg:block">
-            {/* QR Header */}
-            <div className="bg-gradient-to-r from-primary/5 to-transparent p-3 border-b border-border/30">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <QrCode className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-semibold text-foreground">QR Ordering</span>
+          {/* Main Metrics Grid */}
+          <div className="p-4 lg:p-6">
+            <div className="grid grid-cols-3 gap-3 lg:gap-4 mb-4 lg:mb-6">
+              {/* Revenue */}
+              <div className="text-center">
+                <div className="text-lg lg:text-2xl font-bold text-foreground">
+                  {formatAmount(12847)}
                 </div>
-                <span className="flex items-center gap-1 px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-medium rounded-full">
-                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                  Live
-                </span>
+                <div className="text-[10px] lg:text-xs text-muted-foreground uppercase tracking-wide">Today's Revenue</div>
+                <div className="flex items-center justify-center gap-1 mt-1">
+                  <TrendingUp className="w-3 h-3 text-green-500" />
+                  <span className="text-[10px] lg:text-xs text-green-600 font-medium">+12%</span>
+                </div>
+              </div>
+
+              {/* Live Orders */}
+              <div className="text-center border-x border-gray-100">
+                <div className="text-lg lg:text-2xl font-bold text-foreground flex items-center justify-center gap-1">
+                  23
+                  <span 
+                    className="w-2 h-2 rounded-full bg-green-400 inline-block"
+                    style={{ animation: 'livePulse 1.5s ease-in-out infinite' }}
+                  />
+                </div>
+                <div className="text-[10px] lg:text-xs text-muted-foreground uppercase tracking-wide">Live Orders</div>
+                <div className="text-[10px] lg:text-xs text-muted-foreground mt-1">
+                  <span className="text-amber-600">5 prep</span> · <span className="text-green-600">2 ready</span>
+                </div>
+              </div>
+
+              {/* Food Cost */}
+              <div className="text-center">
+                <div className="text-lg lg:text-2xl font-bold text-foreground">28.4%</div>
+                <div className="text-[10px] lg:text-xs text-muted-foreground uppercase tracking-wide">Food Cost</div>
+                <div className="flex items-center justify-center gap-1 mt-1">
+                  <TrendingDown className="w-3 h-3 text-green-500" />
+                  <span className="text-[10px] lg:text-xs text-green-600 font-medium">-2% vs avg</span>
+                </div>
               </div>
             </div>
 
-            {/* Phone Mockup */}
-            <div className="p-3">
-              <div className="relative mx-auto w-full max-w-[140px]">
-                {/* Phone Frame */}
-                <div className="bg-gray-900 rounded-2xl p-1.5 shadow-xl">
-                  <div className="bg-white rounded-xl overflow-hidden">
-                    {/* Phone Screen */}
-                    <div className="bg-gradient-to-b from-primary/10 to-white p-2">
-                      {/* Mini Header */}
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-1">
-                          <Smartphone className="w-2.5 h-2.5 text-primary" />
-                          <span className="text-[8px] font-medium text-foreground">Menu</span>
-                        </div>
-                        <div className="flex items-center gap-0.5 px-1.5 py-0.5 bg-primary/10 rounded-full">
-                          <ShoppingCart className="w-2 h-2 text-primary" />
-                          <span className="text-[8px] font-bold text-primary">3</span>
-                        </div>
-                      </div>
-
-                      {/* QR Code Visual with Scan Animation */}
-                      <div className="bg-white border border-border/50 rounded-lg p-2 mb-2 flex items-center justify-center relative overflow-hidden">
-                        {/* Scanning Line */}
-                        <div 
-                          className="absolute inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-80"
-                          style={{
-                            animation: 'qrScan 2s ease-in-out infinite',
-                          }}
-                        />
-                        <style>{`
-                          @keyframes qrScan {
-                            0%, 100% { top: 0; opacity: 0; }
-                            10% { opacity: 0.8; }
-                            50% { top: calc(100% - 2px); opacity: 0.8; }
-                            60% { opacity: 0; }
-                          }
-                        `}</style>
-                        <div className="grid grid-cols-5 gap-0.5 relative z-10">
-                          {[...Array(25)].map((_, i) => (
-                            <div 
-                              key={i} 
-                              className={`w-1.5 h-1.5 rounded-sm ${
-                                [0,1,2,3,4,5,9,10,14,15,19,20,21,22,23,24].includes(i) ? 'bg-gray-900' : 'bg-white'
-                              }`}
-                            />
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Menu Items */}
-                      <div className="space-y-1.5">
-                        {qrMenuItems.map((item, index) => (
-                          <div key={index} className="flex items-center justify-between py-1 px-1.5 bg-muted/30 rounded-lg">
-                            <div className="flex items-center gap-1">
-                              <span className="text-[10px]">{item.emoji}</span>
-                              <span className="text-[8px] text-foreground truncate max-w-[60px]">{item.name}</span>
-                            </div>
-                            <span className="text-[8px] font-medium text-primary">{formatAmount(item.price)}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Pay Button */}
-                      <button className="w-full mt-2 py-1.5 bg-primary text-primary-foreground text-[8px] font-medium rounded-lg flex items-center justify-center gap-1">
-                        <CreditCard className="w-2.5 h-2.5" />
-                        Pay {formatAmount(84)}
-                      </button>
-                    </div>
-                  </div>
+            {/* Stock Health & AI Insight Row */}
+            <div className="grid grid-cols-2 gap-3 lg:gap-4">
+              {/* Stock Health */}
+              <div className="bg-gray-50/80 rounded-xl p-3 lg:p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[10px] lg:text-xs text-muted-foreground uppercase tracking-wide font-medium">Stock Health</span>
+                  <span className="text-xs lg:text-sm font-semibold text-green-600">94%</span>
+                </div>
+                <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-green-400 to-green-500 rounded-full"
+                    style={{ width: '94%' }}
+                  />
+                </div>
+                <div className="text-[9px] lg:text-[10px] text-muted-foreground mt-1.5">
+                  All items optimal
                 </div>
               </div>
 
-              {/* Stats */}
-              <div className="mt-3 flex gap-2">
-                <div className="flex-1 text-center py-1.5 bg-green-50 rounded-lg border border-green-100">
-                  <p className="text-[10px] font-bold text-green-700">+20%</p>
-                  <p className="text-[8px] text-green-600">Revenue</p>
+              {/* AI Insight */}
+              <div className="bg-gradient-to-br from-primary/5 to-blue-50 rounded-xl p-3 lg:p-4 border border-primary/10">
+                <div className="flex items-center gap-1.5 mb-2">
+                  <Sparkles className="w-3 h-3 lg:w-4 lg:h-4 text-primary" />
+                  <span className="text-[10px] lg:text-xs text-primary uppercase tracking-wide font-medium">AI Insight</span>
                 </div>
-                <div className="flex-1 text-center py-1.5 bg-blue-50 rounded-lg border border-blue-100">
-                  <p className="text-[10px] font-bold text-blue-700">-30%</p>
-                  <p className="text-[8px] text-blue-600">Wait Time</p>
-                </div>
+                <p className="text-[10px] lg:text-xs text-foreground leading-relaxed">
+                  "Prep 2x Margherita for the expected 6pm rush"
+                </p>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Live indicator */}
-        <div className="absolute -top-2 -right-2 z-30 flex items-center gap-1.5 px-2.5 py-1 bg-white rounded-full shadow-lg border border-border/50">
-          <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-          <span className="text-[10px] font-medium text-muted-foreground">Live Demo</span>
+      {/* Live Demo Label */}
+      <div className="absolute top-4 right-4 z-30">
+        <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm border border-gray-100">
+          <div 
+            className="w-2 h-2 rounded-full bg-green-500"
+            style={{ animation: 'livePulse 2s ease-in-out infinite' }}
+          />
+          <span className="text-[10px] lg:text-xs font-medium text-muted-foreground">Live Demo</span>
         </div>
       </div>
     </div>
