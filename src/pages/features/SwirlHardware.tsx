@@ -1,55 +1,50 @@
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import { Monitor, Printer, Tablet, ScanLine, MonitorSmartphone, Tv, Shield, Zap, CheckCircle, ArrowRight, Sparkles, Clock, Wifi, Package, Building2, Headphones, Settings, CreditCard } from 'lucide-react';
+import { Monitor, Printer, Shield, Zap, CheckCircle, ArrowRight, Sparkles, Wifi, Building2, Headphones, Settings, Receipt, Clock, ThermometerSun, Usb, Network, Gauge, Award, Layers } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import CustomCTAButton from '@/components/CustomCTAButton';
 
 const SwirlHardware = () => {
   useScrollAnimation();
 
-  const hardwareProducts = [
+  const posFeatures = [
+    { icon: Zap, title: "Lightning Fast", description: "Process orders in milliseconds, even during peak hours" },
+    { icon: Wifi, title: "Offline Ready", description: "Continue operations seamlessly without internet" },
+    { icon: Shield, title: "Enterprise Security", description: "End-to-end encryption and secure payments" },
+    { icon: Layers, title: "Multi-Outlet Sync", description: "Real-time synchronization across all locations" }
+  ];
+
+  const posSpecs = [
+    "15.6\" Full HD Touch Display",
+    "Intel Core Processor",
+    "8GB RAM / 256GB SSD",
+    "Dual-band WiFi + Ethernet",
+    "Multiple USB & Serial Ports",
+    "Built-in Customer Display Option"
+  ];
+
+  const printerTypes = [
     {
-      icon: Tablet,
-      title: 'Swirl POS Terminal',
-      description: 'A fast, stable, and intuitive POS system built for high-volume restaurants.',
-      features: ['Touch-friendly interface', 'Built for speed & peak hours', 'Works online & offline', 'Seamless integration']
+      title: "Receipt Printer",
+      description: "High-speed thermal printing for customer receipts",
+      features: ["250mm/s print speed", "Auto-cutter", "80mm paper width", "USB + LAN connectivity"]
     },
     {
-      icon: Printer,
-      title: 'High-Performance Printers',
-      description: 'Reliable receipt and kitchen printers designed for continuous operations.',
-      features: ['Fast thermal printing', 'Network & USB support', 'Durable for kitchen use', 'Auto-cut & low maintenance']
-    },
-    {
-      icon: ScanLine,
-      title: 'Scanner',
-      description: 'Fast and accurate scanning for billing, inventory, and order workflows.',
-      features: ['High-speed scanning', 'Barcode & QR support', 'Plug-and-play with Swirl POS']
-    },
-    {
-      icon: Monitor,
-      title: 'Kitchen Display Screen',
-      description: 'Replace paper tickets with real-time digital order displays.',
-      features: ['Live order flow from POS', 'Color-coded order status', 'Faster preparation']
-    },
-    {
-      icon: Tv,
-      title: 'Digital Menu Boards',
-      description: 'High-impact digital menu displays fully synced with your Swirl menu.',
-      features: ['Real-time menu updates', 'Dynamic pricing & promotions', 'Bright, high-resolution']
+      title: "Kitchen Printer",
+      description: "Durable printing designed for kitchen environments",
+      features: ["Heat & moisture resistant", "Loud buzzer alerts", "Large font output", "Network enabled"]
     }
   ];
 
-  const kioskFeatures = [
-    "Fully integrated with Swirl POS",
-    "Upselling & modifiers supported",
-    "Card & digital wallet ready",
-    "Ideal for QSRs, food courts & high-traffic"
+  const printerFeatures = [
+    { icon: Gauge, title: "High Speed", description: "250mm/s thermal printing" },
+    { icon: ThermometerSun, title: "Kitchen Grade", description: "Heat & moisture resistant" },
+    { icon: Network, title: "Network Ready", description: "LAN + USB connectivity" },
+    { icon: Clock, title: "Always On", description: "24/7 reliable operation" }
   ];
 
   const whySwirlHardware = [
-    { icon: Building2, title: "Built for Restaurants", description: "Not retail — designed specifically for F&B operations" },
+    { icon: Building2, title: "Built for Restaurants", description: "Designed specifically for F&B operations, not retail" },
     { icon: Settings, title: "Fully Integrated", description: "Works seamlessly with Swirl software platform" },
     { icon: Shield, title: "Enterprise-Grade", description: "Reliable hardware that performs under pressure" },
     { icon: Headphones, title: "Easy Support", description: "Installation help and ongoing technical support" },
@@ -60,7 +55,7 @@ const SwirlHardware = () => {
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <main className="flex-grow">
-        {/* Hero Section - Premium */}
+        {/* Hero Section */}
         <section className="pt-32 pb-20 bg-white relative overflow-hidden">
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -69,7 +64,6 @@ const SwirlHardware = () => {
 
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center animate-on-scroll max-w-4xl mx-auto">
-              {/* Trust Badges */}
               <div className="flex flex-wrap gap-3 justify-center mb-8">
                 <div className="px-4 py-2 bg-primary/5 rounded-full flex items-center gap-2 border border-primary/10">
                   <Shield className="h-4 w-4 text-primary" />
@@ -87,7 +81,7 @@ const SwirlHardware = () => {
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto">
-                From POS to kitchens to self-service — Swirl hardware is built to perform, scale, and integrate seamlessly with your operations.
+                Professional-grade POS terminals and printers built for high-volume restaurant operations.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -111,10 +105,10 @@ const SwirlHardware = () => {
                   </a>
                 </div>
                 <a 
-                  href="#hardware-ecosystem" 
+                  href="#pos-section" 
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-full border-2 border-primary/20 hover:border-primary/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                 >
-                  View Hardware Setup
+                  Explore Hardware
                   <ArrowRight className="w-5 h-5" />
                 </a>
               </div>
@@ -122,97 +116,142 @@ const SwirlHardware = () => {
           </div>
         </section>
 
-        {/* Hardware Ecosystem Section */}
-        <section id="hardware-ecosystem" className="py-20 bg-gray-50">
+        {/* ============ SWIRL POS SECTION ============ */}
+        <section id="pos-section" className="py-24 bg-gray-50 relative overflow-hidden">
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/3 rounded-full blur-3xl" />
+          </div>
+
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Section Header */}
             <div className="text-center mb-16 animate-on-scroll">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
-                <Sparkles className="w-4 h-4 text-primary" />
-                <span className="text-sm font-semibold text-primary">Hardware Ecosystem</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6 border border-primary/10">
+                <Monitor className="w-5 h-5 text-primary" />
+                <span className="text-sm font-semibold text-primary">Point of Sale Terminal</span>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
-                A Complete Suite of Restaurant-Grade Devices
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                Swirl POS Terminal
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Designed to work flawlessly with the Swirl platform — reliable, fast, and built for real-world operations.
+                A fast, stable, and intuitive POS system built for high-volume restaurants. Process orders seamlessly during peak hours.
               </p>
             </div>
 
-            {/* Products Grid */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-              {hardwareProducts.map((product, idx) => (
-                <div 
-                  key={idx} 
-                  className={`animate-on-scroll animate-delay-${(idx % 3 + 1) * 100} group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}
-                >
-                  <div className="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
-                    <product.icon className="w-8 h-8 text-white" />
+            {/* POS Content Grid */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+              {/* Image Placeholder */}
+              <div className="animate-on-scroll animate-delay-100 order-2 lg:order-1">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-2xl -z-10 scale-105" />
+                  <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl p-8 lg:p-12 flex items-center justify-center min-h-[400px] border border-gray-200">
+                    <div className="text-center">
+                      <Monitor className="w-24 h-24 text-primary/30 mx-auto mb-4" />
+                      <p className="text-gray-500 font-medium">POS Terminal Image</p>
+                      <p className="text-sm text-gray-400">Upload your POS image here</p>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">{product.title}</h3>
-                  <p className="text-gray-600 mb-6">{product.description}</p>
-                  <ul className="space-y-2">
-                    {product.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-              ))}
+              </div>
+
+              {/* Features */}
+              <div className="animate-on-scroll animate-delay-200 order-1 lg:order-2">
+                <h3 className="text-2xl font-bold text-gray-900 mb-8">Why Restaurants Choose Swirl POS</h3>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  {posFeatures.map((feature, idx) => (
+                    <div key={idx} className="group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                      <div className="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
+                        <feature.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <h4 className="font-bold text-gray-900 mb-2">{feature.title}</h4>
+                      <p className="text-sm text-gray-600">{feature.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Specs Bar */}
+            <div className="animate-on-scroll animate-delay-300 bg-white rounded-2xl p-8 border border-gray-100 shadow-lg">
+              <h4 className="text-lg font-bold text-gray-900 mb-6 text-center">Technical Specifications</h4>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                {posSpecs.map((spec, idx) => (
+                  <div key={idx} className="flex items-center gap-2 p-3 bg-gray-50 rounded-xl">
+                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm text-gray-700">{spec}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Self-Ordering Kiosk - Premium Image Section */}
-        <section className="py-20 bg-white">
+        {/* ============ PRINTER SECTION ============ */}
+        <section className="py-24 bg-white relative overflow-hidden">
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/3 rounded-full blur-3xl" />
+          </div>
+
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12 animate-on-scroll">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6 border border-primary/20">
-                <MonitorSmartphone className="w-4 h-4 text-primary" />
-                <span className="text-sm font-semibold text-primary">Self-Ordering Kiosk</span>
+            {/* Section Header */}
+            <div className="text-center mb-16 animate-on-scroll">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6 border border-primary/10">
+                <Printer className="w-5 h-5 text-primary" />
+                <span className="text-sm font-semibold text-primary">Professional Printing</span>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                Self-Ordering Kiosk
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                High-Performance Printers
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Reduce queues, increase order value, and give customers full control with Swirl self-ordering kiosks.
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Reliable receipt and kitchen printers designed for continuous operations. Fast, durable, and built to last.
               </p>
             </div>
 
-            {/* Kiosk Images Grid - Clean 2 Column Layout */}
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
-              <div className="animate-on-scroll animate-delay-100 group">
-                <img 
-                  src="/lovable-uploads/kiosk-2-2.webp" 
-                  alt="Swirl Self-Ordering Kiosk on Stand" 
-                  className="w-full h-auto rounded-xl hover:scale-[1.02] transition-transform duration-500"
-                />
-              </div>
-              <div className="animate-on-scroll animate-delay-200 group">
-                <img 
-                  src="/lovable-uploads/kiosk-3.webp" 
-                  alt="Swirl Wall-Mounted Kiosk" 
-                  className="w-full h-auto rounded-xl hover:scale-[1.02] transition-transform duration-500"
-                />
-              </div>
+            {/* Printer Features Grid */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+              {printerFeatures.map((feature, idx) => (
+                <div 
+                  key={idx} 
+                  className={`animate-on-scroll animate-delay-${(idx + 1) * 100} group bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:bg-white hover:border-primary/30 hover:shadow-xl transition-all duration-300 text-center`}
+                >
+                  <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
+                    <feature.icon className="w-7 h-7 text-white" />
+                  </div>
+                  <h4 className="font-bold text-gray-900 mb-2">{feature.title}</h4>
+                  <p className="text-sm text-gray-600">{feature.description}</p>
+                </div>
+              ))}
             </div>
 
-            {/* Kiosk Features */}
-            <div className="max-w-3xl mx-auto">
-              <div className="grid sm:grid-cols-2 gap-4">
-                {kioskFeatures.map((feature, idx) => (
-                  <div 
-                    key={idx}
-                    className="animate-on-scroll flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-primary/5 transition-colors"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-5 h-5 text-primary" />
+            {/* Printer Types Grid */}
+            <div className="grid md:grid-cols-2 gap-8">
+              {printerTypes.map((printer, idx) => (
+                <div 
+                  key={idx}
+                  className={`animate-on-scroll animate-delay-${(idx + 1) * 100} bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500`}
+                >
+                  {/* Image Placeholder */}
+                  <div className="bg-gradient-to-br from-gray-100 to-gray-200 p-8 flex items-center justify-center min-h-[250px]">
+                    <div className="text-center">
+                      <Printer className="w-16 h-16 text-primary/30 mx-auto mb-3" />
+                      <p className="text-gray-500 font-medium">{printer.title} Image</p>
                     </div>
-                    <span className="text-gray-700 font-medium">{feature}</span>
                   </div>
-                ))}
-              </div>
+                  
+                  {/* Content */}
+                  <div className="p-8 bg-white">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{printer.title}</h3>
+                    <p className="text-gray-600 mb-6">{printer.description}</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      {printer.features.map((feature, i) => (
+                        <div key={i} className="flex items-center gap-2 text-sm">
+                          <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                          <span className="text-gray-700">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -248,7 +287,7 @@ const SwirlHardware = () => {
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center animate-on-scroll max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-                One Platform. One Hardware Ecosystem.<br />
+                One Platform. Premium Hardware.<br />
                 <span className="text-white/90">Total Control.</span>
               </h2>
               <p className="text-xl text-white/80 mb-10">
@@ -276,12 +315,13 @@ const SwirlHardware = () => {
                   </a>
                 </div>
                 <a 
-                  href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20get%20hardware%20pricing%20from%20Swirl"
+                  href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20get%20pricing%20for%20Swirl%20Hardware" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-white font-bold rounded-full border-2 border-white/30 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-bold rounded-full border-2 border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300"
                 >
-                  Get Hardware Pricing
+                  Get Pricing
+                  <ArrowRight className="w-5 h-5" />
                 </a>
               </div>
             </div>
