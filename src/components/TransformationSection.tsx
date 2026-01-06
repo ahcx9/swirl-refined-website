@@ -2,24 +2,24 @@ import React from 'react';
 
 const outcomes = [
   {
-    title: "Real-time visibility",
-    description: "Know exactly what's happening in your restaurant — right now, from anywhere."
+    title: "You see everything, in real time",
+    description: "No more waiting for end-of-day reports. You'll know what's selling, what's sitting, and where the money is — right now, from anywhere."
   },
   {
-    title: "Cost confidence",
-    description: "See your real margins. Understand where money goes. Price with precision."
+    title: "You know your real numbers",
+    description: "Not just revenue. Actual profit. You'll finally see what each dish costs, what's eating your margins, and how to price with confidence."
   },
   {
-    title: "Calmer operations",
-    description: "Kitchen and front desk aligned. Rush hours handled. Problems prevented, not managed."
+    title: "Your team runs smoother",
+    description: "Kitchen and front-of-house on the same page. Orders flowing. Rush hours that don't feel like chaos."
   },
   {
-    title: "Scalable systems",
-    description: "Open your next location without cloning yourself. The system works — you don't have to."
+    title: "You can grow without fear",
+    description: "When the system works, you're no longer the bottleneck. Open a second location. Take a week off. The business keeps running."
   },
   {
-    title: "Owner freedom",
-    description: "Finally, time to think about growth. Strategy. Or just a day off."
+    title: "You get your life back",
+    description: "Less firefighting. Less stress. More time to think about what's next — or just enjoy what you've built."
   }
 ];
 
@@ -34,11 +34,11 @@ const TransformationSection: React.FC = () => {
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 md:mb-24">
           <h2 className="animate-on-scroll text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6">
-            From chaos to <span className="text-primary">control.</span>
+            Imagine if things just <span className="text-primary">worked.</span>
           </h2>
           
           <p className="animate-on-scroll animate-delay-100 text-xl md:text-2xl text-muted-foreground leading-relaxed">
-            An all-in-one restaurant operating system that replaces firefighting with flow.
+            One system that handles your orders, your stock, your costs, your kitchen — so you don't have to hold it all together yourself.
           </p>
         </div>
         
@@ -68,7 +68,7 @@ const TransformationSection: React.FC = () => {
         {/* Closing Statement */}
         <div className="mt-20 md:mt-28 text-center">
           <p className="animate-on-scroll text-xl md:text-2xl text-muted-foreground">
-            This is what modern restaurant operations look like.
+            This is what running a restaurant should feel like.
           </p>
         </div>
       </div>
