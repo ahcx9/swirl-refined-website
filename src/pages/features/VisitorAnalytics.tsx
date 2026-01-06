@@ -7,7 +7,8 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 // Visitor Analytics Dashboard Mockup Component
 const VisitorAnalyticsMockup = () => {
-  return <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden">
+  return (
+    <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden">
       {/* Header */}
       <div className="px-6 py-4 border-b border-gray-100">
         <div className="flex items-center justify-between">
@@ -73,9 +74,13 @@ const VisitorAnalyticsMockup = () => {
           
           {/* Simplified Chart Representation */}
           <div className="h-32 flex items-end justify-between gap-1 px-2">
-            {[8, 12, 6, 15, 10, 18, 14, 20, 16, 22, 12, 24, 18, 26, 20, 28, 15, 30, 22, 25, 18, 28, 24, 30, 20, 26, 22, 24, 18, 20].map((height, i) => <div key={i} className="flex-1 bg-primary/20 hover:bg-primary/40 transition-colors rounded-t" style={{
-            height: `${height * 3}px`
-          }} />)}
+            {[8, 12, 6, 15, 10, 18, 14, 20, 16, 22, 12, 24, 18, 26, 20, 28, 15, 30, 22, 25, 18, 28, 24, 30, 20, 26, 22, 24, 18, 20].map((height, i) => (
+              <div 
+                key={i} 
+                className="flex-1 bg-primary/20 hover:bg-primary/40 transition-colors rounded-t"
+                style={{ height: `${height * 3}px` }}
+              />
+            ))}
           </div>
           <div className="flex justify-between mt-2 text-[10px] text-gray-400 px-2">
             <span>Dec 07</span>
@@ -86,97 +91,73 @@ const VisitorAnalyticsMockup = () => {
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 const VisitorAnalytics = () => {
   useScrollAnimation();
-  const stats = [{
-    value: "25%",
-    label: "Higher Engagement",
-    icon: TrendingUp
-  }, {
-    value: "40%",
-    label: "Better Insights",
-    icon: BarChart
-  }, {
-    value: "60%",
-    label: "Time Saved",
-    icon: Clock
-  }];
-  const features = [{
-    title: "Real-time Dashboards",
-    description: "Monitor visitor activity with live updates and key metrics at a glance",
-    icon: BarChart
-  }, {
-    title: "QR Scan Tracking",
-    description: "Analyze how customers interact with your digital menu through QR codes",
-    icon: QrCode
-  }, {
-    title: "Customer Insights",
-    description: "Understand visitor behavior and engagement patterns",
-    icon: Users
-  }, {
-    title: "Repeat Visitor Analysis",
-    description: "Identify loyal customers and track return rates",
-    icon: RefreshCw
-  }, {
-    title: "Data Export",
-    description: "Export visitor data in multiple formats for external use",
-    icon: Database
-  }, {
-    title: "Menu Performance",
-    description: "Track which menu items get the most views",
-    icon: PieChart
-  }];
-  const visitorStats = [{
-    icon: QrCode,
-    value: "12,450",
-    label: "Total QR Scans",
-    change: "+24% this month"
-  }, {
-    icon: RefreshCw,
-    value: "68%",
-    label: "Repeat Visitors",
-    change: "Loyal customers"
-  }, {
-    icon: UserPlus,
-    value: "32%",
-    label: "New Visitors",
-    change: "Growing audience"
-  }];
-  const visitorInsights = [{
-    icon: Clock,
-    text: "Peak scanning hours: 12-2pm & 7-9pm"
-  }, {
-    icon: Smartphone,
-    text: "Device breakdown: 85% Mobile, 15% Tablet"
-  }, {
-    icon: Eye,
-    text: "Avg menu view time: 4.2 minutes"
-  }];
-  const analyticsCategories = [{
-    title: "Visitor Analytics",
-    icon: Users,
-    items: ["Daily, weekly, monthly visitors", "Unique vs repeat tracking", "Peak hours identification", "Device breakdown analysis"]
-  }, {
-    title: "Menu Engagement",
-    icon: BarChart,
-    items: ["Menu item view tracking", "Popular categories analysis", "Time spent per section", "Seasonal performance"]
-  }, {
-    title: "Customer Insights",
-    icon: TrendingUp,
-    items: ["Customer frequency & retention", "Engagement patterns", "QR scan locations", "Loyalty identification"]
-  }];
-  const decisions = [{
-    title: "Optimize Your Menu",
-    description: "Use visitor data to make informed menu decisions",
-    items: ["Identify most-viewed dishes", "Optimize menu layout", "Analyze viewing patterns"]
-  }, {
-    title: "Target Your Audience",
-    description: "Understand who your customers are and when they visit",
-    items: ["Identify peak visit times", "Track customer retention", "Segment by behavior"]
-  }];
-  return <div className="min-h-screen flex flex-col bg-white">
+
+  const stats = [
+    { value: "25%", label: "Higher Engagement", icon: TrendingUp },
+    { value: "40%", label: "Better Insights", icon: BarChart },
+    { value: "60%", label: "Time Saved", icon: Clock }
+  ];
+
+  const features = [
+    { title: "Real-time Dashboards", description: "Monitor visitor activity with live updates and key metrics at a glance", icon: BarChart },
+    { title: "QR Scan Tracking", description: "Analyze how customers interact with your digital menu through QR codes", icon: QrCode },
+    { title: "Customer Insights", description: "Understand visitor behavior and engagement patterns", icon: Users },
+    { title: "Repeat Visitor Analysis", description: "Identify loyal customers and track return rates", icon: RefreshCw },
+    { title: "Data Export", description: "Export visitor data in multiple formats for external use", icon: Database },
+    { title: "Menu Performance", description: "Track which menu items get the most views", icon: PieChart }
+  ];
+
+  const visitorStats = [
+    { icon: QrCode, value: "12,450", label: "Total QR Scans", change: "+24% this month" },
+    { icon: RefreshCw, value: "68%", label: "Repeat Visitors", change: "Loyal customers" },
+    { icon: UserPlus, value: "32%", label: "New Visitors", change: "Growing audience" }
+  ];
+
+  const visitorInsights = [
+    { icon: Clock, text: "Peak scanning hours: 12-2pm & 7-9pm" },
+    { icon: Smartphone, text: "Device breakdown: 85% Mobile, 15% Tablet" },
+    { icon: Eye, text: "Avg menu view time: 4.2 minutes" }
+  ];
+
+  const analyticsCategories = [
+    {
+      title: "Visitor Analytics",
+      icon: Users,
+      items: ["Daily, weekly, monthly visitors", "Unique vs repeat tracking", "Peak hours identification", "Device breakdown analysis"]
+    },
+    {
+      title: "Menu Engagement",
+      icon: BarChart,
+      items: ["Menu item view tracking", "Popular categories analysis", "Time spent per section", "Seasonal performance"]
+    },
+    {
+      title: "Customer Insights",
+      icon: TrendingUp,
+      items: ["Customer frequency & retention", "Engagement patterns", "QR scan locations", "Loyalty identification"]
+    }
+  ];
+
+  const decisions = [
+    {
+      title: "Optimize Your Menu",
+      description: "Use visitor data to make informed menu decisions",
+      items: ["Identify most-viewed dishes", "Optimize menu layout", "Analyze viewing patterns"]
+    },
+    {
+      title: "Target Your Audience",
+      description: "Understand who your customers are and when they visit",
+      items: ["Identify peak visit times", "Track customer retention", "Segment by behavior"]
+    }
+  ];
+
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
@@ -207,7 +188,12 @@ const VisitorAnalytics = () => {
                   
                   <div className="animate-on-scroll animate-delay-300">
                     <div className="btn-conteiner scale-90">
-                      <a className="btn-content" href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Swirl" target="_blank" rel="noopener noreferrer">
+                      <a 
+                        className="btn-content" 
+                        href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Swirl" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
                         <span className="btn-title">Book Demo</span>
                         <span className="icon-arrow">
                           <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -226,8 +212,12 @@ const VisitorAnalytics = () => {
                 {/* Dashboard Mockup */}
                 <div className="animate-on-scroll animate-delay-400 relative">
                   {/* Floating data points */}
-                  
-                  
+                  <div className="absolute -top-4 -left-4 px-3 py-2 bg-green-500 text-white text-sm font-bold rounded-full shadow-lg animate-bounce z-10">
+                    +27%
+                  </div>
+                  <div className="absolute top-1/4 -right-4 px-3 py-2 bg-primary text-white text-sm font-bold rounded-full shadow-lg z-10">
+                    Live
+                  </div>
                   <div className="absolute -bottom-4 left-1/4 px-3 py-2 bg-purple-500 text-white text-sm font-bold rounded-full shadow-lg z-10">
                     24 Unique
                   </div>
@@ -248,11 +238,16 @@ const VisitorAnalytics = () => {
           <div className="container-custom">
             <div className="max-w-4xl mx-auto">
               <div className="grid grid-cols-3 gap-4 md:gap-8">
-                {stats.map((stat, index) => <div key={index} className={`animate-on-scroll animate-delay-${(index + 1) * 100} group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 text-center`}>
+                {stats.map((stat, index) => (
+                  <div 
+                    key={index} 
+                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 text-center`}
+                  >
                     <stat.icon className="w-8 h-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
                     <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-1">{stat.value}</div>
                     <div className="text-sm text-gray-500">{stat.label}</div>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -282,24 +277,34 @@ const VisitorAnalytics = () => {
 
               {/* Visitor Stats Cards */}
               <div className="grid md:grid-cols-3 gap-6 mb-12">
-                {visitorStats.map((stat, index) => <div key={index} className={`animate-on-scroll animate-delay-${(index + 1) * 100} group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 text-center`}>
+                {visitorStats.map((stat, index) => (
+                  <div 
+                    key={index}
+                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 text-center`}
+                  >
                     <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
                       <stat.icon className="w-8 h-8 text-white" />
                     </div>
                     <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">{stat.value}</div>
                     <p className="text-lg font-semibold text-gray-700 mb-1">{stat.label}</p>
                     <p className="text-sm text-primary">{stat.change}</p>
-                  </div>)}
+                  </div>
+                ))}
               </div>
 
               {/* Additional Insights */}
               <div className="grid md:grid-cols-3 gap-4">
-                {visitorInsights.map((insight, index) => <div key={index} className={`animate-on-scroll animate-delay-${(index + 1) * 100} flex items-center gap-4 p-5 bg-gray-50 rounded-xl hover:bg-primary/5 transition-colors duration-300`}>
+                {visitorInsights.map((insight, index) => (
+                  <div 
+                    key={index}
+                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} flex items-center gap-4 p-5 bg-gray-50 rounded-xl hover:bg-primary/5 transition-colors duration-300`}
+                  >
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <insight.icon className="w-6 h-6 text-primary" />
                     </div>
                     <span className="text-gray-700 font-medium">{insight.text}</span>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -320,13 +325,18 @@ const VisitorAnalytics = () => {
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {features.map((feature, index) => <div key={index} className={`animate-on-scroll animate-delay-${(index % 3 + 1) * 100} group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}>
+                {features.map((feature, index) => (
+                  <div 
+                    key={index}
+                    className={`animate-on-scroll animate-delay-${(index % 3 + 1) * 100} group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}
+                  >
                     <div className="w-14 h-14 mb-5 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
                       <feature.icon className="w-7 h-7 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">{feature.title}</h3>
                     <p className="text-gray-600">{feature.description}</p>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -343,16 +353,23 @@ const VisitorAnalytics = () => {
               </div>
 
               <div className="grid md:grid-cols-2 gap-8">
-                {decisions.map((decision, index) => <div key={index} className={`animate-on-scroll animate-delay-${(index + 1) * 100} bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-300`}>
+                {decisions.map((decision, index) => (
+                  <div 
+                    key={index}
+                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-300`}
+                  >
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{decision.title}</h3>
                     <p className="text-gray-600 mb-6">{decision.description}</p>
                     <ul className="space-y-3">
-                      {decision.items.map((item, i) => <li key={i} className="flex items-center gap-3">
+                      {decision.items.map((item, i) => (
+                        <li key={i} className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-primary rounded-full" />
                           <span className="text-gray-700">{item}</span>
-                        </li>)}
+                        </li>
+                      ))}
                     </ul>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -369,18 +386,25 @@ const VisitorAnalytics = () => {
               </div>
 
               <div className="grid md:grid-cols-3 gap-6">
-                {analyticsCategories.map((category, index) => <div key={index} className={`animate-on-scroll animate-delay-${(index + 1) * 100} bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300`}>
+                {analyticsCategories.map((category, index) => (
+                  <div 
+                    key={index}
+                    className={`animate-on-scroll animate-delay-${(index + 1) * 100} bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300`}
+                  >
                     <div className="w-12 h-12 mb-4 rounded-xl bg-primary/10 flex items-center justify-center">
                       <category.icon className="w-6 h-6 text-primary" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-4">{category.title}</h3>
                     <ul className="space-y-3">
-                      {category.items.map((item, i) => <li key={i} className="flex items-start gap-3">
+                      {category.items.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3">
                           <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                           <span className="text-gray-600">{item}</span>
-                        </li>)}
+                        </li>
+                      ))}
                     </ul>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -398,7 +422,12 @@ const VisitorAnalytics = () => {
               </p>
               <div className="animate-on-scroll animate-delay-200 flex justify-center">
                 <div className="btn-conteiner scale-90">
-                  <a className="btn-content" href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Swirl" target="_blank" rel="noopener noreferrer">
+                  <a 
+                    className="btn-content" 
+                    href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Swirl" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
                     <span className="btn-title">Book Demo</span>
                     <span className="icon-arrow">
                       <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -417,6 +446,8 @@ const VisitorAnalytics = () => {
         </section>
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default VisitorAnalytics;

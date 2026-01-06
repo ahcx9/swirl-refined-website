@@ -78,18 +78,10 @@ const POSMockup = () => {
     status: 'available'
   }];
   return <div className="relative w-full max-w-5xl mx-auto">
-      {/* POS Terminal Frame */}
-      <div className="relative">
-        {/* Terminal outer bezel */}
-        <div className="bg-gradient-to-b from-gray-800 via-gray-900 to-gray-950 rounded-[2rem] p-3 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)]">
-          {/* Terminal inner bezel with subtle metallic edge */}
-          <div className="bg-gradient-to-b from-gray-700 to-gray-800 rounded-[1.5rem] p-1">
-            {/* Screen bezel */}
-            <div className="bg-black rounded-[1.25rem] p-2">
-              {/* Main container with shadow */}
-              <div className="bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden">
+      {/* Main container with shadow */}
+      <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
         
-                {/* Top Header Bar */}
+        {/* Top Header Bar */}
         <div className="bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
@@ -266,22 +258,10 @@ const POSMockup = () => {
             </div>
           </div>
         </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Terminal Stand */}
-        <div className="flex justify-center mt-[-1px]">
-          <div className="w-32 h-6 bg-gradient-to-b from-gray-800 to-gray-900 rounded-b-lg" />
-        </div>
-        <div className="flex justify-center">
-          <div className="w-48 h-3 bg-gradient-to-b from-gray-700 to-gray-800 rounded-b-xl" />
-        </div>
-        <div className="flex justify-center">
-          <div className="w-64 h-2 bg-gradient-to-b from-gray-600 to-gray-700 rounded-b-full shadow-lg" />
-        </div>
       </div>
+
+      {/* Floor Management Card */}
+      
     </div>;
 };
 export default POSMockup;

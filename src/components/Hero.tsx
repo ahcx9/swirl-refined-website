@@ -1,7 +1,7 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { CreditCard, QrCode, Check, Banknote, SplitSquareVertical, CheckCircle2, Plus, ShoppingCart, ArrowRight, BarChart3, Receipt, Package, Monitor, Clock, Calculator, TrendingUp } from 'lucide-react';
 import { Button } from './ui/button';
-import HomeHeroMockup from '@/components/HomeHeroMockup';
+import { useCurrency } from '@/hooks/useCurrency';
 
 // ============ DOODLES - Positioned in outer margins only ============
 
@@ -91,10 +91,177 @@ const CTAArrowDoodle = () => <svg className="absolute -left-14 top-1/2 -translat
     <path d="M46 18 L56 25 L46 32" strokeLinecap="round" strokeLinejoin="round" className="stroke-primary" />
   </svg>;
 
+// ============ MOCKUP COMPONENTS ============
+
+// POS Mockup Component
+const POSMockup = ({
+  amounts
+}: {
+  amounts: {
+    chickenShawarma: string;
+    grilledLambKebab: string;
+    posSubtotal: string;
+    posTotal: string;
+  };
+}) => (
+  <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden w-full max-w-[420px]">
+    {/* POS Header Bar */}
+    <div className="bg-primary px-4 py-3 flex items-center justify-between">
+      <div className="flex items-center gap-2">
+        <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+          <Receipt className="w-4 h-4 text-white" />
+        </div>
+        <span className="text-white font-semibold text-sm">Swirl POS</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+        <span className="text-white/80 text-xs font-medium">Table 5</span>
+      </div>
+    </div>
+    
+    {/* Order Items */}
+    <div className="p-4 space-y-3">
+      <div className="flex items-center justify-between py-3 border-b border-gray-100">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-sm font-bold text-primary">2×</div>
+          <div>
+            <span className="text-sm font-medium text-foreground block">Chicken Shawarma</span>
+            <span className="text-xs text-muted-foreground">Extra garlic sauce</span>
+          </div>
+        </div>
+        <span className="text-sm font-semibold text-foreground">{amounts.chickenShawarma}</span>
+      </div>
+      <div className="flex items-center justify-between py-3 border-b border-gray-100">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-sm font-bold text-primary">1×</div>
+          <div>
+            <span className="text-sm font-medium text-foreground block">Grilled Lamb Kebab</span>
+            <span className="text-xs text-muted-foreground">Medium spice</span>
+          </div>
+        </div>
+        <span className="text-sm font-semibold text-foreground">{amounts.grilledLambKebab}</span>
+      </div>
+      
+      {/* Totals */}
+      <div className="pt-3 space-y-2 border-t border-gray-100">
+        <div className="flex justify-between text-sm text-muted-foreground">
+          <span>Subtotal</span>
+          <span>{amounts.posSubtotal}</span>
+        </div>
+        <div className="flex justify-between text-lg font-bold text-foreground pt-2 border-t border-gray-200">
+          <span>Total</span>
+          <span className="text-primary">{amounts.posTotal}</span>
+        </div>
+      </div>
+      
+      {/* Payment Buttons */}
+      <div className="grid grid-cols-3 gap-2 pt-3">
+        <button className="flex flex-col items-center gap-1 p-3 bg-green-500 rounded-xl">
+          <Banknote className="w-5 h-5 text-white" />
+          <span className="text-[10px] font-semibold text-white">Cash</span>
+        </button>
+        <button className="flex flex-col items-center gap-1 p-3 bg-primary rounded-xl">
+          <CreditCard className="w-5 h-5 text-white" />
+          <span className="text-[10px] font-semibold text-white">Card</span>
+        </button>
+        <button className="flex flex-col items-center gap-1 p-3 bg-gray-600 rounded-xl">
+          <SplitSquareVertical className="w-5 h-5 text-white" />
+          <span className="text-[10px] font-semibold text-white">Split</span>
+        </button>
+      </div>
+    </div>
+  </div>
+);
+
+// Inventory Mockup Component  
+const InventoryMockup = ({
+  amounts
+}: {
+  amounts: {
+    accountingToday: string;
+    accountingWeek: string;
+    accountingMonth: string;
+  };
+}) => (
+  <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden w-full max-w-[380px]">
+    {/* Header */}
+    <div className="bg-gradient-to-r from-primary to-primary/90 px-4 py-3 flex items-center justify-between">
+      <div className="flex items-center gap-2">
+        <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+          <Package className="w-4 h-4 text-white" />
+        </div>
+        <span className="text-white font-semibold text-sm">Inventory</span>
+      </div>
+      <div className="px-2 py-1 bg-white/20 rounded-full">
+        <span className="text-white/90 text-xs font-medium">Live</span>
+      </div>
+    </div>
+    
+    {/* Metrics Grid */}
+    <div className="p-4 space-y-4">
+      {/* Top Stats Row */}
+      <div className="grid grid-cols-3 gap-3">
+        <div className="bg-blue-50 rounded-xl p-3 text-center border border-blue-100">
+          <p className="text-2xl font-bold text-gray-900">847</p>
+          <p className="text-[10px] text-blue-600 font-medium">Items in Stock</p>
+        </div>
+        <div className="bg-green-50 rounded-xl p-3 text-center border border-green-100">
+          <p className="text-2xl font-bold text-gray-900">98%</p>
+          <p className="text-[10px] text-green-600 font-medium">Fill Rate</p>
+        </div>
+        <div className="bg-purple-50 rounded-xl p-3 text-center border border-purple-100">
+          <p className="text-2xl font-bold text-gray-900">12</p>
+          <p className="text-[10px] text-purple-600 font-medium">Low Stock</p>
+        </div>
+      </div>
+      
+      {/* Stock Status */}
+      <div className="space-y-2">
+        <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Stock Alerts</h4>
+        <div className="space-y-2">
+          <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+              <span className="text-sm text-gray-700">Chicken Breast</span>
+            </div>
+            <span className="text-xs font-bold text-red-500 px-2 py-1 bg-red-50 rounded-full">Low</span>
+          </div>
+          <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+              <span className="text-sm text-gray-700">Olive Oil</span>
+            </div>
+            <span className="text-xs font-bold text-amber-600 px-2 py-1 bg-amber-50 rounded-full">Med</span>
+          </div>
+          <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <span className="text-sm text-gray-700">Fresh Tomatoes</span>
+            </div>
+            <span className="text-xs font-bold text-green-600 px-2 py-1 bg-green-50 rounded-full">OK</span>
+          </div>
+        </div>
+      </div>
+      
+      {/* Quick Stats */}
+      <div className="flex items-center justify-between p-3 bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl border border-emerald-100">
+        <div className="flex items-center gap-2">
+          <TrendingUp className="w-5 h-5 text-emerald-500" />
+          <span className="text-sm font-medium text-emerald-700">Inventory Value</span>
+        </div>
+        <span className="text-lg font-bold text-emerald-600">{amounts.accountingMonth}</span>
+      </div>
+    </div>
+  </div>
+);
+
 // ============ MAIN HERO COMPONENT ============
 
 const Hero: React.FC = () => {
-  return <section className="relative min-h-screen bg-white overflow-hidden pt-32 md:pt-36 lg:pt-32 pb-8">
+  const { amounts } = useCurrency();
+  
+  return (
+    <section className="relative min-h-screen bg-white overflow-hidden pt-32 md:pt-36 lg:pt-32 pb-8">
       
       {/* ======== DOODLES - Outer margins only, hidden on mobile/tablet ======== */}
       <div className="absolute inset-0 pointer-events-none text-primary hidden xl:block">
@@ -155,8 +322,8 @@ const Hero: React.FC = () => {
               <CTAArrowDoodle />
               <a href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20for%20Swirl" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="h-14 px-8 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300" style={{
-                animation: 'pulse-glow 2s ease-in-out infinite'
-              }}>
+                  animation: 'pulse-glow 2s ease-in-out infinite'
+                }}>
                   Book a Demo
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
@@ -169,15 +336,24 @@ const Hero: React.FC = () => {
             </p>
           </div>
 
-          {/* ======== RIGHT COLUMN: PRODUCT MOCKUP ======== */}
-          <div className="order-2 relative flex items-center justify-center lg:justify-center xl:justify-end animate-fade-in animation-delay-300">
-            <HomeHeroMockup />
+          {/* ======== RIGHT COLUMN: PRODUCT MOCKUPS ======== */}
+          <div className="relative animate-fade-in animation-delay-600 order-2">
+            <div className="flex flex-col lg:flex-row gap-6 items-center justify-center">
+              {/* POS Mockup - Primary */}
+              <div className="transform lg:rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
+                <POSMockup amounts={amounts} />
+              </div>
+              
+              {/* Inventory Mockup - Secondary, offset */}
+              <div className="transform lg:rotate-[2deg] lg:-translate-y-8 hover:rotate-0 transition-transform duration-500 hidden md:block">
+                <InventoryMockup amounts={amounts} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Gradient at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
