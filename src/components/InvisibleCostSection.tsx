@@ -2,20 +2,20 @@ import React from 'react';
 
 const costs = [
   {
-    title: "Leaking profit",
-    description: "You're losing money every day — not in big crashes, but in small, invisible ways. Over-portioning. Waste. Mispriced items. Death by a thousand cuts."
+    title: "Money slipping through the cracks",
+    description: "It's not one big thing. It's a hundred small ones — an extra scoop here, a forgotten charge there, a dish that costs more than you thought. You're bleeding slowly, and you can't see where."
   },
   {
-    title: "Stolen time",
-    description: "Hours spent firefighting instead of growing. Chasing stock counts. Reconciling reports. Managing problems that should solve themselves."
+    title: "Your time disappearing",
+    description: "You wanted to grow the business. Instead, you're fixing the same problems every week. Counting stock. Chasing invoices. Putting out fires that shouldn't exist."
   },
   {
-    title: "Broken scalability",
-    description: "Opening a second location feels risky. Not because of capital — but because you can't clone yourself. The system is you."
+    title: "Stuck at one location",
+    description: "You've thought about expanding. But deep down, you know the truth — if you're not there, things fall apart. The business needs you too much."
   },
   {
-    title: "Owner burnout",
-    description: "You dreamed of running a restaurant. Instead, the restaurant runs you."
+    title: "Running on empty",
+    description: "You're tired. Not just physically — but tired of worrying, tired of not knowing, tired of feeling like everything depends on you showing up."
   }
 ];
 
@@ -46,13 +46,13 @@ const InvisibleCostSection: React.FC = () => {
           {/* Left side - Headline and intro */}
           <div className="lg:sticky lg:top-32">
             <h2 className="animate-on-scroll text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
-              What these problems
+              Here's what this is
               <br />
-              <span className="text-primary">are really costing you.</span>
+              <span className="text-primary">actually costing you.</span>
             </h2>
             
             <p className="animate-on-scroll animate-delay-100 text-lg text-muted-foreground leading-relaxed">
-              It's not just operational friction. It's something deeper — something that threatens the very thing you built.
+              It's not just stress. These problems are quietly taking things from you — things you can't get back.
             </p>
           </div>
           
@@ -78,13 +78,13 @@ const InvisibleCostSection: React.FC = () => {
         <div className="mt-24 md:mt-32 pt-16 md:pt-20 border-t border-border/50">
           <div className="max-w-3xl mx-auto text-center">
             <p className="animate-on-scroll text-xl md:text-2xl text-muted-foreground mb-6">
-              These aren't operational problems.
+              Look — you didn't sign up for this.
               <br />
-              <span className="text-foreground font-medium">They're existential ones.</span>
+              <span className="text-foreground font-medium">And you don't have to keep doing it alone.</span>
             </p>
             
             <p className="animate-on-scroll animate-delay-100 text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
-              <span className="text-primary">swirl</span> was built to bring clarity and control back.
+              We built <span className="text-primary">swirl</span> to give you back control.
             </p>
           </div>
         </div>

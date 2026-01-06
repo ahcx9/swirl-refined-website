@@ -1,13 +1,13 @@
 import React from 'react';
 
 const problems = [
-  "Sales look good. Profit is... unclear.",
-  "Stock disappears quietly. No one knows where.",
-  "Portions drift. Recipes change. Costs creep up.",
-  "Rush hour feels like firefighting.",
-  "The kitchen and front desk speak different languages.",
-  "Everything depends on two or three people.",
-  "Decisions are made on gut feel, not data."
+  "You check the register — sales look fine. But where did the money go?",
+  "Stock keeps vanishing. You've asked everyone. No answers.",
+  "Your best dish costs more to make than it used to. You're not sure why.",
+  "Every rush hour feels like barely surviving.",
+  "The kitchen blames the front. The front blames the kitchen.",
+  "If your manager quits tomorrow, everything falls apart.",
+  "You're making decisions on instinct — because there's no time for anything else."
 ];
 
 const OwnerRealitySection: React.FC = () => {
@@ -20,15 +20,16 @@ const OwnerRealitySection: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           {/* Main Headline */}
           <h2 className="animate-on-scroll text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-8">
-            The things no one talks about
+            Let's be honest about
             <br />
-            <span className="text-muted-foreground">when you open a restaurant.</span>
+            <span className="text-muted-foreground">what running a restaurant really looks like.</span>
           </h2>
 
           {/* Emotional Paragraph */}
           <p className="animate-on-scroll animate-delay-100 text-lg md:text-xl text-muted-foreground leading-relaxed mb-16 md:mb-20 max-w-3xl">
-            You got into this business because you love food, people, and creating experiences. 
-            But somewhere between the morning prep and the midnight close, it became about something else entirely — <span className="text-foreground font-medium">survival.</span>
+            You didn't get into this to stare at spreadsheets or chase missing stock. 
+            You wanted to build something — feed people, create a place they remember. 
+            But somewhere along the way, it started feeling like <span className="text-foreground font-medium">you're just keeping the lights on.</span>
           </p>
 
           {/* Problem Statements */}
