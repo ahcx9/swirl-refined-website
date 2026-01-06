@@ -74,9 +74,9 @@ const CRM = () => {
                   </div>
                 </div>
                 
-                <div className="animate-on-scroll animate-delay-400 hidden lg:block">
-                  <CRMMockup />
-                </div>
+              <div className="animate-on-scroll animate-delay-400">
+                <CRMMockup />
+              </div>
               </div>
             </div>
           </div>
