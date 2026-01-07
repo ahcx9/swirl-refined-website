@@ -15,6 +15,7 @@ import HotelIndustrySection from '@/components/HotelIndustrySection';
 import UseCasesSection from '@/components/UseCasesSection';
 import DeliveryComingSoon from '@/components/DeliveryComingSoon';
 import HomeHardwareSection from '@/components/HomeHardwareSection';
+import HomeDeliveryIntegrationSection from '@/components/HomeDeliveryIntegrationSection';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import ImagePreloader from '@/components/ImagePreloader';
 const Index = () => {
@@ -33,6 +34,7 @@ const Index = () => {
           <HomePOSSection />
           <HomeInventorySection />
           <HomeFinancialAnalyticsSection />
+          <HomeDeliveryIntegrationSection />
           <HomeHardwareSection />
           
         </div>
