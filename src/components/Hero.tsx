@@ -255,6 +255,82 @@ const InventoryMockup = ({
   </div>
 );
 
+// QR Ordering Mockup Component
+const QROrderingMockup = ({
+  amounts
+}: {
+  amounts: {
+    chickenShawarma: string;
+    grilledLambKebab: string;
+  };
+}) => (
+  <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden w-full max-w-[340px]">
+    {/* Header */}
+    <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 px-4 py-3 flex items-center justify-between">
+      <div className="flex items-center gap-2">
+        <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+          <QrCode className="w-4 h-4 text-white" />
+        </div>
+        <span className="text-white font-semibold text-sm">QR Menu</span>
+      </div>
+      <div className="px-2 py-1 bg-white/20 rounded-full">
+        <span className="text-white/90 text-xs font-medium">Table 8</span>
+      </div>
+    </div>
+    
+    {/* Menu Items */}
+    <div className="p-4 space-y-3">
+      {/* Category */}
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">Grills</span>
+        <span className="text-xs text-muted-foreground">Popular</span>
+      </div>
+      
+      {/* Menu Item 1 */}
+      <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl border border-gray-100 hover:border-primary/30 transition-colors">
+        <div className="w-14 h-14 bg-gradient-to-br from-amber-100 to-orange-100 rounded-xl flex items-center justify-center">
+          <span className="text-2xl">🍗</span>
+        </div>
+        <div className="flex-1">
+          <span className="text-sm font-medium text-foreground block">Chicken Shawarma</span>
+          <span className="text-xs text-muted-foreground">Grilled chicken, garlic sauce</span>
+          <span className="text-sm font-bold text-primary block mt-1">{amounts.chickenShawarma}</span>
+        </div>
+        <button className="w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-md">
+          <Plus className="w-4 h-4 text-white" />
+        </button>
+      </div>
+      
+      {/* Menu Item 2 */}
+      <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl border border-gray-100 hover:border-primary/30 transition-colors">
+        <div className="w-14 h-14 bg-gradient-to-br from-red-100 to-rose-100 rounded-xl flex items-center justify-center">
+          <span className="text-2xl">🍖</span>
+        </div>
+        <div className="flex-1">
+          <span className="text-sm font-medium text-foreground block">Lamb Kebab</span>
+          <span className="text-xs text-muted-foreground">Premium lamb, spiced</span>
+          <span className="text-sm font-bold text-primary block mt-1">{amounts.grilledLambKebab}</span>
+        </div>
+        <button className="w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-md">
+          <Plus className="w-4 h-4 text-white" />
+        </button>
+      </div>
+      
+      {/* Cart Footer */}
+      <div className="flex items-center justify-between p-3 bg-primary rounded-xl mt-4">
+        <div className="flex items-center gap-2">
+          <ShoppingCart className="w-5 h-5 text-white" />
+          <span className="text-white text-sm font-medium">2 items</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-white font-bold">View Cart</span>
+          <ArrowRight className="w-4 h-4 text-white" />
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 // ============ MAIN HERO COMPONENT ============
 
 const Hero: React.FC = () => {
@@ -347,6 +423,11 @@ const Hero: React.FC = () => {
               {/* Inventory Mockup - Secondary, offset */}
               <div className="transform lg:rotate-[2deg] lg:-translate-y-8 hover:rotate-0 transition-transform duration-500 hidden md:block">
                 <InventoryMockup amounts={amounts} />
+              </div>
+              
+              {/* QR Ordering Mockup - Tertiary */}
+              <div className="transform lg:rotate-[1deg] lg:translate-y-4 hover:rotate-0 transition-transform duration-500 hidden xl:block">
+                <QROrderingMockup amounts={amounts} />
               </div>
             </div>
           </div>
