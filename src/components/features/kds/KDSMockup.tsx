@@ -46,6 +46,19 @@ const KDSMockup = () => {
       ]
     },
     {
+      id: "#0",
+      table: "Table 10",
+      floor: "2nd Floor",
+      status: "served",
+      isLate: true,
+      time: "14:27",
+      waitTime: "89m 46s",
+      items: [
+        { qty: 1, name: "Red Velvet" }
+      ],
+      hasUpdate: true
+    },
+    {
       id: "#100744",
       table: "Takeaway",
       status: "In prep",
@@ -55,6 +68,47 @@ const KDSMockup = () => {
       items: [
         { qty: 1, name: "Vanilla Affogato" },
         { qty: 1, name: "Pistachio Latte" }
+      ]
+    },
+    {
+      id: "#100745",
+      table: "Table 200",
+      status: "In prep",
+      isLate: false,
+      time: "14:10",
+      waitTime: "02m 44s",
+      items: [
+        { qty: 1, name: "Brownie with Ice cream" },
+        { qty: 1, name: "Red Velvet" },
+        { qty: 1, name: "Tiramisu" },
+        { qty: 1, name: "Pistachio Cake" }
+      ]
+    },
+    {
+      id: "#100746",
+      table: "Table 10",
+      floor: "2nd Floor",
+      status: "In prep",
+      isLate: false,
+      time: "14:10",
+      waitTime: "02m 28s",
+      items: [
+        { qty: 1, name: "Hawaiian" },
+        { qty: 1, name: "Healthy Breakfast" },
+        { qty: 1, name: "Frozen Freesco" }
+      ]
+    },
+    {
+      id: "#100747",
+      table: "Table 12",
+      floor: "2nd Floor",
+      status: "In prep",
+      isLate: false,
+      time: "14:11",
+      waitTime: "01m 46s",
+      items: [
+        { qty: 1, name: "Cortado" },
+        { qty: 1, name: "Spanish Latte" }
       ]
     }
   ];
@@ -142,8 +196,12 @@ const KDSMockup = () => {
               <button className="flex-1 py-1.5 text-[10px] font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
                 Bump
               </button>
-              <button className="flex-1 py-1.5 text-[10px] font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors">
-                Mark ready
+              <button className={`flex-1 py-1.5 text-[10px] font-medium rounded-lg transition-colors ${
+                order.hasUpdate 
+                  ? 'text-white bg-primary hover:bg-primary/90' 
+                  : 'text-white bg-gray-900 hover:bg-gray-800'
+              }`}>
+                {order.hasUpdate ? 'Update' : 'Mark ready'}
               </button>
             </div>
           </div>
