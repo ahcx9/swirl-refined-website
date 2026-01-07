@@ -7,7 +7,7 @@ const HomeDeliveryIntegrationSection = () => {
   const deliveryApps = [
     {
       name: 'Talabat',
-      logo: '/lovable-uploads/72bc496f-dfad-4fef-a00b-a049a08c0700.png',
+      logo: '/lovable-uploads/talabat-logo.webp',
       color: 'bg-orange-500'
     },
     {
@@ -17,7 +17,7 @@ const HomeDeliveryIntegrationSection = () => {
     },
     {
       name: 'Noon Food',
-      logo: '/lovable-uploads/9623693d-a2e0-48ea-8d68-911775324f30.png',
+      logo: '/lovable-uploads/noon-food-logo.png',
       color: 'bg-yellow-500'
     }
   ];
