@@ -212,12 +212,6 @@ const VisitorAnalytics = () => {
                 {/* Dashboard Mockup */}
                 <div className="animate-on-scroll animate-delay-400 relative">
                   {/* Floating data points */}
-                  <div className="absolute -top-4 -left-4 px-3 py-2 bg-green-500 text-white text-sm font-bold rounded-full shadow-lg animate-bounce z-10">
-                    +27%
-                  </div>
-                  <div className="absolute top-1/4 -right-4 px-3 py-2 bg-primary text-white text-sm font-bold rounded-full shadow-lg z-10">
-                    Live
-                  </div>
                   <div className="absolute -bottom-4 left-1/4 px-3 py-2 bg-purple-500 text-white text-sm font-bold rounded-full shadow-lg z-10">
                     24 Unique
                   </div>
