@@ -143,13 +143,11 @@ const SwirlHardware = () => {
               <div className="animate-on-scroll animate-delay-100 order-2 lg:order-1">
                 <div className="relative">
                   <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-2xl -z-10 scale-105" />
-                  <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl p-8 lg:p-12 flex items-center justify-center min-h-[400px] border border-gray-200">
-                    <div className="text-center">
-                      <Monitor className="w-24 h-24 text-primary/30 mx-auto mb-4" />
-                      <p className="text-gray-500 font-medium">POS Terminal Image</p>
-                      <p className="text-sm text-gray-400">Upload your POS image here</p>
-                    </div>
-                  </div>
+                  <img 
+                    src="/lovable-uploads/swirl-pos-terminal.jpg" 
+                    alt="Swirl POS Terminal" 
+                    className="w-full rounded-3xl shadow-2xl"
+                  />
                 </div>
               </div>
 
@@ -222,25 +220,29 @@ const SwirlHardware = () => {
               ))}
             </div>
 
-            {/* Printer Types Grid */}
-            <div className="grid md:grid-cols-2 gap-8">
-              {printerTypes.map((printer, idx) => (
-                <div 
-                  key={idx}
-                  className={`animate-on-scroll animate-delay-${(idx + 1) * 100} bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500`}
-                >
-                  {/* Image Placeholder */}
-                  <div className="bg-gradient-to-br from-gray-100 to-gray-200 p-8 flex items-center justify-center min-h-[250px]">
-                    <div className="text-center">
-                      <Printer className="w-16 h-16 text-primary/30 mx-auto mb-3" />
-                      <p className="text-gray-500 font-medium">{printer.title} Image</p>
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="p-8 bg-white">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{printer.title}</h3>
-                    <p className="text-gray-600 mb-6">{printer.description}</p>
+            {/* Printer Image & Types */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Single Printer Image */}
+              <div className="animate-on-scroll animate-delay-100">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-2xl -z-10 scale-105" />
+                  <img 
+                    src="/lovable-uploads/swirl-printers.png" 
+                    alt="Swirl High-Performance Printers" 
+                    className="w-full rounded-3xl"
+                  />
+                </div>
+              </div>
+
+              {/* Printer Types */}
+              <div className="animate-on-scroll animate-delay-200 space-y-6">
+                {printerTypes.map((printer, idx) => (
+                  <div 
+                    key={idx}
+                    className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300"
+                  >
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{printer.title}</h3>
+                    <p className="text-gray-600 mb-4">{printer.description}</p>
                     <div className="grid grid-cols-2 gap-3">
                       {printer.features.map((feature, i) => (
                         <div key={i} className="flex items-center gap-2 text-sm">
@@ -250,8 +252,8 @@ const SwirlHardware = () => {
                       ))}
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
