@@ -2,51 +2,38 @@ import React from 'react';
 import { ArrowRight, Zap, RefreshCw, Bell, Clock } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-
 const HomeDeliveryIntegrationSection = () => {
-  const deliveryApps = [
-    {
-      name: 'Talabat',
-      logo: '/lovable-uploads/talabat-logo.webp',
-      color: 'bg-orange-500'
-    },
-    {
-      name: 'Keeta',
-      logo: '/lovable-uploads/keeta-logo.png',
-      color: 'bg-red-500'
-    },
-    {
-      name: 'Noon Food',
-      logo: '/lovable-uploads/noon-food-logo.png',
-      color: 'bg-yellow-500'
-    }
-  ];
-
-  const features = [
-    {
-      icon: Zap,
-      title: 'Auto-Accept Orders',
-      description: 'Orders flow directly to your POS without manual entry'
-    },
-    {
-      icon: RefreshCw,
-      title: 'Real-Time Sync',
-      description: 'Menu prices and availability update across all platforms'
-    },
-    {
-      icon: Bell,
-      title: 'Instant Notifications',
-      description: 'Get alerted the moment a new order comes in'
-    },
-    {
-      icon: Clock,
-      title: 'Faster Fulfillment',
-      description: 'Reduce order prep time with automated kitchen routing'
-    }
-  ];
-
-  return (
-    <section className="py-16 overflow-hidden relative bg-gradient-to-b from-blue-50/50 to-white">
+  const deliveryApps = [{
+    name: 'Talabat',
+    logo: '/lovable-uploads/talabat-logo.webp',
+    color: 'bg-orange-500'
+  }, {
+    name: 'Keeta',
+    logo: '/lovable-uploads/keeta-logo.png',
+    color: 'bg-red-500'
+  }, {
+    name: 'Noon Food',
+    logo: '/lovable-uploads/noon-food-logo.png',
+    color: 'bg-yellow-500'
+  }];
+  const features = [{
+    icon: Zap,
+    title: 'Auto-Accept Orders',
+    description: 'Orders flow directly to your POS without manual entry'
+  }, {
+    icon: RefreshCw,
+    title: 'Real-Time Sync',
+    description: 'Menu prices and availability update across all platforms'
+  }, {
+    icon: Bell,
+    title: 'Instant Notifications',
+    description: 'Get alerted the moment a new order comes in'
+  }, {
+    icon: Clock,
+    title: 'Faster Fulfillment',
+    description: 'Reduce order prep time with automated kitchen routing'
+  }];
+  return <section className="py-16 overflow-hidden relative bg-gradient-to-b from-blue-50/50 to-white">
       <div className="container-custom relative">
         {/* Header */}
         <div className="text-center mb-12 animate-on-scroll">
@@ -65,26 +52,15 @@ const HomeDeliveryIntegrationSection = () => {
 
         {/* Delivery Apps Logos */}
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 mb-12 animate-on-scroll">
-          {deliveryApps.map((app, index) => (
-            <div 
-              key={index}
-              className="group relative flex flex-col items-center"
-            >
+          {deliveryApps.map((app, index) => <div key={index} className="group relative flex flex-col items-center">
               <div className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-2xl shadow-lg border border-gray-100 flex items-center justify-center p-4 transition-all duration-300 group-hover:shadow-xl group-hover:scale-105">
-                <img 
-                  src={app.logo} 
-                  alt={app.name}
-                  className="w-full h-full object-contain"
-                />
+                <img src={app.logo} alt={app.name} className="w-full h-full object-contain" />
               </div>
               <span className="mt-3 text-sm font-medium text-gray-700">{app.name}</span>
               
               {/* Connection line */}
-              {index < deliveryApps.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-6 md:-right-8 w-4 md:w-6 h-0.5 bg-gradient-to-r from-blue-300 to-blue-400"></div>
-              )}
-            </div>
-          ))}
+              {index < deliveryApps.length - 1 && <div className="hidden md:block absolute top-1/2 -right-6 md:-right-8 w-4 md:w-6 h-0.5 bg-gradient-to-r from-blue-300 to-blue-400"></div>}
+            </div>)}
           
           {/* Arrow to POS */}
           <div className="flex items-center gap-4">
@@ -97,8 +73,7 @@ const HomeDeliveryIntegrationSection = () => {
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 animate-on-scroll">
-          {features.map((feature, index) => (
-            <Card key={index} className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+          {features.map((feature, index) => <Card key={index} className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
               <CardContent className="p-5">
                 <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center mb-3">
                   <feature.icon className="h-5 w-5 text-blue-600" />
@@ -106,15 +81,14 @@ const HomeDeliveryIntegrationSection = () => {
                 <h3 className="font-semibold text-gray-900 mb-1">{feature.title}</h3>
                 <p className="text-sm text-gray-600">{feature.description}</p>
               </CardContent>
-            </Card>
-          ))}
+            </Card>)}
         </div>
 
         {/* CTA */}
         <div className="text-center animate-on-scroll">
           <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg text-white">
             <a href="https://app.swirl.cx/register" className="flex items-center gap-2">
-              Start integrating today <ArrowRight className="h-4 w-4" />
+              Book Demo            <ArrowRight className="h-4 w-4" />
             </a>
           </Button>
         </div>
@@ -123,8 +97,6 @@ const HomeDeliveryIntegrationSection = () => {
       {/* Decorative elements */}
       <div className="absolute top-0 left-1/4 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl -z-10"></div>
       <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-indigo-200/20 rounded-full blur-3xl -z-10"></div>
-    </section>
-  );
+    </section>;
 };
-
 export default HomeDeliveryIntegrationSection;
