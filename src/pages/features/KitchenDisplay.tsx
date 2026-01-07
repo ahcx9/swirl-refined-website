@@ -5,6 +5,7 @@ import CustomCTAButton from '@/components/CustomCTAButton';
 import { ChefHat, Timer, Bell, ClipboardCheck, Settings, ArrowRight, CheckCircle, Users, BarChart3, Zap, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import KDSMockup from '@/components/features/kds/KDSMockup';
 
 const KitchenDisplay = () => {
   useScrollAnimation();
@@ -74,14 +75,7 @@ const KitchenDisplay = () => {
                 </div>
                 
                 <div className="animate-on-scroll animate-delay-400">
-                  <div className="rounded-2xl overflow-hidden shadow-2xl">
-                    <img 
-                      src="/lovable-uploads/kitchen-display-hero.png" 
-                      alt="Kitchen Display System Interface" 
-                      className="w-full h-auto"
-                      loading="eager"
-                    />
-                  </div>
+                  <KDSMockup />
                 </div>
               </div>
             </div>
