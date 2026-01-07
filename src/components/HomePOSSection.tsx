@@ -1,10 +1,8 @@
-
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CreditCard, Receipt, ShoppingCart, DollarSign, ChefHat } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { preloadImage } from '@/utils/imagePreloader';
+import POSMockup from '@/components/features/pos/POSMockup';
 
 const HomePOSSection = () => {
   const features = [{
@@ -23,15 +21,6 @@ const HomePOSSection = () => {
     icon: ChefHat,
     text: 'Kitchen display integration'
   }];
-
-  // Preload the POS image
-  useEffect(() => {
-    const mainImage = "/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png";
-    preloadImage({
-      src: mainImage,
-      priority: 'high'
-    });
-  }, []);
   
   return (
     <section className="py-16 overflow-hidden relative bg-white">
@@ -72,35 +61,11 @@ const HomePOSSection = () => {
             </div>
           </div>
           
-          {/* Image column */}
+          {/* Mockup column */}
           <div className="md:col-span-7 order-1 md:order-2">
-            <Card className="overflow-hidden border-0 shadow-xl rounded-2xl bg-white">
-              <CardContent className="p-0">
-                <div className="relative">
-                  <div className="perspective-1000">
-                    <div className="transform transition-all duration-700 hover:scale-[1.02]">
-                      <AspectRatio ratio={16 / 9}>
-                        <img 
-                          src="/lovable-uploads/49346ab3-d7fb-40f5-a81d-2c900fd54cae.png" 
-                          alt="Swirl POS Interface" 
-                          className="w-full h-auto object-cover rounded-lg shadow-inner" 
-                          loading="eager" 
-                          fetchPriority="high"
-                          decoding="sync" 
-                          style={{
-                            transform: 'translateZ(0)'
-                          }}
-                        />
-                      </AspectRatio>
-                      
-                      <div className="absolute bottom-4 right-4 bg-blue-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
-                        Powerful & Easy to Use POS
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="transform transition-all duration-700 hover:scale-[1.02]">
+              <POSMockup />
+            </div>
           </div>
         </div>
       </div>

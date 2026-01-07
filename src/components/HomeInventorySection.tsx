@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Package, Tag, BarChart, HardDrive, List } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import InventoryMockup from '@/components/features/inventory/InventoryMockup';
 
 const HomeInventorySection = () => {
   const features = [{
@@ -61,30 +61,11 @@ const HomeInventorySection = () => {
             </div>
           </div>
           
-          {/* Image column */}
+          {/* Mockup column */}
           <div className="md:col-span-7 order-1 md:order-2">
-            <Card className="overflow-hidden border-0 shadow-xl rounded-2xl bg-white">
-              <CardContent className="p-0">
-                <div className="relative">
-                  <div className="perspective-1000">
-                    <div className="transform transition-all duration-700 hover:scale-[1.02]">
-                      <img 
-                        src="/lovable-uploads/inventory-overview.png" 
-                        alt="Inventory Management Interface" 
-                        className="w-full h-auto rounded-lg shadow-inner" 
-                        loading="lazy" 
-                        decoding="async" 
-                        style={{ transform: 'translateZ(0)', willChange: 'transform' }}
-                      />
-                      
-                      <div className="absolute bottom-4 right-4 bg-white border border-gray-300 text-gray-800 px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
-                        Smart Inventory Control
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="transform transition-all duration-700 hover:scale-[1.02]">
+              <InventoryMockup />
+            </div>
           </div>
         </div>
       </div>

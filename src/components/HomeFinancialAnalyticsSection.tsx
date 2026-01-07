@@ -1,8 +1,8 @@
 import React from 'react';
 import { BarChart, FileText, DollarSign, LineChart, FileBarChart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 import CustomCTAButton from '@/components/CustomCTAButton';
+import FinancialReportsMockup from '@/components/features/financial-reports/FinancialReportsMockup';
 const HomeFinancialAnalyticsSection = () => {
   const features = [{
     icon: BarChart,
@@ -54,25 +54,11 @@ const HomeFinancialAnalyticsSection = () => {
             </div>
           </div>
           
-          {/* Image column - enlarged and clearer with white background */}
+          {/* Mockup column */}
           <div className="md:col-span-7 order-1 md:order-2">
-            <Card className="overflow-hidden border-0 shadow-2xl rounded-2xl bg-white mx-auto">
-              <CardContent className="p-0">
-                <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-xl">
-                  <div className="relative h-full w-full">
-                    <img alt="Financial Analytics Dashboard showing revenue, orders, and payment methods" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-lg" src="/lovable-uploads/financial-analytics-dashboard.jpg" style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                    objectPosition: "center",
-                    transform: 'translateZ(0) scale(0.95)',
-                    willChange: 'transform'
-                  }} />
-                    
-                    
-                  </div>
-                </AspectRatio>
-              </CardContent>
-            </Card>
+            <div className="transform transition-all duration-700 hover:scale-[1.02]">
+              <FinancialReportsMockup />
+            </div>
           </div>
         </div>
       </div>

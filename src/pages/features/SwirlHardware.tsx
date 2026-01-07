@@ -15,12 +15,18 @@ const SwirlHardware = () => {
   ];
 
   const posSpecs = [
-    "15.6\" Full HD Touch Display",
-    "Intel Core Processor",
-    "8GB RAM / 256GB SSD",
-    "Dual-band WiFi + Ethernet",
-    "Multiple USB & Serial Ports",
-    "Built-in Customer Display Option"
+    { title: "CPU", value: "Intel Alder Lake-N97 Quad-Core, Up to 3.60GHz" },
+    { title: "Memory", value: "8G RAM + 128G ROM" },
+    { title: "Operating System", value: "Windows 11" },
+    { title: "Color", value: "Black / White" },
+    { title: "Main Screen", value: "15.6 / 15.6 inch, Resolution 1920*1080" },
+    { title: "Secondary Screen", value: "11.6-inch 1366*768 (A15P-W)" },
+    { title: "Interface", value: "5× External USB, 1× HDMI | 1× COM (RS232), 1× RJ45, 1× Line Out, 1× Mic In" },
+    { title: "Network Connection", value: "1000M Ethernet, Wi-Fi 2.4GHz / 5.0GHz, Bluetooth 5.0" },
+    { title: "Speaker", value: "8W / 2Ω" },
+    { title: "Power Adapter", value: "Output: 12V / 5A" },
+    { title: "Package Size", value: "515mm x 315mm x 485mm" },
+    { title: "Weight", value: "Package Weight: 6.98KG / 9.18KG" }
   ];
 
   const printerTypes = [
@@ -168,14 +174,13 @@ const SwirlHardware = () => {
               </div>
             </div>
 
-            {/* Specs Bar */}
-            <div className="animate-on-scroll animate-delay-300 bg-white rounded-2xl p-8 border border-gray-100 shadow-lg">
-              <h4 className="text-lg font-bold text-gray-900 mb-6 text-center">Technical Specifications</h4>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {/* Specs Grid */}
+            <div className="animate-on-scroll animate-delay-300 bg-gray-900 rounded-2xl p-8 border border-gray-800">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {posSpecs.map((spec, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-3 bg-gray-50 rounded-xl">
-                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-sm text-gray-700">{spec}</span>
+                  <div key={idx} className="p-4 bg-gray-800/50 rounded-xl border border-gray-700">
+                    <h5 className="text-white font-bold mb-2">{spec.title}</h5>
+                    <p className="text-gray-300 text-sm">{spec.value}</p>
                   </div>
                 ))}
               </div>
