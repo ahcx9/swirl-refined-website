@@ -43,38 +43,39 @@ const KitchenDisplay = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 bg-white overflow-hidden">
+        <section className="relative pt-24 md:pt-32 pb-12 md:pb-20 bg-white overflow-hidden">
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
             <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
           </div>
 
           <div className="container-custom">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
-                    <ChefHat className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-semibold text-primary">Kitchen Display System</span>
-                  </div>
-                  
-                  <h1 className="animate-on-scroll animate-delay-100 text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
-                    Streamline Your<br />
-                    <span className="text-primary">Kitchen</span>
-                  </h1>
-                  
-                  <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 mb-8">
-                    Transform your kitchen efficiency with our advanced Kitchen Display System. Reduce errors, improve communication, and speed up service.
-                  </p>
-                  
-                  <div className="animate-on-scroll animate-delay-300">
-                    <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                      get started for free
-                    </CustomCTAButton>
-                  </div>
+            <div className="max-w-7xl mx-auto">
+              {/* Text Content - Centered Above */}
+              <div className="text-center max-w-4xl mx-auto mb-10 md:mb-14">
+                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
+                  <ChefHat className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-semibold text-primary">Kitchen Display System</span>
                 </div>
                 
-                <div className="animate-on-scroll animate-delay-400">
+                <h1 className="animate-on-scroll animate-delay-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-gray-900">
+                  Streamline Your <span className="text-primary">Kitchen</span>
+                </h1>
+                
+                <p className="animate-on-scroll animate-delay-200 text-base sm:text-lg md:text-xl text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
+                  Transform your kitchen efficiency with our advanced Kitchen Display System. Reduce errors, improve communication, and speed up service.
+                </p>
+                
+                <div className="animate-on-scroll animate-delay-300">
+                  <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                    get started for free
+                  </CustomCTAButton>
+                </div>
+              </div>
+              
+              {/* Mockup Below */}
+              <div className="animate-on-scroll animate-delay-400 w-full overflow-x-auto pb-4">
+                <div className="min-w-[900px] md:min-w-0">
                   <KDSMockup />
                 </div>
               </div>
