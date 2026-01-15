@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCurrency } from '@/hooks/useCurrency';
-import { ChevronLeft, Users, Clock, Printer, Receipt, CreditCard, UtensilsCrossed, Truck, Package, Store, QrCode, User } from 'lucide-react';
+import { ChevronLeft, Users, Clock, Printer, Receipt, CreditCard, UtensilsCrossed, Truck, Package, Store, QrCode, User, X, Banknote, Wallet, Smartphone, SplitSquareVertical, Heart } from 'lucide-react';
+
 const POSMockup = () => {
   const {
     amounts,
     formatAmount
   } = useCurrency();
+  
+  const [showBillPopup, setShowBillPopup] = useState(false);
+  const [showPaymentPopup, setShowPaymentPopup] = useState(false);
   const orderItems = [{
     name: 'Red Velvet Latte',
     qty: 1,
@@ -199,11 +203,17 @@ const POSMockup = () => {
 
             {/* Payment Buttons */}
             <div className="space-y-2">
-              <button className="w-full px-4 py-2.5 text-sm font-medium text-gray-700 border border-gray-200 rounded-lg hover:bg-white transition-colors flex items-center justify-center gap-2">
+              <button 
+                onClick={() => setShowBillPopup(true)}
+                className="w-full px-4 py-2.5 text-sm font-medium text-gray-700 border border-gray-200 rounded-lg hover:bg-white transition-colors flex items-center justify-center gap-2"
+              >
                 <Receipt className="w-4 h-4" />
                 Print Bill
               </button>
-              <button className="w-full px-4 py-3 text-sm font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+              <button 
+                onClick={() => setShowPaymentPopup(true)}
+                className="w-full px-4 py-3 text-sm font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2"
+              >
                 <CreditCard className="w-4 h-4" />
                 Settle Bill
               </button>
@@ -262,6 +272,198 @@ const POSMockup = () => {
 
       {/* Floor Management Card */}
       
+      {/* Bill Receipt Popup */}
+      {showBillPopup && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setShowBillPopup(false)}
+        >
+          <div 
+            className="bg-white rounded-2xl shadow-2xl max-w-sm w-full max-h-[90vh] overflow-y-auto animate-scale-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Popup Header */}
+            <div className="flex items-center justify-between p-4 border-b border-gray-100">
+              <span className="text-sm font-medium text-gray-500">Receipt Preview</span>
+              <button 
+                onClick={() => setShowBillPopup(false)}
+                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+              >
+                <X className="w-5 h-5 text-gray-500" />
+              </button>
+            </div>
+            
+            {/* Receipt Content */}
+            <div className="p-6 text-center">
+              {/* Logo */}
+              <h2 className="text-2xl font-black text-gray-900 mb-1">swirl</h2>
+              <p className="text-sm text-gray-700 font-medium">Swirl Cafe</p>
+              <p className="text-xs text-gray-500">Al Khalidya</p>
+              <p className="text-xs text-gray-400">VAT: VAT123456789</p>
+              <p className="text-xs text-gray-400">Dec 30, 2025, 4:54 PM</p>
+              
+              {/* Separator */}
+              <div className="border-t border-dashed border-gray-300 my-4" />
+              
+              {/* Order Info */}
+              <div className="text-sm">
+                <p className="text-gray-700">Invoice #: <span className="font-medium">INV-100736</span></p>
+                <p className="text-gray-700">Server: <span className="font-medium">shamim</span></p>
+                <p className="text-gray-700">Table: <span className="font-medium">#009</span></p>
+              </div>
+              
+              {/* Separator */}
+              <div className="border-t border-dashed border-gray-300 my-4" />
+              
+              {/* Items */}
+              <div className="space-y-2 text-sm">
+                {orderItems.map((item, index) => (
+                  <div key={index} className="flex justify-between">
+                    <div className="text-left">
+                      <p className="text-gray-800">{item.name}</p>
+                      <p className="text-xs text-gray-500">{item.qty} × {formatAmount(item.price)}</p>
+                    </div>
+                    <p className="font-medium text-gray-900">{formatAmount(item.price * item.qty)}</p>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Separator */}
+              <div className="border-t border-dashed border-gray-300 my-4" />
+              
+              {/* Totals */}
+              <div className="space-y-1 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Subtotal (المجموع الفرعي)</span>
+                  <span className="text-gray-900">{formatAmount(subtotal)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">VAT 5% (ضريبة القيمة المضافة)</span>
+                  <span className="text-gray-900">{formatAmount(vat)}</span>
+                </div>
+              </div>
+              
+              {/* Separator */}
+              <div className="border-t border-dashed border-gray-300 my-4" />
+              
+              {/* Total */}
+              <div className="flex justify-between text-lg font-bold mb-4">
+                <span className="text-gray-900">Total (الإجمالي)</span>
+                <span className="text-primary">{formatAmount(total)}</span>
+              </div>
+              
+              {/* Printed By */}
+              <p className="text-xs text-gray-400 mb-4">Printed by: shamim</p>
+              
+              {/* Unpaid Badge */}
+              <div className="inline-block px-6 py-2 bg-yellow-100 text-yellow-700 font-bold text-sm rounded-full mb-4">
+                UNPAID
+              </div>
+              
+              {/* Footer */}
+              <div className="border-t border-dashed border-gray-300 pt-4">
+                <p className="text-sm text-gray-600 mb-1">Have a lovely day!</p>
+                <p className="text-xs text-gray-400 flex items-center justify-center gap-1">
+                  built with <Heart className="w-3 h-3 text-red-500 fill-red-500" /> by swirl.cx
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {/* Payment Method Popup */}
+      {showPaymentPopup && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setShowPaymentPopup(false)}
+        >
+          <div 
+            className="bg-white rounded-2xl shadow-2xl max-w-md w-full animate-scale-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Popup Header */}
+            <div className="flex items-center justify-between p-5 border-b border-gray-100">
+              <h3 className="text-lg font-bold text-gray-900">Select Payment Method</h3>
+              <button 
+                onClick={() => setShowPaymentPopup(false)}
+                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+              >
+                <X className="w-5 h-5 text-gray-500" />
+              </button>
+            </div>
+            
+            {/* Payment Options */}
+            <div className="p-5 grid grid-cols-2 gap-3">
+              {/* Master Card */}
+              <button className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                    <CreditCard className="w-5 h-5 text-orange-600" />
+                  </div>
+                </div>
+                <p className="font-bold text-gray-900 group-hover:text-primary">Master Card</p>
+                <p className="text-xs text-gray-500">CREDIT CARD</p>
+              </button>
+              
+              {/* Zomato */}
+              <button className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                    <Wallet className="w-5 h-5 text-red-600" />
+                  </div>
+                </div>
+                <p className="font-bold text-gray-900 group-hover:text-primary">Zomato</p>
+                <p className="text-xs text-gray-500">WALLET</p>
+              </button>
+              
+              {/* Visa */}
+              <button className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <CreditCard className="w-5 h-5 text-blue-600" />
+                  </div>
+                </div>
+                <p className="font-bold text-gray-900 group-hover:text-primary">Visa</p>
+                <p className="text-xs text-gray-500">CREDIT CARD</p>
+              </button>
+              
+              {/* Cash */}
+              <button className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                    <Banknote className="w-5 h-5 text-green-600" />
+                  </div>
+                </div>
+                <p className="font-bold text-gray-900 group-hover:text-primary">CASH</p>
+                <p className="text-xs text-gray-500">CASH</p>
+              </button>
+              
+              {/* Aggregator Payment */}
+              <button className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <Smartphone className="w-5 h-5 text-purple-600" />
+                  </div>
+                </div>
+                <p className="font-bold text-gray-900 group-hover:text-primary">Aggregator</p>
+                <p className="text-xs text-gray-500">MOBILE PAYMENT</p>
+              </button>
+              
+              {/* Split Payment */}
+              <button className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                    <SplitSquareVertical className="w-5 h-5 text-gray-600" />
+                  </div>
+                </div>
+                <p className="font-bold text-gray-900 group-hover:text-primary">SPLIT</p>
+                <p className="text-xs text-gray-500">SPLIT PAYMENT</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>;
 };
 export default POSMockup;
