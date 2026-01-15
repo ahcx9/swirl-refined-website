@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCurrency } from '@/hooks/useCurrency';
-import { ChevronLeft, Users, Clock, Printer, Receipt, CreditCard, UtensilsCrossed, Truck, Package, Store, QrCode, User, X, Banknote, Wallet, Smartphone, SplitSquareVertical, Heart } from 'lucide-react';
+import { ChevronLeft, Users, Clock, Printer, Receipt, CreditCard, UtensilsCrossed, Truck, Package, Store, QrCode, User, X, Banknote, Wallet, Smartphone, SplitSquareVertical, Heart, Check, Plus, Minus } from 'lucide-react';
 
 const POSMockup = () => {
   const {
@@ -10,6 +10,13 @@ const POSMockup = () => {
   
   const [showBillPopup, setShowBillPopup] = useState(false);
   const [showPaymentPopup, setShowPaymentPopup] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showSplitPopup, setShowSplitPopup] = useState(false);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
+  const [splitPayments, setSplitPayments] = useState<{method: string; amount: number}[]>([
+    { method: 'Cash', amount: 0 },
+    { method: 'Card', amount: 0 }
+  ]);
   const orderItems = [{
     name: 'Red Velvet Latte',
     qty: 1,
@@ -396,7 +403,14 @@ const POSMockup = () => {
             {/* Payment Options */}
             <div className="p-5 grid grid-cols-2 gap-3">
               {/* Master Card */}
-              <button className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group">
+              <button 
+                onClick={() => {
+                  setSelectedPaymentMethod('Master Card');
+                  setShowPaymentPopup(false);
+                  setShowSuccessPopup(true);
+                }}
+                className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group"
+              >
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
                     <CreditCard className="w-5 h-5 text-orange-600" />
@@ -407,7 +421,14 @@ const POSMockup = () => {
               </button>
               
               {/* Zomato */}
-              <button className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group">
+              <button 
+                onClick={() => {
+                  setSelectedPaymentMethod('Zomato');
+                  setShowPaymentPopup(false);
+                  setShowSuccessPopup(true);
+                }}
+                className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group"
+              >
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
                     <Wallet className="w-5 h-5 text-red-600" />
@@ -418,7 +439,14 @@ const POSMockup = () => {
               </button>
               
               {/* Visa */}
-              <button className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group">
+              <button 
+                onClick={() => {
+                  setSelectedPaymentMethod('Visa');
+                  setShowPaymentPopup(false);
+                  setShowSuccessPopup(true);
+                }}
+                className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group"
+              >
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
                     <CreditCard className="w-5 h-5 text-blue-600" />
@@ -429,7 +457,14 @@ const POSMockup = () => {
               </button>
               
               {/* Cash */}
-              <button className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group">
+              <button 
+                onClick={() => {
+                  setSelectedPaymentMethod('Cash');
+                  setShowPaymentPopup(false);
+                  setShowSuccessPopup(true);
+                }}
+                className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group"
+              >
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
                     <Banknote className="w-5 h-5 text-green-600" />
@@ -440,7 +475,14 @@ const POSMockup = () => {
               </button>
               
               {/* Aggregator Payment */}
-              <button className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group">
+              <button 
+                onClick={() => {
+                  setSelectedPaymentMethod('Aggregator');
+                  setShowPaymentPopup(false);
+                  setShowSuccessPopup(true);
+                }}
+                className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group"
+              >
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
                     <Smartphone className="w-5 h-5 text-purple-600" />
@@ -451,7 +493,17 @@ const POSMockup = () => {
               </button>
               
               {/* Split Payment */}
-              <button className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group">
+              <button 
+                onClick={() => {
+                  setShowPaymentPopup(false);
+                  setSplitPayments([
+                    { method: 'Cash', amount: Math.floor(total / 2 * 100) / 100 },
+                    { method: 'Card', amount: Math.ceil(total / 2 * 100) / 100 }
+                  ]);
+                  setShowSplitPopup(true);
+                }}
+                className="p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-left group"
+              >
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
                     <SplitSquareVertical className="w-5 h-5 text-gray-600" />
@@ -459,6 +511,211 @@ const POSMockup = () => {
                 </div>
                 <p className="font-bold text-gray-900 group-hover:text-primary">SPLIT</p>
                 <p className="text-xs text-gray-500">SPLIT PAYMENT</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {/* Payment Success Popup */}
+      {showSuccessPopup && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setShowSuccessPopup(false)}
+        >
+          <div 
+            className="bg-white rounded-2xl shadow-2xl max-w-sm w-full animate-scale-in text-center p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Success Icon */}
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center animate-scale-in">
+                <Check className="w-8 h-8 text-white" strokeWidth={3} />
+              </div>
+            </div>
+            
+            {/* Success Message */}
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Payment Successful!</h3>
+            <p className="text-gray-500 mb-4">Order #100736 has been settled</p>
+            
+            {/* Payment Details */}
+            <div className="bg-gray-50 rounded-xl p-4 mb-6">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm text-gray-600">Amount Paid</span>
+                <span className="text-lg font-bold text-green-600">{formatAmount(total)}</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-gray-600">Payment Method</span>
+                <span className="text-sm font-medium text-gray-900">{selectedPaymentMethod}</span>
+              </div>
+            </div>
+            
+            {/* Status Badge */}
+            <div className="inline-block px-6 py-2 bg-green-100 text-green-700 font-bold text-sm rounded-full mb-6">
+              PAID
+            </div>
+            
+            {/* Close Button */}
+            <button 
+              onClick={() => setShowSuccessPopup(false)}
+              className="w-full py-3 bg-gray-900 text-white font-medium rounded-xl hover:bg-gray-800 transition-colors"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      )}
+      
+      {/* Split Payment Popup */}
+      {showSplitPopup && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setShowSplitPopup(false)}
+        >
+          <div 
+            className="bg-white rounded-2xl shadow-2xl max-w-md w-full animate-scale-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between p-5 border-b border-gray-100">
+              <h3 className="text-lg font-bold text-gray-900">Split Payment</h3>
+              <button 
+                onClick={() => setShowSplitPopup(false)}
+                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+              >
+                <X className="w-5 h-5 text-gray-500" />
+              </button>
+            </div>
+            
+            {/* Total Amount */}
+            <div className="p-5 border-b border-gray-100">
+              <div className="flex justify-between items-center">
+                <span className="text-gray-600">Total Amount</span>
+                <span className="text-xl font-bold text-primary">{formatAmount(total)}</span>
+              </div>
+            </div>
+            
+            {/* Split Entries */}
+            <div className="p-5 space-y-4">
+              {splitPayments.map((payment, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  {/* Payment Method Selector */}
+                  <select 
+                    value={payment.method}
+                    onChange={(e) => {
+                      const newPayments = [...splitPayments];
+                      newPayments[index].method = e.target.value;
+                      setSplitPayments(newPayments);
+                    }}
+                    className="flex-1 px-3 py-2.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-700 bg-white focus:outline-none focus:border-primary"
+                  >
+                    <option value="Cash">Cash</option>
+                    <option value="Card">Card</option>
+                    <option value="Master Card">Master Card</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Zomato">Zomato</option>
+                    <option value="Aggregator">Aggregator</option>
+                  </select>
+                  
+                  {/* Amount Input */}
+                  <div className="flex items-center gap-2">
+                    <button 
+                      onClick={() => {
+                        const newPayments = [...splitPayments];
+                        newPayments[index].amount = Math.max(0, newPayments[index].amount - 10);
+                        setSplitPayments(newPayments);
+                      }}
+                      className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+                    >
+                      <Minus className="w-4 h-4 text-gray-600" />
+                    </button>
+                    <input 
+                      type="number"
+                      value={payment.amount}
+                      onChange={(e) => {
+                        const newPayments = [...splitPayments];
+                        newPayments[index].amount = Math.max(0, parseFloat(e.target.value) || 0);
+                        setSplitPayments(newPayments);
+                      }}
+                      className="w-24 px-3 py-2 border border-gray-200 rounded-lg text-sm font-bold text-center focus:outline-none focus:border-primary"
+                    />
+                    <button 
+                      onClick={() => {
+                        const newPayments = [...splitPayments];
+                        newPayments[index].amount = newPayments[index].amount + 10;
+                        setSplitPayments(newPayments);
+                      }}
+                      className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+                    >
+                      <Plus className="w-4 h-4 text-gray-600" />
+                    </button>
+                  </div>
+                  
+                  {/* Remove Button */}
+                  {splitPayments.length > 2 && (
+                    <button 
+                      onClick={() => {
+                        setSplitPayments(splitPayments.filter((_, i) => i !== index));
+                      }}
+                      className="w-8 h-8 flex items-center justify-center text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  )}
+                </div>
+              ))}
+              
+              {/* Add Another Split */}
+              <button 
+                onClick={() => {
+                  setSplitPayments([...splitPayments, { method: 'Cash', amount: 0 }]);
+                }}
+                className="w-full py-2.5 border-2 border-dashed border-gray-200 rounded-lg text-sm font-medium text-gray-500 hover:border-primary hover:text-primary transition-colors flex items-center justify-center gap-2"
+              >
+                <Plus className="w-4 h-4" />
+                Add Another Payment
+              </button>
+            </div>
+            
+            {/* Summary */}
+            <div className="p-5 bg-gray-50 border-t border-gray-100">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm text-gray-600">Split Total</span>
+                <span className={`text-lg font-bold ${
+                  Math.abs(splitPayments.reduce((sum, p) => sum + p.amount, 0) - total) < 0.01 
+                    ? 'text-green-600' 
+                    : 'text-red-500'
+                }`}>
+                  {formatAmount(splitPayments.reduce((sum, p) => sum + p.amount, 0))}
+                </span>
+              </div>
+              {Math.abs(splitPayments.reduce((sum, p) => sum + p.amount, 0) - total) >= 0.01 && (
+                <p className="text-xs text-red-500 mb-3">
+                  {splitPayments.reduce((sum, p) => sum + p.amount, 0) < total 
+                    ? `Remaining: ${formatAmount(total - splitPayments.reduce((sum, p) => sum + p.amount, 0))}`
+                    : `Excess: ${formatAmount(splitPayments.reduce((sum, p) => sum + p.amount, 0) - total)}`
+                  }
+                </p>
+              )}
+              
+              {/* Complete Payment Button */}
+              <button 
+                onClick={() => {
+                  if (Math.abs(splitPayments.reduce((sum, p) => sum + p.amount, 0) - total) < 0.01) {
+                    setSelectedPaymentMethod('Split Payment');
+                    setShowSplitPopup(false);
+                    setShowSuccessPopup(true);
+                  }
+                }}
+                disabled={Math.abs(splitPayments.reduce((sum, p) => sum + p.amount, 0) - total) >= 0.01}
+                className={`w-full py-3 font-medium rounded-xl transition-colors flex items-center justify-center gap-2 ${
+                  Math.abs(splitPayments.reduce((sum, p) => sum + p.amount, 0) - total) < 0.01
+                    ? 'bg-gray-900 text-white hover:bg-gray-800'
+                    : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                }`}
+              >
+                <Check className="w-4 h-4" />
+                Complete Split Payment
               </button>
             </div>
           </div>
