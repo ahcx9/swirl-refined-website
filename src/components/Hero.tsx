@@ -103,8 +103,7 @@ const POSMockup = ({
     posSubtotal: string;
     posTotal: string;
   };
-}) => (
-  <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden w-full max-w-[420px]">
+}) => <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden w-full max-w-[420px]">
     {/* POS Header Bar */}
     <div className="bg-primary px-4 py-3 flex items-center justify-between">
       <div className="flex items-center gap-2">
@@ -170,8 +169,7 @@ const POSMockup = ({
         </button>
       </div>
     </div>
-  </div>
-);
+  </div>;
 
 // Inventory Mockup Component  
 const InventoryMockup = ({
@@ -182,8 +180,7 @@ const InventoryMockup = ({
     accountingWeek: string;
     accountingMonth: string;
   };
-}) => (
-  <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden w-full max-w-[380px]">
+}) => <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden w-full max-w-[380px]">
     {/* Header */}
     <div className="bg-gradient-to-r from-primary to-primary/90 px-4 py-3 flex items-center justify-between">
       <div className="flex items-center gap-2">
@@ -252,74 +249,78 @@ const InventoryMockup = ({
         <span className="text-lg font-bold text-emerald-600">{amounts.accountingMonth}</span>
       </div>
     </div>
-  </div>
-);
+  </div>;
 
 // KDS Mockup Component for Hero
 const KDSMockup = () => {
-  const orders = [
-    {
-      id: "#100736",
-      table: "Table 009",
-      status: "In prep",
-      cardBg: "bg-red-50",
-      borderColor: "border-l-4 border-l-red-500",
-      isLate: true,
-      time: "16:54",
-      waitTime: "5m 19s",
-      items: [
-        { qty: 1, name: "Red Velvet Latte" },
-        { qty: 1, name: "Spanish Latte" }
-      ]
-    },
-    {
-      id: "#100742",
-      table: "Table 1",
-      status: "In prep",
-      cardBg: "bg-blue-50",
-      borderColor: "border-l-4 border-l-blue-500",
-      isLate: false,
-      time: "13:57",
-      waitTime: "2m 15s",
-      items: [
-        { qty: 1, name: "Pistachio Latte" },
-        { qty: 2, name: "Red Velvet Latte" }
-      ]
-    },
-    {
-      id: "#100744",
-      table: "Takeaway",
-      status: "Takeaway",
-      cardBg: "bg-amber-50",
-      borderColor: "border-l-4 border-l-amber-500",
-      isTakeaway: true,
-      isLate: false,
-      time: "14:10",
-      waitTime: "02m 58s",
-      items: [
-        { qty: 1, name: "Vanilla Affogato" },
-        { qty: 1, name: "Texas BBQ'ed" }
-      ]
-    },
-    {
-      id: "#0",
-      table: "Table 10",
-      status: "served",
-      cardBg: "bg-emerald-50",
-      borderColor: "border-l-4 border-l-emerald-500",
-      isLate: false,
-      isServed: true,
-      time: "14:27",
-      waitTime: "Complete",
-      items: [
-        { qty: 1, name: "Brownie Ice cream" },
-        { qty: 1, name: "Red Velvet" }
-      ]
-    }
-  ];
-
-  return (
-    <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden w-full max-w-[800px]">
+  const orders = [{
+    id: "#100736",
+    table: "Table 009",
+    status: "In prep",
+    cardBg: "bg-red-50",
+    borderColor: "border-l-4 border-l-red-500",
+    isLate: true,
+    time: "16:54",
+    waitTime: "5m 19s",
+    items: [{
+      qty: 1,
+      name: "Red Velvet Latte"
+    }, {
+      qty: 1,
+      name: "Spanish Latte"
+    }]
+  }, {
+    id: "#100742",
+    table: "Table 1",
+    status: "In prep",
+    cardBg: "bg-blue-50",
+    borderColor: "border-l-4 border-l-blue-500",
+    isLate: false,
+    time: "13:57",
+    waitTime: "2m 15s",
+    items: [{
+      qty: 1,
+      name: "Pistachio Latte"
+    }, {
+      qty: 2,
+      name: "Red Velvet Latte"
+    }]
+  }, {
+    id: "#100744",
+    table: "Takeaway",
+    status: "Takeaway",
+    cardBg: "bg-amber-50",
+    borderColor: "border-l-4 border-l-amber-500",
+    isTakeaway: true,
+    isLate: false,
+    time: "14:10",
+    waitTime: "02m 58s",
+    items: [{
+      qty: 1,
+      name: "Vanilla Affogato"
+    }, {
+      qty: 1,
+      name: "Texas BBQ'ed"
+    }]
+  }, {
+    id: "#0",
+    table: "Table 10",
+    status: "served",
+    cardBg: "bg-emerald-50",
+    borderColor: "border-l-4 border-l-emerald-500",
+    isLate: false,
+    isServed: true,
+    time: "14:27",
+    waitTime: "Complete",
+    items: [{
+      qty: 1,
+      name: "Brownie Ice cream"
+    }, {
+      qty: 1,
+      name: "Red Velvet"
+    }]
+  }];
+  return <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden w-full max-w-[800px]">
       {/* Header */}
       <div className="bg-gradient-to-r from-gray-900 to-gray-800 px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -346,31 +347,19 @@ const KDSMockup = () => {
 
       {/* Orders Grid */}
       <div className="p-3 grid grid-cols-2 md:grid-cols-4 gap-3">
-        {orders.map((order, idx) => (
-          <div 
-            key={idx} 
-            className={`${order.cardBg} rounded-xl border border-gray-200 overflow-hidden ${order.borderColor}`}
-          >
+        {orders.map((order, idx) => <div key={idx} className={`${order.cardBg} rounded-xl border border-gray-200 overflow-hidden ${order.borderColor}`}>
             {/* Order Header */}
             <div className="p-2.5 border-b border-gray-100/50">
               <div className="flex items-center justify-between mb-1.5">
                 <span className="font-bold text-gray-900 text-xs">{order.id}</span>
                 <div className="flex items-center gap-1">
-                  {order.isServed ? (
-                    <span className="text-[10px] font-medium text-gray-400">served</span>
-                  ) : order.isTakeaway ? (
-                    <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[10px] rounded font-semibold">
+                  {order.isServed ? <span className="text-[10px] font-medium text-gray-400">served</span> : order.isTakeaway ? <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[10px] rounded font-semibold">
                       Takeaway
-                    </span>
-                  ) : order.isLate ? (
-                    <span className="px-1.5 py-0.5 bg-red-500 text-white text-[10px] rounded font-semibold">
+                    </span> : order.isLate ? <span className="px-1.5 py-0.5 bg-red-500 text-white text-[10px] rounded font-semibold">
                       LATE
-                    </span>
-                  ) : (
-                    <span className="px-1.5 py-0.5 bg-blue-600 text-white text-[10px] rounded font-semibold">
+                    </span> : <span className="px-1.5 py-0.5 bg-blue-600 text-white text-[10px] rounded font-semibold">
                       In prep
-                    </span>
-                  )}
+                    </span>}
                 </div>
               </div>
               <div className="flex items-center justify-between">
@@ -383,30 +372,26 @@ const KDSMockup = () => {
 
             {/* Order Items */}
             <div className="p-2.5 space-y-1.5">
-              {order.items.map((item, i) => (
-                <div key={i} className="flex items-center gap-2">
+              {order.items.map((item, i) => <div key={i} className="flex items-center gap-2">
                   <div className={`w-4 h-4 border-2 rounded-full flex items-center justify-center flex-shrink-0 ${order.isServed ? 'border-emerald-400 bg-emerald-50' : 'border-gray-300'}`}>
                     {order.isServed && <Check className="w-2.5 h-2.5 text-emerald-500" />}
                   </div>
                   <span className="font-bold text-gray-800 text-[10px]">{item.qty}×</span>
                   <span className="text-gray-600 text-[10px] truncate">{item.name}</span>
-                </div>
-              ))}
+                </div>)}
             </div>
-          </div>
-        ))}
+          </div>)}
       </div>
-    </div>
-  );
+    </div>;
 };
 
 // ============ MAIN HERO COMPONENT ============
 
 const Hero: React.FC = () => {
-  const { amounts } = useCurrency();
-  
-  return (
-    <section className="relative min-h-screen bg-white overflow-hidden pt-32 md:pt-36 lg:pt-32 pb-8">
+  const {
+    amounts
+  } = useCurrency();
+  return <section className="relative min-h-screen bg-white overflow-hidden pt-32 md:pt-36 lg:pt-32 pb-8">
       
       {/* ======== DOODLES - Outer margins only, hidden on mobile/tablet ======== */}
       <div className="absolute inset-0 pointer-events-none text-primary hidden xl:block">
@@ -443,7 +428,7 @@ const Hero: React.FC = () => {
 
       {/* ======== MAIN CONTENT ======== */}
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[75vh]">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[75vh] shadow-none py-[40px]">
           
           {/* ======== LEFT COLUMN: COPY & CTAs ======== */}
           <div className="space-y-7 text-center lg:text-left order-1">
@@ -467,8 +452,8 @@ const Hero: React.FC = () => {
               <CTAArrowDoodle />
               <a href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20for%20Swirl" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="h-14 px-8 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300" style={{
-                  animation: 'pulse-glow 2s ease-in-out infinite'
-                }}>
+                animation: 'pulse-glow 2s ease-in-out infinite'
+              }}>
                   Book a Demo
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
@@ -505,8 +490,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
