@@ -123,15 +123,41 @@ const InventoryMockup = () => {
           </div>
         </div>
 
-        {/* Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[500px]">
+        {/* Mobile: Card Layout */}
+        <div className="md:hidden p-4 space-y-3">
+          {locations.map((location, index) => (
+            <div 
+              key={index} 
+              className="bg-gray-50 rounded-xl p-3 border border-gray-100"
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Building2 className="w-3.5 h-3.5 text-primary" />
+                </div>
+                <span className="font-medium text-gray-900 text-sm">{location.name}</span>
+              </div>
+              <div className="flex flex-wrap gap-2 mt-2">
+                <span className={`inline-block px-2 py-0.5 rounded text-[9px] font-semibold uppercase tracking-wide ${location.typeStyle}`}>
+                  {location.type}
+                </span>
+                <span className={`inline-block px-2 py-0.5 rounded text-[9px] font-medium ${location.scopeStyle}`}>
+                  {location.scope}
+                </span>
+              </div>
+              <p className="text-[11px] text-gray-500 mt-2">{location.branch}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: Table */}
+        <div className="hidden md:block overflow-x-auto">
+          <table className="w-full">
             <thead>
               <tr className="bg-gray-50 border-b border-gray-100">
-                <th className="text-left px-4 md:px-6 py-2 md:py-3 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider">Name</th>
-                <th className="text-left px-4 md:px-6 py-2 md:py-3 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider">Type</th>
-                <th className="text-left px-4 md:px-6 py-2 md:py-3 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider">Scope</th>
-                <th className="text-left px-4 md:px-6 py-2 md:py-3 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider">Branch</th>
+                <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Name</th>
+                <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Type</th>
+                <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Scope</th>
+                <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Branch</th>
               </tr>
             </thead>
             <tbody>
@@ -140,25 +166,25 @@ const InventoryMockup = () => {
                   key={index} 
                   className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors"
                 >
-                  <td className="px-4 md:px-6 py-3 md:py-4">
-                    <div className="flex items-center gap-2 md:gap-3">
-                      <div className="w-6 h-6 md:w-8 md:h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Building2 className="w-3 h-3 md:w-4 md:h-4 text-primary" />
+                  <td className="px-6 py-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <Building2 className="w-4 h-4 text-primary" />
                       </div>
-                      <span className="font-medium text-gray-900 text-xs md:text-sm">{location.name}</span>
+                      <span className="font-medium text-gray-900 text-sm">{location.name}</span>
                     </div>
                   </td>
-                  <td className="px-4 md:px-6 py-3 md:py-4">
-                    <span className={`inline-block px-2 md:px-2.5 py-0.5 md:py-1 rounded text-[9px] md:text-[10px] font-semibold uppercase tracking-wide ${location.typeStyle}`}>
+                  <td className="px-6 py-4">
+                    <span className={`inline-block px-2.5 py-1 rounded text-[10px] font-semibold uppercase tracking-wide ${location.typeStyle}`}>
                       {location.type}
                     </span>
                   </td>
-                  <td className="px-4 md:px-6 py-3 md:py-4">
-                    <span className={`inline-block px-2 md:px-2.5 py-0.5 md:py-1 rounded text-[9px] md:text-[10px] font-medium ${location.scopeStyle}`}>
+                  <td className="px-6 py-4">
+                    <span className={`inline-block px-2.5 py-1 rounded text-[10px] font-medium ${location.scopeStyle}`}>
                       {location.scope}
                     </span>
                   </td>
-                  <td className="px-4 md:px-6 py-3 md:py-4 text-xs md:text-sm text-gray-600">{location.branch}</td>
+                  <td className="px-6 py-4 text-sm text-gray-600">{location.branch}</td>
                 </tr>
               ))}
             </tbody>

@@ -1,273 +1,199 @@
 import React from 'react';
-import { Clock, Check, ChevronDown } from 'lucide-react';
+import { Clock, AlertTriangle, CheckCircle, Users, UtensilsCrossed, ChefHat } from 'lucide-react';
 
-const KDSMockup = () => {
-  const orders = [
-    {
-      id: "#100736",
-      table: "Table 009",
-      status: "In prep",
-      statusColor: "bg-gray-900",
-      cardBg: "bg-red-50",
-      borderColor: "border-l-4 border-l-red-500",
-      isLate: true,
-      time: "16:54",
-      waitTime: "189h 19m",
-      items: [
-        { qty: 1, name: "Red Velvet Latte" },
-        { qty: 1, name: "Spanish Latte" },
-        { qty: 1, name: "Pistachio Latte" },
-        { qty: 2, name: "Arabic Breakfast" }
-      ]
-    },
-    {
-      id: "#100742",
-      table: "Table 1",
-      floor: "1st Floor",
-      status: "In prep",
-      statusColor: "bg-gray-900",
-      cardBg: "bg-red-50",
-      borderColor: "border-l-4 border-l-red-500",
-      isLate: true,
-      time: "13:57",
-      waitTime: "7m 15s",
-      items: [
-        { qty: 1, name: "Pistachio Latte" },
-        { qty: 2, name: "Red Velvet Latte" }
-      ]
-    },
-    {
-      id: "#100743",
-      table: "Table 2",
-      floor: "1st Floor",
-      status: "In prep",
-      statusColor: "bg-gray-900",
-      cardBg: "bg-orange-50",
-      borderColor: "border-l-4 border-l-orange-500",
-      isLate: true,
-      time: "17:23",
-      waitTime: "20m 50s",
-      items: [
-        { qty: 2, name: "Red Velvet Latte" },
-        { qty: 3, name: "Arabic Breakfast" },
-        { qty: 1, name: "Pistachio Latte" }
-      ]
-    },
-    {
-      id: "#0",
-      table: "Table 10",
-      floor: "2nd Floor",
-      status: "served",
-      statusColor: "text-gray-500",
-      cardBg: "bg-emerald-50",
-      borderColor: "border-l-4 border-l-emerald-500",
-      isLate: false,
-      isServed: true,
-      time: "14:27",
-      waitTime: "Complete",
-      items: [
-        { qty: 1, name: "Red Velvet" }
-      ]
-    },
-    {
-      id: "#0",
-      table: "Table 10",
-      floor: "2nd Floor",
-      status: "served",
-      statusColor: "text-gray-500",
-      cardBg: "bg-emerald-50",
-      borderColor: "border-l-4 border-l-emerald-500",
-      isLate: false,
-      isServed: true,
-      time: "14:27",
-      waitTime: "Complete",
-      items: [
-        { qty: 1, name: "Brownie Ice cream" },
-        { qty: 1, name: "Red Velvet" },
-        { qty: 1, name: "Tiramisu" }
-      ]
-    },
-    {
-      id: "#100744",
-      table: "Takeaway",
-      status: "Takeaway",
-      statusColor: "bg-amber-500",
-      cardBg: "bg-amber-50",
-      borderColor: "border-l-4 border-l-amber-500",
-      isTakeaway: true,
-      isLate: false,
-      time: "14:10",
-      waitTime: "02m 58s",
-      items: [
-        { qty: 1, name: "Vanilla Affogato" },
-        { qty: 1, name: "Pistachio Latte" }
-      ]
-    },
-    {
-      id: "#100745",
-      table: "Table 200",
-      status: "In prep",
-      statusColor: "bg-blue-600",
-      cardBg: "bg-blue-50",
-      borderColor: "border-l-4 border-l-blue-500",
-      isLate: false,
-      time: "14:10",
-      waitTime: "02m 44s",
-      items: [
-        { qty: 1, name: "Brownie Ice cream" },
-        { qty: 1, name: "Red Velvet" },
-        { qty: 1, name: "Tiramisu" },
-        { qty: 1, name: "Spanish Latte" }
-      ]
-    },
-    {
-      id: "#100746",
-      table: "Table 10",
-      floor: "2nd Floor",
-      status: "In prep",
-      statusColor: "bg-violet-600",
-      cardBg: "bg-violet-50",
-      borderColor: "border-l-4 border-l-violet-500",
-      isLate: false,
-      time: "14:10",
-      waitTime: "02m 28s",
-      items: [
-        { qty: 1, name: "Hawaiian Pizza" },
-        { qty: 1, name: "Healthy Breakfast" },
-        { qty: 2, name: "Cortado" }
-      ]
-    },
-    {
-      id: "#100747",
-      table: "Table 12",
-      floor: "2nd Floor",
-      status: "In prep",
-      statusColor: "bg-cyan-600",
-      cardBg: "bg-cyan-50",
-      borderColor: "border-l-4 border-l-cyan-500",
-      isLate: false,
-      time: "14:11",
-      waitTime: "01m 46s",
-      items: [
-        { qty: 1, name: "Cortado" },
-        { qty: 1, name: "Spanish Latte" }
-      ]
-    }
-  ];
+const orders = [
+  {
+    id: '#1042',
+    table: 'T-05',
+    floor: 'Ground',
+    status: 'preparing',
+    time: '3:42',
+    waitTime: '12 min',
+    items: [
+      { name: 'Margherita Pizza', qty: 1, notes: 'Extra cheese' },
+      { name: 'Caesar Salad', qty: 2, notes: '' },
+    ],
+    isLate: false,
+  },
+  {
+    id: '#1043',
+    table: 'T-08',
+    floor: 'Ground',
+    status: 'ready',
+    time: '1:15',
+    waitTime: '8 min',
+    items: [
+      { name: 'Pasta Carbonara', qty: 1, notes: 'No bacon' },
+      { name: 'Garlic Bread', qty: 1, notes: '' },
+    ],
+    isLate: false,
+  },
+  {
+    id: '#1044',
+    table: 'T-02',
+    floor: 'Terrace',
+    status: 'new',
+    time: '0:30',
+    waitTime: '2 min',
+    items: [
+      { name: 'Burger Deluxe', qty: 2, notes: 'Medium rare' },
+      { name: 'Fries', qty: 2, notes: 'Extra crispy' },
+      { name: 'Coke', qty: 2, notes: '' },
+    ],
+    isLate: false,
+  },
+  {
+    id: '#1045',
+    table: 'Takeaway',
+    floor: '',
+    status: 'preparing',
+    time: '5:20',
+    waitTime: '18 min',
+    items: [
+      { name: 'Fish & Chips', qty: 1, notes: '' },
+      { name: 'Coleslaw', qty: 1, notes: '' },
+    ],
+    isLate: true,
+  },
+  {
+    id: '#1046',
+    table: 'T-12',
+    floor: 'Terrace',
+    status: 'served',
+    time: '0:00',
+    waitTime: '25 min',
+    items: [
+      { name: 'Steak Medium', qty: 1, notes: '' },
+    ],
+    isLate: false,
+  },
+];
+
+const KDSMockup: React.FC = () => {
+  const newOrders = orders.filter(o => o.status === 'new').length;
+  const preparingOrders = orders.filter(o => o.status === 'preparing').length;
+  const readyOrders = orders.filter(o => o.status === 'ready').length;
 
   return (
-    <div className="bg-gray-50 rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
+    <div className="bg-gray-900 rounded-2xl shadow-2xl overflow-hidden w-full max-w-6xl">
       {/* Header */}
-      <div className="bg-white px-8 py-5 border-b border-gray-200 flex items-center justify-between">
-        <div className="flex items-center gap-8">
-          <h3 className="font-bold text-gray-900 text-xl">Kitchen Display</h3>
-          <span className="text-sm text-gray-400">Live orders dashboard</span>
-        </div>
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 px-4 py-2 bg-emerald-50 rounded-full">
-              <div className="w-2 h-2 bg-emerald-500 rounded-full" />
-              <span className="text-sm font-medium text-emerald-700">0 prep</span>
+      <div className="bg-gray-800 px-3 sm:px-6 py-3 sm:py-4 border-b border-gray-700">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-primary/20 rounded-lg">
+              <ChefHat className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full">
-              <div className="w-2 h-2 bg-blue-500 rounded-full" />
-              <span className="text-sm font-medium text-blue-700">7 active</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-red-50 rounded-full">
-              <div className="w-2 h-2 bg-red-500 rounded-full" />
-              <span className="text-sm font-medium text-red-600">5 late</span>
+            <div>
+              <h2 className="text-sm sm:text-lg font-bold text-white">Kitchen Display</h2>
+              <p className="text-[10px] sm:text-xs text-gray-400">Real-time order management</p>
             </div>
           </div>
-          <div className="flex items-center gap-3">
-            <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-200 transition-colors">
-              All Orders
-              <ChevronDown className="w-4 h-4" />
-            </button>
-            <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-200 transition-colors">
-              Priority
-              <ChevronDown className="w-4 h-4" />
-            </button>
+
+          {/* Status Pills */}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-[10px] sm:text-xs bg-blue-500/20 text-blue-400 px-2 sm:px-3 py-1 rounded-full font-medium flex items-center gap-1">
+              <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse"></span>
+              {newOrders} New
+            </span>
+            <span className="text-[10px] sm:text-xs bg-yellow-500/20 text-yellow-400 px-2 sm:px-3 py-1 rounded-full font-medium">
+              {preparingOrders} Preparing
+            </span>
+            <span className="text-[10px] sm:text-xs bg-green-500/20 text-green-400 px-2 sm:px-3 py-1 rounded-full font-medium">
+              {readyOrders} Ready
+            </span>
           </div>
         </div>
       </div>
 
       {/* Orders Grid */}
-      <div className="p-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 items-start">
-        {orders.map((order, idx) => (
-          <div 
-            key={idx} 
-            className={`${order.cardBg} rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 ${order.borderColor}`}
-          >
-            {/* Order Header */}
-            <div className="p-4 border-b border-gray-100">
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="font-bold text-gray-900">{order.id}</span>
-                  <span className="px-2.5 py-1 bg-gray-100 text-gray-700 text-xs rounded-lg font-medium">
-                    {order.table}
-                  </span>
-                  {order.floor && (
-                    <span className="px-2 py-1 bg-gray-50 text-gray-400 text-xs rounded-lg">
-                      {order.floor}
-                    </span>
+      <div className="p-3 sm:p-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3">
+          {orders.map((order) => (
+            <div
+              key={order.id}
+              className={`rounded-xl p-3 transition-all ${
+                order.isLate
+                  ? 'bg-red-500/10 border-2 border-red-500/30'
+                  : order.status === 'new'
+                  ? 'bg-blue-500/10 border border-blue-500/30'
+                  : order.status === 'preparing'
+                  ? 'bg-yellow-500/10 border border-yellow-500/30'
+                  : order.status === 'ready'
+                  ? 'bg-green-500/10 border border-green-500/30'
+                  : 'bg-gray-800 border border-gray-700'
+              }`}
+            >
+              {/* Order Header */}
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-sm sm:text-base font-bold text-white">{order.id}</span>
+                  {order.isLate && (
+                    <AlertTriangle className="w-3.5 h-3.5 text-red-400" />
                   )}
                 </div>
-                <div className="flex items-center gap-1.5">
-                  {order.isServed ? (
-                    <span className="text-xs font-medium text-gray-400">served</span>
-                  ) : order.isTakeaway ? (
-                    <span className="px-2.5 py-1 bg-amber-500 text-white text-xs rounded-lg font-semibold">
-                      Takeaway
-                    </span>
-                  ) : (
-                    <span className={`px-2.5 py-1 text-white text-xs rounded-lg font-semibold ${order.statusColor}`}>
-                      {order.status}
-                    </span>
-                  )}
-                  {order.isLate && !order.isServed && (
-                    <span className="px-2 py-1 bg-red-500 text-white text-xs rounded-lg font-semibold">
-                      LATE
-                    </span>
-                  )}
+                <div className="flex items-center gap-1 text-gray-400">
+                  <Clock className="w-3 h-3" />
+                  <span className="text-[10px] sm:text-xs">{order.time}</span>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-xs">
-                <Clock className="w-3.5 h-3.5 text-gray-400" />
-                <span className="text-gray-400">{order.time}</span>
-                <span className={`font-bold ${order.isLate && !order.isServed ? 'text-red-500' : order.isServed ? 'text-gray-400' : 'text-blue-500'}`}>
-                  {order.waitTime}
+
+              {/* Table Info */}
+              <div className="flex items-center gap-2 mb-3">
+                <span className={`text-xs font-medium px-2 py-0.5 rounded ${
+                  order.table === 'Takeaway' ? 'bg-purple-500/20 text-purple-300' : 'bg-gray-700 text-gray-300'
+                }`}>
+                  {order.table}
                 </span>
+                {order.floor && (
+                  <span className="text-[10px] text-gray-500">{order.floor}</span>
+                )}
+              </div>
+
+              {/* Items */}
+              <div className="space-y-1.5 mb-3">
+                {order.items.slice(0, 3).map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2">
+                    <span className="text-xs font-medium text-gray-400 min-w-[16px]">{item.qty}x</span>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs sm:text-sm text-white truncate">{item.name}</p>
+                      {item.notes && (
+                        <p className="text-[10px] text-yellow-400 truncate">• {item.notes}</p>
+                      )}
+                    </div>
+                  </div>
+                ))}
+                {order.items.length > 3 && (
+                  <p className="text-[10px] text-gray-500">+{order.items.length - 3} more items</p>
+                )}
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-2">
+                {order.status === 'new' && (
+                  <button className="flex-1 text-[10px] sm:text-xs bg-blue-500 hover:bg-blue-600 text-white py-1.5 rounded-lg font-medium transition-colors">
+                    Start
+                  </button>
+                )}
+                {order.status === 'preparing' && (
+                  <button className="flex-1 text-[10px] sm:text-xs bg-green-500 hover:bg-green-600 text-white py-1.5 rounded-lg font-medium transition-colors">
+                    Mark Ready
+                  </button>
+                )}
+                {order.status === 'ready' && (
+                  <button className="flex-1 text-[10px] sm:text-xs bg-gray-600 hover:bg-gray-500 text-white py-1.5 rounded-lg font-medium transition-colors flex items-center justify-center gap-1">
+                    <CheckCircle className="w-3 h-3" />
+                    Bump
+                  </button>
+                )}
+                {order.status === 'served' && (
+                  <span className="flex-1 text-[10px] sm:text-xs text-center text-gray-500 py-1.5">
+                    Completed
+                  </span>
+                )}
               </div>
             </div>
-
-            {/* Order Items */}
-            <div className="p-4 space-y-2.5">
-              {order.items.map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className={`w-5 h-5 border-2 rounded-full flex items-center justify-center flex-shrink-0 ${order.isServed ? 'border-emerald-400 bg-emerald-50' : 'border-gray-300'}`}>
-                    {order.isServed && <Check className="w-3 h-3 text-emerald-500" />}
-                  </div>
-                  <span className="font-bold text-gray-800 text-sm">{item.qty}×</span>
-                  <span className="text-gray-600 text-sm">{item.name}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Actions */}
-            <div className="p-4 pt-2 flex gap-3">
-              <button className="flex-1 py-2.5 text-xs font-semibold text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
-                Bump
-              </button>
-              <button className={`flex-1 py-2.5 text-xs font-semibold rounded-lg transition-colors ${
-                order.isServed 
-                  ? 'text-white bg-gray-900 hover:bg-gray-800' 
-                  : 'text-white bg-gray-900 hover:bg-gray-800'
-              }`}>
-                {order.isServed ? 'Update' : 'Mark ready'}
-              </button>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

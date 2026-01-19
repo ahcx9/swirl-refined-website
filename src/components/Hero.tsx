@@ -468,7 +468,8 @@ const Hero: React.FC = () => {
 
           {/* ======== RIGHT COLUMN: PRODUCT MOCKUPS ======== */}
           <div className="relative animate-fade-in animation-delay-600 order-2">
-            <div className="flex flex-col gap-6 items-center justify-center">
+            {/* Desktop Layout */}
+            <div className="hidden md:flex flex-col gap-6 items-center justify-center">
               {/* Top Row - POS and Inventory */}
               <div className="flex flex-col lg:flex-row gap-6 items-center justify-center">
                 {/* POS Mockup - Primary */}
@@ -477,14 +478,83 @@ const Hero: React.FC = () => {
                 </div>
                 
                 {/* Inventory Mockup - Secondary, offset */}
-                <div className="transform lg:rotate-[2deg] lg:-translate-y-8 hover:rotate-0 transition-transform duration-500 hidden md:block">
+                <div className="transform lg:rotate-[2deg] lg:-translate-y-8 hover:rotate-0 transition-transform duration-500">
                   <InventoryMockup amounts={amounts} />
                 </div>
               </div>
               
               {/* Bottom Row - KDS Mockup spanning full width */}
-              <div className="transform hover:scale-[1.01] transition-transform duration-500 hidden md:block w-full max-w-[800px]">
+              <div className="transform hover:scale-[1.01] transition-transform duration-500 w-full max-w-[800px]">
                 <KDSMockup />
+              </div>
+            </div>
+
+            {/* Mobile Layout - Simplified mockups */}
+            <div className="md:hidden flex flex-col gap-4 items-center">
+              {/* Mobile POS */}
+              <div className="w-full max-w-sm">
+                <POSMockup amounts={amounts} />
+              </div>
+              
+              {/* Mobile Inventory Card */}
+              <div className="w-full max-w-sm bg-white rounded-xl shadow-lg border border-gray-200 p-3">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-sm font-bold text-gray-900">Inventory</h3>
+                  <span className="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Live</span>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="bg-primary/5 rounded-lg p-2">
+                    <div className="text-[10px] text-gray-500">Stock Value</div>
+                    <div className="text-sm font-bold text-gray-900">{amounts.inventoryOnHand}</div>
+                  </div>
+                  <div className="bg-green-50 rounded-lg p-2">
+                    <div className="text-[10px] text-gray-500">Items</div>
+                    <div className="text-sm font-bold text-gray-900">1,247</div>
+                  </div>
+                  <div className="bg-yellow-50 rounded-lg p-2">
+                    <div className="text-[10px] text-gray-500">Low Stock</div>
+                    <div className="text-sm font-bold text-yellow-600">12</div>
+                  </div>
+                  <div className="bg-red-50 rounded-lg p-2">
+                    <div className="text-[10px] text-gray-500">Out of Stock</div>
+                    <div className="text-sm font-bold text-red-600">3</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile KDS Card */}
+              <div className="w-full max-w-sm bg-gray-900 rounded-xl shadow-lg p-3">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-sm font-bold text-white">Kitchen Display</h3>
+                  <div className="flex gap-1">
+                    <span className="text-[9px] bg-yellow-500/20 text-yellow-400 px-1.5 py-0.5 rounded">2 Active</span>
+                    <span className="text-[9px] bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded">1 Ready</span>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  {[
+                    { id: '#1042', table: 'T-05', status: 'preparing', time: '3:42', items: 'Margherita Pizza • Caesar Salad' },
+                    { id: '#1043', table: 'T-08', status: 'ready', time: '1:15', items: 'Pasta Carbonara' },
+                    { id: '#1044', table: 'T-02', status: 'new', time: '0:30', items: 'Burger Deluxe • Fries' },
+                  ].map((order) => (
+                    <div key={order.id} className={`rounded-lg p-2 ${
+                      order.status === 'new' ? 'bg-blue-500/20 border border-blue-500/30' :
+                      order.status === 'preparing' ? 'bg-yellow-500/20 border border-yellow-500/30' :
+                      'bg-green-500/20 border border-green-500/30'
+                    }`}>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-bold text-white">{order.id}</span>
+                          <span className="text-[10px] text-gray-400">{order.table}</span>
+                        </div>
+                        <span className="text-[10px] text-gray-300">{order.time}</span>
+                      </div>
+                      <div className="mt-1 text-[10px] text-gray-300 truncate">
+                        {order.items}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
