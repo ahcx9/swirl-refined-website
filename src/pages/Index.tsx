@@ -1,21 +1,17 @@
 import React from 'react';
 import Hero from '@/components/Hero';
-import ProblemEmpathySection from '@/components/ProblemEmpathySection';
-import WhatSwirlIsSection from '@/components/WhatSwirlIsSection';
-import SwirlEcosystemSection from '@/components/SwirlEcosystemSection';
-import OperationalTransformationSection from '@/components/OperationalTransformationSection';
-import UseCasesSection from '@/components/UseCasesSection';
-import HomePOSSection from '@/components/HomePOSSection';
-import HomeInventorySection from '@/components/HomeInventorySection';
-import HomeFinancialAnalyticsSection from '@/components/HomeFinancialAnalyticsSection';
+import InterfaceProblemStory from '@/components/homepage/InterfaceProblemStory';
+import SwirlOperatingSystemView from '@/components/homepage/SwirlOperatingSystemView';
+import SwirlEcosystemGallery from '@/components/homepage/SwirlEcosystemGallery';
+import OperationalDashboards from '@/components/homepage/OperationalDashboards';
+import UseCasesControlPanel from '@/components/homepage/UseCasesControlPanel';
 import HomeDeliveryIntegrationSection from '@/components/HomeDeliveryIntegrationSection';
 import HomeHardwareSection from '@/components/HomeHardwareSection';
-import WhySwirlWinsSection from '@/components/WhySwirlWinsSection';
-import TrustedRestaurants from '@/components/TrustedRestaurants';
-import GrowthVisionSection from '@/components/GrowthVisionSection';
-import BlogSection from '@/components/BlogSection';
-import FAQSection from '@/components/FAQSection';
-import CTASection from '@/components/CTASection';
+import WhySwirlCommandCenter from '@/components/homepage/WhySwirlCommandCenter';
+import TrustInterfaces from '@/components/homepage/TrustInterfaces';
+import FutureSwirlAI from '@/components/homepage/FutureSwirlAI';
+import ModernFAQConsole from '@/components/homepage/ModernFAQConsole';
+import FinalCTAProductEntry from '@/components/homepage/FinalCTAProductEntry';
 import Footer from '@/components/Footer';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import ImagePreloader from '@/components/ImagePreloader';
@@ -31,45 +27,41 @@ const Index = () => {
         {/* Hero */}
         <Hero />
         
-        {/* Problem & Empathy */}
-        <ProblemEmpathySection />
+        {/* Section 1: Interface-Based Problem Story */}
+        <InterfaceProblemStory />
         
-        {/* What Swirl Is */}
-        <WhatSwirlIsSection />
+        {/* Section 2: Swirl Operating System View */}
+        <SwirlOperatingSystemView />
         
-        {/* Swirl Ecosystem */}
-        <SwirlEcosystemSection />
+        {/* Section 3: Swirl Ecosystem UI Gallery */}
+        <SwirlEcosystemGallery />
         
-        {/* Operational Transformation */}
-        <OperationalTransformationSection />
+        {/* Section 4: Operational Transformation Dashboards */}
+        <OperationalDashboards />
         
-        {/* Business Types Served */}
-        <UseCasesSection />
+        {/* Section 5: Business Types Control Panel */}
+        <UseCasesControlPanel />
         
-        {/* Product Deep Dives */}
-        <div className="bg-gradient-to-b from-white to-blue-50/30">
-          <HomePOSSection />
-          <HomeInventorySection />
-          <HomeFinancialAnalyticsSection />
-          <HomeDeliveryIntegrationSection />
-          <HomeHardwareSection />
-        </div>
+        {/* Delivery Integration (kept as requested) */}
+        <HomeDeliveryIntegrationSection />
         
-        {/* Why Swirl Wins */}
-        <WhySwirlWinsSection />
+        {/* Hardware Section */}
+        <HomeHardwareSection />
         
-        {/* Trust & Credibility */}
-        <TrustedRestaurants />
+        {/* Section 6: Why Swirl Wins Command Center */}
+        <WhySwirlCommandCenter />
         
-        {/* Growth & Future Vision */}
-        <GrowthVisionSection />
+        {/* Section 7: Trust Through Real Interfaces */}
+        <TrustInterfaces />
         
-        {/* Content */}
-        <BlogSection />
-        <FAQSection />
+        {/* Section 8: Future of Swirl AI */}
+        <FutureSwirlAI />
         
-        {/* Final CTA */}
-        <CTASection />
+        {/* Section 9: Modern FAQ Console */}
+        <ModernFAQConsole />
+        
+        {/* Section 10: Final CTA Product Entry */}
+        <FinalCTAProductEntry />
       </main>
       
       <Footer />
