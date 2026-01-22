@@ -5,14 +5,11 @@ import {
   Server, 
   Wifi, 
   Sparkles, 
-  Link as LinkIcon,
   Building2,
   Shield,
   CheckCircle,
-  X,
-  ArrowRight
+  X
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const differentiators = [
   {
@@ -23,9 +20,9 @@ const differentiators = [
   },
   {
     icon: Globe,
-    title: 'Middle East Ready',
-    description: 'Arabic UI, multi-currency, VAT compliant, local payments.',
-    oldWay: 'Western-only software',
+    title: 'Global Ready',
+    description: 'Multi-language, multi-currency, VAT compliant, local payments.',
+    oldWay: 'Single-region software',
   },
   {
     icon: Building2,
@@ -55,7 +52,7 @@ const differentiators = [
 
 const WhySwirlCommandCenter: React.FC = () => {
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-b from-gray-900 to-gray-950 relative overflow-hidden">
+    <section className="py-20 md:py-28 bg-gradient-to-b from-gray-900 to-gray-950 relative overflow-hidden">
       {/* Grid background */}
       <div className="absolute inset-0 opacity-20">
         <div 
@@ -71,36 +68,37 @@ const WhySwirlCommandCenter: React.FC = () => {
       </div>
 
       {/* Glow effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-blue-500/10 rounded-full blur-3xl" />
 
       <div className="container-custom relative z-10">
         {/* Header */}
-        <div className="text-center mb-16 animate-on-scroll">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/30 rounded-full mb-6">
+        <div className="text-center mb-12 animate-on-scroll">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/30 rounded-full mb-5">
             <Shield className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-primary">Command Center</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
             Why restaurants choose
-            <br />
-            <span className="text-primary">Swirl.</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-2xl md:text-3xl font-bold text-primary mb-4">
+            Swirl.
+          </p>
+          <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
             The old way is fragmented, expensive, and limiting. Swirl changes everything.
           </p>
         </div>
 
         {/* Command Center Dashboard */}
-        <div className="max-w-6xl mx-auto animate-on-scroll">
-          <div className="bg-gray-800/50 backdrop-blur-xl rounded-3xl border border-gray-700/50 overflow-hidden shadow-2xl">
+        <div className="max-w-5xl mx-auto animate-on-scroll">
+          <div className="bg-gray-800/50 backdrop-blur-xl rounded-2xl border border-gray-700/50 overflow-hidden shadow-2xl">
             {/* Dashboard Header */}
-            <div className="bg-gray-800 px-6 py-4 flex items-center justify-between border-b border-gray-700/50">
+            <div className="bg-gray-800 px-5 py-3.5 flex items-center justify-between border-b border-gray-700/50">
               <div className="flex items-center gap-3">
                 <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-500" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
                 </div>
                 <div className="w-px h-4 bg-gray-700" />
                 <span className="text-white font-semibold text-sm">Swirl Command Center</span>
@@ -114,11 +112,11 @@ const WhySwirlCommandCenter: React.FC = () => {
             </div>
 
             {/* Comparison Grid */}
-            <div className="p-6 md:p-8">
-              <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-5 md:p-7">
+              <div className="grid md:grid-cols-2 gap-6">
                 {/* Old Way */}
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2 mb-4">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 mb-3">
                     <X className="w-5 h-5 text-red-400" />
                     <span className="text-gray-400 font-medium">The Old Way</span>
                   </div>
@@ -131,8 +129,8 @@ const WhySwirlCommandCenter: React.FC = () => {
                 </div>
 
                 {/* Swirl Way */}
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2 mb-4">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 mb-3">
                     <CheckCircle className="w-5 h-5 text-primary" />
                     <span className="text-white font-medium">The Swirl Way</span>
                   </div>
@@ -154,11 +152,11 @@ const WhySwirlCommandCenter: React.FC = () => {
               </div>
 
               {/* Bottom Stats Bar */}
-              <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="mt-7 grid grid-cols-2 md:grid-cols-4 gap-3">
                 {[
                   { label: 'Restaurants', value: '500+' },
                   { label: 'Countries', value: '5+' },
-                  { label: 'Orders Processed', value: '10M+' },
+                  { label: 'Orders Processed', value: '100K+' },
                   { label: 'Uptime', value: '99.9%' },
                 ].map((stat, i) => (
                   <div key={i} className="text-center p-4 bg-gray-800/50 rounded-xl border border-gray-700/50">
@@ -169,17 +167,6 @@ const WhySwirlCommandCenter: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-12 text-center animate-on-scroll">
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-1"
-          >
-            See Swirl in Action
-            <ArrowRight className="w-5 h-5" />
-          </Link>
         </div>
       </div>
     </section>

@@ -12,133 +12,141 @@ import {
   Sparkles,
   ArrowRight,
   TrendingUp,
-  Clock,
-  Shield,
-  Zap
+  Zap,
+  Receipt,
+  FileText,
+  PieChart,
+  Store,
+  Smartphone,
+  Globe
 } from 'lucide-react';
-
-const ecosystemModules = [
-  {
-    id: 'pos',
-    icon: CreditCard,
-    name: 'POS & Billing',
-    tagline: 'Orders. Speed. Revenue.',
-    metrics: ['40% faster checkout', '₹0 errors'],
-    path: '/features/point-of-sale',
-    preview: {
-      type: 'billing',
-      items: [
-        { name: 'Paneer Tikka', qty: 2, price: 380 },
-        { name: 'Butter Naan', qty: 4, price: 160 },
-        { name: 'Dal Makhani', qty: 1, price: 220 },
-      ]
-    }
-  },
-  {
-    id: 'qr',
-    icon: QrCode,
-    name: 'QR Ordering',
-    tagline: 'Scan. Order. Done.',
-    metrics: ['No app download', '30% more orders'],
-    path: '/features/qr-ordering',
-    preview: {
-      type: 'menu',
-      categories: ['Starters', 'Mains', 'Desserts']
-    }
-  },
-  {
-    id: 'kds',
-    icon: ChefHat,
-    name: 'Kitchen Display',
-    tagline: 'Orders. Flow. Accuracy.',
-    metrics: ['Zero lost tickets', '2x throughput'],
-    path: '/features/kitchen-display',
-    preview: {
-      type: 'orders',
-      orders: ['#142 - 2 items', '#143 - 5 items', '#144 - 3 items']
-    }
-  },
-  {
-    id: 'inventory',
-    icon: Package,
-    name: 'Inventory',
-    tagline: 'Stock. Control. Margins.',
-    metrics: ['30% less waste', 'Auto reorder'],
-    path: '/features/inventory-management',
-    preview: {
-      type: 'stock',
-      items: [
-        { name: 'Tomatoes', level: 85 },
-        { name: 'Onions', level: 42 },
-        { name: 'Oil', level: 68 },
-      ]
-    }
-  },
-  {
-    id: 'crm',
-    icon: Users,
-    name: 'CRM',
-    tagline: 'Guests. Loyalty. Retention.',
-    metrics: ['2x repeat visits', 'Guest history'],
-    path: '/features/crm',
-    preview: {
-      type: 'guests',
-      count: '2,847 guests'
-    }
-  },
-  {
-    id: 'analytics',
-    icon: BarChart3,
-    name: 'Analytics',
-    tagline: 'Data. Insights. Decisions.',
-    metrics: ['Real-time reports', 'Profit trends'],
-    path: '/features/financial-reports',
-    preview: {
-      type: 'chart',
-      trend: '+18%'
-    }
-  },
-  {
-    id: 'accounting',
-    icon: Calculator,
-    name: 'Accounting',
-    tagline: 'Books. Tax. Compliance.',
-    metrics: ['Auto reconciliation', 'GST ready'],
-    path: '/features/accounting',
-    preview: {
-      type: 'ledger',
-      balance: '₹4,82,500'
-    }
-  },
-  {
-    id: 'multi',
-    icon: Building2,
-    name: 'Multi-Branch',
-    tagline: 'Scale. Control. Oversight.',
-    metrics: ['Unlimited outlets', 'Central control'],
-    path: '/features/point-of-sale',
-    preview: {
-      type: 'branches',
-      count: 12
-    }
-  },
-  {
-    id: 'ai',
-    icon: Sparkles,
-    name: 'AI Intelligence',
-    tagline: 'Predict. Automate. Grow.',
-    metrics: ['Smart forecasts', 'Auto alerts'],
-    path: '/features/visitor-analytics',
-    preview: {
-      type: 'ai',
-      prediction: 'Peak at 7PM'
-    }
-  },
-];
+import { useCurrency } from '@/hooks/useCurrency';
 
 const SwirlEcosystemGallery: React.FC = () => {
   const [hoveredModule, setHoveredModule] = useState<string | null>(null);
-  const [expandedModule, setExpandedModule] = useState<string | null>(null);
+  const { formatAmount } = useCurrency();
+
+  const ecosystemModules = [
+    {
+      id: 'pos',
+      icon: CreditCard,
+      name: 'POS & Billing',
+      tagline: 'Orders. Speed. Revenue.',
+      metrics: ['40% faster checkout', 'Zero errors'],
+      path: '/features/point-of-sale',
+      preview: {
+        type: 'billing',
+        items: [
+          { name: 'Paneer Tikka', qty: 2, price: 380 },
+          { name: 'Butter Naan', qty: 4, price: 160 },
+          { name: 'Dal Makhani', qty: 1, price: 220 },
+        ]
+      }
+    },
+    {
+      id: 'qr',
+      icon: QrCode,
+      name: 'QR Ordering',
+      tagline: 'Scan. Order. Done.',
+      metrics: ['No app download', '30% more orders'],
+      path: '/features/qr-ordering',
+      subIcons: [Smartphone, Globe],
+      preview: {
+        type: 'menu',
+        categories: ['Starters', 'Mains', 'Desserts']
+      }
+    },
+    {
+      id: 'kds',
+      icon: ChefHat,
+      name: 'Kitchen Display',
+      tagline: 'Orders. Flow. Accuracy.',
+      metrics: ['Zero lost tickets', '2x throughput'],
+      path: '/features/kitchen-display',
+      preview: {
+        type: 'orders',
+        orders: ['#142 - 2 items', '#143 - 5 items', '#144 - 3 items']
+      }
+    },
+    {
+      id: 'inventory',
+      icon: Package,
+      name: 'Inventory',
+      tagline: 'Stock. Control. Margins.',
+      metrics: ['30% less waste', 'Auto reorder'],
+      path: '/features/inventory-management',
+      preview: {
+        type: 'stock',
+        items: [
+          { name: 'Tomatoes', level: 85 },
+          { name: 'Onions', level: 42 },
+          { name: 'Oil', level: 68 },
+        ]
+      }
+    },
+    {
+      id: 'crm',
+      icon: Users,
+      name: 'CRM',
+      tagline: 'Guests. Loyalty. Retention.',
+      metrics: ['2x repeat visits', 'Guest history'],
+      path: '/features/crm',
+      preview: {
+        type: 'guests',
+        count: '2,847 guests'
+      }
+    },
+    {
+      id: 'analytics',
+      icon: BarChart3,
+      name: 'Analytics',
+      tagline: 'Data. Insights. Decisions.',
+      metrics: ['Real-time reports', 'Profit trends'],
+      path: '/features/financial-reports',
+      preview: {
+        type: 'chart',
+        trend: '+18%'
+      }
+    },
+    {
+      id: 'accounting',
+      icon: Calculator,
+      name: 'Accounting',
+      tagline: 'Books. Tax. Compliance.',
+      metrics: ['Auto reconciliation', 'VAT ready'],
+      path: '/features/accounting',
+      subIcons: [Receipt, FileText, PieChart],
+      preview: {
+        type: 'ledger',
+        balance: 482500
+      }
+    },
+    {
+      id: 'multi',
+      icon: Building2,
+      name: 'Multi-Branch',
+      tagline: 'Scale. Control. Oversight.',
+      metrics: ['Unlimited outlets', 'Central control'],
+      path: '/features/point-of-sale',
+      subIcons: [Store, Globe],
+      preview: {
+        type: 'branches',
+        count: 12
+      }
+    },
+    {
+      id: 'ai',
+      icon: Sparkles,
+      name: 'AI Intelligence',
+      tagline: 'Predict. Automate. Grow.',
+      metrics: ['Smart forecasts', 'Auto alerts'],
+      path: '/features/visitor-analytics',
+      preview: {
+        type: 'ai',
+        prediction: 'Peak at 7PM'
+      }
+    },
+  ];
 
   const renderPreview = (module: typeof ecosystemModules[0]) => {
     const preview = module.preview;
@@ -150,12 +158,12 @@ const SwirlEcosystemGallery: React.FC = () => {
             {preview.items?.map((item, i) => (
               <div key={i} className="flex justify-between text-xs">
                 <span className="text-muted-foreground">{item.name} x{item.qty}</span>
-                <span className="text-foreground font-medium">₹{item.price}</span>
+                <span className="text-foreground font-medium">{formatAmount(item.price)}</span>
               </div>
             ))}
             <div className="border-t border-gray-100 pt-2 flex justify-between text-sm font-bold">
               <span>Total</span>
-              <span className="text-primary">₹760</span>
+              <span className="text-primary">{formatAmount(760)}</span>
             </div>
           </div>
         );
@@ -213,6 +221,26 @@ const SwirlEcosystemGallery: React.FC = () => {
             <p className="text-sm font-bold text-foreground">{preview.count}</p>
           </div>
         );
+      case 'ledger':
+        return (
+          <div className="text-center py-2">
+            <p className="text-xs text-muted-foreground mb-1">Current Balance</p>
+            <p className="text-lg font-bold text-primary">{formatAmount(preview.balance as number)}</p>
+          </div>
+        );
+      case 'branches':
+        return (
+          <div className="text-center py-2">
+            <div className="grid grid-cols-4 gap-1 mb-2">
+              {Array.from({ length: 8 }).map((_, i) => (
+                <div key={i} className="w-6 h-6 rounded bg-primary/10 flex items-center justify-center">
+                  <Store className="w-3 h-3 text-primary" />
+                </div>
+              ))}
+            </div>
+            <p className="text-sm font-bold text-foreground">{preview.count}+ Outlets</p>
+          </div>
+        );
       case 'ai':
         return (
           <div className="text-center">
@@ -229,7 +257,7 @@ const SwirlEcosystemGallery: React.FC = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-b from-white to-blue-50/30 relative overflow-hidden">
+    <section className="py-20 md:py-28 bg-gradient-to-b from-white to-blue-50/30 relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-30">
         <div 
@@ -243,35 +271,29 @@ const SwirlEcosystemGallery: React.FC = () => {
 
       <div className="container-custom relative z-10">
         {/* Header */}
-        <div className="text-center mb-16 animate-on-scroll">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full mb-6">
+        <div className="text-center mb-12 animate-on-scroll">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full mb-5">
             <Zap className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-primary">Product Showroom</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3">
             Every tool you need.
-            <br />
-            <span className="text-primary">All in one place.</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-2xl md:text-3xl font-bold text-primary mb-4">
+            All in one place.
+          </p>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Browse the Swirl ecosystem. Each module is designed for hospitality, built to work together.
           </p>
         </div>
 
         {/* Floating Product Gallery */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-w-6xl mx-auto">
           {ecosystemModules.map((module, index) => (
             <Link
               key={module.id}
               to={module.path}
-              className={`
-                animate-on-scroll group relative
-                bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-100 
-                overflow-hidden transition-all duration-500 cursor-pointer
-                hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10
-                hover:-translate-y-2
-                ${expandedModule === module.id ? 'row-span-2' : ''}
-              `}
+              className="animate-on-scroll group relative bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100 overflow-hidden transition-all duration-500 cursor-pointer hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2"
               style={{ animationDelay: `${index * 50}ms` }}
               onMouseEnter={() => setHoveredModule(module.id)}
               onMouseLeave={() => setHoveredModule(null)}
@@ -279,25 +301,36 @@ const SwirlEcosystemGallery: React.FC = () => {
               {/* Glow effect on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="relative p-5 md:p-6">
+              <div className="relative p-5">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                      <module.icon className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+                    <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      <module.icon className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
                     </div>
                     <div>
                       <h3 className="font-bold text-foreground">{module.name}</h3>
                       <p className="text-xs text-muted-foreground">{module.tagline}</p>
                     </div>
                   </div>
-                  <ArrowRight className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1" />
                 </div>
 
                 {/* Live Preview Window */}
-                <div className="bg-gray-50/80 rounded-xl p-4 border border-gray-100 mb-4 min-h-[100px]">
+                <div className="bg-gray-50/80 rounded-xl p-3 border border-gray-100 mb-3 min-h-[90px]">
                   {renderPreview(module)}
                 </div>
+
+                {/* Sub Icons (for Accounting, Multi-branch, QR) */}
+                {module.subIcons && (
+                  <div className="flex items-center gap-2 mb-3">
+                    {module.subIcons.map((SubIcon, i) => (
+                      <div key={i} className="w-7 h-7 rounded-lg bg-primary/5 flex items-center justify-center">
+                        <SubIcon className="w-3.5 h-3.5 text-primary" />
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {/* Metrics */}
                 <div className="flex flex-wrap gap-2">
@@ -319,13 +352,13 @@ const SwirlEcosystemGallery: React.FC = () => {
         </div>
 
         {/* Footer CTA */}
-        <div className="mt-16 text-center animate-on-scroll">
+        <div className="mt-12 text-center animate-on-scroll">
           <Link
             to="/products"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1"
+            className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1"
           >
             Explore All Features
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>
