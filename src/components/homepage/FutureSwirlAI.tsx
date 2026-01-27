@@ -57,88 +57,79 @@ const aiFeatures = [
 
 const FutureSwirlAI: React.FC = () => {
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-b from-gray-950 to-gray-900 relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50/30 relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0">
-        {/* Grid pattern */}
         <div 
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-30"
           style={{
-            backgroundImage: `
-              linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px),
-              linear-gradient(to bottom, hsl(var(--primary)) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px'
+            backgroundImage: `radial-gradient(circle, hsl(var(--primary) / 0.05) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
           }}
         />
-        
-        {/* Floating orbs */}
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s' }} />
-        <div className="absolute top-1/2 right-1/3 w-48 h-48 bg-primary/15 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '5s' }} />
       </div>
 
       <div className="container-custom relative z-10">
         {/* Header */}
-        <div className="text-center mb-16 animate-on-scroll">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/30 rounded-full mb-6">
+        <div className="text-center mb-12 animate-on-scroll">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full mb-6">
             <Sparkles className="w-4 h-4 text-primary animate-pulse" />
             <span className="text-sm font-medium text-primary">AI-Powered Future</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Built for today.
             <br />
             <span className="text-primary">Ready for tomorrow.</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Swirl isn't just software. It's an intelligent restaurant operating system that gets smarter every day.
           </p>
         </div>
 
         {/* AI Workspace */}
         <div className="max-w-5xl mx-auto animate-on-scroll">
-          <div className="bg-gray-800/40 backdrop-blur-xl rounded-3xl border border-gray-700/50 overflow-hidden shadow-2xl">
+          <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-xl">
             {/* Header Bar */}
-            <div className="bg-gradient-to-r from-primary/20 to-blue-600/20 px-6 py-4 flex items-center justify-between border-b border-gray-700/50">
+            <div className="bg-gradient-to-r from-primary to-blue-600 px-6 py-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-primary/50" />
-                  <div className="w-3 h-3 rounded-full bg-primary/50" />
-                  <div className="w-3 h-3 rounded-full bg-primary/50" />
+                  <div className="w-3 h-3 rounded-full bg-white/30" />
+                  <div className="w-3 h-3 rounded-full bg-white/30" />
+                  <div className="w-3 h-3 rounded-full bg-white/30" />
                 </div>
-                <div className="w-px h-4 bg-gray-700" />
-                <Sparkles className="w-5 h-5 text-primary" />
+                <div className="w-px h-4 bg-white/20" />
+                <Sparkles className="w-5 h-5 text-white" />
                 <span className="text-white font-semibold">Swirl AI Intelligence</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-gray-400 text-xs">Learning from your data</span>
+                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                <span className="text-white/80 text-xs">Learning from your data</span>
               </div>
             </div>
 
             {/* AI Features Grid */}
-            <div className="p-6 md:p-8">
+            <div className="p-6 md:p-8 bg-gradient-to-br from-blue-50/30 to-white">
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                 {aiFeatures.map((feature, i) => (
                   <div 
                     key={i}
-                    className="group bg-gray-900/50 rounded-2xl border border-gray-700/50 p-5 hover:border-primary/40 hover:bg-gray-800/50 transition-all duration-500"
+                    className="group bg-white rounded-2xl border border-gray-100 p-5 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
                   >
                     {/* Icon and title */}
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                         <feature.icon className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h3 className="text-white font-semibold">{feature.title}</h3>
-                        <p className="text-gray-400 text-sm mt-0.5">{feature.description}</p>
+                        <h3 className="text-foreground font-semibold">{feature.title}</h3>
+                        <p className="text-muted-foreground text-sm mt-0.5">{feature.description}</p>
                       </div>
                     </div>
 
                     {/* Preview card */}
-                    <div className="bg-gray-800/80 rounded-xl p-4 border border-gray-700/50">
-                      <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">{feature.preview.label}</p>
-                      <p className="text-lg text-white font-bold">{feature.preview.value}</p>
+                    <div className="bg-blue-50/50 rounded-xl p-4 border border-blue-100">
+                      <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">{feature.preview.label}</p>
+                      <p className="text-lg text-foreground font-bold">{feature.preview.value}</p>
                       <p className="text-xs text-primary mt-1">{feature.preview.subtext}</p>
                     </div>
                   </div>
@@ -146,23 +137,23 @@ const FutureSwirlAI: React.FC = () => {
               </div>
 
               {/* Bottom AI Activity */}
-              <div className="mt-8 bg-gradient-to-r from-primary/10 to-blue-600/10 rounded-2xl p-6 border border-primary/20">
+              <div className="mt-8 bg-primary/5 rounded-2xl p-6 border border-primary/10">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                       <Brain className="w-6 h-6 text-primary animate-pulse" />
                     </div>
                     <div>
-                      <p className="text-white font-semibold">Continuous Learning</p>
-                      <p className="text-gray-400 text-sm">Swirl AI analyzes 10,000+ data points daily to improve your operations</p>
+                      <p className="text-foreground font-semibold">Continuous Learning</p>
+                      <p className="text-muted-foreground text-sm">Swirl AI analyzes 10,000+ data points daily to improve your operations</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 text-sm">
-                    <div className="flex items-center gap-1 text-gray-400">
+                    <div className="flex items-center gap-1 text-muted-foreground">
                       <Clock className="w-4 h-4" />
                       <span>Updated 2m ago</span>
                     </div>
-                    <div className="flex items-center gap-1 text-green-400">
+                    <div className="flex items-center gap-1 text-green-600">
                       <Zap className="w-4 h-4" />
                       <span>Active</span>
                     </div>
@@ -174,8 +165,8 @@ const FutureSwirlAI: React.FC = () => {
         </div>
 
         {/* Bottom message */}
-        <div className="mt-12 text-center animate-on-scroll">
-          <p className="text-gray-400 mb-6">
+        <div className="mt-10 text-center animate-on-scroll">
+          <p className="text-muted-foreground mb-6">
             Swirl is not just another tool. It's the operating system for the modern restaurant.
           </p>
           <Link

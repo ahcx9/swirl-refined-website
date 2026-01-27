@@ -21,7 +21,7 @@ const dashboards = [
     subtitle: 'Orders flowing. Kitchen moving. Guests happy.',
     stat: '40%',
     statLabel: 'faster service',
-    color: 'from-blue-500 to-primary',
+    color: 'from-primary to-blue-600',
     widgets: [
       { label: 'Active Orders', value: '12', trend: 'live' },
       { label: 'Avg Prep Time', value: '8 min', trend: 'down' },
@@ -36,10 +36,10 @@ const dashboards = [
     subtitle: 'Stock tracked. Costs managed. Leaks sealed.',
     stat: '30%',
     statLabel: 'less wastage',
-    color: 'from-green-500 to-emerald-600',
+    color: 'from-primary to-blue-500',
     widgets: [
       { label: 'Stock Accuracy', value: '98%', trend: 'up' },
-      { label: 'Daily Variance', value: '₹240', trend: 'down' },
+      { label: 'Daily Variance', value: 'AED 240', trend: 'down' },
       { label: 'Staff on Duty', value: '8', trend: 'live' },
     ],
     liveElements: ['inventoryLevels', 'staffPerformance', 'outletDashboard']
@@ -51,9 +51,9 @@ const dashboards = [
     subtitle: 'Reports updating. Insights emerging. Profits growing.',
     stat: '2x',
     statLabel: 'profit visibility',
-    color: 'from-purple-500 to-indigo-600',
+    color: 'from-blue-500 to-primary',
     widgets: [
-      { label: 'Today\'s Revenue', value: '₹48,250', trend: 'up' },
+      { label: 'Today\'s Revenue', value: 'AED 48,250', trend: 'up' },
       { label: 'Gross Margin', value: '68%', trend: 'up' },
       { label: 'Top Item', value: 'Biryani', trend: 'live' },
     ],
@@ -66,7 +66,7 @@ const dashboards = [
     subtitle: 'Guests remembered. Loyalty rewarded. Retention rising.',
     stat: '2x',
     statLabel: 'repeat visits',
-    color: 'from-pink-500 to-rose-600',
+    color: 'from-primary to-blue-600',
     widgets: [
       { label: 'Repeat Guests', value: '342', trend: 'up' },
       { label: 'Loyalty Points', value: '12,840', trend: 'live' },
@@ -117,7 +117,7 @@ const OperationalDashboards: React.FC = () => {
   const current = dashboards[activeDashboard];
 
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-blue-50/50 to-white relative overflow-hidden">
       {/* Subtle background */}
       <div className="absolute inset-0">
         <div 
