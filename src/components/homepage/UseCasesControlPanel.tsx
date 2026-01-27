@@ -59,7 +59,7 @@ const UseCasesControlPanel: React.FC = () => {
         { label: 'Table Turn', value: '2.1x' },
         { label: 'VIP Guests', value: '124' },
       ],
-      features: ['Table Mapping', 'Guest Profiles', 'Course Timing', 'Wine Pairing'],
+      features: ['Table Mapping', 'Guest Profiles', 'Course Timing', 'Reservations'],
       workflow: 'table'
     },
     {
