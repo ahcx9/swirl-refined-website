@@ -1,440 +1,282 @@
 import React from 'react';
-import { CreditCard, QrCode, Check, Banknote, SplitSquareVertical, CheckCircle2, Plus, ShoppingCart, ArrowRight, BarChart3, Receipt, Package, Monitor, Clock, Calculator, TrendingUp, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { 
+  CreditCard, 
+  ArrowRight, 
+  Receipt, 
+  Package, 
+  Monitor, 
+  Clock, 
+  Check,
+  Banknote,
+  SplitSquareVertical,
+  TrendingUp,
+  Calculator,
+  FileText,
+  PieChart
+} from 'lucide-react';
 import { Button } from './ui/button';
 import { useCurrency } from '@/hooks/useCurrency';
 
-// ============ DOODLES - Positioned in outer margins only ============
-
-const DoodleBilling = () => <svg className="w-20 h-24" viewBox="0 0 100 120" fill="none" stroke="currentColor" strokeWidth="1.2">
-    <rect x="15" y="5" width="70" height="95" rx="4" className="stroke-primary" />
-    <line x1="25" y1="20" x2="75" y2="20" className="stroke-primary" />
-    <line x1="25" y1="32" x2="65" y2="32" className="stroke-primary" />
-    <line x1="25" y1="44" x2="60" y2="44" className="stroke-primary" />
-    <line x1="25" y1="56" x2="70" y2="56" className="stroke-primary" />
-    <line x1="25" y1="68" x2="55" y2="68" className="stroke-primary" />
-    <line x1="25" y1="85" x2="75" y2="85" className="stroke-primary" strokeWidth="1.8" />
-    <text x="28" y="95" fontSize="8" className="fill-primary" fontFamily="sans-serif">TOTAL</text>
-  </svg>;
-const DoodleQRCode = () => <svg className="w-16 h-16" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5">
-    <rect x="8" y="8" width="32" height="32" rx="3" className="stroke-primary" />
-    <rect x="60" y="8" width="32" height="32" rx="3" className="stroke-primary" />
-    <rect x="8" y="60" width="32" height="32" rx="3" className="stroke-primary" />
-    <rect x="16" y="16" width="16" height="16" className="stroke-primary fill-primary/15" />
-    <rect x="68" y="16" width="16" height="16" className="stroke-primary fill-primary/15" />
-    <rect x="16" y="68" width="16" height="16" className="stroke-primary fill-primary/15" />
-    <rect x="60" y="60" width="12" height="12" className="stroke-primary" />
-    <rect x="76" y="60" width="16" height="12" className="stroke-primary" />
-    <rect x="60" y="76" width="12" height="16" className="stroke-primary" />
-  </svg>;
-const DoodleInventory = () => <svg className="w-18 h-20" viewBox="0 0 80 110" fill="none" stroke="currentColor" strokeWidth="1.2">
-    <rect x="8" y="70" width="64" height="35" rx="3" className="stroke-primary" />
-    <rect x="14" y="40" width="52" height="35" rx="3" className="stroke-primary" />
-    <rect x="20" y="10" width="40" height="35" rx="3" className="stroke-primary" />
-    <line x1="32" y1="85" x2="48" y2="85" className="stroke-primary" />
-    <line x1="28" y1="55" x2="44" y2="55" className="stroke-primary" />
-    <line x1="32" y1="25" x2="45" y2="25" className="stroke-primary" />
-  </svg>;
-const DoodleAnalytics = () => <svg className="w-24 h-20" viewBox="0 0 140 120" fill="none" stroke="currentColor" strokeWidth="1.2">
-    <rect x="10" y="10" width="120" height="90" rx="5" className="stroke-primary" />
-    <line x1="25" y1="85" x2="25" y2="25" className="stroke-primary" />
-    <line x1="25" y1="85" x2="115" y2="85" className="stroke-primary" />
-    <polyline points="35,70 55,45 70,55 90,28 110,40" className="stroke-primary" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
-    <circle cx="55" cy="45" r="4" className="stroke-primary fill-primary/20" />
-    <circle cx="70" cy="55" r="4" className="stroke-primary fill-primary/20" />
-    <circle cx="90" cy="28" r="4" className="stroke-primary fill-primary/20" />
-  </svg>;
-const DoodleKDSSmall = () => <svg className="w-20 h-16" viewBox="0 0 110 90" fill="none" stroke="currentColor" strokeWidth="1.2">
-    <rect x="5" y="5" width="100" height="65" rx="4" className="stroke-primary" />
-    <line x1="38" y1="5" x2="38" y2="70" className="stroke-primary" />
-    <line x1="72" y1="5" x2="72" y2="70" className="stroke-primary" />
-    <rect x="10" y="12" width="22" height="20" rx="2" className="stroke-primary fill-primary/8" />
-    <rect x="44" y="12" width="22" height="20" rx="2" className="stroke-primary fill-primary/8" />
-    <rect x="78" y="12" width="22" height="20" rx="2" className="stroke-primary fill-primary/8" />
-    <rect x="5" y="75" width="100" height="10" rx="3" className="stroke-primary" />
-  </svg>;
-const DoodleCRM = () => <svg className="w-20 h-18" viewBox="0 0 110 90" fill="none" stroke="currentColor" strokeWidth="1.2">
-    <circle cx="30" cy="28" r="14" className="stroke-primary" />
-    <circle cx="80" cy="28" r="14" className="stroke-primary" />
-    <circle cx="55" cy="62" r="14" className="stroke-primary" />
-    <path d="M42 34 L46 52" className="stroke-primary" strokeDasharray="3 2" />
-    <path d="M68 34 L64 52" className="stroke-primary" strokeDasharray="3 2" />
-    <path d="M44 28 L66 28" className="stroke-primary" strokeDasharray="3 2" />
-    <circle cx="30" cy="25" r="6" className="stroke-primary fill-primary/15" />
-    <circle cx="80" cy="25" r="6" className="stroke-primary fill-primary/15" />
-    <circle cx="55" cy="59" r="6" className="stroke-primary fill-primary/15" />
-  </svg>;
-const DoodleReports = () => <svg className="w-16 h-20" viewBox="0 0 80 105" fill="none" stroke="currentColor" strokeWidth="1.2">
-    <path d="M10 10 L55 10 L70 25 L70 95 L10 95 Z" className="stroke-primary" />
-    <path d="M55 10 L55 25 L70 25" className="stroke-primary" />
-    <line x1="18" y1="40" x2="60" y2="40" className="stroke-primary" />
-    <line x1="18" y1="50" x2="52" y2="50" className="stroke-primary" />
-    <line x1="18" y1="60" x2="58" y2="60" className="stroke-primary" />
-    <line x1="18" y1="70" x2="45" y2="70" className="stroke-primary" />
-    <rect x="18" y="28" width="18" height="6" className="stroke-primary fill-primary/15" rx="1" />
-  </svg>;
-const DoodleAccounting = () => <svg className="w-18 h-20" viewBox="0 0 80 100" fill="none" stroke="currentColor" strokeWidth="1.2">
-    <rect x="10" y="10" width="60" height="80" rx="4" className="stroke-primary" />
-    <line x1="10" y1="28" x2="70" y2="28" className="stroke-primary" />
-    <rect x="18" y="36" width="12" height="10" rx="2" className="stroke-primary fill-primary/8" />
-    <rect x="34" y="36" width="12" height="10" rx="2" className="stroke-primary fill-primary/8" />
-    <rect x="50" y="36" width="12" height="10" rx="2" className="stroke-primary fill-primary/8" />
-    <rect x="18" y="50" width="12" height="10" rx="2" className="stroke-primary fill-primary/8" />
-    <rect x="34" y="50" width="12" height="10" rx="2" className="stroke-primary fill-primary/8" />
-    <rect x="50" y="50" width="12" height="10" rx="2" className="stroke-primary fill-primary/8" />
-    <text x="18" y="22" fontSize="7" className="fill-primary" fontFamily="monospace">12,450.00</text>
-    <rect x="34" y="68" width="28" height="14" rx="2" className="stroke-primary fill-primary/15" />
-  </svg>;
-
-// CTA Arrow Doodle
-const CTAArrowDoodle = () => <svg className="absolute -left-14 top-1/2 -translate-y-1/2 w-12 h-10 opacity-[0.15] text-primary hidden xl:block" viewBox="0 0 60 50" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M5 25 Q18 18, 30 25 T55 25" strokeLinecap="round" className="stroke-primary" />
-    <path d="M46 18 L56 25 L46 32" strokeLinecap="round" strokeLinejoin="round" className="stroke-primary" />
-  </svg>;
-
-// ============ MOCKUP COMPONENTS ============
-
-// POS Mockup Component
-const POSMockup = ({
-  amounts
-}: {
-  amounts: {
-    chickenShawarma: string;
-    grilledLambKebab: string;
-    posSubtotal: string;
-    posTotal: string;
-  };
-}) => <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden w-full max-w-[420px]">
-    {/* POS Header Bar */}
-    <div className="bg-primary px-4 py-3 flex items-center justify-between">
-      <div className="flex items-center gap-2">
-        <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-          <Receipt className="w-4 h-4 text-white" />
-        </div>
-        <span className="text-white font-semibold text-sm">Swirl POS</span>
-      </div>
-      <div className="flex items-center gap-2">
-        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-        <span className="text-white/80 text-xs font-medium">Table 5</span>
-      </div>
-    </div>
-    
-    {/* Order Items */}
-    <div className="p-4 space-y-3">
-      <div className="flex items-center justify-between py-3 border-b border-gray-100">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-sm font-bold text-primary">2×</div>
-          <div>
-            <span className="text-sm font-medium text-foreground block">Chicken Shawarma</span>
-            <span className="text-xs text-muted-foreground">Extra garlic sauce</span>
-          </div>
-        </div>
-        <span className="text-sm font-semibold text-foreground">{amounts.chickenShawarma}</span>
-      </div>
-      <div className="flex items-center justify-between py-3 border-b border-gray-100">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-sm font-bold text-primary">1×</div>
-          <div>
-            <span className="text-sm font-medium text-foreground block">Grilled Lamb Kebab</span>
-            <span className="text-xs text-muted-foreground">Medium spice</span>
-          </div>
-        </div>
-        <span className="text-sm font-semibold text-foreground">{amounts.grilledLambKebab}</span>
-      </div>
-      
-      {/* Totals */}
-      <div className="pt-3 space-y-2 border-t border-gray-100">
-        <div className="flex justify-between text-sm text-muted-foreground">
-          <span>Subtotal</span>
-          <span>{amounts.posSubtotal}</span>
-        </div>
-        <div className="flex justify-between text-lg font-bold text-foreground pt-2 border-t border-gray-200">
-          <span>Total</span>
-          <span className="text-primary">{amounts.posTotal}</span>
-        </div>
-      </div>
-      
-      {/* Payment Buttons */}
-      <div className="grid grid-cols-3 gap-2 pt-3">
-        <button className="flex flex-col items-center gap-1 p-3 bg-green-500 rounded-xl">
-          <Banknote className="w-5 h-5 text-white" />
-          <span className="text-[10px] font-semibold text-white">Cash</span>
-        </button>
-        <button className="flex flex-col items-center gap-1 p-3 bg-primary rounded-xl">
-          <CreditCard className="w-5 h-5 text-white" />
-          <span className="text-[10px] font-semibold text-white">Card</span>
-        </button>
-        <button className="flex flex-col items-center gap-1 p-3 bg-gray-600 rounded-xl">
-          <SplitSquareVertical className="w-5 h-5 text-white" />
-          <span className="text-[10px] font-semibold text-white">Split</span>
-        </button>
-      </div>
-    </div>
-  </div>;
-
-// Inventory Mockup Component  
-const InventoryMockup = ({
-  amounts
-}: {
-  amounts: {
-    accountingToday: string;
-    accountingWeek: string;
-    accountingMonth: string;
-  };
-}) => <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden w-full max-w-[380px]">
+// ============ COMPACT ACCOUNTING MOCKUP ============
+const AccountingMockup = ({ formatAmount }: { formatAmount: (amount: number) => string }) => (
+  <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden w-full max-w-[320px]">
     {/* Header */}
-    <div className="bg-gradient-to-r from-primary to-primary/90 px-4 py-3 flex items-center justify-between">
+    <div className="bg-gradient-to-r from-emerald-600 to-teal-600 px-4 py-2.5 flex items-center justify-between">
       <div className="flex items-center gap-2">
-        <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-          <Package className="w-4 h-4 text-white" />
+        <div className="w-7 h-7 bg-white/20 rounded-lg flex items-center justify-center">
+          <Calculator className="w-3.5 h-3.5 text-white" />
         </div>
-        <span className="text-white font-semibold text-sm">Inventory</span>
+        <span className="text-white font-semibold text-sm">Accounting</span>
       </div>
-      <div className="px-2 py-1 bg-white/20 rounded-full">
-        <span className="text-white/90 text-xs font-medium">Live</span>
-      </div>
+      <span className="text-white/80 text-xs">Auto-synced</span>
     </div>
     
-    {/* Metrics Grid */}
-    <div className="p-4 space-y-4">
-      {/* Top Stats Row */}
-      <div className="grid grid-cols-3 gap-3">
-        <div className="bg-blue-50 rounded-xl p-3 text-center border border-blue-100">
-          <p className="text-2xl font-bold text-gray-900">847</p>
-          <p className="text-[10px] text-blue-600 font-medium">Items in Stock</p>
+    {/* Content */}
+    <div className="p-3 space-y-3">
+      {/* Revenue Card */}
+      <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl p-3 border border-emerald-100">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-xs text-emerald-700 font-medium">Today's Revenue</span>
+          <TrendingUp className="w-4 h-4 text-emerald-500" />
         </div>
-        <div className="bg-green-50 rounded-xl p-3 text-center border border-green-100">
-          <p className="text-2xl font-bold text-gray-900">98%</p>
-          <p className="text-[10px] text-green-600 font-medium">Fill Rate</p>
-        </div>
-        <div className="bg-purple-50 rounded-xl p-3 text-center border border-purple-100">
-          <p className="text-2xl font-bold text-gray-900">12</p>
-          <p className="text-[10px] text-purple-600 font-medium">Low Stock</p>
-        </div>
-      </div>
-      
-      {/* Stock Status */}
-      <div className="space-y-2">
-        <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Stock Alerts</h4>
-        <div className="space-y-2">
-          <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-              <span className="text-sm text-gray-700">Chicken Breast</span>
-            </div>
-            <span className="text-xs font-bold text-red-500 px-2 py-1 bg-red-50 rounded-full">Low</span>
-          </div>
-          <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-              <span className="text-sm text-gray-700">Olive Oil</span>
-            </div>
-            <span className="text-xs font-bold text-amber-600 px-2 py-1 bg-amber-50 rounded-full">Med</span>
-          </div>
-          <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span className="text-sm text-gray-700">Fresh Tomatoes</span>
-            </div>
-            <span className="text-xs font-bold text-green-600 px-2 py-1 bg-green-50 rounded-full">OK</span>
-          </div>
-        </div>
+        <p className="text-xl font-bold text-emerald-700">{formatAmount(48250)}</p>
+        <p className="text-[10px] text-emerald-600">+12.5% vs yesterday</p>
       </div>
       
       {/* Quick Stats */}
-      <div className="flex items-center justify-between p-3 bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl border border-emerald-100">
-        <div className="flex items-center gap-2">
-          <TrendingUp className="w-5 h-5 text-emerald-500" />
-          <span className="text-sm font-medium text-emerald-700">Inventory Value</span>
+      <div className="grid grid-cols-2 gap-2">
+        <div className="bg-gray-50 rounded-lg p-2 text-center">
+          <FileText className="w-4 h-4 text-primary mx-auto mb-1" />
+          <p className="text-sm font-bold text-foreground">156</p>
+          <p className="text-[9px] text-muted-foreground">Invoices</p>
         </div>
-        <span className="text-lg font-bold text-emerald-600">{amounts.accountingMonth}</span>
+        <div className="bg-gray-50 rounded-lg p-2 text-center">
+          <PieChart className="w-4 h-4 text-amber-500 mx-auto mb-1" />
+          <p className="text-sm font-bold text-foreground">28%</p>
+          <p className="text-[9px] text-muted-foreground">Food Cost</p>
+        </div>
+      </div>
+      
+      {/* Status */}
+      <div className="flex items-center justify-center gap-2 text-[10px] text-muted-foreground">
+        <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+        <span>Tally/Zoho sync active</span>
       </div>
     </div>
-  </div>;
+  </div>
+);
 
-// KDS Mockup Component for Hero
-const KDSMockup = () => {
-  const orders = [{
-    id: "#100736",
-    table: "Table 009",
-    status: "In prep",
-    cardBg: "bg-red-50",
-    borderColor: "border-l-4 border-l-red-500",
-    isLate: true,
-    time: "16:54",
-    waitTime: "5m 19s",
-    items: [{
-      qty: 1,
-      name: "Red Velvet Latte"
-    }, {
-      qty: 1,
-      name: "Spanish Latte"
-    }]
-  }, {
-    id: "#100742",
-    table: "Table 1",
-    status: "In prep",
-    cardBg: "bg-blue-50",
-    borderColor: "border-l-4 border-l-blue-500",
-    isLate: false,
-    time: "13:57",
-    waitTime: "2m 15s",
-    items: [{
-      qty: 1,
-      name: "Pistachio Latte"
-    }, {
-      qty: 2,
-      name: "Red Velvet Latte"
-    }]
-  }, {
-    id: "#100744",
-    table: "Takeaway",
-    status: "Takeaway",
-    cardBg: "bg-amber-50",
-    borderColor: "border-l-4 border-l-amber-500",
-    isTakeaway: true,
-    isLate: false,
-    time: "14:10",
-    waitTime: "02m 58s",
-    items: [{
-      qty: 1,
-      name: "Vanilla Affogato"
-    }, {
-      qty: 1,
-      name: "Texas BBQ'ed"
-    }]
-  }, {
-    id: "#0",
-    table: "Table 10",
-    status: "served",
-    cardBg: "bg-emerald-50",
-    borderColor: "border-l-4 border-l-emerald-500",
-    isLate: false,
-    isServed: true,
-    time: "14:27",
-    waitTime: "Complete",
-    items: [{
-      qty: 1,
-      name: "Brownie Ice cream"
-    }, {
-      qty: 1,
-      name: "Red Velvet"
-    }]
-  }];
-  return <div className="bg-white rounded-2xl shadow-2xl shadow-primary/20 border border-gray-100 overflow-hidden w-full max-w-[800px]">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-gray-900 to-gray-800 px-4 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
-            <Monitor className="w-4 h-4 text-white" />
-          </div>
-          <span className="text-white font-semibold text-sm">Kitchen Display</span>
+// ============ FULL POS MOCKUP (from POS page) ============
+const FullPOSMockup = ({ formatAmount }: { formatAmount: (amount: number) => string }) => {
+  const orderItems = [
+    { name: 'Red Velvet Latte', qty: 1, price: 25 },
+    { name: 'Spanish Latte', qty: 1, price: 28 },
+    { name: 'Pistachio Latte', qty: 1, price: 25 },
+  ];
+  const subtotal = orderItems.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const vat = subtotal * 0.05;
+  const total = subtotal + vat;
+
+  return (
+    <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden w-full max-w-[480px]">
+      {/* Top Header Bar */}
+      <div className="bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between">
+        <div>
+          <h2 className="text-base font-bold text-gray-900">Order #100736</h2>
+          <p className="text-[10px] text-gray-500">Dec 30, 2025, 4:54 PM</p>
         </div>
         <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1.5 px-2 py-1 bg-emerald-500/20 rounded-full">
-            <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
-            <span className="text-[10px] font-medium text-emerald-300">0 prep</span>
+          <div className="flex items-center gap-1.5 px-2 py-1 bg-gray-50 rounded-full border border-gray-200">
+            <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+            <span className="text-xs font-medium text-gray-700">shamim</span>
           </div>
-          <div className="flex items-center gap-1.5 px-2 py-1 bg-blue-500/20 rounded-full">
-            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full" />
-            <span className="text-[10px] font-medium text-blue-300">7 active</span>
-          </div>
-          <div className="flex items-center gap-1.5 px-2 py-1 bg-red-500/20 rounded-full">
-            <div className="w-1.5 h-1.5 bg-red-400 rounded-full" />
-            <span className="text-[10px] font-medium text-red-300">5 late</span>
+          <div className="px-2 py-1 bg-gray-50 rounded-full border border-gray-200 text-xs text-gray-700">
+            Table #009
           </div>
         </div>
       </div>
 
-      {/* Orders Grid */}
-      <div className="p-3 grid grid-cols-2 md:grid-cols-4 gap-3">
-        {orders.map((order, idx) => <div key={idx} className={`${order.cardBg} rounded-xl border border-gray-200 overflow-hidden ${order.borderColor}`}>
-            {/* Order Header */}
-            <div className="p-2.5 border-b border-gray-100/50">
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="font-bold text-gray-900 text-xs">{order.id}</span>
-                <div className="flex items-center gap-1">
-                  {order.isServed ? <span className="text-[10px] font-medium text-gray-400">served</span> : order.isTakeaway ? <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[10px] rounded font-semibold">
-                      Takeaway
-                    </span> : order.isLate ? <span className="px-1.5 py-0.5 bg-red-500 text-white text-[10px] rounded font-semibold">
-                      LATE
-                    </span> : <span className="px-1.5 py-0.5 bg-blue-600 text-white text-[10px] rounded font-semibold">
-                      In prep
-                    </span>}
+      {/* Main Content Area */}
+      <div className="grid md:grid-cols-2 gap-0">
+        {/* Left Panel - Order Items */}
+        <div className="p-4 border-r border-gray-100">
+          <div className="flex items-center gap-2 mb-3">
+            <h3 className="font-bold text-gray-900 text-sm">Order</h3>
+            <span className="px-2 py-0.5 bg-yellow-100 text-yellow-700 text-[10px] font-medium rounded">IN PROGRESS</span>
+          </div>
+          
+          <div className="space-y-2 mb-4">
+            {orderItems.map((item, index) => (
+              <div key={index} className="p-3 bg-white border border-gray-100 rounded-xl">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-medium text-gray-900 text-sm">{item.name}</p>
+                    <p className="text-[10px] text-gray-500">{item.qty} × {formatAmount(item.price)}</p>
+                  </div>
+                  <p className="font-bold text-gray-900 text-sm">{formatAmount(item.price)}</p>
                 </div>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] text-gray-500">{order.table}</span>
-                <span className={`text-[10px] font-bold ${order.isLate ? 'text-red-500' : order.isServed ? 'text-gray-400' : 'text-blue-500'}`}>
-                  {order.waitTime}
-                </span>
+            ))}
+          </div>
+
+          {/* Action Buttons */}
+          <div className="grid grid-cols-2 gap-2">
+            <button className="px-3 py-2 text-xs font-medium text-orange-600 border border-orange-200 rounded-lg hover:bg-orange-50 transition-colors">
+              Change Status
+            </button>
+            <button className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+              Add Item
+            </button>
+          </div>
+        </div>
+
+        {/* Right Panel - Billing */}
+        <div className="p-4 bg-gray-50/50">
+          <div className="flex items-center gap-2 mb-3">
+            <h3 className="font-bold text-gray-900 text-sm">Billing</h3>
+            <span className="px-2 py-0.5 bg-yellow-100 text-yellow-700 text-[10px] font-medium rounded">UNPAID</span>
+          </div>
+
+          {/* Invoice Card */}
+          <div className="bg-white rounded-xl border border-gray-100 p-4 mb-4">
+            <div className="text-center mb-3">
+              <h4 className="font-bold text-gray-900 text-sm">Swirl Cafe</h4>
+              <p className="text-[10px] text-gray-500">Al Khalidya</p>
+              <p className="text-[9px] text-gray-400">VAT: VAT123456789</p>
+            </div>
+
+            {/* Totals */}
+            <div className="border-t border-gray-100 pt-3 space-y-1.5">
+              <div className="flex justify-between text-xs">
+                <span className="text-gray-600">Sub Total</span>
+                <span className="text-gray-900">{formatAmount(subtotal)}</span>
+              </div>
+              <div className="flex justify-between text-xs">
+                <span className="text-gray-600">VAT (5%)</span>
+                <span className="text-gray-900">{formatAmount(vat)}</span>
+              </div>
+              <div className="flex justify-between text-sm font-bold pt-2 border-t border-gray-100">
+                <span className="text-gray-900">Total</span>
+                <span className="text-primary">{formatAmount(total)}</span>
               </div>
             </div>
+          </div>
 
-            {/* Order Items */}
-            <div className="p-2.5 space-y-1.5">
-              {order.items.map((item, i) => <div key={i} className="flex items-center gap-2">
-                  <div className={`w-4 h-4 border-2 rounded-full flex items-center justify-center flex-shrink-0 ${order.isServed ? 'border-emerald-400 bg-emerald-50' : 'border-gray-300'}`}>
-                    {order.isServed && <Check className="w-2.5 h-2.5 text-emerald-500" />}
-                  </div>
-                  <span className="font-bold text-gray-800 text-[10px]">{item.qty}×</span>
-                  <span className="text-gray-600 text-[10px] truncate">{item.name}</span>
-                </div>)}
-            </div>
-          </div>)}
+          {/* Payment Buttons */}
+          <div className="grid grid-cols-3 gap-2 mb-3">
+            <button className="flex flex-col items-center gap-1 p-2 bg-green-500 rounded-xl">
+              <Banknote className="w-4 h-4 text-white" />
+              <span className="text-[9px] font-semibold text-white">Cash</span>
+            </button>
+            <button className="flex flex-col items-center gap-1 p-2 bg-primary rounded-xl">
+              <CreditCard className="w-4 h-4 text-white" />
+              <span className="text-[9px] font-semibold text-white">Card</span>
+            </button>
+            <button className="flex flex-col items-center gap-1 p-2 bg-gray-700 rounded-xl">
+              <SplitSquareVertical className="w-4 h-4 text-white" />
+              <span className="text-[9px] font-semibold text-white">Split</span>
+            </button>
+          </div>
+
+          <button className="w-full px-3 py-2.5 text-xs font-medium text-white bg-gray-900 rounded-lg flex items-center justify-center gap-2">
+            <Receipt className="w-4 h-4" />
+            Print Bill & Settle
+          </button>
+        </div>
       </div>
-    </div>;
+    </div>
+  );
 };
 
-// ============ MAIN HERO COMPONENT ============
-
-const Hero: React.FC = () => {
-  const {
-    amounts
-  } = useCurrency();
-  return <section className="relative min-h-screen bg-white overflow-hidden pt-32 md:pt-36 lg:pt-32 pb-8">
-      
-      {/* ======== DOODLES - Outer margins only, hidden on mobile/tablet ======== */}
-      <div className="absolute inset-0 pointer-events-none text-primary hidden xl:block">
-        {/* Left margin doodles */}
-        <div className="absolute top-32 left-4 opacity-[0.06]">
-          <DoodleBilling />
+// ============ COMPACT INVENTORY MOCKUP ============
+const CompactInventoryMockup = ({ formatAmount }: { formatAmount: (amount: number) => string }) => (
+  <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden w-full max-w-[320px]">
+    {/* Header */}
+    <div className="bg-gradient-to-r from-primary to-blue-600 px-4 py-2.5 flex items-center justify-between">
+      <div className="flex items-center gap-2">
+        <div className="w-7 h-7 bg-white/20 rounded-lg flex items-center justify-center">
+          <Package className="w-3.5 h-3.5 text-white" />
         </div>
-        <div className="absolute top-1/2 -translate-y-1/2 left-6 opacity-[0.05]">
-          <DoodleInventory />
+        <span className="text-white font-semibold text-sm">Inventory</span>
+      </div>
+      <div className="px-2 py-0.5 bg-white/20 rounded-full">
+        <span className="text-white/90 text-[10px] font-medium">Live</span>
+      </div>
+    </div>
+    
+    {/* Content */}
+    <div className="p-3 space-y-3">
+      {/* Stats Row */}
+      <div className="grid grid-cols-3 gap-2">
+        <div className="bg-blue-50 rounded-xl p-2 text-center border border-blue-100">
+          <p className="text-lg font-bold text-gray-900">847</p>
+          <p className="text-[9px] text-blue-600 font-medium">Items</p>
         </div>
-        <div className="absolute bottom-32 left-8 opacity-[0.05]">
-          <DoodleCRM />
+        <div className="bg-green-50 rounded-xl p-2 text-center border border-green-100">
+          <p className="text-lg font-bold text-gray-900">98%</p>
+          <p className="text-[9px] text-green-600 font-medium">Fill Rate</p>
         </div>
-        
-        {/* Right margin doodles */}
-        <div className="absolute top-28 right-4 opacity-[0.055]">
-          <DoodleAnalytics />
-        </div>
-        <div className="absolute bottom-28 right-6 opacity-[0.05]">
-          <DoodleReports />
-        </div>
-        
-        {/* Corner doodles */}
-        <div className="absolute top-40 left-28 opacity-[0.04]">
-          <DoodleKDSSmall />
-        </div>
-        <div className="absolute bottom-40 right-24 opacity-[0.06]">
-          <DoodleQRCode />
-        </div>
-        <div className="absolute top-1/3 right-28 opacity-[0.05]">
-          <DoodleAccounting />
+        <div className="bg-amber-50 rounded-xl p-2 text-center border border-amber-100">
+          <p className="text-lg font-bold text-gray-900">12</p>
+          <p className="text-[9px] text-amber-600 font-medium">Low Stock</p>
         </div>
       </div>
+      
+      {/* Stock Alerts */}
+      <div className="space-y-1.5">
+        <div className="flex items-center justify-between p-2 bg-gray-50 rounded-lg">
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 bg-red-500 rounded-full" />
+            <span className="text-xs text-gray-700">Chicken Breast</span>
+          </div>
+          <span className="text-[9px] font-bold text-red-500 px-1.5 py-0.5 bg-red-50 rounded-full">Low</span>
+        </div>
+        <div className="flex items-center justify-between p-2 bg-gray-50 rounded-lg">
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+            <span className="text-xs text-gray-700">Fresh Tomatoes</span>
+          </div>
+          <span className="text-[9px] font-bold text-green-600 px-1.5 py-0.5 bg-green-50 rounded-full">OK</span>
+        </div>
+      </div>
+      
+      {/* Value */}
+      <div className="flex items-center justify-between p-2.5 bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl border border-emerald-100">
+        <div className="flex items-center gap-2">
+          <TrendingUp className="w-4 h-4 text-emerald-500" />
+          <span className="text-xs font-medium text-emerald-700">Stock Value</span>
+        </div>
+        <span className="text-sm font-bold text-emerald-600">{formatAmount(125000)}</span>
+      </div>
+    </div>
+  </div>
+);
 
-      {/* ======== MAIN CONTENT ======== */}
+// ============ MAIN HERO COMPONENT ============
+const Hero: React.FC = () => {
+  const { formatAmount } = useCurrency();
+  
+  return (
+    <section className="relative min-h-screen bg-white overflow-hidden pt-28 md:pt-32 pb-8">
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-20">
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'radial-gradient(circle, hsl(var(--primary) / 0.04) 1px, transparent 1px)',
+            backgroundSize: '24px 24px'
+          }}
+        />
+      </div>
+
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[75vh] shadow-none py-[40px]">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[75vh] py-8">
           
-          {/* ======== LEFT COLUMN: COPY & CTAs ======== */}
-          <div className="space-y-7 text-center lg:text-left order-1">
-            
+          {/* LEFT COLUMN: COPY & CTAs */}
+          <div className="space-y-6 text-center lg:text-left order-1">
             {/* Main Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] xl:text-6xl font-bold text-foreground leading-[1.08] tracking-tight animate-fade-in">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight tracking-tight animate-fade-in">
               The Operating System{" "}
               <span className="bg-gradient-to-r from-primary via-primary/85 to-primary/65 bg-clip-text text-transparent">
                 Powering
@@ -443,123 +285,169 @@ const Hero: React.FC = () => {
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed animate-fade-in animation-delay-200">
+            <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed animate-fade-in animation-delay-200">
               POS, QR Ordering, Inventory, Accounting, CRM, Analytics & AI — unified into one powerful platform designed for serious F&B brands.
             </p>
 
             {/* CTA Zone */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start relative animate-fade-in animation-delay-400">
-              <CTAArrowDoodle />
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in animation-delay-400">
               <a href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20for%20Swirl" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="h-14 px-8 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300" style={{
-                animation: 'pulse-glow 2s ease-in-out infinite'
-              }}>
+                <Button size="lg" className="h-14 px-8 text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300">
                   Book a Demo
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </a>
+              <Link to="/features/point-of-sale">
+                <Button variant="outline" size="lg" className="h-14 px-8 text-base font-semibold">
+                  Explore Features
+                </Button>
+              </Link>
             </div>
 
-            {/* Trust Line */}
-            <p className="text-sm text-muted-foreground animate-fade-in animation-delay-600">
-              
-            </p>
+            {/* Trust indicators */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-muted-foreground animate-fade-in animation-delay-600">
+              <span className="flex items-center gap-1.5">
+                <Check className="w-4 h-4 text-green-500" />
+                Free setup
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Check className="w-4 h-4 text-green-500" />
+                24/7 support
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Check className="w-4 h-4 text-green-500" />
+                500+ restaurants
+              </span>
+            </div>
           </div>
 
-          {/* ======== RIGHT COLUMN: PRODUCT MOCKUPS ======== */}
+          {/* RIGHT COLUMN: PRODUCT MOCKUPS */}
           <div className="relative animate-fade-in animation-delay-600 order-2">
             {/* Desktop Layout */}
-            <div className="hidden md:flex flex-col gap-6 items-center justify-center">
-              {/* Top Row - POS and Inventory */}
-              <div className="flex flex-col lg:flex-row gap-6 items-center justify-center">
-                {/* POS Mockup - Primary */}
-                <div className="transform lg:rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
-                  <POSMockup amounts={amounts} />
-                </div>
-                
-                {/* Inventory Mockup - Secondary, offset */}
-                <div className="transform lg:rotate-[2deg] lg:-translate-y-8 hover:rotate-0 transition-transform duration-500">
-                  <InventoryMockup amounts={amounts} />
-                </div>
+            <div className="hidden lg:block relative">
+              {/* Main POS Mockup */}
+              <div className="transform rotate-[-1deg] hover:rotate-0 transition-transform duration-500">
+                <FullPOSMockup formatAmount={formatAmount} />
               </div>
               
-              {/* Bottom Row - KDS Mockup spanning full width */}
-              <div className="transform hover:scale-[1.01] transition-transform duration-500 w-full max-w-[800px]">
-                <KDSMockup />
+              {/* Side cards - Inventory & Accounting */}
+              <div className="absolute -right-4 top-4 transform rotate-[2deg] hover:rotate-0 transition-transform duration-500 scale-90">
+                <CompactInventoryMockup formatAmount={formatAmount} />
+              </div>
+              
+              <div className="absolute -right-8 bottom-8 transform rotate-[-2deg] hover:rotate-0 transition-transform duration-500 scale-85">
+                <AccountingMockup formatAmount={formatAmount} />
               </div>
             </div>
 
-            {/* Mobile Layout - Simplified mockups */}
+            {/* Tablet Layout */}
+            <div className="hidden md:flex lg:hidden flex-col gap-4 items-center">
+              <FullPOSMockup formatAmount={formatAmount} />
+              <div className="flex gap-4">
+                <div className="scale-90">
+                  <CompactInventoryMockup formatAmount={formatAmount} />
+                </div>
+                <div className="scale-90">
+                  <AccountingMockup formatAmount={formatAmount} />
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Layout */}
             <div className="md:hidden flex flex-col gap-4 items-center">
-              {/* Mobile POS */}
-              <div className="w-full max-w-sm">
-                <POSMockup amounts={amounts} />
+              {/* Simplified POS */}
+              <div className="w-full max-w-sm bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                <div className="bg-primary px-4 py-2.5 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Receipt className="w-4 h-4 text-white" />
+                    <span className="text-white font-semibold text-sm">Swirl POS</span>
+                  </div>
+                  <span className="text-white/80 text-xs">Table 5</span>
+                </div>
+                <div className="p-4">
+                  <div className="space-y-2 mb-4">
+                    {[
+                      { name: 'Red Velvet Latte', qty: 1, price: 25 },
+                      { name: 'Spanish Latte', qty: 1, price: 28 },
+                    ].map((item, i) => (
+                      <div key={i} className="flex justify-between items-center py-2 border-b border-gray-100">
+                        <div className="flex items-center gap-2">
+                          <span className="w-6 h-6 bg-primary/10 rounded text-xs font-bold text-primary flex items-center justify-center">{item.qty}×</span>
+                          <span className="text-sm text-foreground">{item.name}</span>
+                        </div>
+                        <span className="text-sm font-semibold">{formatAmount(item.price)}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex justify-between items-center py-2 border-t border-gray-200">
+                    <span className="font-bold text-foreground">Total</span>
+                    <span className="text-lg font-bold text-primary">{formatAmount(55.65)}</span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-2 mt-4">
+                    <button className="p-2 bg-green-500 rounded-lg flex flex-col items-center">
+                      <Banknote className="w-4 h-4 text-white" />
+                      <span className="text-[9px] text-white font-medium">Cash</span>
+                    </button>
+                    <button className="p-2 bg-primary rounded-lg flex flex-col items-center">
+                      <CreditCard className="w-4 h-4 text-white" />
+                      <span className="text-[9px] text-white font-medium">Card</span>
+                    </button>
+                    <button className="p-2 bg-gray-700 rounded-lg flex flex-col items-center">
+                      <SplitSquareVertical className="w-4 h-4 text-white" />
+                      <span className="text-[9px] text-white font-medium">Split</span>
+                    </button>
+                  </div>
+                </div>
               </div>
               
               {/* Mobile Inventory Card */}
-              <div className="w-full max-w-sm bg-white rounded-xl shadow-lg border border-gray-200 p-3">
+              <div className="w-full max-w-sm bg-white rounded-xl shadow-lg border border-gray-200 p-4">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-sm font-bold text-gray-900">Inventory</h3>
+                  <div className="flex items-center gap-2">
+                    <Package className="w-4 h-4 text-primary" />
+                    <h3 className="text-sm font-bold text-foreground">Inventory</h3>
+                  </div>
                   <span className="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Live</span>
                 </div>
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="bg-primary/5 rounded-lg p-2">
-                    <div className="text-[10px] text-gray-500">Stock Value</div>
-                    <div className="text-sm font-bold text-gray-900">{amounts.inventoryOnHand}</div>
+                <div className="grid grid-cols-3 gap-2">
+                  <div className="bg-primary/5 rounded-lg p-2 text-center">
+                    <p className="text-lg font-bold text-foreground">847</p>
+                    <p className="text-[9px] text-muted-foreground">Items</p>
                   </div>
-                  <div className="bg-green-50 rounded-lg p-2">
-                    <div className="text-[10px] text-gray-500">Items</div>
-                    <div className="text-sm font-bold text-gray-900">1,247</div>
+                  <div className="bg-green-50 rounded-lg p-2 text-center">
+                    <p className="text-lg font-bold text-foreground">98%</p>
+                    <p className="text-[9px] text-muted-foreground">Fill Rate</p>
                   </div>
-                  <div className="bg-yellow-50 rounded-lg p-2">
-                    <div className="text-[10px] text-gray-500">Low Stock</div>
-                    <div className="text-sm font-bold text-yellow-600">12</div>
-                  </div>
-                  <div className="bg-red-50 rounded-lg p-2">
-                    <div className="text-[10px] text-gray-500">Out of Stock</div>
-                    <div className="text-sm font-bold text-red-600">3</div>
+                  <div className="bg-amber-50 rounded-lg p-2 text-center">
+                    <p className="text-lg font-bold text-amber-600">12</p>
+                    <p className="text-[9px] text-muted-foreground">Low Stock</p>
                   </div>
                 </div>
               </div>
 
-              {/* Mobile KDS Card */}
-              <div className="w-full max-w-sm bg-gray-900 rounded-xl shadow-lg p-3">
+              {/* Mobile Accounting Card */}
+              <div className="w-full max-w-sm bg-white rounded-xl shadow-lg border border-gray-200 p-4">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-sm font-bold text-white">Kitchen Display</h3>
-                  <div className="flex gap-1">
-                    <span className="text-[9px] bg-yellow-500/20 text-yellow-400 px-1.5 py-0.5 rounded">2 Active</span>
-                    <span className="text-[9px] bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded">1 Ready</span>
+                  <div className="flex items-center gap-2">
+                    <Calculator className="w-4 h-4 text-emerald-600" />
+                    <h3 className="text-sm font-bold text-foreground">Accounting</h3>
                   </div>
+                  <span className="text-[10px] bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Synced</span>
                 </div>
-                <div className="space-y-2">
-                  {[
-                    { id: '#1042', table: 'T-05', status: 'preparing', time: '3:42', items: 'Margherita Pizza • Caesar Salad' },
-                    { id: '#1043', table: 'T-08', status: 'ready', time: '1:15', items: 'Pasta Carbonara' },
-                    { id: '#1044', table: 'T-02', status: 'new', time: '0:30', items: 'Burger Deluxe • Fries' },
-                  ].map((order) => (
-                    <div key={order.id} className={`rounded-lg p-2 ${
-                      order.status === 'new' ? 'bg-blue-500/20 border border-blue-500/30' :
-                      order.status === 'preparing' ? 'bg-yellow-500/20 border border-yellow-500/30' :
-                      'bg-green-500/20 border border-green-500/30'
-                    }`}>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs font-bold text-white">{order.id}</span>
-                          <span className="text-[10px] text-gray-400">{order.table}</span>
-                        </div>
-                        <span className="text-[10px] text-gray-300">{order.time}</span>
-                      </div>
-                      <div className="mt-1 text-[10px] text-gray-300 truncate">
-                        {order.items}
-                      </div>
-                    </div>
-                  ))}
+                <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg p-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-emerald-700">Today's Revenue</span>
+                    <TrendingUp className="w-4 h-4 text-emerald-500" />
+                  </div>
+                  <p className="text-xl font-bold text-emerald-700 mt-1">{formatAmount(48250)}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;

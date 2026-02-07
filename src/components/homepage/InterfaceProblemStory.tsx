@@ -14,7 +14,10 @@ import {
   Users,
   Package,
   Phone,
-  CheckCircle
+  CheckCircle,
+  Receipt,
+  Banknote,
+  SplitSquareVertical
 } from 'lucide-react';
 import { useCurrency } from '@/hooks/useCurrency';
 
@@ -30,8 +33,8 @@ const InterfaceProblemStory: React.FC = () => {
       const sectionHeight = sectionRef.current.offsetHeight;
       const viewportHeight = window.innerHeight;
       
-      const start = rect.top + sectionHeight * 0.2;
-      const end = rect.top - viewportHeight * 0.3;
+      const start = rect.top + sectionHeight * 0.15;
+      const end = rect.top - viewportHeight * 0.4;
       const progress = Math.max(0, Math.min(1, 1 - (start / (start - end))));
       
       setScrollProgress(progress);
@@ -42,9 +45,9 @@ const InterfaceProblemStory: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const chaosOpacity = Math.max(0, 1 - scrollProgress * 2);
-  const unifiedOpacity = Math.max(0, (scrollProgress - 0.4) * 2.5);
-  const unifiedScale = 0.9 + (Math.min(1, Math.max(0, (scrollProgress - 0.4) * 2)) * 0.1);
+  const chaosOpacity = Math.max(0, 1 - scrollProgress * 2.5);
+  const unifiedOpacity = Math.max(0, (scrollProgress - 0.35) * 3);
+  const unifiedScale = 0.92 + (Math.min(1, Math.max(0, (scrollProgress - 0.35) * 2.5)) * 0.08);
 
   const tools = [
     { icon: CreditCard, label: 'POS', path: '/features/point-of-sale' },
@@ -56,68 +59,68 @@ const InterfaceProblemStory: React.FC = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="relative min-h-[100vh] bg-white overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-[70vh] bg-white overflow-hidden">
       {/* Subtle grid background */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-15">
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: `radial-gradient(circle, hsl(var(--primary) / 0.04) 1px, transparent 1px)`,
-            backgroundSize: '24px 24px'
+            backgroundImage: `radial-gradient(circle, hsl(var(--primary) / 0.05) 1px, transparent 1px)`,
+            backgroundSize: '20px 20px'
           }}
         />
       </div>
 
-      <div className="sticky top-0 h-screen flex items-center justify-center py-4">
+      <div className="sticky top-0 h-[75vh] flex items-center justify-center">
         <div className="container-custom relative">
-          {/* Header with transition */}
-          <div className="text-center mb-6 animate-on-scroll">
-            <p className="text-primary font-medium text-sm tracking-wide uppercase mb-2">
+          {/* Header with transition - positioned at very top */}
+          <div className="absolute top-4 left-0 right-0 text-center z-20">
+            <p className="text-primary font-semibold text-xs tracking-widest uppercase mb-1">
               The reality today
             </p>
-            <div className="relative h-14 md:h-16 overflow-hidden">
+            <div className="relative h-12 md:h-14 overflow-hidden">
               <h2 
-                className={`absolute inset-x-0 text-xl md:text-3xl lg:text-4xl font-bold text-foreground transition-all duration-500 ${
-                  scrollProgress < 0.5 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'
+                className={`absolute inset-x-0 text-2xl md:text-4xl lg:text-5xl font-bold transition-all duration-400 ${
+                  scrollProgress < 0.45 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
                 }`}
               >
-                Too many tools. <span className="text-red-500">No control.</span>
+                <span className="text-foreground">Too many tools.</span> <span className="text-red-500 font-extrabold">No control.</span>
               </h2>
               <h2 
-                className={`absolute inset-x-0 text-xl md:text-3xl lg:text-4xl font-bold text-foreground transition-all duration-500 ${
-                  scrollProgress >= 0.5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                className={`absolute inset-x-0 text-2xl md:text-4xl lg:text-5xl font-bold transition-all duration-400 ${
+                  scrollProgress >= 0.45 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
               >
-                One platform. <span className="text-primary">Complete control.</span>
+                <span className="text-foreground">One platform.</span> <span className="text-primary font-extrabold">Complete control.</span>
               </h2>
             </div>
           </div>
 
           {/* Chaotic Systems - Compact layout */}
           <div 
-            className="absolute inset-0 flex items-center justify-center transition-all duration-500 pt-12"
+            className="absolute inset-0 flex items-center justify-center transition-all duration-400 pt-16"
             style={{ 
               opacity: chaosOpacity,
-              transform: `scale(${1 - scrollProgress * 0.05})`,
-              pointerEvents: scrollProgress > 0.5 ? 'none' : 'auto'
+              transform: `scale(${1 - scrollProgress * 0.08})`,
+              pointerEvents: scrollProgress > 0.4 ? 'none' : 'auto'
             }}
           >
-            <div className="relative w-full max-w-5xl h-[380px] md:h-[420px]">
-              {/* Row 1: POS, WhatsApp, Phone */}
+            <div className="relative w-full max-w-4xl h-[320px] md:h-[360px]">
+              {/* Row 1: POS, WhatsApp, Phone, Reports */}
               <div 
-                className="absolute top-0 left-[2%] w-36 md:w-44 bg-white rounded-xl border border-red-200 shadow-lg p-2.5 transform -rotate-2"
-                style={{ animation: 'float-chaos 4s ease-in-out infinite' }}
+                className="absolute top-0 left-[3%] w-32 md:w-40 bg-white rounded-xl border border-red-200 shadow-lg p-2 transform -rotate-2"
+                style={{ animation: 'float-chaos 3.5s ease-in-out infinite' }}
               >
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="w-6 h-6 rounded-lg bg-red-100 flex items-center justify-center">
-                    <CreditCard className="w-3 h-3 text-red-500" />
+                <div className="flex items-center gap-1.5 mb-1">
+                  <div className="w-5 h-5 rounded-lg bg-red-100 flex items-center justify-center">
+                    <CreditCard className="w-2.5 h-2.5 text-red-500" />
                   </div>
-                  <span className="text-xs font-medium text-red-600">POS System A</span>
+                  <span className="text-[10px] font-medium text-red-600">POS System A</span>
                 </div>
-                <div className="space-y-1">
-                  <div className="h-1.5 bg-red-100 rounded w-full" />
-                  <div className="h-1.5 bg-red-50 rounded w-3/4" />
-                  <div className="flex items-center gap-1 text-[8px] text-red-500 mt-1">
+                <div className="space-y-0.5">
+                  <div className="h-1 bg-red-100 rounded w-full" />
+                  <div className="h-1 bg-red-50 rounded w-3/4" />
+                  <div className="flex items-center gap-0.5 text-[7px] text-red-500 mt-0.5">
                     <Wifi className="w-2 h-2" />
                     <span>Sync failed</span>
                   </div>
@@ -125,20 +128,20 @@ const InterfaceProblemStory: React.FC = () => {
               </div>
 
               <div 
-                className="absolute top-2 left-[32%] w-32 md:w-40 bg-white rounded-xl border border-orange-200 shadow-lg p-2.5 transform rotate-2"
-                style={{ animation: 'float-chaos 5s ease-in-out infinite', animationDelay: '0.5s' }}
+                className="absolute top-2 left-[28%] w-28 md:w-36 bg-white rounded-xl border border-orange-200 shadow-lg p-2 transform rotate-2"
+                style={{ animation: 'float-chaos 4s ease-in-out infinite', animationDelay: '0.3s' }}
               >
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="w-6 h-6 rounded-lg bg-green-100 flex items-center justify-center">
-                    <MessageSquare className="w-3 h-3 text-green-600" />
+                <div className="flex items-center gap-1.5 mb-1">
+                  <div className="w-5 h-5 rounded-lg bg-green-100 flex items-center justify-center">
+                    <MessageSquare className="w-2.5 h-2.5 text-green-600" />
                   </div>
-                  <span className="text-xs font-medium">WhatsApp</span>
+                  <span className="text-[10px] font-medium">WhatsApp</span>
                 </div>
-                <div className="space-y-1 text-[8px]">
-                  <div className="bg-gray-100 rounded p-1">
+                <div className="space-y-0.5 text-[7px]">
+                  <div className="bg-gray-100 rounded p-0.5">
                     <p className="text-gray-600">"1 biryani plz"</p>
                   </div>
-                  <div className="flex items-center gap-1 text-orange-500">
+                  <div className="flex items-center gap-0.5 text-orange-500">
                     <Clock className="w-2 h-2" />
                     <span>12 unread</span>
                   </div>
@@ -146,50 +149,50 @@ const InterfaceProblemStory: React.FC = () => {
               </div>
 
               <div 
-                className="absolute top-0 right-[32%] w-32 md:w-36 bg-white rounded-xl border border-purple-200 shadow-lg p-2.5 transform rotate-3"
-                style={{ animation: 'float-chaos 4.5s ease-in-out infinite', animationDelay: '1.2s' }}
+                className="absolute top-0 right-[28%] w-28 md:w-32 bg-white rounded-xl border border-purple-200 shadow-lg p-2 transform rotate-3"
+                style={{ animation: 'float-chaos 3.8s ease-in-out infinite', animationDelay: '0.8s' }}
               >
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="w-6 h-6 rounded-lg bg-purple-100 flex items-center justify-center">
-                    <Phone className="w-3 h-3 text-purple-600" />
+                <div className="flex items-center gap-1.5 mb-1">
+                  <div className="w-5 h-5 rounded-lg bg-purple-100 flex items-center justify-center">
+                    <Phone className="w-2.5 h-2.5 text-purple-600" />
                   </div>
-                  <span className="text-xs font-medium">Phone Orders</span>
+                  <span className="text-[10px] font-medium">Phone Orders</span>
                 </div>
-                <div className="text-[8px]">
+                <div className="text-[7px]">
                   <p className="text-purple-500">5 missed calls</p>
                   <p className="text-gray-400">Notes on paper...</p>
                 </div>
               </div>
 
               <div 
-                className="absolute top-4 right-[2%] w-36 md:w-44 bg-white rounded-xl border border-gray-300 shadow-lg p-2.5 transform -rotate-2"
-                style={{ animation: 'float-chaos 5.5s ease-in-out infinite', animationDelay: '1.5s' }}
+                className="absolute top-2 right-[3%] w-32 md:w-40 bg-white rounded-xl border border-gray-300 shadow-lg p-2 transform -rotate-2"
+                style={{ animation: 'float-chaos 4.5s ease-in-out infinite', animationDelay: '1s' }}
               >
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="w-6 h-6 rounded-lg bg-gray-100 flex items-center justify-center">
-                    <BarChart2 className="w-3 h-3 text-gray-500" />
+                <div className="flex items-center gap-1.5 mb-1">
+                  <div className="w-5 h-5 rounded-lg bg-gray-100 flex items-center justify-center">
+                    <BarChart2 className="w-2.5 h-2.5 text-gray-500" />
                   </div>
-                  <span className="text-xs font-medium">Reports</span>
+                  <span className="text-[10px] font-medium">Reports</span>
                 </div>
-                <div className="space-y-1">
-                  <div className="h-4 bg-gray-100 rounded animate-pulse" />
-                  <p className="text-[7px] text-gray-400">Last updated: 3 days ago</p>
+                <div className="space-y-0.5">
+                  <div className="h-3 bg-gray-100 rounded animate-pulse" />
+                  <p className="text-[6px] text-gray-400">Last updated: 3 days ago</p>
                 </div>
               </div>
 
               {/* Row 2: Excel, Kitchen, Tally */}
               <div 
-                className="absolute top-[35%] left-[5%] w-40 md:w-48 bg-white rounded-xl border border-yellow-200 shadow-lg p-2.5 transform rotate-1"
-                style={{ animation: 'float-chaos 4.5s ease-in-out infinite', animationDelay: '1s' }}
+                className="absolute top-[32%] left-[6%] w-36 md:w-44 bg-white rounded-xl border border-yellow-200 shadow-lg p-2 transform rotate-1"
+                style={{ animation: 'float-chaos 4s ease-in-out infinite', animationDelay: '0.6s' }}
               >
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="w-6 h-6 rounded-lg bg-green-100 flex items-center justify-center">
-                    <FileSpreadsheet className="w-3 h-3 text-green-700" />
+                <div className="flex items-center gap-1.5 mb-1">
+                  <div className="w-5 h-5 rounded-lg bg-green-100 flex items-center justify-center">
+                    <FileSpreadsheet className="w-2.5 h-2.5 text-green-700" />
                   </div>
-                  <span className="text-xs font-medium">Excel Inventory</span>
-                  <span className="text-[7px] text-yellow-600 bg-yellow-50 px-1 py-0.5 rounded ml-auto">Outdated</span>
+                  <span className="text-[10px] font-medium">Excel Inventory</span>
+                  <span className="text-[6px] text-yellow-600 bg-yellow-50 px-1 py-0.5 rounded ml-auto">Outdated</span>
                 </div>
-                <div className="grid grid-cols-3 gap-0.5 text-[7px]">
+                <div className="grid grid-cols-3 gap-0.5 text-[6px]">
                   <div className="bg-gray-50 p-0.5 text-center border">Item</div>
                   <div className="bg-gray-50 p-0.5 text-center border">Stock</div>
                   <div className="bg-gray-50 p-0.5 text-center border">???</div>
@@ -200,34 +203,34 @@ const InterfaceProblemStory: React.FC = () => {
               </div>
 
               <div 
-                className="absolute top-[38%] left-[40%] w-32 md:w-40 bg-white rounded-xl border border-gray-300 shadow-lg p-2.5 transform -rotate-1"
-                style={{ animation: 'float-chaos 4.2s ease-in-out infinite', animationDelay: '0.8s' }}
+                className="absolute top-[35%] left-[42%] w-28 md:w-36 bg-white rounded-xl border border-gray-300 shadow-lg p-2 transform -rotate-1"
+                style={{ animation: 'float-chaos 3.6s ease-in-out infinite', animationDelay: '0.5s' }}
               >
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="w-6 h-6 rounded-lg bg-gray-100 flex items-center justify-center">
-                    <ChefHat className="w-3 h-3 text-gray-600" />
+                <div className="flex items-center gap-1.5 mb-1">
+                  <div className="w-5 h-5 rounded-lg bg-gray-100 flex items-center justify-center">
+                    <ChefHat className="w-2.5 h-2.5 text-gray-600" />
                   </div>
-                  <span className="text-xs font-medium">Kitchen</span>
+                  <span className="text-[10px] font-medium">Kitchen</span>
                   <X className="w-2 h-2 text-red-400 ml-auto" />
                 </div>
-                <div className="bg-red-50 border border-red-200 rounded p-1 text-[8px] text-red-600">
+                <div className="bg-red-50 border border-red-200 rounded p-0.5 text-[7px] text-red-600">
                   Order #142 - MISSING
                 </div>
               </div>
 
               <div 
-                className="absolute top-[32%] right-[8%] w-36 md:w-40 bg-white rounded-xl border border-blue-200 shadow-lg p-2.5 transform rotate-2"
-                style={{ animation: 'float-chaos 4.8s ease-in-out infinite', animationDelay: '0.3s' }}
+                className="absolute top-[30%] right-[6%] w-32 md:w-36 bg-white rounded-xl border border-blue-200 shadow-lg p-2 transform rotate-2"
+                style={{ animation: 'float-chaos 4.2s ease-in-out infinite', animationDelay: '0.2s' }}
               >
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="w-6 h-6 rounded-lg bg-blue-100 flex items-center justify-center">
-                    <Calculator className="w-3 h-3 text-blue-600" />
+                <div className="flex items-center gap-1.5 mb-1">
+                  <div className="w-5 h-5 rounded-lg bg-blue-100 flex items-center justify-center">
+                    <Calculator className="w-2.5 h-2.5 text-blue-600" />
                   </div>
-                  <span className="text-xs font-medium">Tally / Zoho</span>
+                  <span className="text-[10px] font-medium">Tally / Zoho</span>
                 </div>
-                <div className="text-[8px]">
+                <div className="text-[7px]">
                   <p className="text-gray-500">Manual entry...</p>
-                  <div className="text-orange-500 flex items-center gap-1">
+                  <div className="text-orange-500 flex items-center gap-0.5">
                     <AlertTriangle className="w-2 h-2" />
                     <span>2hr daily</span>
                   </div>
@@ -236,120 +239,165 @@ const InterfaceProblemStory: React.FC = () => {
 
               {/* Row 3: CRM, Stock */}
               <div 
-                className="absolute bottom-[15%] left-[20%] w-32 md:w-36 bg-white rounded-xl border border-pink-200 shadow-lg p-2.5 transform -rotate-2"
-                style={{ animation: 'float-chaos 5.2s ease-in-out infinite', animationDelay: '0.6s' }}
+                className="absolute bottom-[18%] left-[18%] w-28 md:w-32 bg-white rounded-xl border border-pink-200 shadow-lg p-2 transform -rotate-2"
+                style={{ animation: 'float-chaos 4.5s ease-in-out infinite', animationDelay: '0.4s' }}
               >
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="w-6 h-6 rounded-lg bg-pink-100 flex items-center justify-center">
-                    <Users className="w-3 h-3 text-pink-600" />
+                <div className="flex items-center gap-1.5 mb-1">
+                  <div className="w-5 h-5 rounded-lg bg-pink-100 flex items-center justify-center">
+                    <Users className="w-2.5 h-2.5 text-pink-600" />
                   </div>
-                  <span className="text-xs font-medium">Customers</span>
+                  <span className="text-[10px] font-medium">Customers</span>
                 </div>
-                <div className="text-[8px] text-gray-500">
+                <div className="text-[7px] text-gray-500">
                   <p>No guest history...</p>
                   <p className="text-pink-500">Who ordered what?</p>
                 </div>
               </div>
 
               <div 
-                className="absolute bottom-[12%] right-[18%] w-32 md:w-36 bg-white rounded-xl border border-amber-200 shadow-lg p-2.5 transform rotate-1"
-                style={{ animation: 'float-chaos 4.6s ease-in-out infinite', animationDelay: '0.9s' }}
+                className="absolute bottom-[15%] right-[16%] w-28 md:w-32 bg-white rounded-xl border border-amber-200 shadow-lg p-2 transform rotate-1"
+                style={{ animation: 'float-chaos 3.9s ease-in-out infinite', animationDelay: '0.7s' }}
               >
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="w-6 h-6 rounded-lg bg-amber-100 flex items-center justify-center">
-                    <Package className="w-3 h-3 text-amber-600" />
+                <div className="flex items-center gap-1.5 mb-1">
+                  <div className="w-5 h-5 rounded-lg bg-amber-100 flex items-center justify-center">
+                    <Package className="w-2.5 h-2.5 text-amber-600" />
                   </div>
-                  <span className="text-xs font-medium">Stock?</span>
+                  <span className="text-[10px] font-medium">Stock?</span>
                 </div>
-                <div className="text-[8px]">
+                <div className="text-[7px]">
                   <p className="text-amber-600">Wastage unknown</p>
                   <p className="text-gray-400">Margins guessed</p>
                 </div>
               </div>
 
               {/* Connection lines */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40">
+              <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30">
                 <defs>
                   <linearGradient id="brokenLine" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#ef4444" stopOpacity="0.3" />
+                    <stop offset="0%" stopColor="#ef4444" stopOpacity="0.4" />
                     <stop offset="50%" stopColor="#ef4444" stopOpacity="0" />
-                    <stop offset="100%" stopColor="#ef4444" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#ef4444" stopOpacity="0.4" />
                   </linearGradient>
                 </defs>
-                <line x1="18%" y1="12%" x2="40%" y2="35%" stroke="url(#brokenLine)" strokeWidth="1" strokeDasharray="4,4" />
-                <line x1="60%" y1="35%" x2="78%" y2="15%" stroke="url(#brokenLine)" strokeWidth="1" strokeDasharray="4,4" />
-                <line x1="22%" y1="75%" x2="42%" y2="50%" stroke="url(#brokenLine)" strokeWidth="1" strokeDasharray="4,4" />
+                <line x1="18%" y1="10%" x2="38%" y2="32%" stroke="url(#brokenLine)" strokeWidth="1" strokeDasharray="3,3" />
+                <line x1="62%" y1="32%" x2="80%" y2="12%" stroke="url(#brokenLine)" strokeWidth="1" strokeDasharray="3,3" />
+                <line x1="22%" y1="70%" x2="42%" y2="45%" stroke="url(#brokenLine)" strokeWidth="1" strokeDasharray="3,3" />
               </svg>
             </div>
           </div>
 
-          {/* Unified Swirl Dashboard - Real mockup style */}
+          {/* Unified Swirl Dashboard - Real POS Mockup */}
           <div 
-            className="absolute inset-0 flex items-center justify-center transition-all duration-700 pt-12"
+            className="absolute inset-0 flex items-center justify-center transition-all duration-500 pt-16"
             style={{ 
               opacity: unifiedOpacity,
               transform: `scale(${unifiedScale})`,
-              pointerEvents: scrollProgress > 0.5 ? 'auto' : 'none'
+              pointerEvents: scrollProgress > 0.4 ? 'auto' : 'none'
             }}
           >
-            <div className="w-full max-w-4xl px-4">
+            <div className="w-full max-w-4xl px-2">
               <div className="bg-white rounded-2xl border border-primary/20 shadow-2xl shadow-primary/10 overflow-hidden">
                 {/* Dashboard Header */}
-                <div className="bg-gradient-to-r from-primary to-blue-600 px-4 py-2.5 flex items-center gap-3">
-                  <div className="flex gap-1.5">
+                <div className="bg-gradient-to-r from-primary to-blue-600 px-3 py-2 flex items-center gap-2">
+                  <div className="flex gap-1">
                     <div className="w-2 h-2 rounded-full bg-white/30" />
                     <div className="w-2 h-2 rounded-full bg-white/30" />
                     <div className="w-2 h-2 rounded-full bg-white/30" />
                   </div>
-                  <span className="text-white font-semibold text-sm">Swirl Dashboard</span>
-                  <div className="ml-auto flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-white/80 text-xs hidden sm:inline">All systems connected</span>
+                  <span className="text-white font-semibold text-xs">Swirl POS</span>
+                  <div className="ml-auto flex items-center gap-1.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                    <span className="text-white/80 text-[10px] hidden sm:inline">Table 5 • All synced</span>
                   </div>
                 </div>
 
-                {/* Dashboard Content */}
-                <div className="p-4 bg-gradient-to-br from-blue-50/50 to-white">
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2.5">
+                {/* POS Interface */}
+                <div className="grid md:grid-cols-2 gap-0">
+                  {/* Left: Order Items */}
+                  <div className="p-3 border-r border-gray-100">
+                    <div className="flex items-center gap-1.5 mb-2">
+                      <Receipt className="w-3 h-3 text-primary" />
+                      <h4 className="text-xs font-bold text-foreground">Order #100736</h4>
+                      <span className="ml-auto px-1.5 py-0.5 bg-yellow-100 text-yellow-700 text-[8px] font-medium rounded">IN PROGRESS</span>
+                    </div>
+                    
+                    <div className="space-y-1.5 mb-3">
+                      {[
+                        { name: 'Chicken Shawarma', qty: 2, price: 45 },
+                        { name: 'Grilled Lamb Kebab', qty: 1, price: 68 },
+                        { name: 'Arabic Coffee', qty: 2, price: 24 }
+                      ].map((item, i) => (
+                        <div key={i} className="flex items-center justify-between py-1.5 px-2 bg-gray-50 rounded-lg">
+                          <div className="flex items-center gap-2">
+                            <span className="w-5 h-5 bg-primary/10 rounded text-[9px] font-bold text-primary flex items-center justify-center">{item.qty}×</span>
+                            <span className="text-[10px] font-medium text-foreground">{item.name}</span>
+                          </div>
+                          <span className="text-[10px] font-semibold text-foreground">{formatAmount(item.price * item.qty)}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Total */}
+                    <div className="flex justify-between items-center py-2 px-2 bg-primary/5 rounded-lg border border-primary/10">
+                      <span className="text-xs font-bold text-foreground">Total</span>
+                      <span className="text-sm font-bold text-primary">{formatAmount(182)}</span>
+                    </div>
+                  </div>
+
+                  {/* Right: Billing */}
+                  <div className="p-3 bg-gray-50/50">
+                    <div className="flex items-center gap-1.5 mb-2">
+                      <CreditCard className="w-3 h-3 text-primary" />
+                      <h4 className="text-xs font-bold text-foreground">Billing</h4>
+                      <span className="ml-auto px-1.5 py-0.5 bg-primary/10 text-primary text-[8px] font-medium rounded">READY</span>
+                    </div>
+
+                    {/* Payment Buttons */}
+                    <div className="grid grid-cols-3 gap-1.5 mb-3">
+                      <button className="flex flex-col items-center gap-0.5 p-2 bg-green-500 rounded-lg">
+                        <Banknote className="w-4 h-4 text-white" />
+                        <span className="text-[8px] font-semibold text-white">Cash</span>
+                      </button>
+                      <button className="flex flex-col items-center gap-0.5 p-2 bg-primary rounded-lg">
+                        <CreditCard className="w-4 h-4 text-white" />
+                        <span className="text-[8px] font-semibold text-white">Card</span>
+                      </button>
+                      <button className="flex flex-col items-center gap-0.5 p-2 bg-gray-700 rounded-lg">
+                        <SplitSquareVertical className="w-4 h-4 text-white" />
+                        <span className="text-[8px] font-semibold text-white">Split</span>
+                      </button>
+                    </div>
+
+                    {/* Quick Stats */}
+                    <div className="grid grid-cols-2 gap-1.5">
+                      <div className="bg-white rounded-lg p-2 text-center border border-gray-100">
+                        <p className="text-sm font-bold text-primary">{formatAmount(48250)}</p>
+                        <p className="text-[8px] text-muted-foreground">Today's Sales</p>
+                      </div>
+                      <div className="bg-white rounded-lg p-2 text-center border border-gray-100">
+                        <p className="text-sm font-bold text-green-600">12</p>
+                        <p className="text-[8px] text-muted-foreground">Active Orders</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Module Links */}
+                <div className="border-t border-gray-100 px-3 py-2 bg-gradient-to-r from-blue-50/50 to-white">
+                  <div className="flex items-center justify-center gap-2 flex-wrap">
                     {tools.map((tool, i) => (
                       <Link 
                         key={i}
                         to={tool.path}
-                        className="group bg-white rounded-xl border border-primary/10 p-3 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 text-center"
+                        className="flex items-center gap-1 px-2 py-1 bg-white rounded-full border border-primary/10 hover:border-primary/30 hover:shadow-sm transition-all text-[9px] font-medium text-foreground"
                       >
-                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-2 group-hover:bg-primary/20 transition-colors">
-                          <tool.icon className="w-5 h-5 text-primary" />
-                        </div>
-                        <p className="text-xs font-medium text-foreground">{tool.label}</p>
+                        <tool.icon className="w-3 h-3 text-primary" />
+                        {tool.label}
                       </Link>
                     ))}
-                  </div>
-
-                  {/* Stats row */}
-                  <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-2.5">
-                    {[
-                      { label: 'Today\'s Sales', value: formatAmount(48250) },
-                      { label: 'Active Orders', value: '12' },
-                      { label: 'Inventory Accuracy', value: '98%' },
-                      { label: 'Repeat Customers', value: '68%' },
-                    ].map((stat, i) => (
-                      <div key={i} className="bg-primary/5 rounded-lg p-2.5 text-center">
-                        <p className="text-lg font-bold text-primary">{stat.value}</p>
-                        <p className="text-[10px] text-muted-foreground">{stat.label}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Connection indicator */}
-                  <div className="mt-3 flex items-center justify-center gap-3 text-xs text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <CheckCircle className="w-3 h-3 text-green-500" />
-                      <span>All data synced</span>
-                    </div>
-                    <div className="w-px h-3 bg-gray-200" />
-                    <div className="flex items-center gap-1">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      <span>Single source of truth</span>
+                    <div className="flex items-center gap-1 text-[9px] text-green-600">
+                      <CheckCircle className="w-3 h-3" />
+                      <span>All connected</span>
                     </div>
                   </div>
                 </div>
@@ -361,8 +409,8 @@ const InterfaceProblemStory: React.FC = () => {
 
       <style>{`
         @keyframes float-chaos {
-          0%, 100% { transform: translateY(0) rotate(var(--rotation, 0deg)); }
-          50% { transform: translateY(-6px) rotate(var(--rotation, 0deg)); }
+          0%, 100% { transform: translateY(0px) rotate(var(--rotation, 0deg)); }
+          50% { transform: translateY(-6px) rotate(calc(var(--rotation, 0deg) + 1deg)); }
         }
       `}</style>
     </section>

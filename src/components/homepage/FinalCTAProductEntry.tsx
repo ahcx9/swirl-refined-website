@@ -118,12 +118,15 @@ const FinalCTAProductEntry: React.FC = () => {
                   Book a Demo
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <button
+                <a
+                  href="https://www.youtube.com/@swirl-cx"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex items-center gap-2 px-7 py-3.5 bg-transparent border border-gray-200 text-foreground rounded-full font-medium hover:border-primary/30 hover:bg-primary/5 transition-all"
                 >
                   <Play className="w-4 h-4 text-primary" />
                   Watch Product Tour
-                </button>
+                </a>
               </div>
 
               {/* Trust indicators */}
