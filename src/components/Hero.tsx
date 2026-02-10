@@ -955,16 +955,16 @@ const Hero: React.FC = () => {
 
   // ============ MAIN RENDER ============
   return (
-    <section className="relative bg-white overflow-hidden pt-20 md:pt-24 pb-8">
+    <section className="relative bg-white overflow-hidden pt-24 md:pt-28 lg:pt-32 pb-8">
       {/* Background */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary) / 0.04) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-[400px_1fr] gap-6 lg:gap-10 items-start px-0">
+        <div className="grid lg:grid-cols-[400px_1fr] gap-8 lg:gap-10 items-start px-0">
           {/* LEFT: Hero Text */}
-          <div className="flex flex-col justify-center pt-0 lg:pt-10 text-center lg:text-left animate-fade-in order-1">
+          <div className="flex flex-col justify-center pt-2 md:pt-4 lg:pt-14 text-center lg:text-left animate-fade-in order-1">
             <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] xl:text-5xl font-bold text-foreground leading-tight tracking-tight mb-4">
               The Operating System{' '}
               <span className="bg-gradient-to-r from-primary via-primary/85 to-primary/65 bg-clip-text text-transparent">Powering</span>{' '}
