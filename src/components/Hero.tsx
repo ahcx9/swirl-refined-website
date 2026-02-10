@@ -535,69 +535,72 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container-custom relative z-10">
-        {/* Hero headline - compact */}
-        <div className="text-center mb-6 md:mb-8 max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight mb-4 animate-fade-in">
-            The Operating System{" "}
-            <span className="bg-gradient-to-r from-primary via-primary/85 to-primary/65 bg-clip-text text-transparent">Powering</span>{" "}
-            Modern Restaurants
-          </h1>
-          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed animate-fade-in mb-5">
-            POS, QR Ordering, Inventory, Accounting, CRM, Analytics & AI — unified into one powerful platform.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center animate-fade-in">
-            <a href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20for%20Swirl" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="h-12 px-7 text-sm font-semibold shadow-lg shadow-primary/25">
-                Book a Demo <ArrowRight className="w-4 h-4 ml-1" />
-              </Button>
-            </a>
-            <Link to="/features/point-of-sale">
-              <Button variant="outline" size="lg" className="h-12 px-7 text-sm font-semibold">
-                Explore Features
-              </Button>
-            </Link>
-          </div>
-          <div className="flex flex-wrap justify-center gap-5 text-sm text-muted-foreground mt-4">
-            {['Free setup', '24/7 support', '500+ restaurants'].map(t => (
-              <span key={t} className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500" />{t}</span>
-            ))}
-          </div>
-        </div>
-
-        {/* Interactive doodle hint + Tour button */}
-        <div className="flex items-center justify-center gap-3 mb-4 animate-fade-in flex-wrap">
-          <div className="flex items-center gap-1.5 px-4 py-1.5 bg-primary/5 rounded-full border border-primary/10">
-            <MousePointerClick className="w-4 h-4 text-primary" />
-            <span className="text-xs font-medium text-primary">It's a live demo — try clicking!</span>
-            <Sparkles className="w-3.5 h-3.5 text-primary" />
-          </div>
-          {!tourActive ? (
-            <button onClick={startTour} className="flex items-center gap-1.5 px-4 py-1.5 bg-primary text-white rounded-full text-xs font-semibold hover:bg-primary/90 transition-colors shadow-md shadow-primary/25">
-              <Play className="w-3.5 h-3.5" /> Guided Tour
-            </button>
-          ) : (
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-medium text-primary bg-primary/5 px-3 py-1.5 rounded-full border border-primary/10">
-                Step {tourStep + 1}/{WALKTHROUGH_STEPS.length}
-              </span>
-              <button onClick={nextTourStep} className="flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-medium hover:bg-primary/20 transition-colors">
-                <SkipForward className="w-3 h-3" /> Next
-              </button>
-              <button onClick={stopTour} className="flex items-center gap-1 px-3 py-1.5 text-gray-500 hover:text-gray-700 rounded-full text-xs font-medium transition-colors">
-                <XCircle className="w-3.5 h-3.5" /> End
-              </button>
+        {/* Two-column layout: Text left, Mockup right */}
+        <div className="grid lg:grid-cols-[420px_1fr] gap-8 lg:gap-10 items-start">
+          
+          {/* LEFT: Hero Text */}
+          <div className="flex flex-col justify-center pt-2 lg:pt-12 text-center lg:text-left animate-fade-in order-1 lg:order-1">
+            <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] xl:text-5xl font-bold text-foreground leading-tight tracking-tight mb-4">
+              The Operating System{" "}
+              <span className="bg-gradient-to-r from-primary via-primary/85 to-primary/65 bg-clip-text text-transparent">Powering</span>{" "}
+              Modern Restaurants
+            </h1>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-xl lg:max-w-none mx-auto lg:mx-0">
+              POS, QR Ordering, Inventory, Accounting, CRM, Analytics & AI — unified into one powerful platform.
+            </p>
+            <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-4">
+              <a href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20for%20Swirl" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="h-12 px-7 text-sm font-semibold shadow-lg shadow-primary/25">
+                  Book a Demo <ArrowRight className="w-4 h-4 ml-1" />
+                </Button>
+              </a>
+              <Link to="/features/point-of-sale">
+                <Button variant="outline" size="lg" className="h-12 px-7 text-sm font-semibold">
+                  Explore Features
+                </Button>
+              </Link>
             </div>
-          )}
-        </div>
+            <div className="flex flex-wrap justify-center lg:justify-start gap-5 text-sm text-muted-foreground mb-6">
+              {['Free setup', '24/7 support', '500+ restaurants'].map(t => (
+                <span key={t} className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500" />{t}</span>
+              ))}
+            </div>
 
-        {/* ============ INTERACTIVE POS MOCKUP ============ */}
-        <div className="relative max-w-5xl mx-auto animate-fade-in">
-          {/* Doodle annotations */}
-          <div className="absolute -top-6 -left-4 md:left-8 hidden md:flex items-center gap-1 text-primary text-xs font-medium animate-bounce" style={{ animationDuration: '3s' }}>
-            <span>↙ Try adding items!</span>
+            {/* Interactive doodle hint + Tour button */}
+            <div className="flex items-center justify-center lg:justify-start gap-3 flex-wrap">
+              <div className="flex items-center gap-1.5 px-4 py-1.5 bg-primary/5 rounded-full border border-primary/10">
+                <MousePointerClick className="w-4 h-4 text-primary" />
+                <span className="text-xs font-medium text-primary">It's a live demo — try clicking!</span>
+                <Sparkles className="w-3.5 h-3.5 text-primary" />
+              </div>
+              {!tourActive ? (
+                <button onClick={startTour} className="flex items-center gap-1.5 px-4 py-1.5 bg-primary text-white rounded-full text-xs font-semibold hover:bg-primary/90 transition-colors shadow-md shadow-primary/25">
+                  <Play className="w-3.5 h-3.5" /> Guided Tour
+                </button>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-medium text-primary bg-primary/5 px-3 py-1.5 rounded-full border border-primary/10">
+                    Step {tourStep + 1}/{WALKTHROUGH_STEPS.length}
+                  </span>
+                  <button onClick={nextTourStep} className="flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-medium hover:bg-primary/20 transition-colors">
+                    <SkipForward className="w-3 h-3" /> Next
+                  </button>
+                  <button onClick={stopTour} className="flex items-center gap-1 px-3 py-1.5 text-muted-foreground hover:text-foreground rounded-full text-xs font-medium transition-colors">
+                    <XCircle className="w-3.5 h-3.5" /> End
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
-          <div className="absolute -top-6 -right-4 md:right-8 hidden md:flex items-center gap-1 text-primary text-xs font-medium animate-bounce" style={{ animationDuration: '3.5s' }}>
-            <span>Click Settle Bill →</span>
+
+          {/* RIGHT: Interactive POS Mockup */}
+          <div className="relative animate-fade-in order-2 lg:order-2">
+            {/* Doodle annotations */}
+            <div className="absolute -top-6 left-4 hidden lg:flex items-center gap-1 text-primary text-xs font-medium animate-bounce" style={{ animationDuration: '3s' }}>
+              <span>↙ Try adding items!</span>
+            </div>
+            <div className="absolute -top-6 right-4 hidden lg:flex items-center gap-1 text-primary text-xs font-medium animate-bounce" style={{ animationDuration: '3.5s' }}>
+              <span>Click Settle Bill →</span>
           </div>
 
           <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden relative">
@@ -753,6 +756,8 @@ const Hero: React.FC = () => {
               </div>
             </div>
           </div>
+          </div>
+
         </div>
       </div>
     </section>
