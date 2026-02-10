@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
@@ -17,7 +17,10 @@ import {
   CreditCard,
   Banknote,
   Sparkles,
-  MousePointerClick
+  MousePointerClick,
+  Play,
+  SkipForward,
+  XCircle
 } from 'lucide-react';
 import { Button } from './ui/button';
 import { useCurrency } from '@/hooks/useCurrency';
@@ -111,6 +114,80 @@ const Hero: React.FC = () => {
   const subtotal = orderItems.reduce((sum, item) => sum + item.price * item.qty, 0);
   const vat = subtotal * 0.05;
   const total = subtotal;
+
+  // ============ WALKTHROUGH ============
+  const WALKTHROUGH_STEPS = [
+    { target: 'addItems', label: 'Add Items', desc: 'Add menu items to the order with one click.' },
+    { target: 'changeQty', label: 'Change Quantities', desc: 'Adjust quantities — totals update in real time.' },
+    { target: 'kot', label: 'Print KOT', desc: 'Send the order to the kitchen instantly.' },
+    { target: 'changeTable', label: 'Change Table', desc: 'Reassign the order to a different table.' },
+    { target: 'splitTable', label: 'Split Table', desc: 'Move selected items into a new order.' },
+    { target: 'moveOrder', label: 'Move Order', desc: 'Convert this dine-in order to takeaway.' },
+    { target: 'mergeTable', label: 'Merge Tables', desc: 'Combine multiple table orders into one.' },
+    { target: 'settle', label: 'Settle Bill', desc: 'Complete the payment — Cash, Card, or Split.' },
+  ];
+
+  const [tourActive, setTourActive] = useState(false);
+  const [tourStep, setTourStep] = useState(0);
+  const tourTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const startTour = useCallback(() => {
+    setActiveModal(null);
+    setTourStep(0);
+    setTourActive(true);
+  }, []);
+
+  const stopTour = useCallback(() => {
+    setTourActive(false);
+    setTourStep(0);
+    if (tourTimerRef.current) clearTimeout(tourTimerRef.current);
+  }, []);
+
+  const nextTourStep = useCallback(() => {
+    setTourStep(prev => {
+      if (prev >= WALKTHROUGH_STEPS.length - 1) {
+        setTourActive(false);
+        return 0;
+      }
+      return prev + 1;
+    });
+  }, [WALKTHROUGH_STEPS.length]);
+
+  // Auto-advance tour every 4 seconds
+  useEffect(() => {
+    if (!tourActive) return;
+    tourTimerRef.current = setTimeout(nextTourStep, 4000);
+    return () => { if (tourTimerRef.current) clearTimeout(tourTimerRef.current); };
+  }, [tourActive, tourStep, nextTourStep]);
+
+  const currentTourTarget = tourActive ? WALKTHROUGH_STEPS[tourStep]?.target : null;
+
+  // Helper to render a button with optional tour tooltip
+  const TourButton = ({ id, children, onClick, className }: { id: string; children: React.ReactNode; onClick: () => void; className: string }) => {
+    const isHighlighted = currentTourTarget === id;
+    const stepInfo = WALKTHROUGH_STEPS.find(s => s.target === id);
+    const stepIndex = WALKTHROUGH_STEPS.findIndex(s => s.target === id);
+
+    return (
+      <div className="relative">
+        <button
+          onClick={() => { onClick(); if (isHighlighted) nextTourStep(); }}
+          className={`${className} ${isHighlighted ? 'ring-2 ring-primary ring-offset-1 z-20 relative scale-105' : ''} transition-all duration-300`}
+        >
+          {children}
+        </button>
+        {isHighlighted && stepInfo && (
+          <div className="absolute -top-[4.5rem] left-1/2 -translate-x-1/2 z-30 w-52 pointer-events-none animate-fade-in">
+            <div className="bg-gray-900 text-white rounded-xl px-3 py-2 text-center shadow-xl pointer-events-auto">
+              <p className="text-[10px] text-primary font-bold mb-0.5">Step {stepIndex + 1}/{WALKTHROUGH_STEPS.length}</p>
+              <p className="text-xs font-medium leading-tight">{stepInfo.desc}</p>
+            </div>
+            <div className="w-2.5 h-2.5 bg-gray-900 rotate-45 mx-auto -mt-1.5" />
+          </div>
+        )}
+      </div>
+    );
+  };
 
   // Handlers
   const closeModal = useCallback(() => {
@@ -487,13 +564,30 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Interactive doodle hint */}
-        <div className="flex items-center justify-center gap-2 mb-4 animate-fade-in">
+        {/* Interactive doodle hint + Tour button */}
+        <div className="flex items-center justify-center gap-3 mb-4 animate-fade-in flex-wrap">
           <div className="flex items-center gap-1.5 px-4 py-1.5 bg-primary/5 rounded-full border border-primary/10">
             <MousePointerClick className="w-4 h-4 text-primary" />
-            <span className="text-xs font-medium text-primary">Try clicking the buttons below — it's a live demo!</span>
+            <span className="text-xs font-medium text-primary">It's a live demo — try clicking!</span>
             <Sparkles className="w-3.5 h-3.5 text-primary" />
           </div>
+          {!tourActive ? (
+            <button onClick={startTour} className="flex items-center gap-1.5 px-4 py-1.5 bg-primary text-white rounded-full text-xs font-semibold hover:bg-primary/90 transition-colors shadow-md shadow-primary/25">
+              <Play className="w-3.5 h-3.5" /> Guided Tour
+            </button>
+          ) : (
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-medium text-primary bg-primary/5 px-3 py-1.5 rounded-full border border-primary/10">
+                Step {tourStep + 1}/{WALKTHROUGH_STEPS.length}
+              </span>
+              <button onClick={nextTourStep} className="flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-medium hover:bg-primary/20 transition-colors">
+                <SkipForward className="w-3 h-3" /> Next
+              </button>
+              <button onClick={stopTour} className="flex items-center gap-1 px-3 py-1.5 text-gray-500 hover:text-gray-700 rounded-full text-xs font-medium transition-colors">
+                <XCircle className="w-3.5 h-3.5" /> End
+              </button>
+            </div>
+          )}
         </div>
 
         {/* ============ INTERACTIVE POS MOCKUP ============ */}
@@ -557,34 +651,34 @@ const Hero: React.FC = () => {
                     className="px-3 py-2 text-xs font-medium text-orange-600 border border-orange-200 rounded-lg hover:bg-orange-50 transition-colors">
                     Change Status ({orderStatus === 'IN_PROGRESS' ? 'IN_PROGRESS' : 'CONFIRMED'})
                   </button>
-                  <button onClick={() => setActiveModal('addItems')}
+                  <TourButton id="addItems" onClick={() => setActiveModal('addItems')}
                     className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
                     Add Item to Order
-                  </button>
-                  <button onClick={() => setActiveModal('changeQty')}
+                  </TourButton>
+                  <TourButton id="changeQty" onClick={() => setActiveModal('changeQty')}
                     className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
                     Change Quantities
-                  </button>
-                  <button onClick={() => setActiveModal('kot')}
+                  </TourButton>
+                  <TourButton id="kot" onClick={() => setActiveModal('kot')}
                     className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
                     Print KOT
-                  </button>
-                  <button onClick={() => setActiveModal('changeTable')}
+                  </TourButton>
+                  <TourButton id="changeTable" onClick={() => setActiveModal('changeTable')}
                     className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
                     Change Table
-                  </button>
-                  <button onClick={() => setActiveModal('splitTable')}
+                  </TourButton>
+                  <TourButton id="splitTable" onClick={() => setActiveModal('splitTable')}
                     className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-1">
                     <SplitSquareVertical className="w-3 h-3" /> Split Table
-                  </button>
-                  <button onClick={() => setActiveModal('moveOrder')}
+                  </TourButton>
+                  <TourButton id="moveOrder" onClick={() => setActiveModal('moveOrder')}
                     className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-1">
                     <ArrowLeftRight className="w-3 h-3" /> Move Order
-                  </button>
-                  <button onClick={() => setActiveModal('mergeTable')}
+                  </TourButton>
+                  <TourButton id="mergeTable" onClick={() => setActiveModal('mergeTable')}
                     className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-1">
                     <Merge className="w-3 h-3" /> Merge Table
-                  </button>
+                  </TourButton>
                 </div>
               </div>
 
@@ -648,10 +742,10 @@ const Hero: React.FC = () => {
                   <button className="w-full px-3 py-2.5 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
                     Apply Discount
                   </button>
-                  <button onClick={() => setActiveModal('settle')}
+                  <TourButton id="settle" onClick={() => setActiveModal('settle')}
                     className="w-full px-3 py-2.5 text-sm font-bold text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors">
                     Settle Bill
-                  </button>
+                  </TourButton>
                   <button className="w-full px-3 py-2 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
                     Settle Bill (No Print)
                   </button>
