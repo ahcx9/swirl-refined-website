@@ -15,16 +15,12 @@ import {
   Package,
   Phone,
   CheckCircle,
-  Receipt,
-  Banknote,
-  SplitSquareVertical
+  Layers
 } from 'lucide-react';
-import { useCurrency } from '@/hooks/useCurrency';
 
 const InterfaceProblemStory: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const { formatAmount } = useCurrency();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,56 +55,63 @@ const InterfaceProblemStory: React.FC = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="relative min-h-[70vh] bg-white overflow-hidden">
-      {/* Subtle grid background */}
-      <div className="absolute inset-0 opacity-15">
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle, hsl(var(--primary) / 0.05) 1px, transparent 1px)`,
-            backgroundSize: '20px 20px'
-          }}
-        />
+    <section ref={sectionRef} className="relative min-h-[80vh] bg-white overflow-hidden">
+      {/* Subtle concentric circles background */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        {[1, 2, 3, 4].map(i => (
+          <div 
+            key={i}
+            className="absolute rounded-full border border-primary/5"
+            style={{
+              width: `${i * 25}%`,
+              height: `${i * 25}%`,
+              opacity: unifiedOpacity * 0.3
+            }}
+          />
+        ))}
       </div>
 
-      <div className="sticky top-0 h-[75vh] flex items-center justify-center">
+      <div className="sticky top-0 h-[80vh] flex items-center justify-center">
         <div className="container-custom relative">
-          {/* Header with transition - positioned at very top */}
-          <div className="absolute top-4 left-0 right-0 text-center z-20">
-            <p className="text-primary font-semibold text-xs tracking-widest uppercase mb-1">
+          {/* Header - stays readable on top */}
+          <div className="absolute top-6 left-0 right-0 text-center z-30">
+            <p className="text-primary font-semibold text-xs tracking-widest uppercase mb-2">
               The reality today
             </p>
-            <div className="relative h-12 md:h-14 overflow-hidden">
+            <div className="relative h-14 md:h-16 overflow-hidden">
               <h2 
-                className={`absolute inset-x-0 text-2xl md:text-4xl lg:text-5xl font-bold transition-all duration-400 ${
+                className={`absolute inset-x-0 text-2xl md:text-4xl lg:text-5xl font-bold transition-all duration-500 ${
                   scrollProgress < 0.45 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
                 }`}
               >
-                <span className="text-foreground">Too many tools.</span> <span className="text-red-500 font-extrabold">No control.</span>
+                <span className="text-foreground">Too many tools.</span>{' '}
+                <span className="text-red-500 font-extrabold">No control.</span>
               </h2>
               <h2 
-                className={`absolute inset-x-0 text-2xl md:text-4xl lg:text-5xl font-bold transition-all duration-400 ${
+                className={`absolute inset-x-0 text-2xl md:text-4xl lg:text-5xl font-bold transition-all duration-500 ${
                   scrollProgress >= 0.45 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
               >
-                <span className="text-foreground">One platform.</span> <span className="text-primary font-extrabold">Complete control.</span>
+                <span className="text-foreground">One platform.</span>{' '}
+                <span className="text-primary font-extrabold">Complete control.</span>
               </h2>
             </div>
           </div>
 
-          {/* Chaotic Systems - Compact layout */}
+          {/* Chaotic Systems - floating problem cards */}
           <div 
-            className="absolute inset-0 flex items-center justify-center transition-all duration-400 pt-16"
+            className="absolute inset-0 flex items-center justify-center transition-all duration-500 pt-20"
             style={{ 
               opacity: chaosOpacity,
               transform: `scale(${1 - scrollProgress * 0.08})`,
               pointerEvents: scrollProgress > 0.4 ? 'none' : 'auto'
             }}
           >
-            <div className="relative w-full max-w-4xl h-[320px] md:h-[360px]">
-              {/* Row 1: POS, WhatsApp, Phone, Reports */}
-              <div 
-                className="absolute top-0 left-[3%] w-32 md:w-40 bg-white rounded-xl border border-red-200 shadow-lg p-2 transform -rotate-2"
+            <div className="relative w-full max-w-4xl h-[340px] md:h-[380px]">
+              {/* Row 1 */}
+              <Link 
+                to="/features/point-of-sale"
+                className="absolute top-0 left-[3%] w-32 md:w-40 bg-white rounded-xl border border-red-200 shadow-lg p-2 transform -rotate-2 hover:scale-105 transition-transform cursor-pointer"
                 style={{ animation: 'float-chaos 3.5s ease-in-out infinite' }}
               >
                 <div className="flex items-center gap-1.5 mb-1">
@@ -125,7 +128,7 @@ const InterfaceProblemStory: React.FC = () => {
                     <span>Sync failed</span>
                   </div>
                 </div>
-              </div>
+              </Link>
 
               <div 
                 className="absolute top-2 left-[28%] w-28 md:w-36 bg-white rounded-xl border border-orange-200 shadow-lg p-2 transform rotate-2"
@@ -180,9 +183,10 @@ const InterfaceProblemStory: React.FC = () => {
                 </div>
               </div>
 
-              {/* Row 2: Excel, Kitchen, Tally */}
-              <div 
-                className="absolute top-[32%] left-[6%] w-36 md:w-44 bg-white rounded-xl border border-yellow-200 shadow-lg p-2 transform rotate-1"
+              {/* Row 2 */}
+              <Link 
+                to="/features/inventory-management"
+                className="absolute top-[32%] left-[6%] w-36 md:w-44 bg-white rounded-xl border border-yellow-200 shadow-lg p-2 transform rotate-1 hover:scale-105 transition-transform cursor-pointer"
                 style={{ animation: 'float-chaos 4s ease-in-out infinite', animationDelay: '0.6s' }}
               >
                 <div className="flex items-center gap-1.5 mb-1">
@@ -200,10 +204,11 @@ const InterfaceProblemStory: React.FC = () => {
                   <div className="p-0.5 border text-red-500">-12</div>
                   <div className="p-0.5 border text-red-500">#ERR</div>
                 </div>
-              </div>
+              </Link>
 
-              <div 
-                className="absolute top-[35%] left-[42%] w-28 md:w-36 bg-white rounded-xl border border-gray-300 shadow-lg p-2 transform -rotate-1"
+              <Link 
+                to="/features/kitchen-display"
+                className="absolute top-[35%] left-[42%] w-28 md:w-36 bg-white rounded-xl border border-gray-300 shadow-lg p-2 transform -rotate-1 hover:scale-105 transition-transform cursor-pointer"
                 style={{ animation: 'float-chaos 3.6s ease-in-out infinite', animationDelay: '0.5s' }}
               >
                 <div className="flex items-center gap-1.5 mb-1">
@@ -216,10 +221,11 @@ const InterfaceProblemStory: React.FC = () => {
                 <div className="bg-red-50 border border-red-200 rounded p-0.5 text-[7px] text-red-600">
                   Order #142 - MISSING
                 </div>
-              </div>
+              </Link>
 
-              <div 
-                className="absolute top-[30%] right-[6%] w-32 md:w-36 bg-white rounded-xl border border-blue-200 shadow-lg p-2 transform rotate-2"
+              <Link 
+                to="/features/accounting"
+                className="absolute top-[30%] right-[6%] w-32 md:w-36 bg-white rounded-xl border border-blue-200 shadow-lg p-2 transform rotate-2 hover:scale-105 transition-transform cursor-pointer"
                 style={{ animation: 'float-chaos 4.2s ease-in-out infinite', animationDelay: '0.2s' }}
               >
                 <div className="flex items-center gap-1.5 mb-1">
@@ -235,11 +241,12 @@ const InterfaceProblemStory: React.FC = () => {
                     <span>2hr daily</span>
                   </div>
                 </div>
-              </div>
+              </Link>
 
-              {/* Row 3: CRM, Stock */}
-              <div 
-                className="absolute bottom-[18%] left-[18%] w-28 md:w-32 bg-white rounded-xl border border-pink-200 shadow-lg p-2 transform -rotate-2"
+              {/* Row 3 */}
+              <Link 
+                to="/features/crm"
+                className="absolute bottom-[18%] left-[18%] w-28 md:w-32 bg-white rounded-xl border border-pink-200 shadow-lg p-2 transform -rotate-2 hover:scale-105 transition-transform cursor-pointer"
                 style={{ animation: 'float-chaos 4.5s ease-in-out infinite', animationDelay: '0.4s' }}
               >
                 <div className="flex items-center gap-1.5 mb-1">
@@ -252,7 +259,7 @@ const InterfaceProblemStory: React.FC = () => {
                   <p>No guest history...</p>
                   <p className="text-pink-500">Who ordered what?</p>
                 </div>
-              </div>
+              </Link>
 
               <div 
                 className="absolute bottom-[15%] right-[16%] w-28 md:w-32 bg-white rounded-xl border border-amber-200 shadow-lg p-2 transform rotate-1"
@@ -270,7 +277,7 @@ const InterfaceProblemStory: React.FC = () => {
                 </div>
               </div>
 
-              {/* Connection lines */}
+              {/* Broken connection lines */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30">
                 <defs>
                   <linearGradient id="brokenLine" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -286,117 +293,54 @@ const InterfaceProblemStory: React.FC = () => {
             </div>
           </div>
 
-          {/* Unified Swirl Dashboard - Real POS Mockup */}
+          {/* Unified Swirl Dashboard - uses uploaded mockup */}
           <div 
-            className="absolute inset-0 flex items-center justify-center transition-all duration-500 pt-16"
+            className="absolute inset-0 flex items-center justify-center transition-all duration-600 pt-20"
             style={{ 
               opacity: unifiedOpacity,
               transform: `scale(${unifiedScale})`,
               pointerEvents: scrollProgress > 0.4 ? 'auto' : 'none'
             }}
           >
-            <div className="w-full max-w-4xl px-2">
+            <div className="w-full max-w-5xl px-2">
               <div className="bg-white rounded-2xl border border-primary/20 shadow-2xl shadow-primary/10 overflow-hidden">
-                {/* Dashboard Header */}
-                <div className="bg-gradient-to-r from-primary to-blue-600 px-3 py-2 flex items-center gap-2">
-                  <div className="flex gap-1">
-                    <div className="w-2 h-2 rounded-full bg-white/30" />
-                    <div className="w-2 h-2 rounded-full bg-white/30" />
-                    <div className="w-2 h-2 rounded-full bg-white/30" />
+                {/* Browser chrome */}
+                <div className="bg-gradient-to-r from-primary to-blue-600 px-4 py-2.5 flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-white/30" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-white/30" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-white/30" />
                   </div>
-                  <span className="text-white font-semibold text-xs">Swirl POS</span>
-                  <div className="ml-auto flex items-center gap-1.5">
-                    <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-white/80 text-[10px] hidden sm:inline">Table 5 • All synced</span>
-                  </div>
-                </div>
-
-                {/* POS Interface */}
-                <div className="grid md:grid-cols-2 gap-0">
-                  {/* Left: Order Items */}
-                  <div className="p-3 border-r border-gray-100">
-                    <div className="flex items-center gap-1.5 mb-2">
-                      <Receipt className="w-3 h-3 text-primary" />
-                      <h4 className="text-xs font-bold text-foreground">Order #100736</h4>
-                      <span className="ml-auto px-1.5 py-0.5 bg-yellow-100 text-yellow-700 text-[8px] font-medium rounded">IN PROGRESS</span>
-                    </div>
-                    
-                    <div className="space-y-1.5 mb-3">
-                      {[
-                        { name: 'Chicken Shawarma', qty: 2, price: 45 },
-                        { name: 'Grilled Lamb Kebab', qty: 1, price: 68 },
-                        { name: 'Arabic Coffee', qty: 2, price: 24 }
-                      ].map((item, i) => (
-                        <div key={i} className="flex items-center justify-between py-1.5 px-2 bg-gray-50 rounded-lg">
-                          <div className="flex items-center gap-2">
-                            <span className="w-5 h-5 bg-primary/10 rounded text-[9px] font-bold text-primary flex items-center justify-center">{item.qty}×</span>
-                            <span className="text-[10px] font-medium text-foreground">{item.name}</span>
-                          </div>
-                          <span className="text-[10px] font-semibold text-foreground">{formatAmount(item.price * item.qty)}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Total */}
-                    <div className="flex justify-between items-center py-2 px-2 bg-primary/5 rounded-lg border border-primary/10">
-                      <span className="text-xs font-bold text-foreground">Total</span>
-                      <span className="text-sm font-bold text-primary">{formatAmount(182)}</span>
-                    </div>
-                  </div>
-
-                  {/* Right: Billing */}
-                  <div className="p-3 bg-gray-50/50">
-                    <div className="flex items-center gap-1.5 mb-2">
-                      <CreditCard className="w-3 h-3 text-primary" />
-                      <h4 className="text-xs font-bold text-foreground">Billing</h4>
-                      <span className="ml-auto px-1.5 py-0.5 bg-primary/10 text-primary text-[8px] font-medium rounded">READY</span>
-                    </div>
-
-                    {/* Payment Buttons */}
-                    <div className="grid grid-cols-3 gap-1.5 mb-3">
-                      <button className="flex flex-col items-center gap-0.5 p-2 bg-green-500 rounded-lg">
-                        <Banknote className="w-4 h-4 text-white" />
-                        <span className="text-[8px] font-semibold text-white">Cash</span>
-                      </button>
-                      <button className="flex flex-col items-center gap-0.5 p-2 bg-primary rounded-lg">
-                        <CreditCard className="w-4 h-4 text-white" />
-                        <span className="text-[8px] font-semibold text-white">Card</span>
-                      </button>
-                      <button className="flex flex-col items-center gap-0.5 p-2 bg-gray-700 rounded-lg">
-                        <SplitSquareVertical className="w-4 h-4 text-white" />
-                        <span className="text-[8px] font-semibold text-white">Split</span>
-                      </button>
-                    </div>
-
-                    {/* Quick Stats */}
-                    <div className="grid grid-cols-2 gap-1.5">
-                      <div className="bg-white rounded-lg p-2 text-center border border-gray-100">
-                        <p className="text-sm font-bold text-primary">{formatAmount(48250)}</p>
-                        <p className="text-[8px] text-muted-foreground">Today's Sales</p>
-                      </div>
-                      <div className="bg-white rounded-lg p-2 text-center border border-gray-100">
-                        <p className="text-sm font-bold text-green-600">12</p>
-                        <p className="text-[8px] text-muted-foreground">Active Orders</p>
-                      </div>
-                    </div>
+                  <span className="text-white font-bold text-sm ml-2">Swirl Dashboard</span>
+                  <div className="ml-auto flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                    <span className="text-white/80 text-xs hidden sm:inline">All systems synced</span>
                   </div>
                 </div>
 
-                {/* Module Links */}
-                <div className="border-t border-gray-100 px-3 py-2 bg-gradient-to-r from-blue-50/50 to-white">
-                  <div className="flex items-center justify-center gap-2 flex-wrap">
+                {/* Dashboard mockup image */}
+                <img 
+                  src="/lovable-uploads/swirl-dashboard-mockup.jpg" 
+                  alt="Swirl unified dashboard showing real-time restaurant analytics"
+                  className="w-full h-auto"
+                  loading="eager"
+                />
+
+                {/* Module links bar */}
+                <div className="border-t border-gray-100 px-4 py-2.5 bg-gradient-to-r from-blue-50/50 to-white">
+                  <div className="flex items-center justify-center gap-2.5 flex-wrap">
                     {tools.map((tool, i) => (
                       <Link 
                         key={i}
                         to={tool.path}
-                        className="flex items-center gap-1 px-2 py-1 bg-white rounded-full border border-primary/10 hover:border-primary/30 hover:shadow-sm transition-all text-[9px] font-medium text-foreground"
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-primary/10 hover:border-primary/30 hover:shadow-sm transition-all text-xs font-medium text-foreground"
                       >
-                        <tool.icon className="w-3 h-3 text-primary" />
+                        <tool.icon className="w-3.5 h-3.5 text-primary" />
                         {tool.label}
                       </Link>
                     ))}
-                    <div className="flex items-center gap-1 text-[9px] text-green-600">
-                      <CheckCircle className="w-3 h-3" />
+                    <div className="flex items-center gap-1 text-xs text-green-600">
+                      <CheckCircle className="w-3.5 h-3.5" />
                       <span>All connected</span>
                     </div>
                   </div>

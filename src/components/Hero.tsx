@@ -1023,7 +1023,7 @@ const Hero: React.FC = () => {
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-[400px_1fr] gap-8 lg:gap-10 items-start px-px py-px my-[50px]">
           {/* LEFT: Hero Text */}
-          <div className="flex flex-col justify-center pt-2 md:pt-4 lg:pt-14 text-center lg:text-left animate-fade-in order-1">
+          <div className="flex flex-col justify-center pt-2 md:pt-4 lg:pt-14 text-center lg:text-left animate-fade-in order-1 lg:sticky lg:top-28" style={{ alignSelf: 'start' }}>
             <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] xl:text-5xl font-bold text-foreground leading-tight tracking-tight mb-4">
               The Operating System{' '}
               <span className="bg-gradient-to-r from-primary via-primary/85 to-primary/65 bg-clip-text text-transparent">Powering</span>{' '}
