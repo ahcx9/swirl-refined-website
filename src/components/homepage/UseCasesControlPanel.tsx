@@ -74,10 +74,12 @@ const UseCasesControlPanel: React.FC = () => {
   const handleTypeChange = (type: typeof businessTypes[0]) => {
     if (type.id === activeType.id) return;
     setIsTransitioning(true);
-    setTimeout(() => {
-      setActiveType(type);
-      setIsTransitioning(false);
-    }, 150);
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        setActiveType(type);
+        setIsTransitioning(false);
+      }, 100);
+    });
   };
 
   return (
@@ -144,10 +146,10 @@ const UseCasesControlPanel: React.FC = () => {
         </div>
 
         {/* Showcase Card - Text outside image */}
-        <div className={`max-w-5xl mx-auto transition-all duration-200 ${isTransitioning ? 'opacity-0 scale-98' : 'opacity-100 scale-100'}`}>
+        <div className={`max-w-5xl mx-auto transition-all duration-150 ease-out ${isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}>
           <div className="grid lg:grid-cols-2 gap-0 bg-white rounded-3xl border border-gray-100 shadow-2xl shadow-gray-200/50 overflow-hidden">
             {/* Left: Image ONLY - no text overlay */}
-            <div className="relative h-72 lg:h-auto min-h-[320px]">
+            <div className="relative h-72 lg:h-auto min-h-[380px]">
               <img 
                 src={activeType.image} 
                 alt={activeType.name}
