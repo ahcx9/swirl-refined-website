@@ -33,7 +33,7 @@ const SwirlEcosystemGallery: React.FC = () => {
       name: 'POS & Billing',
       tagline: 'Orders. Speed. Revenue.',
       metrics: ['40% faster checkout', 'Zero errors'],
-      path: '/features/point-of-sale',
+      path: '/products/restaurant-point-of-sale',
       preview: {
         type: 'billing',
         items: [
@@ -49,7 +49,7 @@ const SwirlEcosystemGallery: React.FC = () => {
       name: 'QR Ordering',
       tagline: 'Scan. Order. Done.',
       metrics: ['No app download', '30% more orders'],
-      path: '/features/qr-ordering',
+      path: '/products/qr-ordering',
       subIcons: [Smartphone, Globe],
       preview: {
         type: 'menu',
@@ -62,7 +62,7 @@ const SwirlEcosystemGallery: React.FC = () => {
       name: 'Kitchen Display',
       tagline: 'Orders. Flow. Accuracy.',
       metrics: ['Zero lost tickets', '2x throughput'],
-      path: '/features/kitchen-display',
+      path: '/products/kitchen-display',
       preview: {
         type: 'orders',
         orders: ['#142 - 2 items', '#143 - 5 items', '#144 - 3 items']
@@ -74,7 +74,7 @@ const SwirlEcosystemGallery: React.FC = () => {
       name: 'Inventory',
       tagline: 'Stock. Control. Margins.',
       metrics: ['30% less waste', 'Auto reorder'],
-      path: '/features/inventory-management',
+      path: '/products/inventory-management',
       preview: {
         type: 'stock',
         items: [
@@ -90,7 +90,7 @@ const SwirlEcosystemGallery: React.FC = () => {
       name: 'CRM',
       tagline: 'Guests. Loyalty. Retention.',
       metrics: ['2x repeat visits', 'Guest history'],
-      path: '/features/crm',
+      path: '/products/customer-relationship-management',
       preview: {
         type: 'guests',
         count: '2,847 guests'
@@ -102,7 +102,7 @@ const SwirlEcosystemGallery: React.FC = () => {
       name: 'Analytics',
       tagline: 'Data. Insights. Decisions.',
       metrics: ['Real-time reports', 'Profit trends'],
-      path: '/features/financial-reports',
+      path: '/products/restaurant-analytics',
       preview: {
         type: 'chart',
         trend: '+18%'
@@ -114,7 +114,7 @@ const SwirlEcosystemGallery: React.FC = () => {
       name: 'Accounting',
       tagline: 'Books. Tax. Compliance.',
       metrics: ['Auto reconciliation', 'VAT ready'],
-      path: '/features/accounting',
+      path: '/products/accounting',
       subIcons: [Receipt, FileText, PieChart],
       preview: {
         type: 'ledger',
@@ -127,7 +127,7 @@ const SwirlEcosystemGallery: React.FC = () => {
       name: 'Multi-Branch',
       tagline: 'Scale. Control. Oversight.',
       metrics: ['Unlimited outlets', 'Central control'],
-      path: '/features/point-of-sale',
+      path: '/products/restaurant-point-of-sale',
       subIcons: [Store, Globe],
       preview: {
         type: 'branches',
@@ -140,7 +140,7 @@ const SwirlEcosystemGallery: React.FC = () => {
       name: 'AI Intelligence',
       tagline: 'Predict. Automate. Grow.',
       metrics: ['Smart forecasts', 'Auto alerts'],
-      path: '/features/visitor-analytics',
+      path: '/products/restaurant-analytics',
       preview: {
         type: 'ai',
         prediction: 'Peak at 7PM'
@@ -293,8 +293,8 @@ const SwirlEcosystemGallery: React.FC = () => {
             <Link
               key={module.id}
               to={module.path}
-              className="animate-on-scroll group relative bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100 overflow-hidden transition-all duration-500 cursor-pointer hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2"
-              style={{ animationDelay: `${index * 50}ms` }}
+              className="animate-on-scroll group relative bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 cursor-pointer hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1"
+              style={{ animationDelay: `${index * 30}ms` }}
               onMouseEnter={() => setHoveredModule(module.id)}
               onMouseLeave={() => setHoveredModule(null)}
             >

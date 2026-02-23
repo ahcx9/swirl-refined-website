@@ -1011,7 +1011,7 @@ const Hero: React.FC = () => {
   };
 
   // ============ MAIN RENDER ============
-  return <section className="relative bg-white overflow-hidden pt-24 md:pt-28 lg:pt-32 pb-8">
+  return <section className="relative bg-white overflow-hidden pt-24 md:pt-28 lg:pt-32 pb-12">
       {/* Background */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0" style={{
@@ -1021,35 +1021,31 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-[400px_1fr] gap-8 lg:gap-10 items-start px-px py-px my-[50px]">
-          {/* LEFT: Hero Text */}
-          <div className="flex flex-col justify-center pt-2 md:pt-4 lg:pt-14 text-center lg:text-left animate-fade-in order-1 lg:sticky lg:top-28" style={{ alignSelf: 'start' }}>
-            <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] xl:text-5xl font-bold text-foreground leading-tight tracking-tight mb-4">
-              The Operating System{' '}
-              <span className="bg-gradient-to-r from-primary via-primary/85 to-primary/65 bg-clip-text text-transparent">Powering</span>{' '}
-              Modern Restaurants
+        {/* Hero Text - Centered above mockup */}
+        <div className="text-center animate-fade-in mb-10 max-w-3xl mx-auto pt-6 md:pt-10">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] font-bold text-foreground leading-tight tracking-tight mb-4">
+              One Platform.{' '}
+              <span className="bg-gradient-to-r from-primary via-primary/85 to-primary/65 bg-clip-text text-transparent">Complete Control.</span>
             </h1>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5 max-w-xl lg:max-w-none mx-auto lg:mx-0">
-              POS, QR Ordering, Inventory, Accounting, CRM, Analytics & AI — unified into one powerful platform.
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-2xl mx-auto">
+              POS, QR Ordering, Inventory, Accounting, CRM, Analytics & AI — unified into one powerful platform for modern restaurants.
             </p>
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-4">
+            <div className="flex flex-wrap gap-3 justify-center mb-5">
               <a href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20for%20Swirl" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="h-12 px-7 text-sm font-semibold shadow-lg shadow-primary/25">
                   Book a Demo <ArrowRight className="w-4 h-4 ml-1" />
                 </Button>
               </a>
-              <Link to="/features/point-of-sale">
-                <Button variant="outline" size="lg" className="h-12 px-7 text-sm font-semibold">
-                  Explore Features
-                </Button>
-              </Link>
             </div>
-            <div className="flex flex-wrap justify-center lg:justify-start gap-5 text-sm text-muted-foreground mb-5">
+            <div className="flex flex-wrap justify-center gap-5 text-sm text-muted-foreground mb-0">
               {['Free setup', '24/7 support', '500+ restaurants'].map(t => <span key={t} className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500" />{t}</span>)}
             </div>
+        </div>
 
+        {/* Interactive POS Mockup - Full width below */}
+        <div className="max-w-5xl mx-auto">
             {/* Tour controls */}
-            <div className="flex items-center justify-center lg:justify-start gap-3 flex-wrap">
+            <div className="flex items-center justify-center gap-3 flex-wrap mb-5">
               <div className="flex items-center gap-1.5 px-4 py-1.5 bg-primary/5 rounded-full border border-primary/10">
                 <MousePointerClick className="w-4 h-4 text-primary" />
                 <span className="text-xs font-medium text-primary">It's a live demo — try clicking!</span>
@@ -1065,21 +1061,8 @@ const Hero: React.FC = () => {
                   <button onClick={stopTour} className="flex items-center gap-1 px-3 py-1.5 text-muted-foreground hover:text-foreground rounded-full text-xs font-medium"><XCircle className="w-3.5 h-3.5" /> End</button>
                 </div>}
             </div>
-          </div>
 
-          {/* RIGHT: Interactive POS Mockup */}
-          <div className="relative animate-fade-in order-2">
-            {/* Doodle annotations */}
-            <div className="absolute -top-6 left-4 hidden lg:flex items-center gap-1 text-primary text-xs font-medium animate-bounce" style={{
-            animationDuration: '3s'
-          }}>
-              <span>↙ Try adding items!</span>
-            </div>
-            <div className="absolute -top-6 right-4 hidden lg:flex items-center gap-1 text-primary text-xs font-medium animate-bounce" style={{
-            animationDuration: '3.5s'
-          }}>
-              <span>Click Settle Bill →</span>
-            </div>
+          <div className="relative animate-fade-in">
 
             <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden relative">
               {renderModal()}
