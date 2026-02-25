@@ -23,6 +23,8 @@ import CRM from './pages/features/CRM';
 import FinancialReports from './pages/features/FinancialReports';
 import Accounting from './pages/features/Accounting';
 import SwirlHardware from './pages/features/SwirlHardware';
+import CustomerDisplay from './pages/features/CustomerDisplay';
+import Loyalty from './pages/features/Loyalty';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
@@ -54,6 +56,8 @@ function App() {
           <Route path="/products/financial-reports" element={<FinancialReports />} />
           <Route path="/products/accounting" element={<Accounting />} />
           <Route path="/products/swirl-hardware" element={<SwirlHardware />} />
+          <Route path="/products/customer-display" element={<CustomerDisplay />} />
+          <Route path="/products/loyalty" element={<Loyalty />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>

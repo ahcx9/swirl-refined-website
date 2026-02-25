@@ -149,6 +149,34 @@ export const products = [
       'Station routing', 
       'Performance metrics'
     ]
+  },
+  {
+    id: 'customer-display',
+    title: 'Customer Display Screen',
+    description: 'Build trust at the counter with a customer-facing display showing live order details, running totals, loyalty points, and promotional banners.',
+    icon: LayoutDashboard,
+    path: '/products/customer-display',
+    image: "/lovable-uploads/85df272f-78b0-4180-bd9e-a069e750623a.png",
+    features: [
+      'Live order view',
+      'Running totals',
+      'Loyalty integration',
+      'Promo banners'
+    ]
+  },
+  {
+    id: 'loyalty',
+    title: 'Swirl Loyalty',
+    description: 'Turn guests into regulars with points tracking, membership tiers, birthday rewards, and automated CRM — all seamlessly built into your POS.',
+    icon: Users,
+    path: '/products/loyalty',
+    image: "/lovable-uploads/85df272f-78b0-4180-bd9e-a069e750623a.png",
+    features: [
+      'Points tracking',
+      'Membership tiers',
+      'Birthday rewards',
+      'CRM automation'
+    ]
   }
 ];
 
