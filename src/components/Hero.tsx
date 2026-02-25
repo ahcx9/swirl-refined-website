@@ -1011,38 +1011,62 @@ const Hero: React.FC = () => {
   };
 
   // ============ MAIN RENDER ============
-  return <section className="relative bg-white overflow-hidden pt-24 md:pt-28 lg:pt-32 pb-12">
-      {/* Background */}
+  return <>
+    {/* Section 1: Headline + CTA */}
+    <section className="relative bg-white overflow-hidden pt-28 md:pt-36 lg:pt-40 pb-8 md:pb-12">
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0" style={{
-        backgroundImage: 'radial-gradient(circle, hsl(var(--primary) / 0.04) 1px, transparent 1px)',
-        backgroundSize: '24px 24px'
-      }} />
+          backgroundImage: 'radial-gradient(circle, hsl(var(--primary) / 0.04) 1px, transparent 1px)',
+          backgroundSize: '24px 24px'
+        }} />
       </div>
-
       <div className="container-custom relative z-10">
-        {/* Hero Text - Centered above mockup */}
-        <div className="text-center animate-fade-in mb-10 max-w-3xl mx-auto pt-6 md:pt-10">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] font-bold text-foreground leading-tight tracking-tight mb-4">
-              One Platform.{' '}
-              <span className="bg-gradient-to-r from-primary via-primary/85 to-primary/65 bg-clip-text text-transparent">Complete Control.</span>
-            </h1>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-2xl mx-auto">
-              POS, QR Ordering, Inventory, Accounting, CRM, Analytics & AI — unified into one powerful platform for modern restaurants.
-            </p>
-            <div className="flex flex-wrap gap-3 justify-center mb-5">
-              <a href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20for%20Swirl" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="h-12 px-7 text-sm font-semibold shadow-lg shadow-primary/25">
-                  Book a Demo <ArrowRight className="w-4 h-4 ml-1" />
-                </Button>
-              </a>
-            </div>
-            <div className="flex flex-wrap justify-center gap-5 text-sm text-muted-foreground mb-0">
-              {['Free setup', '24/7 support', '500+ restaurants'].map(t => <span key={t} className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500" />{t}</span>)}
-            </div>
+        <div className="text-center animate-fade-in max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full mb-6">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm font-medium text-primary">The Operating System for Modern Restaurants</span>
+          </div>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-[4rem] font-bold text-foreground leading-[1.1] tracking-tight mb-5">
+            Every tool your restaurant needs.{' '}
+            <span className="bg-gradient-to-r from-primary via-primary/85 to-primary/65 bg-clip-text text-transparent">Finally unified.</span>
+          </h1>
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
+            POS, QR Ordering, Inventory, Accounting, CRM, Analytics & AI — one powerful platform that replaces them all.
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center mb-6">
+            <a href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20for%20Swirl" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="h-13 px-8 text-sm font-semibold shadow-lg shadow-primary/25">
+                Book a Demo <ArrowRight className="w-4 h-4 ml-1" />
+              </Button>
+            </a>
+          </div>
+          <div className="flex flex-wrap justify-center gap-5 text-sm text-muted-foreground">
+            {['Free setup', '24/7 support', '500+ restaurants'].map(t => <span key={t} className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500" />{t}</span>)}
+          </div>
         </div>
+      </div>
+    </section>
 
-        {/* Interactive POS Mockup - Full width below */}
+    {/* Section 2: "One Platform. Complete Control." — Standalone statement */}
+    <section className="py-16 md:py-24 bg-white">
+      <div className="container-custom">
+        <div className="text-center max-w-4xl mx-auto animate-fade-in">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight leading-[1.05]">
+            One Platform.
+          </h2>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent tracking-tight leading-[1.05] mt-1">
+            Complete Control.
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground mt-6 max-w-xl mx-auto">
+            Stop juggling tools. Start running your restaurant.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* Section 3: Interactive POS Dashboard Mockup */}
+    <section className="relative bg-white overflow-hidden pb-16 md:pb-20">
+      <div className="container-custom relative z-10">
         <div className="max-w-5xl mx-auto">
             {/* Tour controls */}
             <div className="flex items-center justify-center gap-3 flex-wrap mb-5">
@@ -1226,6 +1250,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  </>;
 };
 export default Hero;
