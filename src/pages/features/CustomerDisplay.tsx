@@ -5,83 +5,116 @@ import { Monitor, ShieldCheck, Eye, ArrowRight, CheckCircle, Sparkles, Receipt, 
 import CustomCTAButton from '@/components/CustomCTAButton';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
+/* ============ PREMIUM 3D HARDWARE MOCKUP ============ */
 const CustomerDisplayMockup = () => (
-  <div className="relative mx-auto max-w-2xl">
-    {/* 3D perspective wrapper */}
-    <div className="relative" style={{ perspective: '1200px' }}>
-      {/* POS Terminal */}
-      <div className="relative z-10 bg-foreground rounded-2xl p-6 shadow-2xl" style={{ transform: 'rotateY(-5deg) rotateX(2deg)' }}>
-        <div className="bg-background rounded-xl p-4 space-y-3">
-          <div className="flex items-center justify-between border-b border-border pb-3">
-            <span className="text-sm font-bold text-foreground">Cashier View</span>
-            <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">Active</span>
-          </div>
-          <div className="space-y-2">
-            {['Grilled Chicken Burger', 'Caesar Salad', 'Iced Latte'].map((item, i) => (
-              <div key={i} className="flex justify-between text-sm text-foreground">
-                <span>{item}</span>
-                <span className="font-medium text-muted-foreground">AED {[38, 28, 18][i]}</span>
-              </div>
-            ))}
-          </div>
-          <div className="border-t border-border pt-2 flex justify-between font-bold text-foreground">
-            <span>Total</span>
-            <span className="text-primary">AED 84.00</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Customer-Facing Display */}
-      <div className="absolute top-4 -right-8 md:-right-16 z-20 w-64 md:w-80 bg-foreground rounded-2xl p-4 shadow-2xl border-4 border-foreground/80" style={{ transform: 'rotateY(8deg) rotateX(-2deg)' }}>
-        <div className="bg-background rounded-xl overflow-hidden">
-          {/* Header */}
-          <div className="bg-primary px-4 py-3 text-center">
-            <span className="text-xs font-bold text-primary-foreground tracking-wider uppercase">Your Order</span>
-          </div>
-          {/* Items */}
-          <div className="p-4 space-y-3">
-            {[
-              { name: 'Grilled Chicken Burger', qty: 1, price: 38 },
-              { name: 'Caesar Salad', qty: 1, price: 28 },
-              { name: 'Iced Latte', qty: 1, price: 18 },
-            ].map((item, i) => (
-              <div key={i} className="flex justify-between items-center text-sm">
-                <div>
-                  <span className="text-foreground font-medium">{item.name}</span>
-                  <span className="text-muted-foreground ml-2">×{item.qty}</span>
+  <div className="relative mx-auto max-w-3xl py-8">
+    <div className="relative flex items-end justify-center gap-0" style={{ perspective: '1800px' }}>
+      
+      {/* === POS Terminal (Main Screen) === */}
+      <div className="relative z-10 w-[280px] md:w-[380px]" style={{ transform: 'rotateY(6deg) rotateX(2deg)' }}>
+        {/* Bezel */}
+        <div className="bg-gradient-to-b from-[#1a1a2e] to-[#16162a] rounded-2xl p-3 shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.05)]">
+          {/* Screen */}
+          <div className="bg-background rounded-xl overflow-hidden">
+            {/* Status bar */}
+            <div className="bg-gradient-to-r from-primary to-primary/90 px-4 py-2 flex items-center justify-between">
+              <span className="text-[10px] font-bold text-white/90 tracking-wider uppercase">Cashier — Order #1042</span>
+              <span className="text-[9px] text-white/60">3:47 PM</span>
+            </div>
+            {/* POS Content */}
+            <div className="p-4 space-y-2.5">
+              {[
+                { name: 'Grilled Chicken Burger', qty: 2, price: 38 },
+                { name: 'Caesar Salad', qty: 1, price: 28 },
+                { name: 'Iced Latte', qty: 1, price: 18 },
+                { name: 'Truffle Fries', qty: 1, price: 22 },
+              ].map((item, i) => (
+                <div key={i} className="flex justify-between items-center text-sm border-b border-border/50 pb-2 last:border-0 last:pb-0">
+                  <div className="flex items-center gap-2">
+                    <span className="w-5 h-5 rounded bg-primary/10 text-primary text-[10px] font-bold flex items-center justify-center">{item.qty}</span>
+                    <span className="text-foreground font-medium text-xs">{item.name}</span>
+                  </div>
+                  <span className="font-semibold text-foreground text-xs">AED {item.price * item.qty}</span>
                 </div>
-                <span className="font-semibold text-foreground">AED {item.price}</span>
+              ))}
+              <div className="border-t-2 border-primary/20 pt-3 flex justify-between font-bold text-base">
+                <span className="text-foreground">Total</span>
+                <span className="text-primary">AED 164.00</span>
               </div>
-            ))}
-            <div className="border-t border-border pt-3 mt-3">
-              <div className="flex justify-between text-xs text-muted-foreground mb-1">
-                <span>Subtotal</span><span>AED 84.00</span>
-              </div>
-              <div className="flex justify-between text-xs text-muted-foreground mb-2">
-                <span>VAT (5%)</span><span>AED 4.20</span>
-              </div>
-              <div className="flex justify-between font-bold text-lg text-foreground">
-                <span>Total</span><span className="text-primary">AED 88.20</span>
+              {/* Action buttons */}
+              <div className="grid grid-cols-2 gap-2 pt-2">
+                <div className="bg-primary text-white text-[10px] font-semibold py-2 rounded-lg text-center">Settle Bill</div>
+                <div className="bg-muted text-foreground text-[10px] font-semibold py-2 rounded-lg text-center">Print KOT</div>
               </div>
             </div>
           </div>
-          {/* Loyalty message */}
-          <div className="mx-4 mb-3 bg-primary/5 border border-primary/10 rounded-lg p-3 text-center">
-            <Gift className="w-4 h-4 text-primary mx-auto mb-1" />
-            <p className="text-xs text-primary font-semibold">You earned 88 loyalty points! 🎉</p>
-          </div>
-          {/* Promo banner */}
-          <div className="bg-gradient-to-r from-primary to-primary/80 px-4 py-3 text-center">
-            <p className="text-xs text-primary-foreground font-medium">🔥 Happy Hour: 20% off all drinks until 6 PM</p>
+        </div>
+        {/* Stand */}
+        <div className="mx-auto w-16 h-12 bg-gradient-to-b from-[#1a1a2e] to-[#2a2a3e] rounded-b-lg" />
+        <div className="mx-auto w-32 h-2 bg-gradient-to-b from-[#2a2a3e] to-[#1a1a2e] rounded-full" />
+      </div>
+
+      {/* === Customer-Facing Display (Secondary Screen) === */}
+      <div className="relative z-20 w-[220px] md:w-[300px] -ml-6 md:-ml-10 mb-2" style={{ transform: 'rotateY(-8deg) rotateX(1deg)' }}>
+        {/* Bezel */}
+        <div className="bg-gradient-to-b from-[#1a1a2e] to-[#16162a] rounded-2xl p-2.5 shadow-[0_25px_70px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.05)]">
+          {/* Screen */}
+          <div className="bg-background rounded-xl overflow-hidden">
+            {/* Header */}
+            <div className="bg-gradient-to-r from-primary to-primary/80 px-4 py-3 text-center">
+              <span className="text-xs font-bold text-white tracking-wider uppercase">Your Order</span>
+            </div>
+            {/* Items */}
+            <div className="p-4 space-y-2.5">
+              {[
+                { name: 'Grilled Chicken Burger', qty: 2, price: 76 },
+                { name: 'Caesar Salad', qty: 1, price: 28 },
+                { name: 'Iced Latte', qty: 1, price: 18 },
+                { name: 'Truffle Fries', qty: 1, price: 22 },
+              ].map((item, i) => (
+                <div key={i} className="flex justify-between items-center text-xs">
+                  <div>
+                    <span className="text-foreground font-medium">{item.name}</span>
+                    <span className="text-muted-foreground ml-1.5">×{item.qty}</span>
+                  </div>
+                  <span className="font-semibold text-foreground">AED {item.price}</span>
+                </div>
+              ))}
+              <div className="border-t border-border pt-2.5 mt-2.5 space-y-1">
+                <div className="flex justify-between text-[10px] text-muted-foreground">
+                  <span>Subtotal</span><span>AED 144.00</span>
+                </div>
+                <div className="flex justify-between text-[10px] text-muted-foreground">
+                  <span>VAT (5%)</span><span>AED 7.20</span>
+                </div>
+                <div className="flex justify-between font-bold text-sm text-foreground pt-1">
+                  <span>Total</span><span className="text-primary">AED 151.20</span>
+                </div>
+              </div>
+            </div>
+            {/* Loyalty */}
+            <div className="mx-3 mb-3 bg-primary/5 border border-primary/10 rounded-lg p-2.5 text-center">
+              <Gift className="w-3.5 h-3.5 text-primary mx-auto mb-1" />
+              <p className="text-[10px] text-primary font-semibold">You earned 151 loyalty points! 🎉</p>
+            </div>
+            {/* Promo */}
+            <div className="bg-gradient-to-r from-primary to-primary/80 px-3 py-2.5 text-center">
+              <p className="text-[10px] text-white font-medium">🔥 Happy Hour: 20% off all drinks until 6 PM</p>
+            </div>
           </div>
         </div>
+        {/* Stand */}
+        <div className="mx-auto w-10 h-10 bg-gradient-to-b from-[#1a1a2e] to-[#2a2a3e] rounded-b-lg" />
+        <div className="mx-auto w-24 h-2 bg-gradient-to-b from-[#2a2a3e] to-[#1a1a2e] rounded-full" />
       </div>
     </div>
-    {/* Shadow/base */}
-    <div className="mt-8 mx-auto w-3/4 h-4 bg-foreground/5 rounded-full blur-xl" />
+
+    {/* Reflection / surface shadow */}
+    <div className="mt-4 mx-auto w-[80%] h-6 bg-gradient-to-r from-transparent via-foreground/5 to-transparent rounded-full blur-xl" />
   </div>
 );
 
+/* ============ PAGE ============ */
 const CustomerDisplay = () => {
   useScrollAnimation();
 
@@ -107,15 +140,11 @@ const CustomerDisplay = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
       <main className="flex-grow">
-        {/* Hero */}
-        <section className="relative pt-32 pb-20 bg-background overflow-hidden">
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
-          </div>
+        {/* Hero — Apple-style product showcase */}
+        <section className="relative pt-32 pb-12 bg-gradient-to-b from-background to-muted/20 overflow-hidden">
           <div className="container-custom">
             <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-16">
+              <div className="text-center mb-8">
                 <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
                   <Monitor className="w-5 h-5 text-primary" />
                   <span className="text-sm font-semibold text-primary">Customer Display</span>
@@ -124,7 +153,7 @@ const CustomerDisplay = () => {
                   Transparency That<br />
                   <span className="text-primary">Builds Trust</span>
                 </h1>
-                <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
+                <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
                   Give your customers a clear view of their order, total, and loyalty rewards — right at the checkout counter.
                 </p>
                 <div className="animate-on-scroll animate-delay-300">
@@ -133,7 +162,7 @@ const CustomerDisplay = () => {
                   </CustomCTAButton>
                 </div>
               </div>
-              {/* Mockup */}
+              {/* 3D Hardware Mockup */}
               <div className="animate-on-scroll animate-delay-400">
                 <CustomerDisplayMockup />
               </div>
@@ -197,26 +226,7 @@ const CustomerDisplay = () => {
                   </ul>
                 </div>
                 <div className="animate-on-scroll animate-delay-200">
-                  {/* Compact secondary mockup */}
-                  <div className="bg-foreground rounded-2xl p-6 shadow-2xl max-w-sm mx-auto">
-                    <div className="bg-background rounded-xl overflow-hidden">
-                      <div className="bg-primary px-4 py-3 text-center">
-                        <span className="text-sm font-bold text-primary-foreground">Customer View</span>
-                      </div>
-                      <div className="p-5 space-y-3">
-                        <div className="flex justify-between text-sm"><span className="text-foreground">Margherita Pizza</span><span className="font-medium text-foreground">AED 45</span></div>
-                        <div className="flex justify-between text-sm"><span className="text-foreground">Garlic Bread</span><span className="font-medium text-foreground">AED 15</span></div>
-                        <div className="flex justify-between text-sm"><span className="text-foreground">Sparkling Water</span><span className="font-medium text-foreground">AED 12</span></div>
-                        <div className="border-t border-border pt-3 flex justify-between font-bold text-lg">
-                          <span className="text-foreground">Total</span>
-                          <span className="text-primary">AED 75.60</span>
-                        </div>
-                        <div className="bg-primary/5 rounded-lg p-2 text-center">
-                          <p className="text-xs text-primary font-medium">⭐ Gold Member — 5% discount applied</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <CustomerDisplayMockup />
                 </div>
               </div>
             </div>
