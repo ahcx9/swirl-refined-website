@@ -443,20 +443,20 @@ const Hero: React.FC = () => {
     if (method === 'SPLIT PAYMENT') {
 
 
+
+
+
+
+
+
+
+
+
+
+
+
       // For demo, just show success
-    }setPaymentSuccess(true);setPaymentStatus('PAID');
-  }, []);
-  const handlePrintKOT = useCallback(() => {
-    const newItems = orderItems.filter((i) => i.isNew);
-    const itemsForKot = newItems.length > 0 ? newItems : orderItems;
-    setLastKotItems(itemsForKot.map((i) => i.id));
-    setOrderItems((prev) => prev.map((i) => ({
-      ...i,
-      isNew: false
-    })));
-    setKotSent(true);
-  }, [orderItems]);
-  const applyPredefinedDiscount = useCallback((disc: typeof PREDEFINED_DISCOUNTS[0]) => {
+    }setPaymentSuccess(true);setPaymentStatus('PAID');}, []);const handlePrintKOT = useCallback(() => {const newItems = orderItems.filter((i) => i.isNew);const itemsForKot = newItems.length > 0 ? newItems : orderItems;setLastKotItems(itemsForKot.map((i) => i.id));setOrderItems((prev) => prev.map((i) => ({ ...i, isNew: false })));setKotSent(true);}, [orderItems]);const applyPredefinedDiscount = useCallback((disc: typeof PREDEFINED_DISCOUNTS[0]) => {
     setAppliedDiscount({
       type: 'Percentage',
       value: disc.percent,
@@ -1054,8 +1054,8 @@ const Hero: React.FC = () => {
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight leading-[1.05]">Operating System for 
 
           </h2>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent tracking-tight leading-[1.05] mt-1">
-            Complete Control.
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent tracking-tight leading-[1.05] mt-1">Modern Restaurants
+
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground mt-6 max-w-xl mx-auto">
             Stop juggling tools. Start running your restaurant.
