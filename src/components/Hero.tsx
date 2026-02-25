@@ -208,12 +208,12 @@ const ModalOverlay = ({
   children,
   onClose,
   wide
-}: {
-  children: React.ReactNode;
-  onClose: () => void;
-  wide?: boolean;
-}) => <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm rounded-2xl" onClick={onClose}>
-    <div className={`bg-white rounded-2xl shadow-2xl ${wide ? 'max-w-lg w-[95%]' : 'max-w-md w-[92%]'} max-h-[85%] overflow-auto border border-gray-200 animate-scale-in`} onClick={e => e.stopPropagation()}>
+
+
+
+
+}: {children: React.ReactNode;onClose: () => void;wide?: boolean;}) => <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm rounded-2xl" onClick={onClose}>
+    <div className={`bg-white rounded-2xl shadow-2xl ${wide ? 'max-w-lg w-[95%]' : 'max-w-md w-[92%]'} max-h-[85%] overflow-auto border border-gray-200 animate-scale-in`} onClick={(e) => e.stopPropagation()}>
       {children}
     </div>
   </div>;
@@ -345,7 +345,7 @@ const Hero: React.FC = () => {
     if (tourTimerRef.current) clearTimeout(tourTimerRef.current);
   }, []);
   const nextTourStep = useCallback(() => {
-    setTourStep(prev => {
+    setTourStep((prev) => {
       if (prev >= WALKTHROUGH_STEPS.length - 1) {
         setTourActive(false);
         return 0;
@@ -366,15 +366,15 @@ const Hero: React.FC = () => {
     children,
     onClick,
     className
-  }: {
-    id: string;
-    children: React.ReactNode;
-    onClick: () => void;
-    className: string;
-  }) => {
+
+
+
+
+
+  }: {id: string;children: React.ReactNode;onClick: () => void;className: string;}) => {
     const isHighlighted = currentTourTarget === id;
-    const stepInfo = WALKTHROUGH_STEPS.find(s => s.target === id);
-    const stepIndex = WALKTHROUGH_STEPS.findIndex(s => s.target === id);
+    const stepInfo = WALKTHROUGH_STEPS.find((s) => s.target === id);
+    const stepIndex = WALKTHROUGH_STEPS.findIndex((s) => s.target === id);
     return <div className="relative">
         <button onClick={() => {
         onClick();
@@ -408,10 +408,10 @@ const Hero: React.FC = () => {
   }, []);
   const confirmAddItem = useCallback(() => {
     if (!stagingItem) return;
-    setOrderItems(prev => {
-      const existing = prev.find(i => i.name === stagingItem.name && !i.note && !stagingNote);
+    setOrderItems((prev) => {
+      const existing = prev.find((i) => i.name === stagingItem.name && !i.note && !stagingNote);
       if (existing && !stagingNote) {
-        return prev.map(i => i.id === existing.id ? {
+        return prev.map((i) => i.id === existing.id ? {
           ...i,
           qty: i.qty + stagingQty,
           isNew: true
@@ -431,26 +431,26 @@ const Hero: React.FC = () => {
     setStagingNote('');
   }, [stagingItem, stagingQty, stagingNote]);
   const updateQty = useCallback((id: string, delta: number) => {
-    setOrderItems(prev => prev.map(i => i.id !== id ? i : {
+    setOrderItems((prev) => prev.map((i) => i.id !== id ? i : {
       ...i,
       qty: Math.max(1, i.qty + delta)
     }));
   }, []);
   const removeItem = useCallback((id: string) => {
-    setOrderItems(prev => prev.filter(i => i.id !== id));
+    setOrderItems((prev) => prev.filter((i) => i.id !== id));
   }, []);
   const handleSettleBill = useCallback((method: string) => {
     if (method === 'SPLIT PAYMENT') {
+
+
       // For demo, just show success
-    }
-    setPaymentSuccess(true);
-    setPaymentStatus('PAID');
+    }setPaymentSuccess(true);setPaymentStatus('PAID');
   }, []);
   const handlePrintKOT = useCallback(() => {
-    const newItems = orderItems.filter(i => i.isNew);
+    const newItems = orderItems.filter((i) => i.isNew);
     const itemsForKot = newItems.length > 0 ? newItems : orderItems;
-    setLastKotItems(itemsForKot.map(i => i.id));
-    setOrderItems(prev => prev.map(i => ({
+    setLastKotItems(itemsForKot.map((i) => i.id));
+    setOrderItems((prev) => prev.map((i) => ({
       ...i,
       isNew: false
     })));
@@ -537,14 +537,14 @@ const Hero: React.FC = () => {
                         <label className="text-xs font-medium text-gray-600 mb-1.5 flex items-center gap-1">
                           <StickyNote className="w-3 h-3" /> Special Instructions (optional)
                         </label>
-                        <input className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:border-primary/30 focus:outline-none" placeholder="e.g. no sugar, extra hot, almond milk..." value={stagingNote} onChange={e => setStagingNote(e.target.value)} />
+                        <input className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:border-primary/30 focus:outline-none" placeholder="e.g. no sugar, extra hot, almond milk..." value={stagingNote} onChange={(e) => setStagingNote(e.target.value)} />
                       </div>
 
                       <button onClick={confirmAddItem} className="w-full py-2.5 bg-gray-900 text-white text-sm font-semibold rounded-xl hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
                         <Plus className="w-4 h-4" /> Add to Order
                       </button>
                     </div> : <div className="grid grid-cols-2 gap-3 max-h-72 overflow-auto pr-1">
-                      {MENU_CATEGORIES[menuCategory].items.map(item => <button key={item.name} onClick={() => {
+                      {MENU_CATEGORIES[menuCategory].items.map((item) => <button key={item.name} onClick={() => {
                     setStagingItem(item);
                     setStagingQty(1);
                     setStagingNote('');
@@ -567,7 +567,7 @@ const Hero: React.FC = () => {
                 <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
               </div>
               <div className="space-y-2.5 mb-4">
-                {orderItems.map(item => <div key={item.id} className="border border-gray-200 rounded-xl p-3 flex items-center justify-between gap-2">
+                {orderItems.map((item) => <div key={item.id} className="border border-gray-200 rounded-xl p-3 flex items-center justify-between gap-2">
                     <div className="min-w-0">
                       <p className="font-medium text-sm text-gray-900 truncate">{item.name}</p>
                       <p className="text-xs text-gray-500">{formatAmount(item.price)} each</p>
@@ -595,8 +595,8 @@ const Hero: React.FC = () => {
       // ========== PRINT KOT ==========
       case 'kot':
         {
-          const newItems = orderItems.filter(i => i.isNew);
-          const kotItems = kotSent ? orderItems.filter(i => lastKotItems.includes(i.id)) : newItems.length > 0 ? newItems : orderItems;
+          const newItems = orderItems.filter((i) => i.isNew);
+          const kotItems = kotSent ? orderItems.filter((i) => lastKotItems.includes(i.id)) : newItems.length > 0 ? newItems : orderItems;
           return <ModalOverlay onClose={closeModal}>
             <div className="p-5 bg-gray-100 font-mono text-sm">
               <div className="bg-white p-5 rounded-xl shadow-inner border border-gray-300">
@@ -609,7 +609,7 @@ const Hero: React.FC = () => {
                     </span>}
                 </div>
                 <div className="border-t border-dashed border-gray-400 my-3" />
-                {kotItems.map(item => <div key={item.id} className="mb-1.5">
+                {kotItems.map((item) => <div key={item.id} className="mb-1.5">
                     <p className="font-bold">{item.name} x{item.qty}</p>
                     {item.note && <p className="text-gray-500 italic text-xs ml-2">Note: {item.note}</p>}
                   </div>)}
@@ -648,7 +648,7 @@ const Hero: React.FC = () => {
                     <span className="col-span-2 text-right">Price</span>
                     <span className="col-span-3 text-right">Amount</span>
                   </div>
-                  {orderItems.map(item => <div key={item.id} className="grid grid-cols-12 text-xs py-0.5">
+                  {orderItems.map((item) => <div key={item.id} className="grid grid-cols-12 text-xs py-0.5">
                       <span className="col-span-5">{item.name}</span>
                       <span className="col-span-2 text-center">{item.qty}</span>
                       <span className="col-span-2 text-right">{formatAmount(item.price)}</span>
@@ -739,7 +739,7 @@ const Hero: React.FC = () => {
               {discountTab === 'predefined' ? <>
                   <p className="text-sm text-gray-500 mb-4">Choose from the pre-defined discounts below or apply a spot discount</p>
                   <div className="grid grid-cols-2 gap-3 mb-4">
-                    {PREDEFINED_DISCOUNTS.map(disc => {
+                    {PREDEFINED_DISCOUNTS.map((disc) => {
                     const discAmt = netAmount * disc.percent / 100;
                     return <button key={disc.name} onClick={() => applyPredefinedDiscount(disc)} className="p-4 border border-gray-200 rounded-xl text-left hover:border-primary/30 hover:shadow-sm transition-all">
                           <p className="font-bold text-sm text-gray-900">{disc.name}</p>
@@ -757,7 +757,7 @@ const Hero: React.FC = () => {
                 </> : <div className="border border-gray-200 rounded-xl p-5">
                   <div className="mb-4">
                     <label className="text-sm font-medium text-gray-700 mb-1.5 block">Discount Type</label>
-                    <select value={discountType} onChange={e => setDiscountType(e.target.value as any)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-primary/30 focus:outline-none bg-white">
+                    <select value={discountType} onChange={(e) => setDiscountType(e.target.value as any)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-primary/30 focus:outline-none bg-white">
                       <option>Percentage</option>
                       <option>Fixed Amount</option>
                     </select>
@@ -767,12 +767,12 @@ const Hero: React.FC = () => {
                     <label className="text-sm font-medium text-gray-700 mb-1.5 block">
                       {discountType === 'Percentage' ? 'Percentage (%)' : `Amount (${currency.code})`}
                     </label>
-                    <input type="number" value={discountValue} onChange={e => setDiscountValue(e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-primary/30 focus:outline-none" placeholder={discountType === 'Percentage' ? '20' : '50'} />
+                    <input type="number" value={discountValue} onChange={(e) => setDiscountValue(e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-primary/30 focus:outline-none" placeholder={discountType === 'Percentage' ? '20' : '50'} />
                   </div>
 
                   <div className="mb-4">
                     <label className="text-sm font-medium text-gray-700 mb-1.5 block">Reason</label>
-                    <input value={discountReason} onChange={e => setDiscountReason(e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-primary/30 focus:outline-none" placeholder="e.g. friends, family, loyalty" />
+                    <input value={discountReason} onChange={(e) => setDiscountReason(e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-primary/30 focus:outline-none" placeholder="e.g. friends, family, loyalty" />
                   </div>
 
                   <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-4">
@@ -802,7 +802,7 @@ const Hero: React.FC = () => {
                 <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
               </div>
               <div className="grid grid-cols-3 gap-2.5 max-h-72 overflow-auto">
-                {TABLES.map(table => <button key={table.id} onClick={() => {
+                {TABLES.map((table) => <button key={table.id} onClick={() => {
                 setCurrentTable(table.name);
                 closeModal();
               }} className={`p-3 border rounded-xl text-left transition-all hover:shadow-md ${table.name === currentTable ? 'border-2 border-gray-900 shadow-md' : 'border-gray-200'}`}>
@@ -827,7 +827,7 @@ const Hero: React.FC = () => {
               </div>
               <p className="text-sm text-gray-600 mb-4">Select items to move to a new order:</p>
               <div className="space-y-2 mb-4">
-                {orderItems.map(item => <button key={item.id} onClick={() => setSplitItems(prev => {
+                {orderItems.map((item) => <button key={item.id} onClick={() => setSplitItems((prev) => {
                 const n = new Set(prev);
                 n.has(item.id) ? n.delete(item.id) : n.add(item.id);
                 return n;
@@ -845,7 +845,7 @@ const Hero: React.FC = () => {
                 <button onClick={closeModal} className="flex-1 py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50">Cancel</button>
                 <button onClick={() => {
                 if (splitItems.size > 0) {
-                  setOrderItems(prev => prev.filter(i => !splitItems.has(i.id)));
+                  setOrderItems((prev) => prev.filter((i) => !splitItems.has(i.id)));
                   closeModal();
                 }
               }} className="flex-1 py-2.5 bg-primary text-white rounded-xl text-sm font-semibold hover:bg-primary/90 disabled:opacity-50" disabled={splitItems.size === 0}>
@@ -909,8 +909,8 @@ const Hero: React.FC = () => {
               </div>
               <p className="text-xs font-medium text-gray-500 mb-2">Available Orders</p>
               <div className="grid grid-cols-2 gap-2.5 mb-4">
-                {MERGE_ORDERS.map(order => <button key={order.order} onClick={() => {
-                setOrderItems(prev => [...prev, {
+                {MERGE_ORDERS.map((order) => <button key={order.order} onClick={() => {
+                setOrderItems((prev) => [...prev, {
                   id: Date.now().toString(),
                   name: 'Merged Item',
                   qty: 1,
@@ -940,7 +940,7 @@ const Hero: React.FC = () => {
                     <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
                   </div>
                   <div className="space-y-2.5 mb-4">
-                    {PAYMENT_METHODS.map(m => <button key={m.name} onClick={() => handleSettleBill(m.name)} className={`w-full p-4 border rounded-xl text-left flex items-center gap-3 transition-all hover:shadow-sm ${m.highlight ? 'border-primary/30 bg-primary/5' : 'border-gray-200 hover:border-gray-300'}`}>
+                    {PAYMENT_METHODS.map((m) => <button key={m.name} onClick={() => handleSettleBill(m.name)} className={`w-full p-4 border rounded-xl text-left flex items-center gap-3 transition-all hover:shadow-sm ${m.highlight ? 'border-primary/30 bg-primary/5' : 'border-gray-200 hover:border-gray-300'}`}>
                         {m.highlight && <m.icon className="w-5 h-5 text-primary flex-shrink-0" />}
                         <div>
                           <p className="font-bold text-sm text-gray-900">{m.name}</p>
@@ -990,7 +990,7 @@ const Hero: React.FC = () => {
                   icon: Wallet,
                   label: 'Wallet',
                   color: 'bg-gray-700'
-                }].map(m => <button key={m.label} onClick={() => handleSettleBill(m.label)} className={`${m.color} text-white rounded-xl p-3.5 flex flex-col items-center gap-1.5 hover:opacity-90 transition-opacity`}>
+                }].map((m) => <button key={m.label} onClick={() => handleSettleBill(m.label)} className={`${m.color} text-white rounded-xl p-3.5 flex flex-col items-center gap-1.5 hover:opacity-90 transition-opacity`}>
                         <m.icon className="w-5 h-5" />
                         <span className="text-xs font-semibold">{m.label}</span>
                       </button>)}
@@ -1041,7 +1041,7 @@ const Hero: React.FC = () => {
             </a>
           </div>
           <div className="flex flex-wrap justify-center gap-5 text-sm text-muted-foreground">
-            {['Free setup', '24/7 support', '500+ restaurants'].map(t => <span key={t} className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500" />{t}</span>)}
+            {['Free setup', '24/7 support', '500+ restaurants'].map((t) => <span key={t} className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500" />{t}</span>)}
           </div>
         </div>
       </div>
@@ -1051,8 +1051,8 @@ const Hero: React.FC = () => {
     <section className="py-16 md:py-24 bg-white">
       <div className="container-custom">
         <div className="text-center max-w-4xl mx-auto animate-fade-in">
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight leading-[1.05]">
-            One Platform.
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight leading-[1.05]">Operating System for 
+
           </h2>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent tracking-tight leading-[1.05] mt-1">
             Complete Control.
@@ -1124,7 +1124,7 @@ const Hero: React.FC = () => {
 
                   {/* Item list */}
                   <div className="space-y-1.5 mb-4 max-h-56 overflow-auto">
-                    {orderItems.map(item => <div key={item.id} className="p-2.5 bg-white border border-gray-100 rounded-xl hover:border-gray-200 transition-colors">
+                    {orderItems.map((item) => <div key={item.id} className="p-2.5 bg-white border border-gray-100 rounded-xl hover:border-gray-200 transition-colors">
                         <div className="flex items-center justify-between">
                           <div className="min-w-0">
                             <p className="font-medium text-gray-900 text-sm truncate">{item.name}</p>
@@ -1197,7 +1197,7 @@ const Hero: React.FC = () => {
                         <span className="col-span-3 text-center">Qty</span>
                         <span className="col-span-4 text-right">Amount</span>
                       </div>
-                      {orderItems.map(item => <div key={item.id} className="grid grid-cols-12 text-xs text-gray-700 py-0.5">
+                      {orderItems.map((item) => <div key={item.id} className="grid grid-cols-12 text-xs text-gray-700 py-0.5">
                           <span className="col-span-5 truncate">{item.name}</span>
                           <span className="col-span-3 text-center">{item.qty}</span>
                           <span className="col-span-4 text-right font-medium">{formatAmount(item.price * item.qty)}</span>
