@@ -455,15 +455,15 @@ const Hero: React.FC = () => {
 
 
 
+
       // For demo, just show success
-    }setPaymentSuccess(true);setPaymentStatus('PAID');}, []);const handlePrintKOT = useCallback(() => {const newItems = orderItems.filter((i) => i.isNew);const itemsForKot = newItems.length > 0 ? newItems : orderItems;setLastKotItems(itemsForKot.map((i) => i.id));setOrderItems((prev) => prev.map((i) => ({ ...i, isNew: false })));setKotSent(true);}, [orderItems]);const applyPredefinedDiscount = useCallback((disc: typeof PREDEFINED_DISCOUNTS[0]) => {
-    setAppliedDiscount({
-      type: 'Percentage',
-      value: disc.percent,
-      reason: disc.name
-    });
-    closeModal();
-  }, [closeModal]);
+    }setPaymentSuccess(true);setPaymentStatus('PAID');}, []);const handlePrintKOT = useCallback(() => {const newItems = orderItems.filter((i) => i.isNew);const itemsForKot = newItems.length > 0 ? newItems : orderItems;setLastKotItems(itemsForKot.map((i) => i.id));setOrderItems((prev) => prev.map((i) => ({ ...i, isNew: false })));setKotSent(true);}, [orderItems]);const applyPredefinedDiscount = useCallback((disc: typeof PREDEFINED_DISCOUNTS[0]) => {setAppliedDiscount({
+        type: 'Percentage',
+        value: disc.percent,
+        reason: disc.name
+      });
+      closeModal();
+    }, [closeModal]);
   const applySpotDiscount = useCallback(() => {
     const val = parseFloat(discountValue);
     if (isNaN(val) || val <= 0) return;
@@ -1020,31 +1020,31 @@ const Hero: React.FC = () => {
           backgroundSize: '24px 24px'
         }} />
       </div>
-      <div className="container-custom relative z-10">
-        <div className="text-center animate-fade-in max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full mb-6">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">The Operating System for Modern Restaurants</span>
-          </div>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-[4rem] font-bold text-foreground leading-[1.1] tracking-tight mb-5">
-            Every tool your restaurant needs.{' '}
-            <span className="bg-gradient-to-r from-primary via-primary/85 to-primary/65 bg-clip-text text-transparent">Finally unified.</span>
-          </h1>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
-            POS, QR Ordering, Inventory, Accounting, CRM, Analytics & AI — one powerful platform that replaces them all.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center mb-6">
-            <a href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20for%20Swirl" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="h-13 px-8 text-sm font-semibold shadow-lg shadow-primary/25">
-                Book a Demo <ArrowRight className="w-4 h-4 ml-1" />
-              </Button>
-            </a>
-          </div>
-          <div className="flex flex-wrap justify-center gap-5 text-sm text-muted-foreground">
-            {['Free setup', '24/7 support', '500+ restaurants'].map((t) => <span key={t} className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500" />{t}</span>)}
-          </div>
-        </div>
-      </div>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </section>
 
     {/* Section 2: "One Platform. Complete Control." — Standalone statement */}
