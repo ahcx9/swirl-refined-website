@@ -157,8 +157,8 @@ const CustomerDisplay = () => {
                   Give your customers a clear view of their order, total, and loyalty rewards — right at the checkout counter.
                 </p>
                 <div className="animate-on-scroll animate-delay-300">
-                  <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                    get started for free
+                  <CustomCTAButton href="/contact">
+                    Book a Demo
                   </CustomCTAButton>
                 </div>
               </div>
