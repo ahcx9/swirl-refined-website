@@ -141,7 +141,7 @@ const CustomerDisplay = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Hero — Apple-style product showcase */}
-        <section className="relative pt-32 pb-12 bg-gradient-to-b from-background to-muted/20 overflow-hidden">
+        <section className="relative pt-24 md:pt-28 pb-12 bg-gradient-to-b from-background to-muted/20 overflow-hidden">
           <div className="container-custom">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8">
