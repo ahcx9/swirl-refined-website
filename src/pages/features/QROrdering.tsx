@@ -80,7 +80,7 @@ const QROrdering = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 bg-white overflow-hidden">
+        <section className="relative pt-24 md:pt-28 pb-16 bg-white overflow-hidden">
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
             <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
