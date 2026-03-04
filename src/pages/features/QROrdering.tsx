@@ -106,8 +106,8 @@ const QROrdering = () => {
                   Transform your dining experience with contactless ordering that delights customers and boosts revenue.
                 </p>
                 <div className="animate-on-scroll animate-delay-300">
-                  <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                    get started for free
+                  <CustomCTAButton href="/contact">
+                    Book a Demo
                   </CustomCTAButton>
                 </div>
               </div>
