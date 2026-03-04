@@ -17,7 +17,7 @@ const segments = [
     ],
     features: ['Quick Billing', 'Loyalty Points', 'QR Menu', 'Guest History', 'Inventory Alerts'],
     icon: Coffee,
-    image: '/lovable-uploads/cafe-bakery.jpg',
+    image: '/lovable-uploads/cafe-bakery-new.jpg',
     reversed: false,
   },
   {
