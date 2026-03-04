@@ -197,23 +197,6 @@ const UseCases = () => {
           </section>
         ))}
 
-        {/* Final CTA */}
-        <section className="py-20 bg-gradient-to-br from-primary to-primary/90">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Ready to Transform Your Operations?
-              </h2>
-              <p className="text-lg text-white/80 mb-8">
-                Join 500+ restaurants running on Swirl. Setup is free and takes under 24 hours.
-              </p>
-              <a href="https://app.swirl.cx/register" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                get started for free
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </div>
