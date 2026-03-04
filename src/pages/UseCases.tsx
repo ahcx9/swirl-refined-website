@@ -102,7 +102,7 @@ const UseCases = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-grow pt-28">
+      <main className="flex-grow pt-24">
         {/* Hero */}
         <section className="bg-white py-16 md:py-24">
           <div className="container-custom">

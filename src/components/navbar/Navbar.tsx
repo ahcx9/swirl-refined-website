@@ -68,10 +68,22 @@ const features = [
 },
 {
   title: 'Swirl Hardware',
-  path: '/products/swirl-hardware',
-  description: 'Complete POS hardware solutions for your restaurant.',
-  icon: 'monitor'
-}];
+    path: '/products/swirl-hardware',
+    description: 'Complete POS hardware solutions for your restaurant.',
+    icon: 'monitor'
+  },
+  {
+    title: 'Loyalty',
+    path: '/products/loyalty',
+    description: 'Points, tiers, and birthday rewards built into your POS.',
+    icon: 'heart'
+  },
+  {
+    title: 'Customer Display',
+    path: '/products/customer-display',
+    description: 'Customer-facing screen showing live order details.',
+    icon: 'monitor'
+  }];
 
 
 const Navbar = () => {

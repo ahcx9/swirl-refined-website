@@ -19,7 +19,7 @@ const businessTypes = [
     id: 'cafe',
     name: 'Cafés & Bakeries',
     icon: Coffee,
-    image: '/lovable-uploads/cafe-bakery.jpg',
+    image: '/lovable-uploads/cafe-bakery-new.jpg',
     tagline: 'Speed meets loyalty',
     description: 'Turn first-time visitors into daily regulars. Quick billing, instant loyalty tracking, and smart QR menus keep your counters moving and customers returning.',
     features: ['Quick Billing', 'Loyalty Points', 'Guest History', 'QR Menu'],
