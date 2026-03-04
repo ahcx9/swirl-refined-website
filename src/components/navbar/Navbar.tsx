@@ -76,7 +76,7 @@ const features = [
     title: 'Loyalty',
     path: '/products/loyalty',
     description: 'Points, tiers, and birthday rewards built into your POS.',
-    icon: 'heart'
+    icon: 'heart-handshake'
   },
   {
     title: 'Customer Display',
