@@ -1013,7 +1013,7 @@ const Hero: React.FC = () => {
   // ============ MAIN RENDER ============
   return <>
     {/* Section 1: Headline + CTA */}
-    <section className="relative bg-white overflow-hidden pt-28 md:pt-36 lg:pt-40 pb-8 md:pb-12">
+    <section className="relative bg-white overflow-hidden pt-24 md:pt-28 lg:pt-32 pb-6 md:pb-10">
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle, hsl(var(--primary) / 0.04) 1px, transparent 1px)',
@@ -1048,7 +1048,7 @@ const Hero: React.FC = () => {
     </section>
 
     {/* Section 2: "One Platform. Complete Control." — Standalone statement */}
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-10 md:py-16 bg-white">
       <div className="container-custom">
         <div className="text-center max-w-4xl mx-auto animate-fade-in">
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight leading-[1.05]">Operating System for 

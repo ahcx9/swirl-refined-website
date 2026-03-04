@@ -43,7 +43,7 @@ const KitchenDisplay = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative pt-24 md:pt-32 pb-12 md:pb-20 bg-white overflow-hidden">
+        <section className="relative pt-24 md:pt-28 pb-12 md:pb-16 bg-white overflow-hidden">
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
             <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
@@ -67,8 +67,8 @@ const KitchenDisplay = () => {
                 </p>
                 
                 <div className="animate-on-scroll animate-delay-300">
-                  <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                    get started for free
+                  <CustomCTAButton href="/contact">
+                    Book a Demo
                   </CustomCTAButton>
                 </div>
               </div>
@@ -203,28 +203,6 @@ const KitchenDisplay = () => {
           </div>
         </section>
 
-        {/* Final CTA */}
-        <section className="py-20 bg-gradient-to-br from-primary to-primary/90">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-white mb-4">
-                Ready to Transform Your Kitchen?
-              </h2>
-              <p className="animate-on-scroll animate-delay-100 text-lg text-white/80 mb-8">
-                Join thousands of restaurants using swirl KDS to streamline operations
-              </p>
-              <div className="animate-on-scroll animate-delay-200">
-                <a 
-                  href="https://app.swirl.cx/register"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                >
-                  get started for free
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </div>

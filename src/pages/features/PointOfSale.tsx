@@ -54,7 +54,7 @@ const PointOfSale = () => {
   }];
   return <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      <main className="flex-grow pt-28 pb-20">
+      <main className="flex-grow pt-24 pb-16">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
             <POSHero />

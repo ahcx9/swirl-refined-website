@@ -141,7 +141,7 @@ const CustomerDisplay = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Hero — Apple-style product showcase */}
-        <section className="relative pt-32 pb-12 bg-gradient-to-b from-background to-muted/20 overflow-hidden">
+        <section className="relative pt-24 md:pt-28 pb-12 bg-gradient-to-b from-background to-muted/20 overflow-hidden">
           <div className="container-custom">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8">
@@ -157,8 +157,8 @@ const CustomerDisplay = () => {
                   Give your customers a clear view of their order, total, and loyalty rewards — right at the checkout counter.
                 </p>
                 <div className="animate-on-scroll animate-delay-300">
-                  <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                    get started for free
+                  <CustomCTAButton href="/contact">
+                    Book a Demo
                   </CustomCTAButton>
                 </div>
               </div>
@@ -233,25 +233,6 @@ const CustomerDisplay = () => {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 bg-gradient-to-br from-primary to-primary/90">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-                Upgrade Your Checkout Experience
-              </h2>
-              <p className="animate-on-scroll animate-delay-100 text-lg text-primary-foreground/80 mb-8">
-                Add a customer display screen to your POS setup and watch trust — and revenue — grow.
-              </p>
-              <div className="animate-on-scroll animate-delay-200">
-                <a href="https://app.swirl.cx/register" className="inline-flex items-center gap-2 px-8 py-4 bg-background text-primary font-bold rounded-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                  get started for free
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </div>
