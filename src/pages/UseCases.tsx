@@ -137,6 +137,8 @@ const UseCases = () => {
                     <img 
                       src={segment.image} 
                       alt={segment.title}
+                      loading="eager"
+                      decoding="async"
                       className="w-full h-72 md:h-96 object-cover"
                     />
                     {/* Overlay badge */}

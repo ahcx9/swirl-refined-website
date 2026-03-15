@@ -11,9 +11,9 @@ const HomeDeliveryIntegrationSection = () => {
     { name: 'Noon Food', logo: '/lovable-uploads/noon-food-logo.png' },
     { name: 'Careem', logo: '/lovable-uploads/a2ee4e8c-8b4d-4521-a82a-39df6b6529aa.png' },
     { name: 'UberEats', logo: null, initials: 'UE', color: 'bg-green-600' },
-    { name: 'DoorDash', logo: null, initials: 'DD', color: 'bg-red-500' },
-    { name: 'GrabFood', logo: null, initials: 'GF', color: 'bg-green-500' },
-    { name: 'Foodpanda', logo: null, initials: 'FP', color: 'bg-pink-500' },
+    { name: 'HungerStation', logo: '/lovable-uploads/hungerstation-logo.png' },
+    { name: 'Jahez', logo: '/lovable-uploads/jahez-logo.png' },
+    { name: 'Swiggy', logo: '/lovable-uploads/swiggy-logo.png' },
     { name: 'Zomato', logo: null, initials: 'ZM', color: 'bg-red-600' },
   ];
 
@@ -26,12 +26,13 @@ const HomeDeliveryIntegrationSection = () => {
 
   // Position logos in a semi-circle around the center POS
   const getPosition = (index: number, total: number) => {
-    // Semi-circle from left to right (180 degrees, from PI to 0)
-    const angle = Math.PI - (index / (total - 1)) * Math.PI;
-    const radiusX = 42; // % from center
-    const radiusY = 38;
+    // Wider semi-circle with more spacing to avoid overlap
+    const padding = 0.08; // extra padding at edges
+    const angle = Math.PI * (1 - padding) - (index / (total - 1)) * Math.PI * (1 - 2 * padding);
+    const radiusX = 44; // % from center
+    const radiusY = 40;
     const x = 50 + radiusX * Math.cos(angle);
-    const y = 55 - radiusY * Math.sin(angle);
+    const y = 52 - radiusY * Math.sin(angle);
     return { x, y };
   };
 

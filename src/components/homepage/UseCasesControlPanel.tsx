@@ -99,6 +99,14 @@ const UseCasesControlPanel: React.FC = () => {
   const [activeType, setActiveType] = useState(businessTypes[0]);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
+  // Preload all use case images on mount for instant tab switching
+  React.useEffect(() => {
+    businessTypes.forEach((type) => {
+      const img = new Image();
+      img.src = type.image;
+    });
+  }, []);
+
   const handleTypeChange = (type: typeof businessTypes[0]) => {
     if (type.id === activeType.id) return;
     setIsTransitioning(true);
@@ -177,6 +185,9 @@ const UseCasesControlPanel: React.FC = () => {
               <img 
                 src={activeType.image} 
                 alt={activeType.name}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
                 className="absolute inset-0 w-full h-full object-cover"
               />
               {/* Overlay gradient on mobile */}
