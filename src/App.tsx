@@ -25,6 +25,7 @@ import Accounting from './pages/features/Accounting';
 import SwirlHardware from './pages/features/SwirlHardware';
 import CustomerDisplay from './pages/features/CustomerDisplay';
 import Loyalty from './pages/features/Loyalty';
+import Support from './pages/Support';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
           <Route path="/products/swirl-hardware" element={<SwirlHardware />} />
           <Route path="/products/customer-display" element={<CustomerDisplay />} />
           <Route path="/products/loyalty" element={<Loyalty />} />
+          <Route path="/support" element={<Support />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
