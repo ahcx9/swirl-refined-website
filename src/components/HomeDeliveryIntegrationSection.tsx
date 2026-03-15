@@ -11,9 +11,9 @@ const HomeDeliveryIntegrationSection = () => {
     { name: 'Noon Food', logo: '/lovable-uploads/noon-food-logo.png' },
     { name: 'Careem', logo: '/lovable-uploads/a2ee4e8c-8b4d-4521-a82a-39df6b6529aa.png' },
     { name: 'UberEats', logo: null, initials: 'UE', color: 'bg-green-600' },
-    { name: 'DoorDash', logo: null, initials: 'DD', color: 'bg-red-500' },
-    { name: 'GrabFood', logo: null, initials: 'GF', color: 'bg-green-500' },
-    { name: 'Foodpanda', logo: null, initials: 'FP', color: 'bg-pink-500' },
+    { name: 'HungerStation', logo: '/lovable-uploads/hungerstation-logo.png' },
+    { name: 'Jahez', logo: '/lovable-uploads/jahez-logo.png' },
+    { name: 'Swiggy', logo: '/lovable-uploads/swiggy-logo.png' },
     { name: 'Zomato', logo: null, initials: 'ZM', color: 'bg-red-600' },
   ];
 
