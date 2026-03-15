@@ -177,6 +177,9 @@ const UseCasesControlPanel: React.FC = () => {
               <img 
                 src={activeType.image} 
                 alt={activeType.name}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
                 className="absolute inset-0 w-full h-full object-cover"
               />
               {/* Overlay gradient on mobile */}
