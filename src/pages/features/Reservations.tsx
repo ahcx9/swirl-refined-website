@@ -115,8 +115,8 @@ const Reservations = () => {
               {/* Floating cards */}
               <div className="absolute -top-4 -right-4 bg-card rounded-xl shadow-lg border border-border/50 px-4 py-3 animate-[float_6s_ease-in-out_infinite]">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center">
-                    <CalendarCheck className="w-4 h-4 text-green-600" />
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <CalendarCheck className="w-4 h-4 text-primary" />
                   </div>
                   <div>
                     <p className="text-xs font-semibold text-foreground">12 Reservations</p>
