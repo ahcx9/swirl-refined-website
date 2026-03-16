@@ -223,11 +223,11 @@ const Support = () => {
                 If you are interested in using the Swirl restaurant management platform for your restaurant or chain, please contact:
               </p>
               <a 
-                href="mailto:sales@swirl.cx" 
+                href="mailto:abid@swirl.cx" 
                 className="inline-flex items-center gap-2 text-primary font-semibold text-lg hover:underline"
               >
                 <Mail className="w-5 h-5" />
-                sales@swirl.cx
+                abid@swirl.cx
               </a>
             </div>
           </div>
