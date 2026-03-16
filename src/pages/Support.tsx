@@ -85,9 +85,9 @@ const Support = () => {
                     <Mail className="w-7 h-7 text-primary" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-2">Email Support</h3>
-                  <p className="text-muted-foreground text-sm mb-6">support@swirl.cx</p>
+                  <p className="text-muted-foreground text-sm mb-6">abid@swirl.cx</p>
                   <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white">
-                    <a href="mailto:support@swirl.cx" className="flex items-center justify-center gap-2">
+                    <a href="mailto:abid@swirl.cx" className="flex items-center justify-center gap-2">
                       <Send className="w-4 h-4" />
                       Send Email
                     </a>
