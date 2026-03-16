@@ -61,6 +61,7 @@ function App() {
           <Route path="/products/swirl-hardware" element={<SwirlHardware />} />
           <Route path="/products/customer-display" element={<CustomerDisplay />} />
           <Route path="/products/loyalty" element={<Loyalty />} />
+          <Route path="/products/reservations" element={<Reservations />} />
           
           <Route path="/support" element={<Support />} />
           
