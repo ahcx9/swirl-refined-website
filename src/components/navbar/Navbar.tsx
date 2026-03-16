@@ -83,6 +83,12 @@ const features = [
     path: '/products/customer-display',
     description: 'Customer-facing screen showing live order details.',
     icon: 'monitor'
+  },
+  {
+    title: 'Reservations',
+    path: '/products/reservations',
+    description: 'Intelligent table booking and guest management.',
+    icon: 'calendar-check'
   }];
 
 
