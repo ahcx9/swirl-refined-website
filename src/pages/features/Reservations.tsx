@@ -1,14 +1,14 @@
 
 import React, { useEffect, useRef } from 'react';
 import Footer from '@/components/Footer';
-import { 
+import {
   Calendar, Clock, Users, UserCheck, Armchair, GripHorizontal,
-  ChefHat, BarChart3, Heart, ShoppingCart, CreditCard, 
+  ChefHat, BarChart3, Heart, ShoppingCart, CreditCard,
   CalendarCheck, Eye, Layers, ArrowRight,
   Phone, NotebookPen, History,
   AlertTriangle, Settings, Shuffle, Timer, UserPlus,
-  PartyPopper, MapPin, ClipboardList, Sparkles
-} from 'lucide-react';
+  PartyPopper, MapPin, ClipboardList, Sparkles } from
+'lucide-react';
 import timelineMockup from '@/assets/reservation-timeline-real.png';
 import bookingMockup from '@/assets/reservation-booking-real.png';
 import guestMockup from '@/assets/reservation-guest-real.png';
@@ -18,7 +18,7 @@ const Reservations = () => {
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
           entry.target.classList.add('visible');
           observerRef.current?.unobserve(entry.target);
@@ -27,66 +27,66 @@ const Reservations = () => {
     }, { rootMargin: '50px', threshold: 0.1 });
 
     const elements = document.querySelectorAll('.animate-on-scroll');
-    elements.forEach(el => observerRef.current?.observe(el));
-    return () => { elements.forEach(el => observerRef.current?.unobserve(el)); };
+    elements.forEach((el) => observerRef.current?.observe(el));
+    return () => {elements.forEach((el) => observerRef.current?.unobserve(el));};
   }, []);
 
   const timelineHighlights = [
-    { icon: Eye, text: 'Visual reservation timeline' },
-    { icon: Timer, text: 'Lunch and dinner separation' },
-    { icon: Clock, text: 'Real-time availability' },
-    { icon: Armchair, text: 'Table assignments' },
-    { icon: GripHorizontal, text: 'Reservation blocks' },
-  ];
+  { icon: Eye, text: 'Visual reservation timeline' },
+  { icon: Timer, text: 'Lunch and dinner separation' },
+  { icon: Clock, text: 'Real-time availability' },
+  { icon: Armchair, text: 'Table assignments' },
+  { icon: GripHorizontal, text: 'Reservation blocks' }];
+
 
   const bookingHighlights = [
-    { icon: Clock, text: 'Real-time time slot availability' },
-    { icon: UserPlus, text: 'Guest information capture' },
-    { icon: Users, text: 'Party size controls' },
-    { icon: Settings, text: 'Automatic table suggestions' },
-    { icon: ClipboardList, text: 'Instant reservation summary' },
-  ];
+  { icon: Clock, text: 'Real-time time slot availability' },
+  { icon: UserPlus, text: 'Guest information capture' },
+  { icon: Users, text: 'Party size controls' },
+  { icon: Settings, text: 'Automatic table suggestions' },
+  { icon: ClipboardList, text: 'Instant reservation summary' }];
+
 
   const guestTrackItems = [
-    { icon: History, text: 'Guest visit history' },
-    { icon: Armchair, text: 'Seating preferences' },
-    { icon: NotebookPen, text: 'Special requests' },
-    { icon: AlertTriangle, text: 'Allergies' },
-    { icon: Phone, text: 'Contact details' },
-  ];
+  { icon: History, text: 'Guest visit history' },
+  { icon: Armchair, text: 'Seating preferences' },
+  { icon: NotebookPen, text: 'Special requests' },
+  { icon: AlertTriangle, text: 'Allergies' },
+  { icon: Phone, text: 'Contact details' }];
+
 
   const guestHighlights = [
-    { icon: NotebookPen, text: 'Guest notes' },
-    { icon: History, text: 'Activity history' },
-    { icon: AlertTriangle, text: 'No-show tracking' },
-    { icon: Armchair, text: 'Seating preferences' },
-    { icon: PartyPopper, text: 'Occasion tags' },
-  ];
+  { icon: NotebookPen, text: 'Guest notes' },
+  { icon: History, text: 'Activity history' },
+  { icon: AlertTriangle, text: 'No-show tracking' },
+  { icon: Armchair, text: 'Seating preferences' },
+  { icon: PartyPopper, text: 'Occasion tags' }];
+
 
   const tableFeatures = [
-    { icon: Settings, text: 'Automatic table suggestions' },
-    { icon: Layers, text: 'Multi-table support' },
-    { icon: Shuffle, text: 'Table combinations' },
-    { icon: Armchair, text: 'Seating preferences' },
-    { icon: BarChart3, text: 'Table availability insights' },
-  ];
+  { icon: Settings, text: 'Automatic table suggestions' },
+  { icon: Layers, text: 'Multi-table support' },
+  { icon: Shuffle, text: 'Table combinations' },
+  { icon: Armchair, text: 'Seating preferences' },
+  { icon: BarChart3, text: 'Table availability insights' }];
+
 
   const staffActions = [
-    'Create reservations',
-    'Modify bookings',
-    'Seat guests',
-    'Mark no-shows',
-    'Track service flow',
-  ];
+  'Create reservations',
+  'Modify bookings',
+  'Seat guests',
+  'Mark no-shows',
+  'Track service flow'];
+
 
   const integrations = [
-    { icon: CreditCard, name: 'POS' },
-    { icon: ChefHat, name: 'Kitchen Display (KDS)' },
-    { icon: Users, name: 'CRM' },
-    { icon: Heart, name: 'Customer Loyalty' },
-    { icon: BarChart3, name: 'Analytics' },
-    { icon: ShoppingCart, name: 'Online Ordering' },
-  ];
+  { icon: CreditCard, name: 'POS' },
+  { icon: ChefHat, name: 'Kitchen Display (KDS)' },
+  { icon: Users, name: 'CRM' },
+  { icon: Heart, name: 'Customer Loyalty' },
+  { icon: BarChart3, name: 'Analytics' },
+  { icon: ShoppingCart, name: 'Online Ordering' }];
+
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -122,17 +122,17 @@ const Reservations = () => {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 border border-border/50">
                 <img src={timelineMockup} alt="Swirl Reservation Calendar Timeline" className="w-full" loading="eager" />
               </div>
-              <div className="absolute -top-4 -right-4 bg-card rounded-xl shadow-lg border border-border/50 px-4 py-3 animate-[float_6s_ease-in-out_infinite]">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <CalendarCheck className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-foreground">12 Reservations</p>
-                    <p className="text-[10px] text-muted-foreground">Tonight</p>
-                  </div>
-                </div>
-              </div>
+              
+
+
+
+
+
+
+
+
+
+              
               <div className="absolute -bottom-4 -left-4 bg-card rounded-xl shadow-lg border border-border/50 px-4 py-3 animate-[float_6s_ease-in-out_infinite_1s]">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -185,14 +185,14 @@ const Reservations = () => {
             </div>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mt-12 max-w-5xl mx-auto">
-            {timelineHighlights.map((item, i) => (
-              <div key={i} className="animate-on-scroll group p-5 rounded-xl border border-border/50 bg-card hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 text-center">
+            {timelineHighlights.map((item, i) =>
+            <div key={i} className="animate-on-scroll group p-5 rounded-xl border border-border/50 bg-card hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 text-center">
                 <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/10 transition-colors">
                   <item.icon className="w-5 h-5 text-primary" />
                 </div>
                 <p className="text-sm font-medium text-foreground">{item.text}</p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -209,14 +209,14 @@ const Reservations = () => {
                 Restaurant staff can quickly create reservations using a beautifully designed interface that automatically shows available time slots and table capacity.
               </p>
               <div className="space-y-3">
-                {bookingHighlights.map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 p-3 rounded-xl hover:bg-muted/50 transition-colors">
+                {bookingHighlights.map((item, i) =>
+                <div key={i} className="flex items-center gap-4 p-3 rounded-xl hover:bg-muted/50 transition-colors">
                     <div className="w-10 h-10 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center flex-shrink-0">
                       <item.icon className="w-5 h-5 text-primary" />
                     </div>
                     <span className="text-foreground font-medium">{item.text}</span>
                   </div>
-                ))}
+                )}
               </div>
             </div>
             <div className="animate-on-scroll relative">
@@ -284,24 +284,24 @@ const Reservations = () => {
               </p>
               <p className="text-muted-foreground mb-4 font-medium">Restaurants can track:</p>
               <div className="space-y-3 mb-8">
-                {guestTrackItems.map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 p-3 rounded-xl hover:bg-card transition-colors">
+                {guestTrackItems.map((item, i) =>
+                <div key={i} className="flex items-center gap-4 p-3 rounded-xl hover:bg-card transition-colors">
                     <div className="w-10 h-10 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center flex-shrink-0">
                       <item.icon className="w-5 h-5 text-primary" />
                     </div>
                     <span className="text-foreground font-medium">{item.text}</span>
                   </div>
-                ))}
+                )}
               </div>
               <div className="border-t border-border/50 pt-6">
                 <p className="text-sm text-muted-foreground font-medium mb-3">Key highlights:</p>
                 <div className="flex flex-wrap gap-2">
-                  {guestHighlights.map((item, i) => (
-                    <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/5 text-primary text-xs font-medium border border-primary/10">
+                  {guestHighlights.map((item, i) =>
+                  <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/5 text-primary text-xs font-medium border border-primary/10">
                       <item.icon className="w-3 h-3" />
                       {item.text}
                     </span>
-                  ))}
+                  )}
                 </div>
               </div>
             </div>
@@ -321,14 +321,14 @@ const Reservations = () => {
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {tableFeatures.map((item, i) => (
-              <div key={i} className="animate-on-scroll group p-6 rounded-2xl border border-border/50 bg-card hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            {tableFeatures.map((item, i) =>
+            <div key={i} className="animate-on-scroll group p-6 rounded-2xl border border-border/50 bg-card hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
                   <item.icon className="w-6 h-6 text-primary" />
                 </div>
                 <p className="text-foreground font-semibold text-lg">{item.text}</p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -346,14 +346,14 @@ const Reservations = () => {
               </p>
               <p className="text-muted-foreground mb-6 font-medium">Staff can quickly:</p>
               <div className="space-y-3">
-                {staffActions.map((action, i) => (
-                  <div key={i} className="flex items-center gap-3">
+                {staffActions.map((action, i) =>
+                <div key={i} className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <ArrowRight className="w-3 h-3 text-primary" />
                     </div>
                     <span className="text-foreground font-medium">{action}</span>
                   </div>
-                ))}
+                )}
               </div>
             </div>
             <div className="animate-on-scroll">
@@ -377,14 +377,14 @@ const Reservations = () => {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {integrations.map((item, i) => (
-              <div key={i} className="animate-on-scroll group p-6 rounded-2xl border border-border/50 bg-card hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-center">
+            {integrations.map((item, i) =>
+            <div key={i} className="animate-on-scroll group p-6 rounded-2xl border border-border/50 bg-card hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-center">
                 <div className="w-14 h-14 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/10 transition-colors">
                   <item.icon className="w-7 h-7 text-primary" />
                 </div>
                 <p className="text-sm font-semibold text-foreground">{item.name}</p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -426,8 +426,8 @@ const Reservations = () => {
           transform: translateY(0);
         }
       `}</style>
-    </div>
-  );
+    </div>);
+
 };
 
 export default Reservations;
