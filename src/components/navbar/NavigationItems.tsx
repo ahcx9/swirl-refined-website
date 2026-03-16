@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { 
   FileText, ShoppingCart, BarChart, CreditCard, LayoutDashboard,
-  Users, Car, Calendar, Package, ChefHat, Utensils, FileBarChart, DollarSign, Monitor, Calculator, HeartHandshake
+  Users, Car, Calendar, Package, ChefHat, Utensils, FileBarChart, DollarSign, Monitor, Calculator, HeartHandshake, CalendarCheck
 } from 'lucide-react';
 
 interface NavigationItem {
