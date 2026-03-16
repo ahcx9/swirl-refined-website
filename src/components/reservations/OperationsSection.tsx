@@ -48,16 +48,9 @@ const OperationsSection = () => {
             </div>
           </div>
 
-          {/* Screenshot */}
+          {/* Screenshot — clean, no browser frame */}
           <div className="animate-on-scroll">
-            <div className="rounded-2xl overflow-hidden shadow-[0_25px_80px_-20px_rgba(0,82,204,0.12)] border border-border/30 bg-card">
-              <div className="bg-muted/30 px-4 py-2.5 border-b border-border/20 flex items-center gap-2">
-                <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-400/50" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/50" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-400/50" />
-                </div>
-              </div>
+            <div className="rounded-2xl overflow-hidden shadow-[0_12px_40px_-10px_rgba(0,0,0,0.12)] border border-border/20">
               <img src={bookingImg} alt="Reservation Management" className="w-full" loading="lazy" />
             </div>
           </div>

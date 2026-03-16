@@ -9,7 +9,6 @@ const ReservationHero = () => {
     <section className="relative pt-32 pb-16 md:pt-44 md:pb-24 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.02] via-transparent to-transparent pointer-events-none" />
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-primary/[0.04] rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
         {/* Text content — centered */}
@@ -47,55 +46,26 @@ const ReservationHero = () => {
           </div>
         </div>
 
-        {/* Premium Product Mockup — 3-panel narrative */}
+        {/* Premium Product Mockup — 3-panel, no browser frames, proper spacing */}
         <div className="animate-on-scroll relative max-w-6xl mx-auto">
-          {/* Decorative glow behind the whole composition */}
-          <div className="absolute inset-0 -inset-x-8 bg-gradient-to-tr from-primary/[0.05] via-primary/[0.02] to-transparent rounded-[2rem] blur-3xl -z-10" />
-
-          <div className="relative flex items-center justify-center gap-0 md:gap-0">
+          <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr_240px] xl:grid-cols-[280px_1fr_280px] gap-6 lg:gap-8 items-start">
             {/* Left — Guest Profile Panel */}
-            <div className="hidden lg:block relative z-20 -mr-8 flex-shrink-0 w-[220px] xl:w-[260px] animate-[float_7s_ease-in-out_infinite_1s]">
-              <div className="rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.18)] border border-border/20 bg-card/95 backdrop-blur-md transform -rotate-2 hover:rotate-0 transition-transform duration-500">
-                {/* Mini browser chrome */}
-                <div className="bg-muted/40 px-3 py-1.5 border-b border-border/20 flex items-center gap-1.5">
-                  <div className="flex gap-1">
-                    <div className="w-2 h-2 rounded-full bg-red-400/50" />
-                    <div className="w-2 h-2 rounded-full bg-yellow-400/50" />
-                    <div className="w-2 h-2 rounded-full bg-green-400/50" />
-                  </div>
-                  <span className="text-[8px] text-muted-foreground/40 ml-2">Guest Profile</span>
-                </div>
+            <div className="hidden lg:block">
+              <div className="rounded-2xl overflow-hidden shadow-[0_8px_30px_-8px_rgba(0,0,0,0.12)] border border-border/20">
                 <img
                   src={guestImg}
                   alt="Guest Profile — reservation details, preferences, and activity log"
                   className="w-full"
-                  width={260}
-                  height={400}
+                  width={280}
+                  height={430}
                   loading="eager"
                 />
-              </div>
-              {/* Callout badge */}
-              <div className="absolute -bottom-3 -right-3 bg-card border border-border/30 rounded-xl px-3 py-1.5 shadow-lg text-[11px] font-semibold text-foreground/80 backdrop-blur-md">
-                <span className="text-primary mr-1">●</span> Guest Intel
               </div>
             </div>
 
             {/* Center — Main Timeline Dashboard */}
-            <div className="relative z-10 flex-1 min-w-0 max-w-[820px]">
-              <div className="rounded-2xl overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,82,204,0.18)] border border-border/30 bg-card/80 backdrop-blur-sm">
-                {/* Browser chrome */}
-                <div className="bg-muted/30 px-4 py-2.5 border-b border-border/30 flex items-center gap-2">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
-                  </div>
-                  <div className="flex-1 flex justify-center">
-                    <div className="bg-muted/50 rounded-md px-12 py-1 text-[10px] text-muted-foreground/50">
-                      swirl.cx/reservations
-                    </div>
-                  </div>
-                </div>
+            <div className="relative">
+              <div className="rounded-2xl overflow-hidden shadow-[0_12px_40px_-10px_rgba(0,0,0,0.12)] border border-border/20">
                 <img
                   src={timelineImg}
                   alt="Swirl Reservation Timeline — weekly calendar view with reservation blocks"
@@ -105,53 +75,30 @@ const ReservationHero = () => {
                   loading="eager"
                 />
               </div>
-
-              {/* Floating callouts on timeline */}
-              <div className="absolute top-16 left-8 hidden md:flex items-center gap-2 bg-card/95 border border-border/20 rounded-lg px-3 py-1.5 shadow-md backdrop-blur-md text-[11px] font-medium text-foreground/70 animate-[float_9s_ease-in-out_infinite_2s]">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                6 Guests · Table 9
-              </div>
-              <div className="absolute bottom-12 right-8 hidden md:flex items-center gap-2 bg-card/95 border border-border/20 rounded-lg px-3 py-1.5 shadow-md backdrop-blur-md text-[11px] font-medium text-foreground/70 animate-[float_8s_ease-in-out_infinite_0.5s]">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                Confirmed
-              </div>
             </div>
 
             {/* Right — New Reservation Panel */}
-            <div className="hidden lg:block relative z-20 -ml-8 flex-shrink-0 w-[220px] xl:w-[260px] animate-[float_8s_ease-in-out_infinite_0.5s]">
-              <div className="rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.18)] border border-border/20 bg-card/95 backdrop-blur-md transform rotate-2 hover:rotate-0 transition-transform duration-500">
-                {/* Mini browser chrome */}
-                <div className="bg-muted/40 px-3 py-1.5 border-b border-border/20 flex items-center gap-1.5">
-                  <div className="flex gap-1">
-                    <div className="w-2 h-2 rounded-full bg-red-400/50" />
-                    <div className="w-2 h-2 rounded-full bg-yellow-400/50" />
-                    <div className="w-2 h-2 rounded-full bg-green-400/50" />
-                  </div>
-                  <span className="text-[8px] text-muted-foreground/40 ml-2">New Reservation</span>
-                </div>
+            <div className="hidden lg:block">
+              <div className="rounded-2xl overflow-hidden shadow-[0_8px_30px_-8px_rgba(0,0,0,0.12)] border border-border/20">
                 <img
                   src={bookingImg}
                   alt="Create Reservation — date, party size, and available time slots"
                   className="w-full"
-                  width={260}
-                  height={420}
+                  width={280}
+                  height={450}
                   loading="eager"
                 />
-              </div>
-              {/* Callout badge */}
-              <div className="absolute -top-3 -left-3 bg-card border border-border/30 rounded-xl px-3 py-1.5 shadow-lg text-[11px] font-semibold text-foreground/80 backdrop-blur-md">
-                <span className="text-green-500 mr-1">●</span> Quick Book
               </div>
             </div>
           </div>
 
           {/* Mobile: show side panels stacked below */}
           <div className="flex lg:hidden gap-4 mt-6 justify-center">
-            <div className="w-[45%] max-w-[200px] rounded-xl overflow-hidden shadow-lg border border-border/20 bg-card/95">
-              <img src={guestImg} alt="Guest Profile" className="w-full" width={200} height={300} loading="eager" />
+            <div className="w-[45%] max-w-[220px] rounded-xl overflow-hidden shadow-[0_8px_24px_-8px_rgba(0,0,0,0.1)] border border-border/20">
+              <img src={guestImg} alt="Guest Profile" className="w-full" width={220} height={340} loading="eager" />
             </div>
-            <div className="w-[45%] max-w-[200px] rounded-xl overflow-hidden shadow-lg border border-border/20 bg-card/95">
-              <img src={bookingImg} alt="New Reservation" className="w-full" width={200} height={320} loading="eager" />
+            <div className="w-[45%] max-w-[220px] rounded-xl overflow-hidden shadow-[0_8px_24px_-8px_rgba(0,0,0,0.1)] border border-border/20">
+              <img src={bookingImg} alt="New Reservation" className="w-full" width={220} height={350} loading="eager" />
             </div>
           </div>
         </div>
