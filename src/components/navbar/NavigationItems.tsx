@@ -47,6 +47,7 @@ export const NavigationItems = ({ items, textColor = "text-swirl-blue" }: Naviga
       'file-chart-bar': <FileBarChart size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
       'monitor': <Monitor size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
       'heart-handshake': <HeartHandshake size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
+      'calendar-check': <CalendarCheck size={26} className="mr-3 text-swirl-blue flex-shrink-0" />,
     };
     
     return iconMap[iconName] || null;
