@@ -29,7 +29,7 @@ const Footer = () => {
   ];
 
   const resourceLinks = [
-    { label: 'Product Overview', to: '/products' },
+    { label: 'Support', to: '/support' },
     { label: 'Contact Us', to: '/contact' },
     { label: 'Privacy Policy', to: '/privacy' },
     { label: 'Terms of Service', to: '/terms' },

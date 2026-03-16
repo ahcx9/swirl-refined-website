@@ -26,7 +26,7 @@ import SwirlHardware from './pages/features/SwirlHardware';
 import CustomerDisplay from './pages/features/CustomerDisplay';
 import Loyalty from './pages/features/Loyalty';
 import Support from './pages/Support';
-import Reservations from './pages/features/Reservations';
+
 import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
@@ -60,7 +60,7 @@ function App() {
           <Route path="/products/swirl-hardware" element={<SwirlHardware />} />
           <Route path="/products/customer-display" element={<CustomerDisplay />} />
           <Route path="/products/loyalty" element={<Loyalty />} />
-          <Route path="/products/reservations" element={<Reservations />} />
+          
           <Route path="/support" element={<Support />} />
           
           <Route path="*" element={<NotFound />} />
