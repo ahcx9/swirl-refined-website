@@ -6,9 +6,9 @@ import { MegaMenuOverlay } from './mega-menu/MegaMenuOverlay';
 import { PremiumMobileMenu } from './mega-menu/PremiumMobileMenu';
 
 const tabs: { key: TabKey; label: string }[] = [
-  { key: 'dine', label: 'Swirl Dine' },
-  { key: 'pos', label: 'Swirl POS' },
-  { key: 'works', label: 'Swirl Works' },
+  { key: 'dine', label: 'swirl Dine' },
+  { key: 'pos', label: 'swirl POS' },
+  { key: 'works', label: 'swirl Works' },
 ];
 
 const Navbar = () => {
@@ -69,8 +69,8 @@ const Navbar = () => {
           <div
             className={`relative flex items-center justify-between rounded-2xl transition-all duration-500 ease-out border ${
               isScrolled
-                ? 'bg-white/90 backdrop-blur-xl shadow-[0_4px_24px_-4px_rgba(0,0,0,0.08)] border-gray-200/60 px-4 md:px-6 py-2.5'
-                : 'bg-white/70 backdrop-blur-lg shadow-[0_2px_16px_-2px_rgba(0,0,0,0.05)] border-gray-100/40 px-4 md:px-6 py-3 md:py-3.5'
+            ? 'bg-white/90 backdrop-blur-xl shadow-[0_4px_24px_-4px_rgba(0,0,0,0.08)] border-gray-200/60 px-5 md:px-7 py-3'
+                : 'bg-white/70 backdrop-blur-lg shadow-[0_2px_16px_-2px_rgba(0,0,0,0.05)] border-gray-100/40 px-5 md:px-7 py-3.5 md:py-4'
             }`}
           >
             {/* Left: Logo */}
@@ -81,7 +81,7 @@ const Navbar = () => {
                 loading="eager"
                 fetchPriority="high"
                 className={`w-auto object-contain transition-all duration-500 ${
-                  isScrolled ? 'h-9 md:h-10' : 'h-10 md:h-12'
+                  isScrolled ? 'h-10 md:h-11' : 'h-11 md:h-13'
                 }`}
               />
             </Link>
@@ -94,7 +94,7 @@ const Navbar = () => {
                   onMouseEnter={() => handleTabEnter(tab.key)}
                   onMouseLeave={handleTabLeave}
                   onClick={() => setActiveTab(activeTab === tab.key ? null : tab.key)}
-                  className={`relative px-4 py-2 text-[14px] font-semibold rounded-xl transition-all duration-300 ${
+                  className={`relative px-4 py-2.5 text-[15px] font-semibold rounded-xl transition-all duration-300 ${
                     activeTab === tab.key
                       ? 'text-primary bg-blue-50/80'
                       : 'text-foreground hover:text-primary hover:bg-gray-50/80'

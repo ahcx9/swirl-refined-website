@@ -5,11 +5,6 @@ import { FeatureCard } from './FeatureCard';
 import { SwirlDineMockup } from './SwirlDineMockup';
 import { SwirlPOSMockup } from './SwirlPOSMockup';
 import { SwirlWorksMockup } from './SwirlWorksMockup';
-import {
-  FileText, ShoppingCart, CalendarCheck, HeartHandshake, Car, Monitor,
-  CreditCard, ChefHat, LayoutGrid, Smartphone, Users as UsersIcon, Receipt,
-  BarChart3, DollarSign, Calculator, Package, Cpu
-} from 'lucide-react';
 
 export type TabKey = 'dine' | 'pos' | 'works';
 
@@ -23,48 +18,48 @@ const tabData: Record<TabKey, {
   subtext: string;
   ctaLabel: string;
   ctaPath: string;
-  features: { title: string; description: string; icon: any; path: string }[];
+  features: { title: string; description: string; path: string }[];
 }> = {
   dine: {
     headline: 'Create unforgettable dining experiences',
     subtext: 'From menu discovery to payment and loyalty, Swirl Dine transforms how guests interact with your restaurant.',
-    ctaLabel: 'Explore Swirl Dine',
+    ctaLabel: 'Explore swirl Dine',
     ctaPath: '/products/digital-menu',
     features: [
-      { title: 'Digital Menu', description: 'Beautiful, real-time menus', icon: FileText, path: '/products/digital-menu' },
-      { title: 'QR Ordering', description: 'Scan, order, pay instantly', icon: ShoppingCart, path: '/products/qr-ordering' },
-      { title: 'Reservations', description: 'Smart table bookings', icon: CalendarCheck, path: '/products/reservations' },
-      { title: 'Loyalty', description: 'Rewards that bring guests back', icon: HeartHandshake, path: '/products/loyalty' },
-      { title: 'In-Car Ordering', description: 'Order before arrival', icon: Car, path: '/products/ordering-from-car' },
-      { title: 'Customer Display', description: 'Clear live order visibility', icon: Monitor, path: '/products/customer-display' },
+      { title: 'Digital Menu', description: 'Beautiful, real-time menus', path: '/products/digital-menu' },
+      { title: 'QR Ordering', description: 'Scan, order, pay instantly', path: '/products/qr-ordering' },
+      { title: 'Reservations', description: 'Smart table bookings', path: '/products/reservations' },
+      { title: 'Loyalty', description: 'Rewards that bring guests back', path: '/products/loyalty' },
+      { title: 'In-Car Ordering', description: 'Order before arrival', path: '/products/ordering-from-car' },
+      { title: 'Customer Display', description: 'Clear live order visibility', path: '/products/customer-display' },
     ],
   },
   pos: {
     headline: 'The fastest POS built for modern restaurants',
     subtext: 'Run billing, kitchen, and service operations with speed, precision, and reliability.',
-    ctaLabel: 'Explore Swirl POS',
+    ctaLabel: 'Explore swirl POS',
     ctaPath: '/products/restaurant-point-of-sale',
     features: [
-      { title: 'Point of Sale', description: 'Lightning-fast billing', icon: CreditCard, path: '/products/restaurant-point-of-sale' },
-      { title: 'Kitchen Display', description: 'Real-time kitchen sync', icon: ChefHat, path: '/products/kitchen-display' },
-      { title: 'Order Management', description: 'End-to-end service control', icon: LayoutGrid, path: '/products/restaurant-point-of-sale' },
-      { title: 'Multi-device Sync', description: 'Connected across counters', icon: Smartphone, path: '/products/restaurant-point-of-sale' },
-      { title: 'Customer Display', description: 'Transparent order experience', icon: Monitor, path: '/products/customer-display' },
-      { title: 'Payment Flow', description: 'Seamless tendering & checkout', icon: Receipt, path: '/products/restaurant-point-of-sale' },
+      { title: 'Point of Sale', description: 'Lightning-fast billing', path: '/products/restaurant-point-of-sale' },
+      { title: 'Kitchen Display', description: 'Real-time kitchen sync', path: '/products/kitchen-display' },
+      { title: 'Order Management', description: 'End-to-end service control', path: '/products/restaurant-point-of-sale' },
+      { title: 'Multi-device Sync', description: 'Connected across counters', path: '/products/restaurant-point-of-sale' },
+      { title: 'Customer Display', description: 'Transparent order experience', path: '/products/customer-display' },
+      { title: 'Payment Flow', description: 'Seamless tendering & checkout', path: '/products/restaurant-point-of-sale' },
     ],
   },
   works: {
     headline: 'Your restaurant command center',
     subtext: 'Gain visibility, automate operations, and unlock growth with one connected back-office platform.',
-    ctaLabel: 'Explore Swirl Works',
+    ctaLabel: 'Explore swirl Works',
     ctaPath: '/products/visitor-analytics',
     features: [
-      { title: 'Visitor Analytics', description: 'Understand customer behavior', icon: BarChart3, path: '/products/visitor-analytics' },
-      { title: 'Financial Reports', description: 'Full revenue visibility', icon: DollarSign, path: '/products/financial-reports' },
-      { title: 'Accounting', description: 'Automated restaurant bookkeeping', icon: Calculator, path: '/products/accounting' },
-      { title: 'CRM', description: 'Build stronger guest relationships', icon: UsersIcon, path: '/products/customer-relationship-management' },
-      { title: 'Inventory Management', description: 'Smarter stock control', icon: Package, path: '/products/inventory-management' },
-      { title: 'Swirl Hardware', description: 'Complete POS hardware stack', icon: Cpu, path: '/products/swirl-hardware' },
+      { title: 'Visitor Analytics', description: 'Understand customer behavior', path: '/products/visitor-analytics' },
+      { title: 'Financial Reports', description: 'Full revenue visibility', path: '/products/financial-reports' },
+      { title: 'Accounting', description: 'Automated restaurant bookkeeping', path: '/products/accounting' },
+      { title: 'CRM', description: 'Build stronger guest relationships', path: '/products/customer-relationship-management' },
+      { title: 'Inventory Management', description: 'Smarter stock control', path: '/products/inventory-management' },
+      { title: 'swirl Hardware', description: 'Complete POS hardware stack', path: '/products/swirl-hardware' },
     ],
   },
 };
@@ -102,7 +97,7 @@ export const MegaMenuContent: React.FC<MegaMenuContentProps> = ({ activeTab, onC
               key={feature.title}
               title={feature.title}
               description={feature.description}
-              icon={feature.icon}
+              icon={null}
               path={feature.path}
               onClick={onClose}
             />
