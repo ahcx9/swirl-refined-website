@@ -14,7 +14,7 @@ const HomeDeliveryIntegrationSection = () => {
     { name: 'HungerStation', logo: '/lovable-uploads/hungerstation-logo.png' },
     { name: 'Jahez', logo: '/lovable-uploads/jahez-logo.png' },
     { name: 'Swiggy', logo: '/lovable-uploads/swiggy-logo.png' },
-    { name: 'Zomato', logo: null, initials: 'ZM', color: 'bg-red-600' },
+    { name: 'Zomato', logo: '/lovable-uploads/zomato-logo.jpg' },
   ];
 
   const features = [
