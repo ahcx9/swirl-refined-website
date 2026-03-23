@@ -87,41 +87,41 @@ const Navbar = () => {
             </Link>
 
             {/* Center: Product tabs (desktop) */}
-            <div className="hidden xl:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+            <div className="hidden xl:flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
               {tabs.map((tab) => (
                 <button
                   key={tab.key}
                   onMouseEnter={() => handleTabEnter(tab.key)}
                   onMouseLeave={handleTabLeave}
                   onClick={() => setActiveTab(activeTab === tab.key ? null : tab.key)}
-                  className={`relative px-4 py-2.5 text-[15px] font-semibold rounded-xl transition-all duration-300 ${
+                  className={`relative px-5 py-2.5 text-[17px] tracking-[0.3px] rounded-xl transition-all duration-300 ${
                     activeTab === tab.key
-                      ? 'text-primary bg-blue-50/80'
-                      : 'text-foreground hover:text-primary hover:bg-gray-50/80'
+                      ? 'text-primary font-semibold bg-blue-50/80'
+                      : 'text-foreground font-medium hover:text-primary hover:font-semibold hover:bg-gray-50/60'
                   }`}
                 >
                   {tab.label}
-                  {/* Active indicator */}
+                  {/* Underline animation */}
                   <span
-                    className={`absolute bottom-0.5 left-1/2 -translate-x-1/2 h-[2px] rounded-full bg-primary transition-all duration-300 ${
-                      activeTab === tab.key ? 'w-6 opacity-100' : 'w-0 opacity-0'
+                    className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-[2px] rounded-full bg-primary transition-all duration-300 ${
+                      activeTab === tab.key ? 'w-7 opacity-100' : 'w-0 opacity-0'
                     }`}
                   />
                 </button>
               ))}
 
               {/* Additional nav links */}
-              <div className="flex items-center gap-1 ml-3 pl-3 border-l border-gray-200/60">
+              <div className="flex items-center gap-1 ml-4 pl-4 border-l border-border/50">
                 <Link
                   to="/use-cases"
-                  className="px-3 py-2 text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors rounded-xl hover:bg-gray-50/80"
+                  className="px-4 py-2 text-[15px] tracking-[0.2px] font-medium text-muted-foreground hover:text-primary hover:font-semibold transition-all rounded-xl hover:bg-gray-50/60"
                   onClick={closeMegaMenu}
                 >
                   Use Cases
                 </Link>
                 <Link
                   to="/contact"
-                  className="px-3 py-2 text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors rounded-xl hover:bg-gray-50/80"
+                  className="px-4 py-2 text-[15px] tracking-[0.2px] font-medium text-muted-foreground hover:text-primary hover:font-semibold transition-all rounded-xl hover:bg-gray-50/60"
                   onClick={closeMegaMenu}
                 >
                   Contact
@@ -136,10 +136,10 @@ const Navbar = () => {
                 href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Swirl"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-primary text-white text-[13px] font-semibold rounded-xl shadow-md shadow-primary/15 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 group hover:-translate-y-0.5"
+                className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-[15px] font-semibold rounded-xl shadow-md shadow-primary/15 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.03] transition-all duration-300 group hover:-translate-y-0.5"
               >
                 Get Started
-                <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+                <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5" />
               </a>
 
               {/* Mobile hamburger */}
@@ -167,14 +167,14 @@ const Navbar = () => {
         >
           <div className="mt-3 bg-white/95 backdrop-blur-2xl rounded-[20px] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.04)] border border-gray-200/40 overflow-hidden">
             {/* Tab switcher inside dropdown */}
-            <div className="flex items-center gap-1 px-6 pt-4 pb-2 border-b border-gray-100/60">
+            <div className="flex items-center gap-1.5 px-6 pt-5 pb-3 border-b border-border/40">
               {tabs.map((tab) => (
                 <button
                   key={tab.key}
                   onMouseEnter={() => handleTabEnter(tab.key)}
-                  className={`px-4 py-2 text-[12px] font-semibold rounded-lg transition-all duration-200 ${
+                  className={`px-5 py-2 text-[13px] font-semibold tracking-[0.2px] rounded-lg transition-all duration-200 ${
                     activeTab === tab.key
-                      ? 'bg-primary text-white shadow-sm'
+                      ? 'bg-primary text-primary-foreground shadow-sm'
                       : 'text-muted-foreground hover:text-foreground hover:bg-gray-50'
                   }`}
                 >
