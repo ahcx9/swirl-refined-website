@@ -178,7 +178,6 @@ const Navbar = () => {
                       : 'text-muted-foreground hover:text-foreground hover:bg-gray-50'
                   }`}
                 >
-                  {tab.key === 'dine' ? '🍽' : tab.key === 'pos' ? '⚡' : '📊'}{' '}
                   {tab.label}
                 </button>
               ))}
