@@ -83,7 +83,7 @@ export const PremiumMobileMenu: React.FC<PremiumMobileMenuProps> = ({ isOpen, on
               </button>
 
               <div
-                className={`transition-all duration-150 ease-out overflow-hidden ${expanded === section.name ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
+                className={`overflow-hidden transition-all ease-out ${expanded === section.name ? 'max-h-[500px] opacity-100 duration-150' : 'max-h-0 opacity-0 duration-100'}`}
               >
                 <div className="px-4 pb-4 grid grid-cols-2 gap-2">
                   {section.features.map((feature) => (
