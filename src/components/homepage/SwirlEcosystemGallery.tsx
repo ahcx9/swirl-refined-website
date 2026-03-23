@@ -358,66 +358,86 @@ const SwirlEcosystemGallery: React.FC = () => {
 
         {/* Floating Product Gallery */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-w-6xl mx-auto">
-          {ecosystemModules.map((module, index) => (
-            <Link
-              key={module.id}
-              to={module.path}
-              className="animate-on-scroll group relative bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 cursor-pointer hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1"
-              style={{ animationDelay: `${index * 30}ms` }}
-              onMouseEnter={() => setHoveredModule(module.id)}
-              onMouseLeave={() => setHoveredModule(null)}
-            >
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          {ecosystemModules.map((module, index) => {
+            const cardContent = (
+              <>
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="relative p-5">
-                {/* Header */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                      <module.icon className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-foreground">{module.name}</h3>
-                      <p className="text-xs text-muted-foreground">{module.tagline}</p>
-                    </div>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1" />
-                </div>
-
-                {/* Live Preview Window */}
-                <div className="bg-gray-50/80 rounded-xl p-3 border border-gray-100 mb-3 min-h-[90px]">
-                  {renderPreview(module)}
-                </div>
-
-                {/* Sub Icons (for Accounting, Multi-branch, QR) */}
-                {module.subIcons && (
-                  <div className="flex items-center gap-2 mb-3">
-                    {module.subIcons.map((SubIcon, i) => (
-                      <div key={i} className="w-7 h-7 rounded-lg bg-primary/5 flex items-center justify-center">
-                        <SubIcon className="w-3.5 h-3.5 text-primary" />
+                <div className="relative p-5">
+                  {/* Header */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <module.icon className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
                       </div>
+                      <div>
+                        <h3 className="font-bold text-foreground">{module.name}</h3>
+                        <p className="text-xs text-muted-foreground">{module.tagline}</p>
+                      </div>
+                    </div>
+                    {module.path && <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1" />}
+                  </div>
+
+                  {/* Live Preview Window */}
+                  <div className="bg-gray-50/80 rounded-xl p-3 border border-gray-100 mb-3 min-h-[90px]">
+                    {renderPreview(module)}
+                  </div>
+
+                  {/* Sub Icons */}
+                  {module.subIcons && (
+                    <div className="flex items-center gap-2 mb-3">
+                      {module.subIcons.map((SubIcon, i) => (
+                        <div key={i} className="w-7 h-7 rounded-lg bg-primary/5 flex items-center justify-center">
+                          <SubIcon className="w-3.5 h-3.5 text-primary" />
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Metrics */}
+                  <div className="flex flex-wrap gap-2">
+                    {module.metrics.map((metric, i) => (
+                      <span 
+                        key={i}
+                        className="text-xs px-2 py-1 bg-primary/5 text-primary rounded-full border border-primary/10"
+                      >
+                        {metric}
+                      </span>
                     ))}
                   </div>
-                )}
-
-                {/* Metrics */}
-                <div className="flex flex-wrap gap-2">
-                  {module.metrics.map((metric, i) => (
-                    <span 
-                      key={i}
-                      className="text-xs px-2 py-1 bg-primary/5 text-primary rounded-full border border-primary/10"
-                    >
-                      {metric}
-                    </span>
-                  ))}
                 </div>
-              </div>
 
-              {/* Bottom border glow */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </Link>
-          ))}
+                {/* Bottom border glow */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </>
+            );
+
+            const className = "animate-on-scroll group relative bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 cursor-pointer hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1";
+
+            return module.path ? (
+              <Link
+                key={module.id}
+                to={module.path}
+                className={className}
+                style={{ animationDelay: `${index * 30}ms` }}
+                onMouseEnter={() => setHoveredModule(module.id)}
+                onMouseLeave={() => setHoveredModule(null)}
+              >
+                {cardContent}
+              </Link>
+            ) : (
+              <div
+                key={module.id}
+                className={className}
+                style={{ animationDelay: `${index * 30}ms` }}
+                onMouseEnter={() => setHoveredModule(module.id)}
+                onMouseLeave={() => setHoveredModule(null)}
+              >
+                {cardContent}
+              </div>
+            );
+          })}
         </div>
 
       </div>
