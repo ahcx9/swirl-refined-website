@@ -18,7 +18,10 @@ import {
   PieChart,
   Store,
   Smartphone,
-  Globe
+  Globe,
+  CalendarCheck,
+  Heart,
+  Wallet
 } from 'lucide-react';
 import { useCurrency } from '@/hooks/useCurrency';
 
