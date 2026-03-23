@@ -9,12 +9,12 @@ const Footer = () => {
   const productLinks = [
     { label: 'Point of Sale', to: '/products/restaurant-point-of-sale' },
     { label: 'QR Ordering', to: '/products/qr-ordering' },
-    { label: 'Kitchen Display', to: '/features/kitchen-display' },
+    { label: 'Kitchen Display', to: '/products/kitchen-display' },
     { label: 'Inventory Management', to: '/products/inventory-management' },
     { label: 'Financial Reports', to: '/products/restaurant-analytics' },
-    { label: 'CRM & Loyalty', to: '/features/crm' },
-    { label: 'Digital Menu', to: '/features/digital-menu' },
-    { label: 'Delivery Integration', to: '/features/car-ordering' },
+    { label: 'CRM & Loyalty', to: '/products/loyalty' },
+    { label: 'Digital Menu', to: '/products/digital-menu' },
+    { label: 'Delivery Integration', to: '/#delivery-integration' },
     { label: 'Swirl Hardware', to: '/products/swirl-hardware' },
   ];
 
