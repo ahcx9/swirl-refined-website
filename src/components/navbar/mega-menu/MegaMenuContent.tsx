@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import { FeatureCard } from './FeatureCard';
 import { SwirlDineMockup } from './SwirlDineMockup';
 import { SwirlPOSMockup } from './SwirlPOSMockup';
@@ -100,15 +98,6 @@ export const MegaMenuContent: React.FC<MegaMenuContentProps> = ({ activeTab, onC
           ))}
         </div>
 
-        {/* CTA Footer */}
-        <Link
-          to={data.ctaPath}
-          onClick={onClose}
-          className="mt-4 flex items-center gap-2 text-[13px] font-semibold text-primary hover:gap-3 transition-all duration-300 group"
-        >
-          {data.ctaLabel}
-          <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
-        </Link>
       </div>
     </div>
   );
