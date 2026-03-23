@@ -94,22 +94,17 @@ export const PremiumMobileMenu: React.FC<PremiumMobileMenuProps> = ({ isOpen, on
                 className={`transition-all duration-300 ease-out overflow-hidden ${expanded === section.name ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
               >
                 <div className="px-4 pb-4 grid grid-cols-2 gap-2">
-                  {section.features.map((feature) => {
-                    const Icon = feature.icon;
-                    return (
+                  {section.features.map((feature) => (
                       <Link
                         key={feature.title}
                         to={feature.path}
                         onClick={onClose}
-                        className="flex items-center gap-2.5 p-3 rounded-xl bg-gray-50/80 hover:bg-blue-50 transition-colors"
+                        className="flex items-center p-3 rounded-xl bg-gray-50/80 hover:bg-blue-50 transition-colors"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-white border border-gray-100 flex items-center justify-center flex-shrink-0">
-                          <Icon size={14} className="text-primary" />
-                        </div>
                         <span className="text-[12px] font-medium text-foreground">{feature.title}</span>
                       </Link>
-                    );
-                  })}
+                  ))}
+                </div>
                 </div>
               </div>
             </div>
