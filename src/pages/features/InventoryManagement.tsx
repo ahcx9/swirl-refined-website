@@ -66,7 +66,7 @@ const InventoryManagement = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section - Two Column Layout */}
-        <section className="relative pt-24 md:pt-28 pb-16 bg-white overflow-hidden">
+        <section className="relative pt-32 md:pt-28 pb-16 bg-white overflow-hidden">
           {/* Subtle Background Effects */}
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />

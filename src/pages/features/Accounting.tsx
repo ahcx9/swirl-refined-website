@@ -120,7 +120,7 @@ const Accounting = () => {
       <Navbar />
       
       {/* ===================== HERO SECTION ===================== */}
-      <section className="relative pt-24 md:pt-28 pb-12 md:pb-16 overflow-hidden">
+      <section className="relative pt-32 md:pt-28 pb-12 md:pb-16 overflow-hidden">
         {/* Background decorations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
