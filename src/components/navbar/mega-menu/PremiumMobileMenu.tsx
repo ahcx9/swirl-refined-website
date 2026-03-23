@@ -29,7 +29,7 @@ const sections = [
     ],
   },
   {
-    name: 'swirl Works',
+    name: 'Works',
     description: 'Intelligence & back office',
     features: [
       { title: 'Visitor Analytics', path: '/products/visitor-analytics' },

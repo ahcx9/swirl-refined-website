@@ -45,7 +45,7 @@ const tabData: Record<TabKey, {
   works: {
     headline: 'Your restaurant command center',
     subtext: 'Gain visibility, automate operations, and unlock growth with one connected back-office platform.',
-    ctaLabel: 'Explore swirl Works',
+    ctaLabel: 'Explore Works',
     ctaPath: '/products/visitor-analytics',
     features: [
       { title: 'Visitor Analytics', description: 'Understand customer behavior', path: '/products/visitor-analytics' },
