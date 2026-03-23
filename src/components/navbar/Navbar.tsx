@@ -136,10 +136,10 @@ const Navbar = () => {
                 href="https://wa.me/971543853877?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Swirl"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-primary text-white text-[13px] font-semibold rounded-xl shadow-md shadow-primary/15 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 group hover:-translate-y-0.5"
+                className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-[15px] font-semibold rounded-xl shadow-md shadow-primary/15 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.03] transition-all duration-300 group hover:-translate-y-0.5"
               >
                 Get Started
-                <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+                <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5" />
               </a>
 
               {/* Mobile hamburger */}
