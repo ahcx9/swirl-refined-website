@@ -109,7 +109,7 @@ const UseCases = () => {
             <div className="max-w-3xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
                 <Store className="w-4 h-4 text-primary" />
-                <span className="text-sm font-semibold text-primary">Use Cases</span>
+                <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Use Cases</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
                 One Platform.{' '}
