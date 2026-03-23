@@ -13,7 +13,7 @@ const ReservationHero = () => {
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
         {/* Text content — centered */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20 animate-on-scroll">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/[0.06] border border-primary/10 text-primary text-sm font-semibold mb-8 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/[0.06] border border-primary/10 text-primary text-base md:text-sm font-bold md:font-semibold mb-8 backdrop-blur-sm">
             <Calendar className="w-4 h-4" />
             Swirl Reservations
           </div>
