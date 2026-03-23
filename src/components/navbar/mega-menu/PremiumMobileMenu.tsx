@@ -9,7 +9,7 @@ interface PremiumMobileMenuProps {
 
 const sections = [
   {
-    name: 'swirl Dine',
+    name: 'Dine',
     description: 'Guest-facing experiences',
     features: [
       { title: 'Digital Menu', path: '/products/digital-menu' },
@@ -21,7 +21,7 @@ const sections = [
     ],
   },
   {
-    name: 'swirl POS',
+    name: 'Point of Sale',
     description: 'Core operations',
     features: [
       { title: 'Point of Sale', path: '/products/restaurant-point-of-sale' },
@@ -29,7 +29,7 @@ const sections = [
     ],
   },
   {
-    name: 'swirl Works',
+    name: 'Works',
     description: 'Intelligence & back office',
     features: [
       { title: 'Visitor Analytics', path: '/products/visitor-analytics' },

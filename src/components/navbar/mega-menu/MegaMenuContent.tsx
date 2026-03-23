@@ -21,7 +21,7 @@ const tabData: Record<TabKey, {
   dine: {
     headline: 'Create unforgettable dining experiences',
     subtext: 'From menu discovery to payment and loyalty, Swirl Dine transforms how guests interact with your restaurant.',
-    ctaLabel: 'Explore swirl Dine',
+    ctaLabel: 'Explore Dine',
     ctaPath: '/products/digital-menu',
     features: [
       { title: 'Digital Menu', description: 'Beautiful, real-time menus', path: '/products/digital-menu' },
@@ -35,7 +35,7 @@ const tabData: Record<TabKey, {
   pos: {
     headline: 'The fastest POS built for modern restaurants',
     subtext: 'Run billing, kitchen, and service operations with speed, precision, and reliability.',
-    ctaLabel: 'Explore swirl POS',
+    ctaLabel: 'Explore Point of Sale',
     ctaPath: '/products/restaurant-point-of-sale',
     features: [
       { title: 'Point of Sale', description: 'Lightning-fast billing', path: '/products/restaurant-point-of-sale' },
@@ -45,7 +45,7 @@ const tabData: Record<TabKey, {
   works: {
     headline: 'Your restaurant command center',
     subtext: 'Gain visibility, automate operations, and unlock growth with one connected back-office platform.',
-    ctaLabel: 'Explore swirl Works',
+    ctaLabel: 'Explore Works',
     ctaPath: '/products/visitor-analytics',
     features: [
       { title: 'Visitor Analytics', description: 'Understand customer behavior', path: '/products/visitor-analytics' },
