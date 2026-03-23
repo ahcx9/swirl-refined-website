@@ -105,7 +105,6 @@ export const PremiumMobileMenu: React.FC<PremiumMobileMenuProps> = ({ isOpen, on
                       </Link>
                   ))}
                 </div>
-                </div>
               </div>
             </div>
           ))}
