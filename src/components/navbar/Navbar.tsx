@@ -69,8 +69,8 @@ const Navbar = () => {
           <div
             className={`relative flex items-center justify-between rounded-2xl transition-all duration-500 ease-out border ${
               isScrolled
-                ? 'bg-white/90 backdrop-blur-xl shadow-[0_4px_24px_-4px_rgba(0,0,0,0.08)] border-gray-200/60 px-4 md:px-6 py-2.5'
-                : 'bg-white/70 backdrop-blur-lg shadow-[0_2px_16px_-2px_rgba(0,0,0,0.05)] border-gray-100/40 px-4 md:px-6 py-3 md:py-3.5'
+            ? 'bg-white/90 backdrop-blur-xl shadow-[0_4px_24px_-4px_rgba(0,0,0,0.08)] border-gray-200/60 px-5 md:px-7 py-3'
+                : 'bg-white/70 backdrop-blur-lg shadow-[0_2px_16px_-2px_rgba(0,0,0,0.05)] border-gray-100/40 px-5 md:px-7 py-3.5 md:py-4'
             }`}
           >
             {/* Left: Logo */}
