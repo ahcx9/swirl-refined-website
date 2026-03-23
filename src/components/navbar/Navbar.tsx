@@ -6,9 +6,9 @@ import { MegaMenuOverlay } from './mega-menu/MegaMenuOverlay';
 import { PremiumMobileMenu } from './mega-menu/PremiumMobileMenu';
 
 const tabs: { key: TabKey; label: string }[] = [
-  { key: 'dine', label: 'Swirl Dine' },
-  { key: 'pos', label: 'Swirl POS' },
-  { key: 'works', label: 'Swirl Works' },
+  { key: 'dine', label: 'swirl Dine' },
+  { key: 'pos', label: 'swirl POS' },
+  { key: 'works', label: 'swirl Works' },
 ];
 
 const Navbar = () => {
