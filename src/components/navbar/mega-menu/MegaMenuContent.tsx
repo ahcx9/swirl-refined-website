@@ -23,7 +23,7 @@ const tabData: Record<TabKey, {
   dine: {
     headline: 'Create unforgettable dining experiences',
     subtext: 'From menu discovery to payment and loyalty, Swirl Dine transforms how guests interact with your restaurant.',
-    ctaLabel: 'Explore Swirl Dine',
+    ctaLabel: 'Explore swirl Dine',
     ctaPath: '/products/digital-menu',
     features: [
       { title: 'Digital Menu', description: 'Beautiful, real-time menus', icon: FileText, path: '/products/digital-menu' },
