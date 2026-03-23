@@ -37,7 +37,7 @@ const HomeDeliveryIntegrationSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 overflow-hidden relative bg-gradient-to-b from-white to-blue-50/30">
+    <section id="delivery-integration" className="py-16 md:py-24 overflow-hidden relative bg-gradient-to-b from-white to-blue-50/30">
       <div className="container-custom relative">
         {/* Header */}
         <div className="text-center mb-12 animate-on-scroll">
