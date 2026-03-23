@@ -35,7 +35,7 @@ const tabData: Record<TabKey, {
   pos: {
     headline: 'The fastest POS built for modern restaurants',
     subtext: 'Run billing, kitchen, and service operations with speed, precision, and reliability.',
-    ctaLabel: 'Explore swirl POS',
+    ctaLabel: 'Explore Point of Sale',
     ctaPath: '/products/restaurant-point-of-sale',
     features: [
       { title: 'Point of Sale', description: 'Lightning-fast billing', path: '/products/restaurant-point-of-sale' },
