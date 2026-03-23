@@ -17,7 +17,7 @@ const OperationsSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Text */}
           <div className="animate-on-scroll">
-            <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">Operations</p>
+            <p className="text-primary text-base md:text-sm font-bold md:font-semibold uppercase tracking-wide md:tracking-widest mb-4">Operations</p>
             <h2 className="text-3xl md:text-[2.75rem] font-bold text-foreground leading-[1.1] tracking-[-0.02em] mb-5">
               Built for Real{' '}
               <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">

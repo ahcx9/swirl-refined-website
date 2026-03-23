@@ -16,7 +16,7 @@ const TimelineSection = () => {
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
         {/* Section header */}
         <div className="text-center mb-16 md:mb-20 animate-on-scroll">
-          <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">Visual Timeline</p>
+          <p className="text-primary text-base md:text-sm font-bold md:font-semibold uppercase tracking-wide md:tracking-widest mb-4">Visual Timeline</p>
           <h2 className="text-3xl md:text-[2.75rem] font-bold text-foreground leading-[1.1] tracking-[-0.02em] mb-5">
             See Your Entire Service{' '}
             <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
