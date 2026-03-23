@@ -1060,7 +1060,7 @@ const Hero: React.FC = () => {
           <p className="text-lg md:text-xl text-foreground font-medium mt-6 max-w-2xl mx-auto">
             A unified platform designed for modern restaurants.
           </p>
-          <p className="text-sm md:text-base text-muted-foreground mt-3 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">
             Cloud POS, QR Ordering, Inventory, Accounting, Analytics, Reservations, Loyalty, CRM, And AI — All Working As One.
           </p>
         </div>
