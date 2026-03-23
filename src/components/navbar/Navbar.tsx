@@ -167,14 +167,14 @@ const Navbar = () => {
         >
           <div className="mt-3 bg-white/95 backdrop-blur-2xl rounded-[20px] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.04)] border border-gray-200/40 overflow-hidden">
             {/* Tab switcher inside dropdown */}
-            <div className="flex items-center gap-1 px-6 pt-4 pb-2 border-b border-gray-100/60">
+            <div className="flex items-center gap-1.5 px-6 pt-5 pb-3 border-b border-border/40">
               {tabs.map((tab) => (
                 <button
                   key={tab.key}
                   onMouseEnter={() => handleTabEnter(tab.key)}
-                  className={`px-4 py-2 text-[12px] font-semibold rounded-lg transition-all duration-200 ${
+                  className={`px-5 py-2 text-[13px] font-semibold tracking-[0.2px] rounded-lg transition-all duration-200 ${
                     activeTab === tab.key
-                      ? 'bg-primary text-white shadow-sm'
+                      ? 'bg-primary text-primary-foreground shadow-sm'
                       : 'text-muted-foreground hover:text-foreground hover:bg-gray-50'
                   }`}
                 >
