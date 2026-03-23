@@ -1071,9 +1071,7 @@ const Hero: React.FC = () => {
             {/* Tour controls */}
             <div className="flex items-center justify-center gap-3 flex-wrap mb-5">
                <div className="flex items-center gap-2 px-6 py-2.5 bg-primary/8 rounded-full border border-primary/15">
-                <MousePointerClick className="w-5 h-5 text-primary" />
                 <span className="text-sm md:text-base font-semibold text-primary tracking-wide">It's a live demo — try clicking!</span>
-                <Sparkles className="w-4.5 h-4.5 text-primary" />
               </div>
               {!tourActive ? <button onClick={startTour} className="flex items-center gap-1.5 px-4 py-1.5 bg-primary text-white rounded-full text-xs font-semibold hover:bg-primary/90 transition-colors shadow-md shadow-primary/25">
                   <Play className="w-3.5 h-3.5" /> Guided Tour
