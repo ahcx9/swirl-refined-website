@@ -40,12 +40,12 @@ const tabData: Record<TabKey, {
     ctaLabel: 'Explore swirl POS',
     ctaPath: '/products/restaurant-point-of-sale',
     features: [
-      { title: 'Point of Sale', description: 'Lightning-fast billing', icon: CreditCard, path: '/products/restaurant-point-of-sale' },
-      { title: 'Kitchen Display', description: 'Real-time kitchen sync', icon: ChefHat, path: '/products/kitchen-display' },
-      { title: 'Order Management', description: 'End-to-end service control', icon: LayoutGrid, path: '/products/restaurant-point-of-sale' },
-      { title: 'Multi-device Sync', description: 'Connected across counters', icon: Smartphone, path: '/products/restaurant-point-of-sale' },
-      { title: 'Customer Display', description: 'Transparent order experience', icon: Monitor, path: '/products/customer-display' },
-      { title: 'Payment Flow', description: 'Seamless tendering & checkout', icon: Receipt, path: '/products/restaurant-point-of-sale' },
+      { title: 'Point of Sale', description: 'Lightning-fast billing', path: '/products/restaurant-point-of-sale' },
+      { title: 'Kitchen Display', description: 'Real-time kitchen sync', path: '/products/kitchen-display' },
+      { title: 'Order Management', description: 'End-to-end service control', path: '/products/restaurant-point-of-sale' },
+      { title: 'Multi-device Sync', description: 'Connected across counters', path: '/products/restaurant-point-of-sale' },
+      { title: 'Customer Display', description: 'Transparent order experience', path: '/products/customer-display' },
+      { title: 'Payment Flow', description: 'Seamless tendering & checkout', path: '/products/restaurant-point-of-sale' },
     ],
   },
   works: {
