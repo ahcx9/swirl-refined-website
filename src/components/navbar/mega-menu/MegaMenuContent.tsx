@@ -42,10 +42,6 @@ const tabData: Record<TabKey, {
     features: [
       { title: 'Point of Sale', description: 'Lightning-fast billing', path: '/products/restaurant-point-of-sale' },
       { title: 'Kitchen Display', description: 'Real-time kitchen sync', path: '/products/kitchen-display' },
-      { title: 'Order Management', description: 'End-to-end service control', path: '/products/restaurant-point-of-sale' },
-      { title: 'Multi-device Sync', description: 'Connected across counters', path: '/products/restaurant-point-of-sale' },
-      { title: 'Customer Display', description: 'Transparent order experience', path: '/products/customer-display' },
-      { title: 'Payment Flow', description: 'Seamless tendering & checkout', path: '/products/restaurant-point-of-sale' },
     ],
   },
   works: {
