@@ -26,10 +26,6 @@ const sections = [
     features: [
       { title: 'Point of Sale', path: '/products/restaurant-point-of-sale' },
       { title: 'Kitchen Display', path: '/products/kitchen-display' },
-      { title: 'Order Management', path: '/products/restaurant-point-of-sale' },
-      { title: 'Multi-device Sync', path: '/products/restaurant-point-of-sale' },
-      { title: 'Customer Display', path: '/products/customer-display' },
-      { title: 'Payment Flow', path: '/products/restaurant-point-of-sale' },
     ],
   },
   {
