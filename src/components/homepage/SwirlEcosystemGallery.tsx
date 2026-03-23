@@ -351,16 +351,6 @@ const SwirlEcosystemGallery: React.FC = () => {
           ))}
         </div>
 
-        {/* Footer CTA */}
-        <div className="mt-12 text-center animate-on-scroll">
-          <Link
-            to="/products"
-            className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1"
-          >
-            Explore All Features
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
       </div>
     </section>
   );
