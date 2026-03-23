@@ -26,7 +26,7 @@ const HomeDeliveryIntegrationSection = () => {
     { name: 'Keeta', logo: '/lovable-uploads/keeta-logo.png' },
     { name: 'Jahez', logo: '/lovable-uploads/jahez-logo.png' },
     { name: 'HungerStation', logo: '/lovable-uploads/hungerstation-logo.png' },
-    { name: 'UberEats', logo: null, initials: 'UE' },
+    { name: 'UberEats', logo: '/lovable-uploads/ubereats-logo.png' },
     { name: 'Swiggy', logo: '/lovable-uploads/swiggy-logo.png' },
     { name: 'Talabat', logo: '/lovable-uploads/talabat-logo.webp' },
     { name: 'Deliveroo', logo: '/lovable-uploads/0e8b0620-df50-4144-bbd0-9c5eed7e00f5.png' },
