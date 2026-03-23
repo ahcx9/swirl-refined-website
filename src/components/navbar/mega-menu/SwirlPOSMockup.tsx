@@ -1,40 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-
-const useCountUp = (target: number, duration: number, start: boolean) => {
-  const [value, setValue] = useState(0);
-  const frameRef = useRef<number>();
-
-  useEffect(() => {
-    if (!start) return;
-    const startTime = performance.now();
-    const animate = (now: number) => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setValue(Math.floor(eased * target));
-      if (progress < 1) frameRef.current = requestAnimationFrame(animate);
-    };
-    frameRef.current = requestAnimationFrame(animate);
-    return () => { if (frameRef.current) cancelAnimationFrame(frameRef.current); };
-  }, [target, duration, start]);
-
-  return value;
-};
+import React, { useState, useEffect } from 'react';
 
 export const SwirlPOSMockup: React.FC = () => {
   const [step, setStep] = useState(0);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const interval = setInterval(() => setStep((s) => (s + 1) % 5), 2800);
     return () => clearInterval(interval);
   }, []);
-
-  const todaySales = useCountUp(12840, 1600, mounted);
-  const ordersCount = useCountUp(187, 1200, mounted);
-  const avgOrder = useCountUp(69, 1000, mounted);
-  const tablesTurned = useCountUp(42, 800, mounted);
 
   const tables = [
     { id: 'T1', seats: 2, status: 'occupied', x: 8, y: 8, w: 28, h: 22 },
@@ -73,27 +45,17 @@ export const SwirlPOSMockup: React.FC = () => {
         <span className="text-[7px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 font-semibold">Live</span>
       </div>
 
-      {/* KPI Grid */}
+      {/* Order Type Tabs */}
       <div className="grid grid-cols-4 gap-1.5">
-        {[
-          { label: "Today's Sales", value: `AED ${todaySales.toLocaleString()}`, change: '+18%', icon: '💰' },
-          { label: 'Orders', value: ordersCount.toLocaleString(), change: '+12%', icon: '📦' },
-          { label: 'Avg Order', value: `AED ${avgOrder}`, change: '+5%', icon: '📊' },
-          { label: 'Tables Turned', value: tablesTurned.toLocaleString(), change: '+9%', icon: '🔄' },
-        ].map((kpi, i) => (
+        {['Dine In', 'Takeaway', 'QR Orders', 'Marketplace'].map((tab, i) => (
           <div
-            key={kpi.label}
-            className={`bg-white rounded-xl p-2 border border-gray-100 shadow-sm transition-all duration-500 ${
-              step === 0 ? 'opacity-100' : 'opacity-95'
+            key={tab}
+            className={`rounded-xl p-2 text-center transition-all duration-300 cursor-default border ${
+              step === 0 && i === 0 ? 'bg-primary text-white border-primary shadow-sm' :
+              'bg-white border-gray-100 text-foreground hover:bg-muted/50'
             }`}
-            style={{ transitionDelay: `${i * 80}ms` }}
           >
-            <div className="flex items-center justify-between mb-0.5">
-              <span className="text-[7px]">{kpi.icon}</span>
-              <span className="text-[6px] font-semibold text-emerald-600">{kpi.change}</span>
-            </div>
-            <p className="text-[11px] font-bold text-foreground leading-tight">{kpi.value}</p>
-            <p className="text-[6px] text-muted-foreground mt-0.5">{kpi.label}</p>
+            <p className={`text-[8px] font-semibold ${step === 0 && i === 0 ? 'text-white' : 'text-foreground'}`}>{tab}</p>
           </div>
         ))}
       </div>
