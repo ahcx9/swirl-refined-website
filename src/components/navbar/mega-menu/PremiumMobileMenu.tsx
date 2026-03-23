@@ -9,7 +9,7 @@ interface PremiumMobileMenuProps {
 
 const sections = [
   {
-    name: 'swirl Dine',
+    name: 'Dine',
     description: 'Guest-facing experiences',
     features: [
       { title: 'Digital Menu', path: '/products/digital-menu' },
