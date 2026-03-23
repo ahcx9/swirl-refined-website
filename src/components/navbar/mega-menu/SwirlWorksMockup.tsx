@@ -90,21 +90,24 @@ export const SwirlWorksMockup: React.FC = () => {
           <p className="text-[9px] font-bold text-foreground">Revenue Trend</p>
           <span className="text-[7px] text-muted-foreground">Last 12 months</span>
         </div>
-        <div className="flex items-end gap-1 h-[60px]">
-          {chartBars.map((h, i) => (
-            <div key={i} className="flex-1 flex flex-col items-center gap-0.5">
-              <div
-                className={`w-full rounded-sm transition-all duration-1000 ${
-                  i === chartBars.length - 1 ? 'bg-primary' : 'bg-primary/20'
-                }`}
-                style={{
-                  height: mounted ? `${h}%` : '5%',
-                  transitionDelay: `${i * 60}ms`,
-                }}
-              />
-              <span className="text-[5px] text-muted-foreground">{months[i]}</span>
-            </div>
-          ))}
+        <div className="flex items-end gap-1" style={{ height: '60px' }}>
+          {chartBars.map((h, i) => {
+            const barHeight = mounted ? Math.max(4, (h / 100) * 60) : 3;
+            return (
+              <div key={i} className="flex-1 flex flex-col items-center gap-0.5 h-full justify-end">
+                <div
+                  className={`w-full rounded-sm transition-all duration-1000 ${
+                    i === chartBars.length - 1 ? 'bg-primary' : 'bg-primary/20'
+                  }`}
+                  style={{
+                    height: `${barHeight}px`,
+                    transitionDelay: `${i * 60}ms`,
+                  }}
+                />
+                <span className="text-[5px] text-muted-foreground flex-shrink-0">{months[i]}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
 
