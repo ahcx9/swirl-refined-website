@@ -94,12 +94,12 @@ export const SwirlWorksMockup: React.FC = () => {
           {chartBars.map((h, i) => (
             <div key={i} className="flex-1 flex flex-col items-center gap-0.5">
               <div
-                className={`w-full rounded-sm transition-all duration-700 ${
-                  i === chartBars.length - 1 ? 'bg-primary' : 'bg-primary/15'
+                className={`w-full rounded-sm transition-all duration-1000 ${
+                  i === chartBars.length - 1 ? 'bg-primary' : 'bg-primary/20'
                 }`}
                 style={{
-                  height: step >= 1 ? `${h * 1.2}%` : '8%',
-                  transitionDelay: `${i * 50}ms`,
+                  height: mounted ? `${h}%` : '5%',
+                  transitionDelay: `${i * 60}ms`,
                 }}
               />
               <span className="text-[5px] text-muted-foreground">{months[i]}</span>
