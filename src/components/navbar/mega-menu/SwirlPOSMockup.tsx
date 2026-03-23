@@ -1,40 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-
-const useCountUp = (target: number, duration: number, start: boolean) => {
-  const [value, setValue] = useState(0);
-  const frameRef = useRef<number>();
-
-  useEffect(() => {
-    if (!start) return;
-    const startTime = performance.now();
-    const animate = (now: number) => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setValue(Math.floor(eased * target));
-      if (progress < 1) frameRef.current = requestAnimationFrame(animate);
-    };
-    frameRef.current = requestAnimationFrame(animate);
-    return () => { if (frameRef.current) cancelAnimationFrame(frameRef.current); };
-  }, [target, duration, start]);
-
-  return value;
-};
+import React, { useState, useEffect } from 'react';
 
 export const SwirlPOSMockup: React.FC = () => {
   const [step, setStep] = useState(0);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const interval = setInterval(() => setStep((s) => (s + 1) % 5), 2800);
     return () => clearInterval(interval);
   }, []);
-
-  const todaySales = useCountUp(12840, 1600, mounted);
-  const ordersCount = useCountUp(187, 1200, mounted);
-  const avgOrder = useCountUp(69, 1000, mounted);
-  const tablesTurned = useCountUp(42, 800, mounted);
 
   const tables = [
     { id: 'T1', seats: 2, status: 'occupied', x: 8, y: 8, w: 28, h: 22 },
