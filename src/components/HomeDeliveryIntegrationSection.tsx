@@ -24,16 +24,32 @@ const HomeDeliveryIntegrationSection = () => {
     { icon: Clock, title: 'Faster Fulfillment', description: 'Automated kitchen routing reduces prep time' },
   ];
 
-  // Position logos in a semi-circle around the center POS
+  // Position logos in two rows to avoid overlap
   const getPosition = (index: number, total: number) => {
-    // Wider semi-circle with more spacing to avoid overlap
-    const padding = 0.08; // extra padding at edges
-    const angle = Math.PI * (1 - padding) - (index / (total - 1)) * Math.PI * (1 - 2 * padding);
-    const radiusX = 44; // % from center
-    const radiusY = 40;
-    const x = 50 + radiusX * Math.cos(angle);
-    const y = 52 - radiusY * Math.sin(angle);
-    return { x, y };
+    // Use two arcs: top row and bottom row
+    const topCount = Math.ceil(total / 2);
+    const bottomCount = total - topCount;
+    
+    if (index < topCount) {
+      // Top arc
+      const padding = 0.1;
+      const angle = Math.PI * (1 - padding) - (index / (topCount - 1)) * Math.PI * (1 - 2 * padding);
+      const radiusX = 46;
+      const radiusY = 38;
+      const x = 50 + radiusX * Math.cos(angle);
+      const y = 38 - radiusY * Math.sin(angle) * 0.5;
+      return { x, y };
+    } else {
+      // Bottom arc
+      const bIndex = index - topCount;
+      const padding = 0.15;
+      const angle = Math.PI * (1 - padding) - (bIndex / (bottomCount - 1)) * Math.PI * (1 - 2 * padding);
+      const radiusX = 38;
+      const radiusY = 30;
+      const x = 50 + radiusX * Math.cos(angle);
+      const y = 58 - radiusY * Math.sin(angle) * 0.3;
+      return { x, y };
+    }
   };
 
   return (
