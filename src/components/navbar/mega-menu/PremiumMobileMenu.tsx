@@ -21,7 +21,7 @@ const sections = [
     ],
   },
   {
-    name: 'swirl POS',
+    name: 'Point of Sale',
     description: 'Core operations',
     features: [
       { title: 'Point of Sale', path: '/products/restaurant-point-of-sale' },
