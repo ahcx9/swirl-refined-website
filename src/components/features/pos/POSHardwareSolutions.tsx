@@ -114,7 +114,7 @@ const POSHardwareSolutions = () => {
       <div className="text-center mb-12">
         <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
           <Sparkles className="w-4 h-4 text-primary" />
-          <span className="text-sm font-semibold text-primary">Complete Hardware Ecosystem</span>
+          <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Complete Hardware Ecosystem</span>
         </div>
         
         <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl font-bold text-gray-900 mb-4">

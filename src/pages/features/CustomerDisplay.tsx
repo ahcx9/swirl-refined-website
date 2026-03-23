@@ -147,7 +147,7 @@ const CustomerDisplay = () => {
               <div className="text-center mb-8">
                 <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
                   <Monitor className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Customer Display</span>
+                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Customer Display</span>
                 </div>
                 <h1 className="animate-on-scroll animate-delay-100 text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
                   Transparency That<br />
@@ -177,7 +177,7 @@ const CustomerDisplay = () => {
               <div className="text-center mb-16">
                 <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
                   <Sparkles className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Features</span>
+                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Features</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl font-bold text-foreground mb-4">
                   More Than Just a Screen
@@ -206,7 +206,7 @@ const CustomerDisplay = () => {
                 <div className="animate-on-scroll">
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
                     <ShieldCheck className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-semibold text-primary">Why It Matters</span>
+                    <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Why It Matters</span>
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
                     Trust at Every Transaction

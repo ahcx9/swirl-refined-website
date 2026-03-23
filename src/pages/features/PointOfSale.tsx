@@ -69,7 +69,7 @@ const PointOfSale = () => {
               <div className="text-center mb-12">
                 <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 border border-primary/20 shadow-lg">
                   <Smartphone className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Captain Ordering App</span>
+                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Captain Ordering App</span>
                   <span className="px-2 py-0.5 bg-gradient-to-r from-primary to-green-500 text-white text-xs font-bold rounded-full">iOS & Android</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -191,7 +191,7 @@ const PointOfSale = () => {
               <div className="text-center mb-12">
                 <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
                   <Layers className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Organized Order Flow</span>
+                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Organized Order Flow</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                   Separate Tabs for Every Order Type
@@ -221,7 +221,7 @@ const PointOfSale = () => {
               <div className="text-center mb-12">
                 <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 border border-primary/20 shadow-lg">
                   <ChefHat className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Kitchen Display System</span>
+                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Kitchen Display System</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                   From Order to Kitchen<br />
@@ -352,7 +352,7 @@ const PointOfSale = () => {
                 <div className="animate-on-scroll">
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
                     <StickyNote className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-semibold text-primary">Order Modifications</span>
+                    <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Order Modifications</span>
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                     Customize Every Order<br />
@@ -415,7 +415,7 @@ const PointOfSale = () => {
               <div className="text-center mb-12">
                 <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 border border-primary/20 shadow-lg">
                   <Settings2 className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Modifier Management</span>
+                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Modifier Management</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                   Sizes, Add-ons &<br />
@@ -542,7 +542,7 @@ const PointOfSale = () => {
               <div className="text-center mb-12">
                 <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 border border-primary/20 shadow-lg">
                   <Map className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Visual Floor Management</span>
+                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Visual Floor Management</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                   See Your Entire Restaurant<br />
@@ -718,7 +718,7 @@ const PointOfSale = () => {
                 <div className="animate-on-scroll order-1 md:order-2">
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
                     <TrendingUp className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-semibold text-primary">Aggregator Management</span>
+                    <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Aggregator Management</span>
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                     Smart Aggregator Pricing
@@ -746,7 +746,7 @@ const PointOfSale = () => {
               <div className="text-center mb-12">
                 <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
                   <GitBranch className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Multi-Branch Ready</span>
+                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Multi-Branch Ready</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                   Clone Your Menu to<br />

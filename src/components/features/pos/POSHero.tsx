@@ -12,7 +12,7 @@ const POSHero = () => {
       <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6 mt-8 md:mt-12">
           <Cloud className="w-5 h-5 text-primary" />
-          <span className="text-sm font-semibold text-primary">Cloud-Based Point of Sale</span>
+          <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Cloud-Based Point of Sale</span>
         </div>
         
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">

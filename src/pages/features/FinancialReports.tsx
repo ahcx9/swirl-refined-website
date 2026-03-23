@@ -125,7 +125,7 @@ const FinancialReports = () => {
             <div className="max-w-6xl mx-auto text-center mb-12">
               <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
                 <LayoutDashboard className="w-5 h-5 text-primary" />
-                <span className="text-sm font-semibold text-primary">Financial Reports</span>
+                <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Financial Reports</span>
               </div>
               
               <h1 className="animate-on-scroll animate-delay-100 text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
@@ -181,7 +181,7 @@ const FinancialReports = () => {
                 <div className="animate-on-scroll">
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
                     <PieChart className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-semibold text-primary">Payment Analytics</span>
+                    <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Payment Analytics</span>
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                     Payment Method Breakdown
@@ -300,7 +300,7 @@ const FinancialReports = () => {
               <div className="text-center mb-16">
                 <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
                   <Sparkles className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Key Features</span>
+                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Key Features</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                   Everything You Need to Track Finances
@@ -334,7 +334,7 @@ const FinancialReports = () => {
                 <div className="animate-on-scroll">
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-primary/5 rounded-full mb-6 border border-primary/20">
                     <Clock className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-semibold text-primary">Shift Reports</span>
+                    <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Shift Reports</span>
                     <span className="px-2 py-0.5 bg-primary text-white text-xs font-bold rounded-full">ESSENTIAL</span>
                   </div>
                   
