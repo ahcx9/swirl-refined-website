@@ -92,9 +92,9 @@ const HomeDeliveryIntegrationSection = () => {
             <span className="text-primary font-semibold text-sm tracking-wide">Delivery Integration</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-[3.25rem] font-bold mb-5 text-foreground leading-tight">
-            Every Delivery App.
-            <br />
-            <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">One Unified Hub.</span>
+            Every Delivery App
+            <div className="h-2 md:h-3" />
+            <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">One POS</span>
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Connect global and regional delivery platforms directly to your POS.
