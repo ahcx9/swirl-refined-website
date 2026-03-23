@@ -149,6 +149,42 @@ const SwirlEcosystemGallery: React.FC = () => {
         prediction: 'Peak at 7PM'
       }
     },
+    {
+      id: 'reservations',
+      icon: CalendarCheck,
+      name: 'Reservations',
+      tagline: 'Tables. Timing. Turnover.',
+      metrics: ['Smart seating', 'Zero no-shows'],
+      path: '/products/reservations',
+      preview: {
+        type: 'reservations',
+        tables: ['Table 1 - 7:00 PM', 'Table 4 - 7:30 PM', 'Table 7 - 8:00 PM']
+      }
+    },
+    {
+      id: 'loyalty',
+      icon: Heart,
+      name: 'Loyalty',
+      tagline: 'Rewards. Retention. Revenue.',
+      metrics: ['2x repeat visits', 'Smart rewards'],
+      path: '/products/loyalty',
+      preview: {
+        type: 'loyalty',
+        points: '4,250 pts'
+      }
+    },
+    {
+      id: 'expense',
+      icon: Wallet,
+      name: 'Expense Management',
+      tagline: 'Costs. Tracking. Savings.',
+      metrics: ['Auto categorization', 'Budget alerts'],
+      path: '',
+      preview: {
+        type: 'expense',
+        total: 28500
+      }
+    },
   ];
 
   const renderPreview = (module: typeof ecosystemModules[0]) => {
