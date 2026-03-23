@@ -5,11 +5,6 @@ import { FeatureCard } from './FeatureCard';
 import { SwirlDineMockup } from './SwirlDineMockup';
 import { SwirlPOSMockup } from './SwirlPOSMockup';
 import { SwirlWorksMockup } from './SwirlWorksMockup';
-import {
-  FileText, ShoppingCart, CalendarCheck, HeartHandshake, Car, Monitor,
-  CreditCard, ChefHat, LayoutGrid, Smartphone, Users as UsersIcon, Receipt,
-  BarChart3, DollarSign, Calculator, Package, Cpu
-} from 'lucide-react';
 
 export type TabKey = 'dine' | 'pos' | 'works';
 
