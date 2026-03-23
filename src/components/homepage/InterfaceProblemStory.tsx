@@ -96,7 +96,7 @@ const InterfaceProblemStory: React.FC = () => {
             <span className="text-red-400">No control.</span>
           </h2>
           <p className="text-lg text-white/50 max-w-2xl mx-auto">
-            This is what running a restaurant looks like without Swirl. Sound familiar?
+            Running a restaurant shouldn't feel this complicated.
           </p>
         </div>
 
