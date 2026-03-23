@@ -32,14 +32,14 @@ const Index = () => {
         {/* Section 2: Swirl Ecosystem UI Gallery */}
         <SwirlEcosystemGallery />
         
+        {/* Delivery Integration */}
+        <HomeDeliveryIntegrationSection />
+        
         {/* Section 4: Operational Transformation Dashboards */}
         <OperationalDashboards />
         
         {/* Section 5: Business Types Control Panel */}
         <UseCasesControlPanel />
-        
-        {/* Delivery Integration (kept as requested) */}
-        <HomeDeliveryIntegrationSection />
         
         {/* Hardware Section */}
         <HomeHardwareSection />
