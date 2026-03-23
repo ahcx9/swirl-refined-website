@@ -67,7 +67,7 @@ const DigitalMenu = () => {
               <div className="animate-on-scroll flex justify-center mb-8">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/20">
                   <FileText className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-semibold text-primary">{t('digitalMenu.title')}</span>
+                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">{t('digitalMenu.title')}</span>
                 </div>
               </div>
               
@@ -116,7 +116,7 @@ const DigitalMenu = () => {
               <div className="text-center mb-16">
                 <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-primary/5 rounded-full mb-6 border border-primary/20">
                   <Brain className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Menu AI</span>
+                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Menu AI</span>
                   <span className="px-2 py-0.5 bg-primary text-white text-xs font-bold rounded-full">NEW</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -210,7 +210,7 @@ const DigitalMenu = () => {
               <div className="text-center mb-16">
                 <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
                   <Sparkles className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Powerful Features</span>
+                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Powerful Features</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                   Everything Your Menu Needs
@@ -261,7 +261,7 @@ const DigitalMenu = () => {
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-2">
                           <h3 className="text-xl font-bold text-gray-900">{benefit.title}</h3>
-                          <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                          <span className="text-base md:text-sm font-bold md:font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
                             {benefit.stat}
                           </span>
                         </div>
@@ -321,7 +321,7 @@ const DigitalMenu = () => {
               <div className="text-center mb-12">
                 <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 border border-primary/20">
                   <GitBranch className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Multi-Branch Ready</span>
+                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Multi-Branch Ready</span>
                 </div>
                 <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                   Clone Your Menu to<br />
