@@ -18,7 +18,7 @@ const tabData: Record<TabKey, {
   subtext: string;
   ctaLabel: string;
   ctaPath: string;
-  features: { title: string; description: string; icon: any; path: string }[];
+  features: { title: string; description: string; path: string }[];
 }> = {
   dine: {
     headline: 'Create unforgettable dining experiences',
