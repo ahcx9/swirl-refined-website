@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown, ArrowRight, X,
-  FileText, ShoppingCart, CalendarCheck, HeartHandshake, Car, Monitor,
-  CreditCard, ChefHat, LayoutGrid, Smartphone, Receipt,
-  BarChart3, DollarSign, Calculator, Package, Cpu, Users
-} from 'lucide-react';
+import { ChevronDown, ArrowRight, X } from 'lucide-react';
 
 interface PremiumMobileMenuProps {
   isOpen: boolean;
