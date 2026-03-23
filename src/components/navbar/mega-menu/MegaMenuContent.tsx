@@ -54,12 +54,12 @@ const tabData: Record<TabKey, {
     ctaLabel: 'Explore swirl Works',
     ctaPath: '/products/visitor-analytics',
     features: [
-      { title: 'Visitor Analytics', description: 'Understand customer behavior', icon: BarChart3, path: '/products/visitor-analytics' },
-      { title: 'Financial Reports', description: 'Full revenue visibility', icon: DollarSign, path: '/products/financial-reports' },
-      { title: 'Accounting', description: 'Automated restaurant bookkeeping', icon: Calculator, path: '/products/accounting' },
-      { title: 'CRM', description: 'Build stronger guest relationships', icon: UsersIcon, path: '/products/customer-relationship-management' },
-      { title: 'Inventory Management', description: 'Smarter stock control', icon: Package, path: '/products/inventory-management' },
-      { title: 'Swirl Hardware', description: 'Complete POS hardware stack', icon: Cpu, path: '/products/swirl-hardware' },
+      { title: 'Visitor Analytics', description: 'Understand customer behavior', path: '/products/visitor-analytics' },
+      { title: 'Financial Reports', description: 'Full revenue visibility', path: '/products/financial-reports' },
+      { title: 'Accounting', description: 'Automated restaurant bookkeeping', path: '/products/accounting' },
+      { title: 'CRM', description: 'Build stronger guest relationships', path: '/products/customer-relationship-management' },
+      { title: 'Inventory Management', description: 'Smarter stock control', path: '/products/inventory-management' },
+      { title: 'swirl Hardware', description: 'Complete POS hardware stack', path: '/products/swirl-hardware' },
     ],
   },
 };
