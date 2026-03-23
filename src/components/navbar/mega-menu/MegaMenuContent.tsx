@@ -97,7 +97,7 @@ export const MegaMenuContent: React.FC<MegaMenuContentProps> = ({ activeTab, onC
               key={feature.title}
               title={feature.title}
               description={feature.description}
-              icon={feature.icon}
+              icon={null}
               path={feature.path}
               onClick={onClose}
             />
