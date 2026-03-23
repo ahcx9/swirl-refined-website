@@ -26,7 +26,7 @@ const HomeDeliveryIntegrationSection = () => {
     { name: 'Keeta', logo: '/lovable-uploads/keeta-logo.png' },
     { name: 'Jahez', logo: '/lovable-uploads/jahez-logo.png' },
     { name: 'HungerStation', logo: '/lovable-uploads/hungerstation-logo.png' },
-    { name: 'UberEats', logo: null, initials: 'UE' },
+    { name: 'UberEats', logo: '/lovable-uploads/ubereats-logo.png' },
     { name: 'Swiggy', logo: '/lovable-uploads/swiggy-logo.png' },
     { name: 'Talabat', logo: '/lovable-uploads/talabat-logo.webp' },
     { name: 'Deliveroo', logo: '/lovable-uploads/0e8b0620-df50-4144-bbd0-9c5eed7e00f5.png' },
@@ -238,13 +238,7 @@ const HomeDeliveryIntegrationSection = () => {
                         : 'shadow-md border-border/40'
                       }
                     `}>
-                      {app.logo ? (
-                        <img src={app.logo} alt={app.name} className="w-9 h-9 object-contain" />
-                      ) : (
-                        <div className="w-9 h-9 rounded-lg bg-green-600 flex items-center justify-center">
-                          <span className="text-white font-bold text-[10px]">{app.initials}</span>
-                        </div>
-                      )}
+                      <img src={app.logo} alt={app.name} className="w-9 h-9 object-contain" />
                       {/* Connected indicator */}
                       <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-[1.5px] border-white flex items-center justify-center">
                         <svg className="w-1.5 h-1.5 text-white" fill="currentColor" viewBox="0 0 20 20">
