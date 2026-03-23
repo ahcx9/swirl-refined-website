@@ -73,7 +73,7 @@ const HomeDeliveryIntegrationSection = () => {
         </div>
 
         {/* Semi-circle layout with central POS */}
-        <div className="relative max-w-4xl mx-auto mb-14 animate-on-scroll" style={{ height: '420px' }}>
+        <div className="relative max-w-4xl mx-auto mb-14 animate-on-scroll" style={{ height: '480px' }}>
           {/* Animated connection lines SVG */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
             <defs>
