@@ -70,7 +70,7 @@ export const PremiumMobileMenu: React.FC<PremiumMobileMenuProps> = ({ isOpen, on
             <div key={section.name} className="rounded-2xl border border-gray-100 overflow-hidden">
               <button
                 onClick={() => setExpanded(expanded === section.name ? null : section.name)}
-                className="w-full flex items-center justify-between p-4 text-left"
+                className="w-full flex items-center justify-between p-4 text-left active:bg-gray-50 touch-manipulation"
               >
                 <div>
                   <p className="text-[15px] font-bold text-foreground">{section.name}</p>
@@ -78,12 +78,12 @@ export const PremiumMobileMenu: React.FC<PremiumMobileMenuProps> = ({ isOpen, on
                 </div>
                 <ChevronDown
                   size={18}
-                  className={`text-muted-foreground transition-transform duration-300 ${expanded === section.name ? 'rotate-180' : ''}`}
+                  className={`text-muted-foreground transition-transform duration-150 ${expanded === section.name ? 'rotate-180' : ''}`}
                 />
               </button>
 
               <div
-                className={`transition-all duration-300 ease-out overflow-hidden ${expanded === section.name ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
+                className={`transition-all duration-150 ease-out overflow-hidden ${expanded === section.name ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
               >
                 <div className="px-4 pb-4 grid grid-cols-2 gap-2">
                   {section.features.map((feature) => (
