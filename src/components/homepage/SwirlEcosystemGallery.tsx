@@ -288,6 +288,36 @@ const SwirlEcosystemGallery: React.FC = () => {
             <p className="text-sm font-bold text-primary">{preview.prediction}</p>
           </div>
         );
+      case 'reservations':
+        return (
+          <div className="space-y-2">
+            {(preview as any).tables?.map((table: string, i: number) => (
+              <div key={i} className={`text-xs px-2 py-1.5 rounded ${i === 0 ? 'bg-primary/10 text-primary border border-primary/20' : 'bg-gray-50 text-muted-foreground'}`}>
+                {table} {i === 0 && <span className="float-right font-medium">CONFIRMED</span>}
+              </div>
+            ))}
+          </div>
+        );
+      case 'loyalty':
+        return (
+          <div className="text-center py-2">
+            <div className="flex justify-center gap-1 mb-2">
+              {[1,2,3,4,5].map(i => (
+                <Heart key={i} className={`w-4 h-4 ${i <= 4 ? 'text-red-400 fill-red-400' : 'text-gray-300'}`} />
+              ))}
+            </div>
+            <p className="text-xs text-muted-foreground mb-0.5">Total Points</p>
+            <p className="text-sm font-bold text-primary">{(preview as any).points}</p>
+          </div>
+        );
+      case 'expense':
+        return (
+          <div className="text-center py-2">
+            <p className="text-xs text-muted-foreground mb-1">Monthly Expenses</p>
+            <p className="text-lg font-bold text-primary">{formatAmount((preview as any).total)}</p>
+            <p className="text-[10px] text-green-600 font-medium mt-0.5">↓ 12% vs last month</p>
+          </div>
+        );
       default:
         return (
           <div className="h-12 bg-gradient-to-r from-primary/5 to-primary/10 rounded animate-pulse" />
