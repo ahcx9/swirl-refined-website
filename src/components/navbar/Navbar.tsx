@@ -81,7 +81,7 @@ const Navbar = () => {
                 loading="eager"
                 fetchPriority="high"
                 className={`w-auto object-contain transition-all duration-500 ${
-                  isScrolled ? 'h-9 md:h-10' : 'h-10 md:h-12'
+                  isScrolled ? 'h-10 md:h-11' : 'h-11 md:h-13'
                 }`}
               />
             </Link>
