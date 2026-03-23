@@ -26,12 +26,12 @@ const tabData: Record<TabKey, {
     ctaLabel: 'Explore swirl Dine',
     ctaPath: '/products/digital-menu',
     features: [
-      { title: 'Digital Menu', description: 'Beautiful, real-time menus', icon: FileText, path: '/products/digital-menu' },
-      { title: 'QR Ordering', description: 'Scan, order, pay instantly', icon: ShoppingCart, path: '/products/qr-ordering' },
-      { title: 'Reservations', description: 'Smart table bookings', icon: CalendarCheck, path: '/products/reservations' },
-      { title: 'Loyalty', description: 'Rewards that bring guests back', icon: HeartHandshake, path: '/products/loyalty' },
-      { title: 'In-Car Ordering', description: 'Order before arrival', icon: Car, path: '/products/ordering-from-car' },
-      { title: 'Customer Display', description: 'Clear live order visibility', icon: Monitor, path: '/products/customer-display' },
+      { title: 'Digital Menu', description: 'Beautiful, real-time menus', path: '/products/digital-menu' },
+      { title: 'QR Ordering', description: 'Scan, order, pay instantly', path: '/products/qr-ordering' },
+      { title: 'Reservations', description: 'Smart table bookings', path: '/products/reservations' },
+      { title: 'Loyalty', description: 'Rewards that bring guests back', path: '/products/loyalty' },
+      { title: 'In-Car Ordering', description: 'Order before arrival', path: '/products/ordering-from-car' },
+      { title: 'Customer Display', description: 'Clear live order visibility', path: '/products/customer-display' },
     ],
   },
   pos: {
