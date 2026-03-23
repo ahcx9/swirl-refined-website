@@ -30,6 +30,11 @@ const POSHero = () => {
       </div>
 
       <div className="py-8 px-4 md:px-8">
+        <div className="flex justify-center mb-4">
+          <div className="flex items-center gap-2 px-6 py-2.5 bg-primary/8 rounded-full border border-primary/15">
+            <span className="text-sm md:text-base font-semibold text-primary tracking-wide">It's a live demo — try billing & settling the bill!</span>
+          </div>
+        </div>
         <POSMockup />
       </div>
     </div>
