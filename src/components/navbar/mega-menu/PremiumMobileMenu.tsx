@@ -53,7 +53,7 @@ export const PremiumMobileMenu: React.FC<PremiumMobileMenuProps> = ({ isOpen, on
       <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
         <Link to="/" onClick={onClose}>
           <img
-            src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png"
+            src="/lovable-uploads/swirl-logo-transparent.png"
             alt="Swirl Logo"
             className="h-10 w-auto"
           />

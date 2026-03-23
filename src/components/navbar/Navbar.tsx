@@ -76,7 +76,7 @@ const Navbar = () => {
             {/* Left: Logo */}
             <Link to="/" className="flex-shrink-0 z-10" onClick={closeMegaMenu}>
               <img
-                src="/lovable-uploads/55544d5a-71ae-4a9e-a8aa-deb07ec265e7.png"
+                src="/lovable-uploads/swirl-logo-transparent.png"
                 alt="Swirl"
                 loading="eager"
                 fetchPriority="high"
