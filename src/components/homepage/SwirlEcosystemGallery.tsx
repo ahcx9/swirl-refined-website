@@ -18,7 +18,10 @@ import {
   PieChart,
   Store,
   Smartphone,
-  Globe
+  Globe,
+  CalendarCheck,
+  Heart,
+  Wallet
 } from 'lucide-react';
 import { useCurrency } from '@/hooks/useCurrency';
 
@@ -146,6 +149,42 @@ const SwirlEcosystemGallery: React.FC = () => {
         prediction: 'Peak at 7PM'
       }
     },
+    {
+      id: 'reservations',
+      icon: CalendarCheck,
+      name: 'Reservations',
+      tagline: 'Tables. Timing. Turnover.',
+      metrics: ['Smart seating', 'Zero no-shows'],
+      path: '/products/reservations',
+      preview: {
+        type: 'reservations',
+        tables: ['Table 1 - 7:00 PM', 'Table 4 - 7:30 PM', 'Table 7 - 8:00 PM']
+      }
+    },
+    {
+      id: 'loyalty',
+      icon: Heart,
+      name: 'Loyalty',
+      tagline: 'Rewards. Retention. Revenue.',
+      metrics: ['2x repeat visits', 'Smart rewards'],
+      path: '/products/loyalty',
+      preview: {
+        type: 'loyalty',
+        points: '4,250 pts'
+      }
+    },
+    {
+      id: 'expense',
+      icon: Wallet,
+      name: 'Expense Management',
+      tagline: 'Costs. Tracking. Savings.',
+      metrics: ['Auto categorization', 'Budget alerts'],
+      path: '',
+      preview: {
+        type: 'expense',
+        total: 28500
+      }
+    },
   ];
 
   const renderPreview = (module: typeof ecosystemModules[0]) => {
@@ -249,6 +288,36 @@ const SwirlEcosystemGallery: React.FC = () => {
             <p className="text-sm font-bold text-primary">{preview.prediction}</p>
           </div>
         );
+      case 'reservations':
+        return (
+          <div className="space-y-2">
+            {(preview as any).tables?.map((table: string, i: number) => (
+              <div key={i} className={`text-xs px-2 py-1.5 rounded ${i === 0 ? 'bg-primary/10 text-primary border border-primary/20' : 'bg-gray-50 text-muted-foreground'}`}>
+                {table} {i === 0 && <span className="float-right font-medium">CONFIRMED</span>}
+              </div>
+            ))}
+          </div>
+        );
+      case 'loyalty':
+        return (
+          <div className="text-center py-2">
+            <div className="flex justify-center gap-1 mb-2">
+              {[1,2,3,4,5].map(i => (
+                <Heart key={i} className={`w-4 h-4 ${i <= 4 ? 'text-red-400 fill-red-400' : 'text-gray-300'}`} />
+              ))}
+            </div>
+            <p className="text-xs text-muted-foreground mb-0.5">Total Points</p>
+            <p className="text-sm font-bold text-primary">{(preview as any).points}</p>
+          </div>
+        );
+      case 'expense':
+        return (
+          <div className="text-center py-2">
+            <p className="text-xs text-muted-foreground mb-1">Monthly Expenses</p>
+            <p className="text-lg font-bold text-primary">{formatAmount((preview as any).total)}</p>
+            <p className="text-[10px] text-green-600 font-medium mt-0.5">↓ 12% vs last month</p>
+          </div>
+        );
       default:
         return (
           <div className="h-12 bg-gradient-to-r from-primary/5 to-primary/10 rounded animate-pulse" />
@@ -289,66 +358,86 @@ const SwirlEcosystemGallery: React.FC = () => {
 
         {/* Floating Product Gallery */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-w-6xl mx-auto">
-          {ecosystemModules.map((module, index) => (
-            <Link
-              key={module.id}
-              to={module.path}
-              className="animate-on-scroll group relative bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 cursor-pointer hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1"
-              style={{ animationDelay: `${index * 30}ms` }}
-              onMouseEnter={() => setHoveredModule(module.id)}
-              onMouseLeave={() => setHoveredModule(null)}
-            >
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          {ecosystemModules.map((module, index) => {
+            const cardContent = (
+              <>
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="relative p-5">
-                {/* Header */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                      <module.icon className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-foreground">{module.name}</h3>
-                      <p className="text-xs text-muted-foreground">{module.tagline}</p>
-                    </div>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1" />
-                </div>
-
-                {/* Live Preview Window */}
-                <div className="bg-gray-50/80 rounded-xl p-3 border border-gray-100 mb-3 min-h-[90px]">
-                  {renderPreview(module)}
-                </div>
-
-                {/* Sub Icons (for Accounting, Multi-branch, QR) */}
-                {module.subIcons && (
-                  <div className="flex items-center gap-2 mb-3">
-                    {module.subIcons.map((SubIcon, i) => (
-                      <div key={i} className="w-7 h-7 rounded-lg bg-primary/5 flex items-center justify-center">
-                        <SubIcon className="w-3.5 h-3.5 text-primary" />
+                <div className="relative p-5">
+                  {/* Header */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <module.icon className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
                       </div>
+                      <div>
+                        <h3 className="font-bold text-foreground">{module.name}</h3>
+                        <p className="text-xs text-muted-foreground">{module.tagline}</p>
+                      </div>
+                    </div>
+                    {module.path && <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1" />}
+                  </div>
+
+                  {/* Live Preview Window */}
+                  <div className="bg-gray-50/80 rounded-xl p-3 border border-gray-100 mb-3 min-h-[90px]">
+                    {renderPreview(module)}
+                  </div>
+
+                  {/* Sub Icons */}
+                  {module.subIcons && (
+                    <div className="flex items-center gap-2 mb-3">
+                      {module.subIcons.map((SubIcon, i) => (
+                        <div key={i} className="w-7 h-7 rounded-lg bg-primary/5 flex items-center justify-center">
+                          <SubIcon className="w-3.5 h-3.5 text-primary" />
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Metrics */}
+                  <div className="flex flex-wrap gap-2">
+                    {module.metrics.map((metric, i) => (
+                      <span 
+                        key={i}
+                        className="text-xs px-2 py-1 bg-primary/5 text-primary rounded-full border border-primary/10"
+                      >
+                        {metric}
+                      </span>
                     ))}
                   </div>
-                )}
-
-                {/* Metrics */}
-                <div className="flex flex-wrap gap-2">
-                  {module.metrics.map((metric, i) => (
-                    <span 
-                      key={i}
-                      className="text-xs px-2 py-1 bg-primary/5 text-primary rounded-full border border-primary/10"
-                    >
-                      {metric}
-                    </span>
-                  ))}
                 </div>
-              </div>
 
-              {/* Bottom border glow */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </Link>
-          ))}
+                {/* Bottom border glow */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </>
+            );
+
+            const className = "animate-on-scroll group relative bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 cursor-pointer hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1";
+
+            return module.path ? (
+              <Link
+                key={module.id}
+                to={module.path}
+                className={className}
+                style={{ animationDelay: `${index * 30}ms` }}
+                onMouseEnter={() => setHoveredModule(module.id)}
+                onMouseLeave={() => setHoveredModule(null)}
+              >
+                {cardContent}
+              </Link>
+            ) : (
+              <div
+                key={module.id}
+                className={className}
+                style={{ animationDelay: `${index * 30}ms` }}
+                onMouseEnter={() => setHoveredModule(module.id)}
+                onMouseLeave={() => setHoveredModule(null)}
+              >
+                {cardContent}
+              </div>
+            );
+          })}
         </div>
 
       </div>
