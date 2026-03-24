@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Plus, Minus, Trash2, X, Search, ChefHat, ArrowLeftRight, Merge, SplitSquareVertical, Printer, CreditCard, Banknote, Sparkles, MousePointerClick, Play, SkipForward, XCircle, Percent, Tag, Receipt, Wallet, Smartphone, CircleDollarSign, StickyNote, ShoppingBag } from 'lucide-react';
 import { Button } from './ui/button';
 import { useCurrency } from '@/hooks/useCurrency';
+import SwirlCTA from '@/components/SwirlCTA';
 
 // ============ TYPES ============
 interface OrderItem {
@@ -1057,9 +1058,15 @@ const Hero: React.FC = () => {
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent tracking-tight leading-[1.05] mt-1">Modern Restaurants
 
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mt-4 max-w-3xl mx-auto leading-relaxed font-medium">
             Cloud POS, QR Ordering, Inventory, Accounting, Analytics, Reservations, Loyalty, CRM, And AI — All Working As One.
           </p>
+          <div className="mt-6 flex items-center justify-center gap-6">
+            <SwirlCTA />
+            <Link to="/contact" className="text-primary font-semibold text-sm hover:underline underline-offset-4 transition-all">
+              Book a Demo →
+            </Link>
+          </div>
         </div>
       </div>
     </section>
