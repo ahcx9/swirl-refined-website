@@ -88,7 +88,7 @@ const Navbar = () => {
             </Link>
 
             {/* Center: Product tabs (desktop) */}
-            <div className="hidden xl:flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
+            <div className="hidden xl:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
               {tabs.map((tab) => (
                 <button
                   key={tab.key}
