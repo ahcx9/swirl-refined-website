@@ -145,7 +145,7 @@ const Navbar = () => {
               {/* Book a Demo - mobile (shows on scroll) */}
               <a
                 href="/contact"
-                className={`md:hidden inline-flex items-center gap-1.5 h-9 px-4 bg-primary text-primary-foreground text-[13px] font-semibold rounded-xl shadow-sm transition-all duration-300 ${
+                className={`md:hidden inline-flex items-center gap-1.5 h-9 px-4 bg-gray-100/80 text-foreground text-[13px] font-semibold rounded-xl transition-all duration-300 ${
                   isScrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1 pointer-events-none'
                 }`}
               >
