@@ -155,7 +155,7 @@ const Accounting = () => {
                 className="btn-conteiner scale-90"
               >
                 <span className="btn-content">
-                  <span className="btn-title">Book a Demo</span>
+                  <span className="btn-title">Get Started Free</span>
                   <span className="icon-arrow">
                     <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg">
                       <g id="arrow" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">

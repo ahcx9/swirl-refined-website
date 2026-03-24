@@ -380,7 +380,7 @@ const SmartLeadForm = () => {
                     ) : (
                       <div className="flex items-center gap-2">
                         <Send size={18} />
-                        Request Demo
+                        Get Started Free
                       </div>
                     )}
                   </Button>

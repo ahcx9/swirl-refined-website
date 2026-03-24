@@ -163,8 +163,8 @@ const Loyalty = () => {
                   Build loyalty that lasts. Points, tiers, birthday rewards, and smart automation — all built into your POS.
                 </p>
                 <div className="animate-on-scroll animate-delay-300">
-                  <CustomCTAButton href="/contact">
-                    Book a Demo
+                  <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                    Get Started Free
                   </CustomCTAButton>
                 </div>
               </div>

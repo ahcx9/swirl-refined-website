@@ -295,8 +295,8 @@ const HomeDeliveryIntegrationSection = () => {
         {/* CTA */}
         <div className={`text-center transition-all duration-700 delay-[1.2s] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-700 shadow-lg shadow-primary/20 text-white">
-            <a href="/contact" className="flex items-center gap-2">
-              Book a Demo
+            <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              Get Started Free
               <ArrowRight className="h-4 w-4" />
             </a>
           </Button>
