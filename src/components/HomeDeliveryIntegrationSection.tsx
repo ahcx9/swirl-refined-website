@@ -71,7 +71,7 @@ const HomeDeliveryIntegrationSection = () => {
     <section
       ref={sectionRef}
       id="delivery-integration"
-      className="py-20 md:py-32 overflow-hidden relative"
+      className="py-14 md:py-24 lg:py-32 overflow-hidden relative"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-blue-50/30 to-background" />
