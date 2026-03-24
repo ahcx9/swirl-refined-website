@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { LayoutDashboard, PieChart, LineChart, FilePlus2, Calculator, DollarSign, TrendingUp, CreditCard, Wallet, Receipt, ArrowRight, Sparkles, Clock, Printer, History, FileText, CheckCircle, BarChart3, Percent, Calendar } from 'lucide-react';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useCurrency } from '@/hooks/useCurrency';
 import FinancialReportsMockup from '@/components/features/financial-reports/FinancialReportsMockup';
