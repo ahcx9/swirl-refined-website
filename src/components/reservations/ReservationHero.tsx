@@ -31,17 +31,13 @@ const ReservationHero = () => {
 
           <div className="flex flex-wrap gap-4 justify-center mt-10">
             <a
-              href="/contact"
+              href="https://app.swirl.cx/register"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2.5 px-8 py-4 bg-primary text-primary-foreground rounded-2xl font-semibold text-[15px] hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5"
             >
-              Book a Demo
+              Get Started Free
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a
-              href="/products"
-              className="inline-flex items-center gap-2.5 px-8 py-4 border border-border/80 text-foreground rounded-2xl font-semibold text-[15px] hover:bg-muted/40 transition-all duration-300 hover:-translate-y-0.5"
-            >
-              Explore Platform
             </a>
           </div>
         </div>
