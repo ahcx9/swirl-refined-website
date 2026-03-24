@@ -5,6 +5,7 @@ import SwirlEcosystemGallery from '@/components/homepage/SwirlEcosystemGallery';
 import OperationalDashboards from '@/components/homepage/OperationalDashboards';
 import UseCasesControlPanel from '@/components/homepage/UseCasesControlPanel';
 import HomeDeliveryIntegrationSection from '@/components/HomeDeliveryIntegrationSection';
+import HomeZATCASection from '@/components/homepage/HomeZATCASection';
 import HomeHardwareSection from '@/components/HomeHardwareSection';
 import WhySwirlCommandCenter from '@/components/homepage/WhySwirlCommandCenter';
 import QROrderJourney from '@/components/homepage/QROrderJourney';
