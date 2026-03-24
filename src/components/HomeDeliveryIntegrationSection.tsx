@@ -1,23 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Zap, RefreshCw, Bell, Clock, Monitor, ArrowDown, ArrowUp } from 'lucide-react';
+import { Zap, RefreshCw, Bell, Clock, Monitor, ArrowDown } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import SwirlCTA from '@/components/SwirlCTA';
 
-const topApps = [
+const allApps = [
   { name: 'Noon Food', logo: '/lovable-uploads/noon-food-logo.png' },
   { name: 'Careem', logo: '/lovable-uploads/a2ee4e8c-8b4d-4521-a82a-39df6b6529aa.png' },
   { name: 'Zomato', logo: '/lovable-uploads/zomato-logo.jpg' },
   { name: 'Keeta', logo: '/lovable-uploads/keeta-logo.png' },
   { name: 'Jahez', logo: '/lovable-uploads/jahez-logo.png' },
-];
-
-const bottomApps = [
   { name: 'HungerStation', logo: '/lovable-uploads/hungerstation-logo.png' },
   { name: 'UberEats', logo: '/lovable-uploads/ubereats-logo.png' },
   { name: 'Swiggy', logo: '/lovable-uploads/swiggy-logo.png' },
   { name: 'Talabat', logo: '/lovable-uploads/talabat-logo.webp' },
   { name: 'Deliveroo', logo: '/lovable-uploads/0e8b0620-df50-4144-bbd0-9c5eed7e00f5.png' },
 ];
+
+const topApps = allApps.slice(0, 5);
+const bottomApps = allApps.slice(5);
 
 const features = [
   { icon: Zap, title: 'Auto-Accept Orders', description: 'Orders flow directly to POS without manual entry' },
@@ -26,51 +26,175 @@ const features = [
   { icon: Clock, title: 'Faster Fulfillment', description: 'Automated kitchen routing reduces prep time' },
 ];
 
-const LogoCard = ({ app, index, isVisible, delay }: { app: { name: string; logo: string }; index: number; isVisible: boolean; delay: number }) => (
-  <div
-    className={`flex flex-col items-center transition-all duration-600 ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 scale-90'}`}
-    style={{ transitionDelay: `${delay}s` }}
-  >
-    <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-[72px] md:h-[72px] rounded-xl md:rounded-2xl bg-white border border-border/50 shadow-sm hover:shadow-lg hover:border-primary/20 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center group">
-      <img src={app.logo} alt={app.name} className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 object-contain" loading="lazy" />
-      <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-[1.5px] border-white flex items-center justify-center">
-        <svg className="w-1.5 h-1.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-        </svg>
+/* ─── Shared Logo Card ─── */
+const LogoCard = ({ app, isVisible, delay, size = 'md' }: { app: { name: string; logo: string }; isVisible: boolean; delay: number; size?: 'sm' | 'md' | 'lg' }) => {
+  const sizeClasses = {
+    sm: 'w-14 h-14 rounded-xl',
+    md: 'w-16 h-16 rounded-xl',
+    lg: 'w-[72px] h-[72px] rounded-2xl',
+  };
+  const imgSizes = { sm: 'w-8 h-8', md: 'w-9 h-9', lg: 'w-10 h-10' };
+
+  return (
+    <div
+      className={`flex flex-col items-center transition-all duration-600 ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 scale-90'}`}
+      style={{ transitionDelay: `${delay}s` }}
+    >
+      <div className={`relative ${sizeClasses[size]} bg-white border border-border/50 shadow-sm hover:shadow-lg hover:border-primary/20 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center group`}>
+        <img src={app.logo} alt={app.name} className={`${imgSizes[size]} object-contain`} loading="lazy" />
+        <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-[1.5px] border-white flex items-center justify-center">
+          <svg className="w-1.5 h-1.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+        </div>
       </div>
+      <p className="text-[10px] md:text-xs font-medium text-muted-foreground text-center mt-1.5 leading-tight">{app.name}</p>
     </div>
-    <p className="text-[9px] sm:text-[10px] md:text-xs font-medium text-muted-foreground text-center mt-1.5 leading-tight">{app.name}</p>
+  );
+};
+
+/* ─── Hub Card (shared between layouts) ─── */
+const HubCard = ({ isVisible, className = '' }: { isVisible: boolean; className?: string }) => (
+  <div className={`relative transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'} ${className}`}>
+    <div className="absolute inset-0 rounded-3xl bg-primary/20 blur-3xl scale-[1.8]" />
+    <div className="absolute inset-0 rounded-3xl bg-primary/10 blur-xl scale-[1.4]" />
+    <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-3xl bg-gradient-to-br from-primary to-primary/80 flex flex-col items-center justify-center shadow-xl shadow-primary/25 border border-primary/30">
+      <Monitor className="w-8 h-8 md:w-9 md:h-9 text-white/90 mb-1" />
+      <span className="text-white font-black text-base md:text-lg tracking-tight leading-none">swirl</span>
+      <span className="text-white/50 text-[10px] font-semibold mt-0.5">POS</span>
+    </div>
   </div>
 );
 
-/* Animated connector arrows pointing toward center */
-const ConnectorArrows = ({ direction, isVisible }: { direction: 'down' | 'up'; isVisible: boolean }) => (
-  <div className={`flex justify-center py-3 md:py-5 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-    <div className="flex items-center gap-6 sm:gap-10 md:gap-14">
-      {[...Array(5)].map((_, i) => (
-        <div key={i} className="flex flex-col items-center gap-1">
-          {/* Animated dots flowing toward center */}
-          <div className={`flex flex-col items-center gap-[3px] ${direction === 'down' ? '' : 'flex-col-reverse'}`}>
-            {[...Array(3)].map((_, j) => (
-              <div
-                key={j}
-                className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-primary/40"
-                style={{
-                  animation: isVisible ? `pulse 1.5s ease-in-out infinite` : 'none',
-                  animationDelay: `${(direction === 'down' ? j : 2 - j) * 0.2 + i * 0.1}s`,
-                }}
+/* ─── DESKTOP: Orbit Layout ─── */
+const DesktopOrbitLayout = ({ isVisible }: { isVisible: boolean }) => {
+  const orbitRadius = 220;
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  return (
+    <div className={`relative mx-auto mb-14 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      style={{ width: orbitRadius * 2 + 120, height: orbitRadius * 2 + 120 }}
+    >
+      {/* SVG connector lines */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox={`0 0 ${orbitRadius * 2 + 120} ${orbitRadius * 2 + 120}`}>
+        {allApps.map((_, i) => {
+          const angle = (i * 36) - 90;
+          const rad = (angle * Math.PI) / 180;
+          const cx = orbitRadius + 60;
+          const cy = orbitRadius + 60;
+          const x = cx + orbitRadius * Math.cos(rad);
+          const y = cy + orbitRadius * Math.sin(rad);
+          const midX = cx + (x - cx) * 0.5 + (y - cy) * 0.15;
+          const midY = cy + (y - cy) * 0.5 - (x - cx) * 0.15;
+          const dimmed = hoveredIndex !== null && hoveredIndex !== i;
+
+          return (
+            <g key={i} className={`transition-opacity duration-300 ${dimmed ? 'opacity-20' : 'opacity-100'}`}>
+              <path
+                d={`M ${cx} ${cy} Q ${midX} ${midY} ${x} ${y}`}
+                fill="none"
+                stroke="hsl(var(--primary))"
+                strokeWidth="1.2"
+                strokeDasharray="4 4"
+                opacity={0.3}
               />
+              {/* Animated pulse dot */}
+              <circle r="3" fill="hsl(var(--primary))" opacity={0.6}>
+                <animateMotion
+                  dur={`${2 + i * 0.15}s`}
+                  repeatCount="indefinite"
+                  path={`M ${x} ${y} Q ${midX} ${midY} ${cx} ${cy}`}
+                />
+              </circle>
+            </g>
+          );
+        })}
+      </svg>
+
+      {/* Center hub */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+        <HubCard isVisible={isVisible} />
+      </div>
+
+      {/* Orbiting logos */}
+      {allApps.map((app, i) => {
+        const angle = (i * 36) - 90;
+        const rad = (angle * Math.PI) / 180;
+        const x = orbitRadius * Math.cos(rad);
+        const y = orbitRadius * Math.sin(rad);
+
+        return (
+          <div
+            key={app.name}
+            className="absolute z-20"
+            style={{
+              left: `calc(50% + ${x}px - 36px)`,
+              top: `calc(50% + ${y}px - 36px)`,
+            }}
+            onMouseEnter={() => setHoveredIndex(i)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            <LogoCard app={app} isVisible={isVisible} delay={0.3 + i * 0.06} size="lg" />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+/* ─── MOBILE/TABLET: Grid Layout ─── */
+const MobileGridLayout = ({ isVisible }: { isVisible: boolean }) => (
+  <div className={`max-w-xl mx-auto mb-10 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+    {/* Top Row */}
+    <div className="grid grid-cols-5 gap-3 sm:gap-5 justify-items-center">
+      {topApps.map((app, i) => (
+        <LogoCard key={app.name} app={app} isVisible={isVisible} delay={0.3 + i * 0.06} size="sm" />
+      ))}
+    </div>
+
+    {/* Connector arrows down */}
+    <div className={`flex justify-center py-3 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <div className="flex items-center gap-6 sm:gap-10">
+        {[...Array(5)].map((_, i) => (
+          <div key={i} className="flex flex-col items-center gap-[3px]">
+            {[...Array(3)].map((_, j) => (
+              <div key={j} className="w-1 h-1 rounded-full bg-primary/40" style={{ animation: isVisible ? 'pulse 1.5s ease-in-out infinite' : 'none', animationDelay: `${j * 0.2 + i * 0.1}s` }} />
             ))}
+            <ArrowDown className="w-3 h-3 text-primary/30" />
           </div>
-          <div className={`text-primary/30 ${direction === 'down' ? '' : 'rotate-180'}`}>
-            <ArrowDown className="w-3 h-3 md:w-4 md:h-4" />
+        ))}
+      </div>
+    </div>
+
+    {/* Center Hub */}
+    <div className="flex justify-center">
+      <HubCard isVisible={isVisible} className="!w-24 !h-24 sm:!w-28 sm:!h-28 [&>div:last-child]:!w-24 [&>div:last-child]:!h-24 sm:[&>div:last-child]:!w-28 sm:[&>div:last-child]:!h-28" />
+    </div>
+
+    {/* Connector arrows up */}
+    <div className={`flex justify-center py-3 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <div className="flex items-center gap-6 sm:gap-10">
+        {[...Array(5)].map((_, i) => (
+          <div key={i} className="flex flex-col-reverse items-center gap-[3px]">
+            {[...Array(3)].map((_, j) => (
+              <div key={j} className="w-1 h-1 rounded-full bg-primary/40" style={{ animation: isVisible ? 'pulse 1.5s ease-in-out infinite' : 'none', animationDelay: `${(2 - j) * 0.2 + i * 0.1}s` }} />
+            ))}
+            <div className="rotate-180"><ArrowDown className="w-3 h-3 text-primary/30" /></div>
           </div>
-        </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Bottom Row */}
+    <div className="grid grid-cols-5 gap-3 sm:gap-5 justify-items-center">
+      {bottomApps.map((app, i) => (
+        <LogoCard key={app.name} app={app} isVisible={isVisible} delay={0.6 + i * 0.06} size="sm" />
       ))}
     </div>
   </div>
 );
 
+/* ─── Main Section ─── */
 const HomeDeliveryIntegrationSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -107,44 +231,12 @@ const HomeDeliveryIntegrationSection = () => {
           </p>
         </div>
 
-        {/* ── Hub Visualization: 5 above → center → 5 below ── */}
-        <div className={`max-w-xl md:max-w-2xl mx-auto mb-10 md:mb-14 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          
-          {/* Top Row — 5 logos */}
-          <div className="grid grid-cols-5 gap-3 sm:gap-5 md:gap-8 justify-items-center">
-            {topApps.map((app, i) => (
-              <LogoCard key={app.name} app={app} index={i} isVisible={isVisible} delay={0.3 + i * 0.06} />
-            ))}
-          </div>
-
-          {/* Arrows pointing DOWN toward hub */}
-          <ConnectorArrows direction="down" isVisible={isVisible} />
-
-          {/* Center Hub */}
-          <div className="flex justify-center">
-            <div className={`relative transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
-              {/* Glow */}
-              <div className="absolute inset-0 rounded-2xl md:rounded-3xl bg-primary/20 blur-3xl scale-[1.8]" />
-              <div className="absolute inset-0 rounded-2xl md:rounded-3xl bg-primary/10 blur-xl scale-[1.4]" />
-              
-              {/* Hub Card */}
-              <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-2xl md:rounded-3xl bg-gradient-to-br from-primary to-primary/80 flex flex-col items-center justify-center shadow-xl shadow-primary/25 border border-primary/30">
-                <Monitor className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 text-white/90 mb-1" />
-                <span className="text-white font-black text-sm sm:text-base md:text-lg tracking-tight leading-none">swirl</span>
-                <span className="text-white/50 text-[9px] sm:text-[10px] font-semibold mt-0.5">POS</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Arrows pointing UP toward hub */}
-          <ConnectorArrows direction="up" isVisible={isVisible} />
-
-          {/* Bottom Row — 5 logos */}
-          <div className="grid grid-cols-5 gap-3 sm:gap-5 md:gap-8 justify-items-center">
-            {bottomApps.map((app, i) => (
-              <LogoCard key={app.name} app={app} index={i} isVisible={isVisible} delay={0.6 + i * 0.06} />
-            ))}
-          </div>
+        {/* Desktop: Orbit | Mobile/Tablet: Grid */}
+        <div className="hidden lg:block">
+          <DesktopOrbitLayout isVisible={isVisible} />
+        </div>
+        <div className="lg:hidden">
+          <MobileGridLayout isVisible={isVisible} />
         </div>
 
         {/* Tagline */}
