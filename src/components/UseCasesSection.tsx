@@ -20,7 +20,7 @@ const useCases: UseCaseType[] = [{
   title: 'Fine Dining',
   description: 'Elegant reservation systems & tableside ordering for upscale restaurants.',
   icon: Utensils,
-  image: '/lovable-uploads/fine-dining-interior.jpg'
+  image: '/lovable-uploads/fine-dining-new.jpg'
 }, {
   id: 'cafes',
   title: 'Cafes & Bakeries',
