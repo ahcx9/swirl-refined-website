@@ -459,3 +459,45 @@
   margin-left: 0;
   margin-right: 1rem;
 }
+
+/* Phone input styling */
+.phone-input-wrapper .PhoneInput {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.phone-input-wrapper .PhoneInputCountry {
+  display: flex;
+  align-items: center;
+  padding-right: 8px;
+  border-right: 1px solid hsl(var(--border));
+}
+
+.phone-input-wrapper .PhoneInputCountryIcon {
+  width: 24px;
+  height: 18px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.phone-input-wrapper .PhoneInputCountrySelectArrow {
+  margin-left: 4px;
+  width: 8px;
+  height: 8px;
+  opacity: 0.5;
+}
+
+.phone-input-wrapper .PhoneInputInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: hsl(var(--foreground));
+  font-family: inherit;
+}
+
+.phone-input-wrapper .PhoneInputInput::placeholder {
+  color: hsl(var(--muted-foreground));
+}
