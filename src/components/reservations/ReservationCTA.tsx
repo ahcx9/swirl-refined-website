@@ -20,7 +20,7 @@ const ReservationCTA = () => {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <a
-            href="/contact"
+            href="https://app.swirl.cx/register"
             className="group inline-flex items-center gap-2.5 px-8 py-4 bg-primary text-primary-foreground rounded-2xl font-semibold text-[15px] hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5"
           >
             Get Started Free
