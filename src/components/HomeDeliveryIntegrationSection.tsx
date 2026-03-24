@@ -86,7 +86,7 @@ const HomeDeliveryIntegrationSection = () => {
 
       <div className="container-custom relative z-10">
         {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-10 md:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="mb-5 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 backdrop-blur-sm">
             <Zap className="h-4 w-4 text-primary" />
             <span className="text-primary font-semibold text-sm tracking-wide">Delivery Integration</span>
