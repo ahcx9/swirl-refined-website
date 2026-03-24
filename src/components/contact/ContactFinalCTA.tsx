@@ -38,7 +38,7 @@ const ContactFinalCTA = () => {
             asChild
             className="px-8 py-6 text-base font-semibold rounded-xl border-primary/20 text-primary hover:bg-primary/5"
           >
-            <a href="https://wa.me/971543853877" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+            <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
               <MessageCircle size={18} />
               Speak With Swirl
             </a>
