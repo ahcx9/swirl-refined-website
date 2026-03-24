@@ -18,9 +18,7 @@ const ReservationCTA = () => {
         <p className="text-muted-foreground text-lg mb-10 leading-relaxed max-w-xl mx-auto">
           Thousands of restaurants are modernizing their operations with swirl.cx.
         </p>
-        <div className="flex justify-center">
-          <SwirlCTA />
-        </div>
+        
       </div>
     </section>
   );
