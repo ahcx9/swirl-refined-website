@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Users, UserCheck, BarChart, Mail, Gift, Star, ArrowRight, CheckCircle, Sparkles, TrendingUp, Heart } from 'lucide-react';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import CRMMockup from '@/components/features/crm/CRMMockup';
 import FavoriteItemsMockup from '@/components/features/crm/FavoriteItemsMockup';
@@ -68,9 +68,7 @@ const CRM = () => {
                   </p>
                   
                   <div className="animate-on-scroll animate-delay-300">
-                    <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                      Get Started Free
-                    </CustomCTAButton>
+                    <SwirlCTA />
                   </div>
                 </div>
                 

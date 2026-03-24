@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SwirlCTA from '@/components/SwirlCTA';
 import { 
   Search, 
   ChevronDown, 
@@ -238,15 +239,7 @@ const ModernFAQConsole: React.FC = () => {
                 <p className="text-sm text-muted-foreground">
                   Can't find what you're looking for?
                 </p>
-                <a
-                  href="https://app.swirl.cx/register"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25"
-                >
-                  Get Started Free
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+                <SwirlCTA />
               </div>
             </div>
           </div>

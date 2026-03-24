@@ -29,6 +29,7 @@ import Reservations from './pages/features/Reservations';
 import Support from './pages/Support';
 
 import { LanguageProvider } from './contexts/LanguageContext';
+import MobileStickyBar from './components/MobileStickyBar';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
       <Router>
         <Navbar />
         <ScrollToTop />
+        <MobileStickyBar />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/contact" element={<Contact />} />

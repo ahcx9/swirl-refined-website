@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Gift, Star, Crown, ArrowRight, CheckCircle, Sparkles, Heart, Award, Cake, Users, Zap, TrendingUp, BarChart } from 'lucide-react';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const LoyaltyDashboardMockup = () => {
@@ -163,9 +163,7 @@ const Loyalty = () => {
                   Build loyalty that lasts. Points, tiers, birthday rewards, and smart automation — all built into your POS.
                 </p>
                 <div className="animate-on-scroll animate-delay-300">
-                  <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                    Get Started Free
-                  </CustomCTAButton>
+                  <SwirlCTA />
                 </div>
               </div>
               {/* Dashboard Mockup */}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { QrCode, Clock, Dumbbell, Coffee, Utensils, Waves, Calendar, MapPin, Wifi, Car } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 const HotelIndustrySection = () => {
   const hotelServices = [{
     icon: Utensils,
@@ -176,9 +176,7 @@ const HotelIndustrySection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-100">
-              Start Your Hotel Transformation
-            </CustomCTAButton>
+            <SwirlCTA />
             
             <div className="flex items-center gap-2 text-gray-600">
               <span className="text-sm">✨ Free 30-day trial</span>

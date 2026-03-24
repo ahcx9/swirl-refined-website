@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import TrustedRestaurants from '@/components/TrustedRestaurants';
 import { QrCode, ScanLine, ShoppingCart, CreditCard, Utensils, TrendingUp, Clock, Users, Smartphone, CheckCircle, Star, ArrowRight, Sparkles, Zap, BarChart, Shield, Phone, Coffee, Truck, Building } from 'lucide-react';
 import { preloadImages } from '@/utils/imagePreloader';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const QROrdering = () => {
@@ -106,9 +106,7 @@ const QROrdering = () => {
                   Transform your dining experience with contactless ordering that delights customers and boosts revenue.
                 </p>
                 <div className="animate-on-scroll animate-delay-300">
-                  <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                    Get Started Free
-                  </CustomCTAButton>
+                  <SwirlCTA />
                 </div>
               </div>
               

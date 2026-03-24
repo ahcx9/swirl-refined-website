@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Footer from '@/components/Footer';
 import { Truck, Utensils, Store, Hotel, ChefHat, Coffee, ArrowRight, CheckCircle, BarChart3, Clock, Users, TrendingUp, Zap } from 'lucide-react';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const segments = [
@@ -118,9 +118,7 @@ const UseCases = () => {
               <p className="text-lg mb-8 text-muted-foreground max-w-2xl mx-auto">
                 See how Swirl transforms operations for every type of food business — from counter to cloud.
               </p>
-              <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                Get Started Free
-              </CustomCTAButton>
+              <SwirlCTA />
             </div>
           </div>
         </section>

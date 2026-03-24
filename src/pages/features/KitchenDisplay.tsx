@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 import { ChefHat, Timer, Bell, ClipboardCheck, Settings, ArrowRight, CheckCircle, Users, BarChart3, Zap, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -67,9 +67,7 @@ const KitchenDisplay = () => {
                 </p>
                 
                 <div className="animate-on-scroll animate-delay-300">
-                  <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                    Get Started Free
-                  </CustomCTAButton>
+                  <SwirlCTA />
                 </div>
               </div>
               

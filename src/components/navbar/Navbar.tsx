@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, ArrowRight } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import SwirlCTA from '@/components/SwirlCTA';
 import { MegaMenuContent, TabKey } from './mega-menu/MegaMenuContent';
 import { MegaMenuOverlay } from './mega-menu/MegaMenuOverlay';
 import { PremiumMobileMenu } from './mega-menu/PremiumMobileMenu';
@@ -132,15 +133,7 @@ const Navbar = () => {
             {/* Right: CTA + Mobile toggle */}
             <div className="flex items-center gap-3 z-10">
               {/* Get Started - desktop */}
-              <a
-                href="https://app.swirl.cx/register"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-[15px] font-semibold rounded-xl shadow-md shadow-primary/15 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.03] transition-all duration-300 group hover:-translate-y-0.5"
-              >
-                Get Started Free
-                <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5" />
-              </a>
+              <SwirlCTA className="hidden md:inline-flex" />
 
               {/* Mobile hamburger */}
               <button

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import SwirlCTA from '@/components/SwirlCTA';
 
 const ReservationCTA = () => {
   return (
@@ -18,14 +18,8 @@ const ReservationCTA = () => {
         <p className="text-muted-foreground text-lg mb-10 leading-relaxed max-w-xl mx-auto">
           Thousands of restaurants are modernizing their operations with swirl.cx.
         </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <a
-            href="https://app.swirl.cx/register"
-            className="group inline-flex items-center gap-2.5 px-8 py-4 bg-primary text-primary-foreground rounded-2xl font-semibold text-[15px] hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5"
-          >
-            Get Started Free
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </a>
+        <div className="flex justify-center">
+          <SwirlCTA />
         </div>
       </div>
     </section>

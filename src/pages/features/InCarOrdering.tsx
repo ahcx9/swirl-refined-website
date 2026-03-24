@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 import { Car, MapPin, Clock, CreditCard, Bell, Smartphone, CheckCircle, ArrowRight, Sparkles, TrendingUp, Users, Shield, QrCode } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -65,9 +65,7 @@ const InCarOrdering = () => {
                   </p>
                   
                   <div className="animate-on-scroll animate-delay-300">
-                    <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                      Get Started Free
-                    </CustomCTAButton>
+                    <SwirlCTA />
                   </div>
                 </div>
                 

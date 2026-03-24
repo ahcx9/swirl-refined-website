@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
+import SwirlCTA from '@/components/SwirlCTA';
 import { Instagram, TikTok } from "./SocialIcons";
 
 const Footer = () => {
@@ -45,15 +46,7 @@ const Footer = () => {
             <h3 className="text-2xl md:text-3xl font-bold mb-1">Ready to transform your restaurant?</h3>
             <p className="text-white/60 text-sm">Get started with Swirl — free setup, no commitment.</p>
           </div>
-          <a 
-            href="https://app.swirl.cx/register" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 whitespace-nowrap"
-          >
-            Get Started Free
-            <ArrowRight className="w-4 h-4" />
-          </a>
+          <SwirlCTA />
         </div>
       </div>
 

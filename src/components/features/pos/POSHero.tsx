@@ -1,7 +1,7 @@
 import React from 'react';
 import { Cloud } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 import POSMockup from './POSMockup';
 
 const POSHero = () => {
@@ -24,9 +24,7 @@ const POSHero = () => {
           The complete cloud-based POS system designed for modern restaurants. Bill faster, manage smarter, grow bigger.
         </p>
 
-        <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-          {t('cta.getStarted')}
-        </CustomCTAButton>
+        <SwirlCTA />
       </div>
 
       <div className="py-8 px-4 md:px-8">

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Zap, RefreshCw, Bell, Clock, Monitor } from 'lucide-react';
+import { Zap, RefreshCw, Bell, Clock, Monitor } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import SwirlCTA from '@/components/SwirlCTA';
 
 const HomeDeliveryIntegrationSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -294,12 +294,7 @@ const HomeDeliveryIntegrationSection = () => {
 
         {/* CTA */}
         <div className={`text-center transition-all duration-700 delay-[1.2s] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-700 shadow-lg shadow-primary/20 text-white">
-            <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-              Get Started Free
-              <ArrowRight className="h-4 w-4" />
-            </a>
-          </Button>
+          <SwirlCTA />
         </div>
       </div>
     </section>

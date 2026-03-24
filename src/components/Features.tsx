@@ -1,7 +1,7 @@
 import React from 'react';
 import { LayoutDashboard, ShoppingCart, BarChart, CreditCard, Users, Package, Car, Calendar, FileText, Monitor } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 const features = [{
   id: 'digital-menu',
   title: 'Digital Menu',
@@ -80,9 +80,7 @@ const Features = () => {
         </div>
         
         <div className="text-center mt-10">
-          <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-90">
-            get started for free
-          </CustomCTAButton>
+          <SwirlCTA />
         </div>
       </div>
     </section>;
