@@ -38,7 +38,7 @@ const sections = [
       { title: 'Accounting', path: '/products/accounting' },
       { title: 'CRM', path: '/products/customer-relationship-management' },
       { title: 'Inventory Management', path: '/products/inventory-management' },
-      { title: 'swirl Hardware', path: '/products/swirl-hardware' },
+      
     ],
   },
 ];
