@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Monitor, ShieldCheck, Eye, ArrowRight, CheckCircle, Sparkles, Receipt, Gift, Megaphone, CreditCard } from 'lucide-react';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 /* ============ PREMIUM 3D HARDWARE MOCKUP ============ */
