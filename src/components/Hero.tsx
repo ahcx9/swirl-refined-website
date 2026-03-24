@@ -1060,6 +1060,12 @@ const Hero: React.FC = () => {
           <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mt-4 max-w-3xl mx-auto leading-relaxed font-medium">
             Cloud POS, QR Ordering, Inventory, Accounting, Analytics, Reservations, Loyalty, CRM, And AI — All Working As One.
           </p>
+          <div className="mt-6 flex items-center justify-center gap-6">
+            <SwirlCTA />
+            <Link to="/contact" className="text-primary font-semibold text-sm hover:underline underline-offset-4 transition-all">
+              Book a Demo →
+            </Link>
+          </div>
         </div>
       </div>
     </section>
