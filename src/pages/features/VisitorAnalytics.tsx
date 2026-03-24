@@ -3,6 +3,7 @@ import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { BarChart, PieChart, LineChart, TrendingUp, Database, ArrowRight, Sparkles, Users, Clock, DollarSign, CheckCircle, QrCode, UserPlus, RefreshCw, Smartphone, Eye, Calendar } from 'lucide-react';
 import SwirlCTA from '@/components/SwirlCTA';
+import BookDemoCTA from '@/components/BookDemoCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 // Visitor Analytics Dashboard Mockup Component

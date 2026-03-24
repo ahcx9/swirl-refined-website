@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { Monitor, Printer, Shield, Zap, CheckCircle, ArrowRight, Sparkles, Wifi, Building2, Headphones, Settings, Receipt, Clock, ThermometerSun, Usb, Network, Gauge, Award, Layers } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import SwirlCTA from '@/components/SwirlCTA';
+import BookDemoCTA from '@/components/BookDemoCTA';
 const SwirlHardware = () => {
   useScrollAnimation();
   const posFeatures = [{

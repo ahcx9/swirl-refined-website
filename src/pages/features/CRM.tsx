@@ -3,6 +3,7 @@ import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Users, UserCheck, BarChart, Mail, Gift, Star, ArrowRight, CheckCircle, Sparkles, TrendingUp, Heart } from 'lucide-react';
 import SwirlCTA from '@/components/SwirlCTA';
+import BookDemoCTA from '@/components/BookDemoCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import CRMMockup from '@/components/features/crm/CRMMockup';
 import FavoriteItemsMockup from '@/components/features/crm/FavoriteItemsMockup';
