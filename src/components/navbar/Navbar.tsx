@@ -95,7 +95,7 @@ const Navbar = () => {
                   onMouseEnter={() => handleTabEnter(tab.key)}
                   onMouseLeave={handleTabLeave}
                   onClick={() => setActiveTab(activeTab === tab.key ? null : tab.key)}
-                  className={`relative px-5 py-2.5 text-[17px] tracking-[0.3px] rounded-xl transition-all duration-300 ${
+                  className={`relative px-4 py-2.5 text-[15px] tracking-[0.2px] rounded-xl transition-all duration-300 whitespace-nowrap ${
                     activeTab === tab.key
                       ? 'text-primary font-semibold bg-blue-50/80'
                       : 'text-foreground font-medium hover:text-primary hover:font-semibold hover:bg-gray-50/60'
