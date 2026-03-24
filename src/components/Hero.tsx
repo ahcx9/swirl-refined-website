@@ -1049,7 +1049,7 @@ const Hero: React.FC = () => {
     </section>
 
     {/* Section 2: "One Platform. Complete Control." — Standalone statement */}
-    <section className="py-10 md:py-16 bg-white">
+    <section className="pt-2 md:pt-4 pb-10 md:pb-16 bg-white">
       <div className="container-custom">
         <div className="text-center max-w-4xl mx-auto animate-fade-in">
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight leading-[1.05]">Operating System for 
