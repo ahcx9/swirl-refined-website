@@ -358,7 +358,7 @@ const QROrdering = () => {
           </div>
         </section>
 
-        <TrustedRestaurants />
+        
 
       </main>
       <Footer />
