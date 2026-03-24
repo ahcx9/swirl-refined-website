@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import SwirlCTA from '@/components/SwirlCTA';
+import BookDemoCTA from '@/components/BookDemoCTA';
 import { Car, MapPin, Clock, CreditCard, Bell, Smartphone, CheckCircle, ArrowRight, Sparkles, TrendingUp, Users, Shield, QrCode } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
