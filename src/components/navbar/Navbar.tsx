@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, ArrowRight } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import SwirlCTA from '@/components/SwirlCTA';
 import { MegaMenuContent, TabKey } from './mega-menu/MegaMenuContent';
 import { MegaMenuOverlay } from './mega-menu/MegaMenuOverlay';
 import { PremiumMobileMenu } from './mega-menu/PremiumMobileMenu';

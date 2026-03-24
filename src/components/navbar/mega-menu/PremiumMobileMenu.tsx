@@ -123,14 +123,7 @@ export const PremiumMobileMenu: React.FC<PremiumMobileMenuProps> = ({ isOpen, on
 
           {/* CTA */}
           <div className="pt-4">
-            <a
-              href="https://app.swirl.cx/register"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full bg-primary text-white text-center py-3.5 rounded-2xl text-[14px] font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all"
-            >
-              Get Started Free
-            </a>
+            <SwirlCTA className="w-full justify-center" />
           </div>
         </div>
       </div>

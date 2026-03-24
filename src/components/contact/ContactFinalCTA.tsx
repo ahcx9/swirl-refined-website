@@ -23,14 +23,7 @@ const ContactFinalCTA = () => {
         </p>
 
         <div className="flex items-center justify-center">
-          <Button
-            size="lg"
-            onClick={scrollToForm}
-            className="group px-8 py-6 text-base font-semibold rounded-xl shadow-lg bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-600"
-          >
-            Get Started Free
-            <ArrowRight size={18} className="ml-1 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <SwirlCTA />
         </div>
       </div>
     </section>

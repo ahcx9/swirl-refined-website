@@ -29,16 +29,8 @@ const ReservationHero = () => {
             Complete control over bookings, tables, guest profiles, and service flow — all in one intelligent platform designed for modern hospitality teams.
           </p>
 
-          <div className="flex flex-wrap gap-4 justify-center mt-10">
-            <a
-              href="https://app.swirl.cx/register"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 px-8 py-4 bg-primary text-primary-foreground rounded-2xl font-semibold text-[15px] hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5"
-            >
-              Get Started Free
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </a>
+          <div className="flex justify-center mt-10">
+            <SwirlCTA />
           </div>
         </div>
 

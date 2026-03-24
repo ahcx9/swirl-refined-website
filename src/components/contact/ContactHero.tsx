@@ -1,6 +1,6 @@
 import React from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Sparkles } from 'lucide-react';
+import SwirlCTA from '@/components/SwirlCTA';
 
 const ContactHero = () => {
   const scrollToForm = () => {
