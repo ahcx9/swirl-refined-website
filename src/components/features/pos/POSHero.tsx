@@ -1,7 +1,7 @@
 import React from 'react';
 import { Cloud } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 import POSMockup from './POSMockup';
 
 const POSHero = () => {
