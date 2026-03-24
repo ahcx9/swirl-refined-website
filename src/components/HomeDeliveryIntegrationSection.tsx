@@ -103,8 +103,8 @@ const HomeDeliveryIntegrationSection = () => {
         </div>
 
         {/* Orbit Visualization */}
-        <div className={`relative max-w-[800px] mx-auto mb-16 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-          <svg viewBox="0 0 800 520" className="w-full h-auto" style={{ minHeight: '380px' }}>
+        <div className={`relative max-w-[800px] mx-auto mb-10 md:mb-16 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+          <svg viewBox="0 0 800 520" className="w-full h-auto" style={{ minHeight: '280px' }}>
             <defs>
               <linearGradient id="connGrad" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="hsl(217,100%,40%)" stopOpacity="0.5" />

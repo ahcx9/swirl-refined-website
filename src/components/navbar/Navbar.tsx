@@ -142,6 +142,16 @@ const Navbar = () => {
               {/* Get Started - desktop */}
               <SwirlCTA className="hidden md:inline-flex" />
 
+              {/* Book a Demo - mobile (shows on scroll) */}
+              <a
+                href="/contact"
+                className={`md:hidden inline-flex items-center gap-1.5 h-9 px-4 bg-primary text-primary-foreground text-[13px] font-semibold rounded-xl shadow-sm transition-all duration-300 ${
+                  isScrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1 pointer-events-none'
+                }`}
+              >
+                Book a Demo
+              </a>
+
               {/* Mobile hamburger */}
               <button
                 className="xl:hidden w-10 h-10 rounded-xl bg-gray-100/80 flex items-center justify-center hover:bg-gray-200/80 transition-colors"
