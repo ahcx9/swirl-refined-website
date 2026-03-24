@@ -36,6 +36,9 @@ const Index = () => {
         {/* Delivery Integration */}
         <HomeDeliveryIntegrationSection />
         
+        {/* ZATCA Compliance */}
+        <HomeZATCASection />
+        
         {/* Section 4: Operational Transformation Dashboards */}
         <OperationalDashboards />
         
