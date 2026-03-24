@@ -88,14 +88,14 @@ const Navbar = () => {
             </Link>
 
             {/* Center: Product tabs (desktop) */}
-            <div className="hidden xl:flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
+            <div className="hidden xl:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
               {tabs.map((tab) => (
                 <button
                   key={tab.key}
                   onMouseEnter={() => handleTabEnter(tab.key)}
                   onMouseLeave={handleTabLeave}
                   onClick={() => setActiveTab(activeTab === tab.key ? null : tab.key)}
-                  className={`relative px-5 py-2.5 text-[17px] tracking-[0.3px] rounded-xl transition-all duration-300 ${
+                  className={`relative px-4 py-2.5 text-[15px] tracking-[0.2px] rounded-xl transition-all duration-300 whitespace-nowrap ${
                     activeTab === tab.key
                       ? 'text-primary font-semibold bg-blue-50/80'
                       : 'text-foreground font-medium hover:text-primary hover:font-semibold hover:bg-gray-50/60'
@@ -112,24 +112,24 @@ const Navbar = () => {
               ))}
 
               {/* Additional nav links */}
-              <div className="flex items-center gap-1 ml-4 pl-4 border-l border-border/50">
+              <div className="flex items-center gap-0.5 ml-3 pl-3 border-l border-border/50">
                 <Link
                   to="/products/swirl-hardware"
-                  className={`px-5 py-2.5 text-[17px] tracking-[0.3px] font-medium text-foreground hover:text-primary hover:font-semibold transition-all duration-300 rounded-xl hover:bg-gray-50/60`}
+                  className={`px-4 py-2.5 text-[15px] tracking-[0.2px] font-medium text-foreground hover:text-primary hover:font-semibold transition-all duration-300 rounded-xl hover:bg-gray-50/60 whitespace-nowrap`}
                   onClick={closeMegaMenu}
                 >
                   Hardware
                 </Link>
                 <Link
                   to="/use-cases"
-                  className={`px-5 py-2.5 text-[17px] tracking-[0.3px] font-medium text-foreground hover:text-primary hover:font-semibold transition-all duration-300 rounded-xl hover:bg-gray-50/60`}
+                  className={`px-4 py-2.5 text-[15px] tracking-[0.2px] font-medium text-foreground hover:text-primary hover:font-semibold transition-all duration-300 rounded-xl hover:bg-gray-50/60 whitespace-nowrap`}
                   onClick={closeMegaMenu}
                 >
                   Use Cases
                 </Link>
                 <Link
                   to="/contact"
-                  className={`px-5 py-2.5 text-[17px] tracking-[0.3px] font-medium text-foreground hover:text-primary hover:font-semibold transition-all duration-300 rounded-xl hover:bg-gray-50/60`}
+                  className={`px-4 py-2.5 text-[15px] tracking-[0.2px] font-medium text-foreground hover:text-primary hover:font-semibold transition-all duration-300 rounded-xl hover:bg-gray-50/60 whitespace-nowrap`}
                   onClick={closeMegaMenu}
                 >
                   Contact
