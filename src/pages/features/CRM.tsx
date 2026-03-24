@@ -67,8 +67,9 @@ const CRM = () => {
                     Build lasting relationships with your customers. Understand preferences, reward loyalty, and deliver personalized experiences.
                   </p>
                   
-                  <div className="animate-on-scroll animate-delay-300">
+                  <div className="animate-on-scroll animate-delay-300 flex items-center justify-center gap-4 flex-wrap">
                     <SwirlCTA />
+                    <BookDemoCTA />
                   </div>
                 </div>
                 

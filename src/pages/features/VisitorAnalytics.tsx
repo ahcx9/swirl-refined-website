@@ -205,8 +205,9 @@ const VisitorAnalytics = () => {
                     Track every interaction and gain insights into customer behavior. Know who's scanning your QR codes and how they engage with your menu.
                   </p>
                   
-                  <div className="animate-on-scroll animate-delay-300">
+                  <div className="animate-on-scroll animate-delay-300 flex items-center justify-center gap-4 flex-wrap">
                     <SwirlCTA />
+                    <BookDemoCTA />
                   </div>
                 </div>
 

@@ -79,8 +79,9 @@ const DigitalMenu = () => {
                 <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
                   Transform your menu into an interactive sales tool with beautiful designs, real-time updates, and AI-powered features.
                 </p>
-                <div className="animate-on-scroll animate-delay-300">
+                <div className="animate-on-scroll animate-delay-300 flex items-center justify-center gap-4 flex-wrap">
                   <SwirlCTA />
+                  <BookDemoCTA />
                 </div>
               </div>
             </div>
