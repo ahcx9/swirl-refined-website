@@ -34,7 +34,7 @@ const HomeDeliveryIntegrationSection = () => {
 
   const cx = 400;
   const cy = 260;
-  const radius = 200;
+  const radius = typeof window !== 'undefined' && window.innerWidth < 640 ? 160 : 200;
 
   // Perfect circle: evenly spaced, starting from top (−90°), clockwise
   const getPosition = (index: number) => {
@@ -71,7 +71,7 @@ const HomeDeliveryIntegrationSection = () => {
     <section
       ref={sectionRef}
       id="delivery-integration"
-      className="py-20 md:py-32 overflow-hidden relative"
+      className="py-14 md:py-24 lg:py-32 overflow-hidden relative"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-blue-50/30 to-background" />
@@ -86,7 +86,7 @@ const HomeDeliveryIntegrationSection = () => {
 
       <div className="container-custom relative z-10">
         {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-10 md:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="mb-5 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 backdrop-blur-sm">
             <Zap className="h-4 w-4 text-primary" />
             <span className="text-primary font-semibold text-sm tracking-wide">Delivery Integration</span>
@@ -103,8 +103,8 @@ const HomeDeliveryIntegrationSection = () => {
         </div>
 
         {/* Orbit Visualization */}
-        <div className={`relative max-w-[800px] mx-auto mb-16 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-          <svg viewBox="0 0 800 520" className="w-full h-auto" style={{ minHeight: '380px' }}>
+        <div className={`relative max-w-[800px] mx-auto mb-10 md:mb-16 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+          <svg viewBox="0 0 800 520" className="w-full h-auto" style={{ minHeight: '280px' }}>
             <defs>
               <linearGradient id="connGrad" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="hsl(217,100%,40%)" stopOpacity="0.5" />

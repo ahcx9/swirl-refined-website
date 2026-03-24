@@ -7,6 +7,7 @@ import POSBenefits from '@/components/features/pos/POSBenefits';
 import POSCallToAction from '@/components/features/pos/POSCallToAction';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import SwirlCTA from '@/components/SwirlCTA';
+import BookDemoCTA from '@/components/BookDemoCTA';
 import { useCurrency } from '@/hooks/useCurrency';
 import { Smartphone, Zap, Percent, ArrowLeftRight, LayoutGrid, TrendingUp, FileText, Users, Layers, CheckCircle, Sparkles, Clock, Shield, Receipt, Truck, QrCode, UtensilsCrossed, Tablet, Map, Building, FileCheck, Languages, BadgeCheck, Globe, Apple, StickyNote, Settings2, DollarSign, Copy, GitBranch, Timer, ChefHat, ArrowRight, RefreshCw, Image as ImageIcon, ArrowUpDown } from 'lucide-react';
 const PointOfSale = () => {
@@ -1116,11 +1117,9 @@ const PointOfSale = () => {
 
             {/* Book Demo CTA */}
             <section className="py-16 text-center">
-              <div className="flex items-center justify-center gap-6">
+              <div className="flex items-center justify-center gap-4 flex-wrap">
                 <SwirlCTA />
-                <a href="/contact" className="text-primary font-semibold text-sm hover:underline underline-offset-4 transition-all">
-                  Book a Demo →
-                </a>
+                <BookDemoCTA />
               </div>
             </section>
 

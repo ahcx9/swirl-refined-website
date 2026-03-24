@@ -3,6 +3,7 @@ import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { BarChart, PieChart, LineChart, TrendingUp, Database, ArrowRight, Sparkles, Users, Clock, DollarSign, CheckCircle, QrCode, UserPlus, RefreshCw, Smartphone, Eye, Calendar } from 'lucide-react';
 import SwirlCTA from '@/components/SwirlCTA';
+import BookDemoCTA from '@/components/BookDemoCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 // Visitor Analytics Dashboard Mockup Component
@@ -205,8 +206,9 @@ const VisitorAnalytics = () => {
                     Track every interaction and gain insights into customer behavior. Know who's scanning your QR codes and how they engage with your menu.
                   </p>
                   
-                  <div className="animate-on-scroll animate-delay-300">
+                  <div className="animate-on-scroll animate-delay-300 flex items-center justify-center gap-4 flex-wrap">
                     <SwirlCTA />
+                    <BookDemoCTA />
                   </div>
                 </div>
 

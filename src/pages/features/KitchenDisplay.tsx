@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import SwirlCTA from '@/components/SwirlCTA';
+import BookDemoCTA from '@/components/BookDemoCTA';
 import { ChefHat, Timer, Bell, ClipboardCheck, Settings, ArrowRight, CheckCircle, Users, BarChart3, Zap, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -66,8 +67,9 @@ const KitchenDisplay = () => {
                   Transform your kitchen efficiency with our advanced Kitchen Display System. Reduce errors, improve communication, and speed up service.
                 </p>
                 
-                <div className="animate-on-scroll animate-delay-300">
+                <div className="animate-on-scroll animate-delay-300 flex items-center justify-center gap-4 flex-wrap">
                   <SwirlCTA />
+                  <BookDemoCTA />
                 </div>
               </div>
               

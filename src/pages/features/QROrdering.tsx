@@ -5,6 +5,7 @@ import TrustedRestaurants from '@/components/TrustedRestaurants';
 import { QrCode, ScanLine, ShoppingCart, CreditCard, Utensils, TrendingUp, Clock, Users, Smartphone, CheckCircle, Star, ArrowRight, Sparkles, Zap, BarChart, Shield, Phone, Coffee, Truck, Building } from 'lucide-react';
 import { preloadImages } from '@/utils/imagePreloader';
 import SwirlCTA from '@/components/SwirlCTA';
+import BookDemoCTA from '@/components/BookDemoCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const QROrdering = () => {
@@ -105,8 +106,9 @@ const QROrdering = () => {
                 <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
                   Transform your dining experience with contactless ordering that delights customers and boosts revenue.
                 </p>
-                <div className="animate-on-scroll animate-delay-300">
+                <div className="animate-on-scroll animate-delay-300 flex items-center justify-center gap-4 flex-wrap">
                   <SwirlCTA />
+                  <BookDemoCTA />
                 </div>
               </div>
               

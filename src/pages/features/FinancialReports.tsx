@@ -3,6 +3,7 @@ import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { LayoutDashboard, PieChart, LineChart, FilePlus2, Calculator, DollarSign, TrendingUp, CreditCard, Wallet, Receipt, ArrowRight, Sparkles, Clock, Printer, History, FileText, CheckCircle, BarChart3, Percent, Calendar } from 'lucide-react';
 import SwirlCTA from '@/components/SwirlCTA';
+import BookDemoCTA from '@/components/BookDemoCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useCurrency } from '@/hooks/useCurrency';
 import FinancialReportsMockup from '@/components/features/financial-reports/FinancialReportsMockup';
@@ -137,8 +138,9 @@ const FinancialReports = () => {
                 Complete visibility into your restaurant's financial health. Track performance, control costs, and make data-driven decisions.
               </p>
               
-              <div className="animate-on-scroll animate-delay-300">
+              <div className="animate-on-scroll animate-delay-300 flex items-center justify-center gap-4 flex-wrap">
                 <SwirlCTA />
+                <BookDemoCTA />
               </div>
             </div>
 

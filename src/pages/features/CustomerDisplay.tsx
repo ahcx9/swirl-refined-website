@@ -3,6 +3,7 @@ import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Monitor, ShieldCheck, Eye, ArrowRight, CheckCircle, Sparkles, Receipt, Gift, Megaphone, CreditCard } from 'lucide-react';
 import SwirlCTA from '@/components/SwirlCTA';
+import BookDemoCTA from '@/components/BookDemoCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 /* ============ PREMIUM 3D HARDWARE MOCKUP ============ */
@@ -156,8 +157,9 @@ const CustomerDisplay = () => {
                 <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
                   Give your customers a clear view of their order, total, and loyalty rewards — right at the checkout counter.
                 </p>
-                <div className="animate-on-scroll animate-delay-300">
+                <div className="animate-on-scroll animate-delay-300 flex items-center justify-center gap-4 flex-wrap">
                   <SwirlCTA />
+                  <BookDemoCTA />
                 </div>
               </div>
               {/* 3D Hardware Mockup */}
