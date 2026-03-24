@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { FileText, Globe, DollarSign, Utensils, Clock, Star, Bot, Smartphone, BarChart, Sparkles, Check, ArrowRight, Palette, Languages, Zap, Upload, Brain, Wand2, FileImage, Timer, GitBranch, Building, Copy, RefreshCw, Settings } from 'lucide-react';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useLanguage } from '@/contexts/LanguageContext';
 
