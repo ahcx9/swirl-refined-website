@@ -118,8 +118,8 @@ const UseCases = () => {
               <p className="text-lg mb-8 text-muted-foreground max-w-2xl mx-auto">
                 See how Swirl transforms operations for every type of food business — from counter to cloud.
               </p>
-              <CustomCTAButton href="/contact">
-                Book a Demo
+              <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                Get Started Free
               </CustomCTAButton>
             </div>
           </div>

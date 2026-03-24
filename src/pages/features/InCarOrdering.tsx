@@ -65,8 +65,8 @@ const InCarOrdering = () => {
                   </p>
                   
                   <div className="animate-on-scroll animate-delay-300">
-                    <CustomCTAButton href="/contact">
-                      Book a Demo
+                    <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
+                      Get Started Free
                     </CustomCTAButton>
                   </div>
                 </div>

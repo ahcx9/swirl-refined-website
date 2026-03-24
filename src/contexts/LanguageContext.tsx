@@ -49,7 +49,7 @@ const translations = {
     // Call to Action Sections
     "cta.transform": "ready to transform your restaurant experience?",
     "cta.join": "join thousands of restaurants already using swirl.cx",
-    "cta.getStarted": "Book Demo",
+    "cta.getStarted": "Get Started Free",
     "cta.ready": "ready to modernize your restaurant's point of sale?",
     "cta.contact":
       "Contact us today for a personalized demonstration and pricing tailored to your restaurant's unique needs and budget.",
