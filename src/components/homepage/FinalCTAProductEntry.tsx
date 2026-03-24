@@ -111,13 +111,15 @@ const FinalCTAProductEntry: React.FC = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-                <Link
-                  to="https://app.swirl.cx/register"
+                <a
+                  href="https://app.swirl.cx/register"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex items-center gap-2 px-7 py-3.5 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1"
                 >
                   Get Started Free
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                </a>
               </div>
 
               {/* Trust indicators */}
