@@ -39,15 +39,8 @@ const ContactHero = () => {
             Swirl helps restaurants, cafés, and hospitality brands manage operations, sales, customer experience, and growth from one powerful platform.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button
-              size="lg"
-              onClick={scrollToForm}
-              className="group px-8 py-6 text-base font-semibold rounded-xl shadow-lg hover:shadow-xl bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-600"
-            >
-              Get Started Free
-              <ArrowRight size={18} className="ml-1 group-hover:translate-x-1 transition-transform" />
-            </Button>
+          <div className="flex items-center justify-center">
+            <SwirlCTA />
           </div>
         </div>
       </div>
