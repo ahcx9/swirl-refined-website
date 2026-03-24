@@ -257,22 +257,6 @@ const InventoryManagement = () => {
           </div>
         </section>
 
-        {/* Final CTA */}
-        <section className="py-20 bg-gradient-to-br from-primary to-primary/90">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-white mb-4">
-                Ready to Control Your Inventory?
-              </h2>
-              <p className="animate-on-scroll animate-delay-100 text-lg text-white/80 mb-8">
-                Join 1000+ restaurants cutting costs and reducing waste with swirl
-              </p>
-              <div className="animate-on-scroll animate-delay-200 flex justify-center">
-                <SwirlCTA />
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </div>
