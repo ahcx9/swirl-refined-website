@@ -32,7 +32,7 @@ const useCases: UseCaseType[] = [{
   title: 'Quick Service',
   description: 'Fast, efficient systems for quick service restaurants and food courts.',
   icon: Store,
-  image: '/lovable-uploads/quick-service.jpg'
+  image: '/lovable-uploads/quick-service-new.jpg'
 }, {
   id: 'cloud-kitchens',
   title: 'Cloud Kitchens',
