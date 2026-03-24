@@ -138,7 +138,7 @@ const Navbar = () => {
                 rel="noopener noreferrer"
                 className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-[15px] font-semibold rounded-xl shadow-md shadow-primary/15 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.03] transition-all duration-300 group hover:-translate-y-0.5"
               >
-                Get Started
+                Get Started Free
                 <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5" />
               </a>
 

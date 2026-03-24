@@ -129,7 +129,7 @@ export const PremiumMobileMenu: React.FC<PremiumMobileMenuProps> = ({ isOpen, on
               rel="noopener noreferrer"
               className="block w-full bg-primary text-white text-center py-3.5 rounded-2xl text-[14px] font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all"
             >
-              Get Started
+              Get Started Free
             </a>
           </div>
         </div>

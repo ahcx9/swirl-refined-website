@@ -45,16 +45,8 @@ const ContactHero = () => {
               onClick={scrollToForm}
               className="group px-8 py-6 text-base font-semibold rounded-xl shadow-lg hover:shadow-xl bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-600"
             >
-              Book A Demo
+              Get Started Free
               <ArrowRight size={18} className="ml-1 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={scrollToForm}
-              className="px-8 py-6 text-base font-semibold rounded-xl border-primary/20 text-primary hover:bg-primary/5"
-            >
-              Talk To Sales
             </Button>
           </div>
         </div>
