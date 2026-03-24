@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Plus, Minus, Trash2, X, Search, ChefHat, ArrowLeftRight, Merge, SplitSquareVertical, Printer, CreditCard, Banknote, Sparkles, MousePointerClick, Play, SkipForward, XCircle, Percent, Tag, Receipt, Wallet, Smartphone, CircleDollarSign, StickyNote, ShoppingBag } from 'lucide-react';
 import { Button } from './ui/button';
 import { useCurrency } from '@/hooks/useCurrency';
+import SwirlCTA from '@/components/SwirlCTA';
 
 // ============ TYPES ============
 interface OrderItem {

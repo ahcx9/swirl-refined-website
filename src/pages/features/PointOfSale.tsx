@@ -1116,7 +1116,12 @@ const PointOfSale = () => {
 
             {/* Book Demo CTA */}
             <section className="py-16 text-center">
-              <SwirlCTA />
+              <div className="flex items-center justify-center gap-6">
+                <SwirlCTA />
+                <a href="/contact" className="text-primary font-semibold text-sm hover:underline underline-offset-4 transition-all">
+                  Book a Demo →
+                </a>
+              </div>
             </section>
 
             <POSCallToAction />
