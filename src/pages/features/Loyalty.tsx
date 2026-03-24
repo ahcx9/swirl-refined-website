@@ -163,8 +163,9 @@ const Loyalty = () => {
                 <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
                   Build loyalty that lasts. Points, tiers, birthday rewards, and smart automation — all built into your POS.
                 </p>
-                <div className="animate-on-scroll animate-delay-300">
+                <div className="animate-on-scroll animate-delay-300 flex items-center justify-center gap-4 flex-wrap">
                   <SwirlCTA />
+                  <BookDemoCTA />
                 </div>
               </div>
               {/* Dashboard Mockup */}

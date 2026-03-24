@@ -108,8 +108,9 @@ const InventoryManagement = () => {
                     ))}
                   </div>
                   
-                  <div className="animate-on-scroll animate-delay-400">
+                  <div className="animate-on-scroll animate-delay-400 flex items-center justify-center gap-4 flex-wrap">
                     <SwirlCTA />
+                    <BookDemoCTA />
                   </div>
                 </div>
                 

@@ -65,8 +65,9 @@ const InCarOrdering = () => {
                     Skip the lines and order effortlessly. Browse menus, place orders, and pay without leaving your vehicle.
                   </p>
                   
-                  <div className="animate-on-scroll animate-delay-300">
+                  <div className="animate-on-scroll animate-delay-300 flex items-center justify-center gap-4 flex-wrap">
                     <SwirlCTA />
+                    <BookDemoCTA />
                   </div>
                 </div>
                 

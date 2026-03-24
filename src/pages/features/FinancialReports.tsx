@@ -138,8 +138,9 @@ const FinancialReports = () => {
                 Complete visibility into your restaurant's financial health. Track performance, control costs, and make data-driven decisions.
               </p>
               
-              <div className="animate-on-scroll animate-delay-300">
+              <div className="animate-on-scroll animate-delay-300 flex items-center justify-center gap-4 flex-wrap">
                 <SwirlCTA />
+                <BookDemoCTA />
               </div>
             </div>
 
