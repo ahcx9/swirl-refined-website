@@ -11,6 +11,7 @@ import {
   Clock, CheckCircle2
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SwirlCTA from '@/components/SwirlCTA';
 
 const Accounting = () => {
   useScrollAnimation();
