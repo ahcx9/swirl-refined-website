@@ -80,9 +80,7 @@ const Features = () => {
         </div>
         
         <div className="text-center mt-10">
-          <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab className="scale-90">
-            get started for free
-          </CustomCTAButton>
+          <SwirlCTA />
         </div>
       </div>
     </section>;

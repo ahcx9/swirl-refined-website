@@ -24,9 +24,7 @@ const POSHero = () => {
           The complete cloud-based POS system designed for modern restaurants. Bill faster, manage smarter, grow bigger.
         </p>
 
-        <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-          {t('cta.getStarted')}
-        </CustomCTAButton>
+        <SwirlCTA />
       </div>
 
       <div className="py-8 px-4 md:px-8">

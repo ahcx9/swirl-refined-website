@@ -59,9 +59,7 @@ const POSCallToAction = () => {
         
         {/* CTA Button */}
         <div className="animate-on-scroll animate-delay-400 text-center mb-8">
-          <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-            {t('cta.getStarted')}
-          </CustomCTAButton>
+          <SwirlCTA />
         </div>
         
         {/* Testimonial */}

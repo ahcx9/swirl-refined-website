@@ -1,7 +1,7 @@
 import React from 'react';
 import { Monitor, Printer, Laptop, Scan, Square, Tv } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 const HomeHardwareSection = () => {
   const hardwareFeatures = [{
     icon: Monitor,

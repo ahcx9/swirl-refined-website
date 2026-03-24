@@ -1,7 +1,7 @@
 import React from 'react';
 import { BarChart, FileText, DollarSign, LineChart, FileBarChart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 import FinancialReportsMockup from '@/components/features/financial-reports/FinancialReportsMockup';
 const HomeFinancialAnalyticsSection = () => {
   const features = [{
