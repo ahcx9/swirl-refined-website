@@ -114,6 +114,13 @@ const Navbar = () => {
               {/* Additional nav links */}
               <div className="flex items-center gap-1 ml-4 pl-4 border-l border-border/50">
                 <Link
+                  to="/products/swirl-hardware"
+                  className={`px-5 py-2.5 text-[17px] tracking-[0.3px] font-medium text-foreground hover:text-primary hover:font-semibold transition-all duration-300 rounded-xl hover:bg-gray-50/60`}
+                  onClick={closeMegaMenu}
+                >
+                  Hardware
+                </Link>
+                <Link
                   to="/use-cases"
                   className={`px-5 py-2.5 text-[17px] tracking-[0.3px] font-medium text-foreground hover:text-primary hover:font-semibold transition-all duration-300 rounded-xl hover:bg-gray-50/60`}
                   onClick={closeMegaMenu}
