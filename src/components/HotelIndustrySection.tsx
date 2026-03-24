@@ -1,7 +1,7 @@
 import React from 'react';
 import { QrCode, Clock, Dumbbell, Coffee, Utensils, Waves, Calendar, MapPin, Wifi, Car } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 const HotelIndustrySection = () => {
   const hotelServices = [{
     icon: Utensils,
