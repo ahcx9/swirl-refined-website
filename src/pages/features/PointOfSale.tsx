@@ -7,6 +7,7 @@ import POSBenefits from '@/components/features/pos/POSBenefits';
 import POSCallToAction from '@/components/features/pos/POSCallToAction';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import SwirlCTA from '@/components/SwirlCTA';
+import BookDemoCTA from '@/components/BookDemoCTA';
 import { useCurrency } from '@/hooks/useCurrency';
 import { Smartphone, Zap, Percent, ArrowLeftRight, LayoutGrid, TrendingUp, FileText, Users, Layers, CheckCircle, Sparkles, Clock, Shield, Receipt, Truck, QrCode, UtensilsCrossed, Tablet, Map, Building, FileCheck, Languages, BadgeCheck, Globe, Apple, StickyNote, Settings2, DollarSign, Copy, GitBranch, Timer, ChefHat, ArrowRight, RefreshCw, Image as ImageIcon, ArrowUpDown } from 'lucide-react';
 const PointOfSale = () => {
