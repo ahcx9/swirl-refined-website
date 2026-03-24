@@ -38,7 +38,7 @@ const sections = [
       { title: 'Accounting', path: '/products/accounting' },
       { title: 'CRM', path: '/products/customer-relationship-management' },
       { title: 'Inventory Management', path: '/products/inventory-management' },
-      { title: 'swirl Hardware', path: '/products/swirl-hardware' },
+      
     ],
   },
 ];
@@ -104,6 +104,14 @@ export const PremiumMobileMenu: React.FC<PremiumMobileMenuProps> = ({ isOpen, on
 
           {/* Static links */}
           <div className="pt-3 space-y-1">
+            <Link
+              to="/products/swirl-hardware"
+              onClick={onClose}
+              className="flex items-center justify-between p-4 rounded-2xl hover:bg-gray-50 transition-colors"
+            >
+              <span className="text-[15px] font-semibold text-foreground">Hardware</span>
+              <ArrowRight size={16} className="text-muted-foreground" />
+            </Link>
             <Link
               to="/use-cases"
               onClick={onClose}

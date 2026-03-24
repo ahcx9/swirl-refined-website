@@ -53,7 +53,6 @@ const tabData: Record<TabKey, {
       { title: 'Accounting', description: 'Automated restaurant bookkeeping', path: '/products/accounting' },
       { title: 'CRM', description: 'Build stronger guest relationships', path: '/products/customer-relationship-management' },
       { title: 'Inventory Management', description: 'Smarter stock control', path: '/products/inventory-management' },
-      { title: 'swirl Hardware', description: 'Complete POS hardware stack', path: '/products/swirl-hardware' },
     ],
   },
 };
