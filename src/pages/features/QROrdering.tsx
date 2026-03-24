@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import TrustedRestaurants from '@/components/TrustedRestaurants';
 import { QrCode, ScanLine, ShoppingCart, CreditCard, Utensils, TrendingUp, Clock, Users, Smartphone, CheckCircle, Star, ArrowRight, Sparkles, Zap, BarChart, Shield, Phone, Coffee, Truck, Building } from 'lucide-react';
 import { preloadImages } from '@/utils/imagePreloader';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const QROrdering = () => {
