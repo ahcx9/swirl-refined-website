@@ -1,7 +1,7 @@
 import React from 'react';
 import { LayoutDashboard, ShoppingCart, BarChart, CreditCard, Users, Package, Car, Calendar, FileText, Monitor } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 const features = [{
   id: 'digital-menu',
   title: 'Digital Menu',
