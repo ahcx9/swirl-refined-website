@@ -493,41 +493,6 @@ const Accounting = () => {
         </div>
       </section>
 
-      {/* ===================== FINAL CTA SECTION ===================== */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-primary to-blue-700 relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-20 -right-20 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 animate-on-scroll">
-              Stop Managing Accounting.{' '}
-              <span className="block mt-2">Start Understanding Your Business.</span>
-            </h2>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-on-scroll">
-              <a 
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-xl font-semibold text-lg hover:bg-slate-100 hover:scale-105 transition-all shadow-xl"
-              >
-                Book a Free Demo
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <Link 
-                to="/contact"
-                className="inline-flex items-center gap-2 text-white border-2 border-white/30 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-all"
-              >
-                Talk to an Expert
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>
