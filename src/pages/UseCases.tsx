@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Footer from '@/components/Footer';
 import { Truck, Utensils, Store, Hotel, ChefHat, Coffee, ArrowRight, CheckCircle, BarChart3, Clock, Users, TrendingUp, Zap } from 'lucide-react';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const segments = [
