@@ -1,6 +1,5 @@
 import React from 'react';
-import { ArrowRight, MessageCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import SwirlCTA from '@/components/SwirlCTA';
 
 const ContactFinalCTA = () => {
   const scrollToForm = () => {
