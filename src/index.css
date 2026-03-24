@@ -475,8 +475,8 @@
 }
 
 .phone-input-wrapper .PhoneInputCountryIcon {
-  width: 24px;
-  height: 18px;
+    width: 20px;
+    height: 15px;
   border-radius: 2px;
   overflow: hidden;
 }
