@@ -111,7 +111,7 @@ const Accounting = () => {
 
   // Trust badges
   const trustBadges = [
-    { icon: MapPin, text: "Used by restaurants across UAE & KSA" },
+    { icon: MapPin, text: "Used by restaurants globally" },
     { icon: Building2, text: "Multi-branch ready" },
     { icon: Shield, text: "Secure & role-based access" },
     { icon: TrendingUp, text: "Scales from single outlet to enterprise" }
