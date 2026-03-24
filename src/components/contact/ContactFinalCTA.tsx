@@ -22,9 +22,7 @@ const ContactFinalCTA = () => {
           Join hundreds of hospitality businesses already growing with Swirl.
         </p>
 
-        <div className="flex items-center justify-center">
-          <SwirlCTA />
-        </div>
+        
       </div>
     </section>
   );
