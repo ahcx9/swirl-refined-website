@@ -2,6 +2,7 @@
 import React from 'react';
 import { FileText } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import SwirlCTA from '@/components/SwirlCTA';
 
 const HeroSection = () => {
   const { t } = useLanguage();
