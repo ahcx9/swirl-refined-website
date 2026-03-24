@@ -119,16 +119,6 @@ const SwirlHardware = () => {
 
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center animate-on-scroll max-w-4xl mx-auto">
-              <div className="flex flex-wrap gap-3 justify-center mb-8">
-                <div className="px-4 py-2 bg-primary/5 rounded-full flex items-center gap-2 border border-primary/10">
-                  <Shield className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-semibold text-gray-700">Trusted by 1000+ Restaurants</span>
-                </div>
-                <div className="px-4 py-2 bg-primary/5 rounded-full flex items-center gap-2 border border-primary/10">
-                  <Zap className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-semibold text-gray-700">Enterprise Grade</span>
-                </div>
-              </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gray-900">
                 Hardware That Powers<br />
