@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown, X } from 'lucide-react';
+import { ChevronDown, ArrowRight, X } from 'lucide-react';
 import SwirlCTA from '@/components/SwirlCTA';
 
 interface PremiumMobileMenuProps {
