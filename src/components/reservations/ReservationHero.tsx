@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { Calendar } from 'lucide-react';
+import SwirlCTA from '@/components/SwirlCTA';
 import timelineImg from '@/assets/reservation-timeline-real.png';
 import bookingImg from '@/assets/reservation-booking-real.png';
 import guestImg from '@/assets/reservation-guest-real.png';

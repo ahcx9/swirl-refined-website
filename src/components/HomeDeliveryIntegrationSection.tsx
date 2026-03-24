@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Zap, RefreshCw, Bell, Clock, Monitor } from 'lucide-react';
+import { Zap, RefreshCw, Bell, Clock, Monitor } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import SwirlCTA from '@/components/SwirlCTA';
 
 const HomeDeliveryIntegrationSection = () => {
   const [isVisible, setIsVisible] = useState(false);

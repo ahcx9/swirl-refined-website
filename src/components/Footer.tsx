@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
+import SwirlCTA from '@/components/SwirlCTA';
 import { Instagram, TikTok } from "./SocialIcons";
 
 const Footer = () => {
