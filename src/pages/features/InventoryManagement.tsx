@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { Package, TrendingUp, TrendingDown, Clock, Bell, RefreshCw, LineChart, Database, Link2, Boxes, Users, BarChart, FileText, Calculator, ArrowRight, Check, Sparkles, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SwirlCTA from '@/components/SwirlCTA';
+import BookDemoCTA from '@/components/BookDemoCTA';
 
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
