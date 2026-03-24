@@ -129,7 +129,7 @@ const Navbar = () => {
                 </Link>
                 <Link
                   to="/contact"
-                  className={`px-5 py-2.5 text-[17px] tracking-[0.3px] font-medium text-foreground hover:text-primary hover:font-semibold transition-all duration-300 rounded-xl hover:bg-gray-50/60`}
+                  className={`px-4 py-2.5 text-[15px] tracking-[0.2px] font-medium text-foreground hover:text-primary hover:font-semibold transition-all duration-300 rounded-xl hover:bg-gray-50/60 whitespace-nowrap`}
                   onClick={closeMegaMenu}
                 >
                   Contact
