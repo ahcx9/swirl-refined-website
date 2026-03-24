@@ -5,6 +5,7 @@ import TrustedRestaurants from '@/components/TrustedRestaurants';
 import { QrCode, ScanLine, ShoppingCart, CreditCard, Utensils, TrendingUp, Clock, Users, Smartphone, CheckCircle, Star, ArrowRight, Sparkles, Zap, BarChart, Shield, Phone, Coffee, Truck, Building } from 'lucide-react';
 import { preloadImages } from '@/utils/imagePreloader';
 import SwirlCTA from '@/components/SwirlCTA';
+import BookDemoCTA from '@/components/BookDemoCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const QROrdering = () => {
