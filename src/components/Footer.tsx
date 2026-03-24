@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 import SwirlCTA from '@/components/SwirlCTA';
 import { Instagram, TikTok } from "./SocialIcons";
 
@@ -35,6 +35,30 @@ const Footer = () => {
     { label: 'Privacy Policy', to: '/privacy' },
     { label: 'Terms of Service', to: '/terms' },
     { label: 'Sitemap', to: '/sitemap' },
+  ];
+
+  const offices = [
+    {
+      country: 'UAE',
+      phone: '+971 54 385 3877',
+      phoneHref: 'tel:+971543853877',
+      whatsapp: 'https://wa.me/971543853877?text=I%20would%20like%20to%20see%20demo%20for%20swirl',
+      address: 'Abu Dhabi — Office 13, 2nd Floor, Hanging Garden Tower',
+    },
+    {
+      country: 'Saudi Arabia',
+      phone: '+966 53 995 0024',
+      phoneHref: 'tel:+966539950024',
+      whatsapp: 'https://wa.me/966539950024?text=I%20would%20like%20to%20see%20demo%20for%20swirl',
+      address: 'Riyadh — REMA6548, 6548 Salahudin Al-Ayyubi, Al-Malaz District, 12836',
+    },
+    {
+      country: 'India',
+      phone: '+91 97959 97070',
+      phoneHref: 'tel:+919795997070',
+      whatsapp: 'https://wa.me/919795997070?text=I%20would%20like%20to%20see%20demo%20for%20swirl',
+      address: 'Lucknow',
+    },
   ];
 
   return (
@@ -116,25 +140,41 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
+          {/* Contact — All 3 countries */}
+          <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <h4 className="text-sm font-semibold uppercase tracking-wider text-white/80 mb-5">Contact</h4>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-2.5">
-                <MapPin size={16} className="flex-shrink-0 text-white/40 mt-0.5" />
-                <span className="text-white/50">Hanging Garden Tower, 2nd Floor, Office 13, Abu Dhabi</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone size={16} className="flex-shrink-0 text-white/40" />
-                <span className="text-white/50">+971 54 385 3877</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Mail size={16} className="flex-shrink-0 text-white/40" />
-                <a href="mailto:hello@swirl.cx" className="text-white/50 hover:text-white transition-colors">
+            <div className="space-y-6">
+              {offices.map((office) => (
+                <div key={office.country} className="space-y-1.5">
+                  <p className="text-white/90 text-sm font-semibold">{office.country}</p>
+                  <div className="flex items-center gap-2">
+                    <Phone size={13} className="flex-shrink-0 text-white/40" />
+                    <a href={office.phoneHref} className="text-white/50 hover:text-white text-sm transition-colors">
+                      {office.phone}
+                    </a>
+                    <a
+                      href={office.whatsapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[#25D366] hover:text-[#25D366]/80 transition-colors"
+                      aria-label={`WhatsApp ${office.country}`}
+                    >
+                      <MessageCircle size={13} />
+                    </a>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <MapPin size={13} className="flex-shrink-0 text-white/40 mt-0.5" />
+                    <span className="text-white/40 text-xs leading-relaxed">{office.address}</span>
+                  </div>
+                </div>
+              ))}
+              <div className="pt-2 flex items-center gap-2.5">
+                <Mail size={13} className="flex-shrink-0 text-white/40" />
+                <a href="mailto:hello@swirl.cx" className="text-white/50 hover:text-white text-sm transition-colors">
                   hello@swirl.cx
                 </a>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
