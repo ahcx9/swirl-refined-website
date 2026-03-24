@@ -34,7 +34,7 @@ const HomeDeliveryIntegrationSection = () => {
 
   const cx = 400;
   const cy = 260;
-  const radius = 200;
+  const radius = typeof window !== 'undefined' && window.innerWidth < 640 ? 160 : 200;
 
   // Perfect circle: evenly spaced, starting from top (−90°), clockwise
   const getPosition = (index: number) => {
