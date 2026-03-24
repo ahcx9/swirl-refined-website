@@ -114,7 +114,7 @@ const UseCasesControlPanel: React.FC = () => {
       setTimeout(() => {
         setActiveType(type);
         setIsTransitioning(false);
-      }, 80);
+      }, 50);
     });
   };
 
