@@ -67,9 +67,7 @@ const KitchenDisplay = () => {
                 </p>
                 
                 <div className="animate-on-scroll animate-delay-300">
-                  <CustomCTAButton href="https://app.swirl.cx/register" openInNewTab>
-                    Get Started Free
-                  </CustomCTAButton>
+                  <SwirlCTA />
                 </div>
               </div>
               
