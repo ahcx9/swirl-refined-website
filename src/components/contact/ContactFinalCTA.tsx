@@ -23,25 +23,14 @@ const ContactFinalCTA = () => {
           Join hundreds of hospitality businesses already growing with Swirl.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex items-center justify-center">
           <Button
             size="lg"
             onClick={scrollToForm}
             className="group px-8 py-6 text-base font-semibold rounded-xl shadow-lg bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-600"
           >
-            Book Your Demo
+            Get Started Free
             <ArrowRight size={18} className="ml-1 group-hover:translate-x-1 transition-transform" />
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            asChild
-            className="px-8 py-6 text-base font-semibold rounded-xl border-primary/20 text-primary hover:bg-primary/5"
-          >
-            <a href="https://app.swirl.cx/register" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-              <MessageCircle size={18} />
-              Speak With Swirl
-            </a>
           </Button>
         </div>
       </div>
