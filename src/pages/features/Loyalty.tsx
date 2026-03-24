@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Gift, Star, Crown, ArrowRight, CheckCircle, Sparkles, Heart, Award, Cake, Users, Zap, TrendingUp, BarChart } from 'lucide-react';
-import CustomCTAButton from '@/components/CustomCTAButton';
+import SwirlCTA from '@/components/SwirlCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const LoyaltyDashboardMockup = () => {
