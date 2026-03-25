@@ -1,6 +1,6 @@
 import React from 'react';
 import { Clock, UserPlus, Users, Settings, ClipboardList } from 'lucide-react';
-import bookingImg from '@/assets/reservation-booking-real.png';
+import staffImg from '@/assets/res-staff-creation.png';
 
 const features = [
   { icon: Clock, text: 'Real-time time slot availability' },
@@ -10,14 +10,16 @@ const features = [
   { icon: ClipboardList, text: 'Instant reservation summary' },
 ];
 
-const CreateReservationSection = () => {
+const StaffCreationSection = () => {
   return (
     <section className="py-24 md:py-36">
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Text */}
           <div className="animate-on-scroll">
-            <p className="text-primary text-base md:text-sm font-bold md:font-semibold uppercase tracking-wide md:tracking-widest mb-4">Instant Booking</p>
+            <p className="text-primary text-base md:text-sm font-bold md:font-semibold uppercase tracking-wide md:tracking-widest mb-4">
+              Staff Tools
+            </p>
             <h2 className="text-3xl md:text-[2.75rem] font-bold text-foreground leading-[1.1] tracking-[-0.02em] mb-5">
               Create Reservations{' '}
               <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
@@ -25,8 +27,9 @@ const CreateReservationSection = () => {
               </span>
             </h2>
             <p className="text-muted-foreground text-lg mb-10 max-w-lg leading-relaxed">
-              Restaurant staff can quickly create reservations using a beautifully designed interface that automatically shows available time slots and table capacity.
+              A powerful yet simple interface designed for restaurant staff — create bookings, view time slots, and see a live summary, all in one screen.
             </p>
+
             <div className="space-y-2">
               {features.map((item, i) => (
                 <div
@@ -42,12 +45,15 @@ const CreateReservationSection = () => {
             </div>
           </div>
 
-          {/* Screenshot — clean, no browser frame */}
-          <div className="animate-on-scroll relative flex justify-center">
-            <div className="relative w-full max-w-sm">
-              <div className="rounded-2xl overflow-hidden shadow-[0_12px_40px_-10px_rgba(0,0,0,0.12)] border border-border/20">
-                <img src={bookingImg} alt="Create Reservation Interface" className="w-full" loading="lazy" />
-              </div>
+          {/* Screenshot */}
+          <div className="animate-on-scroll">
+            <div className="rounded-2xl overflow-hidden shadow-[0_12px_40px_-10px_rgba(0,0,0,0.12)] border border-border/20">
+              <img
+                src={staffImg}
+                alt="Staff reservation creation — date, time slot selection, and booking summary panel"
+                className="w-full"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
@@ -56,4 +62,4 @@ const CreateReservationSection = () => {
   );
 };
 
-export default CreateReservationSection;
+export default StaffCreationSection;

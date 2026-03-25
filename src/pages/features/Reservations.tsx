@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import Footer from '@/components/Footer';
 import ReservationHero from '@/components/reservations/ReservationHero';
-import TimelineSection from '@/components/reservations/TimelineSection';
-import CreateReservationSection from '@/components/reservations/CreateReservationSection';
+import GuestBookingJourney from '@/components/reservations/GuestBookingJourney';
+import StaffCreationSection from '@/components/reservations/StaffCreationSection';
+import LiveOperationsSection from '@/components/reservations/LiveOperationsSection';
 import GuestProfileSection from '@/components/reservations/GuestProfileSection';
-import TableOptimizationSection from '@/components/reservations/TableOptimizationSection';
-import OperationsSection from '@/components/reservations/OperationsSection';
-import IntegrationsSection from '@/components/reservations/IntegrationsSection';
+import ConnectedSystemSection from '@/components/reservations/ConnectedSystemSection';
+import WhyItMattersSection from '@/components/reservations/WhyItMattersSection';
 import ReservationCTA from '@/components/reservations/ReservationCTA';
 
 const Reservations = () => {
@@ -35,20 +35,16 @@ const Reservations = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <ReservationHero />
-      <TimelineSection />
-      <CreateReservationSection />
+      <GuestBookingJourney />
+      <StaffCreationSection />
+      <LiveOperationsSection />
       <GuestProfileSection />
-      <TableOptimizationSection />
-      <OperationsSection />
-      <IntegrationsSection />
+      <ConnectedSystemSection />
+      <WhyItMattersSection />
       <ReservationCTA />
       <Footer />
 
       <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-12px); }
-        }
         .animate-on-scroll {
           opacity: 0;
           transform: translateY(28px);
