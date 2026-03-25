@@ -38,17 +38,18 @@ const ReservationHero = () => {
 
           {/* Hero mockup — single mobile screen */}
           <div className="animate-on-scroll flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[340px]">
-              <div className="rounded-[2rem] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,82,204,0.15)] border border-border/20">
+            <div className="relative w-full max-w-[260px]">
+              <div className="rounded-[1.5rem] overflow-hidden shadow-[0_16px_50px_-12px_rgba(0,82,204,0.15)] border border-border/20">
                 <img
                   src={step1Img}
                   alt="swirl Reservations — guest booking experience with date, time and party size selection"
                   className="w-full"
+                  width={260}
+                  height={520}
                   loading="eager"
                 />
               </div>
-              {/* Floating accent */}
-              <div className="absolute -z-10 -bottom-6 -right-6 w-48 h-48 bg-primary/[0.04] rounded-full blur-[60px]" />
+              <div className="absolute -z-10 -bottom-6 -right-6 w-40 h-40 bg-primary/[0.04] rounded-full blur-[60px]" />
             </div>
           </div>
         </div>
