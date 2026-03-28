@@ -200,6 +200,7 @@ const MobileGridLayout = ({ isVisible }: { isVisible: boolean }) => (
 const HomeDeliveryIntegrationSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { amounts } = useCurrency();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
