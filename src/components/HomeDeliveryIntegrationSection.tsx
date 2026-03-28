@@ -24,6 +24,7 @@ const features = [
   { icon: RefreshCw, title: 'Real-Time Sync', description: 'Menu & availability update across all platforms' },
   { icon: Bell, title: 'Instant Notifications', description: 'Get alerted the moment an order comes in' },
   { icon: Clock, title: 'Faster Fulfillment', description: 'Automated kitchen routing reduces prep time' },
+  { icon: FileBarChart, title: 'Reconciliation Reports', description: 'Detailed platform-wise revenue & commission breakdown' },
 ];
 
 /* ─── Shared Logo Card ─── */
