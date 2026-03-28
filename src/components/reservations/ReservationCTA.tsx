@@ -17,10 +17,6 @@ const ReservationCTA = () => {
         <p className="text-muted-foreground text-lg mb-10 leading-relaxed max-w-xl mx-auto">
           Join restaurants using swirl to modernize their reservation workflow — from first booking to loyal guest.
         </p>
-
-        <div className="flex justify-center">
-          <SwirlCTA />
-        </div>
       </div>
     </section>
   );
