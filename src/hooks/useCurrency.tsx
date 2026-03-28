@@ -147,6 +147,40 @@ const BASE_AMOUNTS = {
   
   // CRM mockup
   crmLifetimeValue: 9221.98,
+  
+  // Delivery Reconciliation
+  deliveryTotalRevenue: 47320,
+  deliveryPlatformFees: 6148,
+  deliveryNetPayout: 41172,
+  deliveryTalabatRevenue: 15840,
+  deliveryTalabatCommission: 2376,
+  deliveryTalabatNet: 13464,
+  deliveryHungerStationRevenue: 11200,
+  deliveryHungerStationCommission: 1568,
+  deliveryHungerStationNet: 9632,
+  deliveryJahezRevenue: 9120,
+  deliveryJahezCommission: 1094,
+  deliveryJahezNet: 8026,
+  deliveryNoonRevenue: 6480,
+  deliveryNoonCommission: 713,
+  deliveryNoonNet: 5767,
+  deliveryCareemRevenue: 4680,
+  deliveryCareemCommission: 397,
+  deliveryCareemNet: 4283,
+  
+  // Operational Dashboards
+  dailyVariance: 240,
+  todaysDashRevenue: 48250,
+  
+  // Loyalty
+  referralCredit: 25,
+  
+  // SwirlDine menu prices (AED base)
+  truffleBurger: 68,
+  caesarSalad: 44,
+  margheritaPizzaDine: 59,
+  tiramisuDine: 35,
+  dineCartTotal: 103,
 };
 
 // Approximate exchange rates from AED (for display purposes only)
