@@ -147,6 +147,40 @@ const BASE_AMOUNTS = {
   
   // CRM mockup
   crmLifetimeValue: 9221.98,
+  
+  // Delivery Reconciliation
+  deliveryTotalRevenue: 47320,
+  deliveryPlatformFees: 6148,
+  deliveryNetPayout: 41172,
+  deliveryTalabatRevenue: 15840,
+  deliveryTalabatCommission: 2376,
+  deliveryTalabatNet: 13464,
+  deliveryHungerStationRevenue: 11200,
+  deliveryHungerStationCommission: 1568,
+  deliveryHungerStationNet: 9632,
+  deliveryJahezRevenue: 9120,
+  deliveryJahezCommission: 1094,
+  deliveryJahezNet: 8026,
+  deliveryNoonRevenue: 6480,
+  deliveryNoonCommission: 713,
+  deliveryNoonNet: 5767,
+  deliveryCareemRevenue: 4680,
+  deliveryCareemCommission: 397,
+  deliveryCareemNet: 4283,
+  
+  // Operational Dashboards
+  dailyVariance: 240,
+  todaysDashRevenue: 48250,
+  
+  // Loyalty
+  referralCredit: 25,
+  
+  // SwirlDine menu prices (AED base)
+  truffleBurger: 68,
+  caesarSalad: 44,
+  margheritaPizzaDine: 59,
+  tiramisuDine: 35,
+  dineCartTotal: 103,
 };
 
 // Approximate exchange rates from AED (for display purposes only)
@@ -337,6 +371,40 @@ export function useCurrency() {
     
     // CRM mockup
     crmLifetimeValue: formatAmount(BASE_AMOUNTS.crmLifetimeValue),
+    
+    // Delivery Reconciliation
+    deliveryTotalRevenue: formatAmount(BASE_AMOUNTS.deliveryTotalRevenue),
+    deliveryPlatformFees: formatAmount(BASE_AMOUNTS.deliveryPlatformFees),
+    deliveryNetPayout: formatAmount(BASE_AMOUNTS.deliveryNetPayout),
+    deliveryTalabatRevenue: formatAmount(BASE_AMOUNTS.deliveryTalabatRevenue),
+    deliveryTalabatCommission: formatAmount(BASE_AMOUNTS.deliveryTalabatCommission),
+    deliveryTalabatNet: formatAmount(BASE_AMOUNTS.deliveryTalabatNet),
+    deliveryHungerStationRevenue: formatAmount(BASE_AMOUNTS.deliveryHungerStationRevenue),
+    deliveryHungerStationCommission: formatAmount(BASE_AMOUNTS.deliveryHungerStationCommission),
+    deliveryHungerStationNet: formatAmount(BASE_AMOUNTS.deliveryHungerStationNet),
+    deliveryJahezRevenue: formatAmount(BASE_AMOUNTS.deliveryJahezRevenue),
+    deliveryJahezCommission: formatAmount(BASE_AMOUNTS.deliveryJahezCommission),
+    deliveryJahezNet: formatAmount(BASE_AMOUNTS.deliveryJahezNet),
+    deliveryNoonRevenue: formatAmount(BASE_AMOUNTS.deliveryNoonRevenue),
+    deliveryNoonCommission: formatAmount(BASE_AMOUNTS.deliveryNoonCommission),
+    deliveryNoonNet: formatAmount(BASE_AMOUNTS.deliveryNoonNet),
+    deliveryCareemRevenue: formatAmount(BASE_AMOUNTS.deliveryCareemRevenue),
+    deliveryCareemCommission: formatAmount(BASE_AMOUNTS.deliveryCareemCommission),
+    deliveryCareemNet: formatAmount(BASE_AMOUNTS.deliveryCareemNet),
+    
+    // Operational Dashboards
+    dailyVariance: formatAmount(BASE_AMOUNTS.dailyVariance),
+    todaysDashRevenue: formatAmount(BASE_AMOUNTS.todaysDashRevenue),
+    
+    // Loyalty
+    referralCredit: formatAmount(BASE_AMOUNTS.referralCredit),
+    
+    // SwirlDine
+    truffleBurger: formatAmount(BASE_AMOUNTS.truffleBurger),
+    caesarSalad: formatAmount(BASE_AMOUNTS.caesarSalad),
+    margheritaPizzaDine: formatAmount(BASE_AMOUNTS.margheritaPizzaDine),
+    tiramisuDine: formatAmount(BASE_AMOUNTS.tiramisuDine),
+    dineCartTotal: formatAmount(BASE_AMOUNTS.dineCartTotal),
   }), [currencyCode, rate]);
 
   return {

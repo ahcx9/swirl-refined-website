@@ -12,8 +12,9 @@ import {
   BarChart3,
   Sparkles
 } from 'lucide-react';
+import { useCurrency } from '@/hooks/useCurrency';
 
-const dashboards = [
+const getDashboards = (amounts: { dailyVariance: string; todaysDashRevenue: string }) => [
   {
     id: 'speed',
     icon: Zap,
@@ -39,7 +40,7 @@ const dashboards = [
     color: 'from-primary to-blue-500',
     widgets: [
       { label: 'Stock Accuracy', value: '98%', trend: 'up' },
-      { label: 'Daily Variance', value: 'AED 240', trend: 'down' },
+      { label: 'Daily Variance', value: amounts.dailyVariance, trend: 'down' },
       { label: 'Staff on Duty', value: '8', trend: 'live' },
     ],
     liveElements: ['inventoryLevels', 'staffPerformance', 'outletDashboard']
@@ -53,7 +54,7 @@ const dashboards = [
     statLabel: 'profit visibility',
     color: 'from-blue-500 to-primary',
     widgets: [
-      { label: 'Today\'s Revenue', value: 'AED 48,250', trend: 'up' },
+      { label: 'Today\'s Revenue', value: amounts.todaysDashRevenue, trend: 'up' },
       { label: 'Gross Margin', value: '68%', trend: 'up' },
       { label: 'Top Item', value: 'Biryani', trend: 'live' },
     ],
@@ -77,6 +78,8 @@ const dashboards = [
 ];
 
 const OperationalDashboards: React.FC = () => {
+  const { amounts } = useCurrency();
+  const dashboards = getDashboards(amounts);
   const [activeDashboard, setActiveDashboard] = useState(0);
   const [animatingNumbers, setAnimatingNumbers] = useState<Record<string, number>>({});
 

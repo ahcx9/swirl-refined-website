@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Zap, RefreshCw, Bell, Clock, Monitor, ArrowDown, FileBarChart, DollarSign, TrendingUp, Receipt } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import SwirlCTA from '@/components/SwirlCTA';
+import { useCurrency } from '@/hooks/useCurrency';
 
 const allApps = [
   { name: 'Noon Food', logo: '/lovable-uploads/noon-food-logo.png' },
@@ -199,6 +200,7 @@ const MobileGridLayout = ({ isVisible }: { isVisible: boolean }) => (
 const HomeDeliveryIntegrationSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { amounts } = useCurrency();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -280,9 +282,9 @@ const HomeDeliveryIntegrationSection = () => {
                 {/* Summary KPIs */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
                   {[
-                    { label: 'Total Revenue', value: 'SAR 47,320', icon: DollarSign, change: '+12.4%' },
-                    { label: 'Platform Fees', value: 'SAR 6,148', icon: Receipt, change: '-2.1%' },
-                    { label: 'Net Payout', value: 'SAR 41,172', icon: TrendingUp, change: '+14.8%' },
+                    { label: 'Total Revenue', value: amounts.deliveryTotalRevenue, icon: DollarSign, change: '+12.4%' },
+                    { label: 'Platform Fees', value: amounts.deliveryPlatformFees, icon: Receipt, change: '-2.1%' },
+                    { label: 'Net Payout', value: amounts.deliveryNetPayout, icon: TrendingUp, change: '+14.8%' },
                     { label: 'Orders', value: '1,284', icon: FileBarChart, change: '+8.3%' },
                   ].map((kpi, i) => (
                     <div key={i} className="rounded-xl border border-border/30 bg-muted/10 p-3 sm:p-4">
@@ -305,11 +307,11 @@ const HomeDeliveryIntegrationSection = () => {
                   </div>
                   <div className="divide-y divide-border/20">
                     {[
-                      { name: 'Talabat', orders: 412, revenue: 'SAR 15,840', commission: 'SAR 2,376', rate: '15%', net: 'SAR 13,464', logo: '/lovable-uploads/talabat-logo.webp' },
-                      { name: 'HungerStation', orders: 298, revenue: 'SAR 11,200', commission: 'SAR 1,568', rate: '14%', net: 'SAR 9,632', logo: '/lovable-uploads/hungerstation-logo.png' },
-                      { name: 'Jahez', orders: 245, revenue: 'SAR 9,120', commission: 'SAR 1,094', rate: '12%', net: 'SAR 8,026', logo: '/lovable-uploads/jahez-logo.png' },
-                      { name: 'Noon Food', orders: 189, revenue: 'SAR 6,480', commission: 'SAR 713', rate: '11%', net: 'SAR 5,767', logo: '/lovable-uploads/noon-food-logo.png' },
-                      { name: 'Careem', orders: 140, revenue: 'SAR 4,680', commission: 'SAR 397', rate: '8.5%', net: 'SAR 4,283', logo: '/lovable-uploads/a2ee4e8c-8b4d-4521-a82a-39df6b6529aa.png' },
+                      { name: 'Talabat', orders: 412, revenue: amounts.deliveryTalabatRevenue, commission: amounts.deliveryTalabatCommission, rate: '15%', net: amounts.deliveryTalabatNet, logo: '/lovable-uploads/talabat-logo.webp' },
+                      { name: 'HungerStation', orders: 298, revenue: amounts.deliveryHungerStationRevenue, commission: amounts.deliveryHungerStationCommission, rate: '14%', net: amounts.deliveryHungerStationNet, logo: '/lovable-uploads/hungerstation-logo.png' },
+                      { name: 'Jahez', orders: 245, revenue: amounts.deliveryJahezRevenue, commission: amounts.deliveryJahezCommission, rate: '12%', net: amounts.deliveryJahezNet, logo: '/lovable-uploads/jahez-logo.png' },
+                      { name: 'Noon Food', orders: 189, revenue: amounts.deliveryNoonRevenue, commission: amounts.deliveryNoonCommission, rate: '11%', net: amounts.deliveryNoonNet, logo: '/lovable-uploads/noon-food-logo.png' },
+                      { name: 'Careem', orders: 140, revenue: amounts.deliveryCareemRevenue, commission: amounts.deliveryCareemCommission, rate: '8.5%', net: amounts.deliveryCareemNet, logo: '/lovable-uploads/a2ee4e8c-8b4d-4521-a82a-39df6b6529aa.png' },
                     ].map((platform, i) => (
                       <div key={i} className="flex items-center gap-3 px-4 py-3 hover:bg-muted/10 transition-colors">
                         <img src={platform.logo} alt={platform.name} className="w-7 h-7 object-contain rounded-md" loading="lazy" />

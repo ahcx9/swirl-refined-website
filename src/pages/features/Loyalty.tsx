@@ -5,15 +5,17 @@ import { Gift, Star, Crown, ArrowRight, CheckCircle, Sparkles, Heart, Award, Cak
 import SwirlCTA from '@/components/SwirlCTA';
 import BookDemoCTA from '@/components/BookDemoCTA';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useCurrency } from '@/hooks/useCurrency';
 
 const LoyaltyDashboardMockup = () => {
   const [activeTab, setActiveTab] = useState<'programs' | 'members'>('programs');
+  const { amounts } = useCurrency();
 
   const programs = [
   { name: 'Coffee Punch Card', type: 'Stamp', reward: 'Free Coffee', progress: '7/10', status: 'Active', color: 'bg-amber-500' },
   { name: 'Gold Membership', type: 'Tier', reward: '15% Off All Orders', progress: '850/1000 pts', status: 'Active', color: 'bg-yellow-500' },
   { name: 'Birthday Special', type: 'Event', reward: 'Free Dessert', progress: 'Auto', status: 'Active', color: 'bg-pink-500' },
-  { name: 'Referral Bonus', type: 'Referral', reward: 'AED 25 Credit', progress: '3 referrals', status: 'Active', color: 'bg-primary' }];
+  { name: 'Referral Bonus', type: 'Referral', reward: `${amounts.referralCredit} Credit`, progress: '3 referrals', status: 'Active', color: 'bg-primary' }];
 
 
   const members = [
