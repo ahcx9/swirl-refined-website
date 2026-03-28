@@ -78,6 +78,8 @@ const getDashboards = (amounts: { dailyVariance: string; todaysDashRevenue: stri
 ];
 
 const OperationalDashboards: React.FC = () => {
+  const { amounts } = useCurrency();
+  const dashboards = getDashboards(amounts);
   const [activeDashboard, setActiveDashboard] = useState(0);
   const [animatingNumbers, setAnimatingNumbers] = useState<Record<string, number>>({});
 
