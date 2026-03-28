@@ -3,6 +3,7 @@ import { useCurrency } from '@/hooks/useCurrency';
 
 export const SwirlDineMockup: React.FC = () => {
   const [step, setStep] = useState(0);
+  const { amounts } = useCurrency();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -12,10 +13,10 @@ export const SwirlDineMockup: React.FC = () => {
   }, []);
 
   const menuItems = [
-    { name: 'Truffle Burger', price: '$18.50', cat: 'Mains', img: '🍔' },
-    { name: 'Caesar Salad', price: '$12.00', cat: 'Starters', img: '🥗' },
-    { name: 'Margherita Pizza', price: '$16.00', cat: 'Mains', img: '🍕' },
-    { name: 'Tiramisu', price: '$9.50', cat: 'Desserts', img: '🍰' },
+    { name: 'Truffle Burger', price: amounts.truffleBurger, cat: 'Mains', img: '🍔' },
+    { name: 'Caesar Salad', price: amounts.caesarSalad, cat: 'Starters', img: '🥗' },
+    { name: 'Margherita Pizza', price: amounts.margheritaPizzaDine, cat: 'Mains', img: '🍕' },
+    { name: 'Tiramisu', price: amounts.tiramisuDine, cat: 'Desserts', img: '🍰' },
   ];
 
   const reservations = [
@@ -89,7 +90,7 @@ export const SwirlDineMockup: React.FC = () => {
             step >= 2 ? 'bg-primary text-white' : 'bg-gray-100 text-muted-foreground'
           }`}>
             <span className="text-[7px] font-semibold">
-              {step >= 2 ? '2 items · $28.00' : 'Your order'}
+              {step >= 2 ? `2 items · ${amounts.dineCartTotal}` : 'Your order'}
             </span>
             <span className={`text-[6px] font-bold px-2 py-0.5 rounded-full transition-all duration-300 ${
               step >= 2 ? 'bg-white/20' : 'bg-gray-200'
