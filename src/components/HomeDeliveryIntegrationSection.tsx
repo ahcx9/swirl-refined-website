@@ -241,12 +241,102 @@ const HomeDeliveryIntegrationSection = () => {
         </div>
 
         {/* Tagline */}
-        <p className={`text-center text-sm md:text-base font-medium text-muted-foreground mb-8 md:mb-12 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+        <p className={`text-center text-sm md:text-base font-medium text-muted-foreground mb-10 md:mb-14 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           One Hub. All Platforms Connected.
         </p>
 
+        {/* Reconciliation Reports Hero */}
+        <div className={`mb-12 md:mb-16 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 mb-4">
+              <FileBarChart className="h-3.5 w-3.5 text-primary" />
+              <span className="text-primary font-semibold text-xs tracking-wide">Reconciliation Reports</span>
+            </div>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-3">
+              Know exactly what every platform <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">owes you</span>
+            </h3>
+            <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
+              Detailed commission breakdowns, payout tracking, and revenue reconciliation — per platform, per day.
+            </p>
+          </div>
+
+          {/* Reconciliation Mockup */}
+          <div className="max-w-4xl mx-auto">
+            <div className="rounded-2xl border border-border/40 bg-white/80 backdrop-blur-sm shadow-xl shadow-primary/5 overflow-hidden">
+              {/* Browser chrome */}
+              <div className="flex items-center gap-2 px-4 py-2.5 bg-muted/30 border-b border-border/30">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
+                </div>
+                <div className="flex-1 flex justify-center">
+                  <div className="px-4 py-1 rounded-md bg-muted/40 text-[10px] text-muted-foreground font-medium">swirl.cx / reports / delivery-reconciliation</div>
+                </div>
+              </div>
+              
+              {/* Report Content */}
+              <div className="p-4 sm:p-6 md:p-8">
+                {/* Summary KPIs */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+                  {[
+                    { label: 'Total Revenue', value: 'SAR 47,320', icon: DollarSign, change: '+12.4%' },
+                    { label: 'Platform Fees', value: 'SAR 6,148', icon: Receipt, change: '-2.1%' },
+                    { label: 'Net Payout', value: 'SAR 41,172', icon: TrendingUp, change: '+14.8%' },
+                    { label: 'Orders', value: '1,284', icon: FileBarChart, change: '+8.3%' },
+                  ].map((kpi, i) => (
+                    <div key={i} className="rounded-xl border border-border/30 bg-muted/10 p-3 sm:p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="w-7 h-7 rounded-lg bg-primary/8 flex items-center justify-center">
+                          <kpi.icon className="w-3.5 h-3.5 text-primary" />
+                        </div>
+                        <span className="text-[10px] sm:text-xs text-muted-foreground font-medium">{kpi.label}</span>
+                      </div>
+                      <div className="text-sm sm:text-lg font-bold text-foreground">{kpi.value}</div>
+                      <span className="text-[10px] text-emerald-600 font-semibold">{kpi.change}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Platform Breakdown Table */}
+                <div className="rounded-xl border border-border/30 overflow-hidden">
+                  <div className="bg-muted/20 px-4 py-2.5 border-b border-border/20">
+                    <span className="text-xs font-semibold text-foreground">Platform-wise Breakdown</span>
+                  </div>
+                  <div className="divide-y divide-border/20">
+                    {[
+                      { name: 'Talabat', orders: 412, revenue: 'SAR 15,840', commission: 'SAR 2,376', rate: '15%', net: 'SAR 13,464', logo: '/lovable-uploads/talabat-logo.webp' },
+                      { name: 'HungerStation', orders: 298, revenue: 'SAR 11,200', commission: 'SAR 1,568', rate: '14%', net: 'SAR 9,632', logo: '/lovable-uploads/hungerstation-logo.png' },
+                      { name: 'Jahez', orders: 245, revenue: 'SAR 9,120', commission: 'SAR 1,094', rate: '12%', net: 'SAR 8,026', logo: '/lovable-uploads/jahez-logo.png' },
+                      { name: 'Noon Food', orders: 189, revenue: 'SAR 6,480', commission: 'SAR 713', rate: '11%', net: 'SAR 5,767', logo: '/lovable-uploads/noon-food-logo.png' },
+                      { name: 'Careem', orders: 140, revenue: 'SAR 4,680', commission: 'SAR 397', rate: '8.5%', net: 'SAR 4,283', logo: '/lovable-uploads/a2ee4e8c-8b4d-4521-a82a-39df6b6529aa.png' },
+                    ].map((platform, i) => (
+                      <div key={i} className="flex items-center gap-3 px-4 py-3 hover:bg-muted/10 transition-colors">
+                        <img src={platform.logo} alt={platform.name} className="w-7 h-7 object-contain rounded-md" loading="lazy" />
+                        <div className="flex-1 min-w-0">
+                          <span className="text-xs sm:text-sm font-semibold text-foreground">{platform.name}</span>
+                        </div>
+                        <div className="hidden sm:flex items-center gap-6 text-[11px] sm:text-xs text-muted-foreground">
+                          <span>{platform.orders} orders</span>
+                          <span>{platform.revenue}</span>
+                          <span className="text-red-500/80">-{platform.commission} ({platform.rate})</span>
+                          <span className="font-semibold text-foreground">{platform.net}</span>
+                        </div>
+                        <div className="sm:hidden text-right">
+                          <div className="text-xs font-semibold text-foreground">{platform.net}</div>
+                          <div className="text-[10px] text-muted-foreground">{platform.orders} orders</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Features Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-10 md:mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4 mb-10 md:mb-12">
           {features.map((feature, index) => (
             <Card key={index}
               className={`bg-white/80 backdrop-blur-sm border border-border/40 hover:shadow-lg hover:border-primary/20 hover:-translate-y-1 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
