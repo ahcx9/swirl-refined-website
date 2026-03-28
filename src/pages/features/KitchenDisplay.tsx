@@ -44,41 +44,41 @@ const KitchenDisplay = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative pt-32 md:pt-28 pb-12 md:pb-16 bg-white overflow-hidden">
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
+        <section className="relative pt-32 md:pt-36 pb-16 md:pb-24 bg-background overflow-hidden">
+          {/* Background glows */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-primary/[0.03] rounded-full blur-[150px]" />
+            <div className="absolute bottom-0 left-1/3 w-[600px] h-[300px] bg-primary/[0.02] rounded-full blur-[120px]" />
           </div>
 
-          <div className="container-custom">
-            <div className="max-w-7xl mx-auto">
-              {/* Text Content - Centered Above */}
-              <div className="text-center max-w-4xl mx-auto mb-10 md:mb-14">
-                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
-                  <ChefHat className="w-5 h-5 text-primary" />
-                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Kitchen Display System</span>
-                </div>
-                
-                <h1 className="animate-on-scroll animate-delay-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-gray-900">
-                  Streamline Your <span className="text-primary">Kitchen</span>
-                </h1>
-                
-                <p className="animate-on-scroll animate-delay-200 text-base sm:text-lg md:text-xl text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
-                  Transform your kitchen efficiency with our advanced Kitchen Display System. Reduce errors, improve communication, and speed up service.
-                </p>
-                
-                <div className="animate-on-scroll animate-delay-300 flex items-center justify-center gap-4 flex-wrap">
-                  <SwirlCTA />
-                  <BookDemoCTA />
-                </div>
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
+            {/* Text Content */}
+            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+              <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/[0.06] rounded-full border border-primary/10 mb-6">
+                <ChefHat className="w-4 h-4 text-primary" />
+                <span className="text-sm font-semibold text-primary">Kitchen Display System</span>
               </div>
-              
-              {/* Mockup Below */}
-              <div className="animate-on-scroll animate-delay-400 w-full overflow-x-auto pb-4">
-                <div className="min-w-[900px] md:min-w-0">
-                  <KDSMockup />
-                </div>
+
+              <h1 className="animate-on-scroll text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold mb-5 text-foreground leading-[1.1] tracking-[-0.02em]">
+                Your kitchen.{' '}
+                <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                  Fully in sync.
+                </span>
+              </h1>
+
+              <p className="animate-on-scroll text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+                Orders flow in real time, prioritized by urgency, and organized for every station — so your team moves faster, with zero confusion.
+              </p>
+
+              <div className="animate-on-scroll flex items-center justify-center gap-4 flex-wrap">
+                <SwirlCTA />
+                <BookDemoCTA />
               </div>
+            </div>
+
+            {/* KDS Mockup — premium centered */}
+            <div className="animate-on-scroll max-w-5xl mx-auto">
+              <KDSMockup />
             </div>
           </div>
         </section>
