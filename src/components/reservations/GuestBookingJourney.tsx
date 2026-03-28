@@ -138,8 +138,8 @@ const Step4Mockup = () => (
   <div className="space-y-3 p-1">
     {/* Success badge */}
     <div className="flex flex-col items-center py-2">
-      <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center mb-2">
-        <Check className="w-5 h-5 text-emerald-600" />
+      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-2">
+        <Check className="w-5 h-5 text-primary" />
       </div>
       <span className="text-[13px] font-bold text-foreground">Booking Confirmed!</span>
       <span className="text-[10px] text-muted-foreground mt-0.5">Confirmation #SWR-4821</span>
