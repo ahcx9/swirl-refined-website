@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Zap, RefreshCw, Bell, Clock, Monitor, ArrowDown, FileBarChart, DollarSign, TrendingUp, Receipt } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import SwirlCTA from '@/components/SwirlCTA';
+import { useCurrency } from '@/hooks/useCurrency';
 
 const allApps = [
   { name: 'Noon Food', logo: '/lovable-uploads/noon-food-logo.png' },

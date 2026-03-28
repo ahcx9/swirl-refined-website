@@ -12,6 +12,7 @@ import {
   BarChart3,
   Sparkles
 } from 'lucide-react';
+import { useCurrency } from '@/hooks/useCurrency';
 
 const dashboards = [
   {

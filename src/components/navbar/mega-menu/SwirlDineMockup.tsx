@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useCurrency } from '@/hooks/useCurrency';
 
 export const SwirlDineMockup: React.FC = () => {
   const [step, setStep] = useState(0);
