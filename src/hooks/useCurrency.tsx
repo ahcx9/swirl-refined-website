@@ -371,6 +371,40 @@ export function useCurrency() {
     
     // CRM mockup
     crmLifetimeValue: formatAmount(BASE_AMOUNTS.crmLifetimeValue),
+    
+    // Delivery Reconciliation
+    deliveryTotalRevenue: formatAmount(BASE_AMOUNTS.deliveryTotalRevenue),
+    deliveryPlatformFees: formatAmount(BASE_AMOUNTS.deliveryPlatformFees),
+    deliveryNetPayout: formatAmount(BASE_AMOUNTS.deliveryNetPayout),
+    deliveryTalabatRevenue: formatAmount(BASE_AMOUNTS.deliveryTalabatRevenue),
+    deliveryTalabatCommission: formatAmount(BASE_AMOUNTS.deliveryTalabatCommission),
+    deliveryTalabatNet: formatAmount(BASE_AMOUNTS.deliveryTalabatNet),
+    deliveryHungerStationRevenue: formatAmount(BASE_AMOUNTS.deliveryHungerStationRevenue),
+    deliveryHungerStationCommission: formatAmount(BASE_AMOUNTS.deliveryHungerStationCommission),
+    deliveryHungerStationNet: formatAmount(BASE_AMOUNTS.deliveryHungerStationNet),
+    deliveryJahezRevenue: formatAmount(BASE_AMOUNTS.deliveryJahezRevenue),
+    deliveryJahezCommission: formatAmount(BASE_AMOUNTS.deliveryJahezCommission),
+    deliveryJahezNet: formatAmount(BASE_AMOUNTS.deliveryJahezNet),
+    deliveryNoonRevenue: formatAmount(BASE_AMOUNTS.deliveryNoonRevenue),
+    deliveryNoonCommission: formatAmount(BASE_AMOUNTS.deliveryNoonCommission),
+    deliveryNoonNet: formatAmount(BASE_AMOUNTS.deliveryNoonNet),
+    deliveryCareemRevenue: formatAmount(BASE_AMOUNTS.deliveryCareemRevenue),
+    deliveryCareemCommission: formatAmount(BASE_AMOUNTS.deliveryCareemCommission),
+    deliveryCareemNet: formatAmount(BASE_AMOUNTS.deliveryCareemNet),
+    
+    // Operational Dashboards
+    dailyVariance: formatAmount(BASE_AMOUNTS.dailyVariance),
+    todaysDashRevenue: formatAmount(BASE_AMOUNTS.todaysDashRevenue),
+    
+    // Loyalty
+    referralCredit: formatAmount(BASE_AMOUNTS.referralCredit),
+    
+    // SwirlDine
+    truffleBurger: formatAmount(BASE_AMOUNTS.truffleBurger),
+    caesarSalad: formatAmount(BASE_AMOUNTS.caesarSalad),
+    margheritaPizzaDine: formatAmount(BASE_AMOUNTS.margheritaPizzaDine),
+    tiramisuDine: formatAmount(BASE_AMOUNTS.tiramisuDine),
+    dineCartTotal: formatAmount(BASE_AMOUNTS.dineCartTotal),
   }), [currencyCode, rate]);
 
   return {
