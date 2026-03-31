@@ -69,6 +69,7 @@ function App() {
           
           <Route path="/support" element={<Support />} />
           <Route path="/presentation" element={<Presentation />} />
+          <Route path="/roadmap" element={<Roadmap />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
