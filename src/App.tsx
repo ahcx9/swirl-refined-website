@@ -67,6 +67,7 @@ function App() {
           <Route path="/products/reservations" element={<Reservations />} />
           
           <Route path="/support" element={<Support />} />
+          <Route path="/presentation" element={<Presentation />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
