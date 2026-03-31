@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swirl — Enterprise Product Deep Dive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --neutral-50: #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e5e5e5;
+  --neutral-300: #d4d4d4;
+  --neutral-400: #a3a3a3;
+  --neutral-500: #737373;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-800: #262626;
+  --neutral-900: #171717;
+  --neutral-950: #0a0a0a;
+  --accent-blue: #0F5AD5;
+  --accent-blue-light: rgba(15, 90, 213, 0.1);
+  --accent-blue-dark: rgba(15, 90, 213, 0.2);
+  --slide-w: 1280px;
+  --slide-h: 720px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Geist', system-ui, sans-serif;
+  background: var(--neutral-100);
+  color: var(--neutral-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Slide container */
+.deck { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 24px 0; }
+.slide {
+  width: var(--slide-w); height: var(--slide-h);
+  background: var(--neutral-50);
+  position: relative; overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  padding: 64px 80px;
+  page-break-after: always;
+}
+.slide-dark { background: var(--neutral-950); color: var(--neutral-50); }
+.slide-muted { background: var(--neutral-100); }
+
+/* Typography */
+h1, h2, h3 { font-family: 'Gelasio', Georgia, serif; font-weight: 600; line-height: 1.15; }
+.display { font-size: 56px; letter-spacing: -1.5px; }
+.title { font-size: 40px; letter-spacing: -1px; }
+.subtitle { font-size: 28px; font-weight: 500; letter-spacing: -0.5px; }
+.body { font-size: 15px; line-height: 1.65; color: var(--neutral-600); }
+.body-sm { font-size: 13.5px; line-height: 1.6; color: var(--neutral-500); }
+.label {
+  font-family: 'Geist', sans-serif; font-size: 11px; font-weight: 600;
+  letter-spacing: 1.8px; text-transform: uppercase; color: var(--neutral-400);
+}
+.label-dark { color: var(--neutral-500); }
+.mono { font-family: 'Geist', monospace; }
+
+/* Helpers */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.gap-8 { gap: 8px; } .gap-12 { gap: 12px; } .gap-16 { gap: 16px; }
+.gap-20 { gap: 20px; } .gap-24 { gap: 24px; } .gap-32 { gap: 32px; }
+.gap-40 { gap: 40px; } .gap-48 { gap: 48px; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.flex-1 { flex: 1; }
+.w-full { width: 100%; }
+.text-center { text-align: center; }
+.mt-auto { margin-top: auto; }
+.mb-auto { margin-bottom: auto; }
+.ml-auto { margin-left: auto; }
+
+/* Decorative */
+.divider { width: 48px; height: 1.5px; background: var(--neutral-300); }
+.divider-dark { background: var(--neutral-700); }
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px; border-radius: 100px;
+  border: 1px solid var(--neutral-200);
+  font-size: 12px; font-weight: 500; color: var(--neutral-600);
+}
+.pill-dark { border-color: var(--neutral-700); color: var(--neutral-400); }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--neutral-900); flex-shrink: 0; }
+.dot-dark { background: var(--neutral-400); }
+
+/* Feature card */
+.feature-card {
+  padding: 20px 24px;
+  border: 1px solid var(--neutral-200);
+  border-radius: 12px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.feature-card-dark {
+  border-color: var(--neutral-800);
+}
+.feature-icon {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 10px;
+  background: var(--neutral-100);
+  color: var(--neutral-700);
+  flex-shrink: 0;
+}
+.feature-icon-dark { background: var(--neutral-800); color: var(--neutral-300); }
+.feature-title {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px; font-weight: 600; color: var(--neutral-800);
+}
+.feature-title-dark { color: var(--neutral-100); }
+.feature-desc {
+  font-size: 12.5px; line-height: 1.55; color: var(--neutral-500);
+}
+
+/* Grid layouts */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px; }
+
+/* Stat block */
+.stat-block { display: flex; flex-direction: column; gap: 4px; }
+.stat-number { font-family: 'Gelasio', serif; font-size: 44px; font-weight: 700; line-height: 1; }
+.stat-label { font-size: 13px; color: var(--neutral-500); }
+
+/* Slide number */
+.slide-num {
+  position: absolute; bottom: 28px; right: 40px;
+  font-size: 11px; color: var(--neutral-400); font-weight: 500;
+}
+.slide-num-dark { color: var(--neutral-600); }
+
+/* Brand mark */
+.brand-mark {
+  position: absolute; bottom: 22px; left: 40px;
+  height: 22px;
+}
+.brand-mark img {
+  height: 100%; width: auto; display: block;
+}
+.brand-mark-dark img {
+  filter: brightness(0) invert(1); opacity: 0.35;
+}
+
+/* Architecture box */
+.arch-box {
+  padding: 24px 28px; border-radius: 14px;
+  border: 1px solid var(--neutral-200);
+  display: flex; flex-direction: column; gap: 10px;
+  flex: 1;
+}
+.arch-box-accent {
+  background: var(--accent-blue); color: var(--neutral-50);
+  border-color: var(--accent-blue);
+}
+
+/* Metric row */
+.metric-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--neutral-100);
+}
+.metric-row:last-child { border-bottom: none; }
+.metric-val { font-family: 'Gelasio', serif; font-size: 18px; font-weight: 700; width: 60px; }
+
+/* Tag */
+.tag {
+  display: inline-flex; padding: 3px 10px; border-radius: 6px;
+  font-size: 11px; font-weight: 500;
+  background: var(--neutral-100); color: var(--neutral-600);
+}
+
+/* Accent utilities */
+.pill-accent { border-color: var(--accent-blue); color: var(--accent-blue); }
+.tag-accent { background: var(--accent-blue-dark); color: rgba(15, 90, 213, 0.9); }
+.tag-accent-dark { background: rgba(15, 90, 213, 0.25); color: rgba(120, 170, 255, 0.95); }
+.divider-accent { background: var(--accent-blue); }
+.feature-icon-accent { background: var(--accent-blue-light); color: var(--accent-blue); }
+
+/* SVG icons inline */
+svg { flex-shrink: 0; }
+
+/* Presentation controls */
+.deck-controls {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px; z-index: 1000;
+  background: white; padding: 8px 16px; border-radius: 100px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1); border: 1px solid var(--neutral-200);
+}
+.deck-controls button {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 20px; border-radius: 100px; border: none;
+  font-family: 'Geist', sans-serif; font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all 0.2s;
+}
+.btn-present { background: var(--neutral-900); color: white; }
+.btn-present:hover { background: var(--neutral-700); }
+.btn-pdf { background: var(--neutral-100); color: var(--neutral-700); border: 1px solid var(--neutral-200) !important; }
+.btn-pdf:hover { background: var(--neutral-200); }
+
+/* Presentation mode */
+body.presenting { overflow: hidden; background: #000; }
+body.presenting .deck { gap: 0; padding: 0; }
+body.presenting .deck-controls { display: none; }
+body.presenting .slide {
+  display: none !important;
+  position: fixed;
+  width: 1280px; height: 720px;
+  transform-origin: top left;
+}
+body.presenting .slide.active-slide { display: flex !important; }
+
+/* Print / PDF */
+@page {
+  size: landscape;
+  margin: 0;
+}
+@media print {
+  html, body {
+    margin: 0 !important; padding: 0 !important;
+    width: 100% !important; height: 100% !important;
+    background: white;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  .deck-controls { display: none !important; }
+  .deck { gap: 0 !important; padding: 0 !important; display: block !important; }
+  .slide {
+    width: 100vw !important; height: 100vh !important;
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    overflow: hidden !important;
+    position: relative !important;
+    flex-shrink: 0;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+  .slide:last-child {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- ========== SLIDE 1: Cover ========== -->
+<div class="slide flex-col" style="padding: 0; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: var(--neutral-50);">
+  <!-- Radial blue glow -->
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 900px; height: 900px; background: radial-gradient(circle, rgba(15, 90, 213, 0.07) 0%, rgba(15, 90, 213, 0.02) 35%, transparent 70%); pointer-events: none;"></div>
+  <!-- Secondary glow — top right -->
+  <div style="position: absolute; top: -120px; right: -80px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(15, 90, 213, 0.05) 0%, transparent 65%); pointer-events: none;"></div>
+  <!-- Subtle grid overlay -->
+  <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px); background-size: 64px 64px; pointer-events: none;"></div>
+  <!-- Top accent line -->
+  <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 200px; height: 2px; background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);"></div>
+
+  <!-- Content -->
+  <div style="position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 0;">
+    <!-- Logo -->
+    <div style="margin-bottom: 40px;">
+      <img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl" style="height: 52px; width: auto;">
+    </div>
+    <!-- Headline -->
+    <h1 style="font-family: 'Gelasio', Georgia, serif; font-size: 72px; font-weight: 700; letter-spacing: -2px; line-height: 1.05; color: var(--neutral-900); margin-bottom: 20px;">Software that<br><span style="color: var(--neutral-900);">thinks.</span></h1>
+    <!-- Divider -->
+    <div style="width: 48px; height: 2px; background: linear-gradient(90deg, var(--accent-blue), #4A9AFF); margin-bottom: 24px; border-radius: 2px;"></div>
+    <!-- Subtitle -->
+    <p style="font-family: 'Geist', sans-serif; font-size: 16px; color: var(--neutral-500); max-width: 440px; line-height: 1.7; letter-spacing: 0.2px;">AI-native enterprise platform for hospitality.<br>POS, inventory, accounting, CRM — all working as one.</p>
+    <!-- Pills -->
+    <div style="display: flex; gap: 10px; margin-top: 36px;">
+      <span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 100px; border: 1px solid rgba(15, 90, 213, 0.25); font-size: 11.5px; font-weight: 500; color: var(--accent-blue); letter-spacing: 0.3px;">
+        <span style="width: 5px; height: 5px; border-radius: 50%; background: var(--accent-blue);"></span>Swirl Dine
+      </span>
+      <span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 100px; border: 1px solid rgba(15, 90, 213, 0.25); font-size: 11.5px; font-weight: 500; color: var(--accent-blue); letter-spacing: 0.3px;">
+        <span style="width: 5px; height: 5px; border-radius: 50%; background: var(--accent-blue);"></span>Swirl Works
+      </span>
+      <span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 100px; border: 1px solid rgba(15, 90, 213, 0.25); font-size: 11.5px; font-weight: 500; color: var(--accent-blue); letter-spacing: 0.3px;">
+        <span style="width: 5px; height: 5px; border-radius: 50%; background: var(--accent-blue);"></span>Swirl OS
+      </span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div style="position: absolute; bottom: 32px; left: 0; right: 0; display: flex; justify-content: center;">
+    <span style="font-family: 'Geist', sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--neutral-400);">Enterprise Product Deep Dive — Confidential</span>
+  </div>
+  <div class="slide-num">01</div>
+</div>
+
+<!-- ========== SLIDE 2: The Company ========== -->
+<div class="slide flex-col" style="padding: 64px 80px;">
+  <div class="label" style="margin-bottom: 32px;">About Us</div>
+  <div class="flex gap-48 flex-1">
+    <div class="flex flex-col gap-24 flex-1">
+      <h2 class="title">Built for the<br>future of hospitality</h2>
+      <p class="body" style="max-width: 420px;">Swirl Technologies is the holding company behind a suite of AI-native enterprise products that transform how businesses operate — embedding intelligence into every workflow, not bolting it on as an afterthought.</p>
+      <div class="divider" style="margin-top: 8px;"></div>
+      <p class="body-sm" style="max-width: 400px;">Swirl products don't just automate tasks. They eliminate the need to manage them at all. Every module is designed with a single principle: make the complex invisible.</p>
+    </div>
+    <div class="flex flex-col gap-20" style="width: 380px; margin-top: 12px;">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/></svg>
+        </div>
+        <div class="feature-title">AI-First Philosophy</div>
+        <div class="feature-desc">Intelligence embedded at the core, not layered on top. Every feature is designed to think, anticipate, and act autonomously.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <div class="feature-title">Unified Platform</div>
+        <div class="feature-desc">One platform for front-of-house, back-of-house, and enterprise operations. No fragmented point solutions.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        </div>
+        <div class="feature-title">Enterprise Scale</div>
+        <div class="feature-desc">Multi-entity, multi-brand, multi-country. Architected from day one for chains operating hundreds of outlets.</div>
+      </div>
+    </div>
+  </div>
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">02</div>
+</div>
+
+<!-- ========== SLIDE 3: The Challenge ========== -->
+<div class="slide slide-muted flex-col" style="padding: 64px 80px; overflow: hidden;">
+  <div class="label" style="margin-bottom: 32px; color: #F97316;">The Challenge</div>
+  <h2 class="title" style="margin-bottom: 12px; max-width: 700px;">Enterprise F&B Is Running on<br><span style="color: #F97316;">Fragmented Tech</span></h2>
+  <p class="body" style="max-width: 480px; margin-bottom: 36px;">Multiple disconnected systems creating data silos, revenue leaks, and operational blind spots across every outlet.</p>
+
+  <div class="flex gap-16 flex-1" style="align-items: stretch;">
+    <!-- Left column — pain points -->
+    <div class="flex flex-col gap-12" style="flex: 1;">
+      <div style="padding: 20px 24px; border-radius: 12px; border: 1px solid var(--neutral-200); background: white; display: flex; gap: 16px; align-items: flex-start;">
+        <div style="width: 3px; min-height: 100%; border-radius: 2px; background: #F97316; flex-shrink: 0;"></div>
+        <div>
+          <div style="font-size: 14px; font-weight: 600; color: var(--neutral-800); margin-bottom: 4px;">5-10 Disconnected Vendors</div>
+          <div class="feature-desc">POS, inventory, reservations, loyalty, payroll — all separate, all siloed.</div>
+        </div>
+      </div>
+      <div style="padding: 20px 24px; border-radius: 12px; border: 1px solid var(--neutral-200); background: white; display: flex; gap: 16px; align-items: flex-start;">
+        <div style="width: 3px; min-height: 100%; border-radius: 2px; background: #38BDF8; flex-shrink: 0;"></div>
+        <div>
+          <div style="font-size: 14px; font-weight: 600; color: var(--neutral-800); margin-bottom: 4px;">No Single Source of Truth</div>
+          <div class="feature-desc">Finance doesn't match ops. Reports take days to reconcile across outlets.</div>
+        </div>
+      </div>
+      <div style="padding: 20px 24px; border-radius: 12px; border: 1px solid var(--neutral-200); background: white; display: flex; gap: 16px; align-items: flex-start;">
+        <div style="width: 3px; min-height: 100%; border-radius: 2px; background: #EF4444; flex-shrink: 0;"></div>
+        <div>
+          <div style="font-size: 14px; font-weight: 600; color: var(--neutral-800); margin-bottom: 4px;">Manual Processes Everywhere</div>
+          <div class="feature-desc">Purchase orders, payroll, banquet quotes — all done in spreadsheets.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right column — stat + pain points -->
+    <div class="flex flex-col gap-12" style="flex: 1;">
+      <div style="padding: 28px 32px; border-radius: 12px; background: var(--neutral-900); border: 1px solid var(--neutral-800); display: flex; align-items: center; gap: 24px;">
+        <div style="font-family: 'Gelasio', serif; font-size: 52px; font-weight: 700; color: #38BDF8; line-height: 1;">44%</div>
+        <div style="font-size: 13.5px; color: var(--neutral-400); line-height: 1.55;">of restaurant operators struggle with multi-platform integration daily</div>
+      </div>
+      <div style="padding: 20px 24px; border-radius: 12px; border: 1px solid var(--neutral-200); background: white; display: flex; gap: 16px; align-items: flex-start;">
+        <div style="width: 3px; min-height: 100%; border-radius: 2px; background: #F97316; flex-shrink: 0;"></div>
+        <div>
+          <div style="font-size: 14px; font-weight: 600; color: var(--neutral-800); margin-bottom: 4px;">Zero Real-Time Visibility</div>
+          <div class="feature-desc">Managers have no live view of sales, wastage, or staff across branches.</div>
+        </div>
+      </div>
+      <div style="padding: 20px 24px; border-radius: 12px; border: 1px solid var(--neutral-200); background: white; display: flex; gap: 16px; align-items: flex-start;">
+        <div style="width: 3px; min-height: 100%; border-radius: 2px; background: #EF4444; flex-shrink: 0;"></div>
+        <div>
+          <div style="font-size: 14px; font-weight: 600; color: var(--neutral-800); margin-bottom: 4px;">Revenue Leaking Daily</div>
+          <div class="feature-desc">Aggregator fees untracked. Menu profitability unknown. Wastage uncontrolled.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">03</div>
+</div>
+
+<!-- ========== SLIDE 4: Product Architecture ========== -->
+<div class="slide flex-col" style="padding: 64px 80px;">
+  <div class="label" style="margin-bottom: 32px;">Product Architecture</div>
+  <h2 class="title" style="margin-bottom: 40px;">Three products. One platform.</h2>
+  <div class="flex gap-20 flex-1" style="margin-bottom: 24px;">
+    <div class="arch-box" style="justify-content: space-between;">
+      <div>
+        <div class="label" style="margin-bottom: 16px;">Front of House</div>
+        <h3 style="font-size: 28px; margin-bottom: 8px;">Swirl Dine</h3>
+        <p style="font-size: 14px; color: var(--neutral-500); line-height: 1.55; font-style: italic; font-family: 'Gelasio', serif;">From the first tap to the last bite.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px;">
+        <span class="tag">POS & Billing</span>
+        <span class="tag">Menu & QR</span>
+        <span class="tag">CRM & Loyalty</span>
+        <span class="tag">Reservations</span>
+        <span class="tag">KDS & Kitchen</span>
+      </div>
+    </div>
+    <div class="arch-box" style="justify-content: space-between;">
+      <div>
+        <div class="label" style="margin-bottom: 16px;">Back of House</div>
+        <h3 style="font-size: 28px; margin-bottom: 8px;">Swirl Works</h3>
+        <p style="font-size: 14px; color: var(--neutral-500); line-height: 1.55; font-style: italic; font-family: 'Gelasio', serif;">Less waste. More margin. Zero chaos.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px;">
+        <span class="tag">Inventory</span>
+        <span class="tag">Procurement</span>
+        <span class="tag">Recipes & Costing</span>
+        <span class="tag">Production</span>
+        <span class="tag">Vendor Mgmt</span>
+      </div>
+    </div>
+    <div class="arch-box" style="justify-content: space-between; background: var(--neutral-900); color: var(--neutral-50); border-color: var(--neutral-900);">
+      <div>
+        <div class="label" style="color: var(--neutral-500); margin-bottom: 16px;">Platform Layer</div>
+        <h3 style="font-size: 28px; color: var(--neutral-50); margin-bottom: 8px;">Swirl OS</h3>
+        <p style="font-size: 14px; color: var(--neutral-400); line-height: 1.55; font-style: italic; font-family: 'Gelasio', serif;">Run everything. Manage nothing.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px;">
+        <span class="tag" style="background: rgba(255,255,255,0.12); color: var(--neutral-200);">Finance & Accounting</span>
+        <span class="tag" style="background: rgba(255,255,255,0.12); color: var(--neutral-200);">HR & Payroll</span>
+        <span class="tag" style="background: rgba(255,255,255,0.12); color: var(--neutral-200);">Multi-Entity</span>
+        <span class="tag" style="background: rgba(255,255,255,0.12); color: var(--neutral-200);">Fixed Assets</span>
+      </div>
+    </div>
+  </div>
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">04</div>
+</div>
+
+<!-- ========== SLIDE 5: Everything Talks to Each Other ========== -->
+<div class="slide flex-col" style="padding: 64px 80px;">
+  <div class="flex gap-48 flex-1 items-start">
+    <div class="flex flex-col gap-20" style="width: 420px;">
+      <div class="label" style="margin-bottom: 0;">Swirl Platform — Unified Intelligence</div>
+      <h2 class="title">Everything talks<br>to everything.</h2>
+      <p class="body" style="max-width: 380px;">One platform where POS, kitchen, inventory, accounting, CRM, and delivery all share the same data layer. No integrations to manage, no sync failures, no data silos — every module is natively connected.</p>
+    </div>
+    <div class="flex-1" style="display: flex; align-items: center; justify-content: center;">
+      <img src="https://swirl.blr1.cdn.digitaloceanspaces.com/product-icons/everything-talks-to-each-other.png" alt="Everything Talks to Each Other" style="max-width: 100%; max-height: 520px; object-fit: contain; border-radius: 12px;">
+    </div>
+  </div>
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">05</div>
+</div>
+
+<!-- ========== SLIDE 6: Swirl Dine — Overview ========== -->
+<div class="slide slide-dark flex-col" style="padding: 64px 80px;">
+  <div class="label label-dark" style="margin-bottom: 32px;">Swirl Dine — Restaurant Front Office</div>
+  <div class="flex gap-48 flex-1 items-start">
+    <div class="flex flex-col gap-20" style="width: 400px;">
+      <h2 class="title" style="color: var(--neutral-50);">From the first tap<br>to the last bite.</h2>
+      <p class="body" style="color: var(--neutral-400); max-width: 380px;">Every customer touchpoint — from online discovery to in-store dining — managed from a single intelligent platform. Swirl Dine unifies digital and physical guest experiences.</p>
+    </div>
+    <div class="grid-2 flex-1" style="gap: 12px;">
+      <div class="feature-card feature-card-dark">
+        <div class="feature-icon feature-icon-dark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+        </div>
+        <div class="feature-title feature-title-dark">Point of Sale</div>
+        <div class="feature-desc">Touch POS for dine-in, takeaway, delivery. Multi-device, offline-capable, with split payments.</div>
+      </div>
+      <div class="feature-card feature-card-dark">
+        <div class="feature-icon feature-icon-dark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2"/><path d="M18 15h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Z"/></svg>
+        </div>
+        <div class="feature-title feature-title-dark">Menu & QR Ordering</div>
+        <div class="feature-desc">Digital menus, table-side QR ordering, multi-language. Customers order from their phone.</div>
+      </div>
+      <div class="feature-card feature-card-dark">
+        <div class="feature-icon feature-icon-dark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="feature-title feature-title-dark">CRM & Loyalty</div>
+        <div class="feature-desc">Customer profiles, RFM segmentation, tiered loyalty, cross-brand redemption, automated campaigns.</div>
+      </div>
+      <div class="feature-card feature-card-dark">
+        <div class="feature-icon feature-icon-dark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="feature-title feature-title-dark">Kitchen Display</div>
+        <div class="feature-desc">Multi-station KDS, automated routing, cook acknowledgement, prep timers, performance analytics.</div>
+      </div>
+      <div class="feature-card feature-card-dark">
+        <div class="feature-icon feature-icon-dark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h8"/><path d="M4 18V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M12 12v6"/></svg>
+        </div>
+        <div class="feature-title feature-title-dark">Table & Reservations</div>
+        <div class="feature-desc">Visual floor layout, drag-and-drop tables, booking with WhatsApp/SMS reminders, waitlist management.</div>
+      </div>
+      <div class="feature-card feature-card-dark">
+        <div class="feature-icon feature-icon-dark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+        </div>
+        <div class="feature-title feature-title-dark">Reports & Analytics</div>
+        <div class="feature-desc">Sales, cashier, tax, voids. AI Command Center with daily insights. Live dashboard on mobile.</div>
+      </div>
+    </div>
+  </div>
+  <div class="brand-mark brand-mark-dark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num slide-num-dark">06</div>
+</div>
+
+<!-- ========== SLIDE 7: Swirl Dine — Capabilities ========== -->
+<div class="slide flex-col" style="padding: 56px 80px;">
+  <div class="label" style="margin-bottom: 24px;">Swirl Dine — Capabilities</div>
+  <h2 style="font-family: 'Gelasio', serif; font-size: 30px; margin-bottom: 28px;">Every guest touchpoint. Unified.</h2>
+  <div class="grid-4" style="flex: 1; align-content: start;">
+    <div class="feature-card" style="padding: 16px 20px;">
+      <div class="feature-title">Order Types</div>
+      <div class="feature-desc">Dine-in, takeaway, delivery, online, kiosk. Each with configurable pricing and tax rules.</div>
+    </div>
+    <div class="feature-card" style="padding: 16px 20px;">
+      <div class="feature-title">Combos & Modifiers</div>
+      <div class="feature-desc">Template combos, modifier groups, substitution surcharges, auto-detect from cart, happy hour scheduling.</div>
+    </div>
+    <div class="feature-card" style="padding: 16px 20px;">
+      <div class="feature-title">Bill Splitting</div>
+      <div class="feature-desc">Equal, by item, by category, complimentary. Independent payment per sub-bill. Merge and transfer tables.</div>
+    </div>
+    <div class="feature-card" style="padding: 16px 20px;">
+      <div class="feature-title">Course Management</div>
+      <div class="feature-desc">Sequential/parallel serving, auto-fire next course, prep buffers, course-level time tracking.</div>
+    </div>
+    <div class="feature-card" style="padding: 16px 20px;">
+      <div class="feature-title">Dynamic Pricing</div>
+      <div class="feature-desc">Unlimited price contexts: order type, platform, time, day, area, customer segment. Fully rule-based.</div>
+    </div>
+    <div class="feature-card" style="padding: 16px 20px;">
+      <div class="feature-title">Queue & Tokens</div>
+      <div class="feature-desc">QSR token system with display board, SMS/WhatsApp ready notification, daily auto-reset.</div>
+    </div>
+    <div class="feature-card" style="padding: 16px 20px;">
+      <div class="feature-title">Payments</div>
+      <div class="feature-desc">Card terminals (Adyen, NI, SumUp), split payment, tips, gift cards, payment links, loyalty redemption.</div>
+    </div>
+    <div class="feature-card" style="padding: 16px 20px;">
+      <div class="feature-title">Aggregator Hub</div>
+      <div class="feature-desc">Talabat, Noon, Careem, Deliveroo via UrbanPiper. Unified dashboard, auto-KOT, commission reconciliation.</div>
+    </div>
+    <div class="feature-card" style="padding: 16px 20px;">
+      <div class="feature-title">Allergen Safety</div>
+      <div class="feature-desc">Ingredient-level tagging, customer profile alerts, POS/KDS flags, bulk assignment across items.</div>
+    </div>
+    <div class="feature-card" style="padding: 16px 20px;">
+      <div class="feature-title">E-Bills & Digital</div>
+      <div class="feature-desc">Auto-send via SMS, WhatsApp, Email on settlement. QR code on receipt. 30-day secure link access.</div>
+    </div>
+    <div class="feature-card" style="padding: 16px 20px;">
+      <div class="feature-title">Online Ordering</div>
+      <div class="feature-desc">White-label website, custom domain, mobile app (iOS/Android), OTP auth, promo codes, delivery zones.</div>
+    </div>
+    <div class="feature-card" style="padding: 16px 20px;">
+      <div class="feature-title">Self-Service Kiosk</div>
+      <div class="feature-desc">Touch-friendly UI, language selection, upsell prompts, payment terminal, loyalty scan, accessibility.</div>
+    </div>
+  </div>
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">07</div>
+</div>
+
+<!-- ========== SLIDE 8: POS Features ========== -->
+<div class="slide flex-col" style="padding: 64px 80px;">
+  <div class="flex gap-48 flex-1 items-start">
+    <div class="flex flex-col gap-20" style="width: 420px;">
+      <div class="label" style="margin-bottom: 0;">Swirl Dine — Point of Sale</div>
+      <h2 class="title">More than a POS.<br>Your restaurant's<br>operating system.</h2>
+      <p class="body" style="max-width: 380px;">Lightning-fast billing with deep integration into kitchen, inventory, accounting, and CRM. Every transaction is connected — no data gaps, no reconciliation headaches.</p>
+    </div>
+    <div class="flex-1" style="display: flex; align-items: center; justify-content: center;">
+      <img src="https://swirl.blr1.cdn.digitaloceanspaces.com/product-icons/pos-screen.png" alt="POS Screen" style="max-width: 100%; max-height: 520px; object-fit: contain; border-radius: 12px;">
+    </div>
+  </div>
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">08</div>
+</div>
+
+<!-- ========== SLIDE 9: Menu AI ========== -->
+<div class="slide flex-col" style="padding: 64px 80px;">
+  <div class="flex gap-48 flex-1 items-start">
+    <div class="flex flex-col gap-20" style="width: 420px;">
+      <div class="label" style="margin-bottom: 0;">Swirl Dine — Menu Intelligence</div>
+      <h2 class="title">Menus that<br>optimize themselves.</h2>
+      <p class="body" style="max-width: 380px;">AI-powered menu engineering that analyzes sales mix, food cost, and margin data to recommend pricing, placement, and promotions. Build menus once — Swirl keeps them profitable.</p>
+    </div>
+    <div class="flex-1" style="display: flex; align-items: center; justify-content: center;">
+      <img src="https://swirl.blr1.cdn.digitaloceanspaces.com/product-icons/menu-ai.png" alt="Menu AI" style="max-width: 100%; max-height: 520px; object-fit: contain; border-radius: 12px;">
+    </div>
+  </div>
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">09</div>
+</div>
+
+<!-- ========== SLIDE 10: KDS ========== -->
+<div class="slide slide-dark flex-col" style="padding: 48px 64px;">
+  <div class="flex justify-between items-center" style="margin-bottom: 16px;">
+    <div>
+      <div class="label label-dark" style="margin-bottom: 8px;">Swirl Dine — Kitchen Display</div>
+      <h2 style="font-family: 'Gelasio', serif; font-size: 28px; color: var(--neutral-50);">From Order to Kitchen. In Real Time.</h2>
+    </div>
+  </div>
+  <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+    <img src="https://swirl.blr1.cdn.digitaloceanspaces.com/product-icons/kds.png" alt="Kitchen Display System" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 14px;">
+  </div>
+  <div class="brand-mark brand-mark-dark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num slide-num-dark">10</div>
+</div>
+
+<!-- ========== SLIDE 11: Guest Reservation ========== -->
+<div class="slide flex-col" style="padding: 64px 80px;">
+  <div class="flex gap-48 flex-1 items-start">
+    <div class="flex flex-col gap-20" style="width: 420px;">
+      <div class="label" style="margin-bottom: 0;">Swirl Dine — Guest Experience</div>
+      <h2 class="title">Reservations<br>your guests will<br>remember.</h2>
+      <p class="body" style="max-width: 380px;">A seamless booking experience for customers — from table selection to confirmation. Guest profiles, visit history, and preferences are captured automatically, turning every reservation into a personalized experience.</p>
+    </div>
+    <div class="flex-1" style="display: flex; align-items: center; justify-content: center;">
+      <img src="https://swirl.blr1.cdn.digitaloceanspaces.com/product-icons/guest-reservation.png" alt="Guest Reservation Experience" style="max-width: 100%; max-height: 520px; object-fit: contain; border-radius: 12px;">
+    </div>
+  </div>
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">11</div>
+</div>
+
+<!-- ========== SLIDE 12: Reservation Calendar View ========== -->
+<div class="slide flex-col" style="padding: 64px 80px;">
+  <div class="flex gap-48 flex-1 items-start">
+    <div class="flex flex-col gap-20" style="width: 420px;">
+      <div class="label" style="margin-bottom: 0;">Swirl Dine — Reservation Management</div>
+      <h2 class="title">Every table.<br>Every time slot.<br>One view.</h2>
+      <p class="body" style="max-width: 380px;">A visual calendar that gives your host team full control — drag-and-drop bookings, real-time availability, walk-in management, and automatic waitlist handling. No more double-bookings or empty tables.</p>
+    </div>
+    <div class="flex-1" style="display: flex; align-items: center; justify-content: center;">
+      <img src="https://swirl.blr1.cdn.digitaloceanspaces.com/product-icons/calendar-view.png" alt="Reservation Calendar View" style="max-width: 100%; max-height: 520px; object-fit: contain; border-radius: 12px;">
+    </div>
+  </div>
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">12</div>
+</div>
+
+<!-- ========== SLIDE 12: Swirl Works — Overview ========== -->
+<div class="slide flex-col" style="padding: 64px 80px;">
+  <div class="label" style="margin-bottom: 32px;">Swirl Works — Restaurant Back Office</div>
+  <div class="flex gap-48 flex-1 items-start">
+    <div class="flex flex-col gap-20" style="width: 400px;">
+      <h2 class="title">Less waste.<br>More margin.<br>Zero chaos.</h2>
+      <p class="body" style="max-width: 380px;">Full control over the operational and financial backbone. From ingredient costing to vendor payments, every back-office function is automated, tracked, and optimized by AI.</p>
+    </div>
+    <div class="flex flex-col gap-12 flex-1" style="margin-top: 4px;">
+      <div class="feature-card">
+        <div class="flex gap-16 items-center">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+          </div>
+          <div>
+            <div class="feature-title">Inventory Management</div>
+            <div class="feature-desc">Real-time stock tracking, par levels, batch management, automated alerts, recipe-based deduction on every sale.</div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="flex gap-16 items-center">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 12h4"/><path d="M10 16h4"/></svg>
+          </div>
+          <div>
+            <div class="feature-title">Procurement & Purchase Orders</div>
+            <div class="feature-desc">Requisition-to-PO workflow, multi-level approvals, GRN with quality gates, three-way matching (PO-GRN-Invoice).</div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="flex gap-16 items-center">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" x2="18" y1="17" y2="17"/></svg>
+          </div>
+          <div>
+            <div class="feature-title">Recipe & Food Costing</div>
+            <div class="feature-desc">Ingredient-level recipes, unit conversions, cost per serving, theoretical vs actual variance analysis.</div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="flex gap-16 items-center">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+          </div>
+          <div>
+            <div class="feature-title">Production & Transfers</div>
+            <div class="feature-desc">Batch production runs, inter-store transfers with full workflow, multi-warehouse support, stock counting.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">13</div>
+</div>
+
+<!-- ========== SLIDE 14: Swirl OS — ERP ========== -->
+<div class="slide slide-dark flex-col" style="padding: 64px 80px;">
+  <div class="label label-dark" style="margin-bottom: 32px;">Swirl OS — AI-First ERP</div>
+  <h2 class="title" style="color: var(--neutral-50); margin-bottom: 8px;">Run everything.<br>Manage nothing.</h2>
+  <p class="body" style="color: var(--neutral-400); max-width: 520px; margin-bottom: 36px;">The intelligent layer that unifies finance, operations, supply chain, and HR into a single platform. Not a bolted-on ERP — a business operating system.</p>
+  <div class="grid-3 flex-1" style="align-content: start; gap: 14px;">
+    <div class="feature-card feature-card-dark" style="padding: 18px 22px;">
+      <div class="feature-icon feature-icon-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="1" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <div class="feature-title feature-title-dark">Full Accounting</div>
+      <div class="feature-desc">Chart of accounts, GL, journal entries, AR/AP, bank reconciliation, multi-currency, year-end close.</div>
+    </div>
+    <div class="feature-card feature-card-dark" style="padding: 18px 22px;">
+      <div class="feature-icon feature-icon-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg>
+      </div>
+      <div class="feature-title feature-title-dark">Financial Statements</div>
+      <div class="feature-desc">P&L, balance sheet, cash flow, trial balance. Group-level consolidation across entities.</div>
+    </div>
+    <div class="feature-card feature-card-dark" style="padding: 18px 22px;">
+      <div class="feature-icon" style="background: var(--accent-blue-dark); color: var(--accent-blue);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+      </div>
+      <div class="feature-title feature-title-dark">FTA Approved — ASP</div>
+      <div class="feature-desc">Approved Service Provider (ASP) for UAE Federal Tax Authority. Full VAT compliance and e-invoicing readiness.</div>
+    </div>
+    <div class="feature-card feature-card-dark" style="padding: 18px 22px;">
+      <div class="feature-icon feature-icon-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
+      </div>
+      <div class="feature-title feature-title-dark">Fixed Assets</div>
+      <div class="feature-desc">Asset register, straight-line & WDV depreciation, maintenance tracking, disposal with gain/loss accounting.</div>
+    </div>
+    <div class="feature-card feature-card-dark" style="padding: 18px 22px;">
+      <div class="feature-icon feature-icon-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="feature-title feature-title-dark">HR & Workforce</div>
+      <div class="feature-desc">Attendance, scheduling, leave management, commission engine, tip distribution, payroll export (EFT).</div>
+    </div>
+    <div class="feature-card feature-card-dark" style="padding: 18px 22px;">
+      <div class="feature-icon feature-icon-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+      </div>
+      <div class="feature-title feature-title-dark">ZATCA E-Invoicing</div>
+      <div class="feature-desc">Full Phase 2 compliance for Saudi Arabia. IRN generation, QR codes, real-time ZATCA portal submission.</div>
+    </div>
+  </div>
+  <div class="brand-mark brand-mark-dark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num slide-num-dark">14</div>
+</div>
+
+<!-- ========== SLIDE 15: Enterprise Features ========== -->
+<div class="slide flex-col" style="padding: 56px 80px;">
+  <div class="label" style="margin-bottom: 24px;">Enterprise Capabilities</div>
+  <h2 style="font-family: 'Gelasio', serif; font-size: 30px; margin-bottom: 28px;">Built for scale. Designed for control.</h2>
+  <div class="grid-3" style="flex: 1; align-content: start; gap: 14px;">
+    <div class="feature-card" style="padding: 18px 22px;">
+      <div class="feature-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/></svg>
+      </div>
+      <div class="feature-title">Multi-Entity Hierarchy</div>
+      <div class="feature-desc">Group, country, division, company, branch. Intercompany transactions with elimination entries. Consolidated reporting.</div>
+    </div>
+    <div class="feature-card" style="padding: 18px 22px;">
+      <div class="feature-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/></svg>
+      </div>
+      <div class="feature-title">Multi-Brand Support</div>
+      <div class="feature-desc">Operate multiple restaurant brands from one platform. Brand-specific menus, pricing, loyalty — shared back office.</div>
+    </div>
+    <div class="feature-card" style="padding: 18px 22px;">
+      <div class="feature-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+      </div>
+      <div class="feature-title">RBAC & Security</div>
+      <div class="feature-desc">Granular role-based access per branch. Full audit trail on every transaction. Session management and password policies.</div>
+    </div>
+    <div class="feature-card" style="padding: 18px 22px;">
+      <div class="feature-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="14" y="3" rx="1"/><path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"/></svg>
+      </div>
+      <div class="feature-title">Events & Banquets</div>
+      <div class="feature-desc">Venue booking, function prospectus, resource allocation, advance tracking, post-event settlement and P&L.</div>
+    </div>
+    <div class="feature-card" style="padding: 18px 22px;">
+      <div class="feature-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14"/><path d="M2 20h20"/><path d="M14 12v.01"/></svg>
+      </div>
+      <div class="feature-title">Training Mode</div>
+      <div class="feature-desc">Sandboxed POS for staff training. No impact on live data. Performance tracking per trainee. Auto-purge after 30 days.</div>
+    </div>
+    <div class="feature-card" style="padding: 18px 22px;">
+      <div class="feature-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
+      </div>
+      <div class="feature-title">Offline & Cloud</div>
+      <div class="feature-desc">PWA with IndexedDB. Offline order entry, auto-sync, conflict resolution. Cloud-native with zero-downtime deploys.</div>
+    </div>
+    <div class="feature-card" style="padding: 18px 22px;">
+      <div class="feature-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+      </div>
+      <div class="feature-title">AI Intelligence</div>
+      <div class="feature-desc">Demand forecasting, prep planning, inventory anomaly detection, recommendation engine, AI-powered command center.</div>
+    </div>
+    <div class="feature-card" style="padding: 18px 22px;">
+      <div class="feature-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+      </div>
+      <div class="feature-title">Multi-Language & RTL</div>
+      <div class="feature-desc">Arabic with full RTL support. English. Translation management for menus, categories, and customer content.</div>
+    </div>
+  </div>
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">15</div>
+</div>
+
+<!-- ========== SLIDE 16: CRM ========== -->
+<div class="slide flex-col" style="padding: 64px 80px;">
+  <div class="flex gap-48 flex-1 items-start">
+    <div class="flex flex-col gap-20" style="width: 420px;">
+      <div class="label" style="margin-bottom: 0;">Swirl OS — CRM & Customer Management</div>
+      <h2 class="title">Know every guest.<br>Before they walk in.</h2>
+      <p class="body" style="max-width: 380px;">A 360° customer view — order history, spend patterns, visit frequency, feedback, and loyalty status in one place. Segment guests automatically, trigger personalized campaigns, and turn first-time visitors into lifetime regulars.</p>
+    </div>
+    <div class="flex-1" style="display: flex; align-items: center; justify-content: center;">
+      <img src="https://swirl.blr1.cdn.digitaloceanspaces.com/product-icons/crm-customer-view.png" alt="CRM Customer View" style="max-width: 100%; max-height: 520px; object-fit: contain; border-radius: 12px;">
+    </div>
+  </div>
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">16</div>
+</div>
+
+<!-- ========== SLIDE 17: Technical Architecture ========== -->
+<div class="slide slide-muted flex-col" style="padding: 64px 80px;">
+  <div class="label" style="margin-bottom: 32px;">Technical Foundation</div>
+  <h2 class="title" style="margin-bottom: 36px;">Modern stack. Enterprise grade.</h2>
+  <div class="flex gap-32 flex-1">
+    <div class="flex flex-col gap-16" style="flex: 1;">
+      <div style="padding: 20px 24px; background: white; border-radius: 12px; border: 1px solid var(--neutral-200);">
+        <div class="label" style="margin-bottom: 12px;">Frontend</div>
+        <div class="flex gap-8" style="flex-wrap: wrap;">
+          <span class="tag">Next.js 14</span><span class="tag">React 18</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">Radix UI</span>
+        </div>
+      </div>
+      <div style="padding: 20px 24px; background: white; border-radius: 12px; border: 1px solid var(--neutral-200);">
+        <div class="label" style="margin-bottom: 12px;">Backend & Data</div>
+        <div class="flex gap-8" style="flex-wrap: wrap;">
+          <span class="tag">Node.js</span><span class="tag">Prisma ORM</span><span class="tag">PostgreSQL</span><span class="tag">Socket.io</span><span class="tag">REST API</span>
+        </div>
+      </div>
+      <div style="padding: 20px 24px; background: white; border-radius: 12px; border: 1px solid var(--neutral-200);">
+        <div class="label" style="margin-bottom: 12px;">Infrastructure</div>
+        <div class="flex gap-8" style="flex-wrap: wrap;">
+          <span class="tag">AWS S3</span><span class="tag">Cloud Native</span><span class="tag">CDN</span><span class="tag">Auto-scaling</span><span class="tag">Zero-downtime Deploy</span>
+        </div>
+      </div>
+      <div style="padding: 20px 24px; background: white; border-radius: 12px; border: 1px solid var(--neutral-200);">
+        <div class="label" style="margin-bottom: 12px;">Integrations</div>
+        <div class="flex gap-8" style="flex-wrap: wrap;">
+          <span class="tag">UrbanPiper</span><span class="tag">Twilio</span><span class="tag">WhatsApp API</span><span class="tag">Sendgrid</span><span class="tag">Adyen</span><span class="tag">ZATCA</span>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-16" style="width: 380px;">
+      <div style="font-family: 'Gelasio', serif; font-size: 18px; font-weight: 600; margin-bottom: 4px;">Platform Numbers</div>
+      <div class="metric-row">
+        <div class="metric-val">438</div>
+        <div class="feature-desc">Database models — comprehensive domain coverage</div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-val">95+</div>
+        <div class="feature-desc">API endpoint categories — modular architecture</div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-val">100+</div>
+        <div class="feature-desc">Accounting models — full ERP capability</div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-val">5</div>
+        <div class="feature-desc">Order types with independent pricing engines</div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-val">3</div>
+        <div class="feature-desc">Loyalty program types (Points, Punch, Tiered)</div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-val">4+</div>
+        <div class="feature-desc">Payment terminal providers supported</div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-val">24/7</div>
+        <div class="feature-desc">Support with WhatsApp, email, and phone</div>
+      </div>
+    </div>
+  </div>
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">17</div>
+</div>
+
+<!-- ========== SLIDE 18: Financial Controls ========== -->
+<div class="slide flex-col" style="padding: 56px 80px;">
+  <div class="label" style="margin-bottom: 24px;">Financial Controls</div>
+  <h2 style="font-family: 'Gelasio', serif; font-size: 30px; margin-bottom: 28px;">Every dirham. Tracked and reconciled.</h2>
+  <div class="grid-3" style="flex: 1; align-content: start; gap: 14px;">
+    <div class="feature-card" style="padding: 18px 22px;">
+      <div class="feature-title">Payment Reconciliation</div>
+      <div class="feature-desc">5-tab dashboard: Transactions, Bank, PSP, Aggregator, Variances. Auto-confirm at 95%+ confidence match. Day-wise drill-down.</div>
+    </div>
+    <div class="feature-card" style="padding: 18px 22px;">
+      <div class="feature-title">Aggregator Settlement</div>
+      <div class="feature-desc">SOA import, order matching, tiered commission verification, dispute management, and receivables tracking across all platforms.</div>
+    </div>
+    <div class="feature-card" style="padding: 18px 22px;">
+      <div class="feature-title">Three-Way Matching</div>
+      <div class="feature-desc">Line-level PO-GRN-Invoice matching with configurable variance tolerance. Auto-flag at thresholds with approval workflow.</div>
+    </div>
+    <div class="feature-card" style="padding: 18px 22px;">
+      <div class="feature-title">Shift Reconciliation</div>
+      <div class="feature-desc">Denomination-level cash counting, expected vs actual by payment method, auto-close scheduling, and HQ monitoring dashboard.</div>
+    </div>
+    <div class="feature-card" style="padding: 18px 22px;">
+      <div class="feature-title">Consumption Variance</div>
+      <div class="feature-desc">Theoretical vs actual food cost by category, ingredient, and time period. Recipe-based deduction compared to actual inventory.</div>
+    </div>
+    <div class="feature-card" style="padding: 18px 22px;">
+      <div class="feature-title">Fraud Detection</div>
+      <div class="feature-desc">Void frequency, discount patterns, refund anomalies, tip modifications, and reprint tracking with anomaly scoring and alerts.</div>
+    </div>
+  </div>
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">18</div>
+</div>
+
+<!-- ========== SLIDE 19: Marketing & CRM ========== -->
+<div class="slide slide-dark flex-col" style="padding: 56px 80px;">
+  <div class="label label-dark" style="margin-bottom: 24px;">Marketing Automation</div>
+  <h2 style="font-family: 'Gelasio', serif; font-size: 30px; color: var(--neutral-50); margin-bottom: 28px;">Turn guests into regulars. Automatically.</h2>
+  <div class="grid-3" style="flex: 1; align-content: start; gap: 14px;">
+    <div class="feature-card feature-card-dark" style="padding: 18px 22px;">
+      <div class="feature-title feature-title-dark">RFM Segmentation</div>
+      <div class="feature-desc">Automatic customer segmentation: Champions, Loyal, At Risk, Can't Lose, Lost, New. AI-driven scoring and segment rules.</div>
+    </div>
+    <div class="feature-card feature-card-dark" style="padding: 18px 22px;">
+      <div class="feature-title feature-title-dark">Multi-Channel Campaigns</div>
+      <div class="feature-desc">Email (Sendgrid), SMS (Twilio), WhatsApp (Business API). Campaign builder with A/B testing, scheduling, and throttling.</div>
+    </div>
+    <div class="feature-card feature-card-dark" style="padding: 18px 22px;">
+      <div class="feature-title feature-title-dark">Trigger Automation</div>
+      <div class="feature-desc">Birthday rewards, win-back after 30 days, welcome series, post-visit feedback, loyalty milestone celebrations — all automated.</div>
+    </div>
+    <div class="feature-card feature-card-dark" style="padding: 18px 22px;">
+      <div class="feature-title feature-title-dark">Cross-Brand Loyalty</div>
+      <div class="feature-desc">Earn at Brand A, redeem at Brand B. Unified wallet with brand-specific earn/burn rates. Tier benefits shared or isolated.</div>
+    </div>
+    <div class="feature-card feature-card-dark" style="padding: 18px 22px;">
+      <div class="feature-title feature-title-dark">Guest Profiles</div>
+      <div class="feature-desc">Preferences, allergies, spending patterns, visit frequency, favorite items. Available to every staff touchpoint in real-time.</div>
+    </div>
+    <div class="feature-card feature-card-dark" style="padding: 18px 22px;">
+      <div class="feature-title feature-title-dark">Feedback & NPS</div>
+      <div class="feature-desc">Post-visit surveys, Net Promoter Score tracking, feedback analytics. Segment-based targeting for satisfaction monitoring.</div>
+    </div>
+  </div>
+  <div class="brand-mark brand-mark-dark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num slide-num-dark">19</div>
+</div>
+
+<!-- ========== SLIDE 20: Implementation ========== -->
+<div class="slide flex-col" style="padding: 64px 80px;">
+  <div class="label" style="margin-bottom: 32px;">Implementation & Support</div>
+  <div class="flex gap-48 flex-1">
+    <div class="flex flex-col gap-20" style="width: 420px;">
+      <h2 class="title">Go live fast.<br>Stay supported.</h2>
+      <p class="body" style="max-width: 380px;">Swirl's cloud-native architecture means rapid deployment without heavy infrastructure setup. Our team handles configuration, data migration, and staff training end-to-end.</p>
+      <div class="divider"></div>
+      <div class="flex flex-col gap-16">
+        <div class="flex gap-12 items-start">
+          <div class="dot" style="margin-top: 6px;"></div>
+          <div>
+            <div style="font-size: 14px; font-weight: 600;">24/7 Multi-Channel Support</div>
+            <div class="feature-desc">WhatsApp, email, and phone. Dedicated account manager for enterprise clients.</div>
+          </div>
+        </div>
+        <div class="flex gap-12 items-start">
+          <div class="dot" style="margin-top: 6px;"></div>
+          <div>
+            <div style="font-size: 14px; font-weight: 600;">Training Program</div>
+            <div class="feature-desc">On-site and remote. Role-specific modules. Built-in Training Mode for hands-on practice.</div>
+          </div>
+        </div>
+        <div class="flex gap-12 items-start">
+          <div class="dot" style="margin-top: 6px;"></div>
+          <div>
+            <div style="font-size: 14px; font-weight: 600;">SLA-Backed Response</div>
+            <div class="feature-desc">Priority-based escalation (P1-P4). Automated alerting. Post-incident review for critical issues.</div>
+          </div>
+        </div>
+        <div class="flex gap-12 items-start">
+          <div class="dot" style="margin-top: 6px;"></div>
+          <div>
+            <div style="font-size: 14px; font-weight: 600;">Continuous Updates</div>
+            <div class="feature-desc">Quarterly feature releases. Zero-downtime deployments. Active 39-feature roadmap.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-16 flex-1" style="margin-top: 8px;">
+      <div style="font-family: 'Gelasio', serif; font-size: 18px; font-weight: 600; margin-bottom: 8px;">Deployment Timeline</div>
+      <div style="padding: 20px 24px; border: 1px solid var(--neutral-200); border-radius: 12px;">
+        <div class="flex items-center gap-12" style="margin-bottom: 12px;">
+          <span style="font-family: 'Geist', monospace; font-size: 12px; font-weight: 600; background: var(--accent-blue); color: white; padding: 3px 10px; border-radius: 6px;">Week 1-2</span>
+          <span style="font-size: 14px; font-weight: 600;">Discovery & Configuration</span>
+        </div>
+        <div class="feature-desc">Requirements mapping, menu setup, user roles, payment terminal configuration, branch hierarchy setup.</div>
+      </div>
+      <div style="padding: 20px 24px; border: 1px solid var(--neutral-200); border-radius: 12px;">
+        <div class="flex items-center gap-12" style="margin-bottom: 12px;">
+          <span style="font-family: 'Geist', monospace; font-size: 12px; font-weight: 600; background: var(--accent-blue); color: white; padding: 3px 10px; border-radius: 6px;">Week 3-4</span>
+          <span style="font-size: 14px; font-weight: 600;">Data Migration & Integration</span>
+        </div>
+        <div class="feature-desc">Historical data import, aggregator onboarding, payment gateway setup, accounting chart migration.</div>
+      </div>
+      <div style="padding: 20px 24px; border: 1px solid var(--neutral-200); border-radius: 12px;">
+        <div class="flex items-center gap-12" style="margin-bottom: 12px;">
+          <span style="font-family: 'Geist', monospace; font-size: 12px; font-weight: 600; background: var(--accent-blue); color: white; padding: 3px 10px; border-radius: 6px;">Week 5-6</span>
+          <span style="font-size: 14px; font-weight: 600;">Training & Go-Live</span>
+        </div>
+        <div class="feature-desc">Staff training by role, UAT testing, pilot outlet launch, phased rollout across remaining outlets.</div>
+      </div>
+    </div>
+  </div>
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">20</div>
+</div>
+
+<!-- ========== SLIDE 21: Closing ========== -->
+<div class="slide flex-col justify-center" style="padding: 80px 100px; text-align: center; align-items: center; background: var(--neutral-50);">
+  <div class="label" style="margin-bottom: 24px;">Let's Build the Future Together</div>
+  <h1 class="display" style="color: var(--neutral-900); margin-bottom: 12px;">Swirl</h1>
+  <p style="font-family: 'Gelasio', serif; font-size: 24px; color: var(--neutral-500); font-style: italic; margin-bottom: 48px;">Software that thinks.</p>
+  <div class="divider divider-accent" style="margin-bottom: 48px; margin-left: auto; margin-right: auto;"></div>
+  <div class="flex gap-48" style="margin-bottom: 48px;">
+    <div class="flex flex-col items-center gap-4">
+      <span class="pill" style="border-color: var(--neutral-300); color: var(--neutral-700);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        hello@swirl.cx
+      </span>
+    </div>
+    <div class="flex flex-col items-center gap-4">
+      <span class="pill" style="border-color: var(--neutral-300); color: var(--neutral-700);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        swirl.cx
+      </span>
+    </div>
+  </div>
+  <p style="font-size: 13px; color: var(--neutral-500); max-width: 500px;">Confidential. Prepared for enterprise evaluation. All product capabilities described reflect the current platform with active roadmap items noted where applicable.</p>
+  <div class="brand-mark"><img src="https://swirl.cx/lovable-uploads/swirl-logo-transparent.png" alt="Swirl"></div>
+  <div class="slide-num">21</div>
+</div>
+
+</div>
+
+<script>
+(function() {
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+  let presenting = false;
+
+  // Controls
+  const controls = document.createElement('div');
+  controls.className = 'deck-controls';
+  controls.innerHTML = `
+    <button class="btn-present" onclick="startPresentation()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Present
+    </button>
+    <button class="btn-pdf" onclick="window.print()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+      Download PDF
+    </button>
+  `;
+  document.body.appendChild(controls);
+
+  window.startPresentation = function() {
+    presenting = true;
+    currentSlide = 0;
+    document.body.classList.add('presenting');
+    const fsPromise = document.documentElement.requestFullscreen?.() || document.documentElement.webkitRequestFullscreen?.();
+    if (fsPromise && fsPromise.then) {
+      fsPromise.then(function() { showSlide(currentSlide); });
+    } else {
+      setTimeout(function() { showSlide(currentSlide); }, 100);
+    }
+  };
+
+  function showSlide(n) {
+    slides.forEach(function(s) {
+      s.classList.remove('active-slide');
+      s.style.transform = '';
+      s.style.left = '';
+      s.style.top = '';
+    });
+    currentSlide = Math.max(0, Math.min(n, slides.length - 1));
+    const slide = slides[currentSlide];
+    slide.classList.add('active-slide');
+    // Scale slide to fill viewport while maintaining aspect ratio
+    const vw = window.innerWidth || screen.width;
+    const vh = window.innerHeight || screen.height;
+    const scaleX = vw / 1280;
+    const scaleY = vh / 720;
+    const scale = Math.min(scaleX, scaleY);
+    slide.style.transform = 'scale(' + scale + ')';
+    slide.style.left = ((vw - 1280 * scale) / 2) + 'px';
+    slide.style.top = ((vh - 720 * scale) / 2) + 'px';
+  }
+
+  function exitPresentation() {
+    presenting = false;
+    document.body.classList.remove('presenting');
+    slides.forEach(s => {
+      s.classList.remove('active-slide');
+      s.style.transform = '';
+      s.style.left = '';
+      s.style.top = '';
+    });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (!presenting) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+      e.preventDefault();
+      showSlide(currentSlide + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      showSlide(currentSlide - 1);
+    }
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!presenting) return;
+    if (e.target.closest('button')) return;
+    showSlide(currentSlide + 1);
+  });
+
+  document.addEventListener('fullscreenchange', function() {
+    if (!document.fullscreenElement && presenting) exitPresentation();
+  });
+  document.addEventListener('webkitfullscreenchange', function() {
+    if (!document.webkitFullscreenElement && presenting) exitPresentation();
+  });
+
+  window.addEventListener('resize', function() {
+    if (presenting) showSlide(currentSlide);
+  });
+})();
+</script>
+</body>
+</html>
