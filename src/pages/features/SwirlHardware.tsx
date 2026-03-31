@@ -165,7 +165,7 @@ const SwirlHardware = () => {
               <div className="animate-on-scroll animate-delay-100 order-2 lg:order-1">
                 <div className="relative">
                   <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-2xl -z-10 scale-105" />
-                  <img src="/lovable-uploads/swirl-pos-terminal.png" alt="Swirl POS Terminal" width="800" height="1000" className="w-full rounded-3xl shadow-2xl object-contain" />
+                  <img src="/lovable-uploads/swirl-pos-terminal.png" alt="Swirl POS Terminal" width="800" height="1000" className="w-full rounded-3xl shadow-2xl object-contain max-h-[500px] lg:max-h-[550px]" />
                 </div>
               </div>
 
