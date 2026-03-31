@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swirl — Product Roadmap 2026–2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root {
+    --neutral-50: #fafafa;
+    --neutral-100: #f5f5f5;
+    --neutral-150: #efefef;
+    --neutral-200: #e5e5e5;
+    --neutral-300: #d4d4d4;
+    --neutral-400: #a3a3a3;
+    --neutral-500: #737373;
+    --neutral-600: #525252;
+    --neutral-700: #404040;
+    --neutral-800: #262626;
+    --neutral-900: #171717;
+    --neutral-950: #0a0a0a;
+    --accent: #171717;
+    --accent-light: #404040;
+    --gap-partial: #f59e0b;
+    --gap-missing: #ef4444;
+    --roadmap-ai: #6366f1;
+    --roadmap-platform: #8b5cf6;
+    --effort-low: #10b981;
+    --effort-medium: #f59e0b;
+    --effort-hard: #ef4444;
+    --font-serif: 'Gelasio', Georgia, serif;
+    --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--neutral-50);
+    color: var(--neutral-800);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Top Nav ── */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,250,250,.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--neutral-200);
+    padding: 0 40px;
+    height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .topbar-brand {
+    font-family: var(--font-serif);
+    font-weight: 700; font-size: 18px;
+    color: var(--neutral-900);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .topbar-brand span { color: var(--neutral-400); font-weight: 400; font-size: 13px; font-family: var(--font-sans); }
+  .topbar-nav { display: flex; gap: 6px; }
+  .topbar-nav button {
+    font-family: var(--font-sans); font-size: 13px; font-weight: 500;
+    padding: 6px 14px; border-radius: 999px;
+    border: 1px solid var(--neutral-200); background: white; color: var(--neutral-600);
+    cursor: pointer; transition: all .15s;
+  }
+  .topbar-nav button:hover { border-color: var(--neutral-400); color: var(--neutral-800); }
+  .topbar-nav button.active { background: var(--neutral-900); color: white; border-color: var(--neutral-900); }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 56px 40px 40px;
+    border-bottom: 1px solid var(--neutral-200);
+  }
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: 32px; font-weight: 700; color: var(--neutral-950);
+    margin-bottom: 6px;
+  }
+  .hero p { color: var(--neutral-500); font-size: 15px; max-width: 660px; }
+
+  /* ── Stats Row ── */
+  .stats-row {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+    background: var(--neutral-200);
+    border-bottom: 1px solid var(--neutral-200);
+  }
+  .stat-card {
+    background: white; padding: 24px 28px;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .stat-card .stat-label {
+    font-size: 12px; font-weight: 500; color: var(--neutral-400);
+    text-transform: uppercase; letter-spacing: .5px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .stat-card .stat-value {
+    font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: var(--neutral-900);
+  }
+  .stat-card .stat-sub { font-size: 12px; color: var(--neutral-500); }
+
+  /* ── View Controls ── */
+  .view-controls {
+    padding: 20px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--neutral-200);
+    background: white;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .view-controls-left { display: flex; gap: 16px; align-items: center; }
+  .view-tabs { display: flex; gap: 4px; }
+  .view-tab {
+    font-family: var(--font-sans); font-size: 13px; font-weight: 500;
+    padding: 7px 16px; border-radius: var(--radius-sm);
+    border: none; background: transparent; color: var(--neutral-500);
+    cursor: pointer; transition: all .15s;
+  }
+  .view-tab:hover { background: var(--neutral-100); color: var(--neutral-700); }
+  .view-tab.active { background: var(--neutral-900); color: white; }
+  .view-divider { width: 1px; height: 24px; background: var(--neutral-200); }
+  .legend { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--neutral-500); }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* ── Month Timeline ── */
+  .timeline-container { padding: 0 40px 60px; background: white; }
+  .month-section { border-bottom: 1px solid var(--neutral-150); }
+  .month-section:last-child { border-bottom: none; }
+  .month-header {
+    display: flex; align-items: center; gap: 16px;
+    padding: 28px 0 20px;
+    cursor: pointer; user-select: none;
+  }
+  .month-header:hover .month-name { color: var(--neutral-950); }
+  .month-pill {
+    width: 44px; height: 44px;
+    border-radius: var(--radius);
+    background: var(--neutral-100);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-serif); font-weight: 700; font-size: 15px;
+    color: var(--neutral-700);
+    flex-shrink: 0;
+  }
+  .month-pill.current { background: var(--neutral-900); color: white; }
+  .month-meta { flex: 1; }
+  .month-name { font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--neutral-800); transition: color .15s; }
+  .month-subtitle { font-size: 13px; color: var(--neutral-400); margin-top: 1px; }
+  .month-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+  .month-badge {
+    font-size: 11px; font-weight: 600; padding: 3px 10px;
+    border-radius: 999px; letter-spacing: .3px;
+  }
+  .month-badge.gap { background: #fef3c7; color: #92400e; }
+  .month-badge.ai { background: #eef2ff; color: #4338ca; }
+  .month-badge.platform { background: #f3e8ff; color: #6b21a8; }
+  .month-badge.enhancement { background: #fef3c7; color: #92400e; }
+  .month-badge.newbuild { background: #fee2e2; color: #991b1b; }
+  .month-badge.roadmap-item { background: #eef2ff; color: #4338ca; }
+  .chevron-icon { color: var(--neutral-400); transition: transform .2s; flex-shrink: 0; }
+  .month-section.collapsed .chevron-icon { transform: rotate(-90deg); }
+  .month-section.collapsed .month-body { display: none; }
+
+  .month-body { padding: 0 0 28px 60px; }
+
+  /* ── Cards Grid ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 10px;
+  }
+  .card {
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    background: white;
+    transition: border-color .15s, box-shadow .15s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover { border-color: var(--neutral-300); box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; width: 3px; height: 100%;
+  }
+  .card.type-gap-partial::before { background: var(--gap-partial); }
+  .card.type-gap-missing::before { background: var(--gap-missing); }
+  .card.type-ai::before { background: var(--roadmap-ai); }
+  .card.type-platform::before { background: var(--roadmap-platform); }
+
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+  .card-title { font-size: 14px; font-weight: 600; color: var(--neutral-800); line-height: 1.4; }
+  .card-tags { display: flex; gap: 4px; flex-shrink: 0; flex-wrap: wrap; }
+  .card-tag {
+    font-size: 10px; font-weight: 600; padding: 2px 8px;
+    border-radius: 999px; white-space: nowrap; flex-shrink: 0;
+    text-transform: uppercase; letter-spacing: .4px;
+  }
+  .tag-partial { background: #fef3c7; color: #92400e; }
+  .tag-missing { background: #fee2e2; color: #991b1b; }
+  .tag-ai { background: #eef2ff; color: #4338ca; }
+  .tag-platform { background: #f3e8ff; color: #6b21a8; }
+  .tag-effort-low { background: #d1fae5; color: #065f46; }
+  .tag-effort-medium { background: #fef3c7; color: #92400e; }
+  .tag-effort-hard { background: #fee2e2; color: #991b1b; }
+
+  .card-category {
+    font-size: 11px; color: var(--neutral-400); margin-bottom: 8px;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .card-desc {
+    font-size: 13px; color: var(--neutral-500); line-height: 1.55;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .card-footer {
+    display: flex; align-items: center; gap: 12px;
+    margin-top: 12px; padding-top: 10px;
+    border-top: 1px solid var(--neutral-100);
+    flex-wrap: wrap;
+  }
+  .card-meta {
+    font-size: 11px; color: var(--neutral-400);
+    display: flex; align-items: center; gap: 4px;
+  }
+
+  /* ── Section Dividers inside month ── */
+  .section-label {
+    font-size: 11px; font-weight: 600; color: var(--neutral-400);
+    text-transform: uppercase; letter-spacing: .6px;
+    margin: 20px 0 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-label:first-child { margin-top: 0; }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--neutral-150);
+  }
+
+  /* ── Quarter View ── */
+  .quarter-section { border-bottom: 1px solid var(--neutral-200); }
+  .quarter-section:last-child { border-bottom: none; }
+  .quarter-header {
+    display: flex; align-items: center; gap: 16px;
+    padding: 28px 0 20px;
+    cursor: pointer; user-select: none;
+  }
+  .quarter-header:hover .quarter-name { color: var(--neutral-950); }
+  .quarter-pill {
+    width: 52px; height: 52px;
+    border-radius: var(--radius);
+    background: var(--neutral-900);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-serif); font-weight: 700; font-size: 16px;
+    color: white;
+    flex-shrink: 0;
+  }
+  .quarter-meta { flex: 1; }
+  .quarter-name { font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--neutral-800); transition: color .15s; }
+  .quarter-subtitle { font-size: 13px; color: var(--neutral-400); margin-top: 2px; }
+  .quarter-summary {
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+  .quarter-summary-item {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+  .quarter-summary-item.enhancement { background: #fef3c7; color: #92400e; }
+  .quarter-summary-item.newbuild { background: #fee2e2; color: #991b1b; }
+  .quarter-summary-item.ai-item { background: #eef2ff; color: #4338ca; }
+  .quarter-summary-item.platform-item { background: #f3e8ff; color: #6b21a8; }
+  .quarter-section.collapsed .chevron-icon { transform: rotate(-90deg); }
+  .quarter-section.collapsed .quarter-body { display: none; }
+  .quarter-body { padding: 0 0 28px 68px; }
+
+  /* ── Gantt Timeline ── */
+  .gantt-container {
+    padding: 30px 0;
+    overflow-x: auto;
+  }
+  .gantt-header {
+    display: flex;
+    border-bottom: 2px solid var(--neutral-200);
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+  }
+  .gantt-label-col {
+    width: 280px;
+    min-width: 280px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--neutral-400);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    padding: 0 12px;
+  }
+  .gantt-months-col {
+    flex: 1;
+    display: flex;
+    min-width: 720px;
+  }
+  .gantt-month-header {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--neutral-500);
+    padding: 4px 0;
+    border-left: 1px solid var(--neutral-150);
+  }
+  .gantt-month-header:first-child { border-left: none; }
+  .gantt-row {
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--neutral-100);
+    transition: background .1s;
+  }
+  .gantt-row:hover { background: var(--neutral-50); }
+  .gantt-row-label {
+    width: 280px;
+    min-width: 280px;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--neutral-700);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .gantt-row-bars {
+    flex: 1;
+    display: flex;
+    position: relative;
+    min-width: 720px;
+    height: 28px;
+  }
+  .gantt-cell {
+    flex: 1;
+    position: relative;
+    border-left: 1px solid var(--neutral-100);
+  }
+  .gantt-cell:first-child { border-left: none; }
+  .gantt-bar {
+    position: absolute;
+    top: 4px;
+    height: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    font-size: 10px;
+    font-weight: 600;
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: default;
+    z-index: 2;
+  }
+  .gantt-bar.bar-partial { background: var(--gap-partial); }
+  .gantt-bar.bar-missing { background: var(--gap-missing); }
+  .gantt-bar.bar-ai { background: var(--roadmap-ai); }
+  .gantt-bar.bar-platform { background: var(--roadmap-platform); }
+
+  .gantt-bar .gantt-bar-tooltip {
+    display: none;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--neutral-900);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    z-index: 100;
+    pointer-events: none;
+  }
+  .gantt-bar:hover .gantt-bar-tooltip { display: block; }
+
+  /* ── Filter States ── */
+  .hidden { display: none !important; }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--neutral-300); border-radius: 3px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .stats-row { grid-template-columns: repeat(3, 1fr); }
+    .hero, .view-controls, .timeline-container { padding-left: 20px; padding-right: 20px; }
+    .topbar { padding: 0 20px; }
+    .month-body { padding-left: 0; }
+    .quarter-body { padding-left: 0; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .gantt-label-col { width: 180px; min-width: 180px; }
+    .gantt-row-label { width: 180px; min-width: 180px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-brand">
+    Swirl <span>Product Roadmap</span>
+  </div>
+  <div class="topbar-nav" id="topbarNav">
+    <button class="active" data-filter="all">All Items</button>
+    <button data-filter="enhancement">Enhancement</button>
+    <button data-filter="newbuild">New Build</button>
+    <button data-filter="roadmap">Roadmap</button>
+  </div>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>Unified Product Roadmap</h1>
+  <p>QSR gap analysis from the POS Software Checklist combined with Swirl's AI-native ERP & POS vision — mapped month-by-month from April 2026 to March 2027.</p>
+</div>
+
+<!-- Stats -->
+<div class="stats-row" id="statsRow">
+  <div class="stat-card">
+    <div class="stat-label"><i data-lucide="layers" style="width:14px;height:14px;stroke-width:1.2"></i> Total Items</div>
+    <div class="stat-value" id="statTotal">0</div>
+    <div class="stat-sub">Across 12 months</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label"><i data-lucide="alert-triangle" style="width:14px;height:14px;stroke-width:1.2"></i> Enhancement</div>
+    <div class="stat-value" id="statPartial">0</div>
+    <div class="stat-sub">Partial — Enhancement needed</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label"><i data-lucide="x-circle" style="width:14px;height:14px;stroke-width:1.2"></i> New Build</div>
+    <div class="stat-value" id="statMissing">0</div>
+    <div class="stat-sub">Missing — New build required</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label"><i data-lucide="sparkles" style="width:14px;height:14px;stroke-width:1.2"></i> AI / Platform</div>
+    <div class="stat-value" id="statAI">0</div>
+    <div class="stat-sub">Roadmap initiatives</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label"><i data-lucide="clock" style="width:14px;height:14px;stroke-width:1.2"></i> Est. Effort</div>
+    <div class="stat-value" id="statWeeks">0<span style="font-size:16px;font-weight:500;color:var(--neutral-500)"> wks</span></div>
+    <div class="stat-sub">For gap items</div>
+  </div>
+</div>
+
+<!-- View Controls -->
+<div class="view-controls">
+  <div class="view-controls-left">
+    <div class="view-tabs" id="viewTabs">
+      <button class="view-tab active" data-view="months">Months</button>
+      <button class="view-tab" data-view="quarters">Quarters</button>
+      <button class="view-tab" data-view="gantt">Timeline</button>
+    </div>
+  </div>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--gap-partial)"></div> Enhancement</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--gap-missing)"></div> New Build</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--roadmap-ai)"></div> AI Initiative</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--roadmap-platform)"></div> Platform</div>
+    <div class="view-divider"></div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--effort-low)"></div> Low Effort</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--effort-medium)"></div> Medium Effort</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--effort-hard)"></div> Hard Effort</div>
+  </div>
+</div>
+
+<!-- Timeline -->
+<div class="timeline-container" id="timeline"></div>
+
+<script>
+// ═══════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════
+
+const months = [
+  { key: "2026-04", label: "April 2026", short: "Apr" },
+  { key: "2026-05", label: "May 2026", short: "May" },
+  { key: "2026-06", label: "June 2026", short: "Jun" },
+  { key: "2026-07", label: "July 2026", short: "Jul" },
+  { key: "2026-08", label: "August 2026", short: "Aug" },
+  { key: "2026-09", label: "September 2026", short: "Sep" },
+  { key: "2026-10", label: "October 2026", short: "Oct" },
+  { key: "2026-11", label: "November 2026", short: "Nov" },
+  { key: "2026-12", label: "December 2026", short: "Dec" },
+  { key: "2027-01", label: "January 2027", short: "Jan" },
+  { key: "2027-02", label: "February 2027", short: "Feb" },
+  { key: "2027-03", label: "March 2027", short: "Mar" },
+];
+
+const quarters = [
+  { key: "Q2-2026", label: "Q2 2026", subtitle: "April – June 2026", months: ["2026-04", "2026-05", "2026-06"] },
+  { key: "Q3-2026", label: "Q3 2026", subtitle: "July – September 2026", months: ["2026-07", "2026-08", "2026-09"] },
+  { key: "Q4-2026", label: "Q4 2026", subtitle: "October – December 2026", months: ["2026-10", "2026-11", "2026-12"] },
+  { key: "Q1-2027", label: "Q1 2027", subtitle: "January – March 2027", months: ["2027-01", "2027-02", "2027-03"] },
+];
+
+// Effort classification: Low <= 1wk, Medium 1-3wk, Hard > 3wk
+// AI/platform items with no weeks: Medium by default (significant scope)
+function calcEffort(item) {
+  if (item.weeks === null || item.weeks === undefined) return "Medium";
+  if (item.weeks <= 1) return "Low";
+  if (item.weeks <= 3) return "Medium";
+  return "Hard";
+}
+
+// Calculate end month based on start month + weeks duration
+function calcEndMonth(item) {
+  if (!item.weeks || item.weeks <= 4) return item.month;
+  const startIdx = months.findIndex(m => m.key === item.month);
+  if (startIdx === -1) return item.month;
+  const extraMonths = Math.ceil(item.weeks / 4) - 1;
+  const endIdx = Math.min(startIdx + extraMonths, months.length - 1);
+  return months[endIdx].key;
+}
+
+// GAP ITEMS from Checklist & Purchase-SCM sheets
+const gapItems = [
+  // ── CHECKLIST GAPS ──
+  { title: "Multi-entity & Intercompany Transactions", category: "Core Functionality", source: "Checklist", type: "partial", weeks: 2.5, desc: "Cost center tagging enhancement, intercompany transaction automation, 5-level org hierarchy completion.", month: "2026-04" },
+  { title: "Customer Self-Service Portal", category: "Order & Billing", source: "Checklist", type: "partial", weeks: 1, desc: "Extend self-service portal with loyalty redemption, reservation booking, and personalized recommendations.", month: "2026-04" },
+  { title: "Menu Item-Level Customization", category: "Menu Management", source: "Checklist", type: "partial", weeks: 1, desc: "Unified admin panel for per-item overrides across outlets with branch-specific visibility and pricing.", month: "2026-04" },
+  { title: "Centralized Menu Update & Sync", category: "Menu Management", source: "Checklist", type: "partial", weeks: 1, desc: "Full bidirectional sync across all outlets and aggregators with real-time propagation dashboard.", month: "2026-04" },
+  { title: "Foreign Currency Handling", category: "Payment Handling", source: "Checklist", type: "partial", weeks: 0.5, desc: "Extend POS-level multi-currency support for hotels and international guests with real-time rate sync.", month: "2026-04" },
+  { title: "Profitability Reports with Integrated Cost Data", category: "Reporting & Analytics", source: "Checklist", type: "partial", weeks: 1, desc: "Unified P&L-level profitability reports integrating recipe costing, labor, and overhead per outlet.", month: "2026-04" },
+  { title: "Course Timing Analysis Report", category: "Reporting & Analytics", source: "Checklist", type: "partial", weeks: 1, desc: "KDS-based course timing analytics with bottleneck identification and service speed benchmarks.", month: "2026-04" },
+  { title: "Dietary Preference Report", category: "Reporting & Analytics", source: "Checklist", type: "partial", weeks: 1, desc: "Allergen and dietary preference analytics across customer orders for menu optimization.", month: "2026-05" },
+  { title: "Promotion Effectiveness Report", category: "Reporting & Analytics", source: "Checklist", type: "missing", weeks: 1, desc: "New report: promotion ROI tracking with revenue uplift, redemption rates, and customer acquisition cost.", month: "2026-05" },
+  { title: "Upsell Report (GAS)", category: "Reporting & Analytics", source: "Checklist", type: "partial", weeks: 1, desc: "Enhanced upsell/cross-sell performance tracking with per-employee and per-item metrics.", month: "2026-05" },
+  { title: "F&B Contribution Ratio Report", category: "Reporting & Analytics", source: "Checklist", type: "partial", weeks: 1, desc: "Food vs. beverage contribution analysis with trend tracking and outlet comparison.", month: "2026-05" },
+  { title: "Anti-Theft Dashboard", category: "Reporting & Analytics", source: "Checklist", type: "partial", weeks: 1, desc: "Finance controls dashboard: voids, tips, reprints, refunds anomaly tracking with alert thresholds.", month: "2026-05" },
+  { title: "Wastage Tracking & Reporting", category: "Inventory Integration", source: "Checklist", type: "partial", weeks: 1, desc: "Granular waste tracking by category, reason code, and outlet with waste-cost impact reporting.", month: "2026-05" },
+  { title: "Centralized Recipe & Menu Engineering Hub", category: "Inventory Integration", source: "Checklist", type: "partial", weeks: 1, desc: "Unified hub linking recipes, menu items, and procurement with single-pane cost visibility.", month: "2026-05" },
+  { title: "Real-Time Theoretical Costing", category: "Inventory Integration", source: "Checklist", type: "partial", weeks: 1, desc: "Live theoretical cost calculation as orders flow through POS with actual vs. target variance alerts.", month: "2026-06" },
+  { title: "Theoretical vs. Actual Cost Variance Analysis", category: "Inventory Integration", source: "Checklist", type: "partial", weeks: 1, desc: "The Variance Hammer — drill-down analysis of cost deviations by item, outlet, and time period.", month: "2026-06" },
+  { title: "Food Costing Enhancement", category: "Inventory Integration", source: "Checklist", type: "partial", weeks: 2, desc: "Advanced food costing with multi-level recipe nesting, sub-recipe costing, and yield management.", month: "2026-06" },
+  { title: "Cross-Brand E-commerce Campaigns", category: "Customer Management", source: "Checklist", type: "partial", weeks: 2, desc: "Automated cross-brand promotional campaigns: buy from brand A, earn credit for brand B.", month: "2026-06" },
+  { title: "Promo Codes, Coupons & Offers Management", category: "Loyalty & Promotions", source: "Checklist", type: "partial", weeks: 0.5, desc: "Enhanced coupon engine with advanced targeting, stacking rules, and real-time validation.", month: "2026-06" },
+  { title: "Employee Time Clock Integration", category: "Security & Audit", source: "Checklist", type: "partial", weeks: 2, desc: "Biometric and device-based clock-in/out integration with payroll sync and overtime tracking.", month: "2026-06" },
+  { title: "GDPR/CCPA Compliance Features", category: "Security & Compliance", source: "Checklist", type: "partial", weeks: 2, desc: "Data anonymization, right-to-erasure workflows, consent management, and audit trail compliance.", month: "2026-07" },
+  { title: "Advanced Fraud Detection", category: "Security & Compliance", source: "Checklist", type: "partial", weeks: 2.5, desc: "Pattern-based fraud detection across transactions, voids, refunds with ML-based anomaly scoring.", month: "2026-07" },
+  { title: "Multi-factor Authentication (MFA)", category: "Security & Compliance", source: "Checklist", type: "partial", weeks: 1, desc: "TOTP/SMS-based MFA for all user roles with adaptive authentication for sensitive operations.", month: "2026-07" },
+  { title: "Regular Security Audits & Certifications", category: "Security & Compliance", source: "Checklist", type: "partial", weeks: 4, desc: "SOC 2 Type II and ISO 27001 certification program with automated compliance monitoring.", month: "2026-07" },
+  { title: "Local Data Redundancy", category: "Offline & Cloud", source: "Checklist", type: "partial", weeks: 2, desc: "On-premise data copy for immediate recovery with automatic failover and sync-back protocols.", month: "2026-07" },
+  { title: "Mall/Airport System Integration", category: "Integration", source: "Checklist", type: "partial", weeks: 3.5, desc: "Automated sales reporting to mall management and airport authority systems via standardized APIs.", month: "2026-08" },
+  { title: "POS & CCTV Integration", category: "Integration", source: "Checklist", type: "missing", weeks: 3.5, desc: "Live POS transaction overlay on CCTV feeds for enhanced security, theft prevention, and audit.", month: "2026-08" },
+  { title: "Clock-in/Clock-out & Time Tracking", category: "Employee Management", source: "Checklist", type: "missing", weeks: 1, desc: "Full time tracking module with geofencing, photo verification, and labor cost allocation.", month: "2026-07" },
+  { title: "Performance Tracking (Sales per Employee)", category: "Employee Management", source: "Checklist", type: "partial", weeks: 1, desc: "Per-employee sales performance dashboards with targets, leaderboards, and incentive tracking.", month: "2026-07" },
+  { title: "Commission Management", category: "Employee Management", source: "Checklist", type: "missing", weeks: 1, desc: "Configurable commission structures by role, item category, and outlet with payroll integration.", month: "2026-08" },
+  { title: "Scheduling & Roster Management", category: "Employee Management", source: "Checklist", type: "missing", weeks: 1, desc: "Drag-and-drop shift scheduling with demand-based suggestions and employee preference matching.", month: "2026-08" },
+  { title: "Kitchen Communication & Accountability", category: "Kitchen Management", source: "Checklist", type: "partial", weeks: 1, desc: "KDS-based task acknowledgment, station-to-station communication, and prep accountability logging.", month: "2026-08" },
+  { title: "Granular Multi-Factor Forecasting Engine", category: "Kitchen Management", source: "Checklist", type: "partial", weeks: 2.5, desc: "Forecasting engine factoring weather, holidays, events, historical patterns, and local demand signals.", month: "2026-08" },
+  { title: "Automated Prep Management & Par-Level Setting", category: "Kitchen Management", source: "Checklist", type: "missing", weeks: 2, desc: "Automated daily prep lists with dynamic par levels based on forecasted demand and current stock.", month: "2026-09" },
+  { title: "Labor Optimization & Scheduling", category: "Kitchen Management", source: "Checklist", type: "missing", weeks: 2, desc: "AI-driven labor scheduling optimized for demand curves, skill requirements, and labor cost targets.", month: "2026-09" },
+  { title: "What-If Scenario Planner", category: "Kitchen Management", source: "Checklist", type: "partial", weeks: 1, desc: "Interactive scenario modeling for menu changes, pricing adjustments, and staffing variations.", month: "2026-09" },
+  { title: "Centralized Pricing, Menu & Promotions Control", category: "Centralized Management", source: "Checklist", type: "partial", weeks: 1, desc: "Unified HQ control panel for pricing rules, menu propagation, and promotion deployment across all outlets.", month: "2026-08" },
+  { title: "Delivery Route Optimization", category: "Online Ordering & Delivery", source: "Checklist", type: "missing", weeks: 2, desc: "Multi-stop route optimization for in-house delivery fleet with real-time traffic and ETA updates.", month: "2026-09" },
+  { title: "Driver Management App", category: "Online Ordering & Delivery", source: "Checklist", type: "missing", weeks: 3, desc: "Dedicated driver companion app with order queue, navigation, proof-of-delivery, and earnings tracking.", month: "2026-09" },
+  { title: "Real-time Order Tracking for Customers", category: "Online Ordering & Delivery", source: "Checklist", type: "partial", weeks: 1, desc: "Live map-based order tracking with accurate ETA, driver location, and status push notifications.", month: "2026-09" },
+  { title: "Automated Pricing Optimization", category: "AI & Predictive Analytics", source: "Checklist", type: "partial", weeks: 3, desc: "ML-based dynamic pricing engine factoring demand elasticity, competition, and time-of-day signals.", month: "2026-10" },
+  { title: "Social Media Integration", category: "Marketing & Engagement", source: "Checklist", type: "missing", weeks: 4, desc: "Direct social posting, review aggregation, and campaign management from within the Swirl platform.", month: "2026-10" },
+  { title: "Review Management Integration", category: "Marketing & Engagement", source: "Checklist", type: "partial", weeks: 2, desc: "Centralized review monitoring from Google, TripAdvisor, and aggregator platforms with response tools.", month: "2026-10" },
+  { title: "Food Waste Tracking", category: "Sustainability & Waste", source: "Checklist", type: "partial", weeks: 1, desc: "Comprehensive waste tracking with environmental impact metrics and reduction goal monitoring.", month: "2026-10" },
+  { title: "Ingredient Traceability", category: "Sustainability & Waste", source: "Checklist", type: "partial", weeks: 2, desc: "Farm-to-fork ingredient tracking with batch/lot management and recall-readiness capabilities.", month: "2026-10" },
+  { title: "PMS Integration (Property Management System)", category: "Hotel Functionality", source: "Checklist", type: "partial", weeks: 5, desc: "Guest room charge posting, guest data sync, and folio integration with major PMS platforms (Opera, etc.).", month: "2026-11" },
+  { title: "Spa/Activity Booking Integration", category: "Hotel Functionality", source: "Checklist", type: "missing", weeks: 4, desc: "Cross-charge booking integration for spa, activities, and F&B with unified guest billing.", month: "2026-11" },
+  { title: "Active User Community & Forum", category: "Vendor & Future Proofing", source: "Checklist", type: "partial", weeks: 4, desc: "Customer community platform with knowledge base, feature voting, and peer-to-peer support forums.", month: "2026-12" },
+  { title: "Custom Report Builder with API", category: "Scalability & Customization", source: "Checklist", type: "missing", weeks: 3, desc: "Drag-and-drop report builder with API access for custom data extraction and third-party BI tools.", month: "2026-11" },
+  { title: "Call Center Module", category: "Scalability & Customization", source: "Checklist", type: "missing", weeks: 12, desc: "Full call center module with PBX integration, order-taking workflows, and CRM-linked customer views.", month: "2026-12" },
+  { title: "ERP Integration (Dynamics 365, SAP, Oracle)", category: "ERP & Accounting", source: "Checklist", type: "missing", weeks: 5, desc: "Bidirectional integration with enterprise ERPs for GL sync, AP/AR, and consolidated financial reporting.", month: "2027-01" },
+  { title: "Employee Payroll Integration", category: "ERP & Accounting", source: "Checklist", type: "missing", weeks: 3, desc: "Shift data to payroll pipeline with overtime calculation, deduction management, and WPS compliance.", month: "2027-01" },
+  { title: "Testing Scenarios for Managers", category: "ERP & Accounting", source: "Checklist", type: "partial", weeks: 3, desc: "Sandbox environment for managers to simulate returns, voids, partial payments, and edge cases.", month: "2027-01" },
+  { title: "Oracle Hospitality Migration Support", category: "ERP & Accounting", source: "Checklist", type: "partial", weeks: 5, desc: "Data migration toolkit and parallel-run support for hotels transitioning from Oracle Hospitality (Simphony).", month: "2027-02" },
+
+  // ── PURCHASE-SCM GAPS ──
+  { title: "Approved Smallware & Assets Catalog", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 2, desc: "Centralized approved list of smallware and assets with unified view linked to PR-to-PO workflow.", month: "2026-04" },
+  { title: "Vendor Block/Unblock with Approval", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Block/unblock vendors for PO and payment with approval workflow; prevent transactions to blocked vendors.", month: "2026-04" },
+  { title: "Multi-Document Attachment to Item Master", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Attach drawings, spec sheets, and reference documents to item master records.", month: "2026-04" },
+  { title: "Lead Time Calculation & Tracking", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Calculate procurement lead time from order date through vendor shipping, customs, and receiving.", month: "2026-04" },
+  { title: "Purchase Notification & Alert System", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 0.5, desc: "Automated email/notification alerts on PO approval, dispatch, receiving, and status changes.", month: "2026-04" },
+  { title: "Copy & Clone Purchase Requests", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 0.5, desc: "Create new purchase requests from existing ones with copy functionality.", month: "2026-04" },
+  { title: "PO Segregation (Import/Indigenous/Cash/Contract)", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Classify purchase orders by type: imported, indigenous, cash purchase, and contract.", month: "2026-05" },
+  { title: "Brand & Origin Capture in PO", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Capture brand, origin, and spare/accessories details in purchase order line items.", month: "2026-05" },
+  { title: "Vendor Order Acknowledgement", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 0.5, desc: "Record and track vendor order acknowledgements with expected delivery confirmation.", month: "2026-05" },
+  { title: "Vendor Delivery Follow-up Reminders", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Automated follow-up reminders to vendors for pending deliveries based on lead times.", month: "2026-05" },
+  { title: "PO Amendment with Version Control", category: "Purchase – Commercial Docs", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Amend purchase orders with full version history, approval chain, and change tracking.", month: "2026-05" },
+  { title: "Staggered Delivery Schedule in PO", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Create POs with item-wise staggered delivery schedules and partial receipt tracking.", month: "2026-05" },
+  { title: "Multi-Address Support in PO", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Ship-to, bill-to, and invoice-sent-to address management in purchase orders.", month: "2026-05" },
+  { title: "PO Terms & Conditions Management", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Configurable terms and conditions templates for purchase orders.", month: "2026-05" },
+  { title: "Inspection Requirements in PO", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Capture inspection requirements and acceptance criteria within purchase orders.", month: "2026-05" },
+  { title: "RFQ Generation from Approved Requests", category: "Purchase – RFQ", source: "Purchase-SCM", type: "missing", weeks: 3, desc: "Generate Requests for Quotation from approved purchase requests with multi-vendor distribution.", month: "2026-06" },
+  { title: "Merge Indents for RFQ", category: "Purchase – RFQ", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Consolidate multiple purchase indents into a single RFQ for volume-based negotiation.", month: "2026-06" },
+  { title: "Comparative Statement Generation", category: "Purchase – RFQ", source: "Purchase-SCM", type: "missing", weeks: 2, desc: "Generate comparative statements from received quotes with vendor ranking (L1, L2, etc.).", month: "2026-06" },
+  { title: "Vendor Ranking & Remarks in Comparisons", category: "Purchase – RFQ", source: "Purchase-SCM", type: "missing", weeks: 1, desc: "Rank vendor offers based on pre-defined criteria; record remarks and forward for approval.", month: "2026-06" },
+  { title: "Send RFQ to Multiple Vendors", category: "Purchase – Commercial Docs", source: "Purchase-SCM", type: "missing", weeks: 3, desc: "Distribute RFQs to multiple vendors with multi-currency quote capture and response tracking.", month: "2026-06" },
+  { title: "Comparative Statement from Quotes", category: "Purchase – Commercial Docs", source: "Purchase-SCM", type: "missing", weeks: 2, desc: "Prepare side-by-side comparative analysis of vendor quotes with price/quality scoring.", month: "2026-07" },
+  { title: "Quote to PO Conversion", category: "Purchase – Commercial Docs", source: "Purchase-SCM", type: "missing", weeks: 1, desc: "Convert selected vendor quotes directly into purchase orders with auto-populated details.", month: "2026-07" },
+  { title: "Budget Allocation Check for PO", category: "Purchase – General", source: "Purchase-SCM", type: "missing", weeks: 2, desc: "Budget verification when generating POs with over-budget alerts and approval escalation.", month: "2026-07" },
+  { title: "Rate Contracts & Agreements Management", category: "Purchase – General", source: "Purchase-SCM", type: "missing", weeks: 2, desc: "Create and manage rate contracts with unit rates, validity periods, and supplier commitments.", month: "2026-07" },
+  { title: "PO from Rate Contracts", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Generate purchase orders referencing active rate contracts for price consistency.", month: "2026-07" },
+  { title: "Bank Guarantee Tracking", category: "Purchase – General", source: "Purchase-SCM", type: "missing", weeks: 1, desc: "Track bank guarantees against POs with expiry alerts and renewal workflows.", month: "2026-07" },
+  { title: "PO Insurance Details Tracking", category: "Purchase – General", source: "Purchase-SCM", type: "missing", weeks: 1, desc: "Record and monitor insurance details linked to purchase orders.", month: "2026-08" },
+  { title: "Rate Contract Orders (With/Without Qty)", category: "Purchase – Commercial Docs", source: "Purchase-SCM", type: "missing", weeks: 2, desc: "Generate rate contract orders with and without fixed quantities.", month: "2026-08" },
+  { title: "Volume-Related Rebate Contracts", category: "Purchase – Commercial Docs", source: "Purchase-SCM", type: "missing", weeks: 2, desc: "Contract orders with volume-related rebates and automatic rebate calculation.", month: "2026-08" },
+  { title: "Logistics Tracking (PO to Warehouse)", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 4, desc: "End-to-end logistics tracking from PO placement to warehouse receipt with status milestones.", month: "2026-08" },
+  { title: "Supplier Feedback Capture", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 4, desc: "Record supplier feedback on prior orders — rejection reasons, delays, quality issues — for vendor scoring.", month: "2026-09" },
+  { title: "Vendor Rating System", category: "Purchase – Supplier", source: "Purchase-SCM", type: "partial", weeks: 2, desc: "Vendor rating based on price, quality, delivery reliability with periodic re-evaluation.", month: "2026-09" },
+  { title: "Periodic Vendor Analysis & KPIs", category: "Purchase – Supplier", source: "Purchase-SCM", type: "partial", weeks: 2, desc: "Quarterly/annual vendor evaluation with KPI-based ranking and performance trend tracking.", month: "2026-09" },
+  { title: "Supplier Quality Monitoring", category: "Purchase – Supplier", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Ongoing quality monitoring of supplies with defect rate tracking and corrective action logging.", month: "2026-09" },
+  { title: "Landing Cost Calculation for Imports", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Calculate landed cost including customs, freight, insurance for imported items.", month: "2026-09" },
+  { title: "Asset Facelift Value Calculation", category: "Purchase – General", source: "Purchase-SCM", type: "missing", weeks: 1, desc: "Calculate facelift/refurbishment value for fixed assets.", month: "2026-09" },
+  { title: "Physical Verification with Barcode", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Barcode-reader enabled physical stock verification with auto-generated variance reports.", month: "2026-10" },
+  { title: "Reusable/Scrap Item Management", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Mark and track items as reusable or scrap during inter-outlet transfers and disposals.", month: "2026-10" },
+  { title: "Import Items with Customs Documentation", category: "Purchase – Commercial Docs", source: "Purchase-SCM", type: "partial", weeks: 2, desc: "Import item management with required customs documentation, duty calculation, and clearance tracking.", month: "2026-10" },
+  { title: "Transaction Pattern on Material Request", category: "Purchase – Commercial Docs", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Show last 3 transaction details with supplier info when creating material requests.", month: "2026-10" },
+  { title: "Price Comparison: Import vs Local", category: "Purchase – Analysis", source: "Purchase-SCM", type: "missing", weeks: 1, desc: "Comparative analysis of import vs local purchase costs including all landed cost components.", month: "2026-10" },
+  { title: "Document List per Order", category: "Purchase – Analysis", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Complete document checklist per order: LPO, Invoice, DO, ERR, GRN with status tracking.", month: "2026-10" },
+  { title: "Lead Time Periodic Update", category: "Purchase – Analysis", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Auto-update lead times based on actual receipt data for improved procurement planning.", month: "2026-10" },
+  { title: "ABC/XYZ/FSN Inventory Analysis", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 2, desc: "Multi-dimensional inventory classification reports: ABC, XYZ, FSN with actionable insights.", month: "2026-11" },
+  { title: "ERN Alert & Tracking System", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Equipment Rejection Note alerts with return-to-supplier tracking and replacement status.", month: "2026-11" },
+  { title: "Surplus/Project Items Receipt & Accounting", category: "Purchase – General", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Receive and account for spare/surplus items from projects with value-based write-off.", month: "2026-11" },
+  { title: "Sampling & Quality Test Management", category: "Purchase – Quality", source: "Purchase-SCM", type: "missing", weeks: 3, desc: "QA sampling workflows with test parameters, pass/fail criteria, and supplier notification.", month: "2026-11" },
+  { title: "Stationery & Printing Issue Management", category: "Purchase – Stock", source: "Purchase-SCM", type: "partial", weeks: 1, desc: "Request-based stationery and printing stock issuance to all locations including HQ.", month: "2026-11" },
+];
+
+// AI ROADMAP ITEMS
+const aiRoadmapItems = [
+  { title: "AI Menu Engineer", category: "AI Agent", source: "Roadmap", type: "ai", weeks: null, desc: "Intelligent agent analyzing menu performance, food costs, and preferences for pricing and layout recommendations. Stars/Puzzles/Plowhorses/Dogs classification, what-if modeling.", month: "2026-04" },
+  { title: "Smart Inventory Copilot", category: "AI Agent", source: "Roadmap", type: "ai", weeks: null, desc: "AI-enhanced demand forecasting with daily prep sheets, waste detection, auto PO drafts, and anomaly detection for stock movements.", month: "2026-05" },
+  { title: "Command Center 2.0", category: "AI Dashboard", source: "Roadmap", type: "ai", weeks: null, desc: "AI-powered executive dashboard with morning briefings, anomaly detection, branch comparison, and natural-language Q&A interface.", month: "2026-06" },
+  { title: "AI Accountant", category: "AI Agent", source: "Roadmap", type: "ai", weeks: null, desc: "Automated bookkeeping: transaction categorization (95%+ accuracy), AI-drafted journal entries, intelligent bank reconciliation, month-end closing assistant.", month: "2026-07" },
+  { title: "AI Procurement Agent", category: "AI Agent", source: "Roadmap", type: "ai", weeks: null, desc: "Vendor scoring, AI-recommended switching, consolidated cross-branch purchasing, price trend alerts.", month: "2026-08" },
+  { title: "AI Workforce Scheduler", category: "AI Agent", source: "Roadmap", type: "ai", weeks: null, desc: "Demand-driven shift generation, labor compliance checking, employee preference learning, real-time adjustment recommendations.", month: "2026-09" },
+  { title: "AI Tax Advisor", category: "AI Agent", source: "Roadmap", type: "ai", weeks: null, desc: "Multi-jurisdiction VAT/sales tax automation, compliance alerts, optimization recommendations, Zatca e-invoicing AI validation, audit-ready documentation.", month: "2026-10" },
+  { title: "Predictive CRM & Guest Intelligence", category: "AI Agent", source: "Roadmap", type: "ai", weeks: null, desc: "CLV prediction, churn risk scoring, AI-personalized offers, sentiment analysis across feedback channels.", month: "2026-11" },
+  { title: "Enterprise Platform Expansion", category: "Platform", source: "Roadmap", type: "platform", weeks: null, desc: "Advanced role-based dashboards, multi-country compliance framework (GCC, EU, NA), open API marketplace, white-label capabilities.", month: "2026-12" },
+  { title: "AI Financial Controller", category: "AI Agent", source: "Roadmap", type: "ai", weeks: null, desc: "Cash flow forecasting (30/60/90-day), AI budget proposals, real-time margin monitoring, investment & expansion modeling.", month: "2027-01" },
+  { title: "Natural Language Business Assistant", category: "AI Interface", source: "Roadmap", type: "ai", weeks: null, desc: "Voice and text queries across all business data, action commands, scheduled reports via conversation, full Arabic NLU.", month: "2027-02" },
+  { title: "Autonomous Operations Suite", category: "AI Agent", source: "Roadmap", type: "ai", weeks: null, desc: "Auto-pilot inventory, self-healing schedules, dynamic pricing engine, predictive maintenance alerts.", month: "2027-03" },
+];
+
+// Enrich all items with effort and endMonth
+const allItems = [...gapItems, ...aiRoadmapItems].map(item => ({
+  ...item,
+  effort: calcEffort(item),
+  endMonth: calcEndMonth(item),
+}));
+
+// ═══════════════════════════════════════════════════
+// RENDER HELPERS
+// ═══════════════════════════════════════════════════
+
+let currentView = "months";
+let currentFilter = "all";
+
+function updateStats(items) {
+  const partial = items.filter(i => i.type === "partial").length;
+  const missing = items.filter(i => i.type === "missing").length;
+  const ai = items.filter(i => i.type === "ai" || i.type === "platform").length;
+  const totalWeeks = items.filter(i => i.weeks).reduce((s, i) => s + i.weeks, 0);
+  document.getElementById("statTotal").textContent = items.length;
+  document.getElementById("statPartial").textContent = partial;
+  document.getElementById("statMissing").textContent = missing;
+  document.getElementById("statAI").textContent = ai;
+  document.getElementById("statWeeks").innerHTML = totalWeeks.toFixed(0) + '<span style="font-size:16px;font-weight:500;color:var(--neutral-500)"> wks</span>';
+}
+
+function getMonthTheme(key) {
+  const themes = {
+    "2026-04": "Foundation & Quick Wins",
+    "2026-05": "Reporting & Inventory Intelligence",
+    "2026-06": "Costing, RFQ & Command Center",
+    "2026-07": "AI Accountant & Security Hardening",
+    "2026-08": "AI Procurement & Logistics",
+    "2026-09": "Workforce AI & Vendor Excellence",
+    "2026-10": "AI Tax, Pricing & Sustainability",
+    "2026-11": "Hotel PMS, CRM Intelligence & Quality",
+    "2026-12": "Platform Expansion & Call Center",
+    "2027-01": "AI Financial Controller & ERP Integration",
+    "2027-02": "NL Assistant & Oracle Migration",
+    "2027-03": "Autonomous Operations Suite",
+  };
+  return themes[key] || "";
+}
+
+function cardTypeClass(type) {
+  if (type === "partial") return "type-gap-partial";
+  if (type === "missing") return "type-gap-missing";
+  if (type === "ai") return "type-ai";
+  if (type === "platform") return "type-platform";
+  return "";
+}
+
+function tagClass(type) {
+  if (type === "partial") return "tag-partial";
+  if (type === "missing") return "tag-missing";
+  if (type === "ai") return "tag-ai";
+  if (type === "platform") return "tag-platform";
+  return "";
+}
+
+function tagLabel(type) {
+  if (type === "partial") return "Enhancement";
+  if (type === "missing") return "New Build";
+  if (type === "ai") return "AI";
+  if (type === "platform") return "Platform";
+  return "";
+}
+
+function effortTagClass(effort) {
+  if (effort === "Low") return "tag-effort-low";
+  if (effort === "Medium") return "tag-effort-medium";
+  if (effort === "Hard") return "tag-effort-hard";
+  return "";
+}
+
+function iconForCategory(cat) {
+  const map = {
+    "Core Functionality": "settings",
+    "Order & Billing": "receipt",
+    "Menu Management": "utensils",
+    "Payment Handling": "credit-card",
+    "Reporting & Analytics": "bar-chart-3",
+    "Inventory Integration": "package",
+    "Customer Management": "users",
+    "Loyalty & Promotions": "gift",
+    "Security & Audit": "shield",
+    "Security & Compliance": "shield-check",
+    "Offline & Cloud": "cloud",
+    "Integration": "plug",
+    "Employee Management": "user-check",
+    "Kitchen Management": "chef-hat",
+    "Centralized Management": "layout-dashboard",
+    "Online Ordering & Delivery": "truck",
+    "AI & Predictive Analytics": "brain",
+    "Marketing & Engagement": "megaphone",
+    "Sustainability & Waste": "leaf",
+    "Hotel Functionality": "building",
+    "Vendor & Future Proofing": "message-circle",
+    "Scalability & Customization": "maximize",
+    "ERP & Accounting": "calculator",
+    "AI Agent": "sparkles",
+    "AI Dashboard": "layout-dashboard",
+    "AI Interface": "message-square",
+    "Platform": "server",
+  };
+  const key = Object.keys(map).find(k => cat.includes(k));
+  return key ? map[key] : "circle";
+}
+
+function getMonthLabel(key) {
+  const m = months.find(mo => mo.key === key);
+  return m ? m.short : key;
+}
+
+function filterItems(filter) {
+  if (filter === "all") return allItems;
+  if (filter === "enhancement") return allItems.filter(i => i.type === "partial");
+  if (filter === "newbuild") return allItems.filter(i => i.type === "missing");
+  if (filter === "roadmap") return allItems.filter(i => i.type === "ai" || i.type === "platform");
+  return allItems;
+}
+
+// ═══════════════════════════════════════════════════
+// CARD RENDERER
+// ═══════════════════════════════════════════════════
+
+function renderCard(item) {
+  const weeksMeta = item.weeks ? `<div class="card-meta"><i data-lucide="clock" style="width:11px;height:11px;stroke-width:1.2"></i> ${item.weeks}w</div>` : '';
+  const sourceMeta = `<div class="card-meta"><i data-lucide="file-text" style="width:11px;height:11px;stroke-width:1.2"></i> ${item.source}</div>`;
+  const icon = iconForCategory(item.category);
+
+  // Duration display
+  let durationMeta = '';
+  if (item.month !== item.endMonth) {
+    durationMeta = `<div class="card-meta"><i data-lucide="calendar" style="width:11px;height:11px;stroke-width:1.2"></i> ${getMonthLabel(item.month)} → ${getMonthLabel(item.endMonth)}</div>`;
+  } else {
+    durationMeta = `<div class="card-meta"><i data-lucide="calendar" style="width:11px;height:11px;stroke-width:1.2"></i> ${getMonthLabel(item.month)}</div>`;
+  }
+
+  return `
+    <div class="card ${cardTypeClass(item.type)}">
+      <div class="card-top">
+        <div class="card-title">${item.title}</div>
+        <div class="card-tags">
+          <span class="card-tag ${tagClass(item.type)}">${tagLabel(item.type)}</span>
+          <span class="card-tag ${effortTagClass(item.effort)}">${item.effort}</span>
+        </div>
+      </div>
+      <div class="card-category"><i data-lucide="${icon}" style="width:11px;height:11px;stroke-width:1.2"></i> ${item.category}</div>
+      <div class="card-desc">${item.desc}</div>
+      <div class="card-footer">
+        ${weeksMeta}
+        ${durationMeta}
+        ${sourceMeta}
+      </div>
+    </div>
+  `;
+}
+
+// ═══════════════════════════════════════════════════
+// MONTHS VIEW
+// ═══════════════════════════════════════════════════
+
+function renderMonthsView(filtered) {
+  const container = document.getElementById("timeline");
+  container.innerHTML = "";
+
+  months.forEach(m => {
+    const monthItems = filtered.filter(i => i.month === m.key);
+    if (monthItems.length === 0) return;
+
+    const isCurrent = m.key === "2026-04";
+    const enhancementCount = monthItems.filter(i => i.type === "partial").length;
+    const newBuildCount = monthItems.filter(i => i.type === "missing").length;
+    const aiCount = monthItems.filter(i => i.type === "ai").length;
+    const platCount = monthItems.filter(i => i.type === "platform").length;
+
+    const section = document.createElement("div");
+    section.className = "month-section";
+
+    let badgesHTML = "";
+    if (enhancementCount) badgesHTML += `<span class="month-badge enhancement">${enhancementCount} enhancement${enhancementCount > 1 ? 's' : ''}</span>`;
+    if (newBuildCount) badgesHTML += `<span class="month-badge newbuild">${newBuildCount} new build${newBuildCount > 1 ? 's' : ''}</span>`;
+    if (aiCount) badgesHTML += `<span class="month-badge ai">${aiCount} AI</span>`;
+    if (platCount) badgesHTML += `<span class="month-badge platform">${platCount} platform</span>`;
+
+    section.innerHTML = `
+      <div class="month-header">
+        <div class="month-pill ${isCurrent ? 'current' : ''}">${m.short}</div>
+        <div class="month-meta">
+          <div class="month-name">${m.label}</div>
+          <div class="month-subtitle">${getMonthTheme(m.key)}</div>
+        </div>
+        <div class="month-badges">${badgesHTML}</div>
+        <i data-lucide="chevron-down" class="chevron-icon" style="width:20px;height:20px;stroke-width:1.2"></i>
+      </div>
+      <div class="month-body"></div>
+    `;
+
+    const body = section.querySelector(".month-body");
+
+    const gapItemsInMonth = monthItems.filter(i => i.type === "partial" || i.type === "missing");
+    const roadmapItemsInMonth = monthItems.filter(i => i.type === "ai" || i.type === "platform");
+
+    if (gapItemsInMonth.length > 0) {
+      body.innerHTML += `<div class="section-label"><i data-lucide="alert-circle" style="width:12px;height:12px;stroke-width:1.2"></i> QSR Gap Closure — ${gapItemsInMonth.length} items</div>`;
+      const grid = document.createElement("div");
+      grid.className = "cards-grid";
+      gapItemsInMonth.forEach(item => { grid.innerHTML += renderCard(item); });
+      body.appendChild(grid);
+    }
+
+    if (roadmapItemsInMonth.length > 0) {
+      body.innerHTML += `<div class="section-label" style="margin-top:24px"><i data-lucide="sparkles" style="width:12px;height:12px;stroke-width:1.2"></i> AI-Native Roadmap — ${roadmapItemsInMonth.length} items</div>`;
+      const grid2 = document.createElement("div");
+      grid2.className = "cards-grid";
+      roadmapItemsInMonth.forEach(item => { grid2.innerHTML += renderCard(item); });
+      body.appendChild(grid2);
+    }
+
+    section.querySelector(".month-header").addEventListener("click", () => {
+      section.classList.toggle("collapsed");
+    });
+
+    container.appendChild(section);
+  });
+}
+
+// ═══════════════════════════════════════════════════
+// QUARTERS VIEW
+// ═══════════════════════════════════════════════════
+
+function renderQuartersView(filtered) {
+  const container = document.getElementById("timeline");
+  container.innerHTML = "";
+
+  quarters.forEach(q => {
+    const qItems = filtered.filter(i => q.months.includes(i.month));
+    if (qItems.length === 0) return;
+
+    const enhancementCount = qItems.filter(i => i.type === "partial").length;
+    const newBuildCount = qItems.filter(i => i.type === "missing").length;
+    const aiCount = qItems.filter(i => i.type === "ai").length;
+    const platCount = qItems.filter(i => i.type === "platform").length;
+
+    const section = document.createElement("div");
+    section.className = "quarter-section";
+
+    let summaryHTML = "";
+    if (enhancementCount) summaryHTML += `<div class="quarter-summary-item enhancement">${enhancementCount} Enhancement${enhancementCount > 1 ? 's' : ''}</div>`;
+    if (newBuildCount) summaryHTML += `<div class="quarter-summary-item newbuild">${newBuildCount} New Build${newBuildCount > 1 ? 's' : ''}</div>`;
+    if (aiCount) summaryHTML += `<div class="quarter-summary-item ai-item">${aiCount} AI</div>`;
+    if (platCount) summaryHTML += `<div class="quarter-summary-item platform-item">${platCount} Platform</div>`;
+
+    section.innerHTML = `
+      <div class="quarter-header">
+        <div class="quarter-pill">${q.label.split(" ")[0]}</div>
+        <div class="quarter-meta">
+          <div class="quarter-name">${q.label}</div>
+          <div class="quarter-subtitle">${q.subtitle} — ${qItems.length} items</div>
+        </div>
+        <div class="quarter-summary">${summaryHTML}</div>
+        <i data-lucide="chevron-down" class="chevron-icon" style="width:20px;height:20px;stroke-width:1.2"></i>
+      </div>
+      <div class="quarter-body"></div>
+    `;
+
+    const body = section.querySelector(".quarter-body");
+
+    // Group by month within quarter
+    q.months.forEach(mKey => {
+      const mItems = qItems.filter(i => i.month === mKey);
+      if (mItems.length === 0) return;
+      const mObj = months.find(mo => mo.key === mKey);
+      body.innerHTML += `<div class="section-label" style="margin-top:16px"><i data-lucide="calendar" style="width:12px;height:12px;stroke-width:1.2"></i> ${mObj.label} — ${mItems.length} items</div>`;
+      const grid = document.createElement("div");
+      grid.className = "cards-grid";
+      mItems.forEach(item => { grid.innerHTML += renderCard(item); });
+      body.appendChild(grid);
+    });
+
+    section.querySelector(".quarter-header").addEventListener("click", () => {
+      section.classList.toggle("collapsed");
+    });
+
+    container.appendChild(section);
+  });
+}
+
+// ═══════════════════════════════════════════════════
+// GANTT TIMELINE VIEW
+// ═══════════════════════════════════════════════════
+
+function renderGanttView(filtered) {
+  const container = document.getElementById("timeline");
+  container.innerHTML = "";
+
+  const ganttDiv = document.createElement("div");
+  ganttDiv.className = "gantt-container";
+
+  // Header
+  let headerHTML = `<div class="gantt-header"><div class="gantt-label-col">Item</div><div class="gantt-months-col">`;
+  months.forEach(m => {
+    headerHTML += `<div class="gantt-month-header">${m.short}</div>`;
+  });
+  headerHTML += `</div></div>`;
+  ganttDiv.innerHTML = headerHTML;
+
+  // Rows
+  filtered.forEach(item => {
+    const row = document.createElement("div");
+    row.className = "gantt-row";
+
+    const startIdx = months.findIndex(m => m.key === item.month);
+    const endIdx = months.findIndex(m => m.key === item.endMonth);
+    if (startIdx === -1) return;
+
+    const barClass = item.type === "partial" ? "bar-partial" : item.type === "missing" ? "bar-missing" : item.type === "ai" ? "bar-ai" : "bar-platform";
+
+    // Calculate bar position as percentages
+    const totalCols = months.length;
+    const leftPct = (startIdx / totalCols * 100);
+    const widthPct = ((endIdx - startIdx + 1) / totalCols * 100);
+
+    let cellsHTML = '';
+    months.forEach(() => {
+      cellsHTML += `<div class="gantt-cell"></div>`;
+    });
+
+    const tooltipText = `${item.title} (${getMonthLabel(item.month)}${item.month !== item.endMonth ? ' → ' + getMonthLabel(item.endMonth) : ''}) — ${item.effort} effort`;
+
+    row.innerHTML = `
+      <div class="gantt-row-label" title="${item.title}">${item.title}</div>
+      <div class="gantt-row-bars">
+        ${cellsHTML}
+        <div class="gantt-bar ${barClass}" style="left:${leftPct}%;width:${widthPct}%;">
+          <span class="gantt-bar-tooltip">${tooltipText}</span>
+        </div>
+      </div>
+    `;
+
+    ganttDiv.appendChild(row);
+  });
+
+  container.appendChild(ganttDiv);
+}
+
+// ═══════════════════════════════════════════════════
+// MAIN RENDER
+// ═══════════════════════════════════════════════════
+
+function render() {
+  const filtered = filterItems(currentFilter);
+  updateStats(filtered);
+
+  if (currentView === "months") {
+    renderMonthsView(filtered);
+  } else if (currentView === "quarters") {
+    renderQuartersView(filtered);
+  } else if (currentView === "gantt") {
+    renderGanttView(filtered);
+  }
+
+  lucide.createIcons();
+}
+
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
+
+// Top bar filter buttons
+document.querySelectorAll("#topbarNav button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#topbarNav button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentFilter = btn.dataset.filter;
+    render();
+  });
+});
+
+// View tabs
+document.querySelectorAll("#viewTabs .view-tab").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#viewTabs .view-tab").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentView = btn.dataset.view;
+    render();
+  });
+});
+
+render();
+</script>
+</body>
+</html>
