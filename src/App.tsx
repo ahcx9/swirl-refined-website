@@ -27,6 +27,7 @@ import CustomerDisplay from './pages/features/CustomerDisplay';
 import Loyalty from './pages/features/Loyalty';
 import Reservations from './pages/features/Reservations';
 import Support from './pages/Support';
+import Presentation from './pages/Presentation';
 
 import { LanguageProvider } from './contexts/LanguageContext';
 import MobileStickyBar from './components/MobileStickyBar';
@@ -66,6 +67,7 @@ function App() {
           <Route path="/products/reservations" element={<Reservations />} />
           
           <Route path="/support" element={<Support />} />
+          <Route path="/presentation" element={<Presentation />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
