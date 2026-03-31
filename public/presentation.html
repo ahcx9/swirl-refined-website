@@ -924,7 +924,16 @@ body.presenting .slide.active-slide { display: flex !important; }
 <!-- ========== SLIDE 18: Financial Controls ========== -->
 <div class="slide flex-col" style="padding: 56px 80px;">
   <div class="label" style="margin-bottom: 24px;">Financial Controls</div>
-  <h2 style="font-family: 'Gelasio', serif; font-size: 30px; margin-bottom: 28px;">Every dirham. Tracked and reconciled.</h2>
+  <h2 style="font-family: 'Gelasio', serif; font-size: 30px; margin-bottom: 28px;">Every <span id="currency-word">currency unit</span>. Tracked and reconciled.</h2>
+  <script>
+  (function(){
+    var map={AE:"dirham",SA:"riyal",IN:"rupee",US:"dollar",GB:"pound",JP:"yen",CN:"yuan",KR:"won",DE:"euro",FR:"euro",IT:"euro",ES:"euro",NL:"euro",BE:"euro",PT:"euro",IE:"euro",AT:"euro",FI:"euro",GR:"euro",LU:"euro",SK:"euro",SI:"euro",EE:"euro",LV:"euro",LT:"euro",CY:"euro",MT:"euro",HR:"euro",PK:"rupee",BD:"taka",EG:"pound",QA:"riyal",KW:"dinar",BH:"dinar",OM:"rial",JO:"dinar",LB:"pound",IQ:"dinar",TR:"lira",RU:"ruble",BR:"real",MX:"peso",CA:"dollar",AU:"dollar",NZ:"dollar",ZA:"rand",NG:"naira",KE:"shilling",GH:"cedi",TH:"baht",MY:"ringgit",SG:"dollar",PH:"peso",ID:"rupiah",VN:"dong",TW:"dollar",HK:"dollar",SE:"krona",NO:"krone",DK:"krone",PL:"zloty",CZ:"koruna",HU:"forint",RO:"leu",CH:"franc",IL:"shekel",AR:"peso",CL:"peso",CO:"peso",PE:"sol"};
+    var el=document.getElementById("currency-word");
+    function set(cc){if(cc&&map[cc.toUpperCase()]){el.textContent=map[cc.toUpperCase()]}else{el.textContent="dollar"}}
+    try{var c=localStorage.getItem("user_country_code");if(c){set(c);return}}catch(e){}
+    try{fetch("https://ipapi.co/json/").then(function(r){return r.json()}).then(function(d){var cc=d&&d.country_code;if(cc){try{localStorage.setItem("user_country_code",cc)}catch(e){}set(cc)}}).catch(function(){try{var l=Intl.DateTimeFormat().resolvedOptions().locale;var p=l.split("-");if(p.length>1)set(p[1])}catch(e){}})}catch(e){}
+  })();
+  </script>
   <div class="grid-3" style="flex: 1; align-content: start; gap: 14px;">
     <div class="feature-card" style="padding: 18px 22px;">
       <div class="feature-title">Payment Reconciliation</div>
