@@ -28,6 +28,7 @@ import Loyalty from './pages/features/Loyalty';
 import Reservations from './pages/features/Reservations';
 import Support from './pages/Support';
 import Presentation from './pages/Presentation';
+import Roadmap from './pages/Roadmap';
 
 import { LanguageProvider } from './contexts/LanguageContext';
 import MobileStickyBar from './components/MobileStickyBar';
