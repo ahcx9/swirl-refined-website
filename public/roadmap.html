@@ -406,6 +406,54 @@
     .cards-grid { grid-template-columns: 1fr; }
     .gantt-label-col { width: 180px; min-width: 180px; }
     .gantt-row-label { width: 180px; min-width: 180px; }
+    .hero h1 { font-size: 26px; }
+    .hero p { font-size: 14px; }
+    .topbar-nav button { padding: 5px 10px; font-size: 12px; }
+    .stat-card { padding: 16px 18px; }
+    .stat-card .stat-value { font-size: 22px; }
+    .view-controls { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .legend { flex-wrap: wrap; gap: 10px; }
+    .month-name { font-size: 17px; }
+    .quarter-name { font-size: 18px; }
+  }
+
+  @media (max-width: 600px) {
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .topbar { height: 48px; }
+    .topbar-brand { font-size: 16px; }
+    .topbar-brand span { font-size: 11px; }
+    .topbar-nav { gap: 4px; overflow-x: auto; flex-shrink: 0; }
+    .topbar-nav button { padding: 4px 8px; font-size: 11px; white-space: nowrap; }
+    .hero { padding: 32px 16px 24px; }
+    .hero h1 { font-size: 22px; }
+    .hero p { font-size: 13px; }
+    .view-controls { padding: 14px 16px; }
+    .view-tabs { flex-wrap: wrap; }
+    .view-tab { padding: 5px 10px; font-size: 12px; }
+    .timeline-container { padding: 0 16px 40px; }
+    .stat-card { padding: 14px 16px; }
+    .stat-card .stat-value { font-size: 20px; }
+    .stat-card .stat-label { font-size: 11px; }
+    .stat-card .stat-sub { font-size: 11px; }
+    .month-header { padding: 20px 0 14px; gap: 10px; }
+    .month-pill { width: 36px; height: 36px; font-size: 13px; }
+    .month-name { font-size: 16px; }
+    .month-subtitle { font-size: 12px; }
+    .month-badges { gap: 4px; }
+    .month-badge { font-size: 10px; padding: 2px 8px; }
+    .quarter-pill { width: 40px; height: 40px; font-size: 14px; }
+    .quarter-name { font-size: 17px; }
+    .quarter-subtitle { font-size: 12px; }
+    .quarter-summary { gap: 6px; }
+    .quarter-summary-item { font-size: 11px; padding: 3px 8px; }
+    .card { padding: 14px 16px; }
+    .card-title { font-size: 13px; }
+    .card-desc { font-size: 12px; }
+    .card-tag { font-size: 9px; padding: 2px 6px; }
+    .card-meta { font-size: 10px; }
+    .gantt-label-col { width: 140px; min-width: 140px; }
+    .gantt-row-label { width: 140px; min-width: 140px; font-size: 11px; }
+    .section-label { font-size: 10px; }
   }
 </style>
 </head>
