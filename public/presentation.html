@@ -220,6 +220,80 @@ body.presenting .slide {
 }
 body.presenting .slide.active-slide { display: flex !important; }
 
+/* Responsive scaling for mobile/tablet */
+@media (max-width: 1320px) {
+  .deck { padding: 16px 0; }
+  .slide {
+    width: 100vw;
+    height: calc(100vw * 720 / 1280);
+    padding: 5vw 6.25vw;
+  }
+  .display { font-size: 4.4vw; }
+  .title { font-size: 3.1vw; }
+  .subtitle { font-size: 2.2vw; }
+  .body { font-size: 1.17vw; }
+  .body-sm { font-size: 1.05vw; }
+  .label { font-size: 0.86vw; letter-spacing: 1.2px; }
+  .feature-card { padding: 1.5vw 1.8vw; }
+  .feature-title { font-size: 1.1vw; }
+  .feature-desc { font-size: 0.98vw; }
+  .feature-icon { width: 2.8vw; height: 2.8vw; border-radius: 0.78vw; }
+  .feature-icon svg { width: 1.4vw; height: 1.4vw; }
+  .pill { padding: 0.4vw 1.1vw; font-size: 0.94vw; }
+  .dot { width: 0.47vw; height: 0.47vw; }
+  .divider { width: 3.75vw; height: 1.5px; }
+  .stat-number { font-size: 3.4vw; }
+  .stat-label { font-size: 1vw; }
+  .tag { padding: 0.23vw 0.78vw; font-size: 0.86vw; }
+  .slide-num { bottom: 2.2vw; right: 3.1vw; font-size: 0.86vw; }
+  .brand-mark { bottom: 1.7vw; left: 3.1vw; height: 1.7vw; }
+  .arch-box { padding: 1.8vw 2.2vw; border-radius: 1.1vw; }
+  .metric-val { font-size: 1.4vw; width: 4.7vw; }
+  .grid-2 { gap: 1.25vw; }
+  .grid-3 { gap: 1.25vw; }
+  .grid-4 { gap: 1.1vw; }
+  .gap-8 { gap: 0.63vw; } .gap-12 { gap: 0.94vw; } .gap-16 { gap: 1.25vw; }
+  .gap-20 { gap: 1.56vw; } .gap-24 { gap: 1.88vw; } .gap-32 { gap: 2.5vw; }
+  .gap-40 { gap: 3.1vw; } .gap-48 { gap: 3.75vw; }
+  .deck-controls { bottom: 12px; padding: 6px 12px; }
+  .deck-controls button, .deck-controls a { padding: 6px 14px; font-size: 12px; }
+}
+
+@media (max-width: 768px) {
+  .slide { padding: 5vw 5vw; }
+  .display { font-size: 5.5vw; }
+  .title { font-size: 4vw; }
+  .subtitle { font-size: 3vw; }
+  .body { font-size: 1.8vw; }
+  .body-sm { font-size: 1.6vw; }
+  .label { font-size: 1.3vw; }
+  .feature-card { padding: 2vw 2.5vw; }
+  .feature-title { font-size: 1.6vw; }
+  .feature-desc { font-size: 1.4vw; }
+  .feature-icon { width: 4vw; height: 4vw; }
+  .feature-icon svg { width: 2vw; height: 2vw; }
+  .pill { padding: 0.6vw 1.6vw; font-size: 1.4vw; }
+  .stat-number { font-size: 4.5vw; }
+  .stat-label { font-size: 1.5vw; }
+  .grid-4 { grid-template-columns: 1fr 1fr; }
+  .deck-controls { bottom: 8px; padding: 5px 10px; gap: 6px; }
+  .deck-controls button, .deck-controls a { padding: 5px 12px; font-size: 11px; gap: 4px; }
+  .deck-controls button svg, .deck-controls a svg { width: 11px; height: 11px; }
+}
+
+@media (max-width: 480px) {
+  .display { font-size: 6.5vw; }
+  .title { font-size: 5vw; }
+  .subtitle { font-size: 3.5vw; }
+  .body { font-size: 2.4vw; }
+  .body-sm { font-size: 2.1vw; }
+  .label { font-size: 1.8vw; }
+  .feature-title { font-size: 2.2vw; }
+  .feature-desc { font-size: 1.9vw; }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
 /* Print / PDF */
 @page {
   size: landscape;
