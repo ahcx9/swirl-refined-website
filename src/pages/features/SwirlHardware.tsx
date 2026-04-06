@@ -163,10 +163,8 @@ const SwirlHardware = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
               {/* Image Placeholder */}
               <div className="animate-on-scroll animate-delay-100 order-2 lg:order-1">
-                <div className="relative flex items-center justify-center py-8">
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[70%] h-8 bg-black/10 rounded-[50%] blur-2xl" />
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] h-16 bg-gradient-to-t from-primary/8 to-transparent rounded-full blur-3xl" />
-                  <img src="/lovable-uploads/swirl-pos-terminal-nobg.png" alt="Swirl POS Terminal" width="800" height="1000" className="w-full max-w-md lg:max-w-lg object-contain relative z-10 drop-shadow-2xl" />
+                <div className="relative flex items-center justify-center">
+                  <img src="/lovable-uploads/swirl-pos-terminal-clean.png" alt="Swirl POS Terminal" width="800" height="1000" className="w-full max-w-md lg:max-w-lg object-contain rounded-2xl" />
                 </div>
               </div>
 
@@ -233,10 +231,8 @@ const SwirlHardware = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Single Printer Image */}
               <div className="animate-on-scroll animate-delay-100">
-                <div className="relative flex items-center justify-center py-8">
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[70%] h-8 bg-black/10 rounded-[50%] blur-2xl" />
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] h-16 bg-gradient-to-t from-primary/8 to-transparent rounded-full blur-3xl" />
-                  <img src="/lovable-uploads/swirl-printers-nobg.png" alt="Swirl High-Performance Printers" className="w-full max-w-md lg:max-w-lg object-contain relative z-10 drop-shadow-2xl" />
+                <div className="relative flex items-center justify-center">
+                  <img src="/lovable-uploads/swirl-printers-clean.png" alt="Swirl High-Performance Printers" className="w-full max-w-md lg:max-w-lg object-contain rounded-2xl" />
                 </div>
               </div>
 
