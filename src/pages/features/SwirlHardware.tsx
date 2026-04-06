@@ -232,7 +232,7 @@ const SwirlHardware = () => {
               {/* Single Printer Image */}
               <div className="animate-on-scroll animate-delay-100">
                 <div className="relative flex items-center justify-center">
-                  <img src="/lovable-uploads/swirl-printers-clean.png" alt="Swirl High-Performance Printers" className="w-full max-w-md lg:max-w-lg object-contain rounded-2xl" />
+                  <img src="/lovable-uploads/swirl-printers-clean.png" alt="Swirl High-Performance Printers" width="800" height="1000" className="w-full max-w-lg lg:max-w-xl object-contain rounded-2xl" />
                 </div>
               </div>
 
