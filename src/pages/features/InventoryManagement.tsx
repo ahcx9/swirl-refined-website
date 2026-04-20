@@ -1,264 +1,28 @@
 import React from 'react';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-import { Package, TrendingUp, TrendingDown, Clock, Bell, RefreshCw, LineChart, Database, Link2, Boxes, Users, BarChart, FileText, Calculator, ArrowRight, Check, Sparkles, ChevronDown } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import SwirlCTA from '@/components/SwirlCTA';
-import BookDemoCTA from '@/components/BookDemoCTA';
-
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import InventoryMockup from '@/components/features/inventory/InventoryMockup';
+import InventoryHero from '@/components/features/inventory/InventoryHero';
+import InventoryReality from '@/components/features/inventory/InventoryReality';
+import InventorySystemFlow from '@/components/features/inventory/InventorySystemFlow';
+import InventoryCapabilities from '@/components/features/inventory/InventoryCapabilities';
+import InventoryLiveFlow from '@/components/features/inventory/InventoryLiveFlow';
+import InventoryIntelligence from '@/components/features/inventory/InventoryIntelligence';
+import InventoryImpact from '@/components/features/inventory/InventoryImpact';
+import InventoryFinalCTA from '@/components/features/inventory/InventoryFinalCTA';
 
 const InventoryManagement = () => {
-  const { t } = useLanguage();
-  useScrollAnimation();
-
-  const stats = [
-    { value: "40%", label: "Waste Reduction", icon: TrendingDown },
-    { value: "30%", label: "Cost Savings", icon: TrendingUp },
-    { value: "10hrs", label: "Saved Per Week", icon: Clock }
-  ];
-
-  const features = [
-    { title: "Real-time Tracking", description: "Monitor inventory levels across all locations instantly", icon: LineChart },
-    { title: "Low Stock Alerts", description: "Get notified before you run out of key items", icon: Bell },
-    { title: "Auto Ordering", description: "Automatic purchase orders when stock runs low", icon: RefreshCw },
-    { title: "Waste Tracking", description: "Monitor and reduce food waste with analytics", icon: TrendingDown },
-    { title: "Multi-Location", description: "Manage all locations from one dashboard", icon: Database },
-    { title: "Recipe Costing", description: "Calculate exact food costs per dish", icon: Calculator },
-    { title: "Supplier Management", description: "Track vendors and manage orders", icon: Users },
-    { title: "Reports & Exports", description: "Detailed reports you can export anytime", icon: FileText }
-  ];
-
-  const benefits = [
-    { title: "Reduce Food Waste", description: "Cut waste by up to 40% with precise tracking", icon: TrendingDown, stat: "40%" },
-    { title: "Lower Costs", description: "Save 20-30% on inventory carrying costs", icon: BarChart, stat: "30%" },
-    { title: "Never Run Out", description: "Automated alerts prevent stockouts", icon: Bell, stat: "0" },
-    { title: "Multi-Location", description: "One dashboard for all your restaurants", icon: Database, stat: "∞" },
-    { title: "Auto Ordering", description: "Set it and forget it ordering system", icon: RefreshCw, stat: "24/7" },
-    { title: "Seamless Integration", description: "Works with your existing tools", icon: Link2, stat: "100%" }
-  ];
-
-  const faqs = [
-    {
-      question: "How does real-time tracking work?",
-      answer: "Our system integrates directly with your POS, automatically updating inventory levels with every sale. You can also perform manual stock counts that sync instantly across all your locations."
-    },
-    {
-      question: "Can I manage multiple restaurant locations?",
-      answer: "Yes! Our multi-location support allows you to manage inventory across all your restaurants from a single dashboard. Transfer stock between locations, compare performance, and maintain optimal levels everywhere."
-    },
-    {
-      question: "How does automated ordering save time?",
-      answer: "Set minimum stock thresholds for each item, and the system automatically generates purchase orders when levels drop. You can review and approve orders with one click, or enable full automation for routine items."
-    },
-    {
-      question: "What reports are available?",
-      answer: "Access detailed reports on inventory turnover, waste tracking, cost analysis, supplier performance, and usage patterns. All reports can be exported and scheduled for automatic delivery."
-    },
-    {
-      question: "Does it integrate with my current POS?",
-      answer: "Swirl Inventory Management integrates seamlessly with Swirl POS and can also connect with popular third-party POS systems. Our team will help you set up the integration during onboarding."
-    }
-  ];
-
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <main className="flex-grow">
-        {/* Hero Section - Two Column Layout */}
-        <section className="relative pt-32 md:pt-28 pb-16 bg-white overflow-hidden">
-          {/* Subtle Background Effects */}
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
-          </div>
-          
-          <div className="container-custom">
-            <div className="max-w-7xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                {/* Left Column - Content */}
-                <div className="lg:sticky lg:top-32">
-                  {/* Badge */}
-                  <div className="animate-on-scroll mb-6">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
-                      <Package className="w-5 h-5 text-primary" />
-                      <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Inventory Management</span>
-                    </div>
-                  </div>
-                  
-                  {/* Heading */}
-                  <h1 className="animate-on-scroll animate-delay-100 text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 mb-6">
-                    Know Your Stock.<br />
-                    <span className="text-primary">Control Your Costs.</span>
-                  </h1>
-                  <p className="animate-on-scroll animate-delay-200 text-lg text-gray-600 mb-8">
-                    Reduce waste, prevent stockouts, and take control of food costs across every location with real-time inventory tracking.
-                  </p>
-                  
-                  {/* Stats Row */}
-                  <div className="animate-on-scroll animate-delay-300 grid grid-cols-3 gap-4 mb-8">
-                    {stats.map((stat, index) => (
-                      <div key={index} className="text-center p-4 bg-gray-50 rounded-xl border border-gray-100">
-                        <stat.icon className="w-6 h-6 text-primary mx-auto mb-2" />
-                        <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
-                        <div className="text-xs text-gray-500">{stat.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <div className="animate-on-scroll animate-delay-400 flex items-center justify-center gap-4 flex-wrap">
-                    <SwirlCTA />
-                    <BookDemoCTA />
-                  </div>
-                </div>
-                
-                {/* Right Column - Mockup */}
-                <div className="animate-on-scroll animate-delay-200 relative">
-                  <InventoryMockup />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Features Icon Grid */}
-        <section className="py-20 bg-gray-50">
-          <div className="container-custom">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-16">
-                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full mb-6">
-                  <Sparkles className="w-4 h-4 text-primary" />
-                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Powerful Features</span>
-                </div>
-                <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  Everything You Need to Control Inventory
-                </h2>
-                <p className="animate-on-scroll animate-delay-200 text-lg text-gray-600 max-w-2xl mx-auto">
-                  8 powerful features that work together to give you complete control
-                </p>
-              </div>
-              
-              {/* Icon Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                {features.map((feature, index) => (
-                  <div 
-                    key={index}
-                    className={`animate-on-scroll animate-delay-${(index % 4 + 1) * 100} group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 text-center`}
-                  >
-                    <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-primary/20">
-                      <feature.icon className="w-7 h-7 text-white" />
-                    </div>
-                    <h3 className="font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">{feature.title}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Benefits Bento Grid */}
-        <section className="py-20 bg-white">
-          <div className="container-custom">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  Why Restaurants Choose swirl
-                </h2>
-                <p className="animate-on-scroll animate-delay-100 text-lg text-gray-600">
-                  Join thousands of restaurants optimizing their inventory
-                </p>
-              </div>
-              
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {benefits.map((benefit, index) => (
-                  <div 
-                    key={index}
-                    className={`animate-on-scroll animate-delay-${(index % 3 + 1) * 100} group relative bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden`}
-                  >
-                    {/* Stat Badge */}
-                    <div className="absolute top-4 right-4 px-3 py-1 bg-primary/10 rounded-full">
-                      <span className="text-sm font-bold text-primary">{benefit.stat}</span>
-                    </div>
-                    
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <benefit.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                    <p className="text-gray-600">{benefit.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Integration Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="container-custom">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Seamless Integrations
-              </h2>
-              <p className="animate-on-scroll animate-delay-100 text-lg text-gray-600 mb-12">
-                Connect with your existing restaurant technology ecosystem
-              </p>
-              
-              <div className="animate-on-scroll animate-delay-200 grid md:grid-cols-3 gap-6">
-                <div className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Boxes className="w-7 h-7 text-primary" />
-                  </div>
-                  <h3 className="font-bold text-gray-900 mb-2">POS Integration</h3>
-                  <p className="text-gray-600 text-sm">Auto-update inventory with every sale</p>
-                </div>
-                <div className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Users className="w-7 h-7 text-primary" />
-                  </div>
-                  <h3 className="font-bold text-gray-900 mb-2">Supplier Connections</h3>
-                  <p className="text-gray-600 text-sm">Direct ordering from vendors</p>
-                </div>
-                <div className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <BarChart className="w-7 h-7 text-primary" />
-                  </div>
-                  <h3 className="font-bold text-gray-900 mb-2">Financial Software</h3>
-                  <p className="text-gray-600 text-sm">Sync with your accounting tools</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="py-20 bg-white">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="animate-on-scroll text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  Frequently Asked Questions
-                </h2>
-              </div>
-              
-              <Accordion type="single" collapsible className="animate-on-scroll animate-delay-100">
-                {faqs.map((faq, index) => (
-                  <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-xl mb-3 border-0 px-6">
-                    <AccordionTrigger className="text-left font-semibold text-gray-900 hover:text-primary hover:no-underline">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-gray-600 leading-relaxed">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </div>
-        </section>
-
+        <InventoryHero />
+        <InventoryReality />
+        <InventorySystemFlow />
+        <InventoryCapabilities />
+        <InventoryLiveFlow />
+        <InventoryIntelligence />
+        <InventoryImpact />
+        <InventoryFinalCTA />
       </main>
       <Footer />
     </div>
