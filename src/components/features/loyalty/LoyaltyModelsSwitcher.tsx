@@ -154,7 +154,7 @@ const LoyaltyModelsSwitcher: React.FC = () => {
                 <button
                   key={key}
                   onClick={() => setActive(key)}
-                  className={`animate-on-scroll animate-delay-${(i + 1) * 100} group text-left p-6 rounded-2xl border-2 transition-all duration-300 ${
+                  className={`group text-left p-6 rounded-2xl border-2 transition-all duration-300 ${
                     isActive
                       ? 'border-primary bg-background shadow-xl shadow-primary/10 -translate-y-1'
                       : 'border-border bg-background hover:border-primary/30 hover:-translate-y-0.5'
