@@ -96,7 +96,7 @@ const MenuHero = () => {
                   </div>
                   <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">{p.label}</div>
                   <div className="text-2xl font-bold text-gray-900 tabular-nums">
-                    {currency} {p.value}
+                    {currency.symbol} {p.value}
                   </div>
                 </motion.div>
               ))}

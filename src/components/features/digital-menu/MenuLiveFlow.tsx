@@ -68,15 +68,15 @@ const MenuLiveFlow = () => {
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-gray-400">Signature burger</span>
-                  <span className="font-mono">{currency} {burgerPrice}</span>
+                  <span className="font-mono">{currency.symbol} {burgerPrice}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-gray-400 flex items-center gap-1"><Plus className="w-3 h-3" /> Extra cheese</span>
-                  <span className="font-mono text-amber-300">+{currency} {cheesePrice}</span>
+                  <span className="font-mono text-amber-300">+{currency.symbol} {cheesePrice}</span>
                 </div>
                 <div className="border-t border-white/10 pt-2 flex items-center justify-between">
                   <span className="font-bold">Total</span>
-                  <span className="font-bold text-primary tabular-nums">{currency} {burgerPrice + cheesePrice}</span>
+                  <span className="font-bold text-primary tabular-nums">{currency.symbol} {burgerPrice + cheesePrice}</span>
                 </div>
               </div>
             </motion.div>
@@ -86,8 +86,8 @@ const MenuLiveFlow = () => {
             {[
               { icon: Package, label: 'Cheese inventory', value: `−${(orders * 30).toFixed(0)}g`, bg: 'from-amber-500/20 to-amber-500/5', color: 'text-amber-300' },
               { icon: Package, label: 'Patty inventory', value: `−${(orders * 0.18).toFixed(2)}kg`, bg: 'from-rose-500/20 to-rose-500/5', color: 'text-rose-300' },
-              { icon: TrendingUp, label: 'Revenue posted', value: `${currency} ${revenue}`, bg: 'from-emerald-500/20 to-emerald-500/5', color: 'text-emerald-300' },
-              { icon: Receipt, label: 'Modifier revenue', value: `${currency} ${orders * cheesePrice}`, bg: 'from-violet-500/20 to-violet-500/5', color: 'text-violet-300' },
+              { icon: TrendingUp, label: 'Revenue posted', value: `${currency.symbol} ${revenue}`, bg: 'from-emerald-500/20 to-emerald-500/5', color: 'text-emerald-300' },
+              { icon: Receipt, label: 'Modifier revenue', value: `${currency.symbol} ${orders * cheesePrice}`, bg: 'from-violet-500/20 to-violet-500/5', color: 'text-violet-300' },
               { icon: BookOpen, label: 'Recipe deduction', value: `${orders} entries`, bg: 'from-blue-500/20 to-blue-500/5', color: 'text-blue-300' },
               { icon: TrendingUp, label: 'Margin updated', value: 'Live', bg: 'from-yellow-500/20 to-yellow-500/5', color: 'text-yellow-300' },
             ].map((r, i) => (

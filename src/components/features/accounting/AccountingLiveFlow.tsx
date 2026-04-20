@@ -40,7 +40,7 @@ const AccountingLiveFlow = () => {
           </motion.div>
 
           <motion.h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Customer pays {currency} {amount}.
+            Customer pays {currency.symbol} {amount}.
             <br />
             <span className="text-primary">Your books move instantly.</span>
           </motion.h2>
@@ -61,7 +61,7 @@ const AccountingLiveFlow = () => {
                   <CreditCard className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <div className="text-3xl font-bold tabular-nums">{currency} {amount}</div>
+                  <div className="text-3xl font-bold tabular-nums">{currency.symbol} {amount}</div>
                   <div className="text-sm text-gray-400">card payment</div>
                 </div>
               </div>
@@ -81,9 +81,9 @@ const AccountingLiveFlow = () => {
 
           <div className="lg:col-span-8 grid sm:grid-cols-2 gap-4">
             {[
-              { icon: TrendingUp, label: 'Revenue', value: `${currency} ${net}`, bg: 'from-emerald-500/20 to-emerald-500/5', color: 'text-emerald-300' },
-              { icon: Receipt, label: 'VAT payable', value: `${currency} ${vat}`, bg: 'from-amber-500/20 to-amber-500/5', color: 'text-amber-300' },
-              { icon: Banknote, label: 'Bank / cash', value: `+${currency} ${amount}`, bg: 'from-blue-500/20 to-blue-500/5', color: 'text-blue-300' },
+              { icon: TrendingUp, label: 'Revenue', value: `${currency.symbol} ${net}`, bg: 'from-emerald-500/20 to-emerald-500/5', color: 'text-emerald-300' },
+              { icon: Receipt, label: 'VAT payable', value: `${currency.symbol} ${vat}`, bg: 'from-amber-500/20 to-amber-500/5', color: 'text-amber-300' },
+              { icon: Banknote, label: 'Bank / cash', value: `+${currency.symbol} ${amount}`, bg: 'from-blue-500/20 to-blue-500/5', color: 'text-blue-300' },
               { icon: BookOpen, label: 'GL entries', value: '5 posted', bg: 'from-violet-500/20 to-violet-500/5', color: 'text-violet-300' },
               { icon: BarChart3, label: 'P&L updated', value: 'Live', bg: 'from-rose-500/20 to-rose-500/5', color: 'text-rose-300' },
               { icon: Receipt, label: 'Balance sheet', value: 'Live', bg: 'from-yellow-500/20 to-yellow-500/5', color: 'text-yellow-300' },
