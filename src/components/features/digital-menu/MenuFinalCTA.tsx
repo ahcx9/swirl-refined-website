@@ -13,10 +13,6 @@ const MenuFinalCTA = () => {
           viewport={{ once: true }}
           className="relative max-w-5xl mx-auto bg-gradient-to-br from-primary via-primary to-primary/90 rounded-[2.5rem] p-12 md:p-20 text-center overflow-hidden"
         >
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute -top-32 -right-32 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-            <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-          </div>
 
           <div className="relative">
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
