@@ -58,11 +58,10 @@ const MenuDeviceShowcase = () => {
           >
             One menu.
             <br />
-            <span className="text-primary">Every screen, beautifully.</span>
+            <span className="text-primary">Perfect On Every Device</span>
           </motion.h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-            From large iPad displays to pocket phones — your menu adapts perfectly with rich imagery,
-            smooth interactions, and a UI that rivals the world's best food apps.
+            From tablet to phone, your menu works perfectly — with clear visuals and smooth interactions.
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <SwirlCTA />
