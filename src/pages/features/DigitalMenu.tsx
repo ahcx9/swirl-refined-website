@@ -30,7 +30,7 @@ const DigitalMenu = () => {
         <MenuLiveFlow />
         <MenuIntelligence />
         <MenuImpact />
-        <MenuFinalCTA />
+        
       </main>
       <Footer />
     </div>
