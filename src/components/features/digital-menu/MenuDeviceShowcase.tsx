@@ -30,7 +30,7 @@ const MenuDeviceShowcase = () => {
   ];
 
   return (
-    <section className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-24 bg-gradient-to-b from-white via-blue-50/40 to-white relative overflow-hidden">
+    <section className="pt-4 sm:pt-6 md:pt-8 pb-16 sm:pb-24 bg-gradient-to-b from-white via-blue-50/40 to-white relative overflow-hidden">
       {/* Background glows */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-primary/[0.06] rounded-full blur-3xl" />
@@ -77,10 +77,10 @@ const MenuDeviceShowcase = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative flex items-center justify-center"
+            className="relative flex items-center justify-center gap-3 sm:gap-0"
           >
-            {/* === iPad (desktop + tablet) === */}
-            <div className="hidden sm:block relative w-full max-w-[860px] aspect-[4/3] bg-gray-900 rounded-[2.5rem] p-3 shadow-2xl shadow-primary/20">
+            {/* === iPad === */}
+            <div className="block relative w-[58%] sm:w-full sm:max-w-[860px] aspect-[4/3] bg-gray-900 rounded-[1rem] sm:rounded-[2.5rem] p-1.5 sm:p-3 shadow-2xl shadow-primary/20">
               {/* Camera */}
               <div className="absolute top-1/2 -translate-y-1/2 left-2 w-1.5 h-1.5 bg-gray-700 rounded-full" />
               <div className="w-full h-full bg-[#FAFAFA] rounded-[2rem] overflow-hidden flex flex-col">
@@ -185,9 +185,9 @@ const MenuDeviceShowcase = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="block sm:hidden md:hidden lg:block relative lg:absolute lg:-right-4 lg:-bottom-12 lg:rotate-6 z-10 mx-auto"
+              className="block md:hidden lg:block relative lg:absolute lg:right-8 lg:-bottom-8 lg:rotate-6 z-10"
             >
-              <div className="relative w-[230px] h-[470px] bg-gray-900 rounded-[2.5rem] p-2.5 shadow-2xl shadow-primary/30 mx-auto">
+              <div className="relative w-[120px] h-[245px] sm:w-[230px] sm:h-[470px] bg-gray-900 rounded-[1.5rem] sm:rounded-[2.5rem] p-1.5 sm:p-2.5 shadow-2xl shadow-primary/30 mx-auto">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-30" />
                 <div className="w-full h-full bg-[#FAFAFA] rounded-[2rem] overflow-hidden flex flex-col">
                   {/* Header */}
