@@ -102,47 +102,40 @@ const MenuAISection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.25 }}
-            className="relative bg-gradient-to-br from-gray-900 via-gray-900 to-black text-white rounded-3xl p-8 shadow-2xl shadow-primary/20 overflow-hidden"
+            className="relative bg-white border border-gray-200 rounded-3xl p-8 shadow-xl shadow-primary/5"
           >
-            <div className="absolute inset-0 opacity-20">
-              <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-primary rounded-full blur-3xl" />
-              <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-violet-500 rounded-full blur-3xl" />
-            </div>
-
             <div className="absolute -top-3 left-8 px-3 py-1 bg-violet-500 text-white text-xs font-bold rounded-full shadow-lg">
               02 · AI Reads
             </div>
 
-            <div className="relative">
-              <div className="mt-2 mb-6">
-                <div className="text-sm font-semibold text-white/60 mb-1">Swirl AI is</div>
-                <div className="text-2xl font-bold">Understanding your menu</div>
-              </div>
+            <div className="mt-2 mb-6">
+              <div className="text-sm font-semibold text-gray-500 mb-1">Swirl AI is</div>
+              <div className="text-2xl font-bold text-gray-900">Understanding your menu</div>
+            </div>
 
-              <div className="flex items-center justify-center my-8">
+            <div className="flex items-center justify-center my-8">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
+                className="w-28 h-28 rounded-full border-4 border-primary/15 border-t-primary flex items-center justify-center bg-primary/5"
+              >
+                <Wand2 className="w-10 h-10 text-primary" />
+              </motion.div>
+            </div>
+
+            <div className="space-y-2">
+              {['Detecting items', 'Mapping categories', 'Extracting prices', 'Linking modifiers'].map((label, i) => (
                 <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
-                  className="w-28 h-28 rounded-full border-4 border-primary/30 border-t-primary flex items-center justify-center"
+                  key={i}
+                  animate={step >= 1 ? { opacity: 1, x: 0 } : { opacity: 0.5, x: -10 }}
+                  transition={{ delay: i * 0.15 }}
+                  className="flex items-center gap-2 text-sm px-3 py-2 bg-gray-50 rounded-lg"
                 >
-                  <Wand2 className="w-10 h-10 text-primary" />
+                  <div className={`w-1.5 h-1.5 rounded-full ${step >= 1 ? 'bg-emerald-500' : 'bg-gray-300'}`} />
+                  <span className="text-gray-700 font-medium">{label}</span>
+                  {step >= 1 && <Check className="w-3.5 h-3.5 text-emerald-500 ml-auto" />}
                 </motion.div>
-              </div>
-
-              <div className="space-y-2">
-                {['Detecting items', 'Mapping categories', 'Extracting prices', 'Linking modifiers'].map((label, i) => (
-                  <motion.div
-                    key={i}
-                    animate={step >= 1 ? { opacity: 1, x: 0 } : { opacity: 0.3, x: -10 }}
-                    transition={{ delay: i * 0.15 }}
-                    className="flex items-center gap-2 text-sm"
-                  >
-                    <div className={`w-1.5 h-1.5 rounded-full ${step >= 1 ? 'bg-emerald-400' : 'bg-white/20'}`} />
-                    <span className="text-white/80">{label}</span>
-                    {step >= 1 && <Check className="w-3.5 h-3.5 text-emerald-400 ml-auto" />}
-                  </motion.div>
-                ))}
-              </div>
+              ))}
             </div>
           </motion.div>
 
