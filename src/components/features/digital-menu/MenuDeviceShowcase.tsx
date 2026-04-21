@@ -189,64 +189,182 @@ const MenuDeviceShowcase = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative mx-auto sm:absolute sm:mx-0 sm:right-0 sm:-bottom-6 sm:translate-x-[6%] md:translate-x-[8%] lg:translate-x-[55%] lg:-bottom-10 lg:rotate-[3deg] z-20"
             >
-              <div className="relative w-[260px] h-[530px] sm:w-[200px] sm:h-[410px] md:w-[210px] md:h-[430px] lg:w-[240px] lg:h-[490px] bg-gray-900 rounded-[2.5rem] p-2.5 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.45)] mx-auto">
+              <div className="relative w-[280px] h-[570px] sm:w-[200px] sm:h-[410px] md:w-[210px] md:h-[430px] lg:w-[240px] lg:h-[490px] bg-gray-900 rounded-[2.8rem] p-2.5 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.45)] mx-auto ring-1 ring-black/5">
                 {/* Subtle glow behind phone on desktop */}
                 <div className="hidden lg:block absolute -inset-6 -z-10 bg-primary/10 rounded-[3rem] blur-2xl" />
+                {/* Mobile-only ambient glow */}
+                <div className="sm:hidden absolute -inset-8 -z-10 bg-gradient-to-br from-primary/15 via-violet-400/10 to-amber-300/10 rounded-[3.5rem] blur-3xl" />
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-30" />
-                <div className="w-full h-full bg-[#FAFAFA] rounded-[2rem] overflow-hidden flex flex-col">
-                  {/* Header */}
-                  <div className="px-3 pt-7 pb-2 bg-white border-b border-gray-100">
-                    <div className="text-[8px] font-bold uppercase tracking-wider text-primary">Cart · Table 12</div>
-                    <div className="text-sm font-bold text-gray-900">Your order</div>
-                  </div>
-                  {/* Cart items */}
-                  <div className="flex-1 px-2.5 py-2 space-y-2 overflow-hidden">
-                    {[
-                      { name: 'Signature Burger', qty: 1, price: 25, img: burgerImg, mod: 'Extra cheese' },
-                      { name: 'Truffle Fries', qty: 2, price: 36, img: friesImg, mod: 'Parmesan' },
-                      { name: 'Iced Latte', qty: 1, price: 16, img: latteImg, mod: 'Oat milk' },
-                    ].map((it, i) => (
-                      <div key={i} className="flex items-center gap-2 p-1.5 bg-white rounded-xl shadow-sm">
-                        <img src={it.img} alt={it.name} loading="lazy" width={64} height={64} className="w-11 h-11 rounded-lg object-cover shrink-0" />
-                        <div className="flex-1 min-w-0">
-                          <div className="text-[10px] font-bold text-gray-900 truncate leading-tight">{it.name}</div>
-                          <div className="text-[9px] text-gray-500 truncate">+ {it.mod}</div>
-                          <div className="flex items-center justify-between mt-0.5">
-                            <div className="flex items-center gap-1">
-                              <div className="w-3.5 h-3.5 rounded-full bg-gray-100 flex items-center justify-center text-[8px] font-bold text-gray-700">−</div>
-                              <span className="text-[9px] font-bold text-gray-900 w-3 text-center">{it.qty}</span>
-                              <div className="w-3.5 h-3.5 rounded-full bg-primary flex items-center justify-center text-[8px] font-bold text-white">+</div>
+                <div className="w-full h-full bg-[#FAFAFA] rounded-[2.3rem] overflow-hidden flex flex-col">
+                  {/* === Mobile-only premium UI === */}
+                  <div className="sm:hidden flex-1 flex flex-col overflow-hidden">
+                    {/* Status bar */}
+                    <div className="px-5 pt-2.5 pb-1 flex items-center justify-between text-[10px] font-semibold text-gray-900">
+                      <span>9:41</span>
+                      <div className="flex items-center gap-1">
+                        <div className="w-3.5 h-2 border border-gray-900 rounded-sm relative">
+                          <div className="absolute inset-0.5 bg-gray-900 rounded-[1px]" />
+                        </div>
+                      </div>
+                    </div>
+                    {/* Header */}
+                    <div className="px-4 pt-3 pb-3 bg-white">
+                      <div className="flex items-center justify-between mb-3">
+                        <div>
+                          <div className="text-[9px] font-bold uppercase tracking-wider text-primary">Bistro Nord</div>
+                          <div className="text-[15px] font-bold text-gray-900 leading-tight">Hi, Table 12 👋</div>
+                        </div>
+                        <div className="relative w-9 h-9 rounded-full bg-gray-900 flex items-center justify-center shadow-md">
+                          <ShoppingBag className="w-4 h-4 text-white" />
+                          <span className="absolute -top-1 -right-1 w-4 h-4 bg-amber-400 text-[9px] font-bold text-white rounded-full flex items-center justify-center ring-2 ring-white">3</span>
+                        </div>
+                      </div>
+                      {/* Search */}
+                      <div className="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-full">
+                        <Search className="w-3.5 h-3.5 text-gray-500" />
+                        <span className="text-[11px] text-gray-500">Search dishes…</span>
+                      </div>
+                      {/* Categories scroll */}
+                      <div className="flex gap-1.5 mt-3 overflow-hidden">
+                        {categories.slice(0, 5).map((c, i) => (
+                          <div key={i} className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold whitespace-nowrap ${c.active ? 'bg-primary text-white shadow-sm shadow-primary/30' : 'bg-gray-100 text-gray-700'}`}>
+                            <span className="text-[10px]">{c.icon}</span>
+                            <span>{c.label}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Hero promo card */}
+                    <div className="px-4 pt-3 pb-2">
+                      <div className="relative h-24 rounded-2xl overflow-hidden shadow-lg">
+                        <img src={burgerImg} alt="Featured" loading="lazy" width={400} height={200} className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-gray-900/80 via-gray-900/30 to-transparent" />
+                        <div className="absolute inset-0 p-3 flex flex-col justify-between">
+                          <div className="self-start flex items-center gap-1 px-2 py-0.5 bg-amber-400 rounded-full">
+                            <Flame className="w-2.5 h-2.5 text-white" />
+                            <span className="text-[8px] font-bold text-white uppercase tracking-wider">Chef's Pick</span>
+                          </div>
+                          <div>
+                            <div className="text-[12px] font-bold text-white leading-tight">Signature Wagyu Burger</div>
+                            <div className="flex items-center gap-1.5 mt-0.5">
+                              <Star className="w-2.5 h-2.5 text-amber-400 fill-amber-400" />
+                              <span className="text-[9px] font-bold text-white">4.9</span>
+                              <span className="text-[9px] text-white/70">· 12,400+ orders</span>
                             </div>
-                            <div className="text-[10px] font-bold text-primary tabular-nums">{it.price}</div>
                           </div>
                         </div>
                       </div>
-                    ))}
+                    </div>
 
-                    {/* Suggested upsell */}
-                    <div className="mt-2 p-2 bg-gradient-to-br from-primary/5 to-violet-500/5 border border-primary/10 rounded-xl">
-                      <div className="text-[8px] font-bold uppercase tracking-wider text-primary mb-1">Smart upsell</div>
-                      <div className="flex items-center gap-2">
-                        <img src={dessertImg} alt="Lava Cake" loading="lazy" width={64} height={64} className="w-9 h-9 rounded-lg object-cover" />
-                        <div className="flex-1 min-w-0">
-                          <div className="text-[10px] font-bold text-gray-900 truncate">Add Lava Cake?</div>
-                          <div className="text-[9px] text-gray-500">Loved by 92% of diners</div>
+                    {/* Menu list */}
+                    <div className="flex-1 px-4 pb-2 space-y-2 overflow-hidden">
+                      <div className="text-[10px] font-bold uppercase tracking-wider text-gray-500 mt-1">Trending now</div>
+                      {[
+                        { name: 'Margherita Pizza', desc: 'Buffalo mozzarella · basil', price: 38, img: pizzaImg, rating: 4.8, badge: 'New' },
+                        { name: 'Truffle Fries', desc: 'Hand-cut · parmesan', price: 18, img: friesImg, rating: 4.7 },
+                        { name: 'Lava Cake', desc: 'Dark chocolate · berries', price: 24, img: dessertImg, rating: 4.9, badge: 'Sweet' },
+                      ].map((it, i) => (
+                        <div key={i} className="flex items-center gap-2.5 p-2 bg-white rounded-2xl shadow-sm border border-gray-100">
+                          <div className="relative shrink-0">
+                            <img src={it.img} alt={it.name} loading="lazy" width={96} height={96} className="w-12 h-12 rounded-xl object-cover" />
+                            {it.badge && (
+                              <span className="absolute -top-1 -right-1 px-1 py-px bg-primary text-[7px] font-bold text-white rounded-full uppercase tracking-wider">{it.badge}</span>
+                            )}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="text-[11px] font-bold text-gray-900 truncate leading-tight">{it.name}</div>
+                            <div className="flex items-center gap-1 mt-0.5">
+                              <Star className="w-2.5 h-2.5 text-amber-400 fill-amber-400" />
+                              <span className="text-[9px] font-bold text-gray-700">{it.rating}</span>
+                              <span className="text-[9px] text-gray-400 truncate">· {it.desc}</span>
+                            </div>
+                            <div className="text-[11px] font-bold text-primary tabular-nums mt-0.5">{it.price}</div>
+                          </div>
+                          <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center shadow-md shadow-primary/30 shrink-0">
+                            <Plus className="w-3.5 h-3.5 text-white" />
+                          </div>
                         </div>
-                        <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0">
-                          <Plus className="w-3.5 h-3.5 text-white" />
+                      ))}
+                    </div>
+
+                    {/* Sticky cart bar */}
+                    <div className="px-3 pb-2 pt-1.5 bg-gradient-to-t from-white via-white to-white/0">
+                      <div className="bg-gray-900 rounded-2xl px-3 py-2.5 flex items-center justify-between shadow-xl shadow-gray-900/30">
+                        <div className="flex items-center gap-2">
+                          <div className="flex -space-x-2">
+                            <img src={burgerImg} alt="" className="w-6 h-6 rounded-full object-cover ring-2 ring-gray-900" />
+                            <img src={friesImg} alt="" className="w-6 h-6 rounded-full object-cover ring-2 ring-gray-900" />
+                            <div className="w-6 h-6 rounded-full bg-primary ring-2 ring-gray-900 flex items-center justify-center text-[8px] font-bold text-white">+1</div>
+                          </div>
+                          <div>
+                            <div className="text-[8px] font-bold uppercase tracking-wider text-white/60">3 items</div>
+                            <div className="text-[12px] font-bold text-white tabular-nums">77</div>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-primary rounded-full text-[10px] font-bold text-white shadow-md shadow-primary/40">
+                          <span>Checkout</span>
+                          <Plus className="w-3 h-3 rotate-45" />
                         </div>
                       </div>
                     </div>
                   </div>
-                  {/* Checkout */}
-                  <div className="px-2.5 pb-3">
-                    <div className="bg-gray-900 rounded-2xl px-3 py-2.5 flex items-center justify-between shadow-lg">
-                      <div>
-                        <div className="text-[8px] font-bold uppercase tracking-wider text-white/60">Total</div>
-                        <div className="text-sm font-bold text-white tabular-nums">77</div>
+
+                  {/* === Tablet/Desktop cart UI (unchanged compact view) === */}
+                  <div className="hidden sm:flex flex-col h-full">
+                    {/* Header */}
+                    <div className="px-3 pt-7 pb-2 bg-white border-b border-gray-100">
+                      <div className="text-[8px] font-bold uppercase tracking-wider text-primary">Cart · Table 12</div>
+                      <div className="text-sm font-bold text-gray-900">Your order</div>
+                    </div>
+                    {/* Cart items */}
+                    <div className="flex-1 px-2.5 py-2 space-y-2 overflow-hidden">
+                      {[
+                        { name: 'Signature Burger', qty: 1, price: 25, img: burgerImg, mod: 'Extra cheese' },
+                        { name: 'Truffle Fries', qty: 2, price: 36, img: friesImg, mod: 'Parmesan' },
+                        { name: 'Iced Latte', qty: 1, price: 16, img: latteImg, mod: 'Oat milk' },
+                      ].map((it, i) => (
+                        <div key={i} className="flex items-center gap-2 p-1.5 bg-white rounded-xl shadow-sm">
+                          <img src={it.img} alt={it.name} loading="lazy" width={64} height={64} className="w-11 h-11 rounded-lg object-cover shrink-0" />
+                          <div className="flex-1 min-w-0">
+                            <div className="text-[10px] font-bold text-gray-900 truncate leading-tight">{it.name}</div>
+                            <div className="text-[9px] text-gray-500 truncate">+ {it.mod}</div>
+                            <div className="flex items-center justify-between mt-0.5">
+                              <div className="flex items-center gap-1">
+                                <div className="w-3.5 h-3.5 rounded-full bg-gray-100 flex items-center justify-center text-[8px] font-bold text-gray-700">−</div>
+                                <span className="text-[9px] font-bold text-gray-900 w-3 text-center">{it.qty}</span>
+                                <div className="w-3.5 h-3.5 rounded-full bg-primary flex items-center justify-center text-[8px] font-bold text-white">+</div>
+                              </div>
+                              <div className="text-[10px] font-bold text-primary tabular-nums">{it.price}</div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+
+                      <div className="mt-2 p-2 bg-gradient-to-br from-primary/5 to-violet-500/5 border border-primary/10 rounded-xl">
+                        <div className="text-[8px] font-bold uppercase tracking-wider text-primary mb-1">Smart upsell</div>
+                        <div className="flex items-center gap-2">
+                          <img src={dessertImg} alt="Lava Cake" loading="lazy" width={64} height={64} className="w-9 h-9 rounded-lg object-cover" />
+                          <div className="flex-1 min-w-0">
+                            <div className="text-[10px] font-bold text-gray-900 truncate">Add Lava Cake?</div>
+                            <div className="text-[9px] text-gray-500">Loved by 92% of diners</div>
+                          </div>
+                          <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0">
+                            <Plus className="w-3.5 h-3.5 text-white" />
+                          </div>
+                        </div>
                       </div>
-                      <div className="px-3 py-1.5 bg-primary rounded-full text-[10px] font-bold text-white shadow-sm shadow-primary/30">
-                        Place order
+                    </div>
+                    {/* Checkout */}
+                    <div className="px-2.5 pb-3">
+                      <div className="bg-gray-900 rounded-2xl px-3 py-2.5 flex items-center justify-between shadow-lg">
+                        <div>
+                          <div className="text-[8px] font-bold uppercase tracking-wider text-white/60">Total</div>
+                          <div className="text-sm font-bold text-white tabular-nums">77</div>
+                        </div>
+                        <div className="px-3 py-1.5 bg-primary rounded-full text-[10px] font-bold text-white shadow-sm shadow-primary/30">
+                          Place order
+                        </div>
                       </div>
                     </div>
                   </div>
