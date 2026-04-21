@@ -8,7 +8,7 @@ import AccountingCapabilities from '@/components/features/accounting/AccountingC
 import AccountingLiveFlow from '@/components/features/accounting/AccountingLiveFlow';
 import AccountingIntelligence from '@/components/features/accounting/AccountingIntelligence';
 import AccountingImpact from '@/components/features/accounting/AccountingImpact';
-import AccountingFinalCTA from '@/components/features/accounting/AccountingFinalCTA';
+
 
 const Accounting = () => {
   return (
@@ -22,7 +22,7 @@ const Accounting = () => {
         <AccountingLiveFlow />
         <AccountingIntelligence />
         <AccountingImpact />
-        <AccountingFinalCTA />
+        
       </main>
       <Footer />
     </div>
