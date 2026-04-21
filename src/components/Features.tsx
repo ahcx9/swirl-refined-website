@@ -39,12 +39,6 @@ const features = [{
   icon: Users,
   path: '/products/customer-relationship-management'
 }, {
-  id: 'car-ordering',
-  title: 'Car Ordering',
-  description: 'Order from vehicles for pickup or drive-through.',
-  icon: Car,
-  path: '/products/ordering-from-car'
-}, {
   id: 'inventory',
   title: 'Inventory Management',
   description: 'Track stock and optimize purchasing.',
