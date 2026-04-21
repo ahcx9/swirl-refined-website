@@ -77,10 +77,10 @@ const MenuDeviceShowcase = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative flex items-center justify-center gap-3 sm:gap-0"
+            className="relative flex items-center justify-center"
           >
-            {/* === iPad === */}
-            <div className="block relative w-[58%] sm:w-full sm:max-w-[860px] aspect-[4/3] bg-gray-900 rounded-[1rem] sm:rounded-[2.5rem] p-1.5 sm:p-3 shadow-2xl shadow-primary/20">
+            {/* === iPad === Hidden on mobile, dominant on tablet/desktop === */}
+            <div className="hidden sm:block relative w-full max-w-[860px] aspect-[4/3] bg-gray-900 rounded-[2.5rem] p-3 shadow-xl shadow-gray-900/10 lg:-rotate-1">
               {/* Camera */}
               <div className="absolute top-1/2 -translate-y-1/2 left-2 w-1.5 h-1.5 bg-gray-700 rounded-full" />
               <div className="w-full h-full bg-[#FAFAFA] rounded-[2rem] overflow-hidden flex flex-col">
@@ -179,15 +179,20 @@ const MenuDeviceShowcase = () => {
               </div>
             </div>
 
-            {/* === iPhone: slanted on desktop, straight & centered on mobile, hidden on tablet === */}
+            {/* === iPhone ===
+                Mobile: full-width centered, tablet hidden.
+                Tablet (sm/md): floating bottom-right, ~6% overlap, no rotation.
+                Desktop (lg+): floating bottom-right, ~12% overlap, +3° rotation, strong shadow + glow. */}
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="block md:hidden lg:block relative lg:absolute lg:right-8 lg:-bottom-8 lg:rotate-6 z-10"
+              className="relative mx-auto sm:absolute sm:mx-0 sm:right-0 sm:-bottom-6 sm:translate-x-[6%] md:translate-x-[8%] lg:translate-x-[55%] lg:-bottom-10 lg:rotate-[3deg] z-20"
             >
-              <div className="relative w-[120px] h-[245px] sm:w-[230px] sm:h-[470px] bg-gray-900 rounded-[1.5rem] sm:rounded-[2.5rem] p-1.5 sm:p-2.5 shadow-2xl shadow-primary/30 mx-auto">
+              <div className="relative w-[260px] h-[530px] sm:w-[200px] sm:h-[410px] md:w-[210px] md:h-[430px] lg:w-[240px] lg:h-[490px] bg-gray-900 rounded-[2.5rem] p-2.5 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.45)] mx-auto">
+                {/* Subtle glow behind phone on desktop */}
+                <div className="hidden lg:block absolute -inset-6 -z-10 bg-primary/10 rounded-[3rem] blur-2xl" />
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-30" />
                 <div className="w-full h-full bg-[#FAFAFA] rounded-[2rem] overflow-hidden flex flex-col">
                   {/* Header */}
@@ -268,13 +273,13 @@ const MenuDeviceShowcase = () => {
               </div>
             </motion.div>
 
-            {/* Floating rating top-right */}
+            {/* Floating rating top-right (xl+ only — avoid colliding with phone) */}
             <motion.div
               initial={{ opacity: 0, x: 20, y: -20 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="hidden lg:flex absolute -right-4 top-12 z-20 bg-white border border-gray-200 rounded-2xl px-4 py-3 shadow-xl items-center gap-3"
+              className="hidden xl:flex absolute -right-4 top-12 z-20 bg-white border border-gray-200 rounded-2xl px-4 py-3 shadow-xl items-center gap-3"
             >
               <div className="w-9 h-9 rounded-full bg-amber-50 flex items-center justify-center">
                 <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
