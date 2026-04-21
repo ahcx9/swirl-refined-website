@@ -77,10 +77,10 @@ const MenuDeviceShowcase = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative flex items-center justify-center"
+            className="relative flex items-center justify-center gap-3 sm:gap-0"
           >
-            {/* === iPad (desktop + tablet) === */}
-            <div className="hidden sm:block relative w-full max-w-[860px] aspect-[4/3] bg-gray-900 rounded-[2.5rem] p-3 shadow-2xl shadow-primary/20">
+            {/* === iPad === */}
+            <div className="block relative w-[58%] sm:w-full sm:max-w-[860px] aspect-[4/3] bg-gray-900 rounded-[1rem] sm:rounded-[2.5rem] p-1.5 sm:p-3 shadow-2xl shadow-primary/20">
               {/* Camera */}
               <div className="absolute top-1/2 -translate-y-1/2 left-2 w-1.5 h-1.5 bg-gray-700 rounded-full" />
               <div className="w-full h-full bg-[#FAFAFA] rounded-[2rem] overflow-hidden flex flex-col">
