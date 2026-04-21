@@ -182,15 +182,15 @@ const MenuDeviceShowcase = () => {
               </div>
             </div>
 
-            {/* === iPhone overlapping bottom right === */}
+            {/* === iPhone (stacked on mobile, overlapping on desktop) === */}
             <motion.div
-              initial={{ opacity: 0, y: 60, rotate: 6 }}
-              whileInView={{ opacity: 1, y: 0, rotate: 6 }}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="hidden md:block absolute -right-4 lg:-right-12 -bottom-12 z-10"
+              className="relative lg:absolute lg:-right-12 lg:-bottom-12 lg:rotate-6 z-10"
             >
-              <div className="w-[230px] h-[470px] bg-gray-900 rounded-[2.5rem] p-2.5 shadow-2xl shadow-primary/30">
+              <div className="relative w-[200px] h-[410px] sm:w-[230px] sm:h-[470px] bg-gray-900 rounded-[2.5rem] p-2.5 shadow-2xl shadow-primary/30 mx-auto">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-30" />
                 <div className="w-full h-full bg-[#FAFAFA] rounded-[2rem] overflow-hidden flex flex-col">
                   {/* Header */}
