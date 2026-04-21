@@ -4,7 +4,6 @@ import Footer from '@/components/Footer';
 import MenuHero from '@/components/features/digital-menu/MenuHero';
 import MenuAISection from '@/components/features/digital-menu/MenuAISection';
 import MenuCustomerExperience from '@/components/features/digital-menu/MenuCustomerExperience';
-import MenuDeviceShowcase from '@/components/features/digital-menu/MenuDeviceShowcase';
 import MenuReality from '@/components/features/digital-menu/MenuReality';
 import MenuSystemFlow from '@/components/features/digital-menu/MenuSystemFlow';
 import MenuCapabilities from '@/components/features/digital-menu/MenuCapabilities';
@@ -23,7 +22,6 @@ const DigitalMenu = () => {
         <MenuHero />
         <MenuAISection />
         <MenuCustomerExperience />
-        <MenuDeviceShowcase />
         <MenuReality />
         <MenuSystemFlow />
         <MenuCapabilities />
