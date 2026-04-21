@@ -80,37 +80,40 @@ const MenuDeviceShowcase = () => {
             className="relative flex items-center justify-center"
           >
             {/* === iPad === */}
-            <div className="relative w-full max-w-[860px] aspect-[4/3] bg-gray-900 rounded-[2.5rem] p-3 shadow-2xl shadow-primary/20">
+            <div className="relative w-full max-w-[860px] sm:aspect-[4/3] bg-gray-900 rounded-[1.5rem] sm:rounded-[2.5rem] p-2 sm:p-3 shadow-2xl shadow-primary/20">
               {/* Camera */}
-              <div className="absolute top-1/2 -translate-y-1/2 left-2 w-1.5 h-1.5 bg-gray-700 rounded-full" />
-              <div className="w-full h-full bg-[#FAFAFA] rounded-[2rem] overflow-hidden flex flex-col">
+              <div className="hidden sm:block absolute top-1/2 -translate-y-1/2 left-2 w-1.5 h-1.5 bg-gray-700 rounded-full" />
+              <div className="w-full h-full bg-[#FAFAFA] rounded-[1.25rem] sm:rounded-[2rem] overflow-hidden flex flex-col">
                 {/* iPad Header */}
-                <div className="px-8 pt-6 pb-4 bg-white border-b border-gray-100">
-                  <div className="flex items-center justify-between mb-4">
-                    <div>
-                      <div className="text-[10px] font-bold uppercase tracking-wider text-primary mb-1">Bistro Nord · Table 12</div>
-                      <div className="text-2xl font-bold text-gray-900">What would you like today?</div>
+                <div className="px-3 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-3 sm:pb-4 bg-white border-b border-gray-100">
+                  <div className="flex items-start sm:items-center justify-between gap-2 mb-3 sm:mb-4">
+                    <div className="min-w-0 flex-1">
+                      <div className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-primary mb-0.5 sm:mb-1 truncate">Bistro Nord · Table 12</div>
+                      <div className="text-base sm:text-xl lg:text-2xl font-bold text-gray-900 leading-tight">What would you like today?</div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <div className="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-full w-56">
+                    <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                      <div className="hidden lg:flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-full w-56">
                         <Search className="w-4 h-4 text-gray-500" />
                         <span className="text-xs text-gray-500">Search menu…</span>
                       </div>
-                      <div className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gray-100 flex items-center justify-center lg:hidden">
+                        <Search className="w-4 h-4 text-gray-600" />
+                      </div>
+                      <div className="hidden sm:flex w-9 h-9 rounded-full bg-gray-100 items-center justify-center">
                         <Heart className="w-4 h-4 text-gray-600" />
                       </div>
-                      <div className="relative w-9 h-9 rounded-full bg-primary flex items-center justify-center shadow-sm shadow-primary/30">
+                      <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-primary flex items-center justify-center shadow-sm shadow-primary/30">
                         <ShoppingBag className="w-4 h-4 text-white" />
                         <span className="absolute -top-1 -right-1 w-4 h-4 bg-amber-400 text-[9px] font-bold text-white rounded-full flex items-center justify-center">3</span>
                       </div>
                     </div>
                   </div>
                   {/* Categories */}
-                  <div className="flex gap-2 overflow-hidden">
+                  <div className="flex gap-1.5 sm:gap-2 overflow-x-auto scrollbar-none -mx-1 px-1">
                     {categories.map((c, i) => (
                       <div
                         key={i}
-                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap ${
+                        className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold whitespace-nowrap ${
                           c.active
                             ? 'bg-primary text-white shadow-sm shadow-primary/30'
                             : 'bg-gray-100 text-gray-700'
@@ -124,8 +127,8 @@ const MenuDeviceShowcase = () => {
                 </div>
 
                 {/* iPad Content Grid */}
-                <div className="flex-1 px-6 py-5 overflow-hidden">
-                  <div className="grid grid-cols-3 gap-4 h-full">
+                <div className="flex-1 px-3 sm:px-5 lg:px-6 py-3 sm:py-5 overflow-hidden">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-4 h-full">
                     {ipadItems.map((it, i) => (
                       <motion.div
                         key={i}
@@ -133,7 +136,9 @@ const MenuDeviceShowcase = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 + i * 0.07 }}
-                        className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col"
+                        className={`bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col ${
+                          i >= 4 ? 'hidden sm:flex' : ''
+                        }`}
                       >
                         <div className="relative aspect-[4/3] w-full">
                           <img
@@ -145,30 +150,28 @@ const MenuDeviceShowcase = () => {
                             className="w-full h-full object-cover"
                           />
                           {it.badge && (
-                            <div className="absolute top-2 left-2 flex items-center gap-1 px-2 py-0.5 bg-white/95 backdrop-blur rounded-full">
+                            <div className="absolute top-1.5 left-1.5 sm:top-2 sm:left-2 flex items-center gap-1 px-1.5 sm:px-2 py-0.5 bg-white/95 backdrop-blur rounded-full">
                               <Flame className="w-2.5 h-2.5 text-amber-500" />
-                              <span className="text-[9px] font-bold text-gray-900 uppercase tracking-wider">{it.badge}</span>
+                              <span className="text-[8px] sm:text-[9px] font-bold text-gray-900 uppercase tracking-wider">{it.badge}</span>
                             </div>
                           )}
-                          <div className="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/95 backdrop-blur flex items-center justify-center">
+                          <div className="hidden sm:flex absolute top-2 right-2 w-7 h-7 rounded-full bg-white/95 backdrop-blur items-center justify-center">
                             <Heart className="w-3.5 h-3.5 text-gray-700" />
                           </div>
                         </div>
-                        <div className="px-3 py-2.5 flex items-center justify-between gap-2">
+                        <div className="px-2 sm:px-3 py-2 sm:py-2.5 flex items-center justify-between gap-1.5 sm:gap-2">
                           <div className="min-w-0 flex-1">
-                            <div className="flex items-center gap-1.5">
-                              <div className="text-sm font-bold text-gray-900 truncate">{it.name}</div>
-                            </div>
-                            <div className="flex items-center gap-1.5 mt-0.5">
-                              <Star className="w-2.5 h-2.5 text-amber-400 fill-amber-400" />
-                              <span className="text-[10px] font-bold text-gray-700">{it.rating}</span>
-                              <span className="text-[10px] text-gray-400 truncate">· {it.desc}</span>
+                            <div className="text-[11px] sm:text-sm font-bold text-gray-900 truncate">{it.name}</div>
+                            <div className="flex items-center gap-1 sm:gap-1.5 mt-0.5">
+                              <Star className="w-2.5 h-2.5 text-amber-400 fill-amber-400 shrink-0" />
+                              <span className="text-[9px] sm:text-[10px] font-bold text-gray-700">{it.rating}</span>
+                              <span className="hidden sm:inline text-[10px] text-gray-400 truncate">· {it.desc}</span>
                             </div>
                           </div>
-                          <div className="flex items-center gap-1.5 shrink-0">
-                            <div className="text-sm font-bold text-gray-900 tabular-nums">{it.price}</div>
-                            <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center shadow-sm shadow-primary/30">
-                              <Plus className="w-4 h-4 text-white" />
+                          <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+                            <div className="text-[11px] sm:text-sm font-bold text-gray-900 tabular-nums">{it.price}</div>
+                            <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-primary flex items-center justify-center shadow-sm shadow-primary/30">
+                              <Plus className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                             </div>
                           </div>
                         </div>
