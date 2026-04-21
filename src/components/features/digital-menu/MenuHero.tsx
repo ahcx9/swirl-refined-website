@@ -1,12 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Utensils, Clock, Truck, Star, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import SwirlCTA from '@/components/SwirlCTA';
 import BookDemoCTA from '@/components/BookDemoCTA';
-import { useCurrency } from '@/hooks/useCurrency';
+import MenuDeviceShowcase from '@/components/features/digital-menu/MenuDeviceShowcase';
 
 const MenuHero = () => {
-  const { currency } = useCurrency();
 
   const prices = [
     { icon: Utensils, label: 'Dine-in', value: 25, color: 'from-blue-500 to-blue-600' },
