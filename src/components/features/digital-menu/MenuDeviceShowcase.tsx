@@ -46,25 +46,28 @@ const MenuDeviceShowcase = () => {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary/20 rounded-full mb-6 shadow-sm"
           >
-            <Tablet className="w-4 h-4 text-primary" />
-            <Smartphone className="w-4 h-4 text-primary" />
-            <span className="text-sm font-bold text-primary">Built for every device</span>
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm font-bold text-primary">Dynamic Digital Menu</span>
           </motion.div>
 
-          <motion.h2
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-5 tracking-tight leading-[1.05]"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 tracking-tight leading-[1.05]"
           >
             One menu.
             <br />
             <span className="text-primary">Every screen, beautifully.</span>
-          </motion.h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          </motion.h1>
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
             From large iPad displays to pocket phones — your menu adapts perfectly with rich imagery,
             smooth interactions, and a UI that rivals the world's best food apps.
           </p>
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <SwirlCTA />
+            <BookDemoCTA />
+          </div>
         </div>
 
         {/* Showcase */}
