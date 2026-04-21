@@ -23,6 +23,7 @@ const DigitalMenu = () => {
         <MenuHero />
         <MenuAISection />
         <MenuCustomerExperience />
+        <MenuDeviceShowcase />
         <MenuReality />
         <MenuSystemFlow />
         <MenuCapabilities />
