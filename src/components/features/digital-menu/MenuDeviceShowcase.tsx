@@ -30,7 +30,7 @@ const MenuDeviceShowcase = () => {
   ];
 
   return (
-    <section className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-24 bg-gradient-to-b from-white via-blue-50/40 to-white relative overflow-hidden">
+    <section className="pt-4 sm:pt-6 md:pt-8 pb-16 sm:pb-24 bg-gradient-to-b from-white via-blue-50/40 to-white relative overflow-hidden">
       {/* Background glows */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-primary/[0.06] rounded-full blur-3xl" />
