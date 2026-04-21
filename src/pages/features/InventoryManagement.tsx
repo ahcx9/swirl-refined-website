@@ -8,7 +8,7 @@ import InventoryCapabilities from '@/components/features/inventory/InventoryCapa
 import InventoryLiveFlow from '@/components/features/inventory/InventoryLiveFlow';
 import InventoryIntelligence from '@/components/features/inventory/InventoryIntelligence';
 import InventoryImpact from '@/components/features/inventory/InventoryImpact';
-import InventoryFinalCTA from '@/components/features/inventory/InventoryFinalCTA';
+
 
 const InventoryManagement = () => {
   return (
@@ -22,7 +22,7 @@ const InventoryManagement = () => {
         <InventoryLiveFlow />
         <InventoryIntelligence />
         <InventoryImpact />
-        <InventoryFinalCTA />
+        
       </main>
       <Footer />
     </div>
