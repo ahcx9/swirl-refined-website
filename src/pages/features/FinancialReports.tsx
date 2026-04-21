@@ -184,27 +184,6 @@ const FinancialReports = () => {
           </div>
         </section>
 
-        {/* Final CTA */}
-        <section className="py-24 bg-gradient-to-br from-primary to-primary/80 relative overflow-hidden">
-          <div className="absolute inset-0 -z-0 opacity-10">
-            <div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl" />
-            <div className="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl" />
-          </div>
-          <div className="container-custom relative">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Understand your business in seconds.
-              </h2>
-              <p className="text-lg text-white/90 mb-8">
-                Replace spreadsheets, exports, and guesswork with one connected reporting system.
-              </p>
-              <div className="flex items-center justify-center gap-4 flex-wrap">
-                <SwirlCTA />
-                <BookDemoCTA />
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </div>
