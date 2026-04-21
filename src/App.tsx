@@ -18,7 +18,6 @@ import VisitorAnalytics from './pages/features/VisitorAnalytics';
 import PointOfSale from './pages/features/PointOfSale';
 import InventoryManagement from './pages/features/InventoryManagement';
 import KitchenDisplay from './pages/features/KitchenDisplay';
-import CarOrdering from './pages/features/CarOrdering';
 import CRM from './pages/features/CRM';
 import FinancialReports from './pages/features/FinancialReports';
 import Accounting from './pages/features/Accounting';
@@ -57,8 +56,6 @@ function App() {
           <Route path="/products/restaurant-point-of-sale" element={<PointOfSale />} />
           <Route path="/products/inventory-management" element={<InventoryManagement />} />
           <Route path="/products/kitchen-display" element={<KitchenDisplay />} />
-          <Route path="/products/ordering-from-car" element={<CarOrdering />} />
-          <Route path="/products/in-car-ordering" element={<CarOrdering />} />
           <Route path="/products/customer-relationship-management" element={<CRM />} />
           <Route path="/products/financial-reports" element={<FinancialReports />} />
           <Route path="/products/accounting" element={<Accounting />} />
