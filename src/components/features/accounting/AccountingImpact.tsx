@@ -47,9 +47,9 @@ const AccountingImpact = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
           >
-            What CFOs
+            Real
             <br />
-            <span className="text-primary">actually feel.</span>
+            <span className="text-primary">Transformation</span>
           </motion.h2>
         </div>
 
