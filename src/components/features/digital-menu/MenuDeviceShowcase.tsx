@@ -80,7 +80,7 @@ const MenuDeviceShowcase = () => {
             className="relative flex items-center justify-center"
           >
             {/* === iPad === Hidden on mobile, dominant on tablet/desktop === */}
-            <div className="hidden sm:block relative w-full max-w-[860px] aspect-[4/3] bg-gray-900 rounded-[2.5rem] p-3 shadow-xl shadow-gray-900/10 lg:-rotate-1">
+            <div className="hidden sm:block relative w-full max-w-[860px] aspect-[4/3] bg-gray-900 rounded-[2.5rem] p-3 shadow-xl shadow-gray-900/10">
               {/* Camera */}
               <div className="absolute top-1/2 -translate-y-1/2 left-2 w-1.5 h-1.5 bg-gray-700 rounded-full" />
               <div className="w-full h-full bg-[#FAFAFA] rounded-[2rem] overflow-hidden flex flex-col">
