@@ -30,7 +30,7 @@ const MenuDeviceShowcase = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white via-blue-50/40 to-white relative overflow-hidden">
+    <section className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-24 bg-gradient-to-b from-white via-blue-50/40 to-white relative overflow-hidden">
       {/* Background glows */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-primary/[0.06] rounded-full blur-3xl" />
@@ -39,7 +39,7 @@ const MenuDeviceShowcase = () => {
 
       <div className="container-custom">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
