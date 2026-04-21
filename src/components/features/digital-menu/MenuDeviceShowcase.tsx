@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Plus, Star, Search, Flame, ShoppingBag, Heart, Tablet, Smartphone } from 'lucide-react';
+import { Plus, Star, Search, Flame, ShoppingBag, Heart, Sparkles } from 'lucide-react';
+import SwirlCTA from '@/components/SwirlCTA';
+import BookDemoCTA from '@/components/BookDemoCTA';
 import burgerImg from '@/assets/menu-burger.jpg';
 import friesImg from '@/assets/menu-fries.jpg';
 import latteImg from '@/assets/menu-latte.jpg';
