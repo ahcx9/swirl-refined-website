@@ -77,7 +77,7 @@ const MenuDeviceShowcase = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative flex flex-col lg:block items-center justify-center gap-8 lg:gap-0"
+            className="relative flex items-center justify-center"
           >
             {/* === iPad === */}
             <div className="relative w-full max-w-[860px] sm:aspect-[4/3] bg-gray-900 rounded-[1.5rem] sm:rounded-[2.5rem] p-2 sm:p-3 shadow-2xl shadow-primary/20">
