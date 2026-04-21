@@ -60,35 +60,6 @@ const ReportsHeroMockup = () => {
         </div>
       </div>
 
-      {/* Right overlay - Payment breakdown */}
-      <div className="hidden lg:block absolute -right-8 top-16 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 p-5 z-20 rotate-2">
-        <div className="flex items-center justify-between mb-4">
-          <p className="text-sm font-bold text-gray-900">Payments</p>
-          <span className="text-[10px] text-gray-500">Today</span>
-        </div>
-        <div className="space-y-3">
-          {[
-            { label: 'Card', val: 45, color: 'bg-primary', icon: CreditCard },
-            { label: 'Cash', val: 28, color: 'bg-green-500', icon: DollarSign },
-            { label: 'Aggregator', val: 18, color: 'bg-purple-500', icon: Globe },
-            { label: 'Wallet', val: 9, color: 'bg-orange-500', icon: Wallet },
-          ].map((p, i) => (
-            <div key={i}>
-              <div className="flex items-center justify-between mb-1">
-                <div className="flex items-center gap-1.5">
-                  <p.icon className="w-3 h-3 text-gray-500" />
-                  <span className="text-xs text-gray-700">{p.label}</span>
-                </div>
-                <span className="text-xs font-bold text-gray-900">{p.val}%</span>
-              </div>
-              <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                <div className={`h-full ${p.color} rounded-full`} style={{ width: `${p.val}%` }} />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Decorative glow */}
       <div className="absolute -inset-10 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 blur-3xl -z-10" />
     </div>
