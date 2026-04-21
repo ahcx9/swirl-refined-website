@@ -12,7 +12,7 @@ import MenuMultiLanguage from '@/components/features/digital-menu/MenuMultiLangu
 import MenuLiveFlow from '@/components/features/digital-menu/MenuLiveFlow';
 import MenuIntelligence from '@/components/features/digital-menu/MenuIntelligence';
 import MenuImpact from '@/components/features/digital-menu/MenuImpact';
-import MenuFinalCTA from '@/components/features/digital-menu/MenuFinalCTA';
+
 
 const DigitalMenu = () => {
   return (
@@ -30,7 +30,7 @@ const DigitalMenu = () => {
         <MenuLiveFlow />
         <MenuIntelligence />
         <MenuImpact />
-        <MenuFinalCTA />
+        
       </main>
       <Footer />
     </div>
