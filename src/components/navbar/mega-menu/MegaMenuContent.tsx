@@ -28,7 +28,6 @@ const tabData: Record<TabKey, {
       { title: 'QR Ordering', description: 'Scan, order, pay instantly', path: '/products/qr-ordering' },
       { title: 'Reservations', description: 'Smart table bookings', path: '/products/reservations' },
       { title: 'Loyalty', description: 'Rewards that bring guests back', path: '/products/loyalty' },
-      { title: 'In-Car Ordering', description: 'Order before arrival', path: '/products/ordering-from-car' },
       { title: 'Customer Display', description: 'Clear live order visibility', path: '/products/customer-display' },
     ],
   },

@@ -95,20 +95,6 @@ export const products = [
     ]
   },
   {
-    id: 'car-ordering',
-    title: 'In-Car Ordering',
-    description: 'Enable customers to order from their vehicles for pickup or drive-through service, optimizing your curbside operations and enhancing customer convenience.',
-    icon: Car,
-    path: '/products/ordering-from-car',
-    image: "/lovable-uploads/2d3e25d6-0565-4abe-a293-c0d14b06605b.png",
-    features: [
-      'GPS location tracking', 
-      'Digital car hop', 
-      'Order notifications', 
-      'Payment processing'
-    ]
-  },
-  {
     id: 'payroll',
     title: 'Payroll Management',
     description: 'Streamline staff payments and track labor costs efficiently, with time tracking, tax calculations, and direct deposit options for hassle-free payroll processing.',

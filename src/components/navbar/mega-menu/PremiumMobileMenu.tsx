@@ -17,7 +17,6 @@ const sections = [
       { title: 'QR Ordering', path: '/products/qr-ordering' },
       { title: 'Reservations', path: '/products/reservations' },
       { title: 'Loyalty', path: '/products/loyalty' },
-      { title: 'In-Car Ordering', path: '/products/ordering-from-car' },
       { title: 'Customer Display', path: '/products/customer-display' },
     ],
   },
