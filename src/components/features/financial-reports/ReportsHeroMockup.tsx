@@ -89,28 +89,6 @@ const ReportsHeroMockup = () => {
         </div>
       </div>
 
-      {/* Bottom overlay - Brand breakdown */}
-      <div className="hidden md:block absolute -bottom-10 left-8 right-8 lg:left-16 lg:right-32 bg-white rounded-2xl shadow-2xl border border-gray-100 p-5 z-20 -rotate-1">
-        <div className="flex items-center justify-between mb-3">
-          <p className="text-sm font-bold text-gray-900">Brand Performance</p>
-          <span className="text-[10px] text-gray-500">3 brands</span>
-        </div>
-        <div className="grid grid-cols-3 gap-3">
-          {[
-            { name: 'Burger Co.', sales: amounts.frInStoreRevenue, pct: '52%', color: 'bg-primary' },
-            { name: 'Pizza House', sales: amounts.frOnlineRevenue, pct: '31%', color: 'bg-purple-500' },
-            { name: 'Cafe Lane', sales: amounts.shiftDineIn, pct: '17%', color: 'bg-green-500' },
-          ].map((b, i) => (
-            <div key={i} className="bg-gray-50 rounded-lg p-3">
-              <div className={`w-2 h-2 ${b.color} rounded-full mb-1.5`} />
-              <p className="text-[11px] text-gray-500 truncate">{b.name}</p>
-              <p className="text-sm font-bold text-gray-900">{b.sales}</p>
-              <p className="text-[10px] text-primary font-semibold">{b.pct}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Decorative glow */}
       <div className="absolute -inset-10 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 blur-3xl -z-10" />
     </div>
