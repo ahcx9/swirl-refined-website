@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, AlertTriangle, Clock } from 'lucide-react';
-import truckImg from '@/assets/qr-foodtruck-cars.jpg';
+import truckImg from '@/assets/qr-reality-busy-counter.jpg';
 
 const QRReality = () => {
   const pains = [
@@ -35,14 +35,14 @@ const QRReality = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2 relative aspect-[4/3] lg:aspect-auto rounded-3xl overflow-hidden shadow-xl ring-1 ring-black/5"
           >
-            <img src={truckImg} alt="Cars queuing at a busy food truck" loading="lazy" width={1280} height={896} className="w-full h-full object-cover" />
+            <img src={truckImg} alt="Busy restaurant counter at peak hour with long queue" loading="lazy" width={1280} height={960} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-red-500/90 rounded-full mb-2">
                 <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
                 <span className="text-[10px] font-bold uppercase tracking-wider text-white">Peak hour</span>
               </div>
-              <div className="text-xl font-bold text-white leading-tight">5 cars waiting · 14 min average</div>
+              <div className="text-xl font-bold text-white leading-tight">Long queues · 14 min average wait</div>
               <div className="text-sm text-white/80 mt-1">Staff rushing, customers losing patience.</div>
             </div>
           </motion.div>
