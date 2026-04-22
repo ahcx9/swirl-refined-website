@@ -87,7 +87,7 @@ const QRCarOrdering = () => {
             className="relative bg-gradient-to-br from-gray-50 to-blue-50/60 rounded-3xl p-8 sm:p-10 flex flex-col items-center justify-center min-h-[500px] ring-1 ring-black/5"
           >
             {/* Subtle car steering wheel hint */}
-            <div className="absolute top-6 left-6 flex items-center gap-2 px-3 py-1.5 bg-white rounded-full shadow-sm">
+            <div className="mb-6 flex items-center gap-2 px-3 py-1.5 bg-white rounded-full shadow-sm z-10">
               <Car className="w-3.5 h-3.5 text-primary" />
               <span className="text-[10px] font-bold text-gray-700 uppercase tracking-wider">From the driver's seat</span>
             </div>
