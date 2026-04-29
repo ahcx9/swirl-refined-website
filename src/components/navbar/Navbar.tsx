@@ -1,16 +1,12 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import SwirlCTA from '@/components/SwirlCTA';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { MegaMenuContent, TabKey } from './mega-menu/MegaMenuContent';
 import { MegaMenuOverlay } from './mega-menu/MegaMenuOverlay';
 import { PremiumMobileMenu } from './mega-menu/PremiumMobileMenu';
-
-const tabs: { key: TabKey; label: string }[] = [
-  { key: 'dine', label: 'Dine' },
-  { key: 'pos', label: 'Point of Sale' },
-  { key: 'works', label: 'Works' },
-];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
