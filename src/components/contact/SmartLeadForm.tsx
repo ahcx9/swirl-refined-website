@@ -123,6 +123,10 @@ const SearchableDropdown = ({
 };
 
 const SmartLeadForm = () => {
+  const { t } = useTranslation();
+  const businessTypes = businessTypeKeys.map((k) => ({ key: k, label: t(`contact.form.businessTypes.${k}`) }));
+  const timelineOptions = timelineKeys.map((k) => ({ key: k, label: t(`contact.form.timelines.${k}`) }));
+  const contactMethods = contactMethodKeys.map((k) => ({ key: k, label: t(`contact.form.contactMethods.${k}`) }));
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -436,7 +440,7 @@ const SmartLeadForm = () => {
                         <Label className="text-foreground font-medium mb-2">Business Type <span className="text-destructive">*</span></Label>
                         <select required value={form.businessType} onChange={e => updateField('businessType', e.target.value)} className="mt-1.5 w-full h-12 px-3 border border-border/60 rounded-xl bg-background text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
                           <option value="">Select type</option>
-                          {businessTypes.map(t => <option key={t} value={t}>{t}</option>)}
+                          {businessTypes.map(t => <option key={t.key} value={t.label}>{t.label}</option>)}
                         </select>
                       </div>
                       <div>
@@ -454,14 +458,14 @@ const SmartLeadForm = () => {
                         <Label className="text-foreground font-medium mb-2">Planned Business Type <span className="text-destructive">*</span></Label>
                         <select required value={form.plannedBusinessType} onChange={e => updateField('plannedBusinessType', e.target.value)} className="mt-1.5 w-full h-12 px-3 border border-border/60 rounded-xl bg-background text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
                           <option value="">Select type</option>
-                          {businessTypes.map(t => <option key={t} value={t}>{t}</option>)}
+                          {businessTypes.map(t => <option key={t.key} value={t.label}>{t.label}</option>)}
                         </select>
                       </div>
                       <div>
                         <Label className="text-foreground font-medium mb-2">Expected Opening Timeline</Label>
                         <select value={form.openingTimeline} onChange={e => updateField('openingTimeline', e.target.value)} className="mt-1.5 w-full h-12 px-3 border border-border/60 rounded-xl bg-background text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
                           <option value="">Select timeline</option>
-                          {timelineOptions.map(t => <option key={t} value={t}>{t}</option>)}
+                          {timelineOptions.map(t => <option key={t.key} value={t.label}>{t.label}</option>)}
                         </select>
                       </div>
                     </div>
