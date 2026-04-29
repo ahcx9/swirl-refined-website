@@ -387,7 +387,7 @@ const Hero: React.FC = () => {
         </button>
         {isHighlighted && stepInfo && <div className="absolute -top-16 left-1/2 -translate-x-1/2 z-30 w-52 pointer-events-none animate-fade-in">
             <div className="bg-gray-900 text-white rounded-xl px-3 py-2 text-center shadow-xl pointer-events-auto">
-              <p className="text-[10px] text-primary font-bold mb-0.5">Step {stepIndex + 1}/{WALKTHROUGH_STEPS.length}</p>
+              <p className="text-[10px] text-primary font-bold mb-0.5">{t('hero.demo.step')} {stepIndex + 1}/{WALKTHROUGH_STEPS.length}</p>
               <p className="text-xs font-medium leading-tight">{stepInfo.desc}</p>
             </div>
             <div className="w-2.5 h-2.5 bg-gray-900 rotate-45 mx-auto -mt-1.5" />
