@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, ArrowRight, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import SwirlCTA from '@/components/SwirlCTA';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 interface PremiumMobileMenuProps {
   isOpen: boolean;
@@ -43,6 +45,7 @@ const sections = [
 ];
 
 export const PremiumMobileMenu: React.FC<PremiumMobileMenuProps> = ({ isOpen, onClose }) => {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState<string | null>(null);
 
   if (!isOpen) return null;
@@ -108,25 +111,33 @@ export const PremiumMobileMenu: React.FC<PremiumMobileMenuProps> = ({ isOpen, on
               onClick={onClose}
               className="flex items-center justify-between p-4 rounded-2xl hover:bg-gray-50 transition-colors"
             >
-              <span className="text-[15px] font-semibold text-foreground">Hardware</span>
-              <ArrowRight size={16} className="text-muted-foreground" />
+              <span className="text-[15px] font-semibold text-foreground">{t('nav.hardware')}</span>
+              <ArrowRight size={16} data-flip-rtl="true" className="text-muted-foreground" />
             </Link>
             <Link
               to="/use-cases"
               onClick={onClose}
               className="flex items-center justify-between p-4 rounded-2xl hover:bg-gray-50 transition-colors"
             >
-              <span className="text-[15px] font-semibold text-foreground">Use Cases</span>
-              <ArrowRight size={16} className="text-muted-foreground" />
+              <span className="text-[15px] font-semibold text-foreground">{t('nav.useCases')}</span>
+              <ArrowRight size={16} data-flip-rtl="true" className="text-muted-foreground" />
             </Link>
             <Link
               to="/contact"
               onClick={onClose}
               className="flex items-center justify-between p-4 rounded-2xl hover:bg-gray-50 transition-colors"
             >
-              <span className="text-[15px] font-semibold text-foreground">Contact</span>
-              <ArrowRight size={16} className="text-muted-foreground" />
+              <span className="text-[15px] font-semibold text-foreground">{t('nav.contact')}</span>
+              <ArrowRight size={16} data-flip-rtl="true" className="text-muted-foreground" />
             </Link>
+          </div>
+
+          {/* Language switcher */}
+          <div className="pt-4">
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-2 px-1">
+              {t('common.language')}
+            </p>
+            <LanguageSwitcher variant="mobile" />
           </div>
 
           {/* CTA */}
