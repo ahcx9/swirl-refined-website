@@ -522,15 +522,15 @@ const SmartLeadForm = () => {
                   <div className="flex gap-3 mt-2">
                     {contactMethods.map(method => {
                       const field = form.businessStatus === 'running' ? 'contactMethod' : 'plannedContactMethod';
-                      const selected = form[field] === method;
+                      const selected = form[field] === method.label;
                       return (
                         <button
-                          key={method}
+                          key={method.key}
                           type="button"
-                          onClick={() => updateField(field, method)}
+                          onClick={() => updateField(field, method.label)}
                           className={`px-5 py-2.5 rounded-xl text-sm font-medium border transition-all ${selected ? 'bg-primary text-primary-foreground border-primary' : 'bg-background text-foreground border-border/60 hover:border-primary/40'}`}
                         >
-                          {method}
+                          {method.label}
                         </button>
                       );
                     })}
