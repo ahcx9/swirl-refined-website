@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Globe, MapPin, MessageCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const locations = [
   {
@@ -44,21 +45,27 @@ const locations = [
 ];
 
 const GlobalPresence = () => {
+  const { t } = useTranslation();
+  const countryNames: Record<string, string> = {
+    'United Arab Emirates': t('contact.presence.uae'),
+    'Saudi Arabia': t('contact.presence.ksa'),
+    'India': t('contact.presence.india'),
+  };
   return (
     <section className="py-20 md:py-28 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/[0.02] to-background" />
-      
+
       <div className="container-custom relative z-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/[0.08] text-primary px-5 py-2.5 rounded-full mb-6 text-sm font-medium">
             <Globe size={16} />
-            <span>Global Presence</span>
+            <span>{t('contact.presence.badge')}</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Reach Us From Anywhere
+            {t('contact.presence.title')}
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            We're available across multiple regions to support your business needs.
+            {t('contact.presence.subtitle')}
           </p>
         </div>
 
@@ -74,11 +81,11 @@ const GlobalPresence = () => {
               <div className="relative z-10">
                 {/* Flag & Country */}
                 <div className="text-5xl mb-4">{loc.flag}</div>
-                <h3 className="text-xl font-bold text-foreground mb-1">{loc.country}</h3>
-                <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{loc.label}</span>
-                
+                <h3 className="text-xl font-bold text-foreground mb-1">{countryNames[loc.country] || loc.country}</h3>
+                <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{t('contact.presence.salesSupport')}</span>
+
                 {/* Phone */}
-                <a href={loc.phoneHref} className={`mt-6 flex items-center gap-3 ${loc.accent} font-semibold text-lg group-hover:gap-4 transition-all`}>
+                <a href={loc.phoneHref} dir="ltr" className={`mt-6 flex items-center gap-3 ${loc.accent} font-semibold text-lg group-hover:gap-4 transition-all`}>
                   <div className={`w-10 h-10 rounded-full ${loc.accentBg} flex items-center justify-center transition-colors`}>
                     <Phone size={18} />
                   </div>
@@ -93,7 +100,7 @@ const GlobalPresence = () => {
                   className="mt-4 inline-flex items-center gap-2.5 px-5 py-2.5 bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/20 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-[1.03]"
                 >
                   <MessageCircle size={16} />
-                  WhatsApp Us
+                  {t('contact.presence.whatsapp')}
                 </a>
 
                 {/* Address */}

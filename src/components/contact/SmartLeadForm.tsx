@@ -1,17 +1,18 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { Send, User, Mail, Phone, MapPin, Building2, ChevronRight, CheckCircle, Briefcase, Calendar, MessageSquare, Store, Layers, Search, Globe, ChevronDown } from 'lucide-react';
+import { Send, User, Mail, Phone, MapPin, Building2, ChevronRight, CheckCircle, Briefcase, MessageSquare, Store, Layers, Search, Globe, ChevronDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { supabase } from '@/integrations/supabase/client';
-import PhoneInput, { getCountryCallingCode } from 'react-phone-number-input';
+import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import { COUNTRIES, CITIES_BY_COUNTRY } from './formData';
 
-const businessTypes = ['Café', 'Restaurant', 'Cloud Kitchen', 'Bakery', 'QSR', 'Fine Dining', 'Other'];
+const businessTypeKeys = ['cafe', 'restaurant', 'cloudKitchen', 'bakery', 'qsr', 'fineDining', 'other'] as const;
 const solutionOptions = ['POS', 'QR Ordering', 'Inventory', 'Accounting', 'CRM/Loyalty', 'Reservations', 'Analytics', 'Multi-Branch', 'Custom Solution'];
-const timelineOptions = ['Within 1 month', '1–3 months', '3–6 months', '6+ months'];
-const contactMethods = ['Call', 'WhatsApp', 'Email'];
+const timelineKeys = ['month1', 'months13', 'months36', 'months6Plus'] as const;
+const contactMethodKeys = ['call', 'whatsapp', 'email'] as const;
 
 // Searchable dropdown component
 const SearchableDropdown = ({
@@ -122,6 +123,10 @@ const SearchableDropdown = ({
 };
 
 const SmartLeadForm = () => {
+  const { t } = useTranslation();
+  const businessTypes = businessTypeKeys.map((k) => ({ key: k, label: t(`contact.form.businessTypes.${k}`) }));
+  const timelineOptions = timelineKeys.map((k) => ({ key: k, label: t(`contact.form.timelines.${k}`) }));
+  const contactMethods = contactMethodKeys.map((k) => ({ key: k, label: t(`contact.form.contactMethods.${k}`) }));
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -435,7 +440,7 @@ const SmartLeadForm = () => {
                         <Label className="text-foreground font-medium mb-2">Business Type <span className="text-destructive">*</span></Label>
                         <select required value={form.businessType} onChange={e => updateField('businessType', e.target.value)} className="mt-1.5 w-full h-12 px-3 border border-border/60 rounded-xl bg-background text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
                           <option value="">Select type</option>
-                          {businessTypes.map(t => <option key={t} value={t}>{t}</option>)}
+                          {businessTypes.map(t => <option key={t.key} value={t.label}>{t.label}</option>)}
                         </select>
                       </div>
                       <div>
@@ -453,14 +458,14 @@ const SmartLeadForm = () => {
                         <Label className="text-foreground font-medium mb-2">Planned Business Type <span className="text-destructive">*</span></Label>
                         <select required value={form.plannedBusinessType} onChange={e => updateField('plannedBusinessType', e.target.value)} className="mt-1.5 w-full h-12 px-3 border border-border/60 rounded-xl bg-background text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
                           <option value="">Select type</option>
-                          {businessTypes.map(t => <option key={t} value={t}>{t}</option>)}
+                          {businessTypes.map(t => <option key={t.key} value={t.label}>{t.label}</option>)}
                         </select>
                       </div>
                       <div>
                         <Label className="text-foreground font-medium mb-2">Expected Opening Timeline</Label>
                         <select value={form.openingTimeline} onChange={e => updateField('openingTimeline', e.target.value)} className="mt-1.5 w-full h-12 px-3 border border-border/60 rounded-xl bg-background text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
                           <option value="">Select timeline</option>
-                          {timelineOptions.map(t => <option key={t} value={t}>{t}</option>)}
+                          {timelineOptions.map(t => <option key={t.key} value={t.label}>{t.label}</option>)}
                         </select>
                       </div>
                     </div>
@@ -517,15 +522,15 @@ const SmartLeadForm = () => {
                   <div className="flex gap-3 mt-2">
                     {contactMethods.map(method => {
                       const field = form.businessStatus === 'running' ? 'contactMethod' : 'plannedContactMethod';
-                      const selected = form[field] === method;
+                      const selected = form[field] === method.label;
                       return (
                         <button
-                          key={method}
+                          key={method.key}
                           type="button"
-                          onClick={() => updateField(field, method)}
+                          onClick={() => updateField(field, method.label)}
                           className={`px-5 py-2.5 rounded-xl text-sm font-medium border transition-all ${selected ? 'bg-primary text-primary-foreground border-primary' : 'bg-background text-foreground border-border/60 hover:border-primary/40'}`}
                         >
-                          {method}
+                          {method.label}
                         </button>
                       );
                     })}

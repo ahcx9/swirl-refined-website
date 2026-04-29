@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Plus, Minus, Trash2, X, Search, ChefHat, ArrowLeftRight, Merge, SplitSquareVertical, Printer, CreditCard, Banknote, Sparkles, MousePointerClick, Play, SkipForward, XCircle, Percent, Tag, Receipt, Wallet, Smartphone, CircleDollarSign, StickyNote, ShoppingBag } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button } from './ui/button';
 import { useCurrency } from '@/hooks/useCurrency';
 import SwirlCTA from '@/components/SwirlCTA';
@@ -225,6 +226,7 @@ const Hero: React.FC = () => {
     formatAmount,
     currency
   } = useCurrency();
+  const { t } = useTranslation();
 
   // Order state
   const [orderItems, setOrderItems] = useState<OrderItem[]>([{
@@ -1052,19 +1054,19 @@ const Hero: React.FC = () => {
     <section className="pt-2 md:pt-4 pb-10 md:pb-16 bg-white">
       <div className="container-custom">
         <div className="text-center max-w-4xl mx-auto animate-fade-in">
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight leading-[1.05]">Operating System for 
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight leading-[1.05]">{t('hero.tagline1')}
 
           </h2>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent tracking-tight leading-[1.05] mt-1">Modern Restaurants
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent tracking-tight leading-[1.05] mt-1">{t('hero.tagline2')}
 
           </h2>
           <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground/70 mt-8 mb-4 max-w-3xl mx-auto leading-relaxed font-normal">
-            Cloud POS, QR Ordering, Inventory, Accounting, Analytics, Reservations, Loyalty, CRM, And AI — All Working As One.
+            {t('hero.subtitle')}
           </p>
           <div className="mt-6 flex items-center justify-center gap-6">
             <SwirlCTA />
             <Link to="/contact" className="text-primary font-semibold text-sm hover:underline underline-offset-4 transition-all">
-              Book a Demo →
+              {t('hero.bookDemoLink')}
             </Link>
           </div>
         </div>
@@ -1078,10 +1080,10 @@ const Hero: React.FC = () => {
             {/* Tour controls */}
             <div className="flex items-center justify-center gap-3 flex-wrap mb-5">
                <div className="flex items-center gap-2 px-6 py-2.5 bg-primary/8 rounded-full border border-primary/15">
-                <span className="text-sm md:text-base font-semibold text-primary tracking-wide">It's a live demo — try clicking!</span>
+                <span className="text-sm md:text-base font-semibold text-primary tracking-wide">{t('hero.liveDemoBadge')}</span>
               </div>
               {!tourActive ? <button onClick={startTour} className="flex items-center gap-1.5 px-4 py-1.5 bg-primary text-white rounded-full text-xs font-semibold hover:bg-primary/90 transition-colors shadow-md shadow-primary/25">
-                  <Play className="w-3.5 h-3.5" /> Guided Tour
+                  <Play className="w-3.5 h-3.5" /> {t('hero.guidedTour')}
                 </button> : <div className="flex items-center gap-2">
                   <span className="text-xs font-medium text-primary bg-primary/5 px-3 py-1.5 rounded-full border border-primary/10">
                     Step {tourStep + 1}/{WALKTHROUGH_STEPS.length}
