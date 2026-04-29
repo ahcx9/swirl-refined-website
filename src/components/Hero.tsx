@@ -303,36 +303,36 @@ const Hero: React.FC = () => {
   // ============ WALKTHROUGH ============
   const WALKTHROUGH_STEPS = [{
     target: 'addItems',
-    label: 'Add Items',
-    desc: 'Add menu items to the order with one click.'
+    label: t('hero.demo.tour.addItems.label'),
+    desc: t('hero.demo.tour.addItems.desc')
   }, {
     target: 'changeQty',
-    label: 'Change Quantities',
-    desc: 'Adjust quantities — totals update in real time.'
+    label: t('hero.demo.tour.changeQty.label'),
+    desc: t('hero.demo.tour.changeQty.desc')
   }, {
     target: 'kot',
-    label: 'Print KOT',
-    desc: 'Send the order to the kitchen instantly.'
+    label: t('hero.demo.tour.kot.label'),
+    desc: t('hero.demo.tour.kot.desc')
   }, {
     target: 'changeTable',
-    label: 'Change Table',
-    desc: 'Reassign the order to a different table.'
+    label: t('hero.demo.tour.changeTable.label'),
+    desc: t('hero.demo.tour.changeTable.desc')
   }, {
     target: 'splitTable',
-    label: 'Split Table',
-    desc: 'Move selected items into a new order.'
+    label: t('hero.demo.tour.splitTable.label'),
+    desc: t('hero.demo.tour.splitTable.desc')
   }, {
     target: 'moveOrder',
-    label: 'Move Order',
-    desc: 'Convert this dine-in order to takeaway.'
+    label: t('hero.demo.tour.moveOrder.label'),
+    desc: t('hero.demo.tour.moveOrder.desc')
   }, {
     target: 'mergeTable',
-    label: 'Merge Tables',
-    desc: 'Combine multiple table orders into one.'
+    label: t('hero.demo.tour.mergeTable.label'),
+    desc: t('hero.demo.tour.mergeTable.desc')
   }, {
     target: 'settle',
-    label: 'Settle Bill',
-    desc: 'Complete the payment — Cash, Card, or Split.'
+    label: t('hero.demo.tour.settle.label'),
+    desc: t('hero.demo.tour.settle.desc')
   }];
   const [tourActive, setTourActive] = useState(false);
   const [tourStep, setTourStep] = useState(0);
