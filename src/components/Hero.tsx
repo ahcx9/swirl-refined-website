@@ -1099,10 +1099,10 @@ const Hero: React.FC = () => {
                   <Play className="w-3.5 h-3.5" /> {t('hero.guidedTour')}
                 </button> : <div className="flex items-center gap-2">
                   <span className="text-xs font-medium text-primary bg-primary/5 px-3 py-1.5 rounded-full border border-primary/10">
-                    Step {tourStep + 1}/{WALKTHROUGH_STEPS.length}
+                    {t('hero.demo.step')} {tourStep + 1}/{WALKTHROUGH_STEPS.length}
                   </span>
-                  <button onClick={nextTourStep} className="flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-medium hover:bg-primary/20"><SkipForward className="w-3 h-3" /> Next</button>
-                  <button onClick={stopTour} className="flex items-center gap-1 px-3 py-1.5 text-muted-foreground hover:text-foreground rounded-full text-xs font-medium"><XCircle className="w-3.5 h-3.5" /> End</button>
+                  <button onClick={nextTourStep} className="flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-medium hover:bg-primary/20"><SkipForward className="w-3 h-3" /> {t('hero.demo.next')}</button>
+                  <button onClick={stopTour} className="flex items-center gap-1 px-3 py-1.5 text-muted-foreground hover:text-foreground rounded-full text-xs font-medium"><XCircle className="w-3.5 h-3.5" /> {t('hero.demo.end')}</button>
                 </div>}
             </div>
 
@@ -1114,19 +1114,19 @@ const Hero: React.FC = () => {
               {/* Top Header */}
               <div className="bg-white border-b border-gray-100 px-4 md:px-5 py-3 flex flex-wrap items-center justify-between gap-2">
                 <div>
-                  <h2 className="text-base md:text-lg font-bold text-gray-900">Order #100840</h2>
-                  <p className="text-[10px] text-gray-500">Feb 10, 2026, 3:55 PM · Created by <strong>shamim</strong></p>
+                  <h2 className="text-base md:text-lg font-bold text-gray-900">{t('hero.demo.header.orderNo')}</h2>
+                  <p className="text-[10px] text-gray-500">{t('hero.demo.header.createdBy')} <strong>{t('hero.demo.header.shamim')}</strong></p>
                 </div>
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className={`text-xs px-2.5 py-1 rounded-full font-semibold ${paymentStatus === 'PAID' ? 'bg-green-100 text-green-700 border border-green-200' : 'bg-amber-100 text-amber-700 border border-amber-200'}`}>
-                    {paymentStatus}
+                    {paymentStatus === 'PAID' ? t('hero.demo.status.paid') : t('hero.demo.status.unpaid')}
                   </span>
                   <span className="text-xs px-2.5 py-1 bg-gray-50 border border-gray-200 rounded-full text-gray-700 flex items-center gap-1">
-                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full" /> shamim
+                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full" /> {t('hero.demo.header.shamim')}
                   </span>
-                  <span className="text-xs px-2.5 py-1 bg-gray-50 border border-gray-200 rounded-full text-gray-700">{currentTable}</span>
+                  <span className="text-xs px-2.5 py-1 bg-gray-50 border border-gray-200 rounded-full text-gray-700">{tTableName(currentTable)}</span>
                   <span className="text-xs px-2.5 py-1 bg-gray-50 border border-gray-200 rounded-full text-gray-700">
-                    {fulfillment === 'Dine In' ? '🍽' : '📦'} {fulfillment}
+                    {fulfillment === 'Dine In' ? '🍽' : '📦'} {fulfillment === 'Dine In' ? t('hero.demo.header.dineIn') : t('hero.demo.header.takeaway')}
                   </span>
                 </div>
               </div>
@@ -1136,9 +1136,9 @@ const Hero: React.FC = () => {
                 {/* LEFT: Order Items */}
                 <div className="p-4 md:p-5 border-b md:border-b-0 md:border-r border-gray-100">
                   <div className="flex items-center gap-2 mb-3">
-                    <h3 className="font-bold text-gray-900 text-sm">Order Items</h3>
+                    <h3 className="font-bold text-gray-900 text-sm">{t('hero.demo.left.orderItems')}</h3>
                     <span className={`px-2 py-0.5 text-[10px] font-medium rounded ${orderStatus === 'IN_PROGRESS' ? 'bg-yellow-100 text-yellow-700' : 'bg-green-100 text-green-700'}`}>
-                      {orderStatus === 'IN_PROGRESS' ? 'IN PROGRESS' : 'CONFIRMED'}
+                      {orderStatus === 'IN_PROGRESS' ? t('hero.demo.status.inProgress') : t('hero.demo.status.confirmed')}
                     </span>
                   </div>
 
@@ -1147,9 +1147,9 @@ const Hero: React.FC = () => {
                     {orderItems.map((item) => <div key={item.id} className="p-2.5 bg-white border border-gray-100 rounded-xl hover:border-gray-200 transition-colors">
                         <div className="flex items-center justify-between">
                           <div className="min-w-0">
-                            <p className="font-medium text-gray-900 text-sm truncate">{item.name}</p>
+                            <p className="font-medium text-gray-900 text-sm truncate">{tItem(item.name)}</p>
                             <p className="text-[10px] text-gray-500">{item.qty} × {formatAmount(item.price)}</p>
-                            {item.note && <p className="text-[10px] text-orange-500 italic mt-0.5">Note: {item.note}</p>}
+                            {item.note && <p className="text-[10px] text-orange-500 italic mt-0.5">{t('hero.demo.left.note')}: {tNote(item.note)}</p>}
                           </div>
                           <p className="font-bold text-gray-900 text-sm flex-shrink-0 ml-2">{formatAmount(item.price * item.qty)}</p>
                         </div>
@@ -1160,34 +1160,34 @@ const Hero: React.FC = () => {
                   <div className="space-y-2 my-0 mx-0 px-0 py-0">
                     <div className="grid grid-cols-2 gap-2">
                       <button onClick={() => setOrderStatus(orderStatus === 'IN_PROGRESS' ? 'CONFIRMED' : 'IN_PROGRESS')} className="px-3 py-2.5 text-xs font-medium text-orange-600 border border-orange-200 rounded-xl hover:bg-orange-50 transition-colors">
-                        Change Status
+                        {t('hero.demo.left.changeStatus')}
                       </button>
                       <TourButton id="addItems" onClick={() => setActiveModal('addItems')} className="px-3 py-2.5 text-xs font-medium text-primary border border-primary/20 rounded-xl hover:bg-primary/5 transition-colors flex items-center justify-center gap-1">
-                        <Plus className="w-3 h-3" /> Add Items
+                        <Plus className="w-3 h-3" /> {t('hero.demo.left.addItems')}
                       </TourButton>
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <TourButton id="changeQty" onClick={() => setActiveModal('changeQty')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors">
-                        Edit Quantities
+                        {t('hero.demo.left.editQty')}
                       </TourButton>
                       <TourButton id="kot" onClick={() => setActiveModal('kot')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1">
-                        <ChefHat className="w-3 h-3" /> Print KOT
+                        <ChefHat className="w-3 h-3" /> {t('hero.demo.left.printKOT')}
                       </TourButton>
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <TourButton id="changeTable" onClick={() => setActiveModal('changeTable')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors">
-                        Change Table
+                        {t('hero.demo.left.changeTable')}
                       </TourButton>
                       <TourButton id="splitTable" onClick={() => setActiveModal('splitTable')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1">
-                        <SplitSquareVertical className="w-3 h-3" /> Split
+                        <SplitSquareVertical className="w-3 h-3" /> {t('hero.demo.left.split')}
                       </TourButton>
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <TourButton id="moveOrder" onClick={() => setActiveModal('moveOrder')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1">
-                        <ArrowLeftRight className="w-3 h-3" /> Move Order
+                        <ArrowLeftRight className="w-3 h-3" /> {t('hero.demo.left.moveOrder')}
                       </TourButton>
                       <TourButton id="mergeTable" onClick={() => setActiveModal('mergeTable')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1">
-                        <Merge className="w-3 h-3" /> Merge
+                        <Merge className="w-3 h-3" /> {t('hero.demo.left.merge')}
                       </TourButton>
                     </div>
                   </div>
@@ -1196,29 +1196,29 @@ const Hero: React.FC = () => {
                 {/* RIGHT: Billing */}
                 <div className="p-4 md:p-5 bg-gray-50/50">
                   <div className="flex items-center gap-2 mb-3">
-                    <h3 className="font-bold text-gray-900 text-sm">Billing</h3>
+                    <h3 className="font-bold text-gray-900 text-sm">{t('hero.demo.right.billing')}</h3>
                     <span className={`px-2 py-0.5 text-[10px] font-medium rounded ${paymentStatus === 'PAID' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}`}>
-                      {paymentStatus}
+                      {paymentStatus === 'PAID' ? t('hero.demo.status.paid') : t('hero.demo.status.unpaid')}
                     </span>
                   </div>
 
                   {/* Invoice */}
                   <div className="bg-white rounded-xl border border-gray-100 p-4 mb-4">
                     <div className="text-center mb-3 pb-3 border-b border-gray-100">
-                      <h4 className="font-bold text-gray-900 text-sm">Swirl Cafe</h4>
-                      <p className="text-[9px] text-gray-400">VAT: VAT123456789</p>
-                      <p className="text-[10px] text-gray-500">Feb 10, 2026 · Order #100840 · {currentTable}</p>
+                      <h4 className="font-bold text-gray-900 text-sm">{t('hero.demo.right.cafe')}</h4>
+                      <p className="text-[9px] text-gray-400">{t('hero.demo.right.vat')}</p>
+                      <p className="text-[10px] text-gray-500">{t('hero.demo.right.invoiceMeta')} · {tTableName(currentTable)}</p>
                     </div>
 
                     {/* Line items */}
                     <div className="space-y-0.5 mb-3">
                       <div className="grid grid-cols-12 text-[10px] font-medium text-gray-500 pb-1 border-b border-gray-100">
-                        <span className="col-span-5">Item</span>
-                        <span className="col-span-3 text-center">Qty</span>
-                        <span className="col-span-4 text-right">Amount</span>
+                        <span className="col-span-5">{t('hero.demo.right.item')}</span>
+                        <span className="col-span-3 text-center">{t('hero.demo.right.qty')}</span>
+                        <span className="col-span-4 text-right">{t('hero.demo.right.amount')}</span>
                       </div>
                       {orderItems.map((item) => <div key={item.id} className="grid grid-cols-12 text-xs text-gray-700 py-0.5">
-                          <span className="col-span-5 truncate">{item.name}</span>
+                          <span className="col-span-5 truncate">{tItem(item.name)}</span>
                           <span className="col-span-3 text-center">{item.qty}</span>
                           <span className="col-span-4 text-right font-medium">{formatAmount(item.price * item.qty)}</span>
                         </div>)}
@@ -1226,24 +1226,24 @@ const Hero: React.FC = () => {
 
                     {/* Totals */}
                     <div className="border-t border-gray-100 pt-2 space-y-1">
-                      <p className="text-[10px] text-gray-400 italic">Prices include tax</p>
+                      <p className="text-[10px] text-gray-400 italic">{t('hero.demo.right.pricesIncludeTax')}</p>
                       <div className="flex justify-between text-xs">
-                        <span className="text-gray-600">Sub Total <span className="text-[9px] text-gray-400">(incl. tax)</span></span>
+                        <span className="text-gray-600">{t('hero.demo.right.subTotal')} <span className="text-[9px] text-gray-400">{t('hero.demo.right.inclTax')}</span></span>
                         <span className="text-gray-900">{formatAmount(subtotal)}</span>
                       </div>
                       {appliedDiscount && <div className="flex justify-between text-xs text-green-600">
                           <span className="flex items-center gap-1">
-                            <Tag className="w-3 h-3" /> Discount
+                            <Tag className="w-3 h-3" /> {t('hero.demo.right.discount')}
                             {appliedDiscount.type === 'Percentage' && <span className="text-[9px]">({appliedDiscount.value}%)</span>}
                           </span>
                           <span>-{formatAmount(discountAmount)}</span>
                         </div>}
                       <div className="flex justify-between text-xs">
-                        <span className="text-gray-500">VAT (5%) incl.</span>
+                        <span className="text-gray-500">{t('hero.demo.right.vatLabel')}</span>
                         <span className="text-gray-600">{formatAmount(vatAmount)}</span>
                       </div>
                       <div className="flex justify-between text-sm font-bold pt-2 border-t border-gray-200">
-                        <span className="text-gray-900">Total</span>
+                        <span className="text-gray-900">{t('hero.demo.right.total')}</span>
                         <span className="text-gray-900">{formatAmount(total)}</span>
                       </div>
                     </div>
@@ -1252,16 +1252,16 @@ const Hero: React.FC = () => {
                   {/* Billing Actions */}
                   <div className="space-y-2">
                     <TourButton id="settle" onClick={() => setActiveModal('settle')} className="w-full px-3 py-3 text-sm font-bold text-white bg-gray-900 rounded-xl hover:bg-gray-800 transition-colors">
-                      Settle Bill
+                      {t('hero.demo.right.settleBill')}
                     </TourButton>
                     <button onClick={() => setActiveModal('printBill')} className="w-full px-3 py-2.5 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
-                      <Printer className="w-4 h-4" /> Print Bill
+                      <Printer className="w-4 h-4" /> {t('hero.demo.right.printBill')}
                     </button>
                     <button onClick={() => setActiveModal('discount')} className="w-full px-3 py-2.5 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
-                      <Percent className="w-3.5 h-3.5" /> Apply Discount
+                      <Percent className="w-3.5 h-3.5" /> {t('hero.demo.right.applyDiscount')}
                     </button>
                     <button onClick={() => setActiveModal('settleNoPrint')} className="w-full px-3 py-2 text-xs font-medium text-gray-500 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors">
-                      Settle Bill (No Print)
+                      {t('hero.demo.right.settleNoPrint')}
                     </button>
                   </div>
                 </div>
