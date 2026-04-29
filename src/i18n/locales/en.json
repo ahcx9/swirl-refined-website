@@ -1,0 +1,68 @@
+{
+  "brand": {
+    "name": "swirl.cx"
+  },
+  "common": {
+    "getStartedFree": "Get Started Free",
+    "bookDemo": "Book a Demo",
+    "learnMore": "Learn more",
+    "viewAll": "View all",
+    "language": "Language",
+    "english": "English",
+    "arabic": "العربية"
+  },
+  "nav": {
+    "dine": "Dine",
+    "pos": "Point of Sale",
+    "works": "Works",
+    "hardware": "Hardware",
+    "useCases": "Use Cases",
+    "contact": "Contact",
+    "menu": "Menu"
+  },
+  "footer": {
+    "ctaTitle": "Ready to transform your restaurant?",
+    "ctaSubtitle": "Get started with Swirl — free setup, no commitment.",
+    "about": "A full-stack restaurant management platform — cloud POS, QR ordering, inventory, analytics, CRM & AI — unified for modern hospitality.",
+    "products": "Products",
+    "industries": "Industries",
+    "resources": "Resources",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "sitemap": "Sitemap",
+    "products_items": {
+      "pos": "Point of Sale",
+      "qr": "QR Ordering",
+      "kds": "Kitchen Display",
+      "inventory": "Inventory Management",
+      "reports": "Financial Reports",
+      "crm": "CRM & Loyalty",
+      "menu": "Digital Menu",
+      "delivery": "Delivery Integration",
+      "hardware": "Swirl Hardware"
+    },
+    "industries_items": {
+      "fine": "Fine Dining",
+      "casual": "Casual Dining",
+      "qsr": "Quick Service",
+      "cafes": "Cafés & Bakeries",
+      "cloud": "Cloud Kitchens",
+      "trucks": "Food Trucks",
+      "hotels": "Hotels & Resorts"
+    },
+    "resources_items": {
+      "support": "Support",
+      "contact": "Contact Us",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "sitemap": "Sitemap"
+    },
+    "country": {
+      "uae": "UAE",
+      "ksa": "Saudi Arabia",
+      "india": "India"
+    }
+  }
+}
