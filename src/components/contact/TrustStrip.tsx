@@ -1,14 +1,16 @@
 import React from 'react';
 import { Clock, UserCheck, BarChart3, Rocket } from 'lucide-react';
-
-const trustItems = [
-  { icon: Clock, text: 'Fast Response Within 24 Hours' },
-  { icon: UserCheck, text: 'Personalized Demo For Your Business' },
-  { icon: BarChart3, text: 'Consultation Based On Your Stage' },
-  { icon: Rocket, text: 'Support For New & Existing Businesses' },
-];
+import { useTranslation } from 'react-i18next';
 
 const TrustStrip = () => {
+  const { t } = useTranslation();
+  const trustItems = [
+    { icon: Clock, text: t('contact.trust.fast') },
+    { icon: UserCheck, text: t('contact.trust.personalized') },
+    { icon: BarChart3, text: t('contact.trust.consultation') },
+    { icon: Rocket, text: t('contact.trust.support') },
+  ];
+
   return (
     <section className="py-12 md:py-16 border-y border-border/30 bg-primary/[0.02]">
       <div className="container mx-auto px-4 max-w-6xl">
