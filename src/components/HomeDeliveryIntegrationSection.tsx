@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Zap, RefreshCw, Bell, Clock, Monitor, ArrowDown, FileBarChart, DollarSign, TrendingUp, Receipt } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import SwirlCTA from '@/components/SwirlCTA';
@@ -198,6 +199,7 @@ const MobileGridLayout = ({ isVisible }: { isVisible: boolean }) => (
 
 /* ─── Main Section ─── */
 const HomeDeliveryIntegrationSection = () => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { amounts } = useCurrency();
@@ -222,15 +224,15 @@ const HomeDeliveryIntegrationSection = () => {
         <div className={`text-center mb-8 md:mb-14 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="mb-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 backdrop-blur-sm">
             <Zap className="h-4 w-4 text-primary" />
-            <span className="text-primary font-semibold text-sm tracking-wide">Delivery Integration</span>
+            <span className="text-primary font-semibold text-sm tracking-wide">{t('home.delivery.badge')}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.25rem] font-bold mb-4 text-foreground leading-tight">
-            Every Delivery App
+            {t('home.delivery.title1')}
             <div className="h-1.5 md:h-3" />
-            <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">One POS</span>
+            <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">{t('home.delivery.title2')}</span>
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Every delivery order, routed into one central POS — no more tablet juggling.
+            {t('home.delivery.subtitle')}
           </p>
         </div>
 
@@ -244,7 +246,7 @@ const HomeDeliveryIntegrationSection = () => {
 
         {/* Tagline */}
         <p className={`text-center text-sm md:text-base font-medium text-muted-foreground mb-10 md:mb-14 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          One Hub. All Platforms Connected.
+          {t('home.delivery.tagline')}
         </p>
 
         {/* Reconciliation Reports Hero */}
@@ -252,10 +254,10 @@ const HomeDeliveryIntegrationSection = () => {
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 mb-4">
               <FileBarChart className="h-3.5 w-3.5 text-primary" />
-              <span className="text-primary font-semibold text-xs tracking-wide">Reconciliation Reports</span>
+              <span className="text-primary font-semibold text-xs tracking-wide">{t('home.delivery.reconBadge')}</span>
             </div>
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Know exactly what every platform <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">owes you</span>
+              {t('home.delivery.reconTitle1')} <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">{t('home.delivery.reconTitle2')}</span>
             </h3>
             <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
               Detailed commission breakdowns, payout tracking, and revenue reconciliation — per platform, per day.

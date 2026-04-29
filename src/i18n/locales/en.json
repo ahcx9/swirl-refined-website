@@ -36,6 +36,87 @@
     "liveDemoBadge": "It's a live demo — try clicking!",
     "guidedTour": "Guided Tour"
   },
+  "home": {
+    "problem": {
+      "badge": "The Reality Today",
+      "title1": "Too many tools.",
+      "title2": "No control.",
+      "subtitle": "Running a restaurant shouldn't feel this complicated."
+    },
+    "ecosystem": {
+      "badge": "Product Showroom",
+      "title": "Every tool you need.",
+      "subtitle1": "All in one place.",
+      "subtitle2": "Browse the Swirl ecosystem. Each module is designed for hospitality, built to work together."
+    },
+    "delivery": {
+      "badge": "Delivery Integration",
+      "title1": "Every Delivery App",
+      "title2": "One POS",
+      "subtitle": "Every delivery order, routed into one central POS — no more tablet juggling.",
+      "tagline": "One Hub. All Platforms Connected.",
+      "reconBadge": "Reconciliation Reports",
+      "reconTitle1": "Know exactly what every platform",
+      "reconTitle2": "owes you"
+    },
+    "zatca": {
+      "badge": "Saudi Arabia Compliant",
+      "title1": "ZATCA Phase 2",
+      "title2": "Ready",
+      "subtitle": "Full e-invoicing compliance for Saudi restaurants. Generate ZATCA-compliant invoices with QR codes automatically.",
+      "features": {
+        "qr": { "title": "Auto QR Generation", "desc": "QR codes generated on every invoice" },
+        "lang": { "title": "Arabic + English", "desc": "Bilingual invoice support" },
+        "vat": { "title": "VAT Calculation", "desc": "Automatic 15% VAT computation" },
+        "report": { "title": "Real-time Reporting", "desc": "Instant ZATCA submission" },
+        "stamp": { "title": "Digital Stamp", "desc": "Cryptographic validation" },
+        "audit": { "title": "Audit Ready", "desc": "Complete compliance logs" }
+      }
+    },
+    "dashboards": {
+      "badge": "Live Dashboards",
+      "title1": "See the transformation.",
+      "title2": "Live.",
+      "subtitle": "Every metric, every insight, every decision — all in real-time workspaces."
+    },
+    "useCasesPanel": {
+      "badge": "Every Business Type",
+      "title1": "Serving Every Corner",
+      "title2": "of Hospitality",
+      "subtitle": "From cozy cafés to luxury hotels — Swirl adapts to your unique workflow."
+    },
+    "command": {
+      "badge": "Command Center",
+      "title1": "Why restaurants choose",
+      "title2": "Swirl.",
+      "subtitle": "The old way is fragmented, expensive, and limiting. Swirl changes everything."
+    },
+    "qrJourney": {
+      "badge": "QR Ordering Flow",
+      "title1": "From scan to served",
+      "title2": "in minutes",
+      "subtitle": "Watch how a QR order flows seamlessly through your entire operation — zero friction, zero errors, maximum efficiency."
+    },
+    "futureAI": {
+      "badge": "AI-Powered Future",
+      "title1": "Built for today.",
+      "title2": "Ready for tomorrow.",
+      "subtitle": "Swirl isn't just software. It's an intelligent restaurant operating system that gets smarter every day."
+    },
+    "faq": {
+      "badge": "FAQ",
+      "title": "Questions, answered."
+    },
+    "finalCTA": {
+      "title1": "Ready to transform",
+      "title2": "your restaurant?",
+      "subtitle": "Join 500+ restaurants already running on Swirl. Get a personalized demo and see why operators are making the switch.",
+      "noCard": "No credit card required",
+      "freeSetup": "Free setup assistance",
+      "support247": "24/7 support",
+      "tagline": "Swirl — The operating system for modern restaurants"
+    }
+  },
   "footer": {
     "ctaTitle": "Ready to transform your restaurant?",
     "ctaSubtitle": "Get started with Swirl — free setup, no commitment.",

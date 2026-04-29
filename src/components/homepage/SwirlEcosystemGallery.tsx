@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { 
   CreditCard, 
   QrCode, 
@@ -26,6 +27,7 @@ import {
 import { useCurrency } from '@/hooks/useCurrency';
 
 const SwirlEcosystemGallery: React.FC = () => {
+  const { t } = useTranslation();
   const [hoveredModule, setHoveredModule] = useState<string | null>(null);
   const { formatAmount } = useCurrency();
 
@@ -343,16 +345,16 @@ const SwirlEcosystemGallery: React.FC = () => {
         <div className="text-center mb-12 animate-on-scroll">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full mb-5">
             <Zap className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Product Showroom</span>
+            <span className="text-sm font-medium text-primary">{t('home.ecosystem.badge')}</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3">
-            Every tool you need.
+            {t('home.ecosystem.title')}
           </h2>
           <p className="text-2xl md:text-3xl font-bold text-primary mb-4">
-            All in one place.
+            {t('home.ecosystem.subtitle1')}
           </p>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Browse the Swirl ecosystem. Each module is designed for hospitality, built to work together.
+            {t('home.ecosystem.subtitle2')}
           </p>
         </div>
 

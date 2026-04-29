@@ -1,5 +1,6 @@
 import React, { useState } from 'react'; // v2
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { 
   Coffee, 
   Utensils, 
@@ -96,6 +97,7 @@ const businessTypes = [
 ];
 
 const UseCasesControlPanel: React.FC = () => {
+  const { t } = useTranslation();
   const [activeType, setActiveType] = useState(businessTypes[0]);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -125,16 +127,16 @@ const UseCasesControlPanel: React.FC = () => {
         <div className="text-center mb-12 animate-on-scroll">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full mb-5">
             <Building2 className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Every Business Type</span>
+            <span className="text-sm font-medium text-primary">{t('home.useCasesPanel.badge')}</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3">
-            Serving Every Corner
+            {t('home.useCasesPanel.title1')}
           </h2>
           <p className="text-2xl md:text-3xl font-bold text-primary mb-4">
-            of Hospitality
+            {t('home.useCasesPanel.title2')}
           </p>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            From cozy cafés to luxury hotels — Swirl adapts to your unique workflow.
+            {t('home.useCasesPanel.subtitle')}
           </p>
         </div>
 

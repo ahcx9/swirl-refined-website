@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   Sparkles, 
   Brain, 
@@ -56,6 +57,7 @@ const aiFeatures = [
 ];
 
 const FutureSwirlAI: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50/30 relative overflow-hidden">
       {/* Animated background */}
@@ -74,15 +76,15 @@ const FutureSwirlAI: React.FC = () => {
         <div className="text-center mb-12 animate-on-scroll">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full mb-6">
             <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-            <span className="text-sm font-medium text-primary">AI-Powered Future</span>
+            <span className="text-sm font-medium text-primary">{t('home.futureAI.badge')}</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Built for today.
+            {t('home.futureAI.title1')}
             <br />
-            <span className="text-primary">Ready for tomorrow.</span>
+            <span className="text-primary">{t('home.futureAI.title2')}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Swirl isn't just software. It's an intelligent restaurant operating system that gets smarter every day.
+            {t('home.futureAI.subtitle')}
           </p>
         </div>
 

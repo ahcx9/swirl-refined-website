@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { 
   CreditCard, 
   MessageSquare, 
@@ -70,6 +71,7 @@ const problems = [
 ];
 
 const InterfaceProblemStory: React.FC = () => {
+  const { t } = useTranslation();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
@@ -89,14 +91,14 @@ const InterfaceProblemStory: React.FC = () => {
         <div className="text-center mb-14 md:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/20 rounded-full mb-6">
             <AlertTriangle className="w-4 h-4 text-red-400" />
-            <span className="text-sm font-medium text-red-400">The Reality Today</span>
+            <span className="text-sm font-medium text-red-400">{t('home.problem.badge')}</span>
           </div>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
-            Too many tools.{' '}
-            <span className="text-red-400">No control.</span>
+            {t('home.problem.title1')}{' '}
+            <span className="text-red-400">{t('home.problem.title2')}</span>
           </h2>
           <p className="text-lg text-white/50 max-w-2xl mx-auto">
-            Running a restaurant shouldn't feel this complicated.
+            {t('home.problem.subtitle')}
           </p>
         </div>
 
