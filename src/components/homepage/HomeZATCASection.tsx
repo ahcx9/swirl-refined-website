@@ -1,7 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Globe, CheckCircle, QrCode, Languages, Percent, FileCheck, BadgeCheck, Shield } from 'lucide-react';
 
 const HomeZATCASection = () => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 

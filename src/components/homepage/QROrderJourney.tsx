@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   QrCode, 
   Smartphone, 
@@ -13,6 +14,7 @@ import {
 } from 'lucide-react';
 
 const QROrderJourney: React.FC = () => {
+  const { t } = useTranslation();
   const [activeStep, setActiveStep] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -85,16 +87,15 @@ const QROrderJourney: React.FC = () => {
         <div className="text-center mb-12 animate-on-scroll">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full mb-5">
             <Zap className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">QR Ordering Flow</span>
+            <span className="text-sm font-medium text-primary">{t('home.qrJourney.badge')}</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            From scan to served
+            {t('home.qrJourney.title1')}
             <br />
-            <span className="text-primary">in minutes</span>
+            <span className="text-primary">{t('home.qrJourney.title2')}</span>
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Watch how a QR order flows seamlessly through your entire operation — 
-            zero friction, zero errors, maximum efficiency.
+            {t('home.qrJourney.subtitle')}
           </p>
         </div>
 

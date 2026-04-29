@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import SwirlCTA from '@/components/SwirlCTA';
 import { 
   ArrowRight, 
@@ -14,6 +15,7 @@ import {
 import { useCurrency } from '@/hooks/useCurrency';
 
 const FinalCTAProductEntry: React.FC = () => {
+  const { t } = useTranslation();
   const { formatAmount } = useCurrency();
 
   return (
@@ -101,13 +103,13 @@ const FinalCTAProductEntry: React.FC = () => {
 
               {/* Headline */}
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                Ready to transform
+                {t('home.finalCTA.title1')}
                 <br />
-                <span className="text-primary">your restaurant?</span>
+                <span className="text-primary">{t('home.finalCTA.title2')}</span>
               </h2>
 
               <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-                Join 500+ restaurants already running on Swirl. Get a personalized demo and see why operators are making the switch.
+                {t('home.finalCTA.subtitle')}
               </p>
 
               {/* CTA Buttons */}
@@ -119,15 +121,15 @@ const FinalCTAProductEntry: React.FC = () => {
               <div className="flex flex-wrap justify-center gap-5 text-sm text-muted-foreground">
                 <span className="flex items-center gap-1.5">
                   <CheckCircle className="w-4 h-4 text-green-500" />
-                  No credit card required
+                  {t('home.finalCTA.noCard')}
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle className="w-4 h-4 text-green-500" />
-                  Free setup assistance
+                  {t('home.finalCTA.freeSetup')}
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle className="w-4 h-4 text-green-500" />
-                  24/7 support
+                  {t('home.finalCTA.support247')}
                 </span>
               </div>
             </div>
@@ -135,7 +137,7 @@ const FinalCTAProductEntry: React.FC = () => {
 
           {/* Bottom tagline */}
           <p className="text-center text-muted-foreground mt-6 text-sm animate-on-scroll">
-            Swirl — The operating system for modern restaurants
+            {t('home.finalCTA.tagline')}
           </p>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   Zap, 
   Shield, 
@@ -78,6 +79,7 @@ const getDashboards = (amounts: { dailyVariance: string; todaysDashRevenue: stri
 ];
 
 const OperationalDashboards: React.FC = () => {
+  const { t } = useTranslation();
   const { amounts } = useCurrency();
   const dashboards = getDashboards(amounts);
   const [activeDashboard, setActiveDashboard] = useState(0);
@@ -140,15 +142,15 @@ const OperationalDashboards: React.FC = () => {
         <div className="text-center mb-12 animate-on-scroll">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full mb-6">
             <BarChart3 className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Live Dashboards</span>
+            <span className="text-sm font-medium text-primary">{t('home.dashboards.badge')}</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            See the transformation.
+            {t('home.dashboards.title1')}
             <br />
-            <span className="text-primary">Live.</span>
+            <span className="text-primary">{t('home.dashboards.title2')}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Every metric, every insight, every decision — all in real-time workspaces.
+            {t('home.dashboards.subtitle')}
           </p>
         </div>
 

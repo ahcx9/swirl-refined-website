@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   Layers, 
   Globe, 
@@ -51,6 +52,7 @@ const differentiators = [
 ];
 
 const WhySwirlCommandCenter: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-blue-50/50 to-white relative overflow-hidden">
       {/* Grid background */}
@@ -69,16 +71,16 @@ const WhySwirlCommandCenter: React.FC = () => {
         <div className="text-center mb-10 animate-on-scroll">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full mb-5">
             <Shield className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Command Center</span>
+            <span className="text-sm font-medium text-primary">{t('home.command.badge')}</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3">
-            Why restaurants choose
+            {t('home.command.title1')}
           </h2>
           <p className="text-2xl md:text-3xl font-bold text-primary mb-4">
-            Swirl.
+            {t('home.command.title2')}
           </p>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            The old way is fragmented, expensive, and limiting. Swirl changes everything.
+            {t('home.command.subtitle')}
           </p>
         </div>
 
