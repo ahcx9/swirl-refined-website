@@ -226,7 +226,20 @@ const Hero: React.FC = () => {
     formatAmount,
     currency
   } = useCurrency();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isAr = i18n.language === 'ar';
+  const tItem = (n: string) => t(`hero.demo.items.${n}`, { defaultValue: n });
+  const tCat = (n: string) => t(`hero.demo.categories.${n}`, { defaultValue: n });
+  const tNote = (n: string) => t(`hero.demo.itemNotes.${n}`, { defaultValue: n });
+  const tMethod = (n: string) => t(`hero.demo.settleModal.methods.${n}`, { defaultValue: n });
+  const tDisc = (n: string) => t(`hero.demo.discountModal.discounts.${n}`, { defaultValue: n });
+  const tTableName = (n: string) => {
+    const m = n.match(/Table\s*#?(\d+)/i);
+    if (!m) return n;
+    return isAr ? `${t('hero.demo.tableModal.tableLabel')} #${m[1]}` : n;
+  };
+  const tFloor = (n: string) => n === '1st Floor' ? t('hero.demo.tableModal.floor1') : n === '2nd Floor' ? t('hero.demo.tableModal.floor2') : n;
+  const tStatus = (s: string) => s === 'OCCUPIED' ? t('hero.demo.status.occupied') : s === 'AVAILABLE' ? t('hero.demo.status.available') : s;
 
   // Order state
   const [orderItems, setOrderItems] = useState<OrderItem[]>([{
@@ -303,36 +316,36 @@ const Hero: React.FC = () => {
   // ============ WALKTHROUGH ============
   const WALKTHROUGH_STEPS = [{
     target: 'addItems',
-    label: 'Add Items',
-    desc: 'Add menu items to the order with one click.'
+    label: t('hero.demo.tour.addItems.label'),
+    desc: t('hero.demo.tour.addItems.desc')
   }, {
     target: 'changeQty',
-    label: 'Change Quantities',
-    desc: 'Adjust quantities — totals update in real time.'
+    label: t('hero.demo.tour.changeQty.label'),
+    desc: t('hero.demo.tour.changeQty.desc')
   }, {
     target: 'kot',
-    label: 'Print KOT',
-    desc: 'Send the order to the kitchen instantly.'
+    label: t('hero.demo.tour.kot.label'),
+    desc: t('hero.demo.tour.kot.desc')
   }, {
     target: 'changeTable',
-    label: 'Change Table',
-    desc: 'Reassign the order to a different table.'
+    label: t('hero.demo.tour.changeTable.label'),
+    desc: t('hero.demo.tour.changeTable.desc')
   }, {
     target: 'splitTable',
-    label: 'Split Table',
-    desc: 'Move selected items into a new order.'
+    label: t('hero.demo.tour.splitTable.label'),
+    desc: t('hero.demo.tour.splitTable.desc')
   }, {
     target: 'moveOrder',
-    label: 'Move Order',
-    desc: 'Convert this dine-in order to takeaway.'
+    label: t('hero.demo.tour.moveOrder.label'),
+    desc: t('hero.demo.tour.moveOrder.desc')
   }, {
     target: 'mergeTable',
-    label: 'Merge Tables',
-    desc: 'Combine multiple table orders into one.'
+    label: t('hero.demo.tour.mergeTable.label'),
+    desc: t('hero.demo.tour.mergeTable.desc')
   }, {
     target: 'settle',
-    label: 'Settle Bill',
-    desc: 'Complete the payment — Cash, Card, or Split.'
+    label: t('hero.demo.tour.settle.label'),
+    desc: t('hero.demo.tour.settle.desc')
   }];
   const [tourActive, setTourActive] = useState(false);
   const [tourStep, setTourStep] = useState(0);
@@ -387,7 +400,7 @@ const Hero: React.FC = () => {
         </button>
         {isHighlighted && stepInfo && <div className="absolute -top-16 left-1/2 -translate-x-1/2 z-30 w-52 pointer-events-none animate-fade-in">
             <div className="bg-gray-900 text-white rounded-xl px-3 py-2 text-center shadow-xl pointer-events-auto">
-              <p className="text-[10px] text-primary font-bold mb-0.5">Step {stepIndex + 1}/{WALKTHROUGH_STEPS.length}</p>
+              <p className="text-[10px] text-primary font-bold mb-0.5">{t('hero.demo.step')} {stepIndex + 1}/{WALKTHROUGH_STEPS.length}</p>
               <p className="text-xs font-medium leading-tight">{stepInfo.desc}</p>
             </div>
             <div className="w-2.5 h-2.5 bg-gray-900 rotate-45 mx-auto -mt-1.5" />
@@ -487,7 +500,7 @@ const Hero: React.FC = () => {
         return <ModalOverlay onClose={closeModal} wide>
             <div className="p-5 md:p-6">
               <div className="flex items-center justify-between mb-5">
-                <h3 className="text-lg font-bold text-gray-900">Add Items to Order</h3>
+                <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.addModal.title')}</h3>
                 <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full transition-colors">
                   <X className="w-5 h-5 text-gray-500" />
                 </button>
@@ -496,14 +509,14 @@ const Hero: React.FC = () => {
               {/* Search */}
               <div className="relative mb-5">
                 <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                <input className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-gray-50 focus:bg-white focus:border-primary/30 focus:outline-none transition-colors" placeholder="Search items across all categories..." readOnly />
+                <input className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-gray-50 focus:bg-white focus:border-primary/30 focus:outline-none transition-colors" placeholder={t('hero.demo.addModal.search')} readOnly />
               </div>
 
               {/* Categories + Items */}
               <div className="flex gap-5">
                 <div className="w-32 flex-shrink-0 space-y-1">
                   {MENU_CATEGORIES.map((cat, idx) => <button key={cat.name} onClick={() => setMenuCategory(idx)} className={`w-full text-left px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${idx === menuCategory ? 'bg-primary/10 text-primary border-l-3 border-primary' : 'text-gray-600 hover:bg-gray-50'}`}>
-                      {cat.name}
+                      {tCat(cat.name)}
                     </button>)}
                 </div>
 
@@ -512,8 +525,8 @@ const Hero: React.FC = () => {
                   {stagingItem ? <div className="border-2 border-primary/20 rounded-xl p-4 bg-primary/5 animate-fade-in">
                       <div className="flex items-start justify-between mb-4">
                         <div>
-                          <p className="font-bold text-gray-900">{stagingItem.name}</p>
-                          <p className="text-sm text-gray-500">{formatAmount(stagingItem.price)} each</p>
+                          <p className="font-bold text-gray-900">{tItem(stagingItem.name)}</p>
+                          <p className="text-sm text-gray-500">{formatAmount(stagingItem.price)} {t('hero.demo.addModal.each')}</p>
                         </div>
                         <button onClick={() => setStagingItem(null)} className="p-1 hover:bg-white rounded-full">
                           <X className="w-4 h-4 text-gray-400" />
@@ -522,7 +535,7 @@ const Hero: React.FC = () => {
 
                       {/* Quantity */}
                       <div className="mb-4">
-                        <label className="text-xs font-medium text-gray-600 mb-1.5 block">Quantity</label>
+                        <label className="text-xs font-medium text-gray-600 mb-1.5 block">{t('hero.demo.addModal.quantity')}</label>
                         <div className="flex items-center gap-3">
                           <button onClick={() => setStagingQty(Math.max(1, stagingQty - 1))} className="w-9 h-9 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50">
                             <Minus className="w-3.5 h-3.5" />
@@ -538,13 +551,13 @@ const Hero: React.FC = () => {
                       {/* Notes */}
                       <div className="mb-4">
                         <label className="text-xs font-medium text-gray-600 mb-1.5 flex items-center gap-1">
-                          <StickyNote className="w-3 h-3" /> Special Instructions (optional)
+                          <StickyNote className="w-3 h-3" /> {t('hero.demo.addModal.specialInstructions')}
                         </label>
-                        <input className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:border-primary/30 focus:outline-none" placeholder="e.g. no sugar, extra hot, almond milk..." value={stagingNote} onChange={(e) => setStagingNote(e.target.value)} />
+                        <input className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:border-primary/30 focus:outline-none" placeholder={t('hero.demo.addModal.notesPh')} value={stagingNote} onChange={(e) => setStagingNote(e.target.value)} />
                       </div>
 
                       <button onClick={confirmAddItem} className="w-full py-2.5 bg-gray-900 text-white text-sm font-semibold rounded-xl hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
-                        <Plus className="w-4 h-4" /> Add to Order
+                        <Plus className="w-4 h-4" /> {t('hero.demo.addModal.addToOrder')}
                       </button>
                     </div> : <div className="grid grid-cols-2 gap-3 max-h-72 overflow-auto pr-1">
                       {MENU_CATEGORIES[menuCategory].items.map((item) => <button key={item.name} onClick={() => {
@@ -552,7 +565,7 @@ const Hero: React.FC = () => {
                     setStagingQty(1);
                     setStagingNote('');
                   }} className="border border-gray-200 rounded-xl p-3.5 hover:border-primary/30 hover:shadow-sm transition-all text-left group">
-                          <p className="font-medium text-sm text-gray-900 mb-1 group-hover:text-primary transition-colors">{item.name}</p>
+                          <p className="font-medium text-sm text-gray-900 mb-1 group-hover:text-primary transition-colors">{tItem(item.name)}</p>
                           <p className="font-bold text-sm text-gray-700">{formatAmount(item.price)}</p>
                         </button>)}
                     </div>}
@@ -566,14 +579,14 @@ const Hero: React.FC = () => {
         return <ModalOverlay onClose={closeModal}>
             <div className="p-5">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-bold text-gray-900">Edit Order Items</h3>
+                <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.qtyModal.title')}</h3>
                 <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
               </div>
               <div className="space-y-2.5 mb-4">
                 {orderItems.map((item) => <div key={item.id} className="border border-gray-200 rounded-xl p-3 flex items-center justify-between gap-2">
                     <div className="min-w-0">
-                      <p className="font-medium text-sm text-gray-900 truncate">{item.name}</p>
-                      <p className="text-xs text-gray-500">{formatAmount(item.price)} each</p>
+                      <p className="font-medium text-sm text-gray-900 truncate">{tItem(item.name)}</p>
+                      <p className="text-xs text-gray-500">{formatAmount(item.price)} {t('hero.demo.qtyModal.each')}</p>
                     </div>
                     <div className="flex items-center gap-1.5 flex-shrink-0">
                       <button onClick={() => updateQty(item.id, -1)} className="w-7 h-7 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50"><Minus className="w-3 h-3" /></button>
@@ -585,12 +598,12 @@ const Hero: React.FC = () => {
                   </div>)}
               </div>
               <div className="flex items-center justify-between pt-3 border-t border-gray-200">
-                <p className="font-bold text-gray-900">Total</p>
+                <p className="font-bold text-gray-900">{t('hero.demo.qtyModal.total')}</p>
                 <p className="text-lg font-bold text-gray-900">{formatAmount(subtotal)}</p>
               </div>
               <div className="flex gap-3 mt-4">
-                <button onClick={closeModal} className="flex-1 py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">Cancel</button>
-                <button onClick={closeModal} className="flex-1 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-gray-800 transition-colors">Save Changes</button>
+                <button onClick={closeModal} className="flex-1 py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">{t('hero.demo.qtyModal.cancel')}</button>
+                <button onClick={closeModal} className="flex-1 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-gray-800 transition-colors">{t('hero.demo.qtyModal.save')}</button>
               </div>
             </div>
           </ModalOverlay>;
@@ -604,23 +617,23 @@ const Hero: React.FC = () => {
             <div className="p-5 bg-gray-100 font-mono text-sm">
               <div className="bg-white p-5 rounded-xl shadow-inner border border-gray-300">
                 <div className="text-center mb-3">
-                  <p className="font-bold text-base">KOT - Kitchen Order</p>
-                  <p className="text-gray-600 text-xs">Swirl Cafe</p>
-                  <p className="text-gray-500 text-xs">Order #100840 · {currentTable}</p>
+                  <p className="font-bold text-base">{t('hero.demo.kotModal.title')}</p>
+                  <p className="text-gray-600 text-xs">{t('hero.demo.kotModal.cafe')}</p>
+                  <p className="text-gray-500 text-xs">{t('hero.demo.kotModal.orderTable')} {tTableName(currentTable)}</p>
                   {newItems.length > 0 && !kotSent && <span className="inline-block mt-1 text-[10px] bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-sans font-medium">
-                      New Items Only
+                      {t('hero.demo.kotModal.newItemsOnly')}
                     </span>}
                 </div>
                 <div className="border-t border-dashed border-gray-400 my-3" />
                 {kotItems.map((item) => <div key={item.id} className="mb-1.5">
-                    <p className="font-bold">{item.name} x{item.qty}</p>
-                    {item.note && <p className="text-gray-500 italic text-xs ml-2">Note: {item.note}</p>}
+                    <p className="font-bold">{tItem(item.name)} x{item.qty}</p>
+                    {item.note && <p className="text-gray-500 italic text-xs ml-2">{t('hero.demo.kotModal.noteLabel')} {tNote(item.note)}</p>}
                   </div>)}
                 <div className="border-t border-dashed border-gray-400 my-3" />
                 {!kotSent ? <button onClick={handlePrintKOT} className="w-full py-2.5 bg-green-600 text-white rounded-xl font-bold text-sm hover:bg-green-700 flex items-center justify-center gap-2 transition-colors">
-                    <ChefHat className="w-4 h-4" /> Send to Kitchen
+                    <ChefHat className="w-4 h-4" /> {t('hero.demo.kotModal.send')}
                   </button> : <div className="text-center text-green-600 font-bold flex items-center justify-center gap-2 py-2 font-sans">
-                    <Check className="w-5 h-5" /> Sent to Kitchen!
+                    <Check className="w-5 h-5" /> {t('hero.demo.kotModal.sent')}
                   </div>}
               </div>
             </div>
@@ -634,25 +647,25 @@ const Hero: React.FC = () => {
               <div className="bg-white p-5 rounded-xl shadow-inner border border-gray-300">
                 <div className="text-center mb-3">
                   <p className="font-black text-xl italic">swirl</p>
-                  <p className="font-bold text-sm mt-2">Swirl Cafe</p>
-                  <p className="text-gray-500 text-xs">VAT: VAT123456789</p>
-                  <p className="text-gray-500 text-xs">Feb 10, 2026, 3:55 PM</p>
-                  <p className="text-gray-500 text-xs">Invoice #100840</p>
-                  <p className="text-gray-500 text-xs">Server: shamim</p>
-                  <p className="font-bold text-sm mt-1">{currentTable}</p>
+                  <p className="font-bold text-sm mt-2">{t('hero.demo.billModal.cafe')}</p>
+                  <p className="text-gray-500 text-xs">{t('hero.demo.billModal.vat')}</p>
+                  <p className="text-gray-500 text-xs">{t('hero.demo.billModal.datetime')}</p>
+                  <p className="text-gray-500 text-xs">{t('hero.demo.billModal.invoice')}</p>
+                  <p className="text-gray-500 text-xs">{t('hero.demo.billModal.server')}</p>
+                  <p className="font-bold text-sm mt-1">{tTableName(currentTable)}</p>
                 </div>
                 <div className="border-t-2 border-dashed border-gray-400 my-3" />
 
                 {/* Items table */}
                 <div className="mb-3">
                   <div className="grid grid-cols-12 text-xs font-bold mb-1 border-b border-dashed border-gray-300 pb-1">
-                    <span className="col-span-5">Item</span>
-                    <span className="col-span-2 text-center">Qty.</span>
-                    <span className="col-span-2 text-right">Price</span>
-                    <span className="col-span-3 text-right">Amount</span>
+                    <span className="col-span-5">{t('hero.demo.billModal.item')}</span>
+                    <span className="col-span-2 text-center">{t('hero.demo.billModal.qty')}</span>
+                    <span className="col-span-2 text-right">{t('hero.demo.billModal.price')}</span>
+                    <span className="col-span-3 text-right">{t('hero.demo.billModal.amount')}</span>
                   </div>
                   {orderItems.map((item) => <div key={item.id} className="grid grid-cols-12 text-xs py-0.5">
-                      <span className="col-span-5">{item.name}</span>
+                      <span className="col-span-5">{tItem(item.name)}</span>
                       <span className="col-span-2 text-center">{item.qty}</span>
                       <span className="col-span-2 text-right">{formatAmount(item.price)}</span>
                       <span className="col-span-3 text-right">{formatAmount(item.price * item.qty)}</span>
@@ -664,15 +677,15 @@ const Hero: React.FC = () => {
                 {/* Totals */}
                 <div className="space-y-1 text-xs">
                   <div className="flex justify-between">
-                    <span>Subtotal (Subtotal)</span>
+                    <span>{t('hero.demo.billModal.subtotal')}</span>
                     <span className="font-bold">{formatAmount(subtotal)}</span>
                   </div>
                   {discountAmount > 0 && <div className="flex justify-between text-green-600">
-                      <span>Discount</span>
+                      <span>{t('hero.demo.billModal.discount')}</span>
                       <span>-{formatAmount(discountAmount)}</span>
                     </div>}
                   <div className="flex justify-between font-bold text-sm pt-1">
-                    <span>Total (Total)</span>
+                    <span>{t('hero.demo.billModal.total')}</span>
                     <span>{formatAmount(total)}</span>
                   </div>
                 </div>
@@ -681,35 +694,35 @@ const Hero: React.FC = () => {
 
                 {/* Tax Breakdown */}
                 <div className="text-center mb-2">
-                  <p className="font-bold text-xs">Tax Breakdown</p>
+                  <p className="font-bold text-xs">{t('hero.demo.billModal.taxBreakdown')}</p>
                 </div>
                 <div className="text-xs space-y-0.5">
                   <div className="flex justify-between">
-                    <span>VAT 5%</span>
+                    <span>{t('hero.demo.billModal.vat5')}</span>
                     <span>{formatAmount(vatAmount)}</span>
                   </div>
                   <div className="flex justify-between font-bold">
-                    <span>Total Tax</span>
+                    <span>{t('hero.demo.billModal.totalTax')}</span>
                     <span>{formatAmount(vatAmount)}</span>
                   </div>
                 </div>
-                <p className="text-[10px] text-gray-400 italic text-center mt-1">Net Amount: {formatAmount(netAmount)}</p>
+                <p className="text-[10px] text-gray-400 italic text-center mt-1">{t('hero.demo.billModal.netAmount')} {formatAmount(netAmount)}</p>
 
                 <div className="border-t border-dashed border-gray-400 my-3" />
 
                 <div className="text-center text-xs text-gray-600">
-                  <p>Printed by: shamim</p>
-                  <p>Printed at: Feb 10, 2026, 6:43 PM</p>
+                  <p>{t('hero.demo.billModal.printedBy')}</p>
+                  <p>{t('hero.demo.billModal.printedAt')}</p>
                 </div>
 
                 <div className="my-3 flex justify-center">
                   <span className={`px-6 py-1.5 rounded-full border-2 text-sm font-bold ${paymentStatus === 'PAID' ? 'border-green-500 text-green-600' : 'border-amber-500 text-amber-600'}`}>
-                    {paymentStatus}
+                    {paymentStatus === 'PAID' ? t('hero.demo.status.paid') : t('hero.demo.status.unpaid')}
                   </span>
                 </div>
 
-                <p className="text-center text-xs text-gray-500 mb-1">Have a lovely day!</p>
-                <p className="text-center text-xs text-gray-400">built with ♥ by swirl.cx</p>
+                <p className="text-center text-xs text-gray-500 mb-1">{t('hero.demo.billModal.thanks')}</p>
+                <p className="text-center text-xs text-gray-400">{t('hero.demo.billModal.builtBy')}</p>
               </div>
             </div>
           </ModalOverlay>;
@@ -725,70 +738,70 @@ const Hero: React.FC = () => {
           return <ModalOverlay onClose={closeModal} wide>
             <div className="p-5 md:p-6">
               <div className="flex items-center justify-between mb-5">
-                <h3 className="text-lg font-bold text-gray-900">Apply Discount</h3>
+                <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.discountModal.title')}</h3>
                 <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
               </div>
 
               {/* Tabs */}
               <div className="flex gap-2 mb-5">
                 <button onClick={() => setDiscountTab('predefined')} className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${discountTab === 'predefined' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
-                  Pre-Defined Discount
+                  {t('hero.demo.discountModal.predefined')}
                 </button>
                 <button onClick={() => setDiscountTab('spot')} className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${discountTab === 'spot' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
-                  Spot Discount
+                  {t('hero.demo.discountModal.spot')}
                 </button>
               </div>
 
               {discountTab === 'predefined' ? <>
-                  <p className="text-sm text-gray-500 mb-4">Choose from the pre-defined discounts below or apply a spot discount</p>
+                  <p className="text-sm text-gray-500 mb-4">{t('hero.demo.discountModal.intro')}</p>
                   <div className="grid grid-cols-2 gap-3 mb-4">
                     {PREDEFINED_DISCOUNTS.map((disc) => {
                     const discAmt = netAmount * disc.percent / 100;
                     return <button key={disc.name} onClick={() => applyPredefinedDiscount(disc)} className="p-4 border border-gray-200 rounded-xl text-left hover:border-primary/30 hover:shadow-sm transition-all">
-                          <p className="font-bold text-sm text-gray-900">{disc.name}</p>
-                          {disc.description && <p className="text-xs text-gray-400 mt-0.5">{disc.description}</p>}
+                          <p className="font-bold text-sm text-gray-900">{tDisc(disc.name)}</p>
+                          {disc.description && <p className="text-xs text-gray-400 mt-0.5">{tDisc(disc.description)}</p>}
                           <p className="text-sm font-medium text-gray-700 mt-1.5">
-                            {disc.percent}% off{' '}
-                            <span className="text-primary">({formatAmount(discAmt)} off {formatAmount(netAmount)})</span>
+                            {disc.percent}% {t('hero.demo.discountModal.off')}{' '}
+                            <span className="text-primary">({formatAmount(discAmt)} {t('hero.demo.discountModal.off')} {formatAmount(netAmount)})</span>
                           </p>
                         </button>;
                   })}
                   </div>
                   <div className="flex justify-end">
-                    <button onClick={closeModal} className="px-5 py-2 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">Cancel</button>
+                    <button onClick={closeModal} className="px-5 py-2 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">{t('hero.demo.discountModal.cancel')}</button>
                   </div>
                 </> : <div className="border border-gray-200 rounded-xl p-5">
                   <div className="mb-4">
-                    <label className="text-sm font-medium text-gray-700 mb-1.5 block">Discount Type</label>
+                    <label className="text-sm font-medium text-gray-700 mb-1.5 block">{t('hero.demo.discountModal.type')}</label>
                     <select value={discountType} onChange={(e) => setDiscountType(e.target.value as any)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-primary/30 focus:outline-none bg-white">
-                      <option>Percentage</option>
-                      <option>Fixed Amount</option>
+                      <option value="Percentage">{t('hero.demo.discountModal.percentage')}</option>
+                      <option value="Fixed Amount">{t('hero.demo.discountModal.fixed')}</option>
                     </select>
                   </div>
 
                   <div className="mb-4">
                     <label className="text-sm font-medium text-gray-700 mb-1.5 block">
-                      {discountType === 'Percentage' ? 'Percentage (%)' : `Amount (${currency.code})`}
+                      {discountType === 'Percentage' ? `${t('hero.demo.discountModal.percentage')} (%)` : `${t('hero.demo.discountModal.amount')} (${currency.code})`}
                     </label>
                     <input type="number" value={discountValue} onChange={(e) => setDiscountValue(e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-primary/30 focus:outline-none" placeholder={discountType === 'Percentage' ? '20' : '50'} />
                   </div>
 
                   <div className="mb-4">
-                    <label className="text-sm font-medium text-gray-700 mb-1.5 block">Reason</label>
-                    <input value={discountReason} onChange={(e) => setDiscountReason(e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-primary/30 focus:outline-none" placeholder="e.g. friends, family, loyalty" />
+                    <label className="text-sm font-medium text-gray-700 mb-1.5 block">{t('hero.demo.discountModal.reason')}</label>
+                    <input value={discountReason} onChange={(e) => setDiscountReason(e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-primary/30 focus:outline-none" placeholder={t('hero.demo.discountModal.reasonPh')} />
                   </div>
 
                   <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-4">
-                    <p className="font-semibold text-sm text-gray-900">Apply to Total</p>
-                    <p className="text-xs text-gray-600 mt-0.5">Since prices are tax-inclusive, the discount will be applied to the total amount. This ensures accurate calculations and avoids variances.</p>
+                    <p className="font-semibold text-sm text-gray-900">{t('hero.demo.discountModal.applyToTotal')}</p>
+                    <p className="text-xs text-gray-600 mt-0.5">{t('hero.demo.discountModal.applyToTotalDesc')}</p>
                   </div>
 
-                  {spotDiscountCalc > 0 && <p className="text-sm text-primary mb-4">Discount amount: {formatAmount(spotDiscountCalc)}</p>}
+                  {spotDiscountCalc > 0 && <p className="text-sm text-primary mb-4">{t('hero.demo.discountModal.discountAmount')} {formatAmount(spotDiscountCalc)}</p>}
 
                   <div className="flex gap-3">
-                    <button onClick={closeModal} className="px-5 py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">Cancel</button>
+                    <button onClick={closeModal} className="px-5 py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">{t('hero.demo.discountModal.cancel')}</button>
                     <button onClick={applySpotDiscount} className="flex-1 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center gap-2" disabled={!discountValue || parseFloat(discountValue) <= 0}>
-                      <Tag className="w-4 h-4" /> Apply Discount
+                      <Tag className="w-4 h-4" /> {t('hero.demo.discountModal.apply')}
                     </button>
                   </div>
                 </div>}
@@ -801,7 +814,7 @@ const Hero: React.FC = () => {
         return <ModalOverlay onClose={closeModal}>
             <div className="p-5">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-bold text-gray-900">Change Table</h3>
+                <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.tableModal.title')}</h3>
                 <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
               </div>
               <div className="grid grid-cols-3 gap-2.5 max-h-72 overflow-auto">
@@ -809,11 +822,11 @@ const Hero: React.FC = () => {
                 setCurrentTable(table.name);
                 closeModal();
               }} className={`p-3 border rounded-xl text-left transition-all hover:shadow-md ${table.name === currentTable ? 'border-2 border-gray-900 shadow-md' : 'border-gray-200'}`}>
-                    <p className="font-bold text-sm text-gray-900">{table.name}</p>
-                    <p className="text-xs text-gray-500">Seats: {table.capacity}</p>
-                    <p className="text-xs text-gray-500">{table.location}</p>
+                    <p className="font-bold text-sm text-gray-900">{tTableName(table.name)}</p>
+                    <p className="text-xs text-gray-500">{t('hero.demo.tableModal.seats')} {table.capacity}</p>
+                    <p className="text-xs text-gray-500">{tFloor(table.location)}</p>
                     <span className={`inline-block mt-1 text-[10px] font-medium px-2 py-0.5 rounded-full ${table.status === 'OCCUPIED' ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}`}>
-                      {table.status}
+                      {tStatus(table.status)}
                     </span>
                   </button>)}
               </div>
@@ -825,10 +838,10 @@ const Hero: React.FC = () => {
         return <ModalOverlay onClose={closeModal}>
             <div className="p-5">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-lg font-bold text-gray-900">Split Table</h3>
+                <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.splitModal.title')}</h3>
                 <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
               </div>
-              <p className="text-sm text-gray-600 mb-4">Select items to move to a new order:</p>
+              <p className="text-sm text-gray-600 mb-4">{t('hero.demo.splitModal.intro')}</p>
               <div className="space-y-2 mb-4">
                 {orderItems.map((item) => <button key={item.id} onClick={() => setSplitItems((prev) => {
                 const n = new Set(prev);
@@ -836,7 +849,7 @@ const Hero: React.FC = () => {
                 return n;
               })} className={`w-full p-3 border rounded-xl text-left flex items-center justify-between transition-colors ${splitItems.has(item.id) ? 'border-primary bg-primary/5' : 'border-gray-200'}`}>
                     <div>
-                      <p className="font-medium text-sm">{item.name}</p>
+                      <p className="font-medium text-sm">{tItem(item.name)}</p>
                       <p className="text-xs text-gray-500">{item.qty} × {formatAmount(item.price)}</p>
                     </div>
                     <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${splitItems.has(item.id) ? 'border-primary bg-primary' : 'border-gray-300'}`}>
@@ -845,14 +858,14 @@ const Hero: React.FC = () => {
                   </button>)}
               </div>
               <div className="flex gap-3">
-                <button onClick={closeModal} className="flex-1 py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50">Cancel</button>
+                <button onClick={closeModal} className="flex-1 py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50">{t('hero.demo.splitModal.cancel')}</button>
                 <button onClick={() => {
                 if (splitItems.size > 0) {
                   setOrderItems((prev) => prev.filter((i) => !splitItems.has(i.id)));
                   closeModal();
                 }
               }} className="flex-1 py-2.5 bg-primary text-white rounded-xl text-sm font-semibold hover:bg-primary/90 disabled:opacity-50" disabled={splitItems.size === 0}>
-                  Split {splitItems.size} item{splitItems.size !== 1 ? 's' : ''}
+                  {t('hero.demo.splitModal.splitBtn')} {splitItems.size} {splitItems.size !== 1 ? t('hero.demo.splitModal.items') : t('hero.demo.splitModal.item')}
                 </button>
               </div>
             </div>
@@ -863,30 +876,30 @@ const Hero: React.FC = () => {
         return <ModalOverlay onClose={closeModal}>
             <div className="p-5">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-lg font-bold text-gray-900">Move Order</h3>
+                <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.moveModal.title')}</h3>
                 <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
               </div>
-              <p className="text-sm text-gray-600 mb-4">Move this order from <strong>Dine-In ({currentTable})</strong> to a different fulfillment method.</p>
+              <p className="text-sm text-gray-600 mb-4">{t('hero.demo.moveModal.intro1')} <strong>{t('hero.demo.moveModal.dineIn')} ({tTableName(currentTable)})</strong> {t('hero.demo.moveModal.intro2')}</p>
               <div className="space-y-3 mb-4">
                 <div className="p-3 border border-gray-200 rounded-xl bg-gray-50">
-                  <p className="text-xs text-gray-500 mb-1">Current Order Type</p>
-                  <p className="font-bold text-sm">🍽 Dine-In - {currentTable}</p>
+                  <p className="text-xs text-gray-500 mb-1">{t('hero.demo.moveModal.currentType')}</p>
+                  <p className="font-bold text-sm">🍽 {t('hero.demo.moveModal.dineIn')} - {tTableName(currentTable)}</p>
                 </div>
                 <button onClick={() => setFulfillment('Takeaway')} className={`w-full p-3 border rounded-xl text-left transition-colors ${fulfillment === 'Takeaway' ? 'border-primary bg-primary/5' : 'border-gray-200 hover:bg-gray-50'}`}>
-                  <p className="font-bold text-sm">📦 Takeaway</p>
-                  <p className="text-xs text-gray-500">Customer picks up the order</p>
+                  <p className="font-bold text-sm">📦 {t('hero.demo.moveModal.takeaway')}</p>
+                  <p className="text-xs text-gray-500">{t('hero.demo.moveModal.takeawayDesc')}</p>
                 </button>
                 {fulfillment === 'Takeaway' && <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-700">
-                    <strong>Note:</strong> Moving to Takeaway will remove the table assignment.
+                    <strong>{t('hero.demo.moveModal.noteLabel')}</strong> {t('hero.demo.moveModal.noteText')}
                   </div>}
               </div>
               <div className="flex gap-3">
-                <button onClick={closeModal} className="flex-1 py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50">Cancel</button>
+                <button onClick={closeModal} className="flex-1 py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50">{t('hero.demo.moveModal.cancel')}</button>
                 <button onClick={() => {
                 setFulfillment('Takeaway');
                 closeModal();
               }} className="flex-1 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-gray-800">
-                  Move to Takeaway
+                  {t('hero.demo.moveModal.moveBtn')}
                 </button>
               </div>
             </div>
@@ -897,20 +910,20 @@ const Hero: React.FC = () => {
         return <ModalOverlay onClose={closeModal}>
             <div className="p-5">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-lg font-bold text-gray-900">Merge Tables</h3>
+                <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.mergeModal.title')}</h3>
                 <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
               </div>
-              <p className="text-sm text-gray-600 mb-4">Merge another order into Order #100840 ({currentTable}).</p>
+              <p className="text-sm text-gray-600 mb-4">{t('hero.demo.mergeModal.intro')} ({tTableName(currentTable)}).</p>
               <div className="p-3 bg-primary/5 border border-primary/20 rounded-xl mb-4">
                 <div className="flex items-center gap-2">
                   <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center"><Check className="w-3.5 h-3.5 text-white" /></div>
                   <div>
-                    <p className="font-bold text-sm">Target: Order #100840</p>
-                    <p className="text-xs text-primary">{currentTable}</p>
+                    <p className="font-bold text-sm">{t('hero.demo.mergeModal.target')}</p>
+                    <p className="text-xs text-primary">{tTableName(currentTable)}</p>
                   </div>
                 </div>
               </div>
-              <p className="text-xs font-medium text-gray-500 mb-2">Available Orders</p>
+              <p className="text-xs font-medium text-gray-500 mb-2">{t('hero.demo.mergeModal.available')}</p>
               <div className="grid grid-cols-2 gap-2.5 mb-4">
                 {MERGE_ORDERS.map((order) => <button key={order.order} onClick={() => {
                 setOrderItems((prev) => [...prev, {
@@ -921,15 +934,15 @@ const Hero: React.FC = () => {
                 }]);
                 closeModal();
               }} className="p-3 border border-gray-200 rounded-xl text-left hover:border-primary/30 hover:shadow-md transition-all">
-                    <p className="font-bold text-sm">{order.table}</p>
-                    <p className="text-xs text-gray-500">Order {order.order}</p>
+                    <p className="font-bold text-sm">{tTableName(order.table)}</p>
+                    <p className="text-xs text-gray-500">{t('hero.demo.mergeModal.order')} {order.order}</p>
                     <div className="flex items-center gap-2 mt-1.5">
-                      <span className="text-xs bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded">{order.items} items</span>
+                      <span className="text-xs bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded">{order.items} {t('hero.demo.mergeModal.items')}</span>
                       <span className="text-sm font-bold">{formatAmount(order.amount)}</span>
                     </div>
                   </button>)}
               </div>
-              <button onClick={closeModal} className="w-full py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">Cancel</button>
+              <button onClick={closeModal} className="w-full py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">{t('hero.demo.mergeModal.cancel')}</button>
             </div>
           </ModalOverlay>;
 
@@ -939,29 +952,29 @@ const Hero: React.FC = () => {
             <div className="p-5">
               {!paymentSuccess ? <>
                   <div className="flex items-center justify-between mb-5">
-                    <h3 className="text-lg font-bold text-gray-900">Select Payment Method</h3>
+                    <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.settleModal.title')}</h3>
                     <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
                   </div>
                   <div className="space-y-2.5 mb-4">
                     {PAYMENT_METHODS.map((m) => <button key={m.name} onClick={() => handleSettleBill(m.name)} className={`w-full p-4 border rounded-xl text-left flex items-center gap-3 transition-all hover:shadow-sm ${m.highlight ? 'border-primary/30 bg-primary/5' : 'border-gray-200 hover:border-gray-300'}`}>
                         {m.highlight && <m.icon className="w-5 h-5 text-primary flex-shrink-0" />}
                         <div>
-                          <p className="font-bold text-sm text-gray-900">{m.name}</p>
-                          {m.type && <p className="text-xs text-gray-400">{m.type}</p>}
+                          <p className="font-bold text-sm text-gray-900">{tMethod(m.name)}</p>
+                          {m.type && <p className="text-xs text-gray-400">{tMethod(m.type)}</p>}
                         </div>
                       </button>)}
                   </div>
                   <div className="bg-gray-50 rounded-xl p-4 text-center">
-                    <p className="text-xs text-gray-500">Amount Due</p>
+                    <p className="text-xs text-gray-500">{t('hero.demo.settleModal.amountDue')}</p>
                     <p className="text-2xl font-bold text-gray-900">{formatAmount(total)}</p>
                   </div>
                 </> : <div className="text-center py-8">
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Check className="w-8 h-8 text-green-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">Payment Successful!</h3>
-                  <p className="text-sm text-gray-500 mb-4">{formatAmount(total)} received</p>
-                  <button onClick={closeModal} className="px-6 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-gray-800 transition-colors">Done</button>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('hero.demo.settleModal.success')}</h3>
+                  <p className="text-sm text-gray-500 mb-4">{formatAmount(total)} {t('hero.demo.settleModal.received')}</p>
+                  <button onClick={closeModal} className="px-6 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-gray-800 transition-colors">{t('hero.demo.settleModal.done')}</button>
                 </div>}
             </div>
           </ModalOverlay>;
@@ -972,26 +985,26 @@ const Hero: React.FC = () => {
             <div className="p-5">
               {!paymentSuccess ? <>
                   <div className="flex items-center justify-between mb-5">
-                    <h3 className="text-lg font-bold text-gray-900">Settle Bill (No Print)</h3>
+                    <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.settleModal.noPrintTitle')}</h3>
                     <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
                   </div>
                   <div className="bg-gray-50 rounded-xl p-4 text-center mb-4">
-                    <p className="text-xs text-gray-500">Amount Due</p>
+                    <p className="text-xs text-gray-500">{t('hero.demo.settleModal.amountDue')}</p>
                     <p className="text-2xl font-bold text-gray-900">{formatAmount(total)}</p>
                   </div>
-                  <p className="text-sm text-gray-600 mb-4 text-center">Select a payment method to settle without printing a receipt.</p>
+                  <p className="text-sm text-gray-600 mb-4 text-center">{t('hero.demo.settleModal.noPrintIntro')}</p>
                   <div className="grid grid-cols-3 gap-3 mb-4">
                     {[{
                   icon: Banknote,
-                  label: 'Cash',
+                  label: t('hero.demo.settleModal.cash'),
                   color: 'bg-green-600'
                 }, {
                   icon: CreditCard,
-                  label: 'Card',
+                  label: t('hero.demo.settleModal.card'),
                   color: 'bg-primary'
                 }, {
                   icon: Wallet,
-                  label: 'Wallet',
+                  label: t('hero.demo.settleModal.wallet'),
                   color: 'bg-gray-700'
                 }].map((m) => <button key={m.label} onClick={() => handleSettleBill(m.label)} className={`${m.color} text-white rounded-xl p-3.5 flex flex-col items-center gap-1.5 hover:opacity-90 transition-opacity`}>
                         <m.icon className="w-5 h-5" />
@@ -1002,9 +1015,9 @@ const Hero: React.FC = () => {
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Check className="w-8 h-8 text-green-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">Payment Settled!</h3>
-                  <p className="text-sm text-gray-500 mb-1">{formatAmount(total)} received · No receipt printed</p>
-                  <button onClick={closeModal} className="mt-4 px-6 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-gray-800 transition-colors">Done</button>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('hero.demo.settleModal.settled')}</h3>
+                  <p className="text-sm text-gray-500 mb-1">{formatAmount(total)} {t('hero.demo.settleModal.noReceipt')}</p>
+                  <button onClick={closeModal} className="mt-4 px-6 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-gray-800 transition-colors">{t('hero.demo.settleModal.done')}</button>
                 </div>}
             </div>
           </ModalOverlay>;
@@ -1086,10 +1099,10 @@ const Hero: React.FC = () => {
                   <Play className="w-3.5 h-3.5" /> {t('hero.guidedTour')}
                 </button> : <div className="flex items-center gap-2">
                   <span className="text-xs font-medium text-primary bg-primary/5 px-3 py-1.5 rounded-full border border-primary/10">
-                    Step {tourStep + 1}/{WALKTHROUGH_STEPS.length}
+                    {t('hero.demo.step')} {tourStep + 1}/{WALKTHROUGH_STEPS.length}
                   </span>
-                  <button onClick={nextTourStep} className="flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-medium hover:bg-primary/20"><SkipForward className="w-3 h-3" /> Next</button>
-                  <button onClick={stopTour} className="flex items-center gap-1 px-3 py-1.5 text-muted-foreground hover:text-foreground rounded-full text-xs font-medium"><XCircle className="w-3.5 h-3.5" /> End</button>
+                  <button onClick={nextTourStep} className="flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-medium hover:bg-primary/20"><SkipForward className="w-3 h-3" /> {t('hero.demo.next')}</button>
+                  <button onClick={stopTour} className="flex items-center gap-1 px-3 py-1.5 text-muted-foreground hover:text-foreground rounded-full text-xs font-medium"><XCircle className="w-3.5 h-3.5" /> {t('hero.demo.end')}</button>
                 </div>}
             </div>
 
@@ -1101,19 +1114,19 @@ const Hero: React.FC = () => {
               {/* Top Header */}
               <div className="bg-white border-b border-gray-100 px-4 md:px-5 py-3 flex flex-wrap items-center justify-between gap-2">
                 <div>
-                  <h2 className="text-base md:text-lg font-bold text-gray-900">Order #100840</h2>
-                  <p className="text-[10px] text-gray-500">Feb 10, 2026, 3:55 PM · Created by <strong>shamim</strong></p>
+                  <h2 className="text-base md:text-lg font-bold text-gray-900">{t('hero.demo.header.orderNo')}</h2>
+                  <p className="text-[10px] text-gray-500">{t('hero.demo.header.createdBy')} <strong>{t('hero.demo.header.shamim')}</strong></p>
                 </div>
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className={`text-xs px-2.5 py-1 rounded-full font-semibold ${paymentStatus === 'PAID' ? 'bg-green-100 text-green-700 border border-green-200' : 'bg-amber-100 text-amber-700 border border-amber-200'}`}>
-                    {paymentStatus}
+                    {paymentStatus === 'PAID' ? t('hero.demo.status.paid') : t('hero.demo.status.unpaid')}
                   </span>
                   <span className="text-xs px-2.5 py-1 bg-gray-50 border border-gray-200 rounded-full text-gray-700 flex items-center gap-1">
-                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full" /> shamim
+                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full" /> {t('hero.demo.header.shamim')}
                   </span>
-                  <span className="text-xs px-2.5 py-1 bg-gray-50 border border-gray-200 rounded-full text-gray-700">{currentTable}</span>
+                  <span className="text-xs px-2.5 py-1 bg-gray-50 border border-gray-200 rounded-full text-gray-700">{tTableName(currentTable)}</span>
                   <span className="text-xs px-2.5 py-1 bg-gray-50 border border-gray-200 rounded-full text-gray-700">
-                    {fulfillment === 'Dine In' ? '🍽' : '📦'} {fulfillment}
+                    {fulfillment === 'Dine In' ? '🍽' : '📦'} {fulfillment === 'Dine In' ? t('hero.demo.header.dineIn') : t('hero.demo.header.takeaway')}
                   </span>
                 </div>
               </div>
@@ -1123,9 +1136,9 @@ const Hero: React.FC = () => {
                 {/* LEFT: Order Items */}
                 <div className="p-4 md:p-5 border-b md:border-b-0 md:border-r border-gray-100">
                   <div className="flex items-center gap-2 mb-3">
-                    <h3 className="font-bold text-gray-900 text-sm">Order Items</h3>
+                    <h3 className="font-bold text-gray-900 text-sm">{t('hero.demo.left.orderItems')}</h3>
                     <span className={`px-2 py-0.5 text-[10px] font-medium rounded ${orderStatus === 'IN_PROGRESS' ? 'bg-yellow-100 text-yellow-700' : 'bg-green-100 text-green-700'}`}>
-                      {orderStatus === 'IN_PROGRESS' ? 'IN PROGRESS' : 'CONFIRMED'}
+                      {orderStatus === 'IN_PROGRESS' ? t('hero.demo.status.inProgress') : t('hero.demo.status.confirmed')}
                     </span>
                   </div>
 
@@ -1134,9 +1147,9 @@ const Hero: React.FC = () => {
                     {orderItems.map((item) => <div key={item.id} className="p-2.5 bg-white border border-gray-100 rounded-xl hover:border-gray-200 transition-colors">
                         <div className="flex items-center justify-between">
                           <div className="min-w-0">
-                            <p className="font-medium text-gray-900 text-sm truncate">{item.name}</p>
+                            <p className="font-medium text-gray-900 text-sm truncate">{tItem(item.name)}</p>
                             <p className="text-[10px] text-gray-500">{item.qty} × {formatAmount(item.price)}</p>
-                            {item.note && <p className="text-[10px] text-orange-500 italic mt-0.5">Note: {item.note}</p>}
+                            {item.note && <p className="text-[10px] text-orange-500 italic mt-0.5">{t('hero.demo.left.note')}: {tNote(item.note)}</p>}
                           </div>
                           <p className="font-bold text-gray-900 text-sm flex-shrink-0 ml-2">{formatAmount(item.price * item.qty)}</p>
                         </div>
@@ -1147,34 +1160,34 @@ const Hero: React.FC = () => {
                   <div className="space-y-2 my-0 mx-0 px-0 py-0">
                     <div className="grid grid-cols-2 gap-2">
                       <button onClick={() => setOrderStatus(orderStatus === 'IN_PROGRESS' ? 'CONFIRMED' : 'IN_PROGRESS')} className="px-3 py-2.5 text-xs font-medium text-orange-600 border border-orange-200 rounded-xl hover:bg-orange-50 transition-colors">
-                        Change Status
+                        {t('hero.demo.left.changeStatus')}
                       </button>
                       <TourButton id="addItems" onClick={() => setActiveModal('addItems')} className="px-3 py-2.5 text-xs font-medium text-primary border border-primary/20 rounded-xl hover:bg-primary/5 transition-colors flex items-center justify-center gap-1">
-                        <Plus className="w-3 h-3" /> Add Items
+                        <Plus className="w-3 h-3" /> {t('hero.demo.left.addItems')}
                       </TourButton>
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <TourButton id="changeQty" onClick={() => setActiveModal('changeQty')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors">
-                        Edit Quantities
+                        {t('hero.demo.left.editQty')}
                       </TourButton>
                       <TourButton id="kot" onClick={() => setActiveModal('kot')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1">
-                        <ChefHat className="w-3 h-3" /> Print KOT
+                        <ChefHat className="w-3 h-3" /> {t('hero.demo.left.printKOT')}
                       </TourButton>
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <TourButton id="changeTable" onClick={() => setActiveModal('changeTable')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors">
-                        Change Table
+                        {t('hero.demo.left.changeTable')}
                       </TourButton>
                       <TourButton id="splitTable" onClick={() => setActiveModal('splitTable')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1">
-                        <SplitSquareVertical className="w-3 h-3" /> Split
+                        <SplitSquareVertical className="w-3 h-3" /> {t('hero.demo.left.split')}
                       </TourButton>
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <TourButton id="moveOrder" onClick={() => setActiveModal('moveOrder')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1">
-                        <ArrowLeftRight className="w-3 h-3" /> Move Order
+                        <ArrowLeftRight className="w-3 h-3" /> {t('hero.demo.left.moveOrder')}
                       </TourButton>
                       <TourButton id="mergeTable" onClick={() => setActiveModal('mergeTable')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1">
-                        <Merge className="w-3 h-3" /> Merge
+                        <Merge className="w-3 h-3" /> {t('hero.demo.left.merge')}
                       </TourButton>
                     </div>
                   </div>
@@ -1183,29 +1196,29 @@ const Hero: React.FC = () => {
                 {/* RIGHT: Billing */}
                 <div className="p-4 md:p-5 bg-gray-50/50">
                   <div className="flex items-center gap-2 mb-3">
-                    <h3 className="font-bold text-gray-900 text-sm">Billing</h3>
+                    <h3 className="font-bold text-gray-900 text-sm">{t('hero.demo.right.billing')}</h3>
                     <span className={`px-2 py-0.5 text-[10px] font-medium rounded ${paymentStatus === 'PAID' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}`}>
-                      {paymentStatus}
+                      {paymentStatus === 'PAID' ? t('hero.demo.status.paid') : t('hero.demo.status.unpaid')}
                     </span>
                   </div>
 
                   {/* Invoice */}
                   <div className="bg-white rounded-xl border border-gray-100 p-4 mb-4">
                     <div className="text-center mb-3 pb-3 border-b border-gray-100">
-                      <h4 className="font-bold text-gray-900 text-sm">Swirl Cafe</h4>
-                      <p className="text-[9px] text-gray-400">VAT: VAT123456789</p>
-                      <p className="text-[10px] text-gray-500">Feb 10, 2026 · Order #100840 · {currentTable}</p>
+                      <h4 className="font-bold text-gray-900 text-sm">{t('hero.demo.right.cafe')}</h4>
+                      <p className="text-[9px] text-gray-400">{t('hero.demo.right.vat')}</p>
+                      <p className="text-[10px] text-gray-500">{t('hero.demo.right.invoiceMeta')} · {tTableName(currentTable)}</p>
                     </div>
 
                     {/* Line items */}
                     <div className="space-y-0.5 mb-3">
                       <div className="grid grid-cols-12 text-[10px] font-medium text-gray-500 pb-1 border-b border-gray-100">
-                        <span className="col-span-5">Item</span>
-                        <span className="col-span-3 text-center">Qty</span>
-                        <span className="col-span-4 text-right">Amount</span>
+                        <span className="col-span-5">{t('hero.demo.right.item')}</span>
+                        <span className="col-span-3 text-center">{t('hero.demo.right.qty')}</span>
+                        <span className="col-span-4 text-right">{t('hero.demo.right.amount')}</span>
                       </div>
                       {orderItems.map((item) => <div key={item.id} className="grid grid-cols-12 text-xs text-gray-700 py-0.5">
-                          <span className="col-span-5 truncate">{item.name}</span>
+                          <span className="col-span-5 truncate">{tItem(item.name)}</span>
                           <span className="col-span-3 text-center">{item.qty}</span>
                           <span className="col-span-4 text-right font-medium">{formatAmount(item.price * item.qty)}</span>
                         </div>)}
@@ -1213,24 +1226,24 @@ const Hero: React.FC = () => {
 
                     {/* Totals */}
                     <div className="border-t border-gray-100 pt-2 space-y-1">
-                      <p className="text-[10px] text-gray-400 italic">Prices include tax</p>
+                      <p className="text-[10px] text-gray-400 italic">{t('hero.demo.right.pricesIncludeTax')}</p>
                       <div className="flex justify-between text-xs">
-                        <span className="text-gray-600">Sub Total <span className="text-[9px] text-gray-400">(incl. tax)</span></span>
+                        <span className="text-gray-600">{t('hero.demo.right.subTotal')} <span className="text-[9px] text-gray-400">{t('hero.demo.right.inclTax')}</span></span>
                         <span className="text-gray-900">{formatAmount(subtotal)}</span>
                       </div>
                       {appliedDiscount && <div className="flex justify-between text-xs text-green-600">
                           <span className="flex items-center gap-1">
-                            <Tag className="w-3 h-3" /> Discount
+                            <Tag className="w-3 h-3" /> {t('hero.demo.right.discount')}
                             {appliedDiscount.type === 'Percentage' && <span className="text-[9px]">({appliedDiscount.value}%)</span>}
                           </span>
                           <span>-{formatAmount(discountAmount)}</span>
                         </div>}
                       <div className="flex justify-between text-xs">
-                        <span className="text-gray-500">VAT (5%) incl.</span>
+                        <span className="text-gray-500">{t('hero.demo.right.vatLabel')}</span>
                         <span className="text-gray-600">{formatAmount(vatAmount)}</span>
                       </div>
                       <div className="flex justify-between text-sm font-bold pt-2 border-t border-gray-200">
-                        <span className="text-gray-900">Total</span>
+                        <span className="text-gray-900">{t('hero.demo.right.total')}</span>
                         <span className="text-gray-900">{formatAmount(total)}</span>
                       </div>
                     </div>
@@ -1239,16 +1252,16 @@ const Hero: React.FC = () => {
                   {/* Billing Actions */}
                   <div className="space-y-2">
                     <TourButton id="settle" onClick={() => setActiveModal('settle')} className="w-full px-3 py-3 text-sm font-bold text-white bg-gray-900 rounded-xl hover:bg-gray-800 transition-colors">
-                      Settle Bill
+                      {t('hero.demo.right.settleBill')}
                     </TourButton>
                     <button onClick={() => setActiveModal('printBill')} className="w-full px-3 py-2.5 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
-                      <Printer className="w-4 h-4" /> Print Bill
+                      <Printer className="w-4 h-4" /> {t('hero.demo.right.printBill')}
                     </button>
                     <button onClick={() => setActiveModal('discount')} className="w-full px-3 py-2.5 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
-                      <Percent className="w-3.5 h-3.5" /> Apply Discount
+                      <Percent className="w-3.5 h-3.5" /> {t('hero.demo.right.applyDiscount')}
                     </button>
                     <button onClick={() => setActiveModal('settleNoPrint')} className="w-full px-3 py-2 text-xs font-medium text-gray-500 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors">
-                      Settle Bill (No Print)
+                      {t('hero.demo.right.settleNoPrint')}
                     </button>
                   </div>
                 </div>
