@@ -952,29 +952,29 @@ const Hero: React.FC = () => {
             <div className="p-5">
               {!paymentSuccess ? <>
                   <div className="flex items-center justify-between mb-5">
-                    <h3 className="text-lg font-bold text-gray-900">Select Payment Method</h3>
+                    <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.settleModal.title')}</h3>
                     <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
                   </div>
                   <div className="space-y-2.5 mb-4">
                     {PAYMENT_METHODS.map((m) => <button key={m.name} onClick={() => handleSettleBill(m.name)} className={`w-full p-4 border rounded-xl text-left flex items-center gap-3 transition-all hover:shadow-sm ${m.highlight ? 'border-primary/30 bg-primary/5' : 'border-gray-200 hover:border-gray-300'}`}>
                         {m.highlight && <m.icon className="w-5 h-5 text-primary flex-shrink-0" />}
                         <div>
-                          <p className="font-bold text-sm text-gray-900">{m.name}</p>
-                          {m.type && <p className="text-xs text-gray-400">{m.type}</p>}
+                          <p className="font-bold text-sm text-gray-900">{tMethod(m.name)}</p>
+                          {m.type && <p className="text-xs text-gray-400">{tMethod(m.type)}</p>}
                         </div>
                       </button>)}
                   </div>
                   <div className="bg-gray-50 rounded-xl p-4 text-center">
-                    <p className="text-xs text-gray-500">Amount Due</p>
+                    <p className="text-xs text-gray-500">{t('hero.demo.settleModal.amountDue')}</p>
                     <p className="text-2xl font-bold text-gray-900">{formatAmount(total)}</p>
                   </div>
                 </> : <div className="text-center py-8">
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Check className="w-8 h-8 text-green-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">Payment Successful!</h3>
-                  <p className="text-sm text-gray-500 mb-4">{formatAmount(total)} received</p>
-                  <button onClick={closeModal} className="px-6 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-gray-800 transition-colors">Done</button>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('hero.demo.settleModal.success')}</h3>
+                  <p className="text-sm text-gray-500 mb-4">{formatAmount(total)} {t('hero.demo.settleModal.received')}</p>
+                  <button onClick={closeModal} className="px-6 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-gray-800 transition-colors">{t('hero.demo.settleModal.done')}</button>
                 </div>}
             </div>
           </ModalOverlay>;
@@ -985,26 +985,26 @@ const Hero: React.FC = () => {
             <div className="p-5">
               {!paymentSuccess ? <>
                   <div className="flex items-center justify-between mb-5">
-                    <h3 className="text-lg font-bold text-gray-900">Settle Bill (No Print)</h3>
+                    <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.settleModal.noPrintTitle')}</h3>
                     <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
                   </div>
                   <div className="bg-gray-50 rounded-xl p-4 text-center mb-4">
-                    <p className="text-xs text-gray-500">Amount Due</p>
+                    <p className="text-xs text-gray-500">{t('hero.demo.settleModal.amountDue')}</p>
                     <p className="text-2xl font-bold text-gray-900">{formatAmount(total)}</p>
                   </div>
-                  <p className="text-sm text-gray-600 mb-4 text-center">Select a payment method to settle without printing a receipt.</p>
+                  <p className="text-sm text-gray-600 mb-4 text-center">{t('hero.demo.settleModal.noPrintIntro')}</p>
                   <div className="grid grid-cols-3 gap-3 mb-4">
                     {[{
                   icon: Banknote,
-                  label: 'Cash',
+                  label: t('hero.demo.settleModal.cash'),
                   color: 'bg-green-600'
                 }, {
                   icon: CreditCard,
-                  label: 'Card',
+                  label: t('hero.demo.settleModal.card'),
                   color: 'bg-primary'
                 }, {
                   icon: Wallet,
-                  label: 'Wallet',
+                  label: t('hero.demo.settleModal.wallet'),
                   color: 'bg-gray-700'
                 }].map((m) => <button key={m.label} onClick={() => handleSettleBill(m.label)} className={`${m.color} text-white rounded-xl p-3.5 flex flex-col items-center gap-1.5 hover:opacity-90 transition-opacity`}>
                         <m.icon className="w-5 h-5" />
@@ -1015,9 +1015,9 @@ const Hero: React.FC = () => {
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Check className="w-8 h-8 text-green-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">Payment Settled!</h3>
-                  <p className="text-sm text-gray-500 mb-1">{formatAmount(total)} received · No receipt printed</p>
-                  <button onClick={closeModal} className="mt-4 px-6 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-gray-800 transition-colors">Done</button>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('hero.demo.settleModal.settled')}</h3>
+                  <p className="text-sm text-gray-500 mb-1">{formatAmount(total)} {t('hero.demo.settleModal.noReceipt')}</p>
+                  <button onClick={closeModal} className="mt-4 px-6 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-gray-800 transition-colors">{t('hero.demo.settleModal.done')}</button>
                 </div>}
             </div>
           </ModalOverlay>;
