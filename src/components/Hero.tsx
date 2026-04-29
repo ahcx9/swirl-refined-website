@@ -617,23 +617,23 @@ const Hero: React.FC = () => {
             <div className="p-5 bg-gray-100 font-mono text-sm">
               <div className="bg-white p-5 rounded-xl shadow-inner border border-gray-300">
                 <div className="text-center mb-3">
-                  <p className="font-bold text-base">KOT - Kitchen Order</p>
-                  <p className="text-gray-600 text-xs">Swirl Cafe</p>
-                  <p className="text-gray-500 text-xs">Order #100840 · {currentTable}</p>
+                  <p className="font-bold text-base">{t('hero.demo.kotModal.title')}</p>
+                  <p className="text-gray-600 text-xs">{t('hero.demo.kotModal.cafe')}</p>
+                  <p className="text-gray-500 text-xs">{t('hero.demo.kotModal.orderTable')} {tTableName(currentTable)}</p>
                   {newItems.length > 0 && !kotSent && <span className="inline-block mt-1 text-[10px] bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-sans font-medium">
-                      New Items Only
+                      {t('hero.demo.kotModal.newItemsOnly')}
                     </span>}
                 </div>
                 <div className="border-t border-dashed border-gray-400 my-3" />
                 {kotItems.map((item) => <div key={item.id} className="mb-1.5">
-                    <p className="font-bold">{item.name} x{item.qty}</p>
-                    {item.note && <p className="text-gray-500 italic text-xs ml-2">Note: {item.note}</p>}
+                    <p className="font-bold">{tItem(item.name)} x{item.qty}</p>
+                    {item.note && <p className="text-gray-500 italic text-xs ml-2">{t('hero.demo.kotModal.noteLabel')} {tNote(item.note)}</p>}
                   </div>)}
                 <div className="border-t border-dashed border-gray-400 my-3" />
                 {!kotSent ? <button onClick={handlePrintKOT} className="w-full py-2.5 bg-green-600 text-white rounded-xl font-bold text-sm hover:bg-green-700 flex items-center justify-center gap-2 transition-colors">
-                    <ChefHat className="w-4 h-4" /> Send to Kitchen
+                    <ChefHat className="w-4 h-4" /> {t('hero.demo.kotModal.send')}
                   </button> : <div className="text-center text-green-600 font-bold flex items-center justify-center gap-2 py-2 font-sans">
-                    <Check className="w-5 h-5" /> Sent to Kitchen!
+                    <Check className="w-5 h-5" /> {t('hero.demo.kotModal.sent')}
                   </div>}
               </div>
             </div>
