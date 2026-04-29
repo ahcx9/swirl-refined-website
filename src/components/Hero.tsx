@@ -500,7 +500,7 @@ const Hero: React.FC = () => {
         return <ModalOverlay onClose={closeModal} wide>
             <div className="p-5 md:p-6">
               <div className="flex items-center justify-between mb-5">
-                <h3 className="text-lg font-bold text-gray-900">Add Items to Order</h3>
+                <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.addModal.title')}</h3>
                 <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full transition-colors">
                   <X className="w-5 h-5 text-gray-500" />
                 </button>
@@ -509,7 +509,7 @@ const Hero: React.FC = () => {
               {/* Search */}
               <div className="relative mb-5">
                 <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                <input className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-gray-50 focus:bg-white focus:border-primary/30 focus:outline-none transition-colors" placeholder="Search items across all categories..." readOnly />
+                <input className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-gray-50 focus:bg-white focus:border-primary/30 focus:outline-none transition-colors" placeholder={t('hero.demo.addModal.search')} readOnly />
               </div>
 
               {/* Categories + Items */}
