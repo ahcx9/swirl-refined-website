@@ -647,25 +647,25 @@ const Hero: React.FC = () => {
               <div className="bg-white p-5 rounded-xl shadow-inner border border-gray-300">
                 <div className="text-center mb-3">
                   <p className="font-black text-xl italic">swirl</p>
-                  <p className="font-bold text-sm mt-2">Swirl Cafe</p>
-                  <p className="text-gray-500 text-xs">VAT: VAT123456789</p>
-                  <p className="text-gray-500 text-xs">Feb 10, 2026, 3:55 PM</p>
-                  <p className="text-gray-500 text-xs">Invoice #100840</p>
-                  <p className="text-gray-500 text-xs">Server: shamim</p>
-                  <p className="font-bold text-sm mt-1">{currentTable}</p>
+                  <p className="font-bold text-sm mt-2">{t('hero.demo.billModal.cafe')}</p>
+                  <p className="text-gray-500 text-xs">{t('hero.demo.billModal.vat')}</p>
+                  <p className="text-gray-500 text-xs">{t('hero.demo.billModal.datetime')}</p>
+                  <p className="text-gray-500 text-xs">{t('hero.demo.billModal.invoice')}</p>
+                  <p className="text-gray-500 text-xs">{t('hero.demo.billModal.server')}</p>
+                  <p className="font-bold text-sm mt-1">{tTableName(currentTable)}</p>
                 </div>
                 <div className="border-t-2 border-dashed border-gray-400 my-3" />
 
                 {/* Items table */}
                 <div className="mb-3">
                   <div className="grid grid-cols-12 text-xs font-bold mb-1 border-b border-dashed border-gray-300 pb-1">
-                    <span className="col-span-5">Item</span>
-                    <span className="col-span-2 text-center">Qty.</span>
-                    <span className="col-span-2 text-right">Price</span>
-                    <span className="col-span-3 text-right">Amount</span>
+                    <span className="col-span-5">{t('hero.demo.billModal.item')}</span>
+                    <span className="col-span-2 text-center">{t('hero.demo.billModal.qty')}</span>
+                    <span className="col-span-2 text-right">{t('hero.demo.billModal.price')}</span>
+                    <span className="col-span-3 text-right">{t('hero.demo.billModal.amount')}</span>
                   </div>
                   {orderItems.map((item) => <div key={item.id} className="grid grid-cols-12 text-xs py-0.5">
-                      <span className="col-span-5">{item.name}</span>
+                      <span className="col-span-5">{tItem(item.name)}</span>
                       <span className="col-span-2 text-center">{item.qty}</span>
                       <span className="col-span-2 text-right">{formatAmount(item.price)}</span>
                       <span className="col-span-3 text-right">{formatAmount(item.price * item.qty)}</span>
@@ -677,15 +677,15 @@ const Hero: React.FC = () => {
                 {/* Totals */}
                 <div className="space-y-1 text-xs">
                   <div className="flex justify-between">
-                    <span>Subtotal (Subtotal)</span>
+                    <span>{t('hero.demo.billModal.subtotal')}</span>
                     <span className="font-bold">{formatAmount(subtotal)}</span>
                   </div>
                   {discountAmount > 0 && <div className="flex justify-between text-green-600">
-                      <span>Discount</span>
+                      <span>{t('hero.demo.billModal.discount')}</span>
                       <span>-{formatAmount(discountAmount)}</span>
                     </div>}
                   <div className="flex justify-between font-bold text-sm pt-1">
-                    <span>Total (Total)</span>
+                    <span>{t('hero.demo.billModal.total')}</span>
                     <span>{formatAmount(total)}</span>
                   </div>
                 </div>
@@ -694,35 +694,35 @@ const Hero: React.FC = () => {
 
                 {/* Tax Breakdown */}
                 <div className="text-center mb-2">
-                  <p className="font-bold text-xs">Tax Breakdown</p>
+                  <p className="font-bold text-xs">{t('hero.demo.billModal.taxBreakdown')}</p>
                 </div>
                 <div className="text-xs space-y-0.5">
                   <div className="flex justify-between">
-                    <span>VAT 5%</span>
+                    <span>{t('hero.demo.billModal.vat5')}</span>
                     <span>{formatAmount(vatAmount)}</span>
                   </div>
                   <div className="flex justify-between font-bold">
-                    <span>Total Tax</span>
+                    <span>{t('hero.demo.billModal.totalTax')}</span>
                     <span>{formatAmount(vatAmount)}</span>
                   </div>
                 </div>
-                <p className="text-[10px] text-gray-400 italic text-center mt-1">Net Amount: {formatAmount(netAmount)}</p>
+                <p className="text-[10px] text-gray-400 italic text-center mt-1">{t('hero.demo.billModal.netAmount')} {formatAmount(netAmount)}</p>
 
                 <div className="border-t border-dashed border-gray-400 my-3" />
 
                 <div className="text-center text-xs text-gray-600">
-                  <p>Printed by: shamim</p>
-                  <p>Printed at: Feb 10, 2026, 6:43 PM</p>
+                  <p>{t('hero.demo.billModal.printedBy')}</p>
+                  <p>{t('hero.demo.billModal.printedAt')}</p>
                 </div>
 
                 <div className="my-3 flex justify-center">
                   <span className={`px-6 py-1.5 rounded-full border-2 text-sm font-bold ${paymentStatus === 'PAID' ? 'border-green-500 text-green-600' : 'border-amber-500 text-amber-600'}`}>
-                    {paymentStatus}
+                    {paymentStatus === 'PAID' ? t('hero.demo.status.paid') : t('hero.demo.status.unpaid')}
                   </span>
                 </div>
 
-                <p className="text-center text-xs text-gray-500 mb-1">Have a lovely day!</p>
-                <p className="text-center text-xs text-gray-400">built with ♥ by swirl.cx</p>
+                <p className="text-center text-xs text-gray-500 mb-1">{t('hero.demo.billModal.thanks')}</p>
+                <p className="text-center text-xs text-gray-400">{t('hero.demo.billModal.builtBy')}</p>
               </div>
             </div>
           </ModalOverlay>;
