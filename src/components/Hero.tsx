@@ -738,70 +738,70 @@ const Hero: React.FC = () => {
           return <ModalOverlay onClose={closeModal} wide>
             <div className="p-5 md:p-6">
               <div className="flex items-center justify-between mb-5">
-                <h3 className="text-lg font-bold text-gray-900">Apply Discount</h3>
+                <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.discountModal.title')}</h3>
                 <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
               </div>
 
               {/* Tabs */}
               <div className="flex gap-2 mb-5">
                 <button onClick={() => setDiscountTab('predefined')} className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${discountTab === 'predefined' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
-                  Pre-Defined Discount
+                  {t('hero.demo.discountModal.predefined')}
                 </button>
                 <button onClick={() => setDiscountTab('spot')} className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${discountTab === 'spot' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
-                  Spot Discount
+                  {t('hero.demo.discountModal.spot')}
                 </button>
               </div>
 
               {discountTab === 'predefined' ? <>
-                  <p className="text-sm text-gray-500 mb-4">Choose from the pre-defined discounts below or apply a spot discount</p>
+                  <p className="text-sm text-gray-500 mb-4">{t('hero.demo.discountModal.intro')}</p>
                   <div className="grid grid-cols-2 gap-3 mb-4">
                     {PREDEFINED_DISCOUNTS.map((disc) => {
                     const discAmt = netAmount * disc.percent / 100;
                     return <button key={disc.name} onClick={() => applyPredefinedDiscount(disc)} className="p-4 border border-gray-200 rounded-xl text-left hover:border-primary/30 hover:shadow-sm transition-all">
-                          <p className="font-bold text-sm text-gray-900">{disc.name}</p>
-                          {disc.description && <p className="text-xs text-gray-400 mt-0.5">{disc.description}</p>}
+                          <p className="font-bold text-sm text-gray-900">{tDisc(disc.name)}</p>
+                          {disc.description && <p className="text-xs text-gray-400 mt-0.5">{tDisc(disc.description)}</p>}
                           <p className="text-sm font-medium text-gray-700 mt-1.5">
-                            {disc.percent}% off{' '}
-                            <span className="text-primary">({formatAmount(discAmt)} off {formatAmount(netAmount)})</span>
+                            {disc.percent}% {t('hero.demo.discountModal.off')}{' '}
+                            <span className="text-primary">({formatAmount(discAmt)} {t('hero.demo.discountModal.off')} {formatAmount(netAmount)})</span>
                           </p>
                         </button>;
                   })}
                   </div>
                   <div className="flex justify-end">
-                    <button onClick={closeModal} className="px-5 py-2 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">Cancel</button>
+                    <button onClick={closeModal} className="px-5 py-2 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">{t('hero.demo.discountModal.cancel')}</button>
                   </div>
                 </> : <div className="border border-gray-200 rounded-xl p-5">
                   <div className="mb-4">
-                    <label className="text-sm font-medium text-gray-700 mb-1.5 block">Discount Type</label>
+                    <label className="text-sm font-medium text-gray-700 mb-1.5 block">{t('hero.demo.discountModal.type')}</label>
                     <select value={discountType} onChange={(e) => setDiscountType(e.target.value as any)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-primary/30 focus:outline-none bg-white">
-                      <option>Percentage</option>
-                      <option>Fixed Amount</option>
+                      <option value="Percentage">{t('hero.demo.discountModal.percentage')}</option>
+                      <option value="Fixed Amount">{t('hero.demo.discountModal.fixed')}</option>
                     </select>
                   </div>
 
                   <div className="mb-4">
                     <label className="text-sm font-medium text-gray-700 mb-1.5 block">
-                      {discountType === 'Percentage' ? 'Percentage (%)' : `Amount (${currency.code})`}
+                      {discountType === 'Percentage' ? `${t('hero.demo.discountModal.percentage')} (%)` : `${t('hero.demo.discountModal.amount')} (${currency.code})`}
                     </label>
                     <input type="number" value={discountValue} onChange={(e) => setDiscountValue(e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-primary/30 focus:outline-none" placeholder={discountType === 'Percentage' ? '20' : '50'} />
                   </div>
 
                   <div className="mb-4">
-                    <label className="text-sm font-medium text-gray-700 mb-1.5 block">Reason</label>
-                    <input value={discountReason} onChange={(e) => setDiscountReason(e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-primary/30 focus:outline-none" placeholder="e.g. friends, family, loyalty" />
+                    <label className="text-sm font-medium text-gray-700 mb-1.5 block">{t('hero.demo.discountModal.reason')}</label>
+                    <input value={discountReason} onChange={(e) => setDiscountReason(e.target.value)} className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm focus:border-primary/30 focus:outline-none" placeholder={t('hero.demo.discountModal.reasonPh')} />
                   </div>
 
                   <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-4">
-                    <p className="font-semibold text-sm text-gray-900">Apply to Total</p>
-                    <p className="text-xs text-gray-600 mt-0.5">Since prices are tax-inclusive, the discount will be applied to the total amount. This ensures accurate calculations and avoids variances.</p>
+                    <p className="font-semibold text-sm text-gray-900">{t('hero.demo.discountModal.applyToTotal')}</p>
+                    <p className="text-xs text-gray-600 mt-0.5">{t('hero.demo.discountModal.applyToTotalDesc')}</p>
                   </div>
 
-                  {spotDiscountCalc > 0 && <p className="text-sm text-primary mb-4">Discount amount: {formatAmount(spotDiscountCalc)}</p>}
+                  {spotDiscountCalc > 0 && <p className="text-sm text-primary mb-4">{t('hero.demo.discountModal.discountAmount')} {formatAmount(spotDiscountCalc)}</p>}
 
                   <div className="flex gap-3">
-                    <button onClick={closeModal} className="px-5 py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">Cancel</button>
+                    <button onClick={closeModal} className="px-5 py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">{t('hero.demo.discountModal.cancel')}</button>
                     <button onClick={applySpotDiscount} className="flex-1 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center gap-2" disabled={!discountValue || parseFloat(discountValue) <= 0}>
-                      <Tag className="w-4 h-4" /> Apply Discount
+                      <Tag className="w-4 h-4" /> {t('hero.demo.discountModal.apply')}
                     </button>
                   </div>
                 </div>}
