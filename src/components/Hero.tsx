@@ -814,7 +814,7 @@ const Hero: React.FC = () => {
         return <ModalOverlay onClose={closeModal}>
             <div className="p-5">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-bold text-gray-900">Change Table</h3>
+                <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.tableModal.title')}</h3>
                 <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
               </div>
               <div className="grid grid-cols-3 gap-2.5 max-h-72 overflow-auto">
@@ -822,11 +822,11 @@ const Hero: React.FC = () => {
                 setCurrentTable(table.name);
                 closeModal();
               }} className={`p-3 border rounded-xl text-left transition-all hover:shadow-md ${table.name === currentTable ? 'border-2 border-gray-900 shadow-md' : 'border-gray-200'}`}>
-                    <p className="font-bold text-sm text-gray-900">{table.name}</p>
-                    <p className="text-xs text-gray-500">Seats: {table.capacity}</p>
-                    <p className="text-xs text-gray-500">{table.location}</p>
+                    <p className="font-bold text-sm text-gray-900">{tTableName(table.name)}</p>
+                    <p className="text-xs text-gray-500">{t('hero.demo.tableModal.seats')} {table.capacity}</p>
+                    <p className="text-xs text-gray-500">{tFloor(table.location)}</p>
                     <span className={`inline-block mt-1 text-[10px] font-medium px-2 py-0.5 rounded-full ${table.status === 'OCCUPIED' ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}`}>
-                      {table.status}
+                      {tStatus(table.status)}
                     </span>
                   </button>)}
               </div>
@@ -838,10 +838,10 @@ const Hero: React.FC = () => {
         return <ModalOverlay onClose={closeModal}>
             <div className="p-5">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-lg font-bold text-gray-900">Split Table</h3>
+                <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.splitModal.title')}</h3>
                 <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
               </div>
-              <p className="text-sm text-gray-600 mb-4">Select items to move to a new order:</p>
+              <p className="text-sm text-gray-600 mb-4">{t('hero.demo.splitModal.intro')}</p>
               <div className="space-y-2 mb-4">
                 {orderItems.map((item) => <button key={item.id} onClick={() => setSplitItems((prev) => {
                 const n = new Set(prev);
@@ -849,7 +849,7 @@ const Hero: React.FC = () => {
                 return n;
               })} className={`w-full p-3 border rounded-xl text-left flex items-center justify-between transition-colors ${splitItems.has(item.id) ? 'border-primary bg-primary/5' : 'border-gray-200'}`}>
                     <div>
-                      <p className="font-medium text-sm">{item.name}</p>
+                      <p className="font-medium text-sm">{tItem(item.name)}</p>
                       <p className="text-xs text-gray-500">{item.qty} × {formatAmount(item.price)}</p>
                     </div>
                     <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${splitItems.has(item.id) ? 'border-primary bg-primary' : 'border-gray-300'}`}>
@@ -858,14 +858,14 @@ const Hero: React.FC = () => {
                   </button>)}
               </div>
               <div className="flex gap-3">
-                <button onClick={closeModal} className="flex-1 py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50">Cancel</button>
+                <button onClick={closeModal} className="flex-1 py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50">{t('hero.demo.splitModal.cancel')}</button>
                 <button onClick={() => {
                 if (splitItems.size > 0) {
                   setOrderItems((prev) => prev.filter((i) => !splitItems.has(i.id)));
                   closeModal();
                 }
               }} className="flex-1 py-2.5 bg-primary text-white rounded-xl text-sm font-semibold hover:bg-primary/90 disabled:opacity-50" disabled={splitItems.size === 0}>
-                  Split {splitItems.size} item{splitItems.size !== 1 ? 's' : ''}
+                  {t('hero.demo.splitModal.splitBtn')} {splitItems.size} {splitItems.size !== 1 ? t('hero.demo.splitModal.items') : t('hero.demo.splitModal.item')}
                 </button>
               </div>
             </div>
@@ -876,30 +876,30 @@ const Hero: React.FC = () => {
         return <ModalOverlay onClose={closeModal}>
             <div className="p-5">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-lg font-bold text-gray-900">Move Order</h3>
+                <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.moveModal.title')}</h3>
                 <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
               </div>
-              <p className="text-sm text-gray-600 mb-4">Move this order from <strong>Dine-In ({currentTable})</strong> to a different fulfillment method.</p>
+              <p className="text-sm text-gray-600 mb-4">{t('hero.demo.moveModal.intro1')} <strong>{t('hero.demo.moveModal.dineIn')} ({tTableName(currentTable)})</strong> {t('hero.demo.moveModal.intro2')}</p>
               <div className="space-y-3 mb-4">
                 <div className="p-3 border border-gray-200 rounded-xl bg-gray-50">
-                  <p className="text-xs text-gray-500 mb-1">Current Order Type</p>
-                  <p className="font-bold text-sm">🍽 Dine-In - {currentTable}</p>
+                  <p className="text-xs text-gray-500 mb-1">{t('hero.demo.moveModal.currentType')}</p>
+                  <p className="font-bold text-sm">🍽 {t('hero.demo.moveModal.dineIn')} - {tTableName(currentTable)}</p>
                 </div>
                 <button onClick={() => setFulfillment('Takeaway')} className={`w-full p-3 border rounded-xl text-left transition-colors ${fulfillment === 'Takeaway' ? 'border-primary bg-primary/5' : 'border-gray-200 hover:bg-gray-50'}`}>
-                  <p className="font-bold text-sm">📦 Takeaway</p>
-                  <p className="text-xs text-gray-500">Customer picks up the order</p>
+                  <p className="font-bold text-sm">📦 {t('hero.demo.moveModal.takeaway')}</p>
+                  <p className="text-xs text-gray-500">{t('hero.demo.moveModal.takeawayDesc')}</p>
                 </button>
                 {fulfillment === 'Takeaway' && <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-700">
-                    <strong>Note:</strong> Moving to Takeaway will remove the table assignment.
+                    <strong>{t('hero.demo.moveModal.noteLabel')}</strong> {t('hero.demo.moveModal.noteText')}
                   </div>}
               </div>
               <div className="flex gap-3">
-                <button onClick={closeModal} className="flex-1 py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50">Cancel</button>
+                <button onClick={closeModal} className="flex-1 py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50">{t('hero.demo.moveModal.cancel')}</button>
                 <button onClick={() => {
                 setFulfillment('Takeaway');
                 closeModal();
               }} className="flex-1 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-gray-800">
-                  Move to Takeaway
+                  {t('hero.demo.moveModal.moveBtn')}
                 </button>
               </div>
             </div>
@@ -910,20 +910,20 @@ const Hero: React.FC = () => {
         return <ModalOverlay onClose={closeModal}>
             <div className="p-5">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-lg font-bold text-gray-900">Merge Tables</h3>
+                <h3 className="text-lg font-bold text-gray-900">{t('hero.demo.mergeModal.title')}</h3>
                 <button onClick={closeModal} className="p-1.5 hover:bg-gray-100 rounded-full"><X className="w-5 h-5 text-gray-500" /></button>
               </div>
-              <p className="text-sm text-gray-600 mb-4">Merge another order into Order #100840 ({currentTable}).</p>
+              <p className="text-sm text-gray-600 mb-4">{t('hero.demo.mergeModal.intro')} ({tTableName(currentTable)}).</p>
               <div className="p-3 bg-primary/5 border border-primary/20 rounded-xl mb-4">
                 <div className="flex items-center gap-2">
                   <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center"><Check className="w-3.5 h-3.5 text-white" /></div>
                   <div>
-                    <p className="font-bold text-sm">Target: Order #100840</p>
-                    <p className="text-xs text-primary">{currentTable}</p>
+                    <p className="font-bold text-sm">{t('hero.demo.mergeModal.target')}</p>
+                    <p className="text-xs text-primary">{tTableName(currentTable)}</p>
                   </div>
                 </div>
               </div>
-              <p className="text-xs font-medium text-gray-500 mb-2">Available Orders</p>
+              <p className="text-xs font-medium text-gray-500 mb-2">{t('hero.demo.mergeModal.available')}</p>
               <div className="grid grid-cols-2 gap-2.5 mb-4">
                 {MERGE_ORDERS.map((order) => <button key={order.order} onClick={() => {
                 setOrderItems((prev) => [...prev, {
@@ -934,15 +934,15 @@ const Hero: React.FC = () => {
                 }]);
                 closeModal();
               }} className="p-3 border border-gray-200 rounded-xl text-left hover:border-primary/30 hover:shadow-md transition-all">
-                    <p className="font-bold text-sm">{order.table}</p>
-                    <p className="text-xs text-gray-500">Order {order.order}</p>
+                    <p className="font-bold text-sm">{tTableName(order.table)}</p>
+                    <p className="text-xs text-gray-500">{t('hero.demo.mergeModal.order')} {order.order}</p>
                     <div className="flex items-center gap-2 mt-1.5">
-                      <span className="text-xs bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded">{order.items} items</span>
+                      <span className="text-xs bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded">{order.items} {t('hero.demo.mergeModal.items')}</span>
                       <span className="text-sm font-bold">{formatAmount(order.amount)}</span>
                     </div>
                   </button>)}
               </div>
-              <button onClick={closeModal} className="w-full py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">Cancel</button>
+              <button onClick={closeModal} className="w-full py-2.5 border border-gray-300 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">{t('hero.demo.mergeModal.cancel')}</button>
             </div>
           </ModalOverlay>;
 
