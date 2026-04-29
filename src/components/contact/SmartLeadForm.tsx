@@ -1,17 +1,18 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { Send, User, Mail, Phone, MapPin, Building2, ChevronRight, CheckCircle, Briefcase, Calendar, MessageSquare, Store, Layers, Search, Globe, ChevronDown } from 'lucide-react';
+import { Send, User, Mail, Phone, MapPin, Building2, ChevronRight, CheckCircle, Briefcase, MessageSquare, Store, Layers, Search, Globe, ChevronDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { supabase } from '@/integrations/supabase/client';
-import PhoneInput, { getCountryCallingCode } from 'react-phone-number-input';
+import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import { COUNTRIES, CITIES_BY_COUNTRY } from './formData';
 
-const businessTypes = ['Café', 'Restaurant', 'Cloud Kitchen', 'Bakery', 'QSR', 'Fine Dining', 'Other'];
+const businessTypeKeys = ['cafe', 'restaurant', 'cloudKitchen', 'bakery', 'qsr', 'fineDining', 'other'] as const;
 const solutionOptions = ['POS', 'QR Ordering', 'Inventory', 'Accounting', 'CRM/Loyalty', 'Reservations', 'Analytics', 'Multi-Branch', 'Custom Solution'];
-const timelineOptions = ['Within 1 month', '1–3 months', '3–6 months', '6+ months'];
-const contactMethods = ['Call', 'WhatsApp', 'Email'];
+const timelineKeys = ['month1', 'months13', 'months36', 'months6Plus'] as const;
+const contactMethodKeys = ['call', 'whatsapp', 'email'] as const;
 
 // Searchable dropdown component
 const SearchableDropdown = ({
