@@ -1,18 +1,20 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import SwirlCTA from '@/components/SwirlCTA';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { MegaMenuContent, TabKey } from './mega-menu/MegaMenuContent';
 import { MegaMenuOverlay } from './mega-menu/MegaMenuOverlay';
 import { PremiumMobileMenu } from './mega-menu/PremiumMobileMenu';
 
-const tabs: { key: TabKey; label: string }[] = [
-  { key: 'dine', label: 'Dine' },
-  { key: 'pos', label: 'Point of Sale' },
-  { key: 'works', label: 'Works' },
-];
-
 const Navbar = () => {
+  const { t } = useTranslation();
+  const tabs: { key: TabKey; label: string }[] = [
+    { key: 'dine', label: t('nav.dine') },
+    { key: 'pos', label: t('nav.pos') },
+    { key: 'works', label: t('nav.works') },
+  ];
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState<TabKey | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -118,27 +120,32 @@ const Navbar = () => {
                   className={`px-4 py-2.5 text-[15px] tracking-[0.2px] font-medium text-foreground hover:text-primary hover:font-semibold transition-all duration-300 rounded-xl hover:bg-gray-50/60 whitespace-nowrap`}
                   onClick={closeMegaMenu}
                 >
-                  Hardware
+                  {t('nav.hardware')}
                 </Link>
                 <Link
                   to="/use-cases"
                   className={`px-4 py-2.5 text-[15px] tracking-[0.2px] font-medium text-foreground hover:text-primary hover:font-semibold transition-all duration-300 rounded-xl hover:bg-gray-50/60 whitespace-nowrap`}
                   onClick={closeMegaMenu}
                 >
-                  Use Cases
+                  {t('nav.useCases')}
                 </Link>
                 <Link
                   to="/contact"
                   className={`px-4 py-2.5 text-[15px] tracking-[0.2px] font-medium text-foreground hover:text-primary hover:font-semibold transition-all duration-300 rounded-xl hover:bg-gray-50/60 whitespace-nowrap`}
                   onClick={closeMegaMenu}
                 >
-                  Contact
+                  {t('nav.contact')}
                 </Link>
               </div>
             </div>
 
             {/* Right: CTA + Mobile toggle */}
-            <div className="flex items-center gap-3 z-10">
+            <div className="flex items-center gap-2 z-10">
+              {/* Language switcher - always visible on desktop */}
+              <div className="hidden md:block">
+                <LanguageSwitcher />
+              </div>
+
               {/* Get Started - desktop */}
               <SwirlCTA className="hidden md:inline-flex" />
 
@@ -149,13 +156,14 @@ const Navbar = () => {
                   isScrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1 pointer-events-none'
                 }`}
               >
-                Book a Demo
+                {t('common.bookDemo')}
               </a>
 
               {/* Mobile hamburger */}
               <button
                 className="xl:hidden w-10 h-10 rounded-xl bg-gray-100/80 flex items-center justify-center hover:bg-gray-200/80 transition-colors"
                 onClick={() => setIsMobileMenuOpen(true)}
+                aria-label={t('nav.menu')}
               >
                 <Menu size={20} className="text-foreground" />
               </button>

@@ -1,59 +1,77 @@
-
 import React, { useState, useRef, useEffect } from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { ChevronDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Globe, Check } from 'lucide-react';
 
-const LanguageSwitcher: React.FC = () => {
-  const { language } = useLanguage();
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+interface Props {
+  variant?: 'navbar' | 'mobile';
+}
 
-  // Close dropdown when clicking outside
+const LANGS = [
+  { code: 'en', label: 'English', short: 'EN' },
+  { code: 'ar', label: 'العربية', short: 'عربي' },
+] as const;
+
+const LanguageSwitcher: React.FC<Props> = ({ variant = 'navbar' }) => {
+  const { i18n } = useTranslation();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const current = i18n.language?.startsWith('ar') ? 'ar' : 'en';
+
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+    const handle = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
     };
+    document.addEventListener('mousedown', handle);
+    return () => document.removeEventListener('mousedown', handle);
   }, []);
 
-  const toggleDropdown = () => setIsOpen(!isOpen);
-
-  // Since we only support English now, this function is simplified
-  const handleLanguageChange = () => {
-    setIsOpen(false);
-    // No need to change the language since we only support English
+  const change = (code: string) => {
+    i18n.changeLanguage(code);
+    setOpen(false);
   };
 
+  if (variant === 'mobile') {
+    return (
+      <div className="flex items-center gap-1 p-1 bg-gray-100 rounded-xl">
+        {LANGS.map((l) => (
+          <button
+            key={l.code}
+            onClick={() => change(l.code)}
+            className={`flex-1 px-3 py-2 text-[13px] font-semibold rounded-lg transition-all ${
+              current === l.code ? 'bg-white text-primary shadow-sm' : 'text-muted-foreground'
+            }`}
+          >
+            {l.label}
+          </button>
+        ))}
+      </div>
+    );
+  }
+
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className="relative" ref={ref}>
       <button
-        onClick={toggleDropdown}
-        className="flex items-center gap-2 rounded-md py-2 px-3 transition-all hover:bg-gray-100 text-black"
-        aria-expanded={isOpen}
-        aria-haspopup="true"
+        onClick={() => setOpen(!open)}
+        className="inline-flex items-center gap-1.5 h-9 px-3 rounded-xl text-[13px] font-semibold text-foreground hover:bg-gray-100/80 transition-colors"
+        aria-label="Change language"
       >
-        <span className="font-medium whitespace-nowrap">
-          Language
-        </span>
-        <ChevronDown className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} size={16} />
+        <Globe size={15} className="text-muted-foreground" />
+        <span>{LANGS.find((l) => l.code === current)?.short}</span>
       </button>
-      
-      {isOpen && (
-        <div className="absolute z-10 mt-1 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none left-0">
-          <div className="py-1" role="none">
+      {open && (
+        <div className="absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-[0_10px_30px_-6px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden z-50 animate-fade-in">
+          {LANGS.map((l) => (
             <button
-              onClick={handleLanguageChange}
-              className="block w-full text-left px-4 py-2 text-sm bg-gray-100 text-blue-600 hover:bg-gray-100"
-              role="menuitem"
+              key={l.code}
+              onClick={() => change(l.code)}
+              className={`w-full flex items-center justify-between px-3.5 py-2.5 text-[13px] text-left transition-colors ${
+                current === l.code ? 'bg-blue-50/60 text-primary font-semibold' : 'text-foreground hover:bg-gray-50'
+              }`}
             >
-              English
+              <span>{l.label}</span>
+              {current === l.code && <Check size={14} className="text-primary" />}
             </button>
-          </div>
+          ))}
         </div>
       )}
     </div>
