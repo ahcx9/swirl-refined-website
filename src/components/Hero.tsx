@@ -516,7 +516,7 @@ const Hero: React.FC = () => {
               <div className="flex gap-5">
                 <div className="w-32 flex-shrink-0 space-y-1">
                   {MENU_CATEGORIES.map((cat, idx) => <button key={cat.name} onClick={() => setMenuCategory(idx)} className={`w-full text-left px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${idx === menuCategory ? 'bg-primary/10 text-primary border-l-3 border-primary' : 'text-gray-600 hover:bg-gray-50'}`}>
-                      {cat.name}
+                      {tCat(cat.name)}
                     </button>)}
                 </div>
 
@@ -525,8 +525,8 @@ const Hero: React.FC = () => {
                   {stagingItem ? <div className="border-2 border-primary/20 rounded-xl p-4 bg-primary/5 animate-fade-in">
                       <div className="flex items-start justify-between mb-4">
                         <div>
-                          <p className="font-bold text-gray-900">{stagingItem.name}</p>
-                          <p className="text-sm text-gray-500">{formatAmount(stagingItem.price)} each</p>
+                          <p className="font-bold text-gray-900">{tItem(stagingItem.name)}</p>
+                          <p className="text-sm text-gray-500">{formatAmount(stagingItem.price)} {t('hero.demo.addModal.each')}</p>
                         </div>
                         <button onClick={() => setStagingItem(null)} className="p-1 hover:bg-white rounded-full">
                           <X className="w-4 h-4 text-gray-400" />
@@ -535,7 +535,7 @@ const Hero: React.FC = () => {
 
                       {/* Quantity */}
                       <div className="mb-4">
-                        <label className="text-xs font-medium text-gray-600 mb-1.5 block">Quantity</label>
+                        <label className="text-xs font-medium text-gray-600 mb-1.5 block">{t('hero.demo.addModal.quantity')}</label>
                         <div className="flex items-center gap-3">
                           <button onClick={() => setStagingQty(Math.max(1, stagingQty - 1))} className="w-9 h-9 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50">
                             <Minus className="w-3.5 h-3.5" />
@@ -551,13 +551,13 @@ const Hero: React.FC = () => {
                       {/* Notes */}
                       <div className="mb-4">
                         <label className="text-xs font-medium text-gray-600 mb-1.5 flex items-center gap-1">
-                          <StickyNote className="w-3 h-3" /> Special Instructions (optional)
+                          <StickyNote className="w-3 h-3" /> {t('hero.demo.addModal.specialInstructions')}
                         </label>
-                        <input className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:border-primary/30 focus:outline-none" placeholder="e.g. no sugar, extra hot, almond milk..." value={stagingNote} onChange={(e) => setStagingNote(e.target.value)} />
+                        <input className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:border-primary/30 focus:outline-none" placeholder={t('hero.demo.addModal.notesPh')} value={stagingNote} onChange={(e) => setStagingNote(e.target.value)} />
                       </div>
 
                       <button onClick={confirmAddItem} className="w-full py-2.5 bg-gray-900 text-white text-sm font-semibold rounded-xl hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
-                        <Plus className="w-4 h-4" /> Add to Order
+                        <Plus className="w-4 h-4" /> {t('hero.demo.addModal.addToOrder')}
                       </button>
                     </div> : <div className="grid grid-cols-2 gap-3 max-h-72 overflow-auto pr-1">
                       {MENU_CATEGORIES[menuCategory].items.map((item) => <button key={item.name} onClick={() => {
@@ -565,7 +565,7 @@ const Hero: React.FC = () => {
                     setStagingQty(1);
                     setStagingNote('');
                   }} className="border border-gray-200 rounded-xl p-3.5 hover:border-primary/30 hover:shadow-sm transition-all text-left group">
-                          <p className="font-medium text-sm text-gray-900 mb-1 group-hover:text-primary transition-colors">{item.name}</p>
+                          <p className="font-medium text-sm text-gray-900 mb-1 group-hover:text-primary transition-colors">{tItem(item.name)}</p>
                           <p className="font-bold text-sm text-gray-700">{formatAmount(item.price)}</p>
                         </button>)}
                     </div>}
