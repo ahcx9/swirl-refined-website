@@ -226,7 +226,20 @@ const Hero: React.FC = () => {
     formatAmount,
     currency
   } = useCurrency();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isAr = i18n.language === 'ar';
+  const tItem = (n: string) => t(`hero.demo.items.${n}`, { defaultValue: n });
+  const tCat = (n: string) => t(`hero.demo.categories.${n}`, { defaultValue: n });
+  const tNote = (n: string) => t(`hero.demo.itemNotes.${n}`, { defaultValue: n });
+  const tMethod = (n: string) => t(`hero.demo.settleModal.methods.${n}`, { defaultValue: n });
+  const tDisc = (n: string) => t(`hero.demo.discountModal.discounts.${n}`, { defaultValue: n });
+  const tTableName = (n: string) => {
+    const m = n.match(/Table\s*#?(\d+)/i);
+    if (!m) return n;
+    return isAr ? `${t('hero.demo.tableModal.tableLabel')} #${m[1]}` : n;
+  };
+  const tFloor = (n: string) => n === '1st Floor' ? t('hero.demo.tableModal.floor1') : n === '2nd Floor' ? t('hero.demo.tableModal.floor2') : n;
+  const tStatus = (s: string) => s === 'OCCUPIED' ? t('hero.demo.status.occupied') : s === 'AVAILABLE' ? t('hero.demo.status.available') : s;
 
   // Order state
   const [orderItems, setOrderItems] = useState<OrderItem[]>([{
