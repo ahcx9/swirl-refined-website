@@ -9,6 +9,12 @@ import { MegaMenuOverlay } from './mega-menu/MegaMenuOverlay';
 import { PremiumMobileMenu } from './mega-menu/PremiumMobileMenu';
 
 const Navbar = () => {
+  const { t } = useTranslation();
+  const tabs: { key: TabKey; label: string }[] = [
+    { key: 'dine', label: t('nav.dine') },
+    { key: 'pos', label: t('nav.pos') },
+    { key: 'works', label: t('nav.works') },
+  ];
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState<TabKey | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
