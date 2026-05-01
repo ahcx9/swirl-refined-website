@@ -538,5 +538,59 @@
         "solution": "Multi-outlet management with centralized menus, room charging, and enterprise reporting from one dashboard."
       }
     }
+  },
+  "faq": {
+    "badge": "Help Console",
+    "title1": "Got questions?",
+    "title2": "We've got answers.",
+    "consoleTitle": "Swirl Help",
+    "searchPlaceholder": "Ask Swirl anything...",
+    "all": "All",
+    "noResults": "No results found. Try a different search term.",
+    "footerNote": "Can't find what you're looking for?",
+    "categories": {
+      "getting-started": "Getting Started",
+      "product": "Product & Platform",
+      "use-cases": "Use Cases",
+      "onboarding": "Setup & Onboarding",
+      "pricing": "Pricing & Scale",
+      "security": "Security & Reliability",
+      "features": "Features",
+      "ai": "AI & Intelligence"
+    },
+    "items": {
+      "q1":  { "q": "What is Swirl?", "a": "Swirl is a complete restaurant operating system that combines POS, QR ordering, kitchen display, inventory, CRM, loyalty, reservations, analytics, and built-in accounting in one unified platform. Unlike traditional POS systems, Swirl is designed specifically for hospitality businesses of all sizes." },
+      "q2":  { "q": "How long does it take to get started?", "a": "Most restaurants are fully operational on Swirl within 24–48 hours. This includes menu setup, inventory configuration, staff training, and system customization. Our onboarding team handles everything for you." },
+      "q3":  { "q": "Is Swirl suitable for a new restaurant opening soon?", "a": "Absolutely. Swirl is ideal for new openings. We help you set up your entire digital operations from day one — menus, POS, kitchen display, inventory, and even QR ordering — so you launch with a professional, fully integrated system." },
+      "q4":  { "q": "Does Swirl work for both small cafés and large restaurant groups?", "a": "Yes. Whether you run a single café or a 50-outlet chain, Swirl scales to fit. Small businesses love the simplicity, while enterprise operators rely on multi-branch management, centralized reporting, and role-based access." },
+      "q5":  { "q": "Does Swirl integrate with other accounting software?", "a": "Swirl has built-in accounting capabilities, so you don't need external tools like Zoho, Tally, or QuickBooks. All your financial data, GST/VAT reports, and reconciliation happen within Swirl itself." },
+      "q6":  { "q": "Can Swirl work offline?", "a": "Yes! Swirl has robust offline capability. You can continue taking orders and processing payments even when internet connectivity is lost. All data syncs automatically when connection is restored." },
+      "q7":  { "q": "What delivery platforms does Swirl integrate with?", "a": "Swirl integrates with major aggregators including Zomato, Swiggy, Talabat, Noon Food, Keeta, and others. Orders flow directly into your kitchen without manual entry, and all commission tracking happens automatically." },
+      "q8":  { "q": "Can I manage dine-in, takeaway, and delivery together?", "a": "Yes. Swirl unifies all order types — dine-in, takeaway, delivery, and aggregator orders — into a single dashboard. Each has its own billing tab, but everything feeds into unified analytics and kitchen operations." },
+      "q9":  { "q": "What hardware does Swirl support?", "a": "Swirl works on iPads, Android tablets, desktops, and our own Swirl hardware terminals. We also support standard receipt printers, kitchen display screens, customer-facing displays, and barcode scanners." },
+      "q10": { "q": "Can I access reports remotely?", "a": "Yes. Swirl is cloud-based, so you can access your dashboard, sales reports, inventory levels, and analytics from anywhere — on any device with a browser. Real-time data, always available." },
+      "q11": { "q": "Does Swirl support QR ordering?", "a": "Yes. Customers scan a QR code at their table to view your menu, place orders, customize items, and even pay — all from their phone. Orders go straight to your POS and kitchen display in real time." },
+      "q12": { "q": "Can I track inventory in real time?", "a": "Absolutely. Swirl tracks stock levels in real time as orders are placed. You get low-stock alerts, waste tracking, recipe-level ingredient deduction, and detailed cost reports — all automated." },
+      "q13": { "q": "Can I use Swirl for accounting and reporting?", "a": "Yes. Swirl includes built-in accounting with P&L statements, expense tracking, tax reports (VAT/GST), daily settlement summaries, and exportable financial data. No third-party accounting tool needed." },
+      "q14": { "q": "Does Swirl support reservations for single and multiple branches?", "a": "Yes. Swirl's reservation system lets guests book tables online or via your staff. It supports multi-branch booking, table optimization, guest profiles, and integrates with your CRM for personalized service." },
+      "q15": { "q": "Can I run a loyalty program through Swirl?", "a": "Yes. Swirl includes a built-in loyalty engine where customers earn and redeem points. You can create custom reward tiers, automate point rules, and track redemptions — all from one dashboard." },
+      "q16": { "q": "Can customers earn and redeem loyalty points across branches?", "a": "Yes. Loyalty points are centralized, so your customers can earn at one branch and redeem at another. This works seamlessly across your entire network." },
+      "q17": { "q": "Does Swirl support CRM and customer history?", "a": "Yes. Swirl automatically builds guest profiles with order history, preferences, visit frequency, and spending patterns. This data powers personalized marketing, loyalty, and service excellence." },
+      "q18": { "q": "Can reservations and customer profiles work together?", "a": "Absolutely. When a guest makes a reservation, their profile (past orders, preferences, allergies, VIP status) is instantly visible to your host and service staff — creating a seamless experience." },
+      "q19": { "q": "Can I manage multiple branches from one dashboard?", "a": "Yes. Swirl's multi-branch dashboard gives you a bird's eye view of all locations — unified sales, inventory, staff performance, and analytics. You can drill into individual outlets or compare performance across branches." },
+      "q20": { "q": "Can my team use different access roles?", "a": "Yes. Swirl supports role-based access control — Admin, Manager, Cashier, Waiter, Kitchen, and custom roles. Each user sees only what they need, with full activity logging for accountability." },
+      "q21": { "q": "Is Swirl suitable for fine dining restaurants?", "a": "Absolutely. Swirl includes table management, guest profiles, course timing, reservation management, and sophisticated workflows designed for premium dining experiences." },
+      "q22": { "q": "Can cloud kitchens with multiple brands use Swirl?", "a": "Yes! Swirl is perfect for multi-brand operations. You can manage multiple virtual brands from a single dashboard with unified inventory, separate brand analytics, and automated aggregator sync." },
+      "q23": { "q": "What does onboarding include?", "a": "Onboarding includes complete menu digitization, inventory setup with initial stock, POS configuration, staff training sessions, and ongoing support. We don't just install software — we set up your entire operation." },
+      "q24": { "q": "Can I migrate my old sales data to Swirl?", "a": "Yes. If you want to bring your historical sales data, you can export it from your old system and upload it into Swirl's historical data section. Our team can guide you through the process to ensure your records are preserved for reference and reporting." },
+      "q25": { "q": "Can I view historical sales and reporting after migration?", "a": "Yes. Once your historical data is uploaded, it becomes accessible within Swirl's reporting module. You can view past trends, compare performance, and maintain continuity in your financial records." },
+      "q26": { "q": "How is Swirl priced?", "a": "Swirl offers flexible pricing based on your outlet size and requirements. Contact our team for a personalized quote based on your specific needs." },
+      "q27": { "q": "Can Swirl scale to multiple outlets?", "a": "Swirl is built for scale. Whether you have 1 outlet or 100+, you can manage everything from a central dashboard with multi-branch reporting and control." },
+      "q28": { "q": "Is there a long-term contract?", "a": "No. We offer flexible monthly subscriptions with no long-term commitment required. We're confident you'll love Swirl and want to stay, but you're free to cancel anytime." },
+      "q29": { "q": "How secure is my data?", "a": "Swirl uses enterprise-grade security with encrypted data storage, secure authentication, and regular backups. Your business data is fully protected and compliant with regional regulations." },
+      "q30": { "q": "What is your uptime guarantee?", "a": "Swirl maintains 99.9% uptime with redundant infrastructure. Combined with offline capability, your operations never stop." },
+      "q31": { "q": "Does Swirl provide analytics and AI insights?", "a": "Yes. Swirl offers intelligent analytics including sales trends, peak hour identification, menu performance, customer behavior patterns, and AI-powered recommendations to optimize pricing, staffing, and inventory." },
+      "q32": { "q": "What kind of AI features does Swirl offer?", "a": "Swirl AI helps with demand forecasting, menu optimization suggestions, anomaly detection in sales data, smart inventory reorder recommendations, and customer segmentation for targeted marketing." }
+    }
   }
 }
