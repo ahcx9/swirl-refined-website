@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { ScanLine, Smartphone, Wifi, Zap, ChefHat, Receipt, ShoppingBag, Plus, Star, Flame } from 'lucide-react';
 import SwirlCTA from '@/components/SwirlCTA';
 import BookDemoCTA from '@/components/BookDemoCTA';
@@ -8,11 +9,12 @@ import burgerImg from '@/assets/menu-burger.jpg';
 import friesImg from '@/assets/menu-fries.jpg';
 
 const QRHero = () => {
+  const { t } = useTranslation();
   const badges = [
-    { icon: Smartphone, label: 'No app required' },
-    { icon: Wifi, label: 'Works on any phone' },
-    { icon: Zap, label: 'Instant ordering' },
-    { icon: ScanLine, label: 'Fully connected system' },
+    { icon: Smartphone, label: t('featurePages.qr.badges.noApp') },
+    { icon: Wifi, label: t('featurePages.qr.badges.anyPhone') },
+    { icon: Zap, label: t('featurePages.qr.badges.instant') },
+    { icon: ScanLine, label: t('featurePages.qr.badges.connected') },
   ];
 
   return (
@@ -30,7 +32,7 @@ const QRHero = () => {
             className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-primary/20 rounded-full mb-6 shadow-sm"
           >
             <ScanLine className="w-4 h-4 text-primary" />
-            <span className="text-sm font-bold text-primary">QR Ordering</span>
+            <span className="text-sm font-bold text-primary">{t('featurePages.qr.badge')}</span>
           </motion.div>
 
           <motion.h1
@@ -39,9 +41,9 @@ const QRHero = () => {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 tracking-tight leading-[1.05]"
           >
-            Skip the queue.
+            {t('featurePages.qr.title1')}
             <br />
-            <span className="text-primary">Order instantly.</span>
+            <span className="text-primary">{t('featurePages.qr.title2')}</span>
           </motion.h1>
 
           <motion.p
@@ -50,7 +52,7 @@ const QRHero = () => {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8"
           >
-            Customers scan, browse, and order directly from their phone — no app, no waiting, no confusion.
+            {t('featurePages.qr.subtitle')}
           </motion.p>
 
           <motion.div

@@ -1,19 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { ShoppingCart, FileText, BookOpen, Banknote, BarChart3, CheckCircle2 } from 'lucide-react';
 import SwirlCTA from '@/components/SwirlCTA';
 import BookDemoCTA from '@/components/BookDemoCTA';
 
-const flow = [
-  { icon: ShoppingCart, label: 'Order' },
-  { icon: FileText, label: 'Invoice' },
-  { icon: BookOpen, label: 'Journal' },
-  { icon: Banknote, label: 'Bank' },
-  { icon: BarChart3, label: 'Reports' },
-  { icon: CheckCircle2, label: 'Closed' },
-];
-
 const AccountingHero = () => {
+  const { t } = useTranslation();
+  const flow = [
+    { icon: ShoppingCart, label: t('featurePages.accounting.steps.order') },
+    { icon: FileText, label: t('featurePages.accounting.steps.invoice') },
+    { icon: BookOpen, label: t('featurePages.accounting.steps.journal') },
+    { icon: Banknote, label: t('featurePages.accounting.steps.bank') },
+    { icon: BarChart3, label: t('featurePages.accounting.steps.reports') },
+    { icon: CheckCircle2, label: t('featurePages.accounting.steps.closed') },
+  ];
   return (
     <section className="relative pt-32 md:pt-36 pb-20 bg-white overflow-hidden">
       <div className="absolute inset-0 -z-10">

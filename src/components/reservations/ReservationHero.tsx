@@ -1,9 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import SwirlCTA from '@/components/SwirlCTA';
 import BookDemoCTA from '@/components/BookDemoCTA';
 import calendarImg from '@/assets/res-operations-calendar.png';
 
 const ReservationHero = () => {
+  const { t } = useTranslation();
   return (
     <section className="relative pt-32 pb-24 md:pt-44 md:pb-40 overflow-hidden">
       {/* Layered background glow */}
