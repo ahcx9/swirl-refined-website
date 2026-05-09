@@ -77,7 +77,6 @@ const InventoryHero = () => {
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-white border border-gray-200 rounded-full">
               <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{t('featurePages.inventory.flowLabel')}</span>
             </div>
-            </div>
 
             <div className="flex items-center justify-between gap-2 md:gap-4 overflow-x-auto pb-2">
               {flowSteps.map((step, i) => (
