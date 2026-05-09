@@ -1,9 +1,11 @@
 import React from 'react';
 import { Sparkles, Star, Crown, Stamp, Gift, TrendingUp, Check } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import SwirlCTA from '@/components/SwirlCTA';
 import BookDemoCTA from '@/components/BookDemoCTA';
 
 const LoyaltyHero: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <section className="relative pt-32 md:pt-36 pb-20 md:pb-28 overflow-hidden bg-background">
       {/* Ambient gradient backdrop */}
