@@ -1,19 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { ShoppingCart, FileText, BookOpen, Banknote, BarChart3, CheckCircle2 } from 'lucide-react';
 import SwirlCTA from '@/components/SwirlCTA';
 import BookDemoCTA from '@/components/BookDemoCTA';
 
-const flow = [
-  { icon: ShoppingCart, label: 'Order' },
-  { icon: FileText, label: 'Invoice' },
-  { icon: BookOpen, label: 'Journal' },
-  { icon: Banknote, label: 'Bank' },
-  { icon: BarChart3, label: 'Reports' },
-  { icon: CheckCircle2, label: 'Closed' },
-];
-
 const AccountingHero = () => {
+  const { t } = useTranslation();
+  const flow = [
+    { icon: ShoppingCart, label: t('featurePages.accounting.steps.order') },
+    { icon: FileText, label: t('featurePages.accounting.steps.invoice') },
+    { icon: BookOpen, label: t('featurePages.accounting.steps.journal') },
+    { icon: Banknote, label: t('featurePages.accounting.steps.bank') },
+    { icon: BarChart3, label: t('featurePages.accounting.steps.reports') },
+    { icon: CheckCircle2, label: t('featurePages.accounting.steps.closed') },
+  ];
   return (
     <section className="relative pt-32 md:pt-36 pb-20 bg-white overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -30,7 +31,7 @@ const AccountingHero = () => {
             className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-8"
           >
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-sm font-bold text-primary">Native Accounting Engine</span>
+            <span className="text-sm font-bold text-primary">{t('featurePages.accounting.badge')}</span>
           </motion.div>
 
           <motion.h1
@@ -39,9 +40,9 @@ const AccountingHero = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 tracking-tight leading-[1.05]"
           >
-            Your books,
+            {t('featurePages.accounting.title1')}
             <br />
-            <span className="text-primary">already done.</span>
+            <span className="text-primary">{t('featurePages.accounting.title2')}</span>
           </motion.h1>
 
           <motion.p
@@ -50,8 +51,7 @@ const AccountingHero = () => {
             transition={{ duration: 0.7, delay: 0.25 }}
             className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed"
           >
-            Every sale, every expense, every inventory movement automatically flows into your
-            accounts — with zero manual work.
+            {t('featurePages.accounting.subtitle')}
           </motion.p>
 
           <motion.div
@@ -73,7 +73,7 @@ const AccountingHero = () => {
         >
           <div className="relative bg-gradient-to-br from-gray-50 to-white border border-gray-200/80 rounded-3xl p-6 md:p-12 shadow-2xl shadow-primary/5">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-white border border-gray-200 rounded-full">
-              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Auto Finance Pipeline</span>
+              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{t('featurePages.accounting.flowLabel')}</span>
             </div>
 
             <div className="flex items-center justify-between gap-2 md:gap-4 overflow-x-auto pb-2">
@@ -118,15 +118,15 @@ const AccountingHero = () => {
             <div className="mt-8 pt-6 border-t border-gray-100 grid grid-cols-3 gap-4 text-center">
               <div>
                 <div className="text-2xl md:text-3xl font-bold text-gray-900">0</div>
-                <div className="text-xs text-gray-500 mt-1">Manual journal entries</div>
+                <div className="text-xs text-gray-500 mt-1">{t('featurePages.accounting.stats.manual')}</div>
               </div>
               <div className="border-x border-gray-100">
-                <div className="text-2xl md:text-3xl font-bold text-gray-900">Real-time</div>
-                <div className="text-xs text-gray-500 mt-1">GL updates</div>
+                <div className="text-2xl md:text-3xl font-bold text-gray-900">{t('featurePages.accounting.stats.realtime')}</div>
+                <div className="text-xs text-gray-500 mt-1">{t('featurePages.accounting.stats.glUpdates')}</div>
               </div>
               <div>
-                <div className="text-2xl md:text-3xl font-bold text-gray-900">Audit-ready</div>
-                <div className="text-xs text-gray-500 mt-1">Always</div>
+                <div className="text-2xl md:text-3xl font-bold text-gray-900">{t('featurePages.accounting.stats.audit')}</div>
+                <div className="text-xs text-gray-500 mt-1">{t('featurePages.accounting.stats.always')}</div>
               </div>
             </div>
           </div>

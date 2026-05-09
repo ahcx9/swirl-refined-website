@@ -1,9 +1,11 @@
 import React from 'react';
 import { Sparkles, Star, Crown, Stamp, Gift, TrendingUp, Check } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import SwirlCTA from '@/components/SwirlCTA';
 import BookDemoCTA from '@/components/BookDemoCTA';
 
 const LoyaltyHero: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <section className="relative pt-32 md:pt-36 pb-20 md:pb-28 overflow-hidden bg-background">
       {/* Ambient gradient backdrop */}
@@ -30,20 +32,18 @@ const LoyaltyHero: React.FC = () => {
               <div className="animate-on-scroll inline-flex items-center gap-2 px-3.5 py-1.5 bg-primary/5 rounded-full border border-primary/15 mb-6">
                 <Sparkles className="w-3.5 h-3.5 text-primary" />
                 <span className="text-xs font-semibold tracking-wide text-primary uppercase">
-                  Swirl Loyalty
+                  {t('featurePages.loyalty.badge')}
                 </span>
               </div>
 
               <h1 className="animate-on-scroll animate-delay-100 text-4xl sm:text-5xl lg:text-[3.75rem] xl:text-[4.25rem] font-bold text-foreground leading-[1.05] tracking-tight mb-6">
-                Loyalty restaurants
+                {t('featurePages.loyalty.title1')}
                 <br />
-                <span className="text-primary">actually want to run.</span>
+                <span className="text-primary">{t('featurePages.loyalty.title2')}</span>
               </h1>
 
               <p className="animate-on-scroll animate-delay-200 text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-                Launch points, punch card, and VIP tier programs in one integrated
-                platform — built for restaurants, cafés, and hospitality brands that
-                want repeat customers, not manual work.
+                {t('featurePages.loyalty.subtitle')}
               </p>
 
               <div className="animate-on-scroll animate-delay-300 flex items-center justify-center lg:justify-start gap-3 flex-wrap mb-8">
@@ -52,7 +52,7 @@ const LoyaltyHero: React.FC = () => {
               </div>
 
               <div className="animate-on-scroll animate-delay-400 flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-sm text-muted-foreground">
-                {['Native to POS', 'Multi-branch ready', 'No setup fees'].map((item) => (
+                {[t('featurePages.loyalty.chips.native'), t('featurePages.loyalty.chips.multi'), t('featurePages.loyalty.chips.noFees')].map((item) => (
                   <div key={item} className="flex items-center gap-1.5">
                     <Check className="w-4 h-4 text-primary" />
                     <span>{item}</span>
