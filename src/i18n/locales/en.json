@@ -592,5 +592,53 @@
       "q31": { "q": "Does Swirl provide analytics and AI insights?", "a": "Yes. Swirl offers intelligent analytics including sales trends, peak hour identification, menu performance, customer behavior patterns, and AI-powered recommendations to optimize pricing, staffing, and inventory." },
       "q32": { "q": "What kind of AI features does Swirl offer?", "a": "Swirl AI helps with demand forecasting, menu optimization suggestions, anomaly detection in sales data, smart inventory reorder recommendations, and customer segmentation for targeted marketing." }
     }
+  },
+  "featurePages": {
+    "pos": {
+      "badge": "Cloud-Based Point of Sale",
+      "title1": "More than a",
+      "titlePOS": "POS",
+      "title2": "Your restaurant's operating system.",
+      "subtitle": "The complete cloud-based POS system designed for modern restaurants. Bill faster, manage smarter, grow bigger.",
+      "liveDemoBadge": "It's a live demo — try billing & settling the bill!"
+    },
+    "inventory": {
+      "badge": "Inventory & Procurement",
+      "title1": "Where your profit is",
+      "title2": "really made — or lost.",
+      "subtitle": "From purchase orders to plate-level cost, swirl gives you complete control over inventory, procurement, and food cost — in real time.",
+      "flowLabel": "Live System Flow",
+      "steps": { "supplier": "Supplier", "po": "PO", "grn": "GRN", "kitchen": "Kitchen", "plate": "Plate", "cost": "Cost", "report": "Report" },
+      "stats": { "tracked": "Tracked end-to-end", "manual": "Manual entries", "live": "Cost calculation", "liveValue": "Live" }
+    },
+    "loyalty": {
+      "badge": "Swirl Loyalty",
+      "title1": "Loyalty restaurants",
+      "title2": "actually want to run.",
+      "subtitle": "Launch points, punch card, and VIP tier programs in one integrated platform — built for restaurants, cafés, and hospitality brands that want repeat customers, not manual work.",
+      "chips": { "native": "Native to POS", "multi": "Multi-branch ready", "noFees": "No setup fees" }
+    },
+    "qr": {
+      "badge": "QR Ordering",
+      "title1": "Skip the queue.",
+      "title2": "Order instantly.",
+      "subtitle": "Customers scan, browse, and order directly from their phone — no app, no waiting, no confusion.",
+      "badges": { "noApp": "No app required", "anyPhone": "Works on any phone", "instant": "Instant ordering", "connected": "Fully connected system" }
+    },
+    "accounting": {
+      "badge": "Native Accounting Engine",
+      "title1": "Your books,",
+      "title2": "already done.",
+      "subtitle": "Every sale, every expense, every inventory movement automatically flows into your accounts — with zero manual work.",
+      "flowLabel": "Auto Finance Pipeline",
+      "steps": { "order": "Order", "invoice": "Invoice", "journal": "Journal", "bank": "Bank", "reports": "Reports", "closed": "Closed" },
+      "stats": { "manual": "Manual journal entries", "realtime": "Real-time", "glUpdates": "GL updates", "audit": "Audit-ready", "always": "Always" }
+    },
+    "reservations": {
+      "badge": "swirl Reservations",
+      "title1": "Reservations,",
+      "title2": "reimagined.",
+      "subtitle": "From booking to table management — everything connected in one seamless system."
+    }
   }
 }
