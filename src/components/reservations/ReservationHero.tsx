@@ -16,18 +16,18 @@ const ReservationHero = () => {
         {/* Text content — centered */}
         <div className="text-center max-w-3xl mx-auto mb-20 md:mb-28 animate-on-scroll">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/[0.06] border border-primary/10 text-primary text-base md:text-sm font-bold md:font-semibold mb-8 backdrop-blur-sm">
-            swirl Reservations
+            {t('featurePages.reservations.badge')}
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-[3.75rem] font-bold text-foreground leading-[1.08] tracking-[-0.02em] mb-6">
-            Reservations,{' '}
+            {t('featurePages.reservations.title1')}{' '}
             <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-              reimagined.
+              {t('featurePages.reservations.title2')}
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
-            From booking to table management — everything connected in one seamless system.
+            {t('featurePages.reservations.subtitle')}
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-4">
