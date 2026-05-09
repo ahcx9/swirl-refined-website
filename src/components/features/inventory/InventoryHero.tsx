@@ -1,20 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Truck, FileText, PackageCheck, ChefHat, UtensilsCrossed, DollarSign, BarChart3, ArrowRight } from 'lucide-react';
 import SwirlCTA from '@/components/SwirlCTA';
 import BookDemoCTA from '@/components/BookDemoCTA';
 
-const flowSteps = [
-  { icon: Truck, label: 'Supplier' },
-  { icon: FileText, label: 'PO' },
-  { icon: PackageCheck, label: 'GRN' },
-  { icon: ChefHat, label: 'Kitchen' },
-  { icon: UtensilsCrossed, label: 'Plate' },
-  { icon: DollarSign, label: 'Cost' },
-  { icon: BarChart3, label: 'Report' },
-];
-
 const InventoryHero = () => {
+  const { t } = useTranslation();
+  const flowSteps = [
+    { icon: Truck, label: t('featurePages.inventory.steps.supplier') },
+    { icon: FileText, label: t('featurePages.inventory.steps.po') },
+    { icon: PackageCheck, label: t('featurePages.inventory.steps.grn') },
+    { icon: ChefHat, label: t('featurePages.inventory.steps.kitchen') },
+    { icon: UtensilsCrossed, label: t('featurePages.inventory.steps.plate') },
+    { icon: DollarSign, label: t('featurePages.inventory.steps.cost') },
+    { icon: BarChart3, label: t('featurePages.inventory.steps.report') },
+  ];
   return (
     <section className="relative pt-32 md:pt-36 pb-20 bg-white overflow-hidden">
       <div className="absolute inset-0 -z-10">
