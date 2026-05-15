@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import Seo from '@/components/Seo';
 import Footer from '@/components/Footer';
 import ReservationHero from '@/components/reservations/ReservationHero';
 import GuestBookingJourney from '@/components/reservations/GuestBookingJourney';
@@ -34,6 +35,11 @@ const Reservations = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <Seo
+        title="Restaurant reservations & table management"
+        description="Take bookings, manage your floor plan and run service from one screen with swirl Reservations."
+        path="/products/reservations"
+      />
       <ReservationHero />
       <GuestBookingJourney />
       <StaffCreationSection />
