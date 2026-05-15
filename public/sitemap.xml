@@ -21,7 +21,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+  <url>
+    <loc>https://swirl.cx/support</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Product Pages -->
   <url>
     <loc>https://swirl.cx/products/digital-menu</loc>
@@ -35,6 +40,11 @@
   </url>
   <url>
     <loc>https://swirl.cx/products/restaurant-analytics</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://swirl.cx/products/visitor-analytics</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -54,17 +64,27 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swirl.cx/products/ordering-from-car</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://swirl.cx/products/inventory-management</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://swirl.cx/products/kitchen-display</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://swirl.cx/products/customer-display</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://swirl.cx/products/loyalty</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://swirl.cx/products/reservations</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -78,7 +98,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <!-- Legal Pages -->
   <url>
     <loc>https://swirl.cx/privacy</loc>
