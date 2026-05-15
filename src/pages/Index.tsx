@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import Seo from '@/components/Seo';
 import Hero from '@/components/Hero';
 import InterfaceProblemStory from '@/components/homepage/InterfaceProblemStory';
 import SwirlEcosystemGallery from '@/components/homepage/SwirlEcosystemGallery';
@@ -18,11 +20,29 @@ import ImagePreloader from '@/components/ImagePreloader';
 
 const Index = () => {
   useScrollAnimation();
-  
+  const { t } = useTranslation();
+
+  const faqIds = Array.from({ length: 32 }, (_, i) => `q${i + 1}`);
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqIds.map((id) => ({
+      '@type': 'Question',
+      name: t(`faq.items.${id}.q`),
+      acceptedAnswer: { '@type': 'Answer', text: t(`faq.items.${id}.a`) },
+    })),
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title="swirl — AI-powered restaurant management platform"
+        description="One unified platform for restaurants: POS, KDS, QR ordering, inventory, accounting, CRM, loyalty and reservations on a single database."
+        path="/"
+        jsonLd={faqJsonLd}
+      />
       <ImagePreloader />
-      
+
       <main className="flex-grow">
         {/* Hero */}
         <Hero />
