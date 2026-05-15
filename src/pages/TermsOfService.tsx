@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Seo from '@/components/Seo';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 
@@ -7,6 +8,11 @@ const TermsOfService = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
+      <Seo
+        title={`Terms of Service — swirl`}
+        description={`The terms that govern your use of swirl's restaurant management platform.`}
+        path="/terms"
+      />
       <main className="flex-grow pt-24">
         <section className="bg-purple-light/10 py-10">
           <div className="container mx-auto px-4">

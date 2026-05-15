@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Users, UserCheck, BarChart, Mail, Gift, Star, ArrowRight, CheckCircle, Sparkles, TrendingUp, Heart } from 'lucide-react';
@@ -42,6 +43,11 @@ const CRM = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
+      <Seo
+        title={`Restaurant CRM — guest profiles & preferences`}
+        description={`Build rich guest profiles, track preferences and history, and segment customers for marketing — all from your POS.`}
+        path="/products/customer-relationship-management"
+      />
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative pt-32 md:pt-28 pb-16 bg-white overflow-hidden">

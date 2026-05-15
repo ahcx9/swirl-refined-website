@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { LayoutDashboard, Clock, Printer, History, PieChart, DollarSign, TrendingUp } from 'lucide-react';
@@ -29,6 +30,11 @@ const FinancialReports = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
+      <Seo
+        title={`Restaurant financial reports — live P&L and cash flow`}
+        description={`See live sales, payment reconciliation, P&L and cash flow across every branch. swirl Financial Reports, ready out of the box.`}
+        path="/products/financial-reports"
+      />
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative pt-32 md:pt-28 pb-24 bg-white overflow-hidden">

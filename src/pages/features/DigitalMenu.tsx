@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import MenuHero from '@/components/features/digital-menu/MenuHero';
@@ -18,6 +19,11 @@ const DigitalMenu = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
+      <Seo
+        title={`Digital menu builder for restaurants — AI-assisted`}
+        description={`Design beautiful digital menus with photos, translations and modifiers. AI-assisted updates keep every menu in sync.`}
+        path="/products/digital-menu"
+      />
       <main className="flex-grow">
         <MenuHero />
         <MenuAISection />

@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import SwirlCTA from '@/components/SwirlCTA';
@@ -42,6 +43,11 @@ const KitchenDisplay = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
+      <Seo
+        title={`Kitchen Display System (KDS) for restaurants`}
+        description={`Replace paper tickets with a real-time KDS. Route orders by station, track prep times and cut errors with swirl KDS.`}
+        path="/products/kitchen-display"
+      />
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative pt-32 md:pt-36 pb-16 md:pb-24 bg-background overflow-hidden">

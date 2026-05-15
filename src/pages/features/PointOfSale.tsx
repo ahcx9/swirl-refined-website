@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import POSHero from '@/components/features/pos/POSHero';
@@ -56,6 +57,11 @@ const PointOfSale = () => {
   }];
   return <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
+      <Seo
+        title={`Restaurant POS — cloud point of sale by swirl`}
+        description={`Fast cloud POS for dine-in, takeaway and delivery. ZATCA-ready, multi-branch and built on the swirl unified platform.`}
+        path="/products/restaurant-point-of-sale"
+      />
       <main className="flex-grow pt-32 md:pt-24 pb-16">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">

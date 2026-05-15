@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import AccountingHero from '@/components/features/accounting/AccountingHero';
@@ -14,6 +15,11 @@ const Accounting = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
+      <Seo
+        title={`Restaurant accounting — automated by swirl`}
+        description={`Automated bookkeeping for restaurants. Every sale, expense and tax entry posts itself — P&L and ledgers stay always up to date.`}
+        path="/products/accounting"
+      />
       <main className="flex-grow">
         <AccountingHero />
         <AccountingReality />

@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Monitor, Printer, Shield, Zap, CheckCircle, ArrowRight, Sparkles, Wifi, Building2, Headphones, Settings, Receipt, Clock, ThermometerSun, Usb, Network, Gauge, Award, Layers } from 'lucide-react';
@@ -110,6 +111,11 @@ const SwirlHardware = () => {
   }];
   return <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
+      <Seo
+        title={`Restaurant POS hardware — terminals, printers & KDS`}
+        description={`Browse swirl hardware: POS terminals, kitchen printers, KDS screens and bundles built to run the swirl platform.`}
+        path="/products/swirl-hardware"
+      />
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="pt-32 md:pt-28 pb-16 bg-white relative overflow-hidden">
