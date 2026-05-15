@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
@@ -51,6 +52,11 @@ const Sitemap = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title={`Sitemap — swirl`}
+        description={`All pages on swirl.cx — main pages, products and legal information.`}
+        path="/sitemap"
+      />
       <main className="flex-grow pt-24">
         <section className="bg-purple-light/10 py-10">
           <div className="container mx-auto px-4">

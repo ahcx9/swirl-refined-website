@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import Footer from '@/components/Footer';
 import { 
   Mail, 
@@ -51,6 +52,11 @@ const supportCategories = [
 const Support = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title={`swirl support — help center & contact channels`}
+        description={`Find answers, browse guides and reach the swirl support team across phone, WhatsApp and email.`}
+        path="/support"
+      />
       <main className="flex-grow pt-24">
         {/* Hero */}
         <section className="bg-white py-16 md:py-24">

@@ -1,0 +1,36 @@
+# swirl
+
+> swirl is an AI-powered, all-in-one restaurant management platform — POS, KDS, QR ordering, inventory, accounting, CRM, loyalty, reservations and ZATCA-ready invoicing on one unified database.
+
+swirl ("Dine", "POS" and "Works") replaces a stack of disconnected tools with one closed ecosystem so restaurants, cafés and food groups can run service, kitchen, finance and growth from a single source of truth. Available globally with bilingual English/Arabic UI and Saudi ZATCA compliance.
+
+## Pages
+
+- [Home](/): Platform overview, interactive POS demo, ecosystem map and FAQ.
+- [Products](/products): Catalog of every swirl module.
+- [Use Cases](/use-cases): How swirl serves cafés, fine dining, QSR, food trucks, hotels and multi-branch groups.
+- [Contact](/contact): Talk to sales, request a demo, regional offices.
+- [Support](/support): Help center and contact channels.
+
+## Products
+
+- [Restaurant POS](/products/restaurant-point-of-sale): Cloud point-of-sale for dine-in, takeaway and delivery.
+- [Kitchen Display (KDS)](/products/kitchen-display): Real-time kitchen ticket management.
+- [QR Ordering](/products/qr-ordering): Contactless ordering and payment from the table.
+- [Digital Menu](/products/digital-menu): AI-assisted menu builder with photos and translations.
+- [In-Car Ordering](/products/qr-ordering): Drive-in / curbside ordering flows.
+- [Inventory Management](/products/inventory-management): Recipes, purchase orders, stock and waste tracking.
+- [Accounting](/products/accounting): Automated bookkeeping wired into every transaction.
+- [Financial Reports](/products/financial-reports): Live P&L, payment reconciliation and cash flow.
+- [CRM](/products/customer-relationship-management): Guest profiles, preferences and segmentation.
+- [Loyalty](/products/loyalty): Points, tiers and campaign tools.
+- [Reservations](/products/reservations): Table booking, floor plan and host workflows.
+- [Customer Display](/products/customer-display): Customer-facing order and payment screen.
+- [Restaurant Analytics](/products/restaurant-analytics): Sales, traffic and operational dashboards.
+- [Hardware](/products/swirl-hardware): Terminals, printers, KDS screens and bundles.
+
+## Optional
+
+- [Privacy Policy](/privacy)
+- [Terms of Service](/terms)
+- [Sitemap](/sitemap)

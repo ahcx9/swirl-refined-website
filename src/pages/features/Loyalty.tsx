@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -17,6 +18,11 @@ const Loyalty = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
+      <Seo
+        title={`Restaurant loyalty program — points, tiers & campaigns`}
+        description={`Launch points, cashback or tier-based loyalty in minutes. swirl Loyalty turns first-time guests into repeat customers.`}
+        path="/products/loyalty"
+      />
       <main className="flex-grow">
         <LoyaltyHero />
         <LoyaltyModelsSwitcher />

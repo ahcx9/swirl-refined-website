@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { Monitor, ShieldCheck, Eye, ArrowRight, CheckCircle, Sparkles, Receipt, Gift, Megaphone, CreditCard } from 'lucide-react';
@@ -140,6 +141,11 @@ const CustomerDisplay = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
+      <Seo
+        title={`Customer display screen for restaurant POS`}
+        description={`A customer-facing screen that shows the order, total and payment status in real time — branded for your restaurant.`}
+        path="/products/customer-display"
+      />
       <main className="flex-grow">
         {/* Hero — Apple-style product showcase */}
         <section className="relative pt-32 md:pt-28 pb-12 bg-gradient-to-b from-background to-muted/20 overflow-hidden">

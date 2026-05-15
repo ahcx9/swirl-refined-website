@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import { BarChart, PieChart, LineChart, TrendingUp, Database, ArrowRight, Sparkles, Users, Clock, DollarSign, CheckCircle, QrCode, UserPlus, RefreshCw, Smartphone, Eye, Calendar } from 'lucide-react';
@@ -179,6 +180,11 @@ const VisitorAnalytics = () => {
   }];
   return <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
+      <Seo
+        title={`Restaurant analytics — sales, traffic & operations`}
+        description={`Live dashboards for sales, footfall, menu mix and staff performance across every swirl branch.`}
+        path="/products/restaurant-analytics"
+      />
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative pt-32 md:pt-28 pb-16 bg-white overflow-hidden">

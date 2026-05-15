@@ -1,10 +1,16 @@
 
 import React from 'react';
+import Seo from '@/components/Seo';
 import Footer from '@/components/Footer';
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title={`Privacy Policy — swirl`}
+        description={`How swirl collects, stores and protects restaurant and guest data.`}
+        path="/privacy"
+      />
       <main className="flex-grow pt-24">
         <section className="py-10 border-b border-border/50">
           <div className="container mx-auto px-6 lg:px-12 max-w-4xl">

@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import QRHero from '@/components/features/qr-ordering/QRHero';
@@ -16,6 +17,11 @@ const QROrdering = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
+      <Seo
+        title={`QR ordering for restaurants — order & pay from the table`}
+        description={`Let guests scan, order and pay from any table or car. swirl QR Ordering syncs straight to your POS and KDS.`}
+        path="/products/qr-ordering"
+      />
       <main className="flex-grow">
         <QRHero />
         <QRReality />

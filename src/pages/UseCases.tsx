@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import Footer from '@/components/Footer';
 import { Truck, Utensils, Store, Hotel, ChefHat, Coffee, CheckCircle, BarChart3, Clock, Users, TrendingUp, Zap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -86,6 +87,11 @@ const UseCases = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title="Use cases — restaurants, cafés, QSR, hotels & food trucks"
+        description="See how swirl powers cafés, fine dining, quick-service, cloud kitchens, food trucks and hotel F&B with one unified operating platform."
+        path="/use-cases"
+      />
       <main className="flex-grow pt-24">
         {/* Hero */}
         <section className="bg-white py-16 md:py-24">

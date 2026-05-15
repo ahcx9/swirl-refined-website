@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import InventoryHero from '@/components/features/inventory/InventoryHero';
@@ -14,6 +15,11 @@ const InventoryManagement = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
+      <Seo
+        title={`Restaurant inventory management — recipes, stock & cost`}
+        description={`Track ingredients, recipes, purchase orders, waste and food cost in real time across every branch with swirl Inventory.`}
+        path="/products/inventory-management"
+      />
       <main className="flex-grow">
         <InventoryHero />
         <InventoryReality />
