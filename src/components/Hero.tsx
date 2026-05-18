@@ -1073,7 +1073,7 @@ const Hero: React.FC = () => {
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent tracking-tight leading-[1.05] mt-1">{t('hero.tagline2')}
 
           </h2>
-          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground/70 mt-8 mb-4 max-w-3xl mx-auto leading-relaxed font-normal">
+          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mt-8 mb-4 max-w-3xl mx-auto leading-relaxed font-normal">
             {t('hero.subtitle')}
           </p>
           <div className="mt-6 flex items-center justify-center gap-6">
