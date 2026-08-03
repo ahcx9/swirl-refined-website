@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from './ui/button';
 import { useCurrency } from '@/hooks/useCurrency';
 import SwirlCTA from '@/components/SwirlCTA';
+import SketchyRestaurantBackground from '@/components/hero/SketchyRestaurantBackground';
 
 // ============ TYPES ============
 interface OrderItem {
