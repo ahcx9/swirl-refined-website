@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from './ui/button';
 import { useCurrency } from '@/hooks/useCurrency';
 import SwirlCTA from '@/components/SwirlCTA';
+import SketchyRestaurantBackground from '@/components/hero/SketchyRestaurantBackground';
 
 // ============ TYPES ============
 interface OrderItem {
@@ -14,6 +15,7 @@ interface OrderItem {
   price: number;
   note?: string;
   isNew?: boolean; // Track newly added items for KOT
+  comp?: boolean; // Complimentary item
 }
 interface TableInfo {
   id: string;
@@ -256,12 +258,14 @@ const Hero: React.FC = () => {
     id: '3',
     name: 'Lebanese Zaatar',
     qty: 1,
-    price: 10
+    price: 10,
+    comp: true
   }, {
     id: '4',
     name: "Za'atar Cheese",
     qty: 1,
-    price: 12
+    price: 12,
+    comp: true
   }, {
     id: '5',
     name: 'Cortado',
@@ -308,10 +312,17 @@ const Hero: React.FC = () => {
 
   // Computed
   const subtotal = orderItems.reduce((sum, item) => sum + item.price * item.qty, 0);
-  const netAmount = subtotal / 1.05; // Prices are tax-inclusive
-  const vatAmount = subtotal - netAmount;
-  const discountAmount = appliedDiscount ? appliedDiscount.type === 'Percentage' ? subtotal * appliedDiscount.value / 100 : appliedDiscount.value : 0;
-  const total = subtotal - discountAmount;
+  const compValue = orderItems.reduce((sum, item) => item.comp ? sum + item.price * item.qty : sum, 0);
+  const chargeable = subtotal - compValue;
+  const netAmount = chargeable / 1.05; // Prices are tax-inclusive
+  const vatAmount = chargeable - netAmount;
+  const discountAmount = appliedDiscount ? appliedDiscount.type === 'Percentage' ? chargeable * appliedDiscount.value / 100 : appliedDiscount.value : 0;
+  const serviceCharge = (chargeable - discountAmount) * 0.1;
+  const total = chargeable - discountAmount + serviceCharge;
+  const toggleComp = (id: string) => setOrderItems(items => items.map(it => it.id === id ? {
+    ...it,
+    comp: !it.comp
+  } : it));
 
   // ============ WALKTHROUGH ============
   const WALKTHROUGH_STEPS = [{
@@ -1088,25 +1099,17 @@ const Hero: React.FC = () => {
 
     {/* Section 3: Interactive POS Dashboard Mockup */}
     <section className="relative bg-white overflow-hidden pb-16 md:pb-20">
+      <SketchyRestaurantBackground />
       <div className="container-custom relative z-10">
-        <div className="max-w-5xl mx-auto">
-            {/* Tour controls */}
+        <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-center gap-3 flex-wrap mb-5">
                <div className="flex items-center gap-2 px-6 py-2.5 bg-primary/8 rounded-full border border-primary/15">
                 <span className="text-sm md:text-base font-semibold text-primary tracking-wide">{t('hero.liveDemoBadge')}</span>
               </div>
-              {!tourActive ? <button onClick={startTour} className="flex items-center gap-1.5 px-4 py-1.5 bg-primary text-white rounded-full text-xs font-semibold hover:bg-primary/90 transition-colors shadow-md shadow-primary/25">
-                  <Play className="w-3.5 h-3.5" /> {t('hero.guidedTour')}
-                </button> : <div className="flex items-center gap-2">
-                  <span className="text-xs font-medium text-primary bg-primary/5 px-3 py-1.5 rounded-full border border-primary/10">
-                    {t('hero.demo.step')} {tourStep + 1}/{WALKTHROUGH_STEPS.length}
-                  </span>
-                  <button onClick={nextTourStep} className="flex items-center gap-1 px-3 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-medium hover:bg-primary/20"><SkipForward className="w-3 h-3" /> {t('hero.demo.next')}</button>
-                  <button onClick={stopTour} className="flex items-center gap-1 px-3 py-1.5 text-muted-foreground hover:text-foreground rounded-full text-xs font-medium"><XCircle className="w-3.5 h-3.5" /> {t('hero.demo.end')}</button>
-                </div>}
             </div>
 
-          <div className="relative animate-fade-in">
+          <div className="relative animate-fade-in md:scale-[1.03] origin-top">
+
 
             <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden relative">
               {renderModal()}
@@ -1144,17 +1147,26 @@ const Hero: React.FC = () => {
 
                   {/* Item list */}
                   <div className="space-y-1.5 mb-4 max-h-56 overflow-auto">
-                    {orderItems.map((item) => <div key={item.id} className="p-2.5 bg-white border border-gray-100 rounded-xl hover:border-gray-200 transition-colors">
+                    {orderItems.map((item) => <div key={item.id} className={`p-2.5 bg-white border rounded-xl transition-colors ${item.comp ? 'border-emerald-200 bg-emerald-50/40' : 'border-gray-100 hover:border-gray-200'}`}>
                         <div className="flex items-center justify-between">
                           <div className="min-w-0">
-                            <p className="font-medium text-gray-900 text-sm truncate">{tItem(item.name)}</p>
+                            <p className="font-medium text-gray-900 text-sm truncate flex items-center gap-1.5">
+                              {tItem(item.name)}
+                              {item.comp && <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 flex-shrink-0">{t('hero.demo.left.compItem')}</span>}
+                            </p>
                             <p className="text-[10px] text-gray-500">{item.qty} × {formatAmount(item.price)}</p>
                             {item.note && <p className="text-[10px] text-orange-500 italic mt-0.5">{t('hero.demo.left.note')}: {tNote(item.note)}</p>}
                           </div>
-                          <p className="font-bold text-gray-900 text-sm flex-shrink-0 ml-2">{formatAmount(item.price * item.qty)}</p>
+                          <div className="flex items-center gap-2 flex-shrink-0 ml-2">
+                            <button onClick={() => toggleComp(item.id)} className={`text-[9px] font-medium px-2 py-1 rounded-lg border transition-colors ${item.comp ? 'border-emerald-200 text-emerald-700 hover:bg-emerald-50' : 'border-gray-200 text-gray-500 hover:bg-gray-50'}`}>
+                              {item.comp ? t('hero.demo.left.removeComp') : t('hero.demo.left.markComp')}
+                            </button>
+                            <p className={`font-bold text-sm ${item.comp ? 'text-gray-400 line-through' : 'text-gray-900'}`}>{formatAmount(item.price * item.qty)}</p>
+                          </div>
                         </div>
                       </div>)}
                   </div>
+
 
                   {/* Action Buttons */}
                   <div className="space-y-2 my-0 mx-0 px-0 py-0">
@@ -1218,9 +1230,12 @@ const Hero: React.FC = () => {
                         <span className="col-span-4 text-right">{t('hero.demo.right.amount')}</span>
                       </div>
                       {orderItems.map((item) => <div key={item.id} className="grid grid-cols-12 text-xs text-gray-700 py-0.5">
-                          <span className="col-span-5 truncate">{tItem(item.name)}</span>
+                          <span className="col-span-5 truncate flex items-center gap-1">
+                            {tItem(item.name)}
+                            {item.comp && <span className="text-[8px] font-semibold px-1 rounded bg-emerald-100 text-emerald-700">{t('hero.demo.left.compItem')}</span>}
+                          </span>
                           <span className="col-span-3 text-center">{item.qty}</span>
-                          <span className="col-span-4 text-right font-medium">{formatAmount(item.price * item.qty)}</span>
+                          <span className={`col-span-4 text-right font-medium ${item.comp ? 'text-gray-400 line-through' : ''}`}>{formatAmount(item.price * item.qty)}</span>
                         </div>)}
                     </div>
 
@@ -1231,6 +1246,10 @@ const Hero: React.FC = () => {
                         <span className="text-gray-600">{t('hero.demo.right.subTotal')} <span className="text-[9px] text-gray-400">{t('hero.demo.right.inclTax')}</span></span>
                         <span className="text-gray-900">{formatAmount(subtotal)}</span>
                       </div>
+                      {compValue > 0 && <div className="flex justify-between text-xs text-emerald-600">
+                          <span className="flex items-center gap-1"><Sparkles className="w-3 h-3" /> {t('hero.demo.right.complimentaryValue')}</span>
+                          <span>-{formatAmount(compValue)}</span>
+                        </div>}
                       {appliedDiscount && <div className="flex justify-between text-xs text-green-600">
                           <span className="flex items-center gap-1">
                             <Tag className="w-3 h-3" /> {t('hero.demo.right.discount')}
@@ -1239,9 +1258,14 @@ const Hero: React.FC = () => {
                           <span>-{formatAmount(discountAmount)}</span>
                         </div>}
                       <div className="flex justify-between text-xs">
+                        <span className="text-gray-500">{t('hero.demo.right.serviceCharge')} <span className="text-[9px] text-gray-400">(10%)</span></span>
+                        <span className="text-gray-600">{formatAmount(serviceCharge)}</span>
+                      </div>
+                      <div className="flex justify-between text-xs">
                         <span className="text-gray-500">{t('hero.demo.right.vatLabel')}</span>
                         <span className="text-gray-600">{formatAmount(vatAmount)}</span>
                       </div>
+
                       <div className="flex justify-between text-sm font-bold pt-2 border-t border-gray-200">
                         <span className="text-gray-900">{t('hero.demo.right.total')}</span>
                         <span className="text-gray-900">{formatAmount(total)}</span>

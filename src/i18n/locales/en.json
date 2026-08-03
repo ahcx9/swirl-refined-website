@@ -1,5 +1,7 @@
 {
-  "brand": { "name": "swirl.cx" },
+  "brand": {
+    "name": "swirl.cx"
+  },
   "common": {
     "getStartedFree": "Get Started Free",
     "bookDemo": "Book a Demo",
@@ -40,14 +42,38 @@
       "next": "Next",
       "end": "End",
       "tour": {
-        "addItems": { "label": "Add Items", "desc": "Add menu items to the order with one click." },
-        "changeQty": { "label": "Change Quantities", "desc": "Adjust quantities — totals update in real time." },
-        "kot": { "label": "Print KOT", "desc": "Send the order to the kitchen instantly." },
-        "changeTable": { "label": "Change Table", "desc": "Reassign the order to a different table." },
-        "splitTable": { "label": "Split Table", "desc": "Move selected items into a new order." },
-        "moveOrder": { "label": "Move Order", "desc": "Convert this dine-in order to takeaway." },
-        "mergeTable": { "label": "Merge Tables", "desc": "Combine multiple table orders into one." },
-        "settle": { "label": "Settle Bill", "desc": "Complete the payment — Cash, Card, or Split." }
+        "addItems": {
+          "label": "Add Items",
+          "desc": "Add menu items to the order with one click."
+        },
+        "changeQty": {
+          "label": "Change Quantities",
+          "desc": "Adjust quantities — totals update in real time."
+        },
+        "kot": {
+          "label": "Print KOT",
+          "desc": "Send the order to the kitchen instantly."
+        },
+        "changeTable": {
+          "label": "Change Table",
+          "desc": "Reassign the order to a different table."
+        },
+        "splitTable": {
+          "label": "Split Table",
+          "desc": "Move selected items into a new order."
+        },
+        "moveOrder": {
+          "label": "Move Order",
+          "desc": "Convert this dine-in order to takeaway."
+        },
+        "mergeTable": {
+          "label": "Merge Tables",
+          "desc": "Combine multiple table orders into one."
+        },
+        "settle": {
+          "label": "Settle Bill",
+          "desc": "Complete the payment — Cash, Card, or Split."
+        }
       },
       "header": {
         "orderNo": "Order #100840",
@@ -75,7 +101,10 @@
         "changeTable": "Change Table",
         "split": "Split",
         "moveOrder": "Move Order",
-        "merge": "Merge"
+        "merge": "Merge",
+        "compItem": "Comp item",
+        "markComp": "Mark comp",
+        "removeComp": "Undo comp"
       },
       "right": {
         "billing": "Billing",
@@ -94,7 +123,9 @@
         "settleBill": "Settle Bill",
         "printBill": "Print Bill",
         "applyDiscount": "Apply Discount",
-        "settleNoPrint": "Settle Bill (No Print)"
+        "settleNoPrint": "Settle Bill (No Print)",
+        "complimentaryValue": "Complimentary value",
+        "serviceCharge": "Service charge"
       },
       "addModal": {
         "title": "Add Items to Order",
@@ -297,12 +328,30 @@
       "title2": "Ready",
       "subtitle": "Full e-invoicing compliance for Saudi restaurants. Generate ZATCA-compliant invoices with QR codes automatically.",
       "features": {
-        "qr": { "title": "Auto QR Generation", "desc": "QR codes generated on every invoice" },
-        "lang": { "title": "Arabic + English", "desc": "Bilingual invoice support" },
-        "vat": { "title": "VAT Calculation", "desc": "Automatic 15% VAT computation" },
-        "report": { "title": "Real-time Reporting", "desc": "Instant ZATCA submission" },
-        "stamp": { "title": "Digital Stamp", "desc": "Cryptographic validation" },
-        "audit": { "title": "Audit Ready", "desc": "Complete compliance logs" }
+        "qr": {
+          "title": "Auto QR Generation",
+          "desc": "QR codes generated on every invoice"
+        },
+        "lang": {
+          "title": "Arabic + English",
+          "desc": "Bilingual invoice support"
+        },
+        "vat": {
+          "title": "VAT Calculation",
+          "desc": "Automatic 15% VAT computation"
+        },
+        "report": {
+          "title": "Real-time Reporting",
+          "desc": "Instant ZATCA submission"
+        },
+        "stamp": {
+          "title": "Digital Stamp",
+          "desc": "Cryptographic validation"
+        },
+        "audit": {
+          "title": "Audit Ready",
+          "desc": "Complete compliance logs"
+        }
       }
     },
     "dashboards": {
@@ -421,10 +470,22 @@
       "title": "Why Reach Out To Swirl",
       "subtitle": "We don't just sell software — we partner with you to transform your operations.",
       "items": {
-        "modern": { "title": "Built For Modern Hospitality", "desc": "Designed for cafés, restaurants, and multi-location brands across the world — from single outlets to large-scale operations." },
-        "scales": { "title": "Scales As You Grow", "desc": "Whether you're starting your first location or managing multiple brands, Swirl adapts seamlessly to your growth." },
-        "fast": { "title": "Fast Onboarding, Seamless Experience", "desc": "Get started quickly with an intuitive system designed to simplify operations from day one." },
-        "ai": { "title": "Data-Driven Decisions With AI", "desc": "Unlock powerful insights and smart recommendations to improve performance, efficiency, and customer experience." }
+        "modern": {
+          "title": "Built For Modern Hospitality",
+          "desc": "Designed for cafés, restaurants, and multi-location brands across the world — from single outlets to large-scale operations."
+        },
+        "scales": {
+          "title": "Scales As You Grow",
+          "desc": "Whether you're starting your first location or managing multiple brands, Swirl adapts seamlessly to your growth."
+        },
+        "fast": {
+          "title": "Fast Onboarding, Seamless Experience",
+          "desc": "Get started quickly with an intuitive system designed to simplify operations from day one."
+        },
+        "ai": {
+          "title": "Data-Driven Decisions With AI",
+          "desc": "Unlock powerful insights and smart recommendations to improve performance, efficiency, and customer experience."
+        }
       }
     },
     "form": {
@@ -559,38 +620,134 @@
       "ai": "AI & Intelligence"
     },
     "items": {
-      "q1":  { "q": "What is Swirl?", "a": "Swirl is a complete restaurant operating system that combines POS, QR ordering, kitchen display, inventory, CRM, loyalty, reservations, analytics, and built-in accounting in one unified platform. Unlike traditional POS systems, Swirl is designed specifically for hospitality businesses of all sizes." },
-      "q2":  { "q": "How long does it take to get started?", "a": "Most restaurants are fully operational on Swirl within 24–48 hours. This includes menu setup, inventory configuration, staff training, and system customization. Our onboarding team handles everything for you." },
-      "q3":  { "q": "Is Swirl suitable for a new restaurant opening soon?", "a": "Absolutely. Swirl is ideal for new openings. We help you set up your entire digital operations from day one — menus, POS, kitchen display, inventory, and even QR ordering — so you launch with a professional, fully integrated system." },
-      "q4":  { "q": "Does Swirl work for both small cafés and large restaurant groups?", "a": "Yes. Whether you run a single café or a 50-outlet chain, Swirl scales to fit. Small businesses love the simplicity, while enterprise operators rely on multi-branch management, centralized reporting, and role-based access." },
-      "q5":  { "q": "Does Swirl integrate with other accounting software?", "a": "Swirl has built-in accounting capabilities, so you don't need external tools like Zoho, Tally, or QuickBooks. All your financial data, GST/VAT reports, and reconciliation happen within Swirl itself." },
-      "q6":  { "q": "Can Swirl work offline?", "a": "Yes! Swirl has robust offline capability. You can continue taking orders and processing payments even when internet connectivity is lost. All data syncs automatically when connection is restored." },
-      "q7":  { "q": "What delivery platforms does Swirl integrate with?", "a": "Swirl integrates with major aggregators including Zomato, Swiggy, Talabat, Noon Food, Keeta, and others. Orders flow directly into your kitchen without manual entry, and all commission tracking happens automatically." },
-      "q8":  { "q": "Can I manage dine-in, takeaway, and delivery together?", "a": "Yes. Swirl unifies all order types — dine-in, takeaway, delivery, and aggregator orders — into a single dashboard. Each has its own billing tab, but everything feeds into unified analytics and kitchen operations." },
-      "q9":  { "q": "What hardware does Swirl support?", "a": "Swirl works on iPads, Android tablets, desktops, and our own Swirl hardware terminals. We also support standard receipt printers, kitchen display screens, customer-facing displays, and barcode scanners." },
-      "q10": { "q": "Can I access reports remotely?", "a": "Yes. Swirl is cloud-based, so you can access your dashboard, sales reports, inventory levels, and analytics from anywhere — on any device with a browser. Real-time data, always available." },
-      "q11": { "q": "Does Swirl support QR ordering?", "a": "Yes. Customers scan a QR code at their table to view your menu, place orders, customize items, and even pay — all from their phone. Orders go straight to your POS and kitchen display in real time." },
-      "q12": { "q": "Can I track inventory in real time?", "a": "Absolutely. Swirl tracks stock levels in real time as orders are placed. You get low-stock alerts, waste tracking, recipe-level ingredient deduction, and detailed cost reports — all automated." },
-      "q13": { "q": "Can I use Swirl for accounting and reporting?", "a": "Yes. Swirl includes built-in accounting with P&L statements, expense tracking, tax reports (VAT/GST), daily settlement summaries, and exportable financial data. No third-party accounting tool needed." },
-      "q14": { "q": "Does Swirl support reservations for single and multiple branches?", "a": "Yes. Swirl's reservation system lets guests book tables online or via your staff. It supports multi-branch booking, table optimization, guest profiles, and integrates with your CRM for personalized service." },
-      "q15": { "q": "Can I run a loyalty program through Swirl?", "a": "Yes. Swirl includes a built-in loyalty engine where customers earn and redeem points. You can create custom reward tiers, automate point rules, and track redemptions — all from one dashboard." },
-      "q16": { "q": "Can customers earn and redeem loyalty points across branches?", "a": "Yes. Loyalty points are centralized, so your customers can earn at one branch and redeem at another. This works seamlessly across your entire network." },
-      "q17": { "q": "Does Swirl support CRM and customer history?", "a": "Yes. Swirl automatically builds guest profiles with order history, preferences, visit frequency, and spending patterns. This data powers personalized marketing, loyalty, and service excellence." },
-      "q18": { "q": "Can reservations and customer profiles work together?", "a": "Absolutely. When a guest makes a reservation, their profile (past orders, preferences, allergies, VIP status) is instantly visible to your host and service staff — creating a seamless experience." },
-      "q19": { "q": "Can I manage multiple branches from one dashboard?", "a": "Yes. Swirl's multi-branch dashboard gives you a bird's eye view of all locations — unified sales, inventory, staff performance, and analytics. You can drill into individual outlets or compare performance across branches." },
-      "q20": { "q": "Can my team use different access roles?", "a": "Yes. Swirl supports role-based access control — Admin, Manager, Cashier, Waiter, Kitchen, and custom roles. Each user sees only what they need, with full activity logging for accountability." },
-      "q21": { "q": "Is Swirl suitable for fine dining restaurants?", "a": "Absolutely. Swirl includes table management, guest profiles, course timing, reservation management, and sophisticated workflows designed for premium dining experiences." },
-      "q22": { "q": "Can cloud kitchens with multiple brands use Swirl?", "a": "Yes! Swirl is perfect for multi-brand operations. You can manage multiple virtual brands from a single dashboard with unified inventory, separate brand analytics, and automated aggregator sync." },
-      "q23": { "q": "What does onboarding include?", "a": "Onboarding includes complete menu digitization, inventory setup with initial stock, POS configuration, staff training sessions, and ongoing support. We don't just install software — we set up your entire operation." },
-      "q24": { "q": "Can I migrate my old sales data to Swirl?", "a": "Yes. If you want to bring your historical sales data, you can export it from your old system and upload it into Swirl's historical data section. Our team can guide you through the process to ensure your records are preserved for reference and reporting." },
-      "q25": { "q": "Can I view historical sales and reporting after migration?", "a": "Yes. Once your historical data is uploaded, it becomes accessible within Swirl's reporting module. You can view past trends, compare performance, and maintain continuity in your financial records." },
-      "q26": { "q": "How is Swirl priced?", "a": "Swirl offers flexible pricing based on your outlet size and requirements. Contact our team for a personalized quote based on your specific needs." },
-      "q27": { "q": "Can Swirl scale to multiple outlets?", "a": "Swirl is built for scale. Whether you have 1 outlet or 100+, you can manage everything from a central dashboard with multi-branch reporting and control." },
-      "q28": { "q": "Is there a long-term contract?", "a": "No. We offer flexible monthly subscriptions with no long-term commitment required. We're confident you'll love Swirl and want to stay, but you're free to cancel anytime." },
-      "q29": { "q": "How secure is my data?", "a": "Swirl uses enterprise-grade security with encrypted data storage, secure authentication, and regular backups. Your business data is fully protected and compliant with regional regulations." },
-      "q30": { "q": "What is your uptime guarantee?", "a": "Swirl maintains 99.9% uptime with redundant infrastructure. Combined with offline capability, your operations never stop." },
-      "q31": { "q": "Does Swirl provide analytics and AI insights?", "a": "Yes. Swirl offers intelligent analytics including sales trends, peak hour identification, menu performance, customer behavior patterns, and AI-powered recommendations to optimize pricing, staffing, and inventory." },
-      "q32": { "q": "What kind of AI features does Swirl offer?", "a": "Swirl AI helps with demand forecasting, menu optimization suggestions, anomaly detection in sales data, smart inventory reorder recommendations, and customer segmentation for targeted marketing." }
+      "q1": {
+        "q": "What is Swirl?",
+        "a": "Swirl is a complete restaurant operating system that combines POS, QR ordering, kitchen display, inventory, CRM, loyalty, reservations, analytics, and built-in accounting in one unified platform. Unlike traditional POS systems, Swirl is designed specifically for hospitality businesses of all sizes."
+      },
+      "q2": {
+        "q": "How long does it take to get started?",
+        "a": "Most restaurants are fully operational on Swirl within 24–48 hours. This includes menu setup, inventory configuration, staff training, and system customization. Our onboarding team handles everything for you."
+      },
+      "q3": {
+        "q": "Is Swirl suitable for a new restaurant opening soon?",
+        "a": "Absolutely. Swirl is ideal for new openings. We help you set up your entire digital operations from day one — menus, POS, kitchen display, inventory, and even QR ordering — so you launch with a professional, fully integrated system."
+      },
+      "q4": {
+        "q": "Does Swirl work for both small cafés and large restaurant groups?",
+        "a": "Yes. Whether you run a single café or a 50-outlet chain, Swirl scales to fit. Small businesses love the simplicity, while enterprise operators rely on multi-branch management, centralized reporting, and role-based access."
+      },
+      "q5": {
+        "q": "Does Swirl integrate with other accounting software?",
+        "a": "Swirl has built-in accounting capabilities, so you don't need external tools like Zoho, Tally, or QuickBooks. All your financial data, GST/VAT reports, and reconciliation happen within Swirl itself."
+      },
+      "q6": {
+        "q": "Can Swirl work offline?",
+        "a": "Yes! Swirl has robust offline capability. You can continue taking orders and processing payments even when internet connectivity is lost. All data syncs automatically when connection is restored."
+      },
+      "q7": {
+        "q": "What delivery platforms does Swirl integrate with?",
+        "a": "Swirl integrates with major aggregators including Zomato, Swiggy, Talabat, Noon Food, Keeta, and others. Orders flow directly into your kitchen without manual entry, and all commission tracking happens automatically."
+      },
+      "q8": {
+        "q": "Can I manage dine-in, takeaway, and delivery together?",
+        "a": "Yes. Swirl unifies all order types — dine-in, takeaway, delivery, and aggregator orders — into a single dashboard. Each has its own billing tab, but everything feeds into unified analytics and kitchen operations."
+      },
+      "q9": {
+        "q": "What hardware does Swirl support?",
+        "a": "Swirl works on iPads, Android tablets, desktops, and our own Swirl hardware terminals. We also support standard receipt printers, kitchen display screens, customer-facing displays, and barcode scanners."
+      },
+      "q10": {
+        "q": "Can I access reports remotely?",
+        "a": "Yes. Swirl is cloud-based, so you can access your dashboard, sales reports, inventory levels, and analytics from anywhere — on any device with a browser. Real-time data, always available."
+      },
+      "q11": {
+        "q": "Does Swirl support QR ordering?",
+        "a": "Yes. Customers scan a QR code at their table to view your menu, place orders, customize items, and even pay — all from their phone. Orders go straight to your POS and kitchen display in real time."
+      },
+      "q12": {
+        "q": "Can I track inventory in real time?",
+        "a": "Absolutely. Swirl tracks stock levels in real time as orders are placed. You get low-stock alerts, waste tracking, recipe-level ingredient deduction, and detailed cost reports — all automated."
+      },
+      "q13": {
+        "q": "Can I use Swirl for accounting and reporting?",
+        "a": "Yes. Swirl includes built-in accounting with P&L statements, expense tracking, tax reports (VAT/GST), daily settlement summaries, and exportable financial data. No third-party accounting tool needed."
+      },
+      "q14": {
+        "q": "Does Swirl support reservations for single and multiple branches?",
+        "a": "Yes. Swirl's reservation system lets guests book tables online or via your staff. It supports multi-branch booking, table optimization, guest profiles, and integrates with your CRM for personalized service."
+      },
+      "q15": {
+        "q": "Can I run a loyalty program through Swirl?",
+        "a": "Yes. Swirl includes a built-in loyalty engine where customers earn and redeem points. You can create custom reward tiers, automate point rules, and track redemptions — all from one dashboard."
+      },
+      "q16": {
+        "q": "Can customers earn and redeem loyalty points across branches?",
+        "a": "Yes. Loyalty points are centralized, so your customers can earn at one branch and redeem at another. This works seamlessly across your entire network."
+      },
+      "q17": {
+        "q": "Does Swirl support CRM and customer history?",
+        "a": "Yes. Swirl automatically builds guest profiles with order history, preferences, visit frequency, and spending patterns. This data powers personalized marketing, loyalty, and service excellence."
+      },
+      "q18": {
+        "q": "Can reservations and customer profiles work together?",
+        "a": "Absolutely. When a guest makes a reservation, their profile (past orders, preferences, allergies, VIP status) is instantly visible to your host and service staff — creating a seamless experience."
+      },
+      "q19": {
+        "q": "Can I manage multiple branches from one dashboard?",
+        "a": "Yes. Swirl's multi-branch dashboard gives you a bird's eye view of all locations — unified sales, inventory, staff performance, and analytics. You can drill into individual outlets or compare performance across branches."
+      },
+      "q20": {
+        "q": "Can my team use different access roles?",
+        "a": "Yes. Swirl supports role-based access control — Admin, Manager, Cashier, Waiter, Kitchen, and custom roles. Each user sees only what they need, with full activity logging for accountability."
+      },
+      "q21": {
+        "q": "Is Swirl suitable for fine dining restaurants?",
+        "a": "Absolutely. Swirl includes table management, guest profiles, course timing, reservation management, and sophisticated workflows designed for premium dining experiences."
+      },
+      "q22": {
+        "q": "Can cloud kitchens with multiple brands use Swirl?",
+        "a": "Yes! Swirl is perfect for multi-brand operations. You can manage multiple virtual brands from a single dashboard with unified inventory, separate brand analytics, and automated aggregator sync."
+      },
+      "q23": {
+        "q": "What does onboarding include?",
+        "a": "Onboarding includes complete menu digitization, inventory setup with initial stock, POS configuration, staff training sessions, and ongoing support. We don't just install software — we set up your entire operation."
+      },
+      "q24": {
+        "q": "Can I migrate my old sales data to Swirl?",
+        "a": "Yes. If you want to bring your historical sales data, you can export it from your old system and upload it into Swirl's historical data section. Our team can guide you through the process to ensure your records are preserved for reference and reporting."
+      },
+      "q25": {
+        "q": "Can I view historical sales and reporting after migration?",
+        "a": "Yes. Once your historical data is uploaded, it becomes accessible within Swirl's reporting module. You can view past trends, compare performance, and maintain continuity in your financial records."
+      },
+      "q26": {
+        "q": "How is Swirl priced?",
+        "a": "Swirl offers flexible pricing based on your outlet size and requirements. Contact our team for a personalized quote based on your specific needs."
+      },
+      "q27": {
+        "q": "Can Swirl scale to multiple outlets?",
+        "a": "Swirl is built for scale. Whether you have 1 outlet or 100+, you can manage everything from a central dashboard with multi-branch reporting and control."
+      },
+      "q28": {
+        "q": "Is there a long-term contract?",
+        "a": "No. We offer flexible monthly subscriptions with no long-term commitment required. We're confident you'll love Swirl and want to stay, but you're free to cancel anytime."
+      },
+      "q29": {
+        "q": "How secure is my data?",
+        "a": "Swirl uses enterprise-grade security with encrypted data storage, secure authentication, and regular backups. Your business data is fully protected and compliant with regional regulations."
+      },
+      "q30": {
+        "q": "What is your uptime guarantee?",
+        "a": "Swirl maintains 99.9% uptime with redundant infrastructure. Combined with offline capability, your operations never stop."
+      },
+      "q31": {
+        "q": "Does Swirl provide analytics and AI insights?",
+        "a": "Yes. Swirl offers intelligent analytics including sales trends, peak hour identification, menu performance, customer behavior patterns, and AI-powered recommendations to optimize pricing, staffing, and inventory."
+      },
+      "q32": {
+        "q": "What kind of AI features does Swirl offer?",
+        "a": "Swirl AI helps with demand forecasting, menu optimization suggestions, anomaly detection in sales data, smart inventory reorder recommendations, and customer segmentation for targeted marketing."
+      }
     }
   },
   "featurePages": {
@@ -608,22 +765,44 @@
       "title2": "really made — or lost.",
       "subtitle": "From purchase orders to plate-level cost, swirl gives you complete control over inventory, procurement, and food cost — in real time.",
       "flowLabel": "Live System Flow",
-      "steps": { "supplier": "Supplier", "po": "PO", "grn": "GRN", "kitchen": "Kitchen", "plate": "Plate", "cost": "Cost", "report": "Report" },
-      "stats": { "tracked": "Tracked end-to-end", "manual": "Manual entries", "live": "Cost calculation", "liveValue": "Live" }
+      "steps": {
+        "supplier": "Supplier",
+        "po": "PO",
+        "grn": "GRN",
+        "kitchen": "Kitchen",
+        "plate": "Plate",
+        "cost": "Cost",
+        "report": "Report"
+      },
+      "stats": {
+        "tracked": "Tracked end-to-end",
+        "manual": "Manual entries",
+        "live": "Cost calculation",
+        "liveValue": "Live"
+      }
     },
     "loyalty": {
       "badge": "Swirl Loyalty",
       "title1": "Loyalty restaurants",
       "title2": "actually want to run.",
       "subtitle": "Launch points, punch card, and VIP tier programs in one integrated platform — built for restaurants, cafés, and hospitality brands that want repeat customers, not manual work.",
-      "chips": { "native": "Native to POS", "multi": "Multi-branch ready", "noFees": "No setup fees" }
+      "chips": {
+        "native": "Native to POS",
+        "multi": "Multi-branch ready",
+        "noFees": "No setup fees"
+      }
     },
     "qr": {
       "badge": "QR Ordering",
       "title1": "Skip the queue.",
       "title2": "Order instantly.",
       "subtitle": "Customers scan, browse, and order directly from their phone — no app, no waiting, no confusion.",
-      "badges": { "noApp": "No app required", "anyPhone": "Works on any phone", "instant": "Instant ordering", "connected": "Fully connected system" }
+      "badges": {
+        "noApp": "No app required",
+        "anyPhone": "Works on any phone",
+        "instant": "Instant ordering",
+        "connected": "Fully connected system"
+      }
     },
     "accounting": {
       "badge": "Native Accounting Engine",
@@ -631,8 +810,21 @@
       "title2": "already done.",
       "subtitle": "Every sale, every expense, every inventory movement automatically flows into your accounts — with zero manual work.",
       "flowLabel": "Auto Finance Pipeline",
-      "steps": { "order": "Order", "invoice": "Invoice", "journal": "Journal", "bank": "Bank", "reports": "Reports", "closed": "Closed" },
-      "stats": { "manual": "Manual journal entries", "realtime": "Real-time", "glUpdates": "GL updates", "audit": "Audit-ready", "always": "Always" }
+      "steps": {
+        "order": "Order",
+        "invoice": "Invoice",
+        "journal": "Journal",
+        "bank": "Bank",
+        "reports": "Reports",
+        "closed": "Closed"
+      },
+      "stats": {
+        "manual": "Manual journal entries",
+        "realtime": "Real-time",
+        "glUpdates": "GL updates",
+        "audit": "Audit-ready",
+        "always": "Always"
+      }
     },
     "reservations": {
       "badge": "swirl Reservations",
