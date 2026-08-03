@@ -1147,17 +1147,26 @@ const Hero: React.FC = () => {
 
                   {/* Item list */}
                   <div className="space-y-1.5 mb-4 max-h-56 overflow-auto">
-                    {orderItems.map((item) => <div key={item.id} className="p-2.5 bg-white border border-gray-100 rounded-xl hover:border-gray-200 transition-colors">
+                    {orderItems.map((item) => <div key={item.id} className={`p-2.5 bg-white border rounded-xl transition-colors ${item.comp ? 'border-emerald-200 bg-emerald-50/40' : 'border-gray-100 hover:border-gray-200'}`}>
                         <div className="flex items-center justify-between">
                           <div className="min-w-0">
-                            <p className="font-medium text-gray-900 text-sm truncate">{tItem(item.name)}</p>
+                            <p className="font-medium text-gray-900 text-sm truncate flex items-center gap-1.5">
+                              {tItem(item.name)}
+                              {item.comp && <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 flex-shrink-0">{t('hero.demo.left.compItem')}</span>}
+                            </p>
                             <p className="text-[10px] text-gray-500">{item.qty} × {formatAmount(item.price)}</p>
                             {item.note && <p className="text-[10px] text-orange-500 italic mt-0.5">{t('hero.demo.left.note')}: {tNote(item.note)}</p>}
                           </div>
-                          <p className="font-bold text-gray-900 text-sm flex-shrink-0 ml-2">{formatAmount(item.price * item.qty)}</p>
+                          <div className="flex items-center gap-2 flex-shrink-0 ml-2">
+                            <button onClick={() => toggleComp(item.id)} className={`text-[9px] font-medium px-2 py-1 rounded-lg border transition-colors ${item.comp ? 'border-emerald-200 text-emerald-700 hover:bg-emerald-50' : 'border-gray-200 text-gray-500 hover:bg-gray-50'}`}>
+                              {item.comp ? t('hero.demo.left.removeComp') : t('hero.demo.left.markComp')}
+                            </button>
+                            <p className={`font-bold text-sm ${item.comp ? 'text-gray-400 line-through' : 'text-gray-900'}`}>{formatAmount(item.price * item.qty)}</p>
+                          </div>
                         </div>
                       </div>)}
                   </div>
+
 
                   {/* Action Buttons */}
                   <div className="space-y-2 my-0 mx-0 px-0 py-0">
