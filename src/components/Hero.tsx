@@ -1230,9 +1230,12 @@ const Hero: React.FC = () => {
                         <span className="col-span-4 text-right">{t('hero.demo.right.amount')}</span>
                       </div>
                       {orderItems.map((item) => <div key={item.id} className="grid grid-cols-12 text-xs text-gray-700 py-0.5">
-                          <span className="col-span-5 truncate">{tItem(item.name)}</span>
+                          <span className="col-span-5 truncate flex items-center gap-1">
+                            {tItem(item.name)}
+                            {item.comp && <span className="text-[8px] font-semibold px-1 rounded bg-emerald-100 text-emerald-700">{t('hero.demo.left.compItem')}</span>}
+                          </span>
                           <span className="col-span-3 text-center">{item.qty}</span>
-                          <span className="col-span-4 text-right font-medium">{formatAmount(item.price * item.qty)}</span>
+                          <span className={`col-span-4 text-right font-medium ${item.comp ? 'text-gray-400 line-through' : ''}`}>{formatAmount(item.price * item.qty)}</span>
                         </div>)}
                     </div>
 
@@ -1243,6 +1246,10 @@ const Hero: React.FC = () => {
                         <span className="text-gray-600">{t('hero.demo.right.subTotal')} <span className="text-[9px] text-gray-400">{t('hero.demo.right.inclTax')}</span></span>
                         <span className="text-gray-900">{formatAmount(subtotal)}</span>
                       </div>
+                      {compValue > 0 && <div className="flex justify-between text-xs text-emerald-600">
+                          <span className="flex items-center gap-1"><Sparkles className="w-3 h-3" /> {t('hero.demo.right.complimentaryValue')}</span>
+                          <span>-{formatAmount(compValue)}</span>
+                        </div>}
                       {appliedDiscount && <div className="flex justify-between text-xs text-green-600">
                           <span className="flex items-center gap-1">
                             <Tag className="w-3 h-3" /> {t('hero.demo.right.discount')}
@@ -1251,9 +1258,14 @@ const Hero: React.FC = () => {
                           <span>-{formatAmount(discountAmount)}</span>
                         </div>}
                       <div className="flex justify-between text-xs">
+                        <span className="text-gray-500">{t('hero.demo.right.serviceCharge')} <span className="text-[9px] text-gray-400">(10%)</span></span>
+                        <span className="text-gray-600">{formatAmount(serviceCharge)}</span>
+                      </div>
+                      <div className="flex justify-between text-xs">
                         <span className="text-gray-500">{t('hero.demo.right.vatLabel')}</span>
                         <span className="text-gray-600">{formatAmount(vatAmount)}</span>
                       </div>
+
                       <div className="flex justify-between text-sm font-bold pt-2 border-t border-gray-200">
                         <span className="text-gray-900">{t('hero.demo.right.total')}</span>
                         <span className="text-gray-900">{formatAmount(total)}</span>
