@@ -311,10 +311,17 @@ const Hero: React.FC = () => {
 
   // Computed
   const subtotal = orderItems.reduce((sum, item) => sum + item.price * item.qty, 0);
-  const netAmount = subtotal / 1.05; // Prices are tax-inclusive
-  const vatAmount = subtotal - netAmount;
-  const discountAmount = appliedDiscount ? appliedDiscount.type === 'Percentage' ? subtotal * appliedDiscount.value / 100 : appliedDiscount.value : 0;
-  const total = subtotal - discountAmount;
+  const compValue = orderItems.reduce((sum, item) => item.comp ? sum + item.price * item.qty : sum, 0);
+  const chargeable = subtotal - compValue;
+  const netAmount = chargeable / 1.05; // Prices are tax-inclusive
+  const vatAmount = chargeable - netAmount;
+  const discountAmount = appliedDiscount ? appliedDiscount.type === 'Percentage' ? chargeable * appliedDiscount.value / 100 : appliedDiscount.value : 0;
+  const serviceCharge = (chargeable - discountAmount) * 0.1;
+  const total = chargeable - discountAmount + serviceCharge;
+  const toggleComp = (id: string) => setOrderItems(items => items.map(it => it.id === id ? {
+    ...it,
+    comp: !it.comp
+  } : it));
 
   // ============ WALKTHROUGH ============
   const WALKTHROUGH_STEPS = [{
