@@ -14,6 +14,7 @@ interface OrderItem {
   price: number;
   note?: string;
   isNew?: boolean; // Track newly added items for KOT
+  comp?: boolean; // Complimentary item
 }
 interface TableInfo {
   id: string;
