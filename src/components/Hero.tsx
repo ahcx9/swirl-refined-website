@@ -257,12 +257,14 @@ const Hero: React.FC = () => {
     id: '3',
     name: 'Lebanese Zaatar',
     qty: 1,
-    price: 10
+    price: 10,
+    comp: true
   }, {
     id: '4',
     name: "Za'atar Cheese",
     qty: 1,
-    price: 12
+    price: 12,
+    comp: true
   }, {
     id: '5',
     name: 'Cortado',
