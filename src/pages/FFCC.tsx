@@ -3,7 +3,7 @@ import PhoneInput, { isValidPhoneNumber, type Value } from "react-phone-number-i
 import "react-phone-number-input/style.css";
 import { ArrowRight, BrainCircuit, Building2, Check, Cloud, Mail, Store, User, Loader2 } from "lucide-react";
 import Seo from "@/components/Seo";
-import riyadhSkylineAsset from "@/assets/ffcc-riyadh-skyline.png.asset.json";
+import riyadhSkyline from "@/assets/ffcc-riyadh-skyline.png";
 import { supabase } from "@/integrations/supabase/client";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
