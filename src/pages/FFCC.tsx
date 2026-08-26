@@ -106,7 +106,7 @@ const FFCC = () => {
   const fieldBad = "border-destructive focus:border-destructive focus:ring-destructive/15";
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-[hsl(214_100%_98%)] font-sans">
+    <div className="flex min-h-screen w-full flex-col overflow-x-hidden bg-[hsl(214_100%_98%)] font-sans">
       <Seo
         title="Meet Swirl at FFCC Riyadh | Fast Food & Cafe Convention"
         description="Connect with Swirl at FFCC — Fast Food & Cafe Convention in Riyadh—and discover an AI-native restaurant operating system for POS, inventory, kitchen, delivery, and reporting."
@@ -120,7 +120,7 @@ const FFCC = () => {
       </div>
 
 
-      <div className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-5 py-7 sm:px-8 lg:px-10 lg:py-10">
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col px-5 py-7 sm:px-8 lg:px-10 lg:py-10">
         {/* Header */}
         <header className="mb-8 flex items-center justify-between lg:mb-14">
           <a href="/" aria-label="swirl home" className="inline-flex items-center">
@@ -463,7 +463,7 @@ const FFCC = () => {
       </div>
 
       {/* Riyadh skyline — realistic footer band */}
-      <footer className="relative mt-6 w-full">
+      <footer className="relative mt-auto w-full">
         <div className="relative h-[190px] w-full overflow-hidden sm:h-[240px] lg:h-[300px]">
           <img
             src={riyadhSkyline}
@@ -476,9 +476,8 @@ const FFCC = () => {
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-b from-[hsl(214_100%_98%)] via-[hsl(214_100%_98%)]/45 to-transparent"
+            className="absolute inset-0 bg-gradient-to-b from-[hsl(214_100%_98%)] via-[hsl(214_100%_98%)]/20 to-transparent"
           />
-          <div aria-hidden="true" className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
           <div className="absolute inset-x-0 bottom-0 px-5 pb-5 sm:px-8 lg:px-10 lg:pb-7">
             <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
               <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.55)]">
