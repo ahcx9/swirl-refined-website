@@ -127,14 +127,16 @@ const FFCC = () => {
             <img
               src="/lovable-uploads/swirl-logo-transparent.png"
               alt="swirl"
-              width={112}
-              height={32}
-              className="h-8 w-auto"
+              width={280}
+              height={80}
+              loading="eager"
+              decoding="sync"
+              className="h-14 w-auto sm:h-16 lg:h-[72px]"
             />
           </a>
           <a
             href="https://swirl.cx"
-            className="text-[13px] font-medium text-muted-foreground transition-colors hover:text-primary"
+            className="rounded-full border border-border/70 bg-white/70 px-4 py-2 text-[13px] font-semibold text-muted-foreground shadow-[0_1px_2px_rgba(16,24,40,0.04)] backdrop-blur transition-all hover:border-primary/40 hover:text-primary"
           >
             Visit swirl.cx
           </a>
@@ -143,31 +145,42 @@ const FFCC = () => {
         <main className="grid flex-1 items-start gap-9 lg:grid-cols-2 lg:gap-16">
           {/* Left — messaging */}
           <section className="animate-fade-in lg:pt-4">
-            <div className="inline-flex flex-col gap-1 rounded-[14px] border border-primary/20 bg-white/80 px-4 py-2.5 shadow-[0_1px_2px_rgba(16,24,40,0.04)] backdrop-blur-sm">
-              <span className="text-[13px] font-bold uppercase tracking-[0.14em] text-primary">
-                FFCC Riyadh • 2026
+            <div className="inline-flex items-center gap-3 rounded-full border border-primary/20 bg-white/85 py-2 pl-2 pr-5 shadow-[0_6px_20px_-12px_rgba(0,82,204,0.45)] backdrop-blur-sm">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground">
+                26
               </span>
-              <span className="text-[11px] font-medium tracking-wide text-muted-foreground">
-                Fast Food &amp; Cafe Convention
+              <span className="flex flex-col leading-tight">
+                <span className="text-[13px] font-bold uppercase tracking-[0.14em] text-primary">
+                  FFCC Riyadh • 2026
+                </span>
+                <span className="text-[11px] font-medium tracking-wide text-muted-foreground">
+                  Fast Food &amp; Cafe Convention
+                </span>
               </span>
             </div>
 
-            <h1 className="mt-6 text-[28px] font-bold leading-[1.15] tracking-tight text-[hsl(217_45%_17%)] sm:text-[34px] lg:mt-7 lg:text-[42px]">
-              Let’s build the future of restaurant operations.
+            <h1 className="mt-6 text-[30px] font-bold leading-[1.12] tracking-tight text-[hsl(217_45%_17%)] sm:text-[36px] lg:mt-7 lg:text-[46px]">
+              Let’s build the future of{' '}
+              <span className="bg-gradient-to-r from-primary to-[hsl(217_100%_58%)] bg-clip-text text-transparent">
+                restaurant operations.
+              </span>
             </h1>
 
-            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-base">
+            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16.5px]">
               Meet Swirl at the Fast Food &amp; Cafe Convention in Riyadh and discover how one AI-native
               platform brings your POS, inventory, kitchen, delivery, customers, and reporting together.
             </p>
 
-            <ul className="mt-7 space-y-3 lg:mt-9">
+            <ul className="mt-7 space-y-2.5 lg:mt-9">
               {trustPoints.map(({ icon: Icon, text }) => (
-                <li key={text} className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[11px] border border-primary/15 bg-white text-primary shadow-[0_1px_2px_rgba(16,24,40,0.04)]">
-                    <Icon size={17} strokeWidth={1.8} />
+                <li
+                  key={text}
+                  className="flex items-center gap-3 rounded-[14px] border border-border/60 bg-white/70 px-3.5 py-3 shadow-[0_1px_2px_rgba(16,24,40,0.03)] backdrop-blur-sm transition-all duration-200 hover:border-primary/30 hover:bg-white hover:shadow-[0_10px_26px_-18px_rgba(0,82,204,0.5)]"
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[12px] bg-primary/10 text-primary">
+                    <Icon size={18} strokeWidth={1.9} />
                   </span>
-                  <span className="text-[14px] font-medium text-[hsl(217_40%_22%)] sm:text-[15px]">{text}</span>
+                  <span className="text-[14px] font-semibold text-[hsl(217_40%_22%)] sm:text-[15px]">{text}</span>
                 </li>
               ))}
             </ul>
@@ -175,13 +188,15 @@ const FFCC = () => {
 
           {/* Right — form card */}
           <section className="animate-fade-in pb-10">
-            <div className="rounded-[18px] border border-border/70 bg-white p-6 shadow-[0_18px_50px_-24px_rgba(0,82,204,0.28),0_2px_6px_rgba(16,24,40,0.04)] sm:p-8">
+            <div className="overflow-hidden rounded-[22px] border border-border/70 bg-white shadow-[0_28px_70px_-30px_rgba(0,82,204,0.35),0_2px_6px_rgba(16,24,40,0.05)]">
+              <div aria-hidden="true" className="h-1.5 w-full bg-gradient-to-r from-primary via-[hsl(217_100%_58%)] to-primary/40" />
+              <div className="p-6 sm:p-8">
               {!done ? (
                 <>
                   <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-primary">
                     Connect with Swirl
                   </p>
-                  <h2 className="mt-2 text-[22px] font-bold tracking-tight text-[hsl(217_45%_17%)] sm:text-[24px]">
+                  <h2 className="mt-2 text-[23px] font-bold tracking-tight text-[hsl(217_45%_17%)] sm:text-[25px]">
                     Tell us a little about you
                   </h2>
                   <p className="mt-1.5 text-[14px] text-muted-foreground">
@@ -381,7 +396,7 @@ const FFCC = () => {
                     You’re all set. Our team will contact you shortly on WhatsApp.
                   </p>
                   <p className="mx-auto mt-2 max-w-sm text-[13.5px] text-muted-foreground/90">
-                    We look forward to meeting you at FFCC — Fast Food &amp; Cafe Convention in Riyadh.
+                    We look forward to meeting you in person for a demo meet and having a great coffee together.
                   </p>
                   <a
                     href="https://swirl.cx"
@@ -392,6 +407,7 @@ const FFCC = () => {
                   </a>
                 </div>
               )}
+              </div>
             </div>
           </section>
         </main>
