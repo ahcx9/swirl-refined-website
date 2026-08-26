@@ -127,14 +127,16 @@ const FFCC = () => {
             <img
               src="/lovable-uploads/swirl-logo-transparent.png"
               alt="swirl"
-              width={112}
-              height={32}
-              className="h-8 w-auto"
+              width={280}
+              height={80}
+              loading="eager"
+              decoding="sync"
+              className="h-14 w-auto sm:h-16 lg:h-[72px]"
             />
           </a>
           <a
             href="https://swirl.cx"
-            className="text-[13px] font-medium text-muted-foreground transition-colors hover:text-primary"
+            className="rounded-full border border-border/70 bg-white/70 px-4 py-2 text-[13px] font-semibold text-muted-foreground shadow-[0_1px_2px_rgba(16,24,40,0.04)] backdrop-blur transition-all hover:border-primary/40 hover:text-primary"
           >
             Visit swirl.cx
           </a>
