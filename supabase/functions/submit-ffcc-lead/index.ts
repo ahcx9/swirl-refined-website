@@ -44,6 +44,69 @@ function normalizePhone(raw: string): string | null {
   return "+" + digits;
 }
 
+const SHEET_ID = "1H48xBh87Gy5gXpq4ux8v-tayM47nvFR9hPgSn35n52E";
+const NOTIFY_TO = "abid@swirl.cx";
+
+const esc = (s: string) =>
+  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+/** Append the lead as a row in the Swirl FFCC Google Sheet (best-effort). */
+async function appendToSheet(row: (string | null)[]) {
+  const lovableKey = Deno.env.get("LOVABLE_API_KEY");
+  const sheetsKey = Deno.env.get("GOOGLE_SHEETS_API_KEY");
+  if (!lovableKey || !sheetsKey) {
+    console.warn("Google Sheets connector not configured — skipping sheet append");
+    return;
+  }
+  const url =
+    `https://connector-gateway.lovable.dev/google_sheets/v4/spreadsheets/${SHEET_ID}` +
+    `/values/Leads!A1:F1:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`;
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${lovableKey}`,
+      "X-Connection-Api-Key": sheetsKey,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ values: [row] }),
+  });
+  if (!res.ok) {
+    console.error(`Sheets append failed [${res.status}]: ${await res.text()}`);
+  }
+}
+
+/** Email the lead to the Swirl team (best-effort). */
+async function sendNotification(fields: Record<string, string>) {
+  const apiKey = Deno.env.get("RESEND_API_KEY");
+  if (!apiKey) {
+    console.warn("RESEND_API_KEY missing — skipping notification email");
+    return;
+  }
+  const rows = Object.entries(fields)
+    .map(
+      ([k, v]) =>
+        `<p style="margin:8px 0"><strong>${esc(k)}:</strong> ${esc(v)}</p>`,
+    )
+    .join("");
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      from: "Swirl FFCC Leads <onboarding@resend.dev>",
+      to: [NOTIFY_TO],
+      subject: `New FFCC lead — ${fields["Contact Name"]} (${fields["Brand"]})`,
+      html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
+        <h2 style="color:#0052CC">New FFCC Riyadh 2026 Lead</h2>
+        <div style="background:#f5f7fb;padding:20px;border-radius:8px">${rows}</div>
+      </div>`,
+    }),
+  });
+  if (!res.ok) {
+    console.error(`Resend send failed [${res.status}]: ${await res.text()}`);
+  }
+}
+
+
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
   if (req.method !== "POST") return json({ error: "Method not allowed" }, 405);
@@ -93,7 +156,23 @@ Deno.serve(async (req: Request) => {
       return json({ error: "Unable to save submission" }, 500);
     }
 
+    const submittedAt = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
+
+    // Best-effort fan-out: never block the visitor on these.
+    await Promise.allSettled([
+      appendToSheet([submittedAt, contactName, phone, workEmailRaw || "", brandName, "FFCC Riyadh 2026"]),
+      sendNotification({
+        "Contact Name": contactName,
+        Phone: phone,
+        "Work Email": workEmailRaw || "—",
+        Brand: brandName,
+        Source: "FFCC Riyadh 2026",
+        Submitted: submittedAt,
+      }),
+    ]);
+
     return json({ success: true });
+
   } catch (e) {
     console.error("submit-ffcc-lead error:", (e as Error).message);
     return json({ error: "Unable to save submission" }, 500);
