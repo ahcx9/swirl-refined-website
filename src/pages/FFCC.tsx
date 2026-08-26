@@ -3,7 +3,7 @@ import PhoneInput, { isValidPhoneNumber, type Value } from "react-phone-number-i
 import "react-phone-number-input/style.css";
 import { ArrowRight, BrainCircuit, Building2, Check, Cloud, Mail, Store, User, Loader2 } from "lucide-react";
 import Seo from "@/components/Seo";
-import RiyadhSkyline from "@/components/ffcc/RiyadhSkyline";
+import riyadhSkyline from "@/assets/ffcc-riyadh-skyline.jpg";
 import { supabase } from "@/integrations/supabase/client";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -117,8 +117,8 @@ const FFCC = () => {
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-32 h-[520px] w-[520px] rounded-full bg-primary/10 blur-[120px]" />
         <div className="absolute top-1/3 -left-40 h-[420px] w-[420px] rounded-full bg-primary/[0.07] blur-[120px]" />
-        <RiyadhSkyline className="absolute bottom-0 left-0 w-full text-primary/[0.13]" />
       </div>
+
 
       <div className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-5 py-7 sm:px-8 lg:px-10 lg:py-10">
         {/* Header */}
@@ -166,10 +166,15 @@ const FFCC = () => {
               </span>
             </h1>
 
-            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16.5px]">
-              Meet Swirl at the Fast Food &amp; Cafe Convention in Riyadh and discover how one AI-native platform brings
-              your POS, inventory, kitchen, delivery, customers, and reporting together.
-            </p>
+            <div className="mt-4 max-w-xl space-y-3 text-[15px] leading-relaxed text-muted-foreground sm:text-[16.5px]">
+              <p>Discover the smarter way to run your restaurant with Swirl.</p>
+              <p>
+                Manage POS billing, inventory, in-house delivery management, kitchen operations, delivery
+                aggregators, customers, and reporting—all from one AI-native platform.
+              </p>
+              <p>Automate everyday tasks, gain real-time control, and manage every outlet from anywhere.</p>
+            </div>
+
 
             <ul className="mt-7 space-y-2.5 lg:mt-9">
               {trustPoints.map(({ icon: Icon, text }) => (
@@ -456,6 +461,37 @@ const FFCC = () => {
           </section>
         </main>
       </div>
+
+      {/* Riyadh skyline — realistic footer band */}
+      <footer className="relative mt-6 w-full">
+        <div className="relative h-[190px] w-full overflow-hidden sm:h-[240px] lg:h-[300px]">
+          <img
+            src={riyadhSkyline}
+            alt="Riyadh skyline at golden hour"
+            width={1920}
+            height={720}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover object-bottom"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-b from-[hsl(214_100%_98%)] via-[hsl(214_100%_98%)]/45 to-transparent"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
+          <div className="absolute inset-x-0 bottom-0 px-5 pb-5 sm:px-8 lg:px-10 lg:pb-7">
+            <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
+              <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.55)]">
+                Riyadh • FFCC 2026
+              </p>
+              <p className="text-[12.5px] font-medium text-white/90 drop-shadow-[0_1px_6px_rgba(0,0,0,0.55)]">
+                swirl — the AI-native restaurant operating system
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
     </div>
   );
 };
