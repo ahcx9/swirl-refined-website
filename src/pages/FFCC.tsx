@@ -463,8 +463,18 @@ const FFCC = () => {
       </div>
 
       {/* Riyadh skyline — transparent cutout footer band */}
-      <footer className="relative mt-auto w-full">
-        <div className="relative h-[140px] w-full overflow-hidden sm:h-[180px] lg:h-[230px]">
+      <footer className="mt-auto w-full pt-10">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
+          <div className="flex flex-col items-start justify-between gap-1.5 sm:flex-row sm:items-end">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-[hsl(217_45%_17%)]">
+              Riyadh • FFCC 2026
+            </p>
+            <p className="text-[12.5px] font-medium text-muted-foreground">
+              swirl — the AI-native restaurant operating system
+            </p>
+          </div>
+        </div>
+        <div className="relative -mt-2 w-full overflow-hidden">
           <img
             src={riyadhSkyline}
             alt="Riyadh skyline with Kingdom Centre Tower"
@@ -472,18 +482,8 @@ const FFCC = () => {
             height={269}
             loading="lazy"
             decoding="async"
-            className="absolute bottom-0 left-1/2 h-auto w-full min-w-[840px] max-w-none -translate-x-1/2 object-contain object-bottom [filter:drop-shadow(0_-10px_30px_rgba(15,40,90,0.13))]"
+            className="block h-auto w-full min-w-[760px] max-w-none [filter:drop-shadow(0_-10px_30px_rgba(15,40,90,0.12))]"
           />
-          <div className="absolute inset-x-0 bottom-0 px-5 pb-4 sm:px-8 lg:px-10 lg:pb-6">
-            <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
-              <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-[hsl(217_45%_17%)] [text-shadow:0_1px_8px_rgba(255,255,255,0.9)]">
-                Riyadh • FFCC 2026
-              </p>
-              <p className="text-[12.5px] font-medium text-[hsl(217_30%_35%)] [text-shadow:0_1px_8px_rgba(255,255,255,0.9)]">
-                swirl — the AI-native restaurant operating system
-              </p>
-            </div>
-          </div>
         </div>
       </footer>
 
