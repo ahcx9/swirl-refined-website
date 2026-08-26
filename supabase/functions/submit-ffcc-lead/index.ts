@@ -156,7 +156,23 @@ Deno.serve(async (req: Request) => {
       return json({ error: "Unable to save submission" }, 500);
     }
 
+    const submittedAt = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
+
+    // Best-effort fan-out: never block the visitor on these.
+    await Promise.allSettled([
+      appendToSheet([submittedAt, contactName, phone, workEmailRaw || "", brandName, "FFCC Riyadh 2026"]),
+      sendNotification({
+        "Contact Name": contactName,
+        Phone: phone,
+        "Work Email": workEmailRaw || "—",
+        Brand: brandName,
+        Source: "FFCC Riyadh 2026",
+        Submitted: submittedAt,
+      }),
+    ]);
+
     return json({ success: true });
+
   } catch (e) {
     console.error("submit-ffcc-lead error:", (e as Error).message);
     return json({ error: "Unable to save submission" }, 500);
