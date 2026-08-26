@@ -396,7 +396,7 @@ const FFCC = () => {
                     You’re all set. Our team will contact you shortly on WhatsApp.
                   </p>
                   <p className="mx-auto mt-2 max-w-sm text-[13.5px] text-muted-foreground/90">
-                    We look forward to meeting you at FFCC — Fast Food &amp; Cafe Convention in Riyadh.
+                    We look forward to meeting you in person for a demo meet and having a great coffee together.
                   </p>
                   <a
                     href="https://swirl.cx"
