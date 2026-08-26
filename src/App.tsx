@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Index from './pages/Index';
 import NotFound from './pages/NotFound';
@@ -28,17 +28,31 @@ import Reservations from './pages/features/Reservations';
 import Support from './pages/Support';
 import Presentation from './pages/Presentation';
 import Roadmap from './pages/Roadmap';
+import FFCC from './pages/FFCC';
 
 import { LanguageProvider } from './contexts/LanguageContext';
 import MobileStickyBar from './components/MobileStickyBar';
+
+/** Standalone conversion pages render without the marketing chrome. */
+const STANDALONE_ROUTES = ['/ffcc'];
+
+function SiteChrome() {
+  const { pathname } = useLocation();
+  if (STANDALONE_ROUTES.includes(pathname.replace(/\/+$/, '') || '/')) return null;
+  return (
+    <>
+      <Navbar />
+      <MobileStickyBar />
+    </>
+  );
+}
 
 function App() {
   return (
     <LanguageProvider>
       <Router>
-        <Navbar />
+        <SiteChrome />
         <ScrollToTop />
-        <MobileStickyBar />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/contact" element={<Contact />} />
@@ -47,6 +61,8 @@ function App() {
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/sitemap" element={<Sitemap />} />
+          <Route path="/ffcc" element={<FFCC />} />
+
           
           {/* Feature pages */}
           <Route path="/products/digital-menu" element={<DigitalMenu />} />
