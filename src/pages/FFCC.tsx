@@ -3,7 +3,7 @@ import PhoneInput, { isValidPhoneNumber, type Value } from "react-phone-number-i
 import "react-phone-number-input/style.css";
 import { ArrowRight, BrainCircuit, Building2, Check, Cloud, Mail, Store, User, Loader2 } from "lucide-react";
 import Seo from "@/components/Seo";
-import riyadhSkyline from "@/assets/ffcc-riyadh-skyline.jpg";
+import riyadhSkyline from "@/assets/ffcc-riyadh-skyline.png";
 import { supabase } from "@/integrations/supabase/client";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -462,32 +462,28 @@ const FFCC = () => {
         </main>
       </div>
 
-      {/* Riyadh skyline — realistic footer band */}
-      <footer className="relative mt-auto w-full">
-        <div className="relative h-[190px] w-full overflow-hidden sm:h-[240px] lg:h-[300px]">
+      {/* Riyadh skyline — transparent cutout footer band */}
+      <footer className="mt-auto w-full pt-10">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
+          <div className="flex flex-col items-start justify-between gap-1.5 sm:flex-row sm:items-end">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-[hsl(217_45%_17%)]">
+              Riyadh • FFCC 2026
+            </p>
+            <p className="text-[12.5px] font-medium text-muted-foreground">
+              swirl — the AI-native restaurant operating system
+            </p>
+          </div>
+        </div>
+        <div className="relative -mt-2 flex w-full justify-center overflow-hidden">
           <img
             src={riyadhSkyline}
-            alt="Riyadh skyline at golden hour"
-            width={1920}
-            height={720}
+            alt="Riyadh skyline with Kingdom Centre Tower"
+            width={1600}
+            height={269}
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 h-full w-full object-cover object-bottom"
+            className="block h-auto w-full min-w-[760px] max-w-none shrink-0 [filter:drop-shadow(0_-10px_30px_rgba(15,40,90,0.12))]"
           />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-b from-[hsl(214_100%_98%)] via-[hsl(214_100%_98%)]/20 to-transparent"
-          />
-          <div className="absolute inset-x-0 bottom-0 px-5 pb-5 sm:px-8 lg:px-10 lg:pb-7">
-            <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
-              <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.55)]">
-                Riyadh • FFCC 2026
-              </p>
-              <p className="text-[12.5px] font-medium text-white/90 drop-shadow-[0_1px_6px_rgba(0,0,0,0.55)]">
-                swirl — the AI-native restaurant operating system
-              </p>
-            </div>
-          </div>
         </div>
       </footer>
 
