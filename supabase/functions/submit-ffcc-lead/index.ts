@@ -60,7 +60,7 @@ async function appendToSheet(row: (string | null)[]) {
   }
   const url =
     `https://connector-gateway.lovable.dev/google_sheets/v4/spreadsheets/${SHEET_ID}` +
-    `/values/Leads!A1:F1:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
+    `/values/Leads!A1:F1:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`;
   const res = await fetch(url, {
     method: "POST",
     headers: {
