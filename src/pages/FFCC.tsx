@@ -466,7 +466,7 @@ const FFCC = () => {
       <footer className="relative mt-auto w-full">
         <div className="relative h-[150px] w-full overflow-hidden sm:h-[210px] lg:h-[280px]">
           <img
-            src={riyadhSkylineAsset.url}
+            src={riyadhSkyline}
             alt="Riyadh skyline with Kingdom Centre Tower"
             width={1920}
             height={323}
