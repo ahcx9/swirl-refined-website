@@ -461,6 +461,37 @@ const FFCC = () => {
           </section>
         </main>
       </div>
+
+      {/* Riyadh skyline — realistic footer band */}
+      <footer className="relative mt-6 w-full">
+        <div className="relative h-[190px] w-full overflow-hidden sm:h-[240px] lg:h-[300px]">
+          <img
+            src={riyadhSkyline}
+            alt="Riyadh skyline at golden hour"
+            width={1920}
+            height={720}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover object-bottom"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-b from-[hsl(214_100%_98%)] via-[hsl(214_100%_98%)]/45 to-transparent"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
+          <div className="absolute inset-x-0 bottom-0 px-5 pb-5 sm:px-8 lg:px-10 lg:pb-7">
+            <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
+              <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.55)]">
+                Riyadh • FFCC 2026
+              </p>
+              <p className="text-[12.5px] font-medium text-white/90 drop-shadow-[0_1px_6px_rgba(0,0,0,0.55)]">
+                swirl — the AI-native restaurant operating system
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
     </div>
   );
 };
