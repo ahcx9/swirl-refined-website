@@ -166,10 +166,15 @@ const FFCC = () => {
               </span>
             </h1>
 
-            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16.5px]">
-              Meet Swirl at the Fast Food &amp; Cafe Convention in Riyadh and discover how one AI-native platform brings
-              your POS, inventory, kitchen, delivery, customers, and reporting together.
-            </p>
+            <div className="mt-4 max-w-xl space-y-3 text-[15px] leading-relaxed text-muted-foreground sm:text-[16.5px]">
+              <p>Discover the smarter way to run your restaurant with Swirl.</p>
+              <p>
+                Manage POS billing, inventory, in-house delivery management, kitchen operations, delivery
+                aggregators, customers, and reporting—all from one AI-native platform.
+              </p>
+              <p>Automate everyday tasks, gain real-time control, and manage every outlet from anywhere.</p>
+            </div>
+
 
             <ul className="mt-7 space-y-2.5 lg:mt-9">
               {trustPoints.map(({ icon: Icon, text }) => (
