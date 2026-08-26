@@ -117,8 +117,8 @@ const FFCC = () => {
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-32 h-[520px] w-[520px] rounded-full bg-primary/10 blur-[120px]" />
         <div className="absolute top-1/3 -left-40 h-[420px] w-[420px] rounded-full bg-primary/[0.07] blur-[120px]" />
-        <RiyadhSkyline className="absolute bottom-0 left-0 w-full text-primary/[0.13]" />
       </div>
+
 
       <div className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-5 py-7 sm:px-8 lg:px-10 lg:py-10">
         {/* Header */}
