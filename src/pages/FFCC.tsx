@@ -474,7 +474,7 @@ const FFCC = () => {
             </p>
           </div>
         </div>
-        <div className="relative -mt-2 w-full overflow-hidden">
+        <div className="relative -mt-2 flex w-full justify-center overflow-hidden">
           <img
             src={riyadhSkyline}
             alt="Riyadh skyline with Kingdom Centre Tower"
@@ -482,7 +482,7 @@ const FFCC = () => {
             height={269}
             loading="lazy"
             decoding="async"
-            className="block h-auto w-full min-w-[760px] max-w-none [filter:drop-shadow(0_-10px_30px_rgba(15,40,90,0.12))]"
+            className="block h-auto w-full min-w-[760px] max-w-none shrink-0 [filter:drop-shadow(0_-10px_30px_rgba(15,40,90,0.12))]"
           />
         </div>
       </footer>
