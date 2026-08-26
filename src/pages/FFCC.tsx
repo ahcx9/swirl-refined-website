@@ -464,15 +464,15 @@ const FFCC = () => {
 
       {/* Riyadh skyline — transparent cutout footer band */}
       <footer className="relative mt-auto w-full">
-        <div className="relative h-[150px] w-full overflow-hidden sm:h-[210px] lg:h-[280px]">
+        <div className="relative h-[140px] w-full overflow-hidden sm:h-[180px] lg:h-[230px]">
           <img
             src={riyadhSkyline}
             alt="Riyadh skyline with Kingdom Centre Tower"
-            width={1920}
-            height={323}
+            width={1600}
+            height={269}
             loading="lazy"
             decoding="async"
-            className="absolute bottom-0 left-1/2 h-full w-auto min-w-full -translate-x-1/2 object-cover object-bottom [filter:drop-shadow(0_-8px_28px_rgba(15,40,90,0.14))]"
+            className="absolute bottom-0 left-1/2 h-auto w-full min-w-[840px] max-w-none -translate-x-1/2 object-contain object-bottom [filter:drop-shadow(0_-10px_30px_rgba(15,40,90,0.13))]"
           />
           <div className="absolute inset-x-0 bottom-0 px-5 pb-4 sm:px-8 lg:px-10 lg:pb-6">
             <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
