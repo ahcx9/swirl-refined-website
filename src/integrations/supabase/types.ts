@@ -47,6 +47,36 @@ export type Database = {
         }
         Relationships: []
       }
+      ffcc_leads: {
+        Row: {
+          brand_name: string
+          contact_name: string
+          created_at: string
+          id: string
+          phone_e164: string
+          source: string
+          work_email: string | null
+        }
+        Insert: {
+          brand_name: string
+          contact_name: string
+          created_at?: string
+          id?: string
+          phone_e164: string
+          source?: string
+          work_email?: string | null
+        }
+        Update: {
+          brand_name?: string
+          contact_name?: string
+          created_at?: string
+          id?: string
+          phone_e164?: string
+          source?: string
+          work_email?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
