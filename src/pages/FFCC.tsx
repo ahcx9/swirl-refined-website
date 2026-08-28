@@ -3,7 +3,6 @@ import FfccPhoneField, { isValidLocalNumber, toE164 } from "@/components/ffcc/Ff
 import { ArrowRight, BrainCircuit, Building2, Check, Cloud, Mail, Store, User, Loader2 } from "lucide-react";
 import Seo from "@/components/Seo";
 import riyadhSkyline from "@/assets/ffcc-riyadh-skyline.png";
-import { supabase } from "@/integrations/supabase/client";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -78,16 +77,24 @@ const FFCC = () => {
 
     setSubmitting(true);
     try {
-      const { data, error } = await supabase.functions.invoke("submit-ffcc-lead", {
-        body: {
+      // Direct fetch keeps the heavy backend client out of this route's bundle.
+      const res = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-ffcc-lead`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+        },
+        body: JSON.stringify({
           contact_name: name.trim(),
           phone: toE164(dial, phone),
           work_email: email.trim(),
           brand_name: brand.trim(),
           company_website: honeypot,
-        },
+        }),
       });
-      if (error || !(data as { success?: boolean } | null)?.success) throw new Error("submit_failed");
+      const data = res.ok ? await res.json().catch(() => null) : null;
+      if (!(data as { success?: boolean } | null)?.success) throw new Error("submit_failed");
 
       setFirstName(name.trim().split(/\s+/)[0]);
       setDone(true);
