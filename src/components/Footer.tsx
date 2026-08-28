@@ -13,6 +13,9 @@ const Footer = () => {
     { label: t('footer.products_items.pos'), to: '/products/restaurant-point-of-sale' },
     { label: t('footer.products_items.qr'), to: '/products/qr-ordering' },
     { label: t('footer.products_items.kds'), to: '/products/kitchen-display' },
+    { label: 'Token Management', to: '/token-management' },
+    { label: 'In-House Delivery Management', to: '/in-house-delivery-management' },
+    { label: 'Catering Management', to: '/catering-management' },
     { label: t('footer.products_items.inventory'), to: '/products/inventory-management' },
     { label: t('footer.products_items.reports'), to: '/products/restaurant-analytics' },
     { label: t('footer.products_items.crm'), to: '/products/loyalty' },
@@ -20,6 +23,7 @@ const Footer = () => {
     { label: t('footer.products_items.delivery'), to: '/#delivery-integration' },
     { label: t('footer.products_items.hardware'), to: '/products/swirl-hardware' },
   ];
+
 
   const industryLinks = [
     { label: t('footer.industries_items.fine'), to: '/use-cases#fine-dining' },
