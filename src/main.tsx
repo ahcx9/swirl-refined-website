@@ -23,12 +23,13 @@ const render = () =>
 
 if (isFfcc) {
   render();
+  // Warm i18n only once the visitor interacts, so it never competes with the
+  // form's first paint but client-side navigation away from /ffcc stays instant.
   const warmI18n = () => { void import('./i18n'); };
-  if ('requestIdleCallback' in window) {
-    (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(warmI18n);
-  } else {
-    setTimeout(warmI18n, 1500);
-  }
+  ['pointerdown', 'keydown'].forEach((evt) =>
+    window.addEventListener(evt, warmI18n, { once: true, passive: true })
+  );
 } else {
   void import('./i18n').then(render);
 }
+

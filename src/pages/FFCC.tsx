@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import FfccPhoneField, { isValidLocalNumber, toE164 } from "@/components/ffcc/FfccPhoneField";
 import { ArrowRight, BrainCircuit, Building2, Check, Cloud, Mail, Store, User, Loader2 } from "lucide-react";
 import Seo from "@/components/Seo";
-import riyadhSkyline from "@/assets/ffcc-riyadh-skyline.png";
+import riyadhSkyline from "@/assets/ffcc-riyadh-skyline.webp";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -132,7 +132,7 @@ const FFCC = () => {
         <header className="mb-8 flex items-center justify-between lg:mb-14">
           <a href="/" aria-label="swirl home" className="inline-flex items-center">
             <img
-              src="/lovable-uploads/swirl-logo-transparent.png"
+              src="/lovable-uploads/swirl-logo-transparent.webp"
               alt="swirl"
               width={280}
               height={80}
