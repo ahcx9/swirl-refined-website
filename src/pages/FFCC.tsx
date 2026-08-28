@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import PhoneInput, { isValidPhoneNumber, type Value } from "react-phone-number-input";
-import "react-phone-number-input/style.css";
+import FfccPhoneField, { isValidLocalNumber, toE164 } from "@/components/ffcc/FfccPhoneField";
 import { ArrowRight, BrainCircuit, Building2, Check, Cloud, Mail, Store, User, Loader2 } from "lucide-react";
 import Seo from "@/components/Seo";
 import riyadhSkyline from "@/assets/ffcc-riyadh-skyline.png";
-import { supabase } from "@/integrations/supabase/client";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -32,7 +30,8 @@ type Errors = { name?: string; phone?: string; email?: string; brand?: string };
 
 const FFCC = () => {
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState<Value | undefined>(undefined);
+  const [dial, setDial] = useState("+966");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [brand, setBrand] = useState("");
   const [honeypot, setHoneypot] = useState("");
@@ -62,7 +61,7 @@ const FFCC = () => {
   const validate = (): Errors => {
     const e: Errors = {};
     if (name.trim().length < 2) e.name = "Please enter your full name.";
-    if (!phone || !isValidPhoneNumber(String(phone))) e.phone = "Enter a valid WhatsApp or contact number.";
+    if (!isValidLocalNumber(phone)) e.phone = "Enter a valid WhatsApp or contact number.";
     if (email.trim() && !EMAIL_RE.test(email.trim())) e.email = "Enter a valid email address.";
     if (brand.trim().length < 1) e.brand = "Please enter your business or brand name.";
     return e;
@@ -78,16 +77,24 @@ const FFCC = () => {
 
     setSubmitting(true);
     try {
-      const { data, error } = await supabase.functions.invoke("submit-ffcc-lead", {
-        body: {
+      // Direct fetch keeps the heavy backend client out of this route's bundle.
+      const res = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-ffcc-lead`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+        },
+        body: JSON.stringify({
           contact_name: name.trim(),
-          phone: String(phone),
+          phone: toE164(dial, phone),
           work_email: email.trim(),
           brand_name: brand.trim(),
           company_website: honeypot,
-        },
+        }),
       });
-      if (error || !(data as { success?: boolean } | null)?.success) throw new Error("submit_failed");
+      const data = res.ok ? await res.json().catch(() => null) : null;
+      if (!(data as { success?: boolean } | null)?.success) throw new Error("submit_failed");
 
       setFirstName(name.trim().split(/\s+/)[0]);
       setDone(true);
@@ -274,34 +281,18 @@ const FFCC = () => {
                         >
                           WhatsApp / Contact Number <span className="text-primary">*</span>
                         </label>
-                        <div
-                          className={`ffcc-phone flex h-12 items-center rounded-[14px] border bg-white px-3 transition-all duration-200 focus-within:ring-4 ${
-                            errors.phone
-                              ? "border-destructive focus-within:ring-destructive/15"
-                              : "border-border hover:border-primary/40 focus-within:border-primary focus-within:ring-primary/15"
-                          }`}
-                        >
-                          <PhoneInput
-                            id="ffcc-phone"
-                            international
-                            defaultCountry="SA"
-                            countryCallingCodeEditable={false}
-                            value={phone}
-                            onFocus={markStarted}
-                            onChange={(v) => {
-                              setPhone(v);
-                              if (errors.phone) setErrors((p) => ({ ...p, phone: undefined }));
-                            }}
-                            placeholder="5X XXX XXXX"
-                            numberInputProps={{
-                              type: "tel",
-                              inputMode: "tel",
-                              autoComplete: "tel",
-                              "aria-invalid": !!errors.phone,
-                              "aria-describedby": errors.phone ? "ffcc-phone-error" : undefined,
-                            }}
-                          />
-                        </div>
+                        <FfccPhoneField
+                          dial={dial}
+                          onDialChange={setDial}
+                          value={phone}
+                          onFocus={markStarted}
+                          onValueChange={(v) => {
+                            setPhone(v);
+                            if (errors.phone) setErrors((p) => ({ ...p, phone: undefined }));
+                          }}
+                          invalid={!!errors.phone}
+                          describedBy={errors.phone ? "ffcc-phone-error" : undefined}
+                        />
                         {errors.phone && (
                           <p
                             id="ffcc-phone-error"

@@ -28,6 +28,9 @@ const sections = [
     features: [
       { title: 'Point of Sale', path: '/products/restaurant-point-of-sale' },
       { title: 'Kitchen Display', path: '/products/kitchen-display' },
+      { title: 'Token Management', path: '/token-management' },
+      { title: 'In-House Delivery', path: '/in-house-delivery-management' },
+      { title: 'Catering Management', path: '/catering-management' },
     ],
   },
   {

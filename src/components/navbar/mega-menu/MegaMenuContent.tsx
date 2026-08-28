@@ -39,7 +39,11 @@ const tabData: Record<TabKey, {
     features: [
       { title: 'Point of Sale', description: 'Lightning-fast billing', path: '/products/restaurant-point-of-sale' },
       { title: 'Kitchen Display', description: 'Real-time kitchen sync', path: '/products/kitchen-display' },
+      { title: 'Token Management', description: 'Keep QSR orders moving from preparation to pickup.', path: '/token-management' },
+      { title: 'In-House Delivery Management', description: 'Assign riders, track deliveries, and manage proof of delivery.', path: '/in-house-delivery-management' },
+      { title: 'Catering Management', description: 'Plan menus, events, pricing, and payments in one place.', path: '/catering-management' },
     ],
+
   },
   works: {
     headline: 'Your restaurant command center',
