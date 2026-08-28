@@ -43,30 +43,49 @@
       }
     </script>
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9X2SYLY1X8"></script>
+    <!-- Analytics: queued immediately, loaded after the page is interactive so
+         it never competes with the first paint (critical for /ffcc on mobile). -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-9X2SYLY1X8');
-    </script>
-    
-    <!-- Swan Analytics Script -->
-    <script>
+
       (function () {
-        var w = window;
-        var swan = (w.swan = w.swan || []);
-        if (swan.isLoaded) return;
-        swan.isLoaded = true;
-        swan.pk = 'cmanmm7dn0005l405301336z2';
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.async = true;
-        script.src = 'https://script.getswan.com?pk=cmanmm7dn0005l405301336z2';
-        var head = document.getElementsByTagName('head')[0];
-        head.appendChild(script);
+        var loaded = false;
+        function loadAnalytics() {
+          if (loaded) return;
+          loaded = true;
+          var head = document.getElementsByTagName('head')[0];
+
+          var ga = document.createElement('script');
+          ga.async = true;
+          ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-9X2SYLY1X8';
+          head.appendChild(ga);
+
+          var w = window;
+          var swan = (w.swan = w.swan || []);
+          if (!swan.isLoaded) {
+            swan.isLoaded = true;
+            swan.pk = 'cmanmm7dn0005l405301336z2';
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://script.getswan.com?pk=cmanmm7dn0005l405301336z2';
+            head.appendChild(s);
+          }
+        }
+        var start = function () {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadAnalytics, { timeout: 4000 });
+          } else {
+            setTimeout(loadAnalytics, 2500);
+          }
+        };
+        if (document.readyState === 'complete') start();
+        else window.addEventListener('load', start, { once: true });
+        ['pointerdown', 'keydown'].forEach(function (e) {
+          window.addEventListener(e, loadAnalytics, { once: true, passive: true });
+        });
       })();
     </script>
   </head>
