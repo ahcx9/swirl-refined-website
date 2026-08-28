@@ -132,7 +132,9 @@ const InHouseDeliveryManagement = () => {
         {/* Hero */}
         <section className="relative overflow-hidden bg-gradient-to-b from-[#f7f9fc] to-white pt-32 pb-16 md:pt-36 md:pb-24">
           <div className="container-custom relative z-10">
+            <div className="mx-auto max-w-6xl">
             <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-[12.5px] text-muted-foreground">
+
               <Link to="/" className="hover:text-primary transition-colors">Home</Link>
               <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
               <Link to="/products" className="hover:text-primary transition-colors">Products</Link>
