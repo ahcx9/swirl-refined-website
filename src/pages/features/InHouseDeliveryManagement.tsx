@@ -165,10 +165,12 @@ const InHouseDeliveryManagement = () => {
               <div className="lg:col-span-5" aria-hidden="true" />
             </div>
 
-            <div className="animate-on-scroll mx-auto max-w-6xl">
+            <div className="animate-on-scroll">
               <DeliveryHeroDemo />
             </div>
+            </div>
           </div>
+
         </section>
 
         {/* Rider & vehicle management */}
