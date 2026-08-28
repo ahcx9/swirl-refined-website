@@ -31,7 +31,7 @@ const sections = [
       { title: 'Token Management', path: '/token-management' },
       { title: 'In-House Delivery', path: '/in-house-delivery-management' },
       { title: 'Catering Management', path: '/catering-management' },
-
+    ],
   },
   {
     name: 'Works',
