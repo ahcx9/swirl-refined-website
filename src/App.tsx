@@ -2,10 +2,10 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
-import Index from './pages/Index';
 
 import { LanguageProvider } from './contexts/LanguageContext';
 
+const Index = lazy(() => import('./pages/Index'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Navbar = lazy(() => import('./components/navbar/Navbar'));
 const MobileStickyBar = lazy(() => import('./components/MobileStickyBar'));
