@@ -4,6 +4,7 @@ import Seo from '@/components/Seo';
 import Hero from '@/components/Hero';
 import InterfaceProblemStory from '@/components/homepage/InterfaceProblemStory';
 import CustomerLogoMarquee from '@/components/homepage/CustomerLogoMarquee';
+import PlatformShowroom from '@/components/products/PlatformShowroom';
 import SwirlEcosystemGallery from '@/components/homepage/SwirlEcosystemGallery';
 import SwirlShiftStory from '@/components/homepage/SwirlShiftStory';
 import UseCasesControlPanel from '@/components/homepage/UseCasesControlPanel';
