@@ -26,8 +26,8 @@ const ProductOverview = () => {
         {/* Trusted Restaurants */}
         <TrustedRestaurants />
         
-        {/* Products List */}
         {/* Platform showroom */}
+
         <section className="py-20 bg-[#F7FAFF]">
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center mb-12">
