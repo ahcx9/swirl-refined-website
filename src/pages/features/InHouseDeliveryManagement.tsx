@@ -66,14 +66,15 @@ const riderPortal = [
   'Completed delivery history for the shift',
 ];
 
-const commandCentre = [
+const buildCommandCentre = (money: (n: number) => string) => [
   { label: 'Unassigned', value: '3', tone: 'text-muted-foreground' },
   { label: 'Active deliveries', value: '11', tone: 'text-primary' },
   { label: 'Delayed', value: '1', tone: 'text-amber-600' },
   { label: 'Delivered today', value: '68', tone: 'text-emerald-600' },
   { label: 'Failed', value: '0', tone: 'text-muted-foreground' },
-  { label: 'Cash to collect', value: 'SAR 1,940', tone: 'text-foreground' },
+  { label: 'Cash to collect', value: money(1900), tone: 'text-foreground' },
 ];
+
 
 const journey = [
   'Delivery order received',
