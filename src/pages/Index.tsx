@@ -47,6 +47,9 @@ const Index = () => {
       <main className="flex-grow">
         {/* Hero */}
         <Hero />
+
+        {/* Customer logos */}
+        <CustomerLogoMarquee />
         
         {/* Section 1: Interface-Based Problem Story */}
         <InterfaceProblemStory />
