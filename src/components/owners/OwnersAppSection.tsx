@@ -52,16 +52,16 @@ const OwnersPhone: React.FC<{
   const splitTotal = split.reduce((a, b) => a + b.value, 0) || 1;
 
   return (
-    <div className="relative mx-auto w-[272px] rounded-[42px] bg-[#0B1F3A] p-[10px] shadow-[0_24px_60px_rgba(11,31,58,0.25)] ring-1 ring-black/10">
+    <div className="relative mx-auto w-[240px] rounded-[38px] bg-[#0B1F3A] p-[9px] shadow-[0_24px_60px_rgba(11,31,58,0.25)] ring-1 ring-black/10" style={{ height: '492px' }}>
       {/* side buttons */}
-      <span className="absolute -left-[3px] top-[110px] h-9 w-[3px] rounded-l bg-[#0B1F3A]" aria-hidden="true" />
-      <span className="absolute -left-[3px] top-[158px] h-9 w-[3px] rounded-l bg-[#0B1F3A]" aria-hidden="true" />
-      <span className="absolute -right-[3px] top-[132px] h-14 w-[3px] rounded-r bg-[#0B1F3A]" aria-hidden="true" />
-      <div className="relative overflow-hidden rounded-[33px] bg-white">
+      <span className="absolute -left-[3px] top-[96px] h-8 w-[3px] rounded-l bg-[#0B1F3A]" aria-hidden="true" />
+      <span className="absolute -left-[3px] top-[140px] h-8 w-[3px] rounded-l bg-[#0B1F3A]" aria-hidden="true" />
+      <span className="absolute -right-[3px] top-[118px] h-12 w-[3px] rounded-r bg-[#0B1F3A]" aria-hidden="true" />
+      <div className="relative h-full overflow-hidden rounded-[30px] bg-white">
         {/* dynamic island */}
-        <div className="absolute left-1/2 top-2 z-20 h-[22px] w-[86px] -translate-x-1/2 rounded-full bg-[#0B1F3A]" aria-hidden="true" />
+        <div className="absolute left-1/2 top-2 z-20 h-[19px] w-[76px] -translate-x-1/2 rounded-full bg-[#0B1F3A]" aria-hidden="true" />
         {/* status bar */}
-        <div className="flex items-center justify-between bg-[#F7FAFF] px-4 pb-2 pt-[34px]">
+        <div className="flex items-center justify-between bg-[#F7FAFF] px-3.5 pb-2 pt-[32px]">
           <span className="text-[10px] font-semibold text-[#5B7392]">9:41</span>
           <span className="inline-flex items-center gap-1 rounded-full bg-white px-2 py-0.5 text-[9px] font-bold text-[#2FA96B] ring-1 ring-[#DCF5E7]">
             <span className="owners-pulse h-1.5 w-1.5 rounded-full bg-[#2FA96B]" /> LIVE
@@ -69,14 +69,14 @@ const OwnersPhone: React.FC<{
         </div>
 
 
-        <div className="space-y-3 p-4">
+        <div className="h-full space-y-2.5 overflow-y-auto p-3.5 pb-6" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {/* outlet selector */}
           <div className="relative">
             <select
               aria-label="Select outlet"
               value={outlet.id}
               onChange={(e) => onOutlet(e.target.value)}
-              className="w-full appearance-none rounded-[10px] border border-[#E2EAF5] bg-white px-3 py-2 text-[12px] font-bold text-[#0B1F3A] outline-none"
+              className="w-full appearance-none rounded-[10px] border border-[#E2EAF5] bg-white px-3 py-1.5 text-[11px] font-bold text-[#0B1F3A] outline-none"
             >
               {OUTLETS.map((o) => (
                 <option key={o.id} value={o.id}>{o.name}</option>
@@ -130,12 +130,12 @@ const OwnersPhone: React.FC<{
           {/* hourly chart */}
           <div className="rounded-[14px] border border-[#E2EAF5] p-3">
             <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-[#8FA3BF]">Hourly sales</p>
-            <div className="flex h-20 items-end gap-1">
+            <div className="flex h-16 items-end gap-1">
               {outlet.hourly.map((h, i) => (
                 <div key={i} className="group relative flex-1" title={`${HOUR_LABELS[i]} · ${formatAED(h)}`}>
                   <div
                     className="w-full rounded-t-[3px] bg-[#146EF5]/85 transition-all duration-300 ease-out group-hover:bg-[#146EF5]"
-                    style={{ height: `${Math.max(6, (h / maxHour) * 80)}px` }}
+                    style={{ height: `${Math.max(6, (h / maxHour) * 64)}px` }}
                   />
                 </div>
               ))}
@@ -178,6 +178,8 @@ const OwnersPhone: React.FC<{
 
           <p className="text-center text-[9px] text-[#A9B8CC]">Illustrative demo data</p>
         </div>
+        {/* home indicator */}
+        <div className="absolute bottom-2 left-1/2 z-20 h-[5px] w-[92px] -translate-x-1/2 rounded-full bg-[#0B1F3A]/20" aria-hidden="true" />
       </div>
     </div>
   );
