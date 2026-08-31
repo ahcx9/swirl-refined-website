@@ -53,8 +53,12 @@ const Index = () => {
         {/* Section 1: Interface-Based Problem Story */}
         <InterfaceProblemStory />
 
-        {/* Captain tableside ordering */}
-        <CaptainTablesideSection />
+        {/* Platform showroom: swirl Dine / Works / OS */}
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container-custom">
+            <PlatformShowroom />
+          </div>
+        </section>
 
         {/* Owners App */}
         <OwnersAppSection />
@@ -68,24 +72,16 @@ const Index = () => {
         {/* ZATCA Compliance */}
         <HomeZATCASection />
         
-        
         {/* Section 5: Business Types Control Panel */}
         <UseCasesControlPanel />
         
         {/* Hardware Section */}
         <HomeHardwareSection />
         
-        {/* Section 6: Why Swirl Wins Command Center */}
-        <WhySwirlCommandCenter />
-        
-        
-        
         {/* Section 9: Modern FAQ Console */}
         <ModernFAQConsole />
-        
-        {/* Section 10: Final CTA Product Entry */}
-        <FinalCTAProductEntry />
       </main>
+
       
       <Footer />
     </div>
