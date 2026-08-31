@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SwirlCTA from '@/components/SwirlCTA';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
+
 import { MegaMenuContent, TabKey } from './mega-menu/MegaMenuContent';
 import { MegaMenuOverlay } from './mega-menu/MegaMenuOverlay';
 import { PremiumMobileMenu } from './mega-menu/PremiumMobileMenu';
@@ -141,12 +141,7 @@ const Navbar = () => {
 
             {/* Right: CTA + Mobile toggle */}
             <div className="flex items-center gap-2 z-10">
-              {/* Language switcher - always visible on desktop */}
-              <div className="hidden md:block">
-                <LanguageSwitcher />
-              </div>
-
-              {/* Get Started - desktop */}
+            {/* Get Started - desktop */}
               <SwirlCTA className="hidden md:inline-flex" />
 
               {/* Book a Demo - mobile (shows on scroll) */}
