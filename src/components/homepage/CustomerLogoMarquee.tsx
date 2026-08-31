@@ -19,23 +19,28 @@ const LOGOS = [
 const ROW_ONE = LOGOS.slice(0, 7);
 const ROW_TWO = LOGOS.slice(7);
 
+const CIRCLE_SIZE =
+  "w-[72px] h-[72px] md:w-[92px] md:h-[92px]";
+
 const TILE_CLASS =
   "flex-shrink-0 flex items-center justify-center " +
-  "w-[108px] h-[64px] md:w-[132px] md:h-[76px] " +
+  CIRCLE_SIZE +
+  " rounded-full bg-white " +
+  "border-2 border-solid border-[#E3E8EF] " +
   "transition-all duration-[250ms] ease-out " +
-  "hover:scale-[1.06] focus-within:scale-[1.06]";
+  "hover:scale-[1.06] hover:border-[#146EF5] focus-within:scale-[1.06] focus-within:border-[#146EF5]";
 
 const LogoTile = ({ logo, ariaHidden }: { logo: (typeof LOGOS)[number]; ariaHidden?: boolean }) => (
   <div className={TILE_CLASS} aria-hidden={ariaHidden || undefined}>
     <img
       src={logo.src}
       alt={ariaHidden ? "" : logo.alt}
-      width={124}
+      width={72}
       height={72}
       loading="lazy"
       decoding="async"
       tabIndex={ariaHidden ? -1 : 0}
-      className="max-h-full max-w-full w-auto h-auto object-contain outline-none"
+      className="max-h-[70%] max-w-[70%] w-auto h-auto object-contain outline-none"
     />
   </div>
 );
