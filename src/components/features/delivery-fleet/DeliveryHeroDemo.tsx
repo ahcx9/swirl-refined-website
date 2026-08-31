@@ -1,6 +1,7 @@
 import React from 'react';
 import { Bike, MapPin, Navigation, Camera, Phone, Wallet, CheckCircle2 } from 'lucide-react';
 import { useAutoplayInView, useStepLoop } from '@/hooks/useAutoplayInView';
+import { useCurrency } from '@/hooks/useCurrency';
 
 const STAGES = ['Unassigned', 'Assigned', 'Picked Up', 'On the Way', 'Delivered'] as const;
 
@@ -12,6 +13,7 @@ const riders = [
 
 const DeliveryHeroDemo: React.FC = () => {
   const { ref, playing } = useAutoplayInView<HTMLDivElement>();
+  const { formatAmount } = useCurrency();
   const [step] = useStepLoop(5, 2200, playing);
   const stage = STAGES[step];
   const progress = (step / (STAGES.length - 1)) * 100;
@@ -58,7 +60,7 @@ const DeliveryHeroDemo: React.FC = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-[12.5px] font-bold text-foreground">Order #4821</p>
-                <p className="text-[11.5px] text-muted-foreground">Layla A. · 3 items · SAR 128</p>
+                <p className="text-[11.5px] text-muted-foreground">Layla A. · 3 items · {formatAmount(125)}</p>
               </div>
               <span
                 className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${
@@ -127,7 +129,7 @@ const DeliveryHeroDemo: React.FC = () => {
               <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-amber-900">
                 <Wallet className="h-3.5 w-3.5" aria-hidden="true" /> Cash on delivery
               </span>
-              <span className="text-[12.5px] font-bold text-amber-900 tabular-nums">SAR 128</span>
+              <span className="text-[12.5px] font-bold text-amber-900 tabular-nums">{formatAmount(125)}</span>
             </div>
 
             <ol className="space-y-1.5">

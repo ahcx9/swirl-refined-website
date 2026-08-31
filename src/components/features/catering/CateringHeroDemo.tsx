@@ -1,6 +1,7 @@
 import React from 'react';
 import { CalendarDays, Users, Wallet, UtensilsCrossed, Check } from 'lucide-react';
 import { useAutoplayInView, useStepLoop } from '@/hooks/useAutoplayInView';
+import { useCurrency } from '@/hooks/useCurrency';
 
 const existingEvents: Record<number, { name: string; tone: string }> = {
   4: { name: 'Al Noor Wedding', tone: 'bg-primary/10 text-primary' },
@@ -14,6 +15,7 @@ const pricingModes = ['Per Person', 'Per Plate', 'Lump Sum'] as const;
 
 const CateringHeroDemo: React.FC = () => {
   const { ref, playing } = useAutoplayInView<HTMLDivElement>();
+  const { formatAmount } = useCurrency();
   const [step] = useStepLoop(4, 2400, playing);
 
   const mode = pricingModes[Math.min(step, 2)];
@@ -102,9 +104,9 @@ const CateringHeroDemo: React.FC = () => {
             ))}
           </div>
           <div className="mt-3 space-y-1.5 text-[12.5px]">
-            <div className="flex justify-between"><span className="text-muted-foreground">Adults × {adults}</span><span className="font-semibold tabular-nums">SAR 150 ea.</span></div>
-            <div className="flex justify-between"><span className="text-muted-foreground">Children × {children}</span><span className="font-semibold tabular-nums">SAR 90 ea.</span></div>
-            <div className="flex justify-between"><span className="text-muted-foreground">Setup &amp; service</span><span className="font-semibold tabular-nums">SAR 900</span></div>
+            <div className="flex justify-between"><span className="text-muted-foreground">Adults × {adults}</span><span className="font-semibold tabular-nums">{formatAmount(147)} ea.</span></div>
+            <div className="flex justify-between"><span className="text-muted-foreground">Children × {children}</span><span className="font-semibold tabular-nums">{formatAmount(88)} ea.</span></div>
+            <div className="flex justify-between"><span className="text-muted-foreground">Setup &amp; service</span><span className="font-semibold tabular-nums">{formatAmount(880)}</span></div>
           </div>
         </div>
 
@@ -113,9 +115,9 @@ const CateringHeroDemo: React.FC = () => {
             <Wallet className="h-4 w-4 text-primary" aria-hidden="true" /> Payment summary
           </p>
           <div className="mt-3 space-y-2 text-[13px]">
-            <div className="flex justify-between"><span className="text-muted-foreground">Total</span><span className="font-bold tabular-nums">SAR {total.toLocaleString()}</span></div>
-            <div className="flex justify-between"><span className="text-muted-foreground">Advance collected</span><span className="font-bold tabular-nums text-emerald-600">SAR {advance.toLocaleString()}</span></div>
-            <div className="flex justify-between"><span className="text-muted-foreground">Balance due</span><span className="font-bold tabular-nums">SAR {(total - advance).toLocaleString()}</span></div>
+            <div className="flex justify-between"><span className="text-muted-foreground">Total</span><span className="font-bold tabular-nums">{formatAmount(total)}</span></div>
+            <div className="flex justify-between"><span className="text-muted-foreground">Advance collected</span><span className="font-bold tabular-nums text-emerald-600">{formatAmount(advance)}</span></div>
+            <div className="flex justify-between"><span className="text-muted-foreground">Balance due</span><span className="font-bold tabular-nums">{formatAmount(total - advance)}</span></div>
           </div>
           <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-gray-100">
             <div
