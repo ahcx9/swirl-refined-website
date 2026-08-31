@@ -69,7 +69,7 @@ const OwnersPhone: React.FC<{
         </div>
 
 
-        <div className="h-full space-y-2.5 overflow-y-auto p-3.5 pb-6 scrollbar-hide">
+        <div className="h-full space-y-2.5 overflow-y-auto p-3.5 pb-6" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {/* outlet selector */}
           <div className="relative">
             <select
