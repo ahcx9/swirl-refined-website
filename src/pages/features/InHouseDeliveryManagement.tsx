@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import SwirlCTA from '@/components/SwirlCTA';
 import DeliveryHeroDemo from '@/components/features/delivery-fleet/DeliveryHeroDemo';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useCurrency } from '@/hooks/useCurrency';
 import {
   Bike, ChevronRight, IdCard, ShieldCheck, FileWarning, Car, Users, Timer, Filter,
   Smartphone, MapPinned, Wallet, Camera, ListChecks, Search, Layers,
@@ -66,14 +67,15 @@ const riderPortal = [
   'Completed delivery history for the shift',
 ];
 
-const commandCentre = [
+const buildCommandCentre = (money: (n: number) => string) => [
   { label: 'Unassigned', value: '3', tone: 'text-muted-foreground' },
   { label: 'Active deliveries', value: '11', tone: 'text-primary' },
   { label: 'Delayed', value: '1', tone: 'text-amber-600' },
   { label: 'Delivered today', value: '68', tone: 'text-emerald-600' },
   { label: 'Failed', value: '0', tone: 'text-muted-foreground' },
-  { label: 'Cash to collect', value: 'SAR 1,940', tone: 'text-foreground' },
+  { label: 'Cash to collect', value: money(1900), tone: 'text-foreground' },
 ];
+
 
 const journey = [
   'Delivery order received',
@@ -94,6 +96,8 @@ const docBadge = {
 
 const InHouseDeliveryManagement = () => {
   useScrollAnimation();
+  const { formatAmount } = useCurrency();
+  const commandCentre = buildCommandCentre(formatAmount);
   const [selectedRider, setSelectedRider] = useState(0);
   const rider = riderRecords[selectedRider];
 
@@ -133,7 +137,7 @@ const InHouseDeliveryManagement = () => {
         <section className="relative overflow-hidden bg-gradient-to-b from-[#f7f9fc] to-white pt-32 pb-16 md:pt-36 md:pb-24">
           <div className="container-custom relative z-10">
             <div className="mx-auto max-w-6xl">
-            <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-[12.5px] text-muted-foreground">
+            <nav aria-label="Breadcrumb" className="mb-6 flex items-center justify-center gap-1.5 text-[12.5px] text-muted-foreground">
 
               <Link to="/" className="hover:text-primary transition-colors">Home</Link>
               <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -142,28 +146,26 @@ const InHouseDeliveryManagement = () => {
               <span className="font-medium text-foreground">In-House Delivery Management</span>
             </nav>
 
-            <div className="mb-12 grid items-center gap-8 lg:grid-cols-12">
-              <div className="lg:col-span-7">
-                <div className="animate-on-scroll mb-5 inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/[0.06] px-4 py-2">
-                  <Bike className="h-4 w-4 text-primary" aria-hidden="true" />
-                  <span className="text-sm font-semibold text-primary">swirl In-House Delivery Management</span>
-                </div>
-                <h1 className="animate-on-scroll mb-5 text-3xl font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[3.25rem]">
-                  Your delivery fleet,{' '}
-                  <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                    connected from order to doorstep.
-                  </span>
-                </h1>
-                <p className="animate-on-scroll mb-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  Create riders and vehicles, assign delivery orders in seconds, follow every active delivery, and give
-                  each rider a mobile portal with everything needed to deliver successfully.
-                </p>
-                <div className="animate-on-scroll">
-                  <SwirlCTA />
-                </div>
+            <div className="mb-12 flex flex-col items-center text-center">
+              <div className="animate-on-scroll mb-5 inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/[0.06] px-4 py-2">
+                <Bike className="h-4 w-4 text-primary" aria-hidden="true" />
+                <span className="text-sm font-semibold text-primary">swirl In-House Delivery Management</span>
               </div>
-              <div className="lg:col-span-5" aria-hidden="true" />
+              <h1 className="animate-on-scroll mb-5 max-w-4xl text-3xl font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-4xl lg:text-[3.25rem]">
+                Your delivery fleet,{' '}
+                <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                  connected from order to doorstep.
+                </span>
+              </h1>
+              <p className="animate-on-scroll mb-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Create riders and vehicles, assign delivery orders in seconds, follow every active delivery, and give
+                each rider a mobile portal with everything needed to deliver successfully.
+              </p>
+              <div className="animate-on-scroll">
+                <SwirlCTA />
+              </div>
             </div>
+
 
             <div className="animate-on-scroll">
               <DeliveryHeroDemo />

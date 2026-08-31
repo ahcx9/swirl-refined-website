@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import SwirlCTA from '@/components/SwirlCTA';
 import CateringHeroDemo from '@/components/features/catering/CateringHeroDemo';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useCurrency } from '@/hooks/useCurrency';
 import {
   PartyPopper, ChevronRight, CalendarDays, Users, MapPin, ClipboardList, Layers,
   Copy, Tags, Calculator, Wallet, Receipt, ListFilter, LayoutGrid, CircleDollarSign,
@@ -37,33 +38,39 @@ const menuCapabilities = [
   { icon: Tags, title: 'Notes and dietary labels', description: 'Item-level notes, allergen and dietary labels travel to the kitchen with the order.' },
 ];
 
-const pricingRows = [
-  { label: 'Adults × 120', value: 'SAR 18,000', note: 'Per person · SAR 150' },
-  { label: 'Children × 30', value: 'SAR 2,700', note: 'Per person · SAR 90' },
-  { label: 'Live station add-on', value: 'SAR 1,200', note: 'Optional upgrade' },
-  { label: 'Delivery & setup', value: 'SAR 900', note: 'Service fee' },
-  { label: 'Discount', value: '− SAR 1,200', note: 'Repeat customer' },
-  { label: 'VAT 15%', value: 'SAR 3,240', note: 'Applied on taxable lines' },
+type Money = (n: number) => string;
+
+const buildPricingRows = (money: Money) => [
+  { label: 'Adults × 120', value: money(17640), note: `Per person · ${money(147)}` },
+  { label: 'Children × 30', value: money(2640), note: `Per person · ${money(88)}` },
+  { label: 'Live station add-on', value: money(1175), note: 'Optional upgrade' },
+  { label: 'Delivery & setup', value: money(880), note: 'Service fee' },
+  { label: 'Discount', value: `− ${money(1175)}`, note: 'Repeat customer' },
+  { label: 'VAT 15%', value: money(3175), note: 'Applied on taxable lines' },
 ];
 
-const paymentRows = [
-  { label: 'Total order value', value: 'SAR 24,840' },
-  { label: 'Advance required (30%)', value: 'SAR 7,452' },
-  { label: 'Advance collected · 02 Sep · Bank transfer', value: 'SAR 7,452' },
-  { label: 'Balance due · 17 Sep', value: 'SAR 17,388' },
+const buildPaymentRows = (money: Money) => [
+  { label: 'Total order value', value: money(24350) },
+  { label: 'Advance required (30%)', value: money(7305) },
+  { label: 'Advance collected · 02 Sep · Bank transfer', value: money(7305) },
+  { label: 'Balance due · 17 Sep', value: money(17045) },
 ];
 
-const dashboardCards = [
+const buildDashboardCards = (money: Money) => [
   { label: 'Events today', value: '2', detail: 'Corporate lunch · Bakery launch' },
   { label: 'Upcoming this month', value: '9', detail: '6 confirmed · 3 tentative' },
-  { label: 'Advances received', value: 'SAR 41,300', detail: 'Across 6 confirmed events' },
-  { label: 'Balances due', value: 'SAR 78,940', detail: '3 due within 7 days' },
+  { label: 'Advances received', value: money(40500), detail: 'Across 6 confirmed events' },
+  { label: 'Balances due', value: money(77390), detail: '3 due within 7 days' },
   { label: 'Menus to confirm', value: '4', detail: 'Awaiting customer sign-off' },
   { label: 'Guests scheduled', value: '860', detail: 'Next 30 days' },
 ];
 
 const CateringManagement = () => {
   useScrollAnimation();
+  const { formatAmount } = useCurrency();
+  const pricingRows = buildPricingRows(formatAmount);
+  const paymentRows = buildPaymentRows(formatAmount);
+  const dashboardCards = buildDashboardCards(formatAmount);
   const [activeStatus, setActiveStatus] = useState('Confirmed');
 
   const jsonLd = [
@@ -273,7 +280,7 @@ const CateringManagement = () => {
                   </ul>
                   <div className="mt-3 flex items-center justify-between border-t border-dashed border-gray-200 pt-3">
                     <span className="text-[13.5px] font-semibold text-muted-foreground">Order total</span>
-                    <span className="text-[19px] font-bold tabular-nums text-foreground">SAR 24,840</span>
+                    <span className="text-[19px] font-bold tabular-nums text-foreground">{formatAmount(24350)}</span>
                   </div>
                   <p className="mt-2 text-[11.5px] text-muted-foreground">
                     Minimum guest count and minimum order value can be enforced per package.

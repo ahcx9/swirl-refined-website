@@ -1,6 +1,7 @@
 import React from 'react';
 import { Check, ChefHat, Receipt, Monitor, Bell } from 'lucide-react';
 import { useAutoplayInView, useStepLoop } from '@/hooks/useAutoplayInView';
+import { useCurrency } from '@/hooks/useCurrency';
 
 /**
  * Three synchronized swirl views: POS bill → kitchen queue → customer token board.
@@ -9,16 +10,19 @@ import { useAutoplayInView, useStepLoop } from '@/hooks/useAutoplayInView';
  * Step 2: staff marks ready, board moves A-104 to Ready for Pickup
  */
 const items = [
-  { name: 'Chicken Shawarma Meal', qty: 2, price: '48.00' },
-  { name: 'Loaded Fries', qty: 1, price: '19.00' },
-  { name: 'Iced Latte', qty: 2, price: '32.00' },
+  { name: 'Chicken Shawarma Meal', qty: 2, price: 47 },
+  { name: 'Loaded Fries', qty: 1, price: 19 },
+  { name: 'Iced Latte', qty: 2, price: 31 },
 ];
+
+const orderTotal = items.reduce((sum, it) => sum + it.price, 0);
 
 const preparing = ['A-105', 'A-106', 'A-107'];
 const ready = ['A-101', 'A-102'];
 
 const TokenHeroDemo: React.FC = () => {
   const { ref, playing } = useAutoplayInView<HTMLDivElement>();
+  const { formatAmount } = useCurrency();
   const [step] = useStepLoop(3, 2600, playing);
 
   const status = step === 0 ? 'Order placed' : step === 1 ? 'Now Preparing' : 'Ready for Pickup';
@@ -41,13 +45,13 @@ const TokenHeroDemo: React.FC = () => {
                   </span>
                   {it.name}
                 </span>
-                <span className="text-[12.5px] font-semibold tabular-nums text-muted-foreground">{it.price}</span>
+                <span className="text-[12.5px] font-semibold tabular-nums text-muted-foreground">{formatAmount(it.price)}</span>
               </li>
             ))}
           </ul>
           <div className="mt-4 flex items-center justify-between border-t border-dashed border-gray-200 pt-3">
             <span className="text-[12.5px] font-medium text-muted-foreground">Total</span>
-            <span className="text-[15px] font-bold text-foreground tabular-nums">SAR 99.00</span>
+            <span className="text-[15px] font-bold text-foreground tabular-nums">{formatAmount(orderTotal)}</span>
           </div>
 
           <div
