@@ -111,19 +111,31 @@ const CustomerLogoMarquee = () => {
           <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-28 z-10 bg-gradient-to-l from-[#F7FAFF] to-transparent" />
 
           {marquee ? (
-            <div className="overflow-hidden group px-4 md:px-8">
-              <div className="flex w-max gap-6 md:gap-10 py-2 swirl-logo-marquee">
-                {LOGOS.map((logo, i) => (
-                  <LogoTile key={`a-${i}`} logo={logo} />
-                ))}
-                {LOGOS.map((logo, i) => (
-                  <LogoTile key={`b-${i}`} logo={logo} ariaHidden />
-                ))}
+            <div className="group px-4 md:px-8 space-y-4 md:space-y-5">
+              <div className="overflow-hidden">
+                <div className="flex w-max gap-4 md:gap-6 py-1 swirl-logo-marquee">
+                  {ROW_ONE.map((logo, i) => (
+                    <LogoTile key={`a-${i}`} logo={logo} />
+                  ))}
+                  {ROW_ONE.map((logo, i) => (
+                    <LogoTile key={`b-${i}`} logo={logo} ariaHidden />
+                  ))}
+                </div>
+              </div>
+              <div className="overflow-hidden">
+                <div className="flex w-max gap-4 md:gap-6 py-1 swirl-logo-marquee swirl-logo-marquee-reverse">
+                  {ROW_TWO.map((logo, i) => (
+                    <LogoTile key={`c-${i}`} logo={logo} />
+                  ))}
+                  {ROW_TWO.map((logo, i) => (
+                    <LogoTile key={`d-${i}`} logo={logo} ariaHidden />
+                  ))}
+                </div>
               </div>
             </div>
           ) : (
             <div className="overflow-x-auto px-4 md:px-8">
-              <div className="flex justify-center gap-6 md:gap-10 py-2 w-max mx-auto">
+              <div className="flex flex-wrap justify-center gap-4 md:gap-6 py-2 max-w-4xl mx-auto">
                 {LOGOS.map((logo, i) => (
                   <LogoTile key={`s-${i}`} logo={logo} />
                 ))}
