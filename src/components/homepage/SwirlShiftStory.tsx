@@ -118,7 +118,7 @@ const zones: {
   { id: 'kitchen', label: 'Kitchen / KDS', icon: ChefHat, pos: { top: '18%', left: '78%' } },
   { id: 'inventory', label: 'Store Room', icon: Boxes, pos: { top: '74%', left: '20%' } },
   { id: 'delivery', label: 'Delivery Riders', icon: Bike, pos: { top: '76%', left: '76%' } },
-  { id: 'owner', label: 'Owner App', icon: Smartphone, pos: { top: '92%', left: '50%' } },
+  { id: 'owner', label: 'Owner App', icon: Smartphone, pos: { top: '88%', left: '50%' } },
 ];
 
 const SwirlShiftStory = () => {
