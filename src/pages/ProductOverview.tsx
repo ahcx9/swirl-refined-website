@@ -5,7 +5,7 @@ import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import TrustedRestaurants from '@/components/TrustedRestaurants';
 import ProductHero from '@/components/products/ProductHero';
-import ProductsList
+import ProductsList from '@/components/products/ProductsList';
 
 import ProductCTA from '@/components/products/ProductCTA';
 
