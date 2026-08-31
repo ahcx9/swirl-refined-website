@@ -20,11 +20,10 @@ const ROW_ONE = LOGOS.slice(0, 7);
 const ROW_TWO = LOGOS.slice(7);
 
 const TILE_CLASS =
-  "flex-shrink-0 flex items-center justify-center bg-white rounded-[12px] border border-[#E2EAF5] " +
-  "w-[108px] h-[64px] md:w-[124px] md:h-[72px] p-2.5 md:p-3 " +
-  "shadow-[0_6px_20px_-10px_rgba(20,110,245,0.18)] " +
+  "flex-shrink-0 flex items-center justify-center " +
+  "w-[108px] h-[64px] md:w-[132px] md:h-[76px] " +
   "transition-all duration-[250ms] ease-out " +
-  "hover:scale-[1.04] focus-within:scale-[1.04]";
+  "hover:scale-[1.06] focus-within:scale-[1.06]";
 
 const LogoTile = ({ logo, ariaHidden }: { logo: (typeof LOGOS)[number]; ariaHidden?: boolean }) => (
   <div className={TILE_CLASS} aria-hidden={ariaHidden || undefined}>
