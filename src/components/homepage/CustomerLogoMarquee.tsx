@@ -10,10 +10,10 @@ const LOGOS = [
   { src: "/logos/vb-world.png", alt: "VB World – Namma Veedu Vasanta Bhavan" },
   { src: "/logos/anjappar.png", alt: "Anjappar Chettinad Indian Restaurant" },
   { src: "/logos/murmuz.png", alt: "Murmuz" },
-  { src: "/logos/ali-bhai.png", alt: "Ali Bhai Restaurant" },
+  { src: "/logos/ali-bhai.png", alt: "Ali Bhai Restaurant", large: true },
   { src: "/logos/bb-bakery.png", alt: "B&B Bakery" },
   { src: "/logos/khayyam.png", alt: "Khayyam Restaurant" },
-  { src: "/logos/ortegos-deli.png", alt: "Ortego's Deli" },
+  { src: "/logos/ortegos-deli.png", alt: "Ortego's Deli", fill: true },
   { src: "/logos/nanus.png", alt: "Nanu's Dilli Ka Andaz Restaurant", fill: true },
   { src: "/logos/kabab-point.png", alt: "Kabab Point", fill: true },
   { src: "/logos/thf.png", alt: "THF" },
@@ -52,7 +52,9 @@ const LogoTile = ({ logo, ariaHidden }: { logo: (typeof LOGOS)[number]; ariaHidd
       className={
         "fill" in logo && logo.fill
           ? "w-full h-full object-cover rounded-full outline-none"
-          : "max-h-[70%] max-w-[70%] w-auto h-auto object-contain outline-none"
+          : "large" in logo && logo.large
+            ? "max-h-[92%] max-w-[92%] w-auto h-auto object-contain outline-none"
+            : "max-h-[70%] max-w-[70%] w-auto h-auto object-contain outline-none"
       }
     />
   </div>
