@@ -1169,40 +1169,33 @@ const Hero: React.FC = () => {
 
 
                   {/* Action Buttons */}
-                  <div className="space-y-2 my-0 mx-0 px-0 py-0">
-                    <div className="grid grid-cols-2 gap-2">
-                      <button onClick={() => setOrderStatus(orderStatus === 'IN_PROGRESS' ? 'CONFIRMED' : 'IN_PROGRESS')} className="px-3 py-2.5 text-xs font-medium text-orange-600 border border-orange-200 rounded-xl hover:bg-orange-50 transition-colors">
-                        {t('hero.demo.left.changeStatus')}
-                      </button>
-                      <TourButton id="addItems" onClick={() => setActiveModal('addItems')} className="px-3 py-2.5 text-xs font-medium text-primary border border-primary/20 rounded-xl hover:bg-primary/5 transition-colors flex items-center justify-center gap-1">
-                        <Plus className="w-3 h-3" /> {t('hero.demo.left.addItems')}
-                      </TourButton>
-                    </div>
-                    <div className="grid grid-cols-2 gap-2">
-                      <TourButton id="changeQty" onClick={() => setActiveModal('changeQty')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors">
-                        {t('hero.demo.left.editQty')}
-                      </TourButton>
-                      <TourButton id="kot" onClick={() => setActiveModal('kot')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1">
-                        <ChefHat className="w-3 h-3" /> {t('hero.demo.left.printKOT')}
-                      </TourButton>
-                    </div>
-                    <div className="grid grid-cols-2 gap-2">
-                      <TourButton id="changeTable" onClick={() => setActiveModal('changeTable')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors">
-                        {t('hero.demo.left.changeTable')}
-                      </TourButton>
-                      <TourButton id="splitTable" onClick={() => setActiveModal('splitTable')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1">
-                        <SplitSquareVertical className="w-3 h-3" /> {t('hero.demo.left.split')}
-                      </TourButton>
-                    </div>
-                    <div className="grid grid-cols-2 gap-2">
-                      <TourButton id="moveOrder" onClick={() => setActiveModal('moveOrder')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1">
-                        <ArrowLeftRight className="w-3 h-3" /> {t('hero.demo.left.moveOrder')}
-                      </TourButton>
-                      <TourButton id="mergeTable" onClick={() => setActiveModal('mergeTable')} className="px-3 py-2 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1">
-                        <Merge className="w-3 h-3" /> {t('hero.demo.left.merge')}
-                      </TourButton>
-                    </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <button onClick={() => setOrderStatus(orderStatus === 'IN_PROGRESS' ? 'CONFIRMED' : 'IN_PROGRESS')} className="h-10 px-3 text-xs font-medium text-orange-600 border border-orange-200 rounded-xl hover:bg-orange-50 transition-colors flex items-center justify-center gap-1.5 text-center leading-none">
+                      {t('hero.demo.left.changeStatus')}
+                    </button>
+                    <TourButton id="addItems" onClick={() => setActiveModal('addItems')} className="h-10 px-3 text-xs font-medium text-primary border border-primary/20 rounded-xl hover:bg-primary/5 transition-colors flex items-center justify-center gap-1.5 text-center leading-none">
+                      <Plus className="w-3 h-3 flex-shrink-0" /> {t('hero.demo.left.addItems')}
+                    </TourButton>
+                    <TourButton id="changeQty" onClick={() => setActiveModal('changeQty')} className="h-10 px-3 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1.5 text-center leading-none">
+                      {t('hero.demo.left.editQty')}
+                    </TourButton>
+                    <TourButton id="kot" onClick={() => setActiveModal('kot')} className="h-10 px-3 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1.5 text-center leading-none">
+                      <ChefHat className="w-3 h-3 flex-shrink-0" /> {t('hero.demo.left.printKOT')}
+                    </TourButton>
+                    <TourButton id="changeTable" onClick={() => setActiveModal('changeTable')} className="h-10 px-3 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1.5 text-center leading-none">
+                      {t('hero.demo.left.changeTable')}
+                    </TourButton>
+                    <TourButton id="splitTable" onClick={() => setActiveModal('splitTable')} className="h-10 px-3 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1.5 text-center leading-none">
+                      <SplitSquareVertical className="w-3 h-3 flex-shrink-0" /> {t('hero.demo.left.split')}
+                    </TourButton>
+                    <TourButton id="moveOrder" onClick={() => setActiveModal('moveOrder')} className="h-10 px-3 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1.5 text-center leading-none">
+                      <ArrowLeftRight className="w-3 h-3 flex-shrink-0" /> {t('hero.demo.left.moveOrder')}
+                    </TourButton>
+                    <TourButton id="mergeTable" onClick={() => setActiveModal('mergeTable')} className="h-10 px-3 text-xs font-medium text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-1.5 text-center leading-none">
+                      <Merge className="w-3 h-3 flex-shrink-0" /> {t('hero.demo.left.merge')}
+                    </TourButton>
                   </div>
+
                 </div>
 
                 {/* RIGHT: Billing */}
