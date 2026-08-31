@@ -244,14 +244,14 @@ const OwnersAppSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-12 lg:items-start">
+        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start">
           {/* Phone */}
-          <div className={`lg:col-span-5 transition-all duration-500 ${inView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}>
+          <div className={`min-w-0 lg:col-span-5 transition-all duration-500 ${inView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}>
             <OwnersPhone outlet={current} filter={filter} onFilter={setFilter} onOutlet={setActiveOutlet} />
           </div>
 
           {/* Analytics */}
-          <div className={`space-y-4 lg:col-span-7 transition-all duration-500 delay-150 ${inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+          <div className={`min-w-0 space-y-4 lg:col-span-7 transition-all duration-500 delay-150 ${inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
             {/* All outlets */}
             <div className="rounded-[16px] border border-[#E2EAF5] bg-white p-4 shadow-[0_2px_16px_rgba(11,31,58,0.05)] md:p-5">
               <div className="mb-3 flex items-center justify-between">
