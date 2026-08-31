@@ -69,14 +69,14 @@ const OwnersPhone: React.FC<{
         </div>
 
 
-        <div className="space-y-3 p-4">
+        <div className="h-full space-y-2.5 overflow-y-auto p-3.5 pb-6 scrollbar-hide">
           {/* outlet selector */}
           <div className="relative">
             <select
               aria-label="Select outlet"
               value={outlet.id}
               onChange={(e) => onOutlet(e.target.value)}
-              className="w-full appearance-none rounded-[10px] border border-[#E2EAF5] bg-white px-3 py-2 text-[12px] font-bold text-[#0B1F3A] outline-none"
+              className="w-full appearance-none rounded-[10px] border border-[#E2EAF5] bg-white px-3 py-1.5 text-[11px] font-bold text-[#0B1F3A] outline-none"
             >
               {OUTLETS.map((o) => (
                 <option key={o.id} value={o.id}>{o.name}</option>
