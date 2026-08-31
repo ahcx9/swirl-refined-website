@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Seo from '@/components/Seo';
 import Hero from '@/components/Hero';
 import InterfaceProblemStory from '@/components/homepage/InterfaceProblemStory';
+import CustomerLogoMarquee from '@/components/homepage/CustomerLogoMarquee';
 import SwirlEcosystemGallery from '@/components/homepage/SwirlEcosystemGallery';
 import OperationalDashboards from '@/components/homepage/OperationalDashboards';
 import UseCasesControlPanel from '@/components/homepage/UseCasesControlPanel';
