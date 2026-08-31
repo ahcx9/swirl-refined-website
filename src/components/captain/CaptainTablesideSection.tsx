@@ -119,13 +119,14 @@ const FloorPlan: React.FC<FloorPlanProps> = ({ statuses, highlightTable, revealC
 
       {/* KDS ticket */}
       {showKdsTicket && (
-        <div className="absolute top-8 left-3 w-[104px] rounded-lg border border-[#E2EAF5] bg-white p-2 shadow-lg animate-scale-in">
+        <div className="absolute -top-3 -right-2 z-30 w-[120px] rounded-lg border border-[#E2EAF5] bg-white p-2 shadow-xl animate-scale-in md:-right-4">
           <p className="text-[10px] font-bold text-[#0B1F3A]">KDS · #142</p>
           <p className="text-[9px] text-[#5B7392] leading-tight">1× Pistachio Latte</p>
           <p className="text-[9px] text-[#5B7392] leading-tight">1× Grilled Chicken</p>
           <p className="mt-1 text-[9px] font-semibold text-[#146EF5]">Table 5 · New</p>
         </div>
       )}
+
 
       {FLOOR_TABLES.map((t, i) => {
         const status = statuses[t.id] ?? t.status;
