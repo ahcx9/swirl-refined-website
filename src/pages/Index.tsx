@@ -5,14 +5,12 @@ import Hero from '@/components/Hero';
 import InterfaceProblemStory from '@/components/homepage/InterfaceProblemStory';
 import CustomerLogoMarquee from '@/components/homepage/CustomerLogoMarquee';
 import SwirlEcosystemGallery from '@/components/homepage/SwirlEcosystemGallery';
-import OperationalDashboards from '@/components/homepage/OperationalDashboards';
+import SwirlShiftStory from '@/components/homepage/SwirlShiftStory';
 import UseCasesControlPanel from '@/components/homepage/UseCasesControlPanel';
 import HomeDeliveryIntegrationSection from '@/components/HomeDeliveryIntegrationSection';
 import HomeZATCASection from '@/components/homepage/HomeZATCASection';
 import HomeHardwareSection from '@/components/HomeHardwareSection';
 import WhySwirlCommandCenter from '@/components/homepage/WhySwirlCommandCenter';
-import QROrderJourney from '@/components/homepage/QROrderJourney';
-import FutureSwirlAI from '@/components/homepage/FutureSwirlAI';
 import ModernFAQConsole from '@/components/homepage/ModernFAQConsole';
 import FinalCTAProductEntry from '@/components/homepage/FinalCTAProductEntry';
 import Footer from '@/components/Footer';
@@ -57,14 +55,15 @@ const Index = () => {
         {/* Section 2: Swirl Ecosystem UI Gallery */}
         <SwirlEcosystemGallery />
         
+        {/* Signature: One Shift. Every Operation in Sync. */}
+        <SwirlShiftStory />
+        
         {/* Delivery Integration */}
         <HomeDeliveryIntegrationSection />
         
         {/* ZATCA Compliance */}
         <HomeZATCASection />
         
-        {/* Section 4: Operational Transformation Dashboards */}
-        <OperationalDashboards />
         
         {/* Section 5: Business Types Control Panel */}
         <UseCasesControlPanel />
@@ -75,11 +74,7 @@ const Index = () => {
         {/* Section 6: Why Swirl Wins Command Center */}
         <WhySwirlCommandCenter />
         
-        {/* Section 7: QR Order Journey */}
-        <QROrderJourney />
         
-        {/* Section 8: Future of Swirl AI */}
-        <FutureSwirlAI />
         
         {/* Section 9: Modern FAQ Console */}
         <ModernFAQConsole />
