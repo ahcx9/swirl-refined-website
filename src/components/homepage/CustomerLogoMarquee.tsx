@@ -24,8 +24,7 @@ const TILE_CLASS =
   "w-[108px] h-[64px] md:w-[124px] md:h-[72px] p-2.5 md:p-3 " +
   "shadow-[0_6px_20px_-10px_rgba(20,110,245,0.18)] " +
   "transition-all duration-[250ms] ease-out " +
-  "opacity-[0.75] grayscale hover:opacity-100 hover:grayscale-0 hover:scale-[1.04] " +
-  "focus-within:opacity-100 focus-within:grayscale-0 focus-within:scale-[1.04]";
+  "hover:scale-[1.04] focus-within:scale-[1.04]";
 
 const LogoTile = ({ logo, ariaHidden }: { logo: (typeof LOGOS)[number]; ariaHidden?: boolean }) => (
   <div className={TILE_CLASS} aria-hidden={ariaHidden || undefined}>
