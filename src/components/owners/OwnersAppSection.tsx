@@ -178,6 +178,8 @@ const OwnersPhone: React.FC<{
 
           <p className="text-center text-[9px] text-[#A9B8CC]">Illustrative demo data</p>
         </div>
+        {/* home indicator */}
+        <div className="absolute bottom-2 left-1/2 z-20 h-[5px] w-[92px] -translate-x-1/2 rounded-full bg-[#0B1F3A]/20" aria-hidden="true" />
       </div>
     </div>
   );
