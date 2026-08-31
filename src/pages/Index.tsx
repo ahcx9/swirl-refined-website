@@ -2,6 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Seo from '@/components/Seo';
 import Hero from '@/components/Hero';
+import CaptainTablesideSection from '@/components/captain/CaptainTablesideSection';
+import OwnersAppSection from '@/components/owners/OwnersAppSection';
 import InterfaceProblemStory from '@/components/homepage/InterfaceProblemStory';
 import CustomerLogoMarquee from '@/components/homepage/CustomerLogoMarquee';
 import SwirlShiftStory from '@/components/homepage/SwirlShiftStory';
@@ -50,6 +52,12 @@ const Index = () => {
 
         {/* Section 1: Interface-Based Problem Story */}
         <InterfaceProblemStory />
+
+        {/* Captain tableside ordering */}
+        <CaptainTablesideSection />
+
+        {/* Owners App */}
+        <OwnersAppSection />
 
         {/* Delivery Integration */}
         <HomeDeliveryIntegrationSection />
