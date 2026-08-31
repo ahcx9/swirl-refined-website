@@ -17,7 +17,7 @@ const pillars: Pillar[] = [
   {
     id: 'dine',
     eyebrow: 'Front of House',
-    title: 'Swirl Dine',
+    title: 'swirl Dine',
     tagline: 'From the first tap to the last bite.',
     icon: Monitor,
     items: [
@@ -31,7 +31,7 @@ const pillars: Pillar[] = [
   {
     id: 'works',
     eyebrow: 'Back of House',
-    title: 'Swirl Works',
+    title: 'swirl Works',
     tagline: 'Less waste. More margin. Zero chaos.',
     icon: Box,
     items: [
@@ -45,7 +45,7 @@ const pillars: Pillar[] = [
   {
     id: 'os',
     eyebrow: 'Platform Layer',
-    title: 'Swirl OS',
+    title: 'swirl OS',
     tagline: 'Run everything. Manage nothing.',
     icon: Layers,
     highlighted: true,
