@@ -1,16 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const LOGOS = [
-  { src: "/lovable-uploads/a8754738-56a4-4a8c-9f5c-3e927d004034.png", alt: "Taste of Tongue" },
-  { src: "/lovable-uploads/b2a2c52b-6298-4bda-8fd2-e0cab6171584.png", alt: "Garage Cafe" },
   { src: "/lovable-uploads/9c58af8c-a78c-4160-a783-7f54412c5b7b.png", alt: "Bombay Restaurant & Cafe" },
-  { src: "/lovable-uploads/9000dd52-fbe9-4430-8c38-eb0ab5e87e57.png", alt: "Seern Restaurant" },
+  { src: "/lovable-uploads/9000dd52-fbe9-4430-8c38-eb0ab5e87e57.png", alt: "Seera Restaurant" },
   { src: "/lovable-uploads/c94d5f7d-130d-41cd-beb1-b2e68c9cbb68.png", alt: "The Centurion" },
-  { src: "/lovable-uploads/8640f632-7915-47fa-b872-fc41d1a44c0b.png", alt: "Al-Baik" },
-  { src: "/lovable-uploads/14839f2a-a0c1-41c9-be9b-29e27db33069.png", alt: "Shibara" },
-  { src: "/lovable-uploads/e2451a50-0cd8-43cc-91e7-db85f6e18a53.png", alt: "La Pino'z Pizza" },
-  { src: "/lovable-uploads/e5232452-9f07-430a-98e1-a6fa00f50235.png", alt: "Tamasha" },
+  { src: "/logos/brioche-doree.png", alt: "Brioche Dorée" },
+  { src: "/logos/nayaab.png", alt: "Nayaab" },
+  { src: "/logos/ilyas-dumba-karahi.png", alt: "Ilyas Dumba Karahi" },
+  { src: "/logos/vb-world.png", alt: "VB World – Namma Veedu Vasanta Bhavan" },
+  { src: "/logos/anjappar.png", alt: "Anjappar Chettinad Indian Restaurant" },
+  { src: "/logos/murmuz.png", alt: "Murmuz" },
+  { src: "/logos/ali-bhai.png", alt: "Ali Bhai Restaurant" },
+  { src: "/logos/bb-bakery.png", alt: "B&B Bakery" },
+  { src: "/logos/khayyam.png", alt: "Khayyam Restaurant" },
+  { src: "/logos/ortegos-deli.png", alt: "Ortego's Deli" },
 ];
+
 
 const TILE_CLASS =
   "flex-shrink-0 flex items-center justify-center bg-white rounded-[14px] border border-[#E2EAF5] " +
