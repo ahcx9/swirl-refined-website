@@ -8,6 +8,7 @@ import POSBenefits from '@/components/features/pos/POSBenefits';
 import POSCallToAction from '@/components/features/pos/POSCallToAction';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import SwirlCTA from '@/components/SwirlCTA';
+import CaptainTablesideSection from '@/components/captain/CaptainTablesideSection';
 import BookDemoCTA from '@/components/BookDemoCTA';
 import { useCurrency } from '@/hooks/useCurrency';
 import { Smartphone, Zap, Percent, ArrowLeftRight, LayoutGrid, TrendingUp, FileText, Users, Layers, CheckCircle, Sparkles, Clock, Shield, Receipt, Truck, QrCode, UtensilsCrossed, Tablet, Map, Building, FileCheck, Languages, BadgeCheck, Globe, Apple, StickyNote, Settings2, DollarSign, Copy, GitBranch, Timer, ChefHat, ArrowRight, RefreshCw, Image as ImageIcon, ArrowUpDown } from 'lucide-react';
@@ -68,96 +69,7 @@ const PointOfSale = () => {
             <POSHero />
             <POSTabs />
 
-            {/* Captain Ordering App Section - HUGE & AMAZING */}
-            <section className="py-20 mb-8 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 rounded-3xl -z-10" />
-              <div className="absolute top-10 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10" />
-              <div className="absolute bottom-10 left-10 w-48 h-48 bg-primary/5 rounded-full blur-3xl -z-10" />
-
-              <div className="text-center mb-12">
-                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 border border-primary/20 shadow-lg">
-                  <Smartphone className="w-5 h-5 text-primary" />
-                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Captain Ordering App</span>
-                  <span className="px-2 py-0.5 bg-gradient-to-r from-primary to-green-500 text-white text-xs font-bold rounded-full">iOS & Android</span>
-                </div>
-                <h2 className="animate-on-scroll animate-delay-100 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                  Tableside Ordering<br />
-                  <span className="text-primary">Made Simple</span>
-                </h2>
-                <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-                  Empower your staff to take orders directly at the table using any iOS or Android tablet or smartphone. Orders sync instantly with the kitchen.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                {/* Visual - Large Phone/Tablet Mockup */}
-                <div className="animate-on-scroll animate-delay-300 relative order-2 md:order-1">
-                  <div className="relative max-w-md mx-auto">
-                    {/* Phone Frame */}
-                    <div className="bg-gray-900 rounded-[3rem] p-3 shadow-2xl">
-                      <div className="bg-white rounded-[2.5rem] overflow-hidden aspect-[9/16] flex items-center justify-center">
-                        <div className="text-center p-8">
-                          <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-xl">
-                            <Smartphone className="w-10 h-10 text-white" />
-                          </div>
-                          <h4 className="text-xl font-bold text-gray-900 mb-2">Captain App</h4>
-                          <p className="text-gray-500 text-sm mb-4">Take orders instantly</p>
-                          <div className="space-y-2">
-                            <div className="h-10 bg-gray-100 rounded-lg flex items-center px-4 text-sm text-gray-600">
-                              Table 5 - 4 guests
-                            </div>
-                            <div className="h-10 bg-primary/10 rounded-lg flex items-center px-4 text-sm text-primary font-medium">
-                              + Add Item
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Floating Order Cards */}
-                    <div className="absolute -top-4 -right-8 bg-white rounded-xl shadow-xl p-4 border border-gray-100 animate-bounce">
-                      <p className="text-sm font-bold text-gray-900">Order #142</p>
-                      <p className="text-xs text-green-500">Sent to Kitchen ✓</p>
-                    </div>
-                    <div className="absolute -bottom-4 -left-8 bg-white rounded-xl shadow-xl p-4 border border-gray-100">
-                      <p className="text-sm font-bold text-gray-900">Table 8</p>
-                      <p className="text-xs text-primary">Bill Ready</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Features List */}
-                <div className="animate-on-scroll order-1 md:order-2 space-y-4">
-                  {captainFeatures.map((feature, index) => <div key={index} className="group flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
-                        <feature.icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div className="pt-2">
-                        <span className="text-gray-900 font-medium">{feature.text}</span>
-                      </div>
-                    </div>)}
-
-                  {/* Platform Badge */}
-                  <div className="bg-gradient-to-r from-primary/10 to-green-100 border border-primary/20 rounded-xl p-4 mt-6">
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center">
-                          <Apple className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="text-sm font-medium text-gray-700">iOS</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-[#3DDC84] rounded-lg flex items-center justify-center">
-                          <Tablet className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="text-sm font-medium text-gray-700">Android</span>
-                      </div>
-                      <span className="text-sm text-gray-500">Both platforms supported</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <CaptainTablesideSection />
 
             {/* Quick Billing & Discount Management */}
             <section className="py-16 bg-gray-50 -mx-4 px-4 md:-mx-8 md:px-8 rounded-2xl mb-8">

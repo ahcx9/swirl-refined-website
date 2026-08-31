@@ -2,10 +2,10 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Seo from '@/components/Seo';
 import Hero from '@/components/Hero';
+import CaptainTablesideSection from '@/components/captain/CaptainTablesideSection';
+import OwnersAppSection from '@/components/owners/OwnersAppSection';
 import InterfaceProblemStory from '@/components/homepage/InterfaceProblemStory';
 import CustomerLogoMarquee from '@/components/homepage/CustomerLogoMarquee';
-import PlatformShowroom from '@/components/products/PlatformShowroom';
-import SwirlEcosystemGallery from '@/components/homepage/SwirlEcosystemGallery';
 import SwirlShiftStory from '@/components/homepage/SwirlShiftStory';
 import UseCasesControlPanel from '@/components/homepage/UseCasesControlPanel';
 import HomeDeliveryIntegrationSection from '@/components/HomeDeliveryIntegrationSection';
@@ -53,26 +53,17 @@ const Index = () => {
         {/* Section 1: Interface-Based Problem Story */}
         <InterfaceProblemStory />
 
-        {/* Platform showroom: swirl Dine / Works / OS */}
-        <section className="py-20 bg-[#F7FAFF]">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">The swirl platform</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Three layers. One connected system.</h2>
-              <p className="mt-4 text-lg text-gray-600">Every module your restaurant runs on — grouped by where the work happens, connected by one database.</p>
-            </div>
-            <PlatformShowroom />
-          </div>
-        </section>
-        
-        {/* Section 2: Swirl Ecosystem UI Gallery */}
-        <SwirlEcosystemGallery />
+        {/* Captain tableside ordering */}
+        <CaptainTablesideSection />
+
+        {/* Owners App */}
+        <OwnersAppSection />
+
+        {/* Delivery Integration */}
+        <HomeDeliveryIntegrationSection />
         
         {/* Signature: One Shift. Every Operation in Sync. */}
         <SwirlShiftStory />
-        
-        {/* Delivery Integration */}
-        <HomeDeliveryIntegrationSection />
         
         {/* ZATCA Compliance */}
         <HomeZATCASection />
