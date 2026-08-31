@@ -14,16 +14,25 @@ const LOGOS = [
   { src: "/logos/bb-bakery.png", alt: "B&B Bakery" },
   { src: "/logos/khayyam.png", alt: "Khayyam Restaurant" },
   { src: "/logos/ortegos-deli.png", alt: "Ortego's Deli" },
+  { src: "/logos/nanus.png", alt: "Nanu's Dilli Ka Andaz Restaurant", fill: true },
+  { src: "/logos/kabab-point.png", alt: "Kabab Point", fill: true },
+  { src: "/logos/thf.png", alt: "THF" },
+  { src: "/logos/baba-biryani.png", alt: "Baba Biryani" },
+  { src: "/logos/bollywood-treats.png", alt: "Bollywood Treats", fill: true },
+  { src: "/logos/sealand.png", alt: "Sealand Restaurant", fill: true },
+  { src: "/logos/bubble-cha.png", alt: "Bubble Cha" },
+  { src: "/logos/hungry-tiger.png", alt: "Hungry Tiger", fill: true },
+  { src: "/logos/indian-oven.png", alt: "Indian Oven Biryanies & Kebabs", fill: true },
 ];
 
-const ROW_ONE = LOGOS.slice(0, 7);
-const ROW_TWO = LOGOS.slice(7);
+const ROW_ONE = LOGOS.slice(0, 11);
+const ROW_TWO = LOGOS.slice(11);
 
 const CIRCLE_SIZE =
   "w-[72px] h-[72px] md:w-[92px] md:h-[92px]";
 
 const TILE_CLASS =
-  "flex-shrink-0 flex items-center justify-center " +
+  "flex-shrink-0 flex items-center justify-center overflow-hidden " +
   CIRCLE_SIZE +
   " rounded-full bg-white " +
   "border-2 border-solid border-[#E3E8EF] " +
@@ -40,10 +49,15 @@ const LogoTile = ({ logo, ariaHidden }: { logo: (typeof LOGOS)[number]; ariaHidd
       loading="lazy"
       decoding="async"
       tabIndex={ariaHidden ? -1 : 0}
-      className="max-h-[70%] max-w-[70%] w-auto h-auto object-contain outline-none"
+      className={
+        "fill" in logo && logo.fill
+          ? "w-full h-full object-cover rounded-full outline-none"
+          : "max-h-[70%] max-w-[70%] w-auto h-auto object-contain outline-none"
+      }
     />
   </div>
 );
+
 
 const CustomerLogoMarquee = () => {
   const sectionRef = useRef<HTMLElement>(null);
