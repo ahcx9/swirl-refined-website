@@ -23,6 +23,7 @@ const LOGOS = [
   { src: "/logos/bubble-cha.png", alt: "Bubble Cha" },
   { src: "/logos/hungry-tiger.png", alt: "Hungry Tiger", fill: true },
   { src: "/logos/indian-oven.png", alt: "Indian Oven Biryanies & Kebabs", fill: true },
+  { src: "/logos/bait-al-azayem.png", alt: "Bait Al Azayem", fill: true },
 ];
 
 const ROW_ONE = LOGOS.slice(0, 11);
