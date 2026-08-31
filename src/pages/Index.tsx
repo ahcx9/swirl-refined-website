@@ -50,6 +50,9 @@ const Index = () => {
         {/* Customer logos */}
         <CustomerLogoMarquee />
 
+        {/* Section 1: Interface-Based Problem Story */}
+        <InterfaceProblemStory />
+
         {/* Platform showroom: swirl Dine / Works / OS */}
         <section className="py-20 bg-[#F7FAFF]">
           <div className="container-custom">
@@ -61,9 +64,6 @@ const Index = () => {
             <PlatformShowroom />
           </div>
         </section>
-
-        {/* Section 1: Interface-Based Problem Story */}
-        <InterfaceProblemStory />
         
         {/* Section 2: Swirl Ecosystem UI Gallery */}
         <SwirlEcosystemGallery />
