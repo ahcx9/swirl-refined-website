@@ -25,18 +25,6 @@ const ProductOverview = () => {
         
         {/* Trusted Restaurants */}
         <TrustedRestaurants />
-        
-        {/* Platform showroom */}
-
-        <section className="py-20 bg-[#F7FAFF]">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">The swirl platform</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Three layers. One connected system.</h2>
-            </div>
-            <PlatformShowroom />
-          </div>
-        </section>
 
         {/* Products List */}
         <section className="py-20">
