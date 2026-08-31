@@ -16,10 +16,12 @@ const LOGOS = [
   { src: "/logos/ortegos-deli.png", alt: "Ortego's Deli" },
 ];
 
+const ROW_ONE = LOGOS.slice(0, 7);
+const ROW_TWO = LOGOS.slice(7);
 
 const TILE_CLASS =
-  "flex-shrink-0 flex items-center justify-center bg-white rounded-[14px] border border-[#E2EAF5] " +
-  "w-[150px] h-[92px] md:w-[176px] md:h-[104px] p-4 " +
+  "flex-shrink-0 flex items-center justify-center bg-white rounded-[12px] border border-[#E2EAF5] " +
+  "w-[108px] h-[64px] md:w-[124px] md:h-[72px] p-2.5 md:p-3 " +
   "shadow-[0_6px_20px_-10px_rgba(20,110,245,0.18)] " +
   "transition-all duration-[250ms] ease-out " +
   "opacity-[0.75] grayscale hover:opacity-100 hover:grayscale-0 hover:scale-[1.04] " +
@@ -30,8 +32,8 @@ const LogoTile = ({ logo, ariaHidden }: { logo: (typeof LOGOS)[number]; ariaHidd
     <img
       src={logo.src}
       alt={ariaHidden ? "" : logo.alt}
-      width={176}
-      height={104}
+      width={124}
+      height={72}
       loading="lazy"
       decoding="async"
       tabIndex={ariaHidden ? -1 : 0}
