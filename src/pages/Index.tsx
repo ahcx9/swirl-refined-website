@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Seo from '@/components/Seo';
 import Hero from '@/components/Hero';
-import CaptainTablesideSection from '@/components/captain/CaptainTablesideSection';
+import PlatformShowroom from '@/components/products/PlatformShowroom';
 import OwnersAppSection from '@/components/owners/OwnersAppSection';
 import InterfaceProblemStory from '@/components/homepage/InterfaceProblemStory';
 import CustomerLogoMarquee from '@/components/homepage/CustomerLogoMarquee';
@@ -11,9 +11,8 @@ import UseCasesControlPanel from '@/components/homepage/UseCasesControlPanel';
 import HomeDeliveryIntegrationSection from '@/components/HomeDeliveryIntegrationSection';
 import HomeZATCASection from '@/components/homepage/HomeZATCASection';
 import HomeHardwareSection from '@/components/HomeHardwareSection';
-import WhySwirlCommandCenter from '@/components/homepage/WhySwirlCommandCenter';
 import ModernFAQConsole from '@/components/homepage/ModernFAQConsole';
-import FinalCTAProductEntry from '@/components/homepage/FinalCTAProductEntry';
+
 import Footer from '@/components/Footer';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import ImagePreloader from '@/components/ImagePreloader';
@@ -53,8 +52,12 @@ const Index = () => {
         {/* Section 1: Interface-Based Problem Story */}
         <InterfaceProblemStory />
 
-        {/* Captain tableside ordering */}
-        <CaptainTablesideSection />
+        {/* Platform showroom: swirl Dine / Works / OS */}
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container-custom">
+            <PlatformShowroom />
+          </div>
+        </section>
 
         {/* Owners App */}
         <OwnersAppSection />
@@ -68,24 +71,16 @@ const Index = () => {
         {/* ZATCA Compliance */}
         <HomeZATCASection />
         
-        
         {/* Section 5: Business Types Control Panel */}
         <UseCasesControlPanel />
         
         {/* Hardware Section */}
         <HomeHardwareSection />
         
-        {/* Section 6: Why Swirl Wins Command Center */}
-        <WhySwirlCommandCenter />
-        
-        
-        
         {/* Section 9: Modern FAQ Console */}
         <ModernFAQConsole />
-        
-        {/* Section 10: Final CTA Product Entry */}
-        <FinalCTAProductEntry />
       </main>
+
       
       <Footer />
     </div>
