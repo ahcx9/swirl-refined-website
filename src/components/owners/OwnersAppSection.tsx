@@ -130,12 +130,12 @@ const OwnersPhone: React.FC<{
           {/* hourly chart */}
           <div className="rounded-[14px] border border-[#E2EAF5] p-3">
             <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-[#8FA3BF]">Hourly sales</p>
-            <div className="flex h-20 items-end gap-1">
+            <div className="flex h-16 items-end gap-1">
               {outlet.hourly.map((h, i) => (
                 <div key={i} className="group relative flex-1" title={`${HOUR_LABELS[i]} · ${formatAED(h)}`}>
                   <div
                     className="w-full rounded-t-[3px] bg-[#146EF5]/85 transition-all duration-300 ease-out group-hover:bg-[#146EF5]"
-                    style={{ height: `${Math.max(6, (h / maxHour) * 80)}px` }}
+                    style={{ height: `${Math.max(6, (h / maxHour) * 64)}px` }}
                   />
                 </div>
               ))}
