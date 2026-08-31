@@ -606,3 +606,30 @@
 @media (prefers-reduced-motion: reduce) {
   .ffcc-pop, .ffcc-check path { animation: none; }
 }
+
+/* Homepage customer logo marquee */
+@keyframes swirl-logo-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(calc(-50% - 0.75rem), 0, 0); }
+}
+
+.swirl-logo-marquee {
+  animation: swirl-logo-scroll 38s linear infinite;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  @keyframes swirl-logo-scroll {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(calc(-50% - 1.25rem), 0, 0); }
+  }
+}
+
+.group:hover .swirl-logo-marquee,
+.swirl-logo-marquee:focus-within {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swirl-logo-marquee { animation: none; }
+}
