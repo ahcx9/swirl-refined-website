@@ -195,44 +195,34 @@ const VisitorAnalytics = () => {
 
           <div className="container-custom">
             <div className="max-w-6xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-                {/* Text Content */}
-                <div>
-                  <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
-                    <Users className="w-5 h-5 text-primary" />
-                    <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Visitor Analytics</span>
-                  </div>
-
-                  <h1 className="animate-on-scroll animate-delay-100 text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                    Understand Your<br />
-                    <span className="text-primary">Visitors</span>
-                  </h1>
-                  
-                  <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 mb-8">
-                    Track every interaction and gain insights into customer behavior. Know who's scanning your QR codes and how they engage with your menu.
-                  </p>
-                  
-                  <div className="animate-on-scroll animate-delay-300 flex items-center justify-center gap-4 flex-wrap">
-                    <SwirlCTA />
-                    <BookDemoCTA />
-                  </div>
+              {/* Text Content — centered */}
+              <div className="max-w-3xl mx-auto text-center">
+                <div className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-6">
+                  <Users className="w-5 h-5 text-primary" />
+                  <span className="text-base md:text-sm font-bold md:font-semibold text-primary">Visitor Analytics</span>
                 </div>
 
-                {/* Dashboard Mockup */}
-                <div className="animate-on-scroll animate-delay-400 relative">
-                  {/* Floating data points */}
-                  <div className="absolute -bottom-4 left-1/4 px-3 py-2 bg-purple-500 text-white text-sm font-bold rounded-full shadow-lg z-10">
-                    24 Unique
-                  </div>
+                <h1 className="animate-on-scroll animate-delay-100 text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                  Understand Your <span className="text-primary">Visitors</span>
+                </h1>
 
-                  {/* Blue glow effect */}
-                  <div className="absolute inset-0 bg-primary/10 rounded-2xl blur-xl -z-10 scale-110" />
+                <p className="animate-on-scroll animate-delay-200 text-lg md:text-xl text-gray-600 mb-8">
+                  Track every interaction and gain insights into customer behavior. Know who's scanning your QR codes and how they engage with your menu.
+                </p>
 
-                  {/* Main Mockup */}
-                  <VisitorAnalyticsMockup />
+                <div className="animate-on-scroll animate-delay-300 flex items-center justify-center gap-4 flex-wrap">
+                  <SwirlCTA />
+                  <BookDemoCTA />
                 </div>
               </div>
+
+              {/* Dashboard Mockup below */}
+              <div className="animate-on-scroll animate-delay-400 relative mt-14 md:mt-16">
+                <div className="absolute inset-0 bg-primary/10 rounded-2xl blur-xl -z-10 scale-105" />
+                <VisitorAnalyticsMockup />
+              </div>
             </div>
+
           </div>
         </section>
 

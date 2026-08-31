@@ -111,13 +111,6 @@ const CateringManagement = () => {
             <div className="absolute right-0 top-10 h-[420px] w-[520px] rounded-full bg-primary/[0.05] blur-[140px]" />
           </div>
           <div className="container-custom relative z-10">
-            <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-[12.5px] text-muted-foreground">
-              <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-              <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
-              <Link to="/products" className="hover:text-primary transition-colors">Products</Link>
-              <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
-              <span className="font-medium text-foreground">Catering Management</span>
-            </nav>
 
             <div className="mx-auto mb-12 max-w-3xl text-center">
               <div className="animate-on-scroll mb-6 inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/[0.06] px-4 py-2">

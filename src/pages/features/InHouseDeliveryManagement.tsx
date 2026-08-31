@@ -137,14 +137,6 @@ const InHouseDeliveryManagement = () => {
         <section className="relative overflow-hidden bg-gradient-to-b from-[#f7f9fc] to-white pt-32 pb-16 md:pt-36 md:pb-24">
           <div className="container-custom relative z-10">
             <div className="mx-auto max-w-6xl">
-            <nav aria-label="Breadcrumb" className="mb-6 flex items-center justify-center gap-1.5 text-[12.5px] text-muted-foreground">
-
-              <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-              <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
-              <Link to="/products" className="hover:text-primary transition-colors">Products</Link>
-              <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
-              <span className="font-medium text-foreground">In-House Delivery Management</span>
-            </nav>
 
             <div className="mb-12 flex flex-col items-center text-center">
               <div className="animate-on-scroll mb-5 inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/[0.06] px-4 py-2">
