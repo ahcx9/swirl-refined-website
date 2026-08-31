@@ -16,10 +16,12 @@ const LOGOS = [
   { src: "/logos/ortegos-deli.png", alt: "Ortego's Deli" },
 ];
 
+const ROW_ONE = LOGOS.slice(0, 7);
+const ROW_TWO = LOGOS.slice(7);
 
 const TILE_CLASS =
-  "flex-shrink-0 flex items-center justify-center bg-white rounded-[14px] border border-[#E2EAF5] " +
-  "w-[150px] h-[92px] md:w-[176px] md:h-[104px] p-4 " +
+  "flex-shrink-0 flex items-center justify-center bg-white rounded-[12px] border border-[#E2EAF5] " +
+  "w-[108px] h-[64px] md:w-[124px] md:h-[72px] p-2.5 md:p-3 " +
   "shadow-[0_6px_20px_-10px_rgba(20,110,245,0.18)] " +
   "transition-all duration-[250ms] ease-out " +
   "opacity-[0.75] grayscale hover:opacity-100 hover:grayscale-0 hover:scale-[1.04] " +
@@ -30,8 +32,8 @@ const LogoTile = ({ logo, ariaHidden }: { logo: (typeof LOGOS)[number]; ariaHidd
     <img
       src={logo.src}
       alt={ariaHidden ? "" : logo.alt}
-      width={176}
-      height={104}
+      width={124}
+      height={72}
       loading="lazy"
       decoding="async"
       tabIndex={ariaHidden ? -1 : 0}
@@ -109,19 +111,31 @@ const CustomerLogoMarquee = () => {
           <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-28 z-10 bg-gradient-to-l from-[#F7FAFF] to-transparent" />
 
           {marquee ? (
-            <div className="overflow-hidden group px-4 md:px-8">
-              <div className="flex w-max gap-6 md:gap-10 py-2 swirl-logo-marquee">
-                {LOGOS.map((logo, i) => (
-                  <LogoTile key={`a-${i}`} logo={logo} />
-                ))}
-                {LOGOS.map((logo, i) => (
-                  <LogoTile key={`b-${i}`} logo={logo} ariaHidden />
-                ))}
+            <div className="group px-4 md:px-8 space-y-4 md:space-y-5">
+              <div className="overflow-hidden">
+                <div className="flex w-max gap-4 md:gap-6 py-1 swirl-logo-marquee">
+                  {ROW_ONE.map((logo, i) => (
+                    <LogoTile key={`a-${i}`} logo={logo} />
+                  ))}
+                  {ROW_ONE.map((logo, i) => (
+                    <LogoTile key={`b-${i}`} logo={logo} ariaHidden />
+                  ))}
+                </div>
+              </div>
+              <div className="overflow-hidden">
+                <div className="flex w-max gap-4 md:gap-6 py-1 swirl-logo-marquee swirl-logo-marquee-reverse">
+                  {ROW_TWO.map((logo, i) => (
+                    <LogoTile key={`c-${i}`} logo={logo} />
+                  ))}
+                  {ROW_TWO.map((logo, i) => (
+                    <LogoTile key={`d-${i}`} logo={logo} ariaHidden />
+                  ))}
+                </div>
               </div>
             </div>
           ) : (
             <div className="overflow-x-auto px-4 md:px-8">
-              <div className="flex justify-center gap-6 md:gap-10 py-2 w-max mx-auto">
+              <div className="flex flex-wrap justify-center gap-4 md:gap-6 py-2 max-w-4xl mx-auto">
                 {LOGOS.map((logo, i) => (
                   <LogoTile key={`s-${i}`} logo={logo} />
                 ))}
