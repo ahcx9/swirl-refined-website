@@ -23,10 +23,11 @@ const LOGOS = [
   { src: "/logos/bubble-cha.png", alt: "Bubble Cha" },
   { src: "/logos/hungry-tiger.png", alt: "Hungry Tiger", fill: true },
   { src: "/logos/indian-oven.png", alt: "Indian Oven Biryanies & Kebabs", fill: true },
+  { src: "/logos/bait-al-azayem.png", alt: "Bait Al Azayem", fill: true },
 ];
 
-const ROW_ONE = LOGOS.slice(0, 11);
-const ROW_TWO = LOGOS.slice(11);
+const ROW_ONE = LOGOS.slice(0, 12);
+const ROW_TWO = LOGOS.slice(12);
 
 const CIRCLE_SIZE =
   "w-[72px] h-[72px] md:w-[92px] md:h-[92px]";
