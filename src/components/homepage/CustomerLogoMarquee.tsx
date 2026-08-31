@@ -93,7 +93,7 @@ const CustomerLogoMarquee = () => {
           className={`mt-3 text-center text-[#0B1F3A] text-2xl md:text-4xl font-bold leading-tight max-w-3xl mx-auto ${enterClass}`}
           style={enter("80ms")}
         >
-          Powering F&B Brands across the region
+          Powering F&B Outlets across the region
         </h2>
       </div>
 
