@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ChevronDown, ArrowRight, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SwirlCTA from '@/components/SwirlCTA';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
+
 
 interface PremiumMobileMenuProps {
   isOpen: boolean;
@@ -133,14 +133,6 @@ export const PremiumMobileMenu: React.FC<PremiumMobileMenuProps> = ({ isOpen, on
               <span className="text-[15px] font-semibold text-foreground">{t('nav.contact')}</span>
               <ArrowRight size={16} data-flip-rtl="true" className="text-muted-foreground" />
             </Link>
-          </div>
-
-          {/* Language switcher */}
-          <div className="pt-4">
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-2 px-1">
-              {t('common.language')}
-            </p>
-            <LanguageSwitcher variant="mobile" />
           </div>
 
           {/* CTA */}
