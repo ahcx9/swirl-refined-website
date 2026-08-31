@@ -5,7 +5,9 @@ import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
 import TrustedRestaurants from '@/components/TrustedRestaurants';
 import ProductHero from '@/components/products/ProductHero';
+import PlatformShowroom from '@/components/products/PlatformShowroom';
 import ProductsList from '@/components/products/ProductsList';
+
 import ProductCTA from '@/components/products/ProductCTA';
 
 const ProductOverview = () => {
