@@ -25,10 +25,17 @@ const LOGOS = [
   { src: "/logos/indian-oven.png", alt: "Indian Oven Biryanies & Kebabs", fill: true },
   { src: "/logos/bait-al-azayem.png", alt: "Bait Al Azayem", fill: true },
   { src: "/logos/walnut.png", alt: "Walnut World Bakery & Patisserie" },
+  { src: "/logos/chaat-chaska.png", alt: "Chaat Chaska" },
+  { src: "/logos/araabaik.png", alt: "Araabaik – Royal Taste of Arab", fill: true },
+  { src: "/logos/desi-kitchen.png", alt: "Desi Kitchen" },
+  { src: "/logos/uccelli-cafe.png", alt: "Uccelli Café" },
+  { src: "/logos/cafe-hons.png", alt: "Café Hons" },
+  { src: "/logos/brewbakes.png", alt: "Brewbakes Courtyard Lucknow", fill: true },
 ];
 
-const ROW_ONE = LOGOS.slice(0, 12);
-const ROW_TWO = LOGOS.slice(12);
+const ROW_ONE = LOGOS.slice(0, 15);
+const ROW_TWO = LOGOS.slice(15);
+
 
 const CIRCLE_SIZE =
   "w-[72px] h-[72px] md:w-[92px] md:h-[92px]";
