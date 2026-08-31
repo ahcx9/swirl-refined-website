@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import SwirlCTA from '@/components/SwirlCTA';
 import DeliveryHeroDemo from '@/components/features/delivery-fleet/DeliveryHeroDemo';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useCurrency } from '@/hooks/useCurrency';
 import {
   Bike, ChevronRight, IdCard, ShieldCheck, FileWarning, Car, Users, Timer, Filter,
   Smartphone, MapPinned, Wallet, Camera, ListChecks, Search, Layers,
@@ -95,6 +96,8 @@ const docBadge = {
 
 const InHouseDeliveryManagement = () => {
   useScrollAnimation();
+  const { formatAmount } = useCurrency();
+  const commandCentre = buildCommandCentre(formatAmount);
   const [selectedRider, setSelectedRider] = useState(0);
   const rider = riderRecords[selectedRider];
 
