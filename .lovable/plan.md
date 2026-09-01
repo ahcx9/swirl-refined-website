@@ -1,7 +1,7 @@
-
 # Homepage Enhancement & Redesign Plan
 
 ## Overview
+
 This plan addresses 7 key improvements to enhance the Swirl.cx homepage, focusing on reducing whitespace, improving UI/UX, adding new sections, and redesigning key components.
 
 ---
@@ -9,11 +9,13 @@ This plan addresses 7 key improvements to enhance the Swirl.cx homepage, focusin
 ## 1. InterfaceProblemStory - Reduce Whitespace & Improve Readability
 
 **Current Issues:**
+
 - Excessive whitespace above and below the section
 - Text transitions could be clearer
 - "Swirl Dashboard" mockup could be more realistic
 
 **Changes:**
+
 - Reduce `min-h-[100vh]` to `min-h-[80vh]` for less vertical space
 - Reduce sticky section height from `h-screen` to `h-[85vh]`
 - Make the "Too many tools. No control." and "One platform. Complete control." text larger and more prominent
@@ -27,10 +29,12 @@ This plan addresses 7 key improvements to enhance the Swirl.cx homepage, focusin
 ## 2. Remove SwirlOperatingSystemView Section
 
 **Change:**
+
 - Remove the "One Platform. One Database." section entirely from the homepage
 - Update Index.tsx to remove the import and component usage
 
 **Files:**
+
 - `src/pages/Index.tsx` - Remove import and component
 
 ---
@@ -38,10 +42,12 @@ This plan addresses 7 key improvements to enhance the Swirl.cx homepage, focusin
 ## 3. Redesign UseCases Section - Modern UI with Premium Design
 
 **Current Issues:**
+
 - UI could be more visually impressive
 - Menu items may include alcohol references
 
 **Redesign Approach:**
+
 - Create a stunning horizontal scrolling showcase on mobile
 - Premium glassmorphism cards with hover effects
 - Beautiful gradient overlays on images
@@ -51,6 +57,7 @@ This plan addresses 7 key improvements to enhance the Swirl.cx homepage, focusin
 - Display currency in AED (using useCurrency hook)
 
 **Features per business type:**
+
 - Full-width image with gradient overlay
 - Business type icon floating
 - Key stats with animated counters
@@ -64,9 +71,11 @@ This plan addresses 7 key improvements to enhance the Swirl.cx homepage, focusin
 ## 4. Redesign Delivery Integration Section - All Middle East Aggregators
 
 **Current State:**
+
 - Only shows 3 delivery apps (Talabat, Keeta, Noon Food)
 
 **New Design:**
+
 - Add all 6 Middle East delivery aggregators: Talabat, Keeta, Deliveroo, Noon Food, Careem, HungerStation
 - Redesigned layout with premium card styling
 - Clear messaging: "All delivery aggregators in the Middle East, unified in one dashboard"
@@ -75,6 +84,7 @@ This plan addresses 7 key improvements to enhance the Swirl.cx homepage, focusin
 - Modern glassmorphism styling
 
 **Logos to add:**
+
 - Talabat: `/lovable-uploads/talabat-logo.webp` (existing)
 - Keeta: `/lovable-uploads/keeta-logo.png` (existing)
 - Noon Food: `/lovable-uploads/noon-food-logo.png` (existing)
@@ -89,9 +99,11 @@ This plan addresses 7 key improvements to enhance the Swirl.cx homepage, focusin
 ## 5. Replace TrustInterfaces with QR Order Journey Section
 
 **Current State:**
+
 - "Real restaurants. Real results." testimonials section
 
 **New Section: QR Order Journey**
+
 - Visual journey showing customer ordering via QR code
 - Step-by-step animated flow:
   1. Customer scans QR code at table
@@ -112,9 +124,11 @@ This plan addresses 7 key improvements to enhance the Swirl.cx homepage, focusin
 ## 6. Update Product Tour Link to YouTube Channel
 
 **Current State:**
+
 - "Watch Product Tour" button has no link
 
 **Change:**
+
 - Link the button to: `https://www.youtube.com/@swirl-cx`
 - Open in new tab
 - Add proper rel attributes for security
@@ -126,10 +140,12 @@ This plan addresses 7 key improvements to enhance the Swirl.cx homepage, focusin
 ## 7. Redesign Hero Section with Full POS Mockup
 
 **Current State:**
+
 - Uses simplified mockups in Hero
 - POS, Inventory, and KDS shown separately
 
 **New Design:**
+
 - Use the full POSMockup component from the POS page (with billing, print bill, settle bill functionality)
 - Smaller companion cards for:
   - Inventory summary (compact)
@@ -139,6 +155,7 @@ This plan addresses 7 key improvements to enhance the Swirl.cx homepage, focusin
 - Mobile: Stacked vertically with simplified views
 
 **Technical Approach:**
+
 - Import the full POSMockup from `src/components/features/pos/POSMockup.tsx`
 - Create a compact AccountingMockup component
 - Redesign the hero mockup layout for premium appearance
@@ -152,17 +169,18 @@ This plan addresses 7 key improvements to enhance the Swirl.cx homepage, focusin
 
 ### File Changes Summary
 
-| File | Action | Description |
-|------|--------|-------------|
-| `src/components/homepage/InterfaceProblemStory.tsx` | Modify | Reduce whitespace, improve text UI, add real mockup |
-| `src/pages/Index.tsx` | Modify | Remove SwirlOperatingSystemView, add QROrderJourney |
-| `src/components/homepage/UseCasesControlPanel.tsx` | Modify | Complete UI redesign, remove alcohol, better images |
-| `src/components/HomeDeliveryIntegrationSection.tsx` | Modify | Add all 6 ME aggregators, redesign layout |
-| `src/components/homepage/QROrderJourney.tsx` | Create | New section showing order flow efficiency |
-| `src/components/homepage/FinalCTAProductEntry.tsx` | Modify | Add YouTube link to product tour button |
-| `src/components/Hero.tsx` | Modify | Use full POS mockup, add accounting, redesign layout |
+| File                                                | Action | Description                                          |
+| --------------------------------------------------- | ------ | ---------------------------------------------------- |
+| `src/components/homepage/InterfaceProblemStory.tsx` | Modify | Reduce whitespace, improve text UI, add real mockup  |
+| `src/pages/Index.tsx`                               | Modify | Remove SwirlOperatingSystemView, add QROrderJourney  |
+| `src/components/homepage/UseCasesControlPanel.tsx`  | Modify | Complete UI redesign, remove alcohol, better images  |
+| `src/components/HomeDeliveryIntegrationSection.tsx` | Modify | Add all 6 ME aggregators, redesign layout            |
+| `src/components/homepage/QROrderJourney.tsx`        | Create | New section showing order flow efficiency            |
+| `src/components/homepage/FinalCTAProductEntry.tsx`  | Modify | Add YouTube link to product tour button              |
+| `src/components/Hero.tsx`                           | Modify | Use full POS mockup, add accounting, redesign layout |
 
 ### Design System Maintained
+
 - White and Swirl blue color palette only
 - Glassmorphism effects with subtle borders
 - 2xl rounded corners
@@ -172,6 +190,7 @@ This plan addresses 7 key improvements to enhance the Swirl.cx homepage, focusin
 - Mobile-first responsive design
 
 ### Currency Handling
+
 - All pricing uses `useCurrency` hook
 - Default to AED for Middle East users
 - Auto-detect location for other regions
@@ -201,6 +220,7 @@ This plan addresses 7 key improvements to enhance the Swirl.cx homepage, focusin
 ## Expected Outcome
 
 After implementation:
+
 - Seamless, premium homepage with minimal wasted space
 - Clear visual storytelling from problem to solution
 - Stunning use cases showcase that impresses visitors
