@@ -6,6 +6,7 @@ import { Button } from './ui/button';
 import { useCurrency } from '@/hooks/useCurrency';
 import SwirlCTA from '@/components/SwirlCTA';
 import SketchyRestaurantBackground from '@/components/hero/SketchyRestaurantBackground';
+import HeroBillingMockup from '@/components/hero/HeroBillingMockup';
 
 // ============ TYPES ============
 interface OrderItem {
