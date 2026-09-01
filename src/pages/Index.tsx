@@ -24,7 +24,9 @@ const ModernFAQConsole = lazy(() => import('@/components/homepage/ModernFAQConso
 const Footer = lazy(() => import('@/components/Footer'));
 
 const Index = () => {
+  useScrollAnimation();
   const { t } = useTranslation();
+
 
   const faqIds = Array.from({ length: 32 }, (_, i) => `q${i + 1}`);
   const faqJsonLd = {
