@@ -23,7 +23,7 @@ const HomePOSSection = () => {
   }];
   
   return (
-    <section className="py-16 overflow-hidden relative bg-white">
+    <section className="py-10 md:py-16 overflow-hidden relative bg-white">
       <div className="container-custom relative">
         <div className="grid md:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Content column */}
