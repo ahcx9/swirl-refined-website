@@ -62,9 +62,9 @@ const HomePOSSection = () => {
           </div>
           
           {/* Mockup column */}
-          <div className="md:col-span-7 order-2 md:order-2 flex items-center justify-center">
-            <div className="w-full max-w-md transform transition-all duration-700 hover:scale-[1.02]">
-              <HomePOSBillingMockup />
+          <div className="md:col-span-7 order-2 md:order-2">
+            <div className="transform transition-all duration-700 hover:scale-[1.02]">
+              <POSMockup />
             </div>
           </div>
         </div>
