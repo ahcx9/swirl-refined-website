@@ -1,48 +1,46 @@
-import React, { lazy } from 'react';
-import { useTranslation } from 'react-i18next';
-import Seo from '@/components/Seo';
-import Hero from '@/components/Hero';
-import DeferredSection from '@/components/DeferredSection';
-import useScrollAnimation from '@/hooks/useScrollAnimation';
-
+import React, { lazy } from "react";
+import { useTranslation } from "react-i18next";
+import Seo from "@/components/Seo";
+import Hero from "@/components/Hero";
+import DeferredSection from "@/components/DeferredSection";
+import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 /**
  * Only the hero ships in the initial bundle. Every section below the fold is a
  * separate chunk that is fetched when the visitor scrolls near it — this is what
  * keeps the first paint fast on mobile connections.
  */
-const CustomerLogoMarquee = lazy(() => import('@/components/homepage/CustomerLogoMarquee'));
-const InterfaceProblemStory = lazy(() => import('@/components/homepage/InterfaceProblemStory'));
-const PlatformShowroom = lazy(() => import('@/components/products/PlatformShowroom'));
-const OwnersAppSection = lazy(() => import('@/components/owners/OwnersAppSection'));
-const HomeDeliveryIntegrationSection = lazy(() => import('@/components/HomeDeliveryIntegrationSection'));
-const SwirlShiftStory = lazy(() => import('@/components/homepage/SwirlShiftStory'));
-const HomeZATCASection = lazy(() => import('@/components/homepage/HomeZATCASection'));
-const UseCasesControlPanel = lazy(() => import('@/components/homepage/UseCasesControlPanel'));
-const HomeHardwareSection = lazy(() => import('@/components/HomeHardwareSection'));
-const ModernFAQConsole = lazy(() => import('@/components/homepage/ModernFAQConsole'));
-const Footer = lazy(() => import('@/components/Footer'));
+const CustomerLogoMarquee = lazy(() => import("@/components/homepage/CustomerLogoMarquee"));
+const InterfaceProblemStory = lazy(() => import("@/components/homepage/InterfaceProblemStory"));
+const PlatformShowroom = lazy(() => import("@/components/products/PlatformShowroom"));
+const OwnersAppSection = lazy(() => import("@/components/owners/OwnersAppSection"));
+const HomeDeliveryIntegrationSection = lazy(() => import("@/components/HomeDeliveryIntegrationSection"));
+const SwirlShiftStory = lazy(() => import("@/components/homepage/SwirlShiftStory"));
+const HomeZATCASection = lazy(() => import("@/components/homepage/HomeZATCASection"));
+const UseCasesControlPanel = lazy(() => import("@/components/homepage/UseCasesControlPanel"));
+const HomeHardwareSection = lazy(() => import("@/components/HomeHardwareSection"));
+const ModernFAQConsole = lazy(() => import("@/components/homepage/ModernFAQConsole"));
+const Footer = lazy(() => import("@/components/Footer"));
 
 const Index = () => {
   useScrollAnimation();
   const { t } = useTranslation();
 
-
   const faqIds = Array.from({ length: 32 }, (_, i) => `q${i + 1}`);
   const faqJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
     mainEntity: faqIds.map((id) => ({
-      '@type': 'Question',
+      "@type": "Question",
       name: t(`faq.items.${id}.q`),
-      acceptedAnswer: { '@type': 'Answer', text: t(`faq.items.${id}.a`) },
+      acceptedAnswer: { "@type": "Answer", text: t(`faq.items.${id}.a`) },
     })),
   };
 
   return (
     <div className="min-h-screen flex flex-col">
       <Seo
-        title="swirl — AI-powered restaurant management platform"
+        title="swirl — All in one Cloud POS & Restaurant Management Platform"
         description="One unified platform for restaurants: POS, KDS, QR ordering, inventory, accounting, CRM, loyalty and reservations on a single database."
         path="/"
         jsonLd={faqJsonLd}
