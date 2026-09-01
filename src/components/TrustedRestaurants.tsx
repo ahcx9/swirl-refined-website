@@ -121,7 +121,7 @@ const TrustedRestaurants = () => {
                   src={logo.src} 
                   alt={logo.alt}
                   className="max-h-full max-w-full object-contain"
-                  loading="eager"
+                  loading="lazy"
                   crossOrigin="anonymous"
                   decoding="async"
                   style={{ transform: 'translateZ(0)' }}
@@ -139,7 +139,7 @@ const TrustedRestaurants = () => {
                   src={logo.src} 
                   alt={logo.alt}
                   className="max-h-full max-w-full object-contain"
-                  loading="eager" 
+                  loading="lazy" 
                   crossOrigin="anonymous"
                   style={{ transform: 'translateZ(0)' }}
                 />

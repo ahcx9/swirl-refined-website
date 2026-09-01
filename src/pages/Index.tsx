@@ -1,25 +1,32 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 import Seo from '@/components/Seo';
 import Hero from '@/components/Hero';
-import PlatformShowroom from '@/components/products/PlatformShowroom';
-import OwnersAppSection from '@/components/owners/OwnersAppSection';
-import InterfaceProblemStory from '@/components/homepage/InterfaceProblemStory';
-import CustomerLogoMarquee from '@/components/homepage/CustomerLogoMarquee';
-import SwirlShiftStory from '@/components/homepage/SwirlShiftStory';
-import UseCasesControlPanel from '@/components/homepage/UseCasesControlPanel';
-import HomeDeliveryIntegrationSection from '@/components/HomeDeliveryIntegrationSection';
-import HomeZATCASection from '@/components/homepage/HomeZATCASection';
-import HomeHardwareSection from '@/components/HomeHardwareSection';
-import ModernFAQConsole from '@/components/homepage/ModernFAQConsole';
-
-import Footer from '@/components/Footer';
+import DeferredSection from '@/components/DeferredSection';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
-import ImagePreloader from '@/components/ImagePreloader';
+
+
+/**
+ * Only the hero ships in the initial bundle. Every section below the fold is a
+ * separate chunk that is fetched when the visitor scrolls near it — this is what
+ * keeps the first paint fast on mobile connections.
+ */
+const CustomerLogoMarquee = lazy(() => import('@/components/homepage/CustomerLogoMarquee'));
+const InterfaceProblemStory = lazy(() => import('@/components/homepage/InterfaceProblemStory'));
+const PlatformShowroom = lazy(() => import('@/components/products/PlatformShowroom'));
+const OwnersAppSection = lazy(() => import('@/components/owners/OwnersAppSection'));
+const HomeDeliveryIntegrationSection = lazy(() => import('@/components/HomeDeliveryIntegrationSection'));
+const SwirlShiftStory = lazy(() => import('@/components/homepage/SwirlShiftStory'));
+const HomeZATCASection = lazy(() => import('@/components/homepage/HomeZATCASection'));
+const UseCasesControlPanel = lazy(() => import('@/components/homepage/UseCasesControlPanel'));
+const HomeHardwareSection = lazy(() => import('@/components/HomeHardwareSection'));
+const ModernFAQConsole = lazy(() => import('@/components/homepage/ModernFAQConsole'));
+const Footer = lazy(() => import('@/components/Footer'));
 
 const Index = () => {
   useScrollAnimation();
   const { t } = useTranslation();
+
 
   const faqIds = Array.from({ length: 32 }, (_, i) => `q${i + 1}`);
   const faqJsonLd = {
@@ -40,49 +47,69 @@ const Index = () => {
         path="/"
         jsonLd={faqJsonLd}
       />
-      <ImagePreloader />
 
       <main className="flex-grow">
         {/* Hero */}
         <Hero />
 
         {/* Customer logos */}
-        <CustomerLogoMarquee />
+        <DeferredSection minHeight={320}>
+          <CustomerLogoMarquee />
+        </DeferredSection>
 
         {/* Section 1: Interface-Based Problem Story */}
-        <InterfaceProblemStory />
+        <DeferredSection minHeight={600}>
+          <InterfaceProblemStory />
+        </DeferredSection>
 
         {/* Platform showroom: swirl Dine / Works / OS */}
-        <section className="py-16 md:py-24 bg-white">
-          <div className="container-custom">
-            <PlatformShowroom />
-          </div>
-        </section>
+        <DeferredSection minHeight={600}>
+          <section className="py-16 md:py-24 bg-white">
+            <div className="container-custom">
+              <PlatformShowroom />
+            </div>
+          </section>
+        </DeferredSection>
 
         {/* Owners App */}
-        <OwnersAppSection />
+        <DeferredSection minHeight={700}>
+          <OwnersAppSection />
+        </DeferredSection>
 
         {/* Delivery Integration */}
-        <HomeDeliveryIntegrationSection />
-        
+        <DeferredSection minHeight={600}>
+          <HomeDeliveryIntegrationSection />
+        </DeferredSection>
+
         {/* Signature: One Shift. Every Operation in Sync. */}
-        <SwirlShiftStory />
-        
+        <DeferredSection minHeight={700}>
+          <SwirlShiftStory />
+        </DeferredSection>
+
         {/* ZATCA Compliance */}
-        <HomeZATCASection />
-        
+        <DeferredSection minHeight={500}>
+          <HomeZATCASection />
+        </DeferredSection>
+
         {/* Section 5: Business Types Control Panel */}
-        <UseCasesControlPanel />
-        
+        <DeferredSection minHeight={600}>
+          <UseCasesControlPanel />
+        </DeferredSection>
+
         {/* Hardware Section */}
-        <HomeHardwareSection />
-        
+        <DeferredSection minHeight={600}>
+          <HomeHardwareSection />
+        </DeferredSection>
+
         {/* Section 9: Modern FAQ Console */}
-        <ModernFAQConsole />
+        <DeferredSection minHeight={600}>
+          <ModernFAQConsole />
+        </DeferredSection>
       </main>
 
-      
-      <Footer />
+      <DeferredSection minHeight={400}>
+        <Footer />
+      </DeferredSection>
     </div>
   );
 };
