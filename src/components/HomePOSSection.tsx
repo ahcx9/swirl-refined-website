@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CreditCard, Receipt, ShoppingCart, DollarSign, ChefHat } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import POSMockup from '@/components/features/pos/POSMockup';
+import HomePOSBillingMockup from '@/components/homepage/HomePOSBillingMockup';
 
 const HomePOSSection = () => {
   const features = [{
