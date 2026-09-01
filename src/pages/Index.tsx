@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import Seo from '@/components/Seo';
 import Hero from '@/components/Hero';
 import DeferredSection from '@/components/DeferredSection';
+import useScrollAnimation from '@/hooks/useScrollAnimation';
+
 
 /**
  * Only the hero ships in the initial bundle. Every section below the fold is a
