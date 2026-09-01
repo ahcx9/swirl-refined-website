@@ -94,8 +94,7 @@ const InterfaceProblemStory: React.FC = () => {
             <span className="text-sm font-medium text-red-400">{t('home.problem.badge')}</span>
           </div>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
-            {t('home.problem.title1')}{' '}
-            <span className="text-red-400">{t('home.problem.title2')}</span>
+            {t('home.problem.title1')}
           </h2>
           <p className="text-lg text-white/50 max-w-2xl mx-auto">
             {t('home.problem.subtitle')}
