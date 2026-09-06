@@ -20,6 +20,16 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" />
     </noscript>
 
+    <!-- /ffcc is QR-scanned at FFCC Riyadh: preload its hero art instantly -->
+    <script>
+      if (location.pathname.replace(/\/+$/, '') === '/ffcc') {
+        var l = document.createElement('link');
+        l.rel = 'preload'; l.as = 'image'; l.href = '/ffcc-riyadh-skyline.webp';
+        l.fetchPriority = 'high';
+        document.head.appendChild(l);
+      }
+    </script>
+
     <!-- Swirl favicon -->
     <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="/favicon.png" sizes="180x180">
