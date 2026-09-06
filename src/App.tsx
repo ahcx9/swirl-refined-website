@@ -5,6 +5,10 @@ import './App.css';
 
 import { LanguageProvider } from './contexts/LanguageContext';
 
+// Eagerly bundled: /ffcc is QR-scanned at an event and must paint instantly
+// with no extra chunk roundtrip.
+import FFCC from './pages/FFCC';
+
 const Index = lazy(() => import('./pages/Index'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Navbar = lazy(() => import('./components/navbar/Navbar'));
@@ -35,7 +39,7 @@ const CateringManagement = lazy(() => import('./pages/features/CateringManagemen
 const Support = lazy(() => import('./pages/Support'));
 const Presentation = lazy(() => import('./pages/Presentation'));
 const Roadmap = lazy(() => import('./pages/Roadmap'));
-const FFCC = lazy(() => import('./pages/FFCC'));
+
 
 /** Standalone conversion pages render without the marketing chrome. */
 const STANDALONE_ROUTES = ['/ffcc'];

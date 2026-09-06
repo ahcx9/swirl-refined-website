@@ -471,7 +471,8 @@ const FFCC = () => {
             alt="Riyadh skyline with Kingdom Centre Tower"
             width={1200}
             height={201}
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
             decoding="async"
             className="block h-auto w-full min-w-[760px] max-w-none shrink-0 [filter:drop-shadow(0_-10px_30px_rgba(15,40,90,0.12))]"
           />
