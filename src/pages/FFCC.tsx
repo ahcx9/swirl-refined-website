@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import FfccPhoneField, { isValidLocalNumber, toE164 } from "@/components/ffcc/FfccPhoneField";
-import { ArrowRight, BrainCircuit, Building2, Check, Cloud, Mail, Store, User, Loader2 } from "lucide-react";
+import { ArrowRight, BrainCircuit, Building2, Check, Cloud, Mail, Store, User, Loader2 } from "@/components/ffcc/FfccIcons";
 import Seo from "@/components/Seo";
 import riyadhSkyline from "@/assets/ffcc-riyadh-skyline.webp";
 
