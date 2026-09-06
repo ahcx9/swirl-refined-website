@@ -25,12 +25,27 @@ i18n
     },
   });
 
+/** Arabic webfont is fetched only when Arabic is active, so English visitors
+ *  (including the QR-scanned /ffcc page) never pay for it. */
+const loadArabicFont = () => {
+  if (document.getElementById('ibm-plex-arabic')) return;
+  const link = document.createElement('link');
+  link.id = 'ibm-plex-arabic';
+  link.rel = 'stylesheet';
+  link.href =
+    'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap';
+  document.head.appendChild(link);
+};
+
 const applyDocumentDirection = (lng: string) => {
   const isAr = lng?.startsWith('ar');
   const html = document.documentElement;
   html.lang = isAr ? 'ar' : 'en';
   html.dir = isAr ? 'rtl' : 'ltr';
-  if (isAr) html.classList.add('lang-ar');
+  if (isAr) {
+    html.classList.add('lang-ar');
+    loadArabicFont();
+  }
   else html.classList.remove('lang-ar');
 };
 
