@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- /ffcc is QR-scanned at the event: hand off to the fully static,
-         framework-free page at /ffcc/ before any app JS or CSS is requested. -->
-    <script>
-      (function () {
-        var p = location.pathname;
-        if (p === '/ffcc' || p === '/FFCC') {
-          location.replace('/ffcc/' + location.search + location.hash);
-        }
-      })();
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
