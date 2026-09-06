@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- /ffcc is QR-scanned at the event: hand off to the fully static,
+         framework-free page at /ffcc/ before any app JS or CSS is requested. -->
+    <script>
+      (function () {
+        var p = location.pathname;
+        if (p === '/ffcc' || p === '/FFCC') {
+          location.replace('/ffcc/' + location.search + location.hash);
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>swirl - AI Powered Restaurant Management Solution</title>
     <meta name="description" content="Enhance your guest experience with swirl's AI-powered restaurant management solutions. Boost efficiency and increase profits." />
     <meta name="author" content="swirl" />
@@ -20,15 +31,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" />
     </noscript>
 
-    <!-- /ffcc is QR-scanned at FFCC Riyadh: preload its hero art instantly -->
-    <script>
-      if (location.pathname.replace(/\/+$/, '') === '/ffcc') {
-        var l = document.createElement('link');
-        l.rel = 'preload'; l.as = 'image'; l.href = '/ffcc-riyadh-skyline.webp';
-        l.fetchPriority = 'high';
-        document.head.appendChild(l);
-      }
-    </script>
+
 
     <!-- Swirl favicon -->
     <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32">

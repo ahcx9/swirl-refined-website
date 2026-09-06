@@ -5,9 +5,9 @@ import './App.css';
 
 import { LanguageProvider } from './contexts/LanguageContext';
 
-// Eagerly bundled: /ffcc is QR-scanned at an event and must paint instantly
-// with no extra chunk roundtrip.
-import FFCC from './pages/FFCC';
+// /ffcc is served as a fully static page from /public/ffcc/index.html; this
+// React route only exists as a fallback for client-side navigation.
+const FFCC = lazy(() => import('./pages/FFCC'));
 
 const Index = lazy(() => import('./pages/Index'));
 const NotFound = lazy(() => import('./pages/NotFound'));
