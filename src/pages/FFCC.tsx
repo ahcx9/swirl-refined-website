@@ -454,8 +454,7 @@ const FFCC = () => {
         </main>
       </div>
 
-      {/* Riyadh skyline — transparent cutout footer band */}
-      <footer className="mt-auto w-full pt-10">
+      <footer className="mt-auto w-full py-10">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
           <div className="flex flex-col items-start justify-between gap-1.5 sm:flex-row sm:items-end">
             <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-[hsl(217_45%_17%)]">
@@ -466,19 +465,8 @@ const FFCC = () => {
             </p>
           </div>
         </div>
-        <div className="relative -mt-2 flex w-full justify-center overflow-hidden">
-          <img
-            src={riyadhSkyline}
-            alt="Riyadh skyline with Kingdom Centre Tower"
-            width={1200}
-            height={201}
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            className="block h-auto w-full min-w-[760px] max-w-none shrink-0 [filter:drop-shadow(0_-10px_30px_rgba(15,40,90,0.12))]"
-          />
-        </div>
       </footer>
+
 
     </div>
   );
