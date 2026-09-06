@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import FfccPhoneField, { isValidLocalNumber, toE164 } from "@/components/ffcc/FfccPhoneField";
 import { ArrowRight, BrainCircuit, Building2, Check, Cloud, Mail, Store, User, Loader2 } from "@/components/ffcc/FfccIcons";
 import Seo from "@/components/Seo";
-import riyadhSkyline from "@/assets/ffcc-riyadh-skyline.webp";
+// Served from /public so index.html can preload it on /ffcc (QR-scan LCP).
+const riyadhSkyline = "/ffcc-riyadh-skyline.webp";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -471,7 +472,8 @@ const FFCC = () => {
             alt="Riyadh skyline with Kingdom Centre Tower"
             width={1200}
             height={201}
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
             decoding="async"
             className="block h-auto w-full min-w-[760px] max-w-none shrink-0 [filter:drop-shadow(0_-10px_30px_rgba(15,40,90,0.12))]"
           />
