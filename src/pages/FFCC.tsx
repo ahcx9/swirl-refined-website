@@ -3,7 +3,6 @@ import FfccPhoneField, { isValidLocalNumber, toE164 } from "@/components/ffcc/Ff
 import { ArrowRight, BrainCircuit, Building2, Check, Cloud, Mail, Store, User, Loader2 } from "@/components/ffcc/FfccIcons";
 import Seo from "@/components/Seo";
 // Served from /public so index.html can preload it on /ffcc (QR-scan LCP).
-const riyadhSkyline = "/ffcc-riyadh-skyline.webp";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
