@@ -1,0 +1,19 @@
+/ffcc
+  Cache-Control: public, max-age=0, s-maxage=300, stale-while-revalidate=86400
+  X-Content-Type-Options: nosniff
+
+/ffcc/
+  Cache-Control: public, max-age=0, s-maxage=300, stale-while-revalidate=86400
+  X-Content-Type-Options: nosniff
+
+/ffcc/index.html
+  Cache-Control: public, max-age=0, s-maxage=300, stale-while-revalidate=86400
+
+/ffcc-swirl-logo.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/ffcc-riyadh-skyline.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
