@@ -7,7 +7,7 @@
 <meta name="description" content="Connect with Swirl at FFCC — Fast Food & Cafe Convention in Riyadh — and discover an AI-native restaurant operating system for POS, inventory, kitchen, delivery, and reporting." />
 <link rel="canonical" href="https://swirl.cx/ffcc" />
 <link rel="icon" href="/favicon-64.png" type="image/png" sizes="64x64" />
-<link rel="preload" as="image" href="/ffcc-swirl-logo.webp" fetchpriority="high" />
+<link rel="preload" as="image" href="/ffcc-swirl-logo.webp" />
 <meta property="og:title" content="Meet Swirl at FFCC Riyadh" />
 <meta property="og:description" content="Discover an AI-native restaurant operating system. Meet the Swirl team at FFCC Riyadh." />
 <meta property="og:url" content="https://swirl.cx/ffcc" />
@@ -17,7 +17,7 @@
 @font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:200 800;font-display:swap;src:url(/fonts/plus-jakarta-sans-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:#f5f9ff;color:#0b1f3a;
+body{margin:0;position:relative;background:#f5f9ff;color:#0b1f3a;
 font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 -webkit-font-smoothing:antialiased;overflow-x:hidden;display:flex;min-height:100vh;flex-direction:column}
 img{display:block;max-width:100%}
@@ -26,10 +26,11 @@ a{color:inherit}
 .wrap{position:relative;width:100%;max-width:1152px;margin:0 auto;padding:28px 20px 0;flex:1}
 @media(min-width:640px){.wrap{padding:28px 32px 0}}
 @media(min-width:1024px){.wrap{padding:40px 40px 0}}
-.glow{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.glow i{position:absolute;border-radius:50%;filter:blur(110px);display:block}
-.g1{top:-160px;right:-128px;width:480px;height:480px;background:rgba(0,82,204,.10)}
-.g2{top:33%;left:-160px;width:400px;height:400px;background:rgba(0,82,204,.07)}
+.glow{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.glow i{position:absolute;border-radius:50%;display:block}
+.g1{top:-160px;right:-128px;width:480px;height:480px;background:radial-gradient(circle,rgba(0,82,204,.10) 0%,rgba(0,82,204,.05) 45%,rgba(0,82,204,0) 70%)}
+.g2{top:33%;left:-160px;width:400px;height:400px;background:radial-gradient(circle,rgba(0,82,204,.07) 0%,rgba(0,82,204,.035) 45%,rgba(0,82,204,0) 70%)}
+
 header{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
 @media(min-width:1024px){header{margin-bottom:52px}}
 .logo{height:56px;width:auto}
@@ -105,7 +106,7 @@ footer{position:relative;z-index:1;margin-top:auto;width:100%;padding:32px 0}
 
 <div class="wrap">
   <header>
-    <a href="/" aria-label="swirl home"><img class="logo" src="/ffcc-swirl-logo.webp" width="114" height="160" alt="swirl" fetchpriority="high" decoding="sync" /></a>
+    <a href="/" aria-label="swirl home"><img class="logo" src="/ffcc-swirl-logo.webp" width="114" height="160" alt="swirl" decoding="async" /></a>
     <a class="pill" href="https://swirl.cx">Visit swirl.cx</a>
   </header>
 
