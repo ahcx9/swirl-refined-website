@@ -93,7 +93,7 @@ async function sendNotification(fields: Record<string, string>) {
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
     body: JSON.stringify({
       from: "Swirl FFCC Leads <onboarding@resend.dev>",
-      to: [NOTIFY_TO],
+      to: NOTIFY_TO,
       subject: `New FFCC lead — ${fields["Contact Name"]} (${fields["Brand"]})`,
       html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
         <h2 style="color:#0052CC">New FFCC Riyadh 2026 Lead</h2>
