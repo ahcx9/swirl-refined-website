@@ -45,7 +45,7 @@ function normalizePhone(raw: string): string | null {
 }
 
 const SHEET_ID = "1H48xBh87Gy5gXpq4ux8v-tayM47nvFR9hPgSn35n52E";
-const NOTIFY_TO = ["abid@swirl.cx", "r@swirl.cx", "khalid@swirl.cx", "hello@swirl.cx"];
+const NOTIFY_TO = ["abid@swirl.cx"];
 
 const esc = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
