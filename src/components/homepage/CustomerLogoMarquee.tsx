@@ -16,7 +16,6 @@ const LOGOS = [
   { src: "/logos/ortegos-deli.png", alt: "Ortego's Deli", fill: true },
   { src: "/logos/nanus.png", alt: "Nanu's Dilli Ka Andaz Restaurant", fill: true },
   { src: "/logos/kabab-point.png", alt: "Kabab Point", fill: true },
-  { src: "/logos/thf.png", alt: "THF" },
   { src: "/logos/baba-biryani.png", alt: "Baba Biryani" },
   { src: "/logos/bollywood-treats.png", alt: "Bollywood Treats", fill: true },
   { src: "/logos/sealand.png", alt: "Sealand Restaurant", fill: true },
